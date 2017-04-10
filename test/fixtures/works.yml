@@ -4,8 +4,81 @@
 # model remove the "{}" from the fixture names and add the columns immediately
 # below each fixture, per the syntax in the comments below
 #
-one: {}
-# column: value
-#
-two: {}
-# column: value
+buyathrill:
+  category: album
+  title: 'Can''t Buy a Thrill'
+  creator: 'Steely Dan'
+  publication_year: 1972
+  description: ""
+countdown:
+  category: album
+  title: 'Countdown to Ecstasy'
+  creator: 'Steely Dan'
+  publication_year: 1973
+  description: ""
+pretzellogic:
+  category: album
+  title: 'Pretzel Logic'
+  creator: 'Steely Dan'
+  publication_year: 1974
+  description: ""
+katy_lied:
+  category: album
+  title: 'Katy Lied'
+  creator: 'Steely Dan'
+  publication_year: 1975
+  description: ""
+royal_scam:
+  category: album
+  title: 'The Royal Scam'
+  creator: 'Steely Dan'
+  publication_year: 1976
+  description: ""
+aja:
+  category: album
+  title: Aja
+  creator: 'Steely Dan'
+  publication_year: 1977
+  description: ""
+gaucho:
+  category: album
+  title: Gaucho
+  creator: 'Steely Dan'
+  publication_year: 1980
+  description: ""
+adore_life:
+  category: album
+  title: 'Adore Life'
+  creator: Savages
+  publication_year: 2016
+  description: ""
+nvm:
+  category: album
+  title: NVM
+  creator: Tacocat
+  publication_year: 2014
+  description: ""
+lost_time:
+  category: album
+  title: 'Lost Time'
+  creator: Tacocat
+  publication_year: 2016
+  description: ""
+hidden_fig:
+  category: book
+  title: 'Hidden Figures'
+  creator: 'Margot Lee Shetterly'
+  publication_year: 2016
+  description: 'Good book that came before the movie'
+parable:
+  category: book
+  title: 'Parable of the Sower'
+  creator: 'Octavia E. Butler'
+  publication_year: 1993
+  description: ""
+wizard:
+  category: book
+  title: 'A Wizard of Earthsea'
+  creator: 'Ursula K. Leguin'
+  publication_year: 1968
+  description: ""
