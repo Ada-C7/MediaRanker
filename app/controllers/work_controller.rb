@@ -34,10 +34,9 @@ class WorkController < ApplicationController
     redirect_to works_path
   end
 
-private
+  private
 
   def work_params
     return params.require(:work).permit(:title, :category, :creator, :description, :pub_date)
   end
-
 end
