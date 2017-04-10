@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  title: 
+  by: 
+  year: 
+  description: 
+  media_type: MyText
+
+two:
+  title: 
+  by: 
+  year: 
+  description: 
+  media_type: MyText
