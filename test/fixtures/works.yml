@@ -4,17 +4,17 @@ work:
   category: "book"
   title: "harry potter and the sorcerer's stone"
   creator: "JK Rowling"
-  publish_year: 1990
+  publication_year: 1990
   description: "first book in HP series"
 
 work_no_category:
   title: "harry potter and the sorcerer's stone"
   creator: "JK Rowling"
-  publish_year: 1990
+  publication_year: 1990
   description: "first book in HP series"
 
 work_no_title:
   category: "book"
   creator: "JK Rowling"
-  publish_year: 1990
+  publication_year: 1990
   description: "first book in HP series"
