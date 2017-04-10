@@ -12,3 +12,9 @@ work_no_category:
   creator: "JK Rowling"
   publish_year: 1990
   description: "first book in HP series"
+
+work_no_title:
+  category: "book"
+  creator: "JK Rowling"
+  publish_year: 1990
+  description: "first book in HP series"
