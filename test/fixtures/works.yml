@@ -1,15 +1,14 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
-  category: MyString
-  title: MyString
-  creator: MyString
-  publish_year: 1
-  description: MyText
+work:
+  category: "book"
+  title: "harry potter and the sorcerer's stone"
+  creator: "JK Rowling"
+  publish_year: 1990
+  description: "first book in HP series"
 
-two:
-  category: MyString
-  title: MyString
-  creator: MyString
-  publish_year: 1
-  description: MyText
+work_no_category:
+  title: "harry potter and the sorcerer's stone"
+  creator: "JK Rowling"
+  publish_year: 1990
+  description: "first book in HP series"

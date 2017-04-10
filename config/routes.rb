@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  get 'users/index'
+  resources :works
 
   get 'votes/index'
 
