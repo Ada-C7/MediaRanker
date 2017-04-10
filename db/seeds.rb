@@ -5,3 +5,17 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+require 'csv'
+
+works_csv_text = File.read( Rails.root.join('lib', 'seeds', 'media_seeds.csv') )
+
+csv_works = CSV.parse(works_csv_text, :headers => true)
+csv_works.each do |row|
+  work = Work.new
+  work.category = row['category']
+  work.title = row['title']
+  work.creator = row['creator']
+  work.publication_year = row['publication_year']
+  work.description = row['description']
+  work.save
+end
