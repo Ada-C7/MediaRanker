@@ -37,7 +37,7 @@ ActiveRecord::Schema.define(version: 20170410224702) do
     t.string   "description"
     t.datetime "created_at",       null: false
     t.datetime "updated_at",       null: false
-    t.string   "type"
+    t.string   "category"
   end
 
 end
