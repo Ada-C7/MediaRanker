@@ -12,7 +12,4 @@ class Work < ApplicationRecord
 
   validates :publication_year, presence: true
   validates :publication_year, numericality: {:greater_than_or_equal_to => 0}
-
-  # validates :description, presence: true
-
 end
