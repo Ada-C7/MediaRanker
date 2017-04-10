@@ -5,3 +5,18 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+require 'csv'
+
+# column names in the CSV file
+# category,title,creator,publication_year,description
+
+CSV.foreach(Rails.root.join('lib', 'assets', 'media_seeds.csv'), headers: true) do |row|
+  work = Work.new
+  work.title = row[:title]
+  work.by = row[:creator]
+  work.year = row[:publication_year].to_i
+  work.description = row[:description]
+  work.media_type = row[:category]
+  work.save
+end
