@@ -26,6 +26,12 @@ describe Work do
       result.must_equal false
     end
 
+    it "Publication year should be only numeric > than 0 " do
+      w = Work.new(category: "movies", title: "ABCDE", creator: "Abc", publication_year: "-1993" )
+      result = w.valid?
+      result.must_equal false
+    end
+
 
   end # end of validation block
 end
