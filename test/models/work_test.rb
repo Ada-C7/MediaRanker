@@ -8,5 +8,9 @@ describe Work do
     work.errors.must_include :title
   end
 
+  it "Can create a Work" do
+    work.title = "My Book"
+    work.valid?.must_equal true
+  end
 
 end
