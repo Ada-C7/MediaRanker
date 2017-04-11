@@ -10,6 +10,4 @@ one:
 two:
   year_published: 1
   title: MyString
-  creator: MyString
   category: MyString
-  description: MyText
