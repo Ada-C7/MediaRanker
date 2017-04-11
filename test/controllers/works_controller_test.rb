@@ -25,9 +25,16 @@ describe WorksController do
   end
 
   #pos create route
-  # it "should redirect to index after adding a work" do
-  #
-  # end
+  it "should redirect to index after adding a work" do
+    post works_path params: { works:
+            { title: "Title",
+              category: "book",
+              creator: "creator",
+              pub_yr: 1970,
+              desc: "Desc" }
+          }
+    must_redirect_to works_path
+  end
 
   #pos create update test
 
