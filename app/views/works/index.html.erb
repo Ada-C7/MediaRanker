@@ -1,0 +1,16 @@
+<h1>Show all Works</h1>
+
+<h2>Books</h2>
+<% @books.each do |book| %>
+  <h3> <%= book.title %> by <%= book.creator %> </h3>
+<% end %>
+
+<h2>Albums</h2>
+<% @albums.each do |album| %>
+  <h3> <%= album.title %> by <%= album.creator %> </h3>
+<% end %>
+
+<h2>Movies</h2>
+<% @movies.each do |movie| %>
+  <h3> <%= movie.title %> by <%= movie.creator %> </h3>
+<% end %>
