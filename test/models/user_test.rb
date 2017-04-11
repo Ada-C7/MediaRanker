@@ -22,5 +22,8 @@ describe User do
     user.save.must_equal true
   end
 
+  # it "cannot vote on the same thing twice" do
+  # end
+
 
 end
