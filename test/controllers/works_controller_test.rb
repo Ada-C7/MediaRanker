@@ -110,12 +110,9 @@ describe WorksController do
   #pos update test
   it "should update a work and redirect to works index" do
     put work_path(works(:work_one).id), params: {work: {title: "New Title", desc: "la la la"} }
-
     work = Work.find(works(:work_one).id)
-
     work.title.must_equal "New Title"
     work.desc.must_equal "la la la"
-
     must_respond_with :redirect
     must_redirect_to work_path(works(:work_one).id)
   end
@@ -123,9 +120,7 @@ describe WorksController do
   #neg update test - is this overkill b/c of Model testing??
   it "should not update a work if entry is invalid" do
     put work_path(works(:work_one).id), params: {work: {title: ""} }
-
     work = Work.find(works(:work_one).id)
-
     work.title.must_equal "My Work"
   end
 

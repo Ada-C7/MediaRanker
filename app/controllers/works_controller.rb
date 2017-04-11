@@ -1,10 +1,9 @@
 class WorksController < ApplicationController
 
   def index
-    works = Work.all
-    @books = works.find_all { |work| work.category == "book" }
-    @albums = works.find_all { |work| work.category == "album" }
-    @movies = works.find_all { |work| work.category == "movie" }
+    @books = index_books
+    @albums = index_albums
+    @movies = index_movies
   end
 
   def index_books
