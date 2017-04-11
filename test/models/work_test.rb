@@ -13,6 +13,17 @@ describe Work do
     work.valid?.must_equal true
   end
 
+  it "Title must be unique" do
+    work.title = "My Book"
+    work.save
+
+    other_work = Work.new
+    other_work.title = "My Book"
+
+    other_work.save
+    other_work.errors.messages.must_include :title
+  end
+
   it "Publisher year cannot be 0" do
     work.title = "My Book"
     work.pub_yr = 0

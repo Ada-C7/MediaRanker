@@ -8,6 +8,7 @@
 
 require 'csv'
 
+work_array = []
 CSV.open('db/media_seeds.csv', 'r', :headers => true).each do |line|
   category = line["category"]
   title = line["title"]
@@ -15,5 +16,7 @@ CSV.open('db/media_seeds.csv', 'r', :headers => true).each do |line|
   pub_yr = line["publication_year"].to_i
   description = line["description"]
 
-  Work.create({category: category, title: title, creator: creator, pub_yr: pub_yr, desc: description})
+  work_array << {category: category, title: title, creator: creator, pub_yr: pub_yr, desc: description}
 end
+
+Work.create(work_array)
