@@ -12,4 +12,15 @@ describe Content do
 
     content.valid?.must_equal true
   end
+
+  it "category must be valid" do
+    content2 = Content.new
+    content2.category = "Internet"
+    content2.title = "Another Test"
+    content2.creator = "Me"
+    content2.publication_year = "2009"
+    content2.description = "This be test"
+    content2.valid?.must_equal false
+  end
+
 end
