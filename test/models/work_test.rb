@@ -20,4 +20,10 @@ describe Work do
       book.media_type.must_equal 'book'
     end
   end
+
+  it 'must return all albums with the albums method' do
+    Work.albums.each do |album|
+      album.media_type.must_equal 'album'
+    end
+  end
 end
