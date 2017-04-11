@@ -25,10 +25,10 @@
   <section>
     <h2>Albums</h2>
     <ul>
-    <% Work.all.where(category: "albumn").each do |album| %>
+    <% Work.all.where(category: "album").each do |album| %>
       <li><%= album.title %></li>
     <% end %>
     </ul>
-    <%= link_to "All Albumns", albums_path %>
+    <%= link_to "All Albums", albums_path %>
   </section>
 </main>
