@@ -1,7 +1,43 @@
 require "test_helper"
 
 describe WorksController do
-  # it "must be a real test" do
-  #   flunk "Need real tests"
-  # end
+
+# index
+# positive
+#
+# negative
+# 
+# new
+# positive
+#
+# negative
+#
+# create
+# positive
+#
+# negative
+#
+# show
+# positive
+#
+# negative
+#
+# edit
+# positive
+#
+# negative
+#
+# update
+# positive
+#
+# negative
+#
+# destroy
+# positive
+#
+# negative
+#
+# work params
+
+
 end

@@ -1,11 +1,41 @@
-# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+bnb:
+  category: movie
+  name: Beauty and the Beast
+  created_by: Gary Trousdale
+  pub_year: 1991
+  desc: Love story of a huge nerd and a super hairy dude.
 
-# This model initially had no columns defined. If you add columns to the
-# model remove the "{}" from the fixture names and add the columns immediately
-# below each fixture, per the syntax in the comments below
-#
-one: {}
-# column: value
-#
-two: {}
-# column: value
+obvchild:
+  category: movie
+  name: Obvious Child
+  created_by: Gillian Robespierre
+  pub_year: 2014
+  desc: Jenny Slate does standup about getting an abortion.
+
+soviet:
+  category: album
+  name: Soviet Kistch
+  created_by: Regina Spektor
+  pub_year: 2004
+  desc: Her most perfect album.
+
+lungs:
+  category: album
+  name: Florence + the Machine
+  created_by: Florence Welch
+  pub_year: 2009
+  desc: Has Dog Days, nuff said.
+
+supe:
+  category: book
+  name: Super Mutant Magic Academy
+  created_by: Jillian Tamaki
+  pub_year: 2015
+  desc: Comic about supermutant teens at basically Hogwarts.
+
+uproot:
+  category: book
+  name: Uprooted
+  created_by: Naomi Novik
+  pub_year: 2015
+  desc: Girl gets sacrificed to the Dragon, learns magic, saves the forest from crazy huge mantis monsters, good times.
