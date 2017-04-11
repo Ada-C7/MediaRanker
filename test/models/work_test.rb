@@ -13,11 +13,24 @@ describe Work do
     work.valid?.must_equal true
   end
 
-  it "Publisher year cannot be in future" do
+  it "Publisher year cannot be 0" do
     work.title = "My Book"
     work.pub_yr = 0
     work.valid?.must_equal false
     work.errors.messages.must_include :pub_yr
+  end
+
+  it "Publisher year cannot be in the future" do
+    work.title = "My Book"
+    work.pub_yr = 2018
+    work.valid?.must_equal false
+    work.errors.messages.must_include :pub_yr
+  end
+
+  it "Can create book with valid year" do
+    work.title = "My Book"
+    work.pub_yr = 2017
+    work.valid?.must_equal true
   end
 
 end
