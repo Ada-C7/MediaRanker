@@ -1,2 +1,7 @@
-<h1>Works#show</h1>
-<p>Find me in app/views/works/show.html.erb</p>
+<h1><%= @work.title%></h1>
+
+<div>Created by: <%= @work.creator %></div>
+<div>Published: <%= @work.published_year%></div>
+<div>Description: <%= @work.description%></div>
+
+<%= link_to "View All Media", home_path %>

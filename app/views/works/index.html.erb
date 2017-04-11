@@ -2,7 +2,7 @@
 
 <% @works.each do |work| %>
 <div>Votes</div>
-<div>Title: <%=work.title %></div>
+<div><%= link_to "Title: #{work.title}", work_path(work.id)%></div>
 <div>Created by: <%= work.creator %></div>
 <div>Published: <%= work.published_year%></div>
 <div>Description: <%= work.description%></div>

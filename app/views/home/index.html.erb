@@ -3,7 +3,7 @@
     <section class='albums'>
       <h2> Top Albums </h2>
       <% @albums.each do |album| %>
-      <div><%= album.title %> by <%= album.creator %></div>
+      <div><%= link_to "#{album.title} by #{album.creator}", work_path(album.id)%></div>
       <%end%>
       <%= link_to "All Albums", albums_path%>
     </section>
@@ -11,7 +11,7 @@
     <section class='books'>
       <h2> Top Books </h2>
       <% @books.each do |book| %>
-      <div><%= book.title %> by <%= book.creator %></div>
+      <div><%= link_to "#{book.title} by #{book.creator}", work_path(book.id)%></div>
       <%end%>
       <%= link_to "All Books", books_path%>
     </section>
@@ -19,7 +19,7 @@
     <section class='movies'>
       <h2> Top Movies </h2>
       <% @movies.each do |movie| %>
-      <div><%= movie.title %> by <%= movie.creator %></div>
+      <div><%= link_to "#{movie.title} by #{movie.creator}", work_path(movie.id)%></div>
       <%end%>
       <%= link_to "All Movies", movies_path%>
     </section>
