@@ -4,9 +4,9 @@ works = CSV.read("db/media_seeds.csv")[1..-1].map do |line|
   {
     category: line[0],
     title: line[1],
-    creator: line[3],
-    year_published: line[4],
-    description: line[5]
+    creator: line[2],
+    year_published: line[3],
+    description: line[4]
   }
 end
 
