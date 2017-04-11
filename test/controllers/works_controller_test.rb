@@ -111,11 +111,17 @@ describe WorksController do
     work.title.must_equal "My Work"
   end
 
-  #pos destroy test
+  #pos destroy test redirect
   it "should delete a work and redirect to work list" do
       delete work_path(works(:work_one).id)
       must_redirect_to works_path
   end
 
-  #neg destroy test
+  #pos destroy test affect DB
+  it "should affect database " do
+    proc { delete work_path(works(:work_one).id) }.must_change 'Work.count', -1
+  end
+
+  #neg destroy test?
+
 end
