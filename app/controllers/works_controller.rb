@@ -1,5 +1,14 @@
 class WorksController < ApplicationController
 
+  # def movies
+  # end
+  #
+  # def books
+  # end
+  #
+  # def alubms
+  # end
+
   def new
     @work = Work.new
   end
