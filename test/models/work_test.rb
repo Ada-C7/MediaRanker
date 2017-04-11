@@ -52,4 +52,25 @@ describe Work do
     album.valid?
     album.errors.messages[:category].must_be :empty?
   end
+
+  it "movies returns a group of movies" do
+    movies = Work.movies
+
+    movies.first.category.must_equal "movie"
+    movies.last.category.must_equal "movie"
+  end
+
+  it "albums returns a group of albums" do
+    albums = Work.albums
+
+    albums.first.category.must_equal "album"
+    albums.last.category.must_equal "album"
+  end
+
+  it "books returns a group of books" do
+    books = Work.books
+
+    books.first.category.must_equal "book"
+    books.last.category.must_equal "book"
+  end
 end
