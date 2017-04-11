@@ -1,0 +1,9 @@
+<h1>List of Albums</h1>
+
+<% @albums.each do |album| %>
+<p>
+  <%= link_to album.title, work_path(album.id) %>
+</p>
+<% end %>
+
+<%= link_to "Back to all media", works_path %>

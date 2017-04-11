@@ -1,0 +1,9 @@
+<h1>List of Books</h1>
+
+<% @books.each do |book| %>
+<p>
+  <%= link_to book.title, work_path(book.id) %>
+</p>
+<% end %>
+
+<%= link_to "Back to all media", works_path %>
