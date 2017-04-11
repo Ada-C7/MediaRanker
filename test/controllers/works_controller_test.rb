@@ -10,5 +10,9 @@ describe WorksController do
     get work_path(works(:work_one).id)
     must_respond_with :success
   end
-  
+
+  it "should get form for new work" do
+    get new_work_path
+    must_respond_with :success
+  end
 end

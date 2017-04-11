@@ -11,4 +11,8 @@ class WorksController < ApplicationController
     @work = Work.find(params[:id])
   end
 
+  def new
+    @work = Work.new
+  end
+
 end
