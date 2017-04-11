@@ -11,12 +11,14 @@ require 'csv'
 # column names in the CSV file
 # category,title,creator,publication_year,description
 
-CSV.foreach(Rails.root.join('lib', 'assets', 'media_seeds.csv'), headers: true) do |row|
+csv_file = File.read(Rails.root.join('lib', 'assets', 'media_seeds.csv'))
+csv_data = CSV.parse(csv_file, :headers => true)
+csv_data.each do |row|
   work = Work.new
-  work.title = row[:title]
-  work.by = row[:creator]
-  work.year = row[:publication_year].to_i
-  work.description = row[:description]
-  work.media_type = row[:category]
+  work.media_type = row[0]
+  work.title = row[1]
+  work.by = row[2]
+  work.year = row[3].to_i
+  work.description = row[4]
   work.save
 end

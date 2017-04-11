@@ -14,4 +14,12 @@ describe Work do
 
     work.errors.messages.must_include :title && :by && :year && :descrition && :media_type
   end
+
+  it 'must return all books with the books method' do
+      book = Work.create!(title: 'test book', by: 'tester', year: 2017, description: 'this is a test book', work_type: 'book')
+
+      Work.books each do |work|
+        work.work_type.must_equal 'book'
+      end
+  end
 end
