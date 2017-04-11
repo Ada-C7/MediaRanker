@@ -9,6 +9,22 @@
   </head>
 
   <body>
+    <header class="main-header">
+      <%= image_tag "assets/images/owl.jpg" %>
+      <h1>Media Ranker</h1>
+      <h2>Ranking the Best of Everything</h2>
+      <ul>
+        <li>
+          Login status
+        </li>
+        <li>
+          <%= button_to "Log In", :root, method: :get %>
+        </li>
+      </ul>
+    </header>
     <%= yield %>
+    <footer class="main-footer">
+
+    </footer>
   </body>
 </html>

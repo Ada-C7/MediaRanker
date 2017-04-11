@@ -1,3 +1,14 @@
-<p>
-  works index
-</p>
+<section class="index">
+
+<section class="featured-work">
+  <% featured_work = Work.max_votes %>
+  <p>
+    Media Spotlight: <%= featured_work.title %> by <%= featured_work.creator %>
+  </p>
+  <p>
+    <%= featured_work.votes.count %> votes
+  </p>
+</section>
+
+
+</section>
