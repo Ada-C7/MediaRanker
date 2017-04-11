@@ -8,7 +8,8 @@ class UsersController < ApplicationController
     end
 
     def show
-        @user = User.find(params[:id])
+        @user = User.find(id: params[:id])
+        head :not_found if @user.nil?
     end
 
     def create
@@ -16,7 +17,7 @@ class UsersController < ApplicationController
         if @user.update(user_params)
             redirect_to users_path
         else
-            render 'new'
+            render :new, status: :bad_request
         end
     end
     # ~~~~~~~~~~~~~~~~~~~~~~~~ooooooooooooooooooooooo~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

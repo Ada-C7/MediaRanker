@@ -5,7 +5,7 @@
       <% @albums.each do |album| %>
       <div><%= album.title %> by <%= album.creator %></div>
       <%end%>
-      <%= link_to "All Albums", works_path('album')%>
+      <%= link_to "All Albums", albums_path%>
     </section>
 
     <section class='books'>
@@ -13,7 +13,7 @@
       <% @books.each do |book| %>
       <div><%= book.title %> by <%= book.creator %></div>
       <%end%>
-      <%= link_to "All Books", works_path('book')%>
+      <%= link_to "All Books", books_path%>
     </section>
 
     <section class='movies'>
@@ -21,5 +21,5 @@
       <% @movies.each do |movie| %>
       <div><%= movie.title %> by <%= movie.creator %></div>
       <%end%>
-      <%= link_to "All Movies", works_path('movie')%>
+      <%= link_to "All Movies", movies_path%>
     </section>

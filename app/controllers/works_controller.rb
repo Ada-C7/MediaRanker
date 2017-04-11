@@ -1,6 +1,7 @@
 class WorksController < ApplicationController
     def index
-        @works = Work.where(category: params[:format])
+        work_category = request.path
+        @works = Work.where(category: work_category[1..-2])
     end
 
     def new
@@ -12,7 +13,7 @@ class WorksController < ApplicationController
         if @work.update(work_params)
             redirect_to works_path
         else
-            render 'new'
+            render :new, status: :bad_request
         end
     end
 
@@ -30,7 +31,8 @@ class WorksController < ApplicationController
     end
 
     def show
-        @work = Work.find(params[:id])
+        @work = Work.find_by(id: params[:id])
+        head :not_found if @work.nil?
     end
 
     def destroy

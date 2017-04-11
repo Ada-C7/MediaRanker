@@ -1,15 +1,22 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
-  title: MyString
-  creator: MyString
-  published_year: 2017-04-10
-  description: MyText
-  type: 
+book:
+  title: OnePunch
+  creator: Saitama
+  published_year: 2015
+  description: 'One Puuuuuuuuuuuuuuuuuuuuuunch'
+  category: book
 
-two:
-  title: MyString
-  creator: MyString
-  published_year: 2017-04-10
-  description: MyText
-  type: 
+movie:
+  title: Rick and Morty
+  creator: Plumbus Rolland
+  published_year: 2030
+  description: 'Szichuan Sauce'
+  category: movie
+
+album:
+    title: Hearthrob
+    creator: Father
+    published_year: 2016
+    description: 'Better call the cops'
+    category: album
