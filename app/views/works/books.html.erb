@@ -1,0 +1,15 @@
+<table>
+  <tr>
+    <th>
+      All Books
+    </th>
+  </tr>
+
+<% @books.each do |book| %>
+<tr>
+<td>
+<%= book.title %>
+</td>
+</tr>
+<% end %>
+</table>
