@@ -9,6 +9,21 @@
   </head>
 
   <body>
-    <%= yield %>
+    <header>
+      <ul>
+        <li>
+          <%= link_to "Add New Media", new_work_path %>
+        </li>
+        <li>
+          <%= link_to "Home", works_path %>
+        </li>
+      </ul>
+    </header>
+    <main>
+      <%= yield %>
+    </main>
+    <footer>
+      Lynn Trickey 2017
+    </footer>
   </body>
 </html>
