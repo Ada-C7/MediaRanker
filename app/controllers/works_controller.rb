@@ -8,9 +8,9 @@ class WorksController < ApplicationController
     @work = Work.new(works_params)
 
     if @work.save # is true - IE validations pass
-      # redirect_to 
+      # redirect_to
     else
-      # We know the validations didn't pass
+      # We know the validations didn't pass so want to show messages
       render :new
     end
   end
