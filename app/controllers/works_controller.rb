@@ -19,4 +19,14 @@ class WorksController < ApplicationController
     end
     return @categorized_works
   end
+
+  def edit
+    @work=Work.find(params[:id])
+  end
+
+  def update
+
+  end
+
+
 end
