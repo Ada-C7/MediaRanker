@@ -7,4 +7,5 @@ Rails.application.routes.draw do
   get "movies", to:"works#movies"
 
   get "albums", to:"works#albums"
+  
 end
