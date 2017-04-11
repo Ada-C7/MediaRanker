@@ -1,15 +1,7 @@
 Rails.application.routes.draw do
-  get 'albums/index'
-
-  get 'albums/show'
-
-  get 'movies/index'
-
-  get 'movies/show'
-
-  get 'books/index'
-
-  get 'books/show'
+  resources :books
+  resources :movies
+  resources :albums
 
   get 'contents/index'
 
