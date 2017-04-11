@@ -19,6 +19,6 @@ describe Work do
     result = work.valid?
     result.must_equal false
 
-    work.errors.messages.must_include :creator
+    work.errors.messages.must_include :by
   end
 end
