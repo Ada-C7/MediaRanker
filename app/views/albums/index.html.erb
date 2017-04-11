@@ -1,0 +1,8 @@
+<h1>List of Albums</h1>
+<p>
+  <% @albums.each do |a| %>
+  <ul>
+    <%= link_to a.title, work_path(a.id) %>, <%= a.creator %>, <%= a.publication_year %>
+  </ul>
+  <% end %>
+</p>
