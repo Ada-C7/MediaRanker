@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  root "welcome#index"
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   get 'albums', to: 'works#show_albums'#, as: 'albums'
   get 'movies', to: 'works#show_movies'#, as: 'movies'
@@ -6,7 +7,7 @@ Rails.application.routes.draw do
   get 'albums/new', to: 'works#new', as: 'new_album'
   get 'movies/new', to: 'works#new', as: 'new_movie'
   get 'books/new', to: 'works#new',  as: 'new_book'
-  resources :welcome
+  # resources :welcome
   resources :users
   resources :votes
   resources :works
