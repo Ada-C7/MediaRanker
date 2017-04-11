@@ -38,10 +38,16 @@ class WorksController < ApplicationController
       render "edit"
     end
   end
+
+  def destroy
+    Work.destroy(params[:id])
+    redirect_to works_path #this needs to be edited in the future to movies path 
+  end
 end
+
 
 private
 
-def work_oarams
+def work_params
   params.require(:work).permit(:title, :creator, :description, :publication_year)
-end 
+end
