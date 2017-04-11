@@ -3,9 +3,9 @@ class Work < ApplicationRecord
 
   validates :category, presence: true
   validates :category, format: {with: /[a-zA-Z]+/}
+  validates :category, inclusion: {in: %w(movie book album)}
 
   validates :title, presence: true, uniqueness: true
-  validates :title, format: {with: /[a-zA-Z]+/}
 
   validates :creator, presence: true
   validates :creator, format: {with: /[a-zA-Z]+/}
