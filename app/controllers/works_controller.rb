@@ -13,6 +13,11 @@ class WorksController < ApplicationController
   def show
   end
 
+  def show_category
+    @category = params[:category]
+    @works = Work.where(category: @category)
+  end
+
   def edit
   end
 

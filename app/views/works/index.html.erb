@@ -4,7 +4,7 @@
 
 <% @categories.each do |category| %>
   <section>
-    <h3>Top <%= category.capitalize %>s</h3>
+    <h3>Top <%= category.pluralize.capitalize %></h3>
     <ul>
       <% Work.where(category: category)[0..9].each do |work| %>
         <li>
@@ -12,5 +12,6 @@
         </li>
       <% end %>
     </ul>
+    <%= link_to "View More #{category.pluralize.capitalize}", "#{category.pluralize}" %>
   </section>
 <% end %>
