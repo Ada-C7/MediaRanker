@@ -17,11 +17,15 @@ class WorksController < ApplicationController
   end
 
   def new_book
-    # @work = Work.new
+    @work = Work.new
+    @work.category = "book"
+    render "works/books/new"
   end
 
   def new_album
-    # @work = Work.new
+    @work = Work.new
+    @work.category = "album"
+    render "works/albums/new"
   end
 
   def new

@@ -9,7 +9,7 @@ Rails.application.routes.draw do
   get 'albums', to: 'works#albums', as: 'albums'
 
   get 'books/new', to:'works#new_book', as: 'new_book'
-  get 'albums/new', to:'works#new', as: 'new_album'
+  get 'albums/new', to:'works#new_album', as: 'new_album'
   get 'movies/new', to:'works#new_movie', as: 'new_movie'
 
 end
