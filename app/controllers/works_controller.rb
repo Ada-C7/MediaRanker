@@ -42,4 +42,5 @@ private
                                          :creator,
                                          :publication_year,
                                          :description)
+  end
 end
