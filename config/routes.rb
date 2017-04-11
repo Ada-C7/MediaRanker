@@ -1,9 +1,9 @@
 Rails.application.routes.draw do
-  get 'votes/index'
+  root 'welcome#index', as:'welcome'
 
-  get 'users/index'
-
-  get 'works/index'
+  resources :votes
+  resources :users
+  resources :works
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
