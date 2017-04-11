@@ -40,12 +40,12 @@ class WorksController < ApplicationController
   end
 
   def update
-    work = Work.find(params[:id])
-    work.update_attributes(work_params)
-    if work.save
-      redirect_to work_path(work)
+    @work = Work.find(params[:id])
+    @work.update_attributes(work_params)
+    if @work.save
+      redirect_to work_path(@work)
     else
-      render :edit
+      render :edit, status: :bad_request
     end
   end
 

@@ -72,8 +72,21 @@ describe WorksController do
   end # end of edit block
 
   describe "update" do
-    it " " do
+    it "updates a work in the database" do
+      w = Work.first
+      work_data = {work: w.attributes}
+      work_data[:work][:title] = "test change"
+      patch work_path(w.id), params: work_data
+      must_redirect_to work_path(w.id)
+    end
+    it "rerenders new edit work form if work is invalid" do
+      Work.create(title: "aaa", publication_year: 1977, category: "movie",creator: "Natalia", description: "new description"  )
+      w = Work.first
+      work_data = {work: w.attributes}
+      work_data[:work][:title] = "aaa"
+      patch work_path(w.id), params: work_data
 
+      must_respond_with :bad_request
     end
   end # end of edit block
 
