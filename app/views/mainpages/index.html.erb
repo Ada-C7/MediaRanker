@@ -1,31 +1,22 @@
-<h1><a href="#">Media Ranker</a> Ranking the Best of Everything</h1>
-
-<p>Not Logged in/Logged in as <a href="#">[username]</a></p>
-<button>Log In/Log Out</button>
-<p>
-  <strong>Successfully created new user [username] with ID [index number].</strong>
-  (This message shows only after logging in. Go to a different page
-  it goes away. If on other page, redirects you to home)
-  <strong>Successfully logged out.</strong> (Either of these are shown on the front page
-  Log out shown on any page)
-</p>
+<!-- Moved header code to layout/application so header on all pages -->
 
 <h2>Media Spotlight: [Link to Highest ranked media] by ___ </h2>
 
 <h2>Top Movies</h2>
 <p>
-  List of media. Probably use show.html.erb for this.
+  List of media. Probably use _partial.html.erb for this.
 </p>
 <a href="#">View More Movies</a>
 
 <h2>Top Books</h2>
 <p>
-  List of media. Probably use show.html.erb for this.
+  List of media. Probably use _partial.html.erb for this.
 </p>
 <a href="#">View More Books</a>
 
 <h2>Top Albums</h2>
 <p>
-  List of media. Probably use show.html.erb for this.
+  List of media. Probably use _partial.html.erb for this.
 </p>
-<a href="#">View More Albums</a>
+<%= link_to "View More Albums", albums_path %>
+<!-- <a href="#">View More Albums</a> -->
