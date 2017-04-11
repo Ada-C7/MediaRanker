@@ -1,9 +1,9 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  user: one
-  submission: one
+  user: princess
+  submission: star
 
 two:
-  user: two
-  submission: two
+  user: han
+  submission: empire

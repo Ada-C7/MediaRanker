@@ -1,15 +1,15 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
-  category: MyString
-  author: MyString
-  title: MyString
-  publish_date: 2017-04-10 20:55:35
-  summary: MyString
+star:
+  category: Movie
+  author: George Lucas
+  title: Star Wars
+  publish_date: 1973-04-10 20:55:35
+  summary: Darth Vader's debt.
 
-two:
-  category: MyString
-  author: MyString
-  title: MyString
-  publish_date: 2017-04-10 20:55:35
-  summary: MyString
+empire:
+  category: Movie
+  author: George Lucas
+  title: Empire Strikes Back
+  publish_date: 1977-04-10 20:55:35
+  summary: Epic love story between father and son.
