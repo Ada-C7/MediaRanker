@@ -1,0 +1,34 @@
+<h1>Media Ranker</h1>
+
+<div class="movies">
+  <ul>
+    <% @movies.first(10).each do |movie| %>
+    <li>
+      <%=movie.category%>, <%=movie.title%>, <%=movie.creator%>, <%=movie.publication_year%>, <%=movie.description%>
+    </li>
+    <% end %>
+  </ul>
+  <%= link_to 'View More Movies', movies_path %>
+</div>
+
+<div class="books">
+  <ul>
+    <% @books.first(10).each do |book| %>
+    <li>
+      <%=book.category%>, <%=book.title%>, <%=book.creator%>, <%=book.publication_year%>, <%=book.description%>
+    </li>
+    <% end %>
+  </ul>
+  <%= link_to 'View More Books', books_path %>
+</div>
+
+<div class="albums">
+  <ul>
+    <% @albums.first(10).each do |album| %>
+    <li>
+      <%=album.category%>, <%=album.title%>, <%=album.creator%>, <%=album.publication_year%>, <%=album.description%>
+    </li>
+    <% end %>
+  </ul>
+  <%= link_to 'View More Albums', albums_path %>
+</div>

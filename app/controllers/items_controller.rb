@@ -2,8 +2,23 @@ class ItemsController < ApplicationController
 
   def index
     @items = Item.all
+    @albums = Item.where(category: "album")
+    @movies = Item.where(category: "movie")
+    @books = Item.where(category: "book")
   end
 
+  def albums
+    @albums = Item.where(category: "album")
+  end
+
+  def books
+    @books = Item.where(category: "book")
+  end
+
+  def movies
+    @movies = Item.where(category: "movie")
+  end
+  
   def new
     @item = Item.new
   end
