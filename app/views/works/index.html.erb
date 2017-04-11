@@ -1,0 +1,4 @@
+<p><% @works.each do |work| %>
+  <%= render partial: "work_summary", locals: {work: work} %>
+<% end %>
+</p>

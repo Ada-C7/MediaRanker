@@ -1,0 +1,5 @@
+<h1>all works unsorted</h1>
+
+<% @works.each do |work| %>
+<%= render partial: "work_summary", locals {work: work} %>
+<% end %>
