@@ -8,3 +8,11 @@
 <p>
   <%= @result_work.description %>
 </p>
+
+<% if @result_work.category == "book" %>
+<%= link_to "Back to book list", books_path %>
+<% elsif @result_work.category == "album" %>
+<%= link_to "Back to album list", albums_path %>
+<% elsif @result_work.category == "movie" %>
+<%= link_to "Back to movie list" %>
+<% end %>
