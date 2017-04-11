@@ -1,3 +1,14 @@
 <header>
   <%= render "shared/header" %>
 </header>
+<main>
+  <section>
+    <h2>Books</h2>
+    <ul>
+    <% Work.all.where(category: "book").each do |book| %>
+      <li><%= link_to book.title, work_path(book.id) %></li>
+    <% end %>
+    </ul>
+    <%= link_to "Add Book", new_book_path %>
+  </section>
+</main>

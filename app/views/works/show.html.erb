@@ -1,10 +1,10 @@
 <header>
-  <h1> Work Show Page </h1>
+  <%= render "shared/header" %>
 </header>
 
 <main>
   <section>
-  <h2> <%= @work.title %> </h1>
+  <h1> <%= @work.title %> </h1>
     <ul>
       <li><%= @work.creator %></li>
       <li><%= @work.publication_year %></li>
