@@ -23,6 +23,8 @@ class WorksController < ApplicationController
 
     if @work.id != nil
       redirect_to works_path
+    else
+      render "new"
     end
   end
 

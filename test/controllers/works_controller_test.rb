@@ -24,7 +24,7 @@ describe WorksController do
     must_respond_with :success
   end
 
-  #pos create route
+  #pos update route
   it "should redirect to index after adding a work" do
     post works_path params: { work:
             { title: "Title",
@@ -36,11 +36,44 @@ describe WorksController do
     must_redirect_to works_path
   end
 
+  #neg update route - NOT SURE HOW TO TEST THIS
+  # it "should render new page with errors if work was not saved" do
+  #   post works_path params: { work:
+  #           { title: "",
+  #             category: "book",
+  #             creator: "creator",
+  #             pub_yr: 1970,
+  #             desc: "Desc" }
+  #         }
+  #   must_render new_work_path
+  # end
+
   #pos create update test
+  it "should affect the model when updating a book" do
+    proc {
+      post works_path, params: { work:
+          { title: "Title",
+            category: "book",
+            creator: "creator",
+            pub_yr: 1970,
+            desc: "Desc" }
+          }
+      }.must_change 'Work.count', 1
+  end
 
-  #neg create route
-
-  #neg create update test
+  #neg create update test - Not sure if this is actually testing
+  #What I want it to test.
+  it "should not affect the model when book is invalid" do
+    proc {
+      post works_path, params: { work:
+          { title: "",
+            category: "book",
+            creator: "creator",
+            pub_yr: 1970,
+            desc: "Desc" }
+          }
+      }.must_change 'Work.count', 0
+  end
 
   #pos edit test
   it "should get form to edit work" do
