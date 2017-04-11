@@ -5,10 +5,10 @@ class WorksController < ApplicationController
   end
 
   def create
-    @work = Work.new(work_params)
+    @work = Work.new(works_params)
 
-    if @book.save # is true - IE validations pass
-      redirect_to books_path
+    if @work.save # is true - IE validations pass
+      # redirect_to 
     else
       # We know the validations didn't pass
       render :new
@@ -25,7 +25,7 @@ class WorksController < ApplicationController
 
   def update
     @work = Work.find(params[:id])
-    @work.update_attributes(work_params)
+    @work.update_attributes(works_params)
 
     # redirect_to work_path(@work)
   end
