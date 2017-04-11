@@ -3,7 +3,16 @@
 <h4>Published: <%=@selected_work.publication_year%></h4>
 <h4><%=@selected_work.description%></h4>
 
-<h3>Back to movie list</h3>
+<% case @selected_work.category %>
+  <% when "album"%>
+  <h3><%= link_to "Back to albums list", albums_path %></h3>
+  <% when "book"%>
+  <h3><%= link_to "Back to books list", books_path %></h3>
+  <% when "movie"%>
+  <h3><%= link_to "Back to movie list", movies_path %></h3>
+<% end %>
+
+
 <h3><%= link_to "Edit", edit_work_path %></h3>
 <h3>Upvote</h3>
 <h3><%= link_to "Delete", work_path(@selected_work.id), data: { confirm: "are you sure?" }, method: :delete %> </h3>
