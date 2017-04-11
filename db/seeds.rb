@@ -20,3 +20,13 @@ temp_csv.each do |work|
 
   works << work_hash
 end
+
+success_count = 0
+works.each do |t|
+  work = Work.create(t)
+
+  if work.id
+    success_count += 1
+    puts "work #{work.id} successfully added"
+  end
+end
