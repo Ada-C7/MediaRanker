@@ -13,14 +13,9 @@
     <% elsif @work.category == "album"%>
     <%= button_to 'Back to album list', albums_path, method: :get %>
     <%end%>
-
     <%= button_to 'Edit', edit_work_path, method: :get %>
     <%= button_to 'Upvote', work_path(@work.id), method: :patch %>
     <%= button_to 'Delete', work_path(@work.id), method: :delete, data: {confirm: 'Are you sure?' } %>
-
-
-
-
   </section>
   <article>
     <h3>Total votes for this <%=@work.category%>:</h3>

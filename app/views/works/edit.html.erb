@@ -1,0 +1,32 @@
+<% if @work.errors.messages.length > 0 %>
+<section>
+  <h2> Something went wrong</h2>
+  <ul>
+    <%@work.errors.messages.each do |field, problems| %>
+      <% problems.each do |problem| %>
+        <li>
+          <%= field %>
+          <%= problem %>
+        </li>
+      <% end %>
+    <% end %>
+  </ul>
+</section>
+<%end%>
+
+
+<%= form_for @work do |f| %>
+  <%= f.label :title %>
+  <%= f.text_field :title %>
+
+  <%= f.label :creator %>
+  <%= f.text_field :creator %>
+
+  <%= f.label :publication_year %>
+  <%= f.text_field :publication_year %>
+
+  <%= f.label :description %>
+  <%= f.text_field :description %>
+
+  <%= f.submit value: "Edit #{@work.category}" %>
+<% end %>

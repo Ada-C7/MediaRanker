@@ -18,17 +18,17 @@ class WorksController < ApplicationController
   end
 
   def show
-     @work = Work.find(params[:id])
+    @work = Work.find(params[:id])
   end
 
   def show_albums
-      @all_albums = Work.where(category: "album")
+    @all_albums = Work.where(category: "album")
   end
   def show_books
-      @all_books = Work.where(category: "book")
+    @all_books = Work.where(category: "book")
   end
   def show_movies
-      @all_movies = Work.where(category: "movie")
+    @all_movies = Work.where(category: "movie")
   end
 
   def edit
@@ -39,12 +39,17 @@ class WorksController < ApplicationController
     work = Work.find(params[:id])
     work.update_attributes(work_params)
     work.save
-      # redirect_to work_path(work)
+    redirect_to work_path(work)
   end
 
   def destroy
     work = Work.find(params[:id])
     work.destroy
+  end
+
+  private
+  def work_params
+    return params.require(:work).permit( :title, :creator, :publication_year, :description)
   end
 
 end
