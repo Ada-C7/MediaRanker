@@ -8,7 +8,7 @@ describe Work do
     end
 
 
-    it "Requires a title" do #failure case test
+    it "Requires category, title, creator and publication_year" do #failure case test
       a_work = Work.new
       result = a_work.valid?
       result.must_equal false
