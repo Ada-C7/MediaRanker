@@ -2,33 +2,34 @@
 
 <p>
   <strong>Category:</strong>
-  <%= @work.category %>
+  <%= @work[:category] %>
+
 </p>
+
 
 <p>
   <strong>Title:</strong>
-  <%= @work.title %>
+  <%= @work[:title] %>
+
 </p>
 
 <p>
   <strong>Creator:</strong>
-  <%= @work.creator %>
+  <%= @work[:creator] %>
 </p>
 
 <p>
-  <strong>Pub year:</strong>
-  <%= @work.pub_year %>
+  <strong>Publication Year:</strong>
+<%= @work[:publication_year] %>
 </p>
 
 <p>
   <strong>Description:</strong>
-  <%= @work.description %>
+<%= @work[:description] %>
 </p>
 
-<p>
-  <strong>Votes:</strong>
-  <%= @work.votes %>
-</p>
+
+
 
 <%= link_to 'Edit', edit_work_path(@work) %> |
 <%= link_to 'Back', works_path %>

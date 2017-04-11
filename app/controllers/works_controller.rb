@@ -1,5 +1,5 @@
 class WorksController < ApplicationController
-  before_action :set_work, only: [:show, :edit, :update, :destroy]
+  # before_action :set_work, only: [:show, :edit, :update, :destroy]
 
   # GET /works
   # GET /works.json
@@ -10,6 +10,7 @@ class WorksController < ApplicationController
   # GET /works/1
   # GET /works/1.json
   def show
+      @work = Work.find(params[:id])
   end
 
   # GET /works/new
@@ -19,6 +20,10 @@ class WorksController < ApplicationController
 
   # GET /works/1/edit
   def edit
+    @work = Work.find(params[:id])
+    session.delete(:return_to)
+    session[:return_to] ||= request.referer
+    @back_url = session[:return_to]
   end
 
   # POST /works
@@ -40,16 +45,26 @@ class WorksController < ApplicationController
   # PATCH/PUT /works/1
   # PATCH/PUT /works/1.json
   def update
-    respond_to do |format|
-      if @work.update(work_params)
-        format.html { redirect_to @work, notice: 'Work was successfully updated.' }
-        format.json { render :show, status: :ok, location: @work }
-      else
-        format.html { render :edit }
-        format.json { render json: @work.errors, status: :unprocessable_entity }
-      end
-    end
+
+    work = Work.find(params[:id])
+        data = work_params
+        puts data.to_hash
+        work.update!(work_params)
+        result = work.save
+        puts result
+        # puts trip.errors.messages
+        redirect_to work_path(params[:id])
   end
+  #   respond_to do |format|
+  #     if @work.update(work_params)
+  #       format.html { redirect_to @work, notice: 'Work was successfully updated.' }
+  #       format.json { render :show, status: :ok, location: @work }
+  #     else
+  #       format.html { render :edit }
+  #       format.json { render json: @work.errors, status: :unprocessable_entity }
+  #     end
+  #   end
+  # end
 
   # DELETE /works/1
   # DELETE /works/1.json
@@ -69,6 +84,6 @@ class WorksController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def work_params
-      params.require(:work).permit(:category, :title, :creator, :pub_year, :description, :votes)
+      params.require(:work).permit(:category, :title, :creator, :publication_year, :description, :votes)
     end
 end

@@ -8,9 +8,9 @@
       <th>Category</th>
       <th>Title</th>
       <th>Creator</th>
-      <th>Pub year</th>
+      <th>Publication Year</th>
       <th>Description</th>
-      <th>Votes</th>
+
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -21,9 +21,9 @@
         <td><%= work.category %></td>
         <td><%= work.title %></td>
         <td><%= work.creator %></td>
-        <td><%= work.pub_year %></td>
+        <td><%= work.publication_year %></td>
         <td><%= work.description %></td>
-        <td><%= work.votes %></td>
+
         <td><%= link_to 'Show', work %></td>
         <td><%= link_to 'Edit', edit_work_path(work) %></td>
         <td><%= link_to 'Destroy', work, method: :delete, data: { confirm: 'Are you sure?' } %></td>

@@ -1,0 +1,32 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Media Ranker</h1>
+
+<p>
+  <h1>Books</h1>
+  <% @books.each do |work|%>
+  <%= work[:title] %>
+  <%= work[:creator] %>
+  <%end%>
+</p></br>
+
+<p>
+  <h1>Movies</h1>
+  <% @movies.each do |work|%>
+  <%= work[:title] %>
+  <%= work[:creator] %>
+  <%end%>
+</p></br>
+
+<p>
+  <h1>Albums</h1>
+  <% @albums.each do |work|%>
+  <%= work[:title] %>
+  <%= work[:creator] %>
+  <%end%>
+</p></br>
+
+
+
+
+<%= link_to 'New Work', new_work_path %>
