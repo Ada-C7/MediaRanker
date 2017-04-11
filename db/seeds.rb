@@ -27,4 +27,4 @@ works.each do |work|
     puts "#{current_work.title} failed to add"
   end
 end
-puts "#{failed_work_count} out of #{works.length} works not successfully added"
+puts "#{failed_work_count} out of #{works.length} works failed to add"
