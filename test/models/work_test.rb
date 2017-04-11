@@ -26,4 +26,10 @@ describe Work do
       album.media_type.must_equal 'album'
     end
   end
+
+  it 'must return all movies with the movies method' do
+    Work.movies.each do |movie|
+      movie.media_type.must_equal 'album'
+    end
+  end
 end
