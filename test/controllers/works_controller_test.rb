@@ -19,11 +19,11 @@ describe WorksController do
     must_respond_with :success
   end
 
-  # #pos index_movies
-  # it "should get index_movies page" do
-  #   get movies_path
-  #   must_respond_with :success
-  # end
+  #pos index_movies
+  it "should get index_movies page" do
+    get movies_path
+    must_respond_with :success
+  end
 
   #pos show test
   it "should get show page" do

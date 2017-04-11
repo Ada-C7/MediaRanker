@@ -15,6 +15,10 @@ class WorksController < ApplicationController
     @albums = Work.where(category: "album")
   end
 
+  def index_movies
+    @movies = Work.where(category: "movie")
+  end
+
   def show
     @work = Work.find_by_id(params[:id])
     if !@work

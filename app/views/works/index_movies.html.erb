@@ -1,0 +1,5 @@
+<h1>All Movies</h1>
+
+<% @movies.each do |movie| %>
+  <h3> <%= link_to movie.title, work_path(movie.id) %> by <%= movie.creator %> </h3>
+<% end %>
