@@ -1,3 +1,61 @@
-<p>
-  All Movies will go here
-</p>
+<section class="category-view">
+  <h1 class="category-header">List of Movies</h1>
+
+  <section class="category-table">
+    <% if @movies.empty? %>
+      <p>
+        No movies found.
+      </p>
+      <% else %>
+
+    <table>
+      <tr>
+        <th>
+          Votes
+        </th>
+        <th>
+          Title
+        </th>
+        <th>
+          Created By
+        </th>
+        <th>
+          Published
+        </th>
+        <th>
+          Upvote
+        </th>
+      </tr>
+      <% @movies.each do |movie| %>
+      <tr>
+        <td>
+          <%= movie.votes.count %>
+        </td>
+        <td>
+          <%= movie.title %>
+        </td>
+        <td>
+          <%= movie.creator %>
+        </td>
+        <td>
+          <%= movie.published %>
+        </td>
+        <td>
+          <%= link_to "Upvote", method: :get %>
+        </td>
+      </tr>
+      <% end %>
+    </table>
+    <% end %>
+  </section>
+  <section class="bottom-buttons">
+    <ul>
+      <li>
+        <%= button_to "View All Media", works_path, method: :get %>
+      </li>
+      <li>
+        <%= link_to "Add a New Movie", method: :get %>
+      </li>
+    </ul>
+  </section>
+</section>

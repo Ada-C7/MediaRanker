@@ -1,3 +1,61 @@
-<p>
-  All Books will go here
-</p>
+<section class="category-view">
+  <h1 class="category-header">List of Books</h1>
+
+  <section class="category-table">
+    <% if @books.empty? %>
+      <p>
+        No books found.
+      </p>
+      <% else %>
+
+    <table>
+      <tr>
+        <th>
+          Votes
+        </th>
+        <th>
+          Title
+        </th>
+        <th>
+          Created By
+        </th>
+        <th>
+          Published
+        </th>
+        <th>
+          Upvote
+        </th>
+      </tr>
+      <% @books.each do |book| %>
+      <tr>
+        <td>
+          <%= book.votes.count %>
+        </td>
+        <td>
+          <%= book.title %>
+        </td>
+        <td>
+          <%= book.creator %>
+        </td>
+        <td>
+          <%= book.published %>
+        </td>
+        <td>
+          <%= link_to "Upvote" %>
+        </td>
+      </tr>
+      <% end %>
+    </table>
+    <% end %>
+  </section>
+  <section class="bottom-buttons">
+    <ul>
+      <li>
+        <%= button_to "View All Media", works_path, method: :get %>
+      </li>
+      <li>
+        <%= link_to "Add a New Book", method: :get %>
+      </li>
+    </ul>
+  </section>
+</section>

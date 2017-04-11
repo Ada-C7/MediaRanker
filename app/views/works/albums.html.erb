@@ -1,3 +1,61 @@
-<p>
-  All Albums will go here
-</p>
+<section class="category-view">
+  <h1 class="category-header">List of Albums</h1>
+
+  <section class="category-table">
+    <% if @albums.empty? %>
+      <p>
+        No albums found.
+      </p>
+      <% else %>
+
+    <table>
+      <tr>
+        <th>
+          Votes
+        </th>
+        <th>
+          Title
+        </th>
+        <th>
+          Created By
+        </th>
+        <th>
+          Published
+        </th>
+        <th>
+          Upvote
+        </th>
+      </tr>
+      <% @albums.each do |album| %>
+      <tr>
+        <td>
+          <%= album.votes.count %>
+        </td>
+        <td>
+          <%= album.title %>
+        </td>
+        <td>
+          <%= album.creator %>
+        </td>
+        <td>
+          <%= album.published %>
+        </td>
+        <td>
+          <%= link_to "Upvote" %>
+        </td>
+      </tr>
+      <% end %>
+    </table>
+    <% end %>
+  </section>
+  <section class="bottom-buttons">
+    <ul>
+      <li>
+        <%= button_to "View All Media", works_path, method: :get %>
+      </li>
+      <li>
+        <%= link_to "Add a New Album", method: :get %>
+      </li>
+    </ul>
+  </section>
+</section>

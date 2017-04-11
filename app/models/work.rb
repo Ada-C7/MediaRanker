@@ -31,10 +31,7 @@ class Work < ApplicationRecord
     end
     all_counts = all_counts.group_by { |w| w[:count] }
     all_counts = all_counts.sort_by  { |k, v| -k }
-    top_ten = all_counts.first(10)
-    top_ten = top_ten.map(&:last).flatten
-    puts "top_ten is #{top_ten}\n\n"
-    puts "------------------------------"
+    top_ten = all_counts.map(&:last).flatten
 
     top_ten_titles = []
     top_ten.each do |hash|
@@ -42,7 +39,7 @@ class Work < ApplicationRecord
       puts object
       top_ten_titles << object
     end
-    puts "top_ten_titles is #{top_ten_titles}"
+    
     return top_ten_titles.first(10)
 
   end
