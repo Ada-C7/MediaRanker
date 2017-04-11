@@ -1,7 +1,7 @@
 <h1>Media Ranker</h1>
 
 <h2>Media Spotlight: <% @spotlight = @works.sample %>
-<%= @spotlight.title %> by: <%= @spotlight.creator %> </h2>
+<%= link_to @spotlight.title, work_path(@spotlight.id) %> by: <%= @spotlight.creator %> </h2>
 
 
 <h2>Top Albums</h2>
@@ -11,7 +11,7 @@
 
   <% @albums.each do |album| %>
   <li>
-    <%= album.title %> by <%= album.creator %>
+    <%= link_to album.title, work_path(album.id) %> by <%= album.creator %>
   </li>
     <% end %>
 </ul>
@@ -23,7 +23,7 @@
 
   <% @books.each do |book| %>
   <li>
-    <%= book.title %> by <%= book.creator %>
+    <%= link_to book.title, work_path(book.id) %> by <%= book.creator %>
   </li>
     <% end %>
 </ul>
@@ -35,7 +35,7 @@
 
   <% @movies.each do |movie| %>
   <li>
-    <%= movie.title %> by <%= movie.creator %>
+    <%= link_to movie.title, work_path(movie.id) %> by <%= movie.creator %>
   </li>
     <% end %>
 </ul>
