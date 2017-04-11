@@ -32,7 +32,7 @@
           <%= album.votes.count %>
         </td>
         <td>
-          <%= album.title %>
+          <%= link_to album.title, work_path(album.id) %>
         </td>
         <td>
           <%= album.creator %>
