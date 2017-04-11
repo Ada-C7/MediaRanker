@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-  root "works#index"
+  root "media_ranker#index"
 
   resources :works
   resources :users

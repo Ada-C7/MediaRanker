@@ -1,0 +1,2 @@
+class Mediaranker < ApplicationRecord
+end
