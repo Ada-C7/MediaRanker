@@ -2,6 +2,7 @@
 <h1> Welcome no Media Ranker </h1>
 
 <h3> Top albums: </h3>
+  <p><%=link_to "See all albums", albums_path %></p>
   <%@top_albums.each do |album|%>
       <p><%=link_to album.title, work_path(album.id) %></p>
       <p> <%=album.creator %></p>
