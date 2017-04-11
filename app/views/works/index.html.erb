@@ -1,1 +1,12 @@
-<h1>Works</h1>
+<h3>Media Spotlight: [placeholder]</h3>
+
+<section>
+  <h3>Top Movies</h3>
+  <ul>
+    <% @movies.each do |movie| %>
+      <li>
+        <h4><%= link_to movie.title, work_path(movie.id) %> by <%= movie.creator %></h4>
+      </li>
+    <% end %>
+  </ul>
+</section>
