@@ -1,15 +1,43 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
-  title: 
-  by: 
-  year: 
-  description: 
-  media_type: MyText
+book1:
+  title: "Crime and Punishment"
+  by: "Fyodor Dostoyevsky"
+  year: 1866
+  description: "mental anguish and moral dilemmas of Rodion Raskolnikov, an impoverished ex-student in Saint Petersburg who formulates and executes a plan to kill an unscrupulous pawnbroker for her cash"
+  media_type: "book"
 
-two:
-  title: 
-  by: 
-  year: 
-  description: 
-  media_type: MyText
+book2:
+  title: "The Bell Jar"
+  by: "Sylvia Plath"
+  year: 1963
+  description: "story about Esther Greenwood, a depressed intern"
+  media_type: "book"
+
+album1:
+  title: "OK Comptuter"
+  by: "Radiohead"
+  year: 1997
+  description: "OK Computer is the third studio album by English alternative rock band Radiohead, released in 1997 on EMI subsidiaries Parlophone and Capitol Records."
+  media_type: "album"
+
+album2:
+  title: "Karajan: Symphony Edition"
+  by: "Herbert Von Karajan (Conductor), Berlin Philharmonic Orchestra"
+  year: 2008
+  description: "The definitive 38-CD set of eight great symphonic cycles from Herbert von Karajan and the Berlin Philharmonic. At a super-budget price, this set is a perfect gift with which to begin or complete a library."
+  media_type: "album"
+
+movie1:
+  title: "A Clockwork Orange"
+  by: "Stanley Kubrick"
+  year: 1972
+  description: "'Droogs' spend their nights getting high at the Korova Milkbar before embarking on 'a little of the old ultraviolence'"
+  media_type: "movie"
+
+movie2:
+  title: "The Great Dictator"
+  by: "Charlie Chaplin"
+  year: 1940
+  description: "American political satire comedy-drama film written, directed, produced, scored by and starring Charlie Chaplin, following the tradition of many of his other films."
+  media_type: "movie"
