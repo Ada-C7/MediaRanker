@@ -24,6 +24,12 @@ class WorksController < ApplicationController
   def show_albums
       @all_albums = Work.where(category: "album")
   end
+  def show_books
+      @all_books = Work.where(category: "book")
+  end
+  def show_movies
+      @all_movies = Work.where(category: "movie")
+  end
 
   def edit
     @work = Work.find(params[:id])
