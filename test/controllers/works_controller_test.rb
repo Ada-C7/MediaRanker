@@ -80,10 +80,9 @@ describe WorksController do
       must_redirect_to work_path(w.id)
     end
     it "rerenders new edit work form if work is invalid" do
-      Work.create(title: "aaa", publication_year: 1977, category: "movie",creator: "Natalia", description: "new description"  )
       w = Work.first
       work_data = {work: w.attributes}
-      work_data[:work][:title] = "aaa"
+      work_data[:work][:title] = "Can't Buy a Thrill"
       patch work_path(w.id), params: work_data
 
       must_respond_with :bad_request
@@ -91,7 +90,11 @@ describe WorksController do
   end # end of edit block
 
   describe "destroy" do
-    it " " do
+    it " successfully deletes from database" do
+
+      w = Work.create!(category: "movie", title: "test title",creator: "creator test", publication_year: "1111", description: "description goes here" )
+      delete work_path(w.id) #, params: work_data
+      must_redirect_to movies_path
 
     end
   end # end of edit block

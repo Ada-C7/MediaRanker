@@ -51,8 +51,9 @@ class WorksController < ApplicationController
 
   def destroy
     work = Work.find(params[:id])
-    work.destroy
-    redirect_to root_path
+    if work.destroy
+      redirect_to send("#{work.category}s_path")
+    end
   end
 
   def upvote
