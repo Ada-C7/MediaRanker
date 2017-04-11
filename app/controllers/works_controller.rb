@@ -8,7 +8,11 @@ class WorksController < ApplicationController
   end
 
   def show
-    @work = Work.find(params[:id])
+    @work = Work.find_by_id(params[:id])
+
+    if !@work
+      render_404
+    end
   end
 
   def new
@@ -16,7 +20,11 @@ class WorksController < ApplicationController
   end
 
   def edit
-    @work = Work.find(params[:id])
+    @work = Work.find_by_id(params[:id])
+
+    if !@work
+      render_404
+    end
   end
 
 end
