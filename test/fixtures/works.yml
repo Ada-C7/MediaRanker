@@ -1,15 +1,22 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
-  category: MyString
-  title: MyString
-  creator: MyString
-  publication_year: 
-  description: MyText
+movie:
+  category: movies
+  title: E.T.
+  creator: Steven Spielberg
+  publication_year: 1982
+  description: ET blah
 
-two:
-  category: MyString
-  title: MyString
-  creator: MyString
-  publication_year: 
-  description: MyText
+book:
+  category: books
+  title: Harry Potter
+  creator: J.K.Rowling
+  publication_year: 1999
+  description: Harry is a wizard
+
+music:
+  category: musics
+  title: Yesterday
+  creator: Beatles
+  publication_year: 1999
+  description: Harry is a wizard
