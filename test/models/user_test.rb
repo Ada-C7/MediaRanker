@@ -7,7 +7,7 @@ describe User do
         result = u.valid?
         result.must_equal true
       end
-      it "Requires a username and date of joining " do
+      it "Requires a username and date_of_joining " do
         u = User.new
         result = u.valid?
         result.must_equal false
