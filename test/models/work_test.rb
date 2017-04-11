@@ -7,7 +7,7 @@ describe Work do
 
   # category
   # positive
-  it "Works are valid with category" do
+  it "Works are valid with a category that is movie, book, or album" do
     work.valid?
     work.errors.messages[:category].must_equal []
   end
@@ -18,8 +18,13 @@ describe Work do
     work.valid?.must_equal false
     work.errors.messages.must_include :category
   end
-  # category must be movie, album, or book
 
+  # category must be movie, album, or book
+  it "Works are invalid if the category is not movie, book, or album" do
+    work = Work.create(category: "video game", name: "test", created_by: "test buddy", pub_year: 1000, desc: "hi test it's me")
+    work.valid?.must_equal false
+    work.errors.messages.must_include :category
+  end
 
   # name
   # positive
@@ -65,13 +70,16 @@ describe Work do
 
   # negative numerical
   it "Works are invalid if the pub_year is not an integer" do
-    skip
+    work = Work.create(category: "movie", name: "test", created_by: "test buddy", pub_year: "the 80s", desc: "hi test it's me")
     work.valid?.must_equal false
+    work.errors.messages.must_include :pub_year
   end
+
   # negative length
   it "Works are invalid if the pub_year is not 4-digits long" do
-    skip
+    work = Work.create(category: "book", name: "test", created_by: "test buddy", pub_year: 10, desc: "hi test it's me")
     work.valid?.must_equal false
+    work.errors.messages.must_include :pub_year
   end
 
   # desc
