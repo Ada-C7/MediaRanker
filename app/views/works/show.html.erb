@@ -31,7 +31,7 @@
         <%= link_to "Upvote", new_vote_path(@work.id), method: :post %>
       </li>
       <li class="delete-button">
-        <%= link_to "Delete", work_path(@work.id), method: :delete, data: { confirm: "Really delete this #{@work.category}?"} %>
+        <%= link_to "Delete", work_path(@work.id), method: :delete, data: { confirm: "Really delete this #{@work.category}? All associated votes will be lost."} %>
       </li>
     </ul>
 

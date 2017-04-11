@@ -12,7 +12,7 @@ class WorksController < ApplicationController
 
     @work = Work.create(work_params)
     if @work.save
-      redirect_to :root
+      redirect_to works_path
     else
       render :new
     end
@@ -20,7 +20,10 @@ class WorksController < ApplicationController
   end
 
   def show
-    @work = Work.find(params[:id])
+    @work = Work.find_by_id(params[:id])
+    if !@work
+      render_404
+    end
   end
 
   def edit
@@ -37,7 +40,12 @@ class WorksController < ApplicationController
   end
 
   def destroy
-    @work = Work.find(params[:id]).destroy
+    @work = Work.find(params[:id])
+    @work.votes.each do |vote|
+      vote.destroy
+    end
+    @work.destroy
+    redirect_to :root
   end
 
   def movies
