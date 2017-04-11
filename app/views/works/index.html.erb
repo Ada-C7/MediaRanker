@@ -10,3 +10,25 @@
     <% end %>
   </ul>
 </section>
+
+<section>
+  <h3>Top Books</h3>
+  <ul>
+    <% @books.each do |book| %>
+      <li>
+        <h4><%= link_to book.title, work_path(book.id) %> by <%= book.creator %></h4>
+      </li>
+    <% end %>
+  </ul>
+</section>
+
+<section>
+  <h3>Top Albums</h3>
+  <ul>
+    <% @albums.each do |album| %>
+      <li>
+        <h4><%= link_to album.title, work_path(album.id) %> by <%= album.creator %></h4>
+      </li>
+    <% end %>
+  </ul>
+</section>
