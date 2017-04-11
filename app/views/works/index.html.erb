@@ -2,3 +2,11 @@
 <p>Find me in app/views/works/index.html.erb</p>
 
 <h1>View Categories</h1>
+
+<ul>
+
+   <% @works.each do |work| %>
+  <li> <%= work.category %> <%= work.title %> </li>
+    <% end %>
+  </li>
+</ul>

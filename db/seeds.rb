@@ -6,6 +6,8 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
+require 'csv'
+
 CSV.open('db/media_seeds.csv', 'r', :headers => true).each do |line|
   category = line["category"].to_s
   title = line["title"].to_s
