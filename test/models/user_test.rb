@@ -1,7 +1,6 @@
 require "test_helper"
 
 describe User do
-#   let(:user) { User.new }
   it "Can be created with all attributes" do
    user = User.new(username: "whatever")
    result = user.valid?
@@ -16,8 +15,7 @@ describe User do
 
   it "Must have a unique username" do
     user = User.create!(username: "whatever")
-    user1 = User.new(username: "whatever")
-    result = user1.valid?
-    result.must_equal false
+    user1 = User.create(username: "whatever")
+    user1.errors.messages.must_include :username
   end
 end
