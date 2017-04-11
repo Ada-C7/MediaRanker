@@ -38,13 +38,17 @@ class WorksController < ApplicationController
   def update
     work = Work.find(params[:id])
     work.update_attributes(work_params)
-    work.save
-    redirect_to work_path(work)
+    if work.save
+      redirect_to work_path(work)
+    else
+      render :edit
+    end
   end
 
   def destroy
     work = Work.find(params[:id])
     work.destroy
+    redirect_to welcome_index_path
   end
 
   private
