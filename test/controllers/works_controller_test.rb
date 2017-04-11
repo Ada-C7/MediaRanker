@@ -33,6 +33,7 @@ describe WorksController do
               pub_yr: 1970,
               desc: "Desc" }
           }
+    must_respond_with :redirect
     must_redirect_to works_path
   end
 
@@ -87,5 +88,17 @@ describe WorksController do
     must_respond_with :missing
   end
 
-  #pos
+  #pos update test
+  it "should update a work and redirect to works index" do
+    put work_path(works(:work_one).id), params: {work: {title: "New Title", desc: "la la la"} }
+
+    work = Work.find(works(:work_one).id)
+
+    work.title.must_equal "New Title"
+    work.desc.must_equal "la la la"
+
+    must_respond_with :redirect
+    must_redirect_to work_path(works(:work_one).id)
+  end
+  
 end
