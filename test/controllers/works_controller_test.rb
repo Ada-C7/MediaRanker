@@ -38,17 +38,17 @@ describe WorksController do
     must_redirect_to works_path
   end
 
-  #neg create route - NOT SURE HOW TO TEST THIS?
-  # it "should render new page with errors if work was not saved" do
-  #   post works_path params: { work:
-  #           { title: "",
-  #             category: "book",
-  #             creator: "creator",
-  #             pub_yr: 1970,
-  #             desc: "Desc" }
-  #         }
-  #   must_render new_work_path
-  # end
+  #neg create route - testing that it will go to new page.
+  it "should render new page if work was not saved" do
+    post works_path params: { work:
+            { title: "",
+              category: "book",
+              creator: "creator",
+              pub_yr: 1970,
+              desc: "Desc" }
+          }
+      must_respond_with :success
+  end
 
   #pos create affect database test
   it "should affect the model when updating a book" do
@@ -123,4 +123,5 @@ describe WorksController do
   end
 
   #neg destroy test?
+  #destroy that something hasn't exist?  Count change delta?
 end
