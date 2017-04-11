@@ -41,6 +41,34 @@
 
   <article class="work-votes-users">
 
+    <h1 class="votes-title"> <%= @work.votes_count %> votes for this <%=@work.category.capitalize %> </h1>
+
+    <% if @work.votes_count == 0 %>
+      <p>
+        No votes yet for this <%= @work.category %>!
+      </p>
+    <% else %>
+      <table class="work-votes-table">
+        <tr>
+          <th>
+            User
+          </th>
+          <th>
+            Date
+          </th>
+        </tr>
+        <% @work.votes.each do |vote| %>
+        <tr>
+          <td>
+            <%= vote.user.username %>
+          </td>
+          <td>
+            <%= vote.created_at %>
+          </td>
+        </tr>
+        <% end %>
+      </table>
+    <% end %>
   </article>
 
 </section>
