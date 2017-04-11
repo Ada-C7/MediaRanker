@@ -3,5 +3,8 @@ Rails.application.routes.draw do
   # need to change this - dont need all the restful routes
   resources :works
 
+  get 'movies', to: 'homepage#movies', as: 'movies'
+  get 'books', to: 'homepage#books', as: 'books'
+  get 'albumns', to: 'homepage#albumns', as: 'albumns'
 
 end
