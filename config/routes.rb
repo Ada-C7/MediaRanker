@@ -1,8 +1,9 @@
 Rails.application.routes.draw do
 
-  get 'works/index'
+  get '/users', to: 'users#index'
+  get '/users/:id', to: 'users#show', as: 'user'
 
-  get 'users/index'
+  get 'works/index'
 
   get 'books/index'
 
