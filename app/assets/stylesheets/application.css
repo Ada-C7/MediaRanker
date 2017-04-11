@@ -13,3 +13,22 @@
  *= require_tree .
  *= require_self
  */
+
+header{
+border-bottom-width:medium;
+border-bottom-style: inset;
+/*border-bottom-color: grey;*/
+}
+#heading {
+background-image:url(https://raw.githubusercontent.com/Ada-C7/MediaRanker/master/app/assets/images/owl.jpg);
+height:90px;
+width: 150px;
+float: left;
+border-bottom-width:medium;
+border-bottom-style: inset;
+border-bottom-color: grey;
+}
+
+#logo{font-size: 30px; color:gray;display:inline-block;font-family: sans-serif;}
+
+#logo-2{font-size: 20px; color:#1779ba;display:inline-block;font-family: sans-serif;}
