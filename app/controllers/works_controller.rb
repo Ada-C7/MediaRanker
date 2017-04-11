@@ -1,6 +1,10 @@
 class WorksController < ApplicationController
+  helper WorksHelper
+
   def index
+    @works = Work.all
   end
+
 
   def show
   end
