@@ -9,18 +9,19 @@ class WorksController < ApplicationController
 
   def create
     @work = Work.new(work_params)
+    # @work.category = "movie"
     @work.save
     if @work.save
-      redirect_to welcome_index_path
+      redirect_to root_path
     else
-      render :new #{}"new_#{@work.category}_path"
+      render :new, status: :bad_request #{}"new_#{@work.category}_path"
     end
   end
 
   def show
     @work = Work.find_by(id: params[:id]) #changed to find_by; if not found -return nil
     if @work.nil?
-      render status: :not_found, body:nil
+      head :not_found
     end
   end
 
@@ -61,7 +62,7 @@ class WorksController < ApplicationController
 
   private
   def work_params
-    return params.require(:work).permit( :title, :creator, :publication_year, :description)
+    return params.require(:work).permit( :category, :title, :creator, :publication_year, :description)
   end
 
 end

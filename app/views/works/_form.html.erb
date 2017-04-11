@@ -11,5 +11,7 @@
   <%= f.label :description %>
   <%= f.text_field :description %>
 
+  <%= f.hidden_field :category, value: request.original_url[22..-6]%>
+
   <%= f.submit value: "#{submit_text}" %>
 <% end %>

@@ -1,9 +1,9 @@
 class Work < ApplicationRecord
   has_many :votes
 
-  validates :category, presence: true
-  validates :category, format: {with: /[a-zA-Z]+/}
-  validates :category, inclusion: {in: %w(movie book album)}
+  # validates :category, presence: true
+  # validates :category, format: {with: /[a-zA-Z]+/}
+  # validates :category, inclusion: {in: %w(movie book album)}
 
   validates :title, presence: true, uniqueness: true
 
