@@ -6,12 +6,13 @@ class WorksController < ApplicationController
   def show_category
     works = Work.all
     @category_works = []
+
     works.each do |work|
-      if work.category = params[:category]
+      if work[:category] == params[:category].singularize
         @category_works << work
       end
     end
-    # return @category_works
-    puts "WOO"
+    return @category_works
   end
+
 end
