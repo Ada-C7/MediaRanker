@@ -38,7 +38,7 @@ describe WorksController do
     must_redirect_to works_path
   end
 
-  #neg create route - NOT SURE HOW TO TEST THIS
+  #neg create route - NOT SURE HOW TO TEST THIS?
   # it "should render new page with errors if work was not saved" do
   #   post works_path params: { work:
   #           { title: "",
@@ -123,5 +123,4 @@ describe WorksController do
   end
 
   #neg destroy test?
-
 end
