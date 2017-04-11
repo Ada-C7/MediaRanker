@@ -6,12 +6,19 @@ describe Work do
   # it "must be valid" do
   #   value(work).must_be :valid?
   # end
+  let(:work) { Work.new }
 
   it 'must be created with a title' do
-    work = Work.new
     result = work.valid?
     result.must_equal false
 
     work.errors.messages.must_include :title
+  end
+
+  it 'must be created with a creator' do
+    result = work.valid?
+    result.must_equal false
+
+    work.errors.messages.must_include :creator
   end
 end
