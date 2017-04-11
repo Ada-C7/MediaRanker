@@ -3,6 +3,11 @@ class WorksController < ApplicationController
     @works = Work.all
   end
 
+  def album_index
+    @works = Work.all
+    @works.where(category: "album")
+  end
+
   def new
     @work = Work.new(params[:id])
   end
