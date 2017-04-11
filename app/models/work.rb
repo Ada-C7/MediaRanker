@@ -8,4 +8,8 @@ class Work < ApplicationRecord
   def self.books
     @books = Work.where(media_type: 'book')
   end
+
+  def self.albums
+    @albums = Work.where(media_type: 'album')
+  end
 end
