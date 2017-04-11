@@ -1,9 +1,13 @@
 Rails.application.routes.draw do
-  get 'votes/index'
 
-  get 'users/index'
+  root 'welcome#index', as: 'welcome'
 
-  get 'works/index'
+  resources :works, except: [:index]
+  resources :users
+  resources :votes
+
+
+
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
