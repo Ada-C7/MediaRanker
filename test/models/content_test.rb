@@ -15,18 +15,23 @@ describe Content do
 
   it "category must be valid" do
     contents(:invalid_category).valid?.must_equal false
+    contents(:shrek).valid?.must_equal true
   end
 
   it "must have a title" do
     contents(:no_title).valid?.must_equal false
+    contents(:shrek).valid?.must_equal true
+
   end
 
   it "must have a creator" do
     contents(:no_creator).valid?.must_equal false
+    contents(:shrek).valid?.must_equal true
   end
 
   it "must have a publication_year" do
     contents(:no_year).valid?.must_equal false
+    contents(:shrek).valid?.must_equal true
   end
 
 end
