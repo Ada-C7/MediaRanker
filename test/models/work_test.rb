@@ -55,6 +55,13 @@ describe Work do
     end
   end
 
+  describe 'find_movies' do
+    let (:all_works) { Work.all }
 
-
+    it 'returns an array of movie objects' do
+      all_work.find_movies.each do |media|
+        media.category.must_equal "movie"
+      end
+    end
+  end
 end
