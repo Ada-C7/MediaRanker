@@ -16,4 +16,5 @@ csv_w.each do |row|
   work.title = row['title']
   work.publication_year = row['publication_year']
   work.description = row['description']
+  work.save!
 end
