@@ -5,3 +5,23 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+require "csv"
+
+# seeding for Works aka media
+works = []
+
+CSV.foreach("db/media_seeds.csv", { :headers => true }) do |line|
+works << { category: line[0], title: line[1], creator: line[2], publication_year: line[3], description: line[4] }
+end
+success_count = 0
+
+works.each do |work|
+  temp_work = Work.create(work)
+  if temp_work.id
+    success_count += 1
+    puts "#{temp_work.title} successfully added. Category: #{temp_work.category}"
+  end
+end
+
+puts "#{success_count} out of #{works.length} successfully added"
