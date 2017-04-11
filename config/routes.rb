@@ -1,9 +1,8 @@
 Rails.application.routes.draw do
-  get 'books/index'
+  get 'albums', :to => 'albums#index'
+  get 'books', :to => 'books#index'
+  get 'movies', :to => 'movies#index'
 
-  get 'albums/index'
-
-  get 'movies/index'
 
   resources :works
 
