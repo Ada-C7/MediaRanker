@@ -1,0 +1,5 @@
+<h1>All Albums</h1>
+
+<% @albums.each do |album| %>
+  <h3> <%= link_to album.title, work_path(album.id) %> by <%= album.creator %> </h3>
+<% end %>

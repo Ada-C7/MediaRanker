@@ -3,6 +3,6 @@ Rails.application.routes.draw do
   resources :works
 
   get '/books', to: 'works#index_books', as: 'books'
-  
+  get '/albums', to: 'works#index_albums', as: 'albums'
 
 end
