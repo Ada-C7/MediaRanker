@@ -4,8 +4,12 @@
 # model remove the "{}" from the fixture names and add the columns immediately
 # below each fixture, per the syntax in the comments below
 #
-one: {}
-# column: value
-#
+work_one:
+  title: "My Work"
+  creator: "My Creator"
+  category: "book"
+  desc: "A book by My Creator"
+  pub_yr: 1920
+  
 two: {}
 # column: value
