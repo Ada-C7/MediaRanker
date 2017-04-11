@@ -62,7 +62,7 @@ class WorksController < ApplicationController
     @work = Work.find(params[:id])
     @work.update_attributes(works_params)
 
-    # redirect_to work_path(@work)
+    redirect_to work_path(@work.id)
   end
 
   def destory
