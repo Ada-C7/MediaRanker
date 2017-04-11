@@ -43,4 +43,14 @@ describe Content do
     content4.valid?.must_equal false
   end
 
+  it "must have a publication_year on creation" do
+    content5 = Content.new
+    content5.title = "Another Test"
+    content5.category = "Internet"
+    content5.description = "This be test"
+
+    content5.valid?.must_equal false
+
+  end
+
 end
