@@ -1,5 +1,9 @@
 class WorksController < ApplicationController
   def index
+    @works = Work.all
+  end
+
+  def mediatype_list
   end
 
   def create
@@ -20,6 +24,4 @@ class WorksController < ApplicationController
   def destroy
   end
 
-  def list
-  end 
 end

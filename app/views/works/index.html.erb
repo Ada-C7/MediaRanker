@@ -5,13 +5,14 @@
 
 <section id="top-movies">
   <h2>Top Movies</h2>
-  <!--  for top 10 items do -->
+  <%= @movies.each do | movie | %>
   <ul>
-    <h3>(title - links to individual page)</h3>
-    <h4>by (creator)</h4>
+    <h3><%= movie.title %></h3>
+    <h4><%= movie.creator %></h4>
     <p>(number of votes)</p>
   </ul>
   <p>(all movies link)</p>
+  <%= end %>
 </section>
 
 <section id="top-books">

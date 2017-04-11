@@ -20,12 +20,14 @@ class Work < ApplicationRecord
   end
 
   def top_books
+
     # find all works that have a mediatype of 'book'
     # sort from highest number of votes to lowest number of votes
     # select top 10 books
   end
 
   def top_albums
+
     # find all works that have a mediatype of 'album'
     # sort from highest number of votes to lowest number of votes
     # select top 10 albums

@@ -15,4 +15,8 @@ describe Work do
     book.mediatype = nil
     book.save.must_equal false
   end
+
+  it "is able to create a new work" do
+
+  end
 end
