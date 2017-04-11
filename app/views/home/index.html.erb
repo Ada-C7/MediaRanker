@@ -1,0 +1,25 @@
+<h1> Welcome to MediaRanker </h1>
+
+    <section class='albums'>
+      <h2> Top Albums </h2>
+      <% @albums.each do |album| %>
+      <div><%= album.title %> by <%= album.creator %></div>
+      <%end%>
+      <%= link_to "All Albums", works_path('album')%>
+    </section>
+
+    <section class='books'>
+      <h2> Top Books </h2>
+      <% @books.each do |book| %>
+      <div><%= book.title %> by <%= book.creator %></div>
+      <%end%>
+      <%= link_to "All Books", works_path('book')%>
+    </section>
+
+    <section class='movies'>
+      <h2> Top Movies </h2>
+      <% @movies.each do |movie| %>
+      <div><%= movie.title %> by <%= movie.creator %></div>
+      <%end%>
+      <%= link_to "All Movies", works_path('movie')%>
+    </section>

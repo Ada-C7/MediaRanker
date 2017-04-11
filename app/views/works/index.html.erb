@@ -1,2 +1,12 @@
-<h1>Works#index</h1>
-<p>Find me in app/views/works/index.html.erb</p>
+<h1>All <%= @works.sample.category.capitalize%>s</h1>
+
+<% @works.each do |work| %>
+<div>Votes</div>
+<div>Title: <%=work.title %></div>
+<div>Created by: <%= work.creator %></div>
+<div>Published: <%= work.published_year%></div>
+<div>Description: <%= work.description%></div>
+<div>Upvote</div>
+<% end %>
+
+<%= link_to "View All Media", home_path %>

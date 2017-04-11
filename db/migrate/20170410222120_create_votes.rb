@@ -1,10 +1,10 @@
 class CreateVotes < ActiveRecord::Migration[5.0]
-  def change
-    create_table :votes do |t|
-      t.integer :user_id
-      t.integer :work_id
+    def change
+        create_table :votes do |t|
+            t.belongs_to :user
+            t.belongs_to :work
 
-      t.timestamps
+            t.timestamps
+        end
     end
-  end
 end
