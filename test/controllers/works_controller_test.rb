@@ -63,4 +63,24 @@ describe WorksController do
     end
   end # end of show movies block
 
-end
+  describe "edit" do
+    it "responds successfully " do
+      work_id = Work.all.sample.id
+      get edit_work_path(work_id)
+      must_respond_with :success
+    end
+  end # end of edit block
+
+  describe "update" do
+    it " " do
+
+    end
+  end # end of edit block
+
+  describe "destroy" do
+    it " " do
+
+    end
+  end # end of edit block
+
+end # end of class
