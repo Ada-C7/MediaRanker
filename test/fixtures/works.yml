@@ -1,19 +1,19 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-work:
+my_book:
   category: "book"
   title: "harry potter and the sorcerer's stone"
   creator: "JK Rowling"
   publication_year: 1990
   description: "first book in HP series"
 
-work_no_category:
+book_no_category:
   title: "harry potter and the sorcerer's stone"
   creator: "JK Rowling"
   publication_year: 1990
   description: "first book in HP series"
 
-work_no_title:
+book_no_title:
   category: "book"
   creator: "JK Rowling"
   publication_year: 1990

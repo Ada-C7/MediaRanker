@@ -4,7 +4,10 @@ class WorksController < ApplicationController
   end
 
   def show
-    @selected_work = Work.find params[:id]
+    @selected_work = Work.find_by id: params[:id]
+    if !@selected_work
+      render_404
+    end
   end
 
   def new
@@ -26,7 +29,7 @@ class WorksController < ApplicationController
 
   def update
     @work = Work.find params[:id]
-
+    @work.category = work_params[:category]
     @work.title = work_params[:title]
     @work.creator = work_params[:creator]
     @work.description = work_params[:description]
@@ -41,7 +44,7 @@ class WorksController < ApplicationController
 
   def destroy
     Work.destroy(params[:id])
-    redirect_to works_path #this needs to be edited in the future to movies path 
+    redirect_to works_path #this needs to be edited in the future to movies path
   end
 end
 
@@ -49,5 +52,5 @@ end
 private
 
 def work_params
-  params.require(:work).permit(:title, :creator, :description, :publication_year)
+  params.require(:work).permit(:category, :title, :creator, :description, :publication_year)
 end
