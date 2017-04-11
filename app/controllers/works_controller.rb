@@ -10,11 +10,11 @@ class WorksController < ApplicationController
   def create
     @work = Work.new(work_params)
     @work.save
-    # if @work.save
-    #   redirect_to welcome_path
-    # else
-    #   render :new
-    # end
+    if @work.save
+      redirect_to welcome_index_path
+    else
+      render :new #{}"new_#{@work.category}_path"
+    end
   end
 
   def show
