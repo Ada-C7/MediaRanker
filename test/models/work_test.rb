@@ -49,6 +49,21 @@ describe Work do
       user = User.create(name: "ken")
       vote = Vote.create(user_id: user.id, work_id: work.id)
       work.votes[0].class.must_equal Vote
+      work.votes.size.must_equal 1
     end
-  end  
+  end
+
+  describe "Custom Methods" do
+    it "can return a work object with the most votes" do
+      work = works(:lee)
+      user = User.create(name: "ken")
+      vote = Vote.create(user_id: user.id, work_id: work.id)
+      Work.spotlight.must_equal work
+    end
+
+    it "can return a random work object when there's no votes" do
+      Work.spotlight.wont_be_nil
+      Work.spotlight.class.must_equal Work
+    end
+  end
 end
