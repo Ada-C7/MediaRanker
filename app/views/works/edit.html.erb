@@ -1,0 +1,17 @@
+<header>
+  <h1> Edit Page </h1>
+</header>
+
+<main>
+  <%= render partial: "form", locals: { submit_text: "Update"} %>
+
+  <% if @work.errors.any? %>
+    <ul>
+      <% @work.errors.each do |column, message| %>
+        <li>
+          <%= column.capitalize %> <%= message %>
+        </li>
+      <% end %>
+    </ul>
+  <% end %>
+</main>
