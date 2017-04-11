@@ -1,0 +1,13 @@
+<section>
+  <h3>Media Spotlight: <%= @spotlight_work.title %> by <%= @spotlight_work.creator %></h3>
+</section>
+
+<article>
+  <% [@movies, @books, @albums].each do |category| %>
+    <section>
+      <% category.each do |work| %>
+        <p><%= work.title %> by <%= work.creator %></p>
+      <% end %>
+    </section>
+  <% end %>
+</article>
