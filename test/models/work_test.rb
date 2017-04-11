@@ -15,21 +15,21 @@ describe Work do
     work.errors.messages.must_include :title && :by && :year && :descrition && :media_type
   end
 
-  it 'must return all books with the books method' do
+  it 'must return all books with Work#books' do
     Work.books.each do |book|
       book.media_type.must_equal 'book'
     end
   end
 
-  it 'must return all albums with the albums method' do
+  it 'must return all albums with Work#albums' do
     Work.albums.each do |album|
       album.media_type.must_equal 'album'
     end
   end
 
-  it 'must return all movies with the movies method' do
+  it 'must return all movies with Work#movies' do
     Work.movies.each do |movie|
-      movie.media_type.must_equal 'album'
+      movie.media_type.must_equal 'movie'
     end
   end
 end
