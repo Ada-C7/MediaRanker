@@ -4,14 +4,20 @@
 # model remove the "{}" from the fixture names and add the columns immediately
 # below each fixture, per the syntax in the comments below
 #
-one:
+album:
   mediatype: album
   title: Can't Buy a Thrill
   creator: Steely Dan
   year: 1972
 
-two:
-  mediatype: album
+movie:
+  mediatype: movie
   title: Let it Be
   creator: The Beatles
   year: 1969
+
+book:
+  mediatype: book
+  title: POODR
+  creator: Sandi Metz
+  year: 2010

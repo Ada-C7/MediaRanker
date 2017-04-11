@@ -19,4 +19,7 @@ class WorksController < ApplicationController
 
   def destroy
   end
+
+  def list
+  end 
 end
