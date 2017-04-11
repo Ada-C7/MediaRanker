@@ -17,15 +17,15 @@ describe Content do
     contents(:invalid_category).valid?.must_equal false
   end
 
-  it "must have a title on creation" do
+  it "must have a title" do
     contents(:no_title).valid?.must_equal false
   end
 
-  it "must have a creator on creation" do
+  it "must have a creator" do
     contents(:no_creator).valid?.must_equal false
   end
 
-  it "must have a publication_year on creation" do
+  it "must have a publication_year" do
     contents(:no_year).valid?.must_equal false
   end
 
