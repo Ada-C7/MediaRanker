@@ -18,5 +18,28 @@ describe Vote do
     end
   end
 
+  describe 'relations' do
+    it 'can set the user/work through "user/work"' do
+
+      vote = Vote.new
+      vote.user = users(:user_1)
+      vote.work = works(:album_1)
+
+      vote.user_id.must_equal users(:user_1).id
+    end
+
+    it 'can set the user/work through "user_id/work_id"' do
+
+      vote = Vote.new
+
+      # Make the models relate to one another
+      vote.user_id = users(:user_1).id
+      vote.work_id = works(:album_1).id
+
+      # author should have changed accordingly
+      vote.work.must_equal works(:album_1)
+    end
+  end
+
 
 end # END describe Work
