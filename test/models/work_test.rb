@@ -19,7 +19,6 @@ describe Work do
     it "Requires a title, creator, publication_year " do
       result = work.valid?
       result.must_equal false
-      # work.errors.messages.must_include :category
       work.errors.messages.must_include :title
       work.errors.messages.must_include :creator
       work.errors.messages.must_include :publication_year

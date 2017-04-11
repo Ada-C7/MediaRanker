@@ -16,4 +16,9 @@ class Work < ApplicationRecord
   def total_votes
     return self.votes.count
   end
+
+  def add_one_vote
+
+  end
+
 end

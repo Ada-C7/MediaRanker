@@ -30,13 +30,12 @@ describe WorksController do
       get new_work_path
       must_respond_with :success
     end
-
   end #end of new block
   describe "create" do
     it "adds a work to the database" do
       work_data = {work: {category: "movie", title: "test title",creator: "creator test", publication_year: "1111", description: "description goes here" }}
       post works_path, params: work_data
-      must_redirect_to root_path
+      must_redirect_to movies_path
     end
     it "rerenders new work form if work is invalid" do
       work_data = {work: {title: "test titwle"}}
@@ -44,5 +43,24 @@ describe WorksController do
       must_respond_with :bad_request
     end
   end # end of create block
+
+  describe "show_albums" do
+    it "succesessfully shows a list of  albums " do
+      get albums_path
+      must_respond_with :success
+    end
+  end # end of show albums block
+  describe "show_books" do
+    it "succesessfully shows a list of  books " do
+      get books_path
+      must_respond_with :success
+    end
+  end # end of show books block
+  describe "show_movies" do
+    it "succesessfully shows a list of  movies " do
+      get movies_path
+      must_respond_with :success
+    end
+  end # end of show movies block
 
 end

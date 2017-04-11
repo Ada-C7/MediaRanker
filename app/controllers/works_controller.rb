@@ -9,10 +9,9 @@ class WorksController < ApplicationController
 
   def create
     @work = Work.new(work_params)
-    # @work.category = "movie"
     @work.save
     if @work.save
-      redirect_to root_path
+      redirect_to send("#{@work.category}s_path")
     else
       render :new, status: :bad_request #{}"new_#{@work.category}_path"
     end
@@ -28,6 +27,7 @@ class WorksController < ApplicationController
   def show_albums
     @all_albums = Work.where(category: "album")
   end
+
   def show_books
     @all_books = Work.where(category: "book")
   end
@@ -52,12 +52,14 @@ class WorksController < ApplicationController
   def destroy
     work = Work.find(params[:id])
     work.destroy
-    redirect_to welcome_index_path
+    redirect_to root_path
   end
 
   def upvote
-    @work = Work.find(params[:id])
-    @work.votes.create  #create new vote for this work
+    # @work = Work.find(params[:id])
+    # @work.add_one_vote
+    # @user = User.find(pa)
+    # @work.votes.create  #create new vote for this work
   end
 
   private

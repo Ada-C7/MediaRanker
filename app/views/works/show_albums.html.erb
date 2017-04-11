@@ -1,15 +1,19 @@
-<h3>All albums: </h3>
-<table>
-  <tr>
-    <th> Votes  </th>
-    <th> Title</th>
-    <th>Created by</th>
-    <th> Published </th>
-    <th>  Upvote  </th>
-  </tr>
-  <%@all_albums.each do |item|%>
-    <%= render partial: 'work_table', locals:{item:item}%>
-  <%end%>
-</table>
+<% if @all_albums.length == 0 %>
+  <p>There are no albums to show</p>
+<%else%>
+  <h3>All albums: </h3>
+  <table>
+    <tr>
+      <th> Votes  </th>
+      <th> Title</th>
+      <th>Created by</th>
+      <th> Published </th>
+      <th>  Upvote  </th>
+    </tr>
+    <%@all_albums.each do |item|%>
+      <%= render partial: 'work_table', locals:{item:item}%>
+    <%end%>
+  </table>
+<%end%>
 <%= button_to 'View all media', root_path, method: :get %>
 <%= button_to 'Add a new album', new_album_path, method: :get %>

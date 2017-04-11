@@ -1,15 +1,19 @@
 <h3>All books: </h3>
-<table>
-  <tr>
-    <th> Votes  </th>
-    <th> Title</th>
-    <th>Created by</th>
-    <th> Published </th>
-    <th>  Upvote  </th>
-  </tr>
-  <%@all_books.each do |item|%>
-    <%= render partial: 'work_table', locals:{item:item}%>
-  <%end%>
-</table>
+<% if @all_books.length == 0 %>
+  <p>There are no books to show</p>
+<%else%>
+  <table>
+    <tr>
+      <th> Votes  </th>
+      <th> Title</th>
+      <th>Created by</th>
+      <th> Published </th>
+      <th>  Upvote  </th>
+    </tr>
+    <%@all_books.each do |item|%>
+      <%= render partial: 'work_table', locals:{item:item}%>
+    <%end%>
+  </table>
+<%end%>
 <%= button_to 'View all media', root_path, method: :get %>
 <%= button_to 'Add a new book', new_book_path, method: :get %>

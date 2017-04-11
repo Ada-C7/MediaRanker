@@ -1,15 +1,19 @@
-<h3>All movies: </h3>
-<table>
-  <tr>
-    <th> Votes  </th>
-    <th> Title</th>
-    <th>Created by</th>
-    <th> Published </th>
-    <th>  Upvote  </th>
-  </tr>
-  <%@all_movies.each do |item|%>
-    <%= render partial: 'work_table', locals:{item:item}%>
-  <%end%>
-</table>
+<% if @all_movies.length == 0 %>
+  <p>There are no movies to show</p>
+<%else%>
+  <h3>All movies: </h3>
+  <table>
+    <tr>
+      <th> Votes  </th>
+      <th> Title</th>
+      <th>Created by</th>
+      <th> Published </th>
+      <th>  Upvote  </th>
+    </tr>
+    <%@all_movies.each do |item|%>
+      <%= render partial: 'work_table', locals:{item:item}%>
+    <%end%>
+  </table>
+<%end%>
   <%= button_to 'View all media', root_path, method: :get %>
   <%= button_to 'Add a new movie', new_movie_path, method: :get %>
