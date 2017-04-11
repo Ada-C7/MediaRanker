@@ -15,7 +15,6 @@ class WorksController < ApplicationController
   def update
     @work = Work.find(params[:id])
 
-    @work.work_id = work_params[:work_id]
     @work.category = work_params[:category]
     @work.title = work_params[:title]
     @work.creator = work_params[:creator]
@@ -52,7 +51,7 @@ class WorksController < ApplicationController
   private
 
   def work_params
-    params.require(:work).permit(:work_id, :category, :title, :creator, :pub_year, :description)
+    params.require(:work).permit(:category, :title, :creator, :pub_year, :description)
   end
 
 end

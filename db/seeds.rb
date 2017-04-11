@@ -16,6 +16,4 @@ CSV.foreach("db/media_seeds.csv", :headers => true) do |line|
   w.pub_year = line[3].to_i
   w.description = line[4]
   w.save
-
-  puts "#{w.name} saved"
 end
