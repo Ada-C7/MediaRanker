@@ -28,18 +28,25 @@ class WorksController < ApplicationController
     render "works/albums/new"
   end
 
-  def new
-    @work = Work.new
-  end
-
   def create
     @work = Work.new(works_params)
 
     if @work.save # is true - IE validations pass
-      redirect_to homepage_path
-    else
-      # We know the validations didn't pass so want to show messages
-      render :new
+      if @work.category == "movie"
+        redirect_to movies_path
+      elsif @work.category == "book"
+        redirect_to books_path
+      elsif @work.category == "album"
+        redirect_to albums_path
+      end
+    else # We know the validations didn't pass so want to show messages
+      if @work.category == "movie"
+        render "works/movies/new", status: :bad_request
+      elsif @work.category == "book"
+        render "works/books/new", status: :bad_request
+      elsif @work.category == "album"
+        render "works/albums/new", status: :bad_request
+      end
     end
   end
 

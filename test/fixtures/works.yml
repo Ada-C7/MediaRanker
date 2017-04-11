@@ -35,15 +35,15 @@ mistborn:
   description: A young women learns she has amazing powers and tries to save everyone from impending doom
 
 radiohead:
-  category: albumn
+  category: album
   title: Hail to the Theif
   creator: Radiohead
   publication_year: 1990
-  description: My favorite radiohead albumn
+  description: My favorite radiohead album
 
 two:
-  category: albumn
+  category: album
   title: Dookie
   creator: Greenday
   publication_year: 1994
-  description: Greenday's 3rd albumn
+  description: Greenday's 3rd album
