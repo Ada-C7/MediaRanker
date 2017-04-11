@@ -4,8 +4,66 @@
 # model remove the "{}" from the fixture names and add the columns immediately
 # below each fixture, per the syntax in the comments below
 #
-one: {}
-# column: value
-#
-two: {}
-# column: value
+album_1:
+  category: "album"
+  title: "Can't Buy a Thrill"
+  creator: "Steely Dan"
+  publication_year: 1972
+  description: ""
+
+album_2:
+  category: "album"
+  title: "Countdown to Ecstasy"
+  creator: "Steely Dan"
+  publication_year: 1973
+  description: ""
+
+album_3:
+  category: "album"
+  title: "No Regrets"
+  creator: "Chastity Belt"
+  publication_year: 2013
+  description: ""
+
+
+book_1:
+  category: "book"
+  title: "Hidden Figures"
+  creator: "Margot Lee Shetterly"
+  publication_year: 2016
+  description: ""
+
+book_2:
+  category: "book"
+  title: "Kindred"
+  creator: "Octavia E. Butler"
+  publication_year:  1979
+  description: ""
+
+book_3:
+  category: "book"
+  title: "Parable of the Sower"
+  creator: "Octavia E. Butler"
+  publication_year: 1993
+  description: ""
+
+movie_1:
+  category: "movie"
+  title: "Movie one"
+  creator: "Creator 1"
+  publication_year: 2010
+  description: ""
+
+movie_2:
+  category: "movie"
+  title: "Movie two"
+  creator: "Creator 1"
+  publication_year: 2013
+  description: ""
+
+movie_3:
+  category: "movie"
+  title: "Movie three"
+  creator: "Creator 2"
+  publication_year: 2015
+  description: ""
