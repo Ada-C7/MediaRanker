@@ -1,8 +1,7 @@
 class Work < ApplicationRecord
   has_many :votes
 
-  validates :creator, presence: true
-  validates :category, presence: true
+  validates :category, presence: true, inclusion: { in: %w(Movie Book Album),
+    message: "%{value} is not a valid category" }, allow_nil: false
   validates :title, presence: true
-  validates :published, numericality: { only_integer: true, greater_than: 0, less_than: 10000 }
 end
