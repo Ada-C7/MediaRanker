@@ -1,2 +1,44 @@
 <h1>Works#index</h1>
 <p>Find me in app/views/works/index.html.erb</p>
+
+
+<h1>Media Spotlight: <%=@works.first.title%> by <%=@works.first.created_by%></h1>
+<%=@works.first.description %>
+<table>
+    <tr>
+      Top Movies
+    </tr>
+      <% @works.each do |work| %>
+    <tr>
+      <td>
+        <%=link_to work.title%> by <%=work.created_by%>
+      </td>
+    </tr>
+      <% end %>
+  </table>
+<table>
+  <tr>
+    Top Books
+  </tr>
+
+      <% @works.each do |work| %>
+    <tr>
+      <td>
+        <%=link_to work.title%> by <%=work.created_by%>
+      </td>
+    </tr>
+      <% end %>
+  </table>
+<table>
+  <tr>
+    Top Albums
+  </tr>
+
+      <% @works.each do |work| %>
+    <tr>
+      <td>
+        <%=link_to work.title%> by <%=work.created_by%>
+      </td>
+    </tr>
+      <% end %>
+  </table>
