@@ -15,3 +15,29 @@ hp:
   publication_year: "1997"
   description: "Harry Potter and the Philosopher's Stone is the first novel
    in the Harry Potter series and J. K. Rowling's debut novel, first published in 1997 by Bloomsbury."
+
+invalid_category:
+  category: "Internet"
+  title: "Another Test"
+  creator: = "Me"
+  publication_year: "2009"
+  description: "This be test"
+
+no_title:
+      category: "book"
+      creator: = "Me"
+      publication_year: "2009"
+      description: "This be test"
+
+no_creator:
+      category: "movie"
+      title: "Another Test"
+      publication_year: "2009"
+      description: "This be test"
+
+no_year:
+      category: "book"
+      title: "Harry Potter and the Sorcerer's Stone"
+      creator: "JK Rowling"
+      description: "Harry Potter and the Philosopher's Stone is the first novel
+       in the Harry Potter series and J. K. Rowling's debut novel, first published in 1997 by Bloomsbury."
