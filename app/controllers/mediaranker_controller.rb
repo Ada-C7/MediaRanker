@@ -1,3 +1,5 @@
-class MediaRankerController < ApplicationController
+class MediarankerController < ApplicationController
+  def index
 
+  end
 end
