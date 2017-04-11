@@ -8,17 +8,10 @@ describe Work do
   # end
   let(:work) { Work.new }
 
-  it 'must be created with a title' do
+  it 'must be created with every field populated' do
     result = work.valid?
     result.must_equal false
 
-    work.errors.messages.must_include :title
-  end
-
-  it 'must be created with a creator' do
-    result = work.valid?
-    result.must_equal false
-
-    work.errors.messages.must_include :by
+    work.errors.messages.must_include :title && :by && :year && :descrition && :media_type
   end
 end
