@@ -40,15 +40,17 @@ class WorksController < ApplicationController
   end
 
   def movies
-    @movies = Work.where(category: "movie")
+    @movies = Work.where(category: "movie").order('votes_count DESC')
+    # @movies = Work.joins(:votes).group("work.votes, ").order("max(votes.count) DESC")
+
   end
 
   def books
-    @books = Work.where(category: "book")
+    @books = Work.where(category: "book").order('votes_count DESC')
   end
 
   def albums
-    @albums = Work.where(category: "album")
+    @albums = Work.where(category: "album").order('votes_count DESC')
   end
 
   private

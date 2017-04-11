@@ -23,24 +23,26 @@ class Work < ApplicationRecord
   end
 
   def self.top_ten(category)
-    array = Work.where(category: category)
-    all_counts = []
-    array.each do |work|
-      work_and_count = {title: work, count: work.votes.count}
-      all_counts << work_and_count
-    end
-    all_counts = all_counts.group_by { |w| w[:count] }
-    all_counts = all_counts.sort_by  { |k, v| -k }
-    top_ten = all_counts.map(&:last).flatten
+    # array = Work.where(category: category)
+    # all_counts = []
+    # array.each do |work|
+    #   work_and_count = {title: work, count: work.votes.count}
+    #   all_counts << work_and_count
+    # end
+    # all_counts = all_counts.group_by { |w| w[:count] }
+    # all_counts = all_counts.sort_by  { |k, v| -k }
+    # top_ten = all_counts.map(&:last).flatten
+    #
+    # top_ten_titles = []
+    # top_ten.each do |hash|
+    #   object = hash[:title]
+    #   puts object
+    #   top_ten_titles << object
+    # end
+    #
+    # return top_ten_titles.first(10)
 
-    top_ten_titles = []
-    top_ten.each do |hash|
-      object = hash[:title]
-      puts object
-      top_ten_titles << object
-    end
-    
-    return top_ten_titles.first(10)
+    return Work.order('votes_count DESC').where(category: category).limit(10)
 
   end
 
