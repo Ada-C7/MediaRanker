@@ -4,6 +4,7 @@ describe WorksController do
   let(:work) { works :one }
 
   it "gets index" do
+    Work.count.must_be :>, 0
     get works_url
     value(response).must_be :success?
   end
@@ -15,15 +16,19 @@ describe WorksController do
 
   it "creates work" do
     expect {
-      post works_url, params: { work: { category: work.category, creator: work.creator, description: work.description, pub_year: work.pub_year, title: work.title, votes: work.votes } }
+      post works_url, params: { work: { category: work.category, creator: work.creator, description: work.description, publication_year: work.publication_year, title: work.title, } }
     }.must_change "Work.count"
 
     must_redirect_to work_path(Work.last)
   end
 
   it "shows work" do
-    get work_url(work)
-    value(response).must_be :success?
+    work = Work.first
+    get work_path(work)
+    must_respond_with :success
+
+    # get work_url(work)
+    # value(response).must_be :success?
   end
 
   it "gets edit" do
@@ -32,15 +37,23 @@ describe WorksController do
   end
 
   it "updates work" do
-    patch work_url(work), params: { work: { category: work.category, creator: work.creator, description: work.description, pub_year: work.pub_year, title: work.title, votes: work.votes } }
+    patch work_url(work), params: { work: { category: work.category, creator: work.creator, description: work.description, publication_year: work.publication_year, title: work.title,  } }
     must_redirect_to work_path(work)
   end
 
-  it "destroys work" do
-    expect {
-      delete work_url(work)
-    }.must_change "Work.count", -1
+  # it "destroys work" do
+  #   expect {
+  #     delete work_url(work)
+  #   }.must_change "Work.count", -1
+  #
+  #   must_redirect_to works_path
+  # end
 
-    must_redirect_to works_path
+  it "returns a 404 if the work doesn't exist" do
+    work_id = Work.last.id
+    work_id += 1
+    get work_path(work_id)
   end
+
+
 end

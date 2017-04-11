@@ -4,14 +4,13 @@ one:
   category: MyString
   title: MyString
   creator: MyString
-  pub_year: MyString
+  publication_year: MyString
   description: MyString
-  votes: 1
+
 
 two:
   category: MyString
   title: MyString
   creator: MyString
-  pub_year: MyString
+  publication_year: MyString
   description: MyString
-  votes: 1
