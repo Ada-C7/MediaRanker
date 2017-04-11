@@ -7,15 +7,27 @@ describe WorksController do
     must_respond_with :success
   end
 
-  #pos show test
-  it "should get show page" do
-    get work_path(works(:work_one).id)
-    must_respond_with :success
-  end
-
   #pos index_books
   it "should get index_books page" do
     get books_path
+    must_respond_with :success
+  end
+
+  # #pos index_movies
+  # it "should get index_movies page" do
+  #   get movies_path
+  #   must_respond_with :success
+  # end
+
+  # #Pos index_albums
+  # it "should get index_albums page" do
+  #   get albums_path
+  #   must_respond_with :success
+  # end
+
+  #pos show test
+  it "should get show page" do
+    get work_path(works(:work_one).id)
     must_respond_with :success
   end
 
