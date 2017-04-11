@@ -28,7 +28,7 @@
 
   </article>
 
-  <article class="top albums">
+  <article class="top books">
     <h2 class="category-header">Top Books</h2>
     <% num = 1 %>
 
@@ -43,6 +43,8 @@
       <% num += 1 %>
 
     <% end %>
+    <%= link_to "More Books", books_path, method: :get %>
+
   </article>
 
   <article class="top albums">
@@ -58,6 +60,8 @@
       </p>
       <% num += 1 %>
     <% end %>
+    <%= link_to "More Albums", albums_path, method: :get %>
+
   </article>
 </section>
 

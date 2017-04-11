@@ -43,6 +43,14 @@ class WorksController < ApplicationController
     @movies = Work.where(category: "movie")
   end
 
+  def books
+    @books = Work.where(category: "book")
+  end
+
+  def albums
+    @albums = Work.where(category: "album")
+  end
+
   private
 
   def work_params
