@@ -2,8 +2,7 @@ require "test_helper"
 
 describe Work do
 
-
-  describe "validations" do
+  describe "Validations" do
     it "Can be created with all attributes" do
       w = works(:pretzellogic)
       result = w.valid?
@@ -20,7 +19,7 @@ describe Work do
       w.errors.messages.must_include :publication_year
     end
 
-    it "Category should be only letter" do
+    it "Category should contain only letter" do
       w = Work.new(category: "1234", title: "ABCDE", creator: "Abc", publication_year: 1993 )
       result = w.valid?
       result.must_equal false
@@ -32,6 +31,12 @@ describe Work do
       result.must_equal false
     end
 
-
+    it "has uniqueless title" do
+      w1= works(:pretzellogic)
+      w2 = Work.new(category: "movie", title: "Pretzel Logic", creator: "Eft", publication_year: 1793 )
+      w2.valid?.must_equal false
+      w2.errors.messages.must_include :title
+    end
   end # end of validation block
+  
 end

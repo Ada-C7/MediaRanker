@@ -4,7 +4,7 @@ class Work < ApplicationRecord
   validates :category, presence: true
   validates :category, format: {with: /[a-zA-Z]+/}
 
-  validates :title, presence: true
+  validates :title, presence: true, uniqueness: true
   validates :title, format: {with: /[a-zA-Z]+/}
 
   validates :creator, presence: true
