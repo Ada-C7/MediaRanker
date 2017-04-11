@@ -24,7 +24,26 @@ class WorksController < ApplicationController
 
   def update
     @work = Work.find(params[:id])
+    @work.category = work_params[:category]
+    @work.title = work_params[:title]
+    @work.creator = work_params[:creator]
+    @work.publish_year = work_params[:publish_year]
+
+    if @work.update(work_params)
+      redirect_to work_path(@work.id)
+    end
 
   end
+
+  def new
+    
+  end
+
+private
+
+def work_params
+  params.require(:work).permit(:category, :title, :creator, :publish_year, :description)
+end
+
 
 end
