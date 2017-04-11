@@ -1,0 +1,18 @@
+
+<h1> Welcome no Media Ranker </h1>
+
+<h3> Top albums: </h3>
+  <%@top_albums.each do |album|%>
+      <p><%=link_to album.title, work_path(album.id) %></p>
+      <p> <%=album.creator %></p>
+  <%end%>
+<h3> Top books: </h3>
+  <%@top_books.each do |book|%>
+      <p><%=book.title %></p>
+      <p> <%=book.creator %></p>
+  <%end%>
+<h3> Top movies: </h3>
+  <%@top_movies.each do |movie|%>
+      <p><%=movie.title %></p>
+      <p> <%=movie.creator %></p>
+  <%end%>
