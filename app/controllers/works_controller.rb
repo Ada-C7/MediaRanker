@@ -1,9 +1,7 @@
 class WorksController < ApplicationController
   def index
     @spotlight_work = Work.all.sample
-    @movies = Work.where(category: "movie")[0..9]
-    @books = Work.where(category: "book")[0..9]
-    @albums = Work.where(category: "album")[0..9]
+    @categories = Work.all.map {|work| work.category}.uniq
   end
 
   def new

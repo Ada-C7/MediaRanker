@@ -2,12 +2,15 @@
   <h3>Media Spotlight: <%= @spotlight_work.title %> by <%= @spotlight_work.creator %></h3>
 </section>
 
-<article>
-  <% [@movies, @books, @albums].each do |category| %>
-    <section>
-      <% category.each do |work| %>
-        <p><%= work.title %> by <%= work.creator %></p>
+<% @categories.each do |category| %>
+  <section>
+    <h3>Top <%= category.capitalize %>s</h3>
+    <ul>
+      <% Work.where(category: category)[0..9].each do |work| %>
+        <li>
+          <h4><%= work.title %> by <%= work.creator %></h4>
+        </li>
       <% end %>
-    </section>
-  <% end %>
-</article>
+    </ul>
+  </section>
+<% end %>
