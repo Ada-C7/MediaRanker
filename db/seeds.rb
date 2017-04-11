@@ -6,7 +6,7 @@ require 'csv'
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-csv_work = File.read(Rails.root.join('media_seeds.csv'))
+csv_work = File.read(Rails.root.join('db', 'media_seeds.csv'))
 
 csv_w = CSV.parse(csv_work, :headers => true)
 
