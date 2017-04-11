@@ -19,6 +19,7 @@ class WorksController < ApplicationController
   end
 
   def show
+    @result_work = Work.find(params[:id])
   end
 
   def update
