@@ -3,6 +3,9 @@ Rails.application.routes.draw do
   get 'albums', to: 'works#show_albums'#, as: 'albums'
   get 'movies', to: 'works#show_movies'#, as: 'movies'
   get 'books', to: 'works#show_books' #, as: 'books'
+  get 'albums/new', to: 'works#new'#, as: 'albums'
+  get 'movies/new', to: 'works#new'#, as: 'movies'
+  get 'books/new', to: 'works#new' #, as: 'books'
   resources :welcome
   resources :users
   resources :votes
