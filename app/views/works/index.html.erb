@@ -1,13 +1,63 @@
 <section class="index">
 
 <section class="featured-work">
-  <% featured_work = Work.max_votes %>
-  <p>
+  <% featured_work = Work.max_votes(@works) %>
+  <p class="featured-details">
     Media Spotlight: <%= featured_work.title %> by <%= featured_work.creator %>
   </p>
   <p>
     <%= featured_work.votes.count %> votes
   </p>
+</section>
+<section class="top-ten-all-types">
+  <article class="top movies">
+    <h2 class="category-header">Top Movies</h2>
+    <% num = 1 %>
+
+    <% movies = Work.top_ten("movie") %>
+    <% movies.each do |movie| %>
+      <p class="work-details">
+        <%= num %>. <%= movie.title %> by <%= movie.creator %>
+      </p>
+      <p class="work-votes">
+        <%= movie.votes.count %> votes
+      </p>
+      <% num += 1 %>
+    <% end %>
+
+  </article>
+
+  <article class="top albums">
+    <h2 class="category-header">Top Books</h2>
+    <% num = 1 %>
+
+    <% books = Work.top_ten("book") %>
+    <% books.each do |book| %>
+      <p class="work-details">
+        <%= num %>. <%= book.title %> by <%= book.creator %>
+      </p>
+      <p class="work-votes">
+        <%= book.votes.count %> votes
+      </p>
+      <% num += 1 %>
+
+    <% end %>
+  </article>
+
+  <article class="top albums">
+    <h2 class="category-header">Top Albums</h2>
+    <% num = 1 %>
+    <% albums = Work.top_ten("album") %>
+    <% albums.each do |album| %>
+      <p class="work-details">
+        <%= num %>. <%= album.title %> by <%= album.creator %>
+      </p>
+      <p class="work-votes">
+        <%= album.votes.count %> votes
+      </p>
+      <% num += 1 %>
+    <% end %>
+  </article>
 </section>
 
 
