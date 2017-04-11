@@ -39,6 +39,10 @@ class WorksController < ApplicationController
     @work = Work.find(params[:id]).destroy
   end
 
+  def movies
+    @movies = Work.where(category: "movie")
+  end
+
   private
 
   def work_params
