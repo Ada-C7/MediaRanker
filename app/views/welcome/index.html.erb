@@ -8,6 +8,7 @@
     <%= render partial: 'work_summary', locals:{item:item}%>
     <%end%>
   </ul>
+  <%=link_to "View more albums", albums_path %>
 </section>
 <section>
   <h2> Top books: </h2>
@@ -16,6 +17,8 @@
     <%= render partial: 'work_summary', locals:{item:item}%>
     <%end%>
   </ul>
+  <%=link_to "View more books", books_path %>
+
 </section>
 <section>
   <h2> Top movies: </h2>
@@ -24,4 +27,5 @@
     <%= render partial: 'work_summary', locals:{item:item}%>
     <%end%>
   </ul>
+  <%=link_to "View more movies", movies_path %>
 </section>

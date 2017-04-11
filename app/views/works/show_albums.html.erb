@@ -1,5 +1,14 @@
 <h3>All albums: </h3>
-  <%@all_albums.each do |album|%>
-      <p><%=album.title %></p>
-      <p> <%=album.creator %></p>
+<table>
+  <tr>
+    <th> Votes  </th>
+    <th> Title</th>
+    <th>Created by</th>
+    <th> Published </th>
+    <th>  Upvote  </th>
+  </tr>
+  <%@all_albums.each do |item|%>
+    <%= render partial: 'work_table', locals:{item:item}%>
   <%end%>
+</table>
+<%= button_to 'View all media', welcome_index_path, method: :get %>
