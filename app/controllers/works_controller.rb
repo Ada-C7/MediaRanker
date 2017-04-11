@@ -39,3 +39,9 @@ class WorksController < ApplicationController
     end
   end
 end
+
+private
+
+def work_oarams
+  params.require(:work).permit(:title, :creator, :description, :publication_year)
+end 
