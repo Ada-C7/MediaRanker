@@ -1,11 +1,11 @@
 <h1>Media</h1>
 
 
-<% categories.each do |k, v| %>
-  <h2><%= k %></h2>
-    <% v.each do |work| %>
+<% categories.each do |category, works| %>
+  <h2><%= category %></h2>
+    <% works.each do |work| %>
       <h3><%= link_to work[:title], work_path(work.id) %> by <%= work[:creator] %></h3>
     <% end %>
-    <h3><%= link_to "add new #{k}", new_work_path %></h3>
-    <h3><%= link_to "see all #{k}s", k+"s" %></h3>
+    <h3><%= link_to "add new #{category}", new_work_path %></h3>
+    <h3><%= link_to "see all #{category.pluralize(2)}", category_path(category.pluralize(2)) %></h3>
 <% end %>
