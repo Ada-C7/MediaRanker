@@ -1,0 +1,30 @@
+<ul>
+
+  <% @work.errors.each do |field, message| %>
+      <li>
+        <%= field %> <%= message %>
+      </li>
+  <% end %>
+
+</ul>
+
+<%= form_for @work, method: form_method do |f| %>
+
+  <%= f.label :title %>
+  <%= f.text_field :title %>
+
+  <%= f.label :category %>
+  <%= f.select :category, ["book", "album", "movie"] %>
+
+  <%= f.label :creator %>
+  <%= f.text_field :creator %>
+
+  <%= f.label :pub_yr %>
+  <%= f.text_field :pub_yr %>
+
+  <%= f.label :desc, "Description" %>
+  <%= f.text_area :desc, size: "60x12" %>
+
+  <%= f.submit action_name %>
+
+<% end %>

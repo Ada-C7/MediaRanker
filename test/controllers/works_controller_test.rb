@@ -18,11 +18,22 @@ describe WorksController do
     must_respond_with :missing
   end
 
+  #pos new
   it "should get form for new work" do
     get new_work_path
     must_respond_with :success
   end
 
+  #pos create route
+  # it "should redirect to index after adding a work" do
+  #
+  # end
+
+  #pos create update test
+
+  #neg create route
+
+  #neg create update test
 
   #pos edit test
   it "should get form to edit work" do
@@ -35,4 +46,6 @@ describe WorksController do
     get edit_work_path(1)
     must_respond_with :missing
   end
+
+  #pos
 end
