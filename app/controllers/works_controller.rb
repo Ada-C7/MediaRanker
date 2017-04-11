@@ -5,11 +5,11 @@ class WorksController < ApplicationController
   end
 
   def movie_index
-    # @movies = Work[category: movie]
+    @movies = Work.where(category: "movie")
   end
 
   def book_index
-    # @books = Work[category: book]
+    @books = Work.where(category: "book")
   end
 
   def album_index

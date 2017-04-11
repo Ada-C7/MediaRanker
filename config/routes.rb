@@ -3,4 +3,6 @@ Rails.application.routes.draw do
   root 'mainpages#index', as: 'mainpages'
 
   get 'albums', to:'works#album_index', as: 'albums'
+  get 'movies', to:'works#movie_index', as: 'movies'
+  get 'books', to: 'works#book_index', as: 'books'
 end
