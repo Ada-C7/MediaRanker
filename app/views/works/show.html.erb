@@ -1,6 +1,16 @@
+<main>
+  <article>
+    <h3>Title: <%=@work.title%></h3>
+    <p>Created by: <%=@work.creator%></p>
+    <p>Published: <%=@work.publication_year%></p>
+    <p>Description: <%=@work.description%></p>
+  </article>
+  <section id = "buttons">
 
-<p>Category: <%=@work.category%></p>
-<p>Title: <%=@work.title%></p>
-<p>Creator: <%=@work.creator%></p>
-<p>Publication year: <%=@work.publication_year%></p>
-<p>Description: <%=@work.description%></p>
+  </section>
+  <article>
+    <h3>Total votes for this <%=@work.category%>:</h3>
+    <table> Table with votes goes here
+    </table>
+  </article>
+</main>
