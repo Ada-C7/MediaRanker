@@ -5,34 +5,36 @@
 
 <section id="top-movies">
   <h2>Top Movies</h2>
-  <%= @movies.each do | movie | %>
+  <% @movies.each do | movie | %>
   <ul>
-    <h3><%= movie.title %></h3>
-    <h4><%= movie.creator %></h4>
+    <h3><%= movie.title %>(link)</h3>
+    <h4>by <%= movie.creator %></h4>
     <p>(number of votes)</p>
   </ul>
+  <% end %>
   <p>(all movies link)</p>
-  <%= end %>
 </section>
 
 <section id="top-books">
   <h2>Top Books</h2>
-  <!--  for top 10 items do -->
+  <% @books.each do | book | %>
   <ul>
-    <h3>(title - links to individual page)</h3>
-    <h4>by (creator)</h4>
+    <h3><%= book.title %>(link)</h3>
+    <h4>by <%= book.creator %></h4>
     <p>(number of votes)</p>
   </ul>
+  <% end %>
   <p>(all books link)</p>
 </section>
 
 <section id="top-albums">
   <h2>Top Albumbs</h2>
-  <!--  for top 10 items do -->
+  <% @albums.each do | album | %>
   <ul>
-    <h3>(title - links to individual page)</h3>
-    <h4>by (creator)</h4>
+    <h3><%= album.title %>(link)</h3>
+    <h4>by <%= album.creator %></h4>
     <p>(number of votes)</p>
   </ul>
+  <% end %>
   <p>(all albums link)</p>
 </section>
