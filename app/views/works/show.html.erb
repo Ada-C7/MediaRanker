@@ -3,3 +3,8 @@
 <h2> Created by: <%= @work.created_by %> </h2>
 <h2> published: <%= @work.published_year %> </h2>
 <h2> <%= @work.description %> </h2>
+
+<%= link_to "Back to list", works_path %>
+<%= link_to "Edit", edit_work_path(@work.id) %>
+<%= link_to "Delete", work_path(@work), method: :delete,
+    data: {confirm: "Are you sure"} %>

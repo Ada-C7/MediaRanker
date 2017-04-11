@@ -3,6 +3,18 @@ class WorksController < ApplicationController
     @works = Work.all
   end
 
+  def show_movies
+    @movies = Work.where(category: "movie")
+  end
+
+  def show_books
+    @books = Work.where(category: "book")
+  end
+
+  def show_albums
+    @albums = Work.where(category: "album")
+  end
+
   def new
     @work = Work.new
   end
@@ -30,7 +42,7 @@ class WorksController < ApplicationController
     @work.update_attributes(work_params)
 
     if @work.save
-      redirect_to works_path(@work)
+      redirect_to work_path(@work.id)
     else
       render :edit
     end
