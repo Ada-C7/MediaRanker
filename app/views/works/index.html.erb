@@ -17,7 +17,7 @@
     <% movies = Work.top_ten("movie") %>
     <% movies.each do |movie| %>
       <p class="work-details">
-        <%= num %>. <%= movie.title %> by <%= movie.creator %>
+        <%= num %>. <%= link_to movie.title, work_path(movie.id) %> by <%= movie.creator %>
       </p>
       <p class="work-votes">
         <%= movie.votes_count %> votes
@@ -35,7 +35,7 @@
     <% books = Work.top_ten("book") %>
     <% books.each do |book| %>
       <p class="work-details">
-        <%= num %>. <%= book.title %> by <%= book.creator %>
+        <%= num %>. <%= link_to book.title, work_path(book.id) %> by <%= book.creator %>
       </p>
       <p class="work-votes">
         <%= book.votes_count %> votes
@@ -53,7 +53,7 @@
     <% albums = Work.top_ten("album") %>
     <% albums.each do |album| %>
       <p class="work-details">
-        <%= num %>. <%= album.title %> by <%= album.creator %>
+        <%= num %>. <%= link_to album.title, work_path(album.id) %> by <%= album.creator %>
       </p>
       <p class="work-votes">
         <%= album.votes_count %> votes

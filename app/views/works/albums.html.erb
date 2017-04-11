@@ -41,7 +41,7 @@
           <%= album.published %>
         </td>
         <td>
-          <%= link_to "Upvote" %>
+          <%= link_to "Upvote", new_vote_path(album.id), method: :post %>
         </td>
       </tr>
       <% end %>

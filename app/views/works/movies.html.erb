@@ -32,7 +32,7 @@
           <%= movie.votes_count %>
         </td>
         <td>
-          <%= movie.title %>
+          <%= link_to movie.title, work_path(movie.id) %>
         </td>
         <td>
           <%= movie.creator %>
@@ -41,7 +41,7 @@
           <%= movie.published %>
         </td>
         <td>
-          <%= link_to "Upvote", method: :get %>
+          <%= link_to "Upvote", new_vote_path(movie.id), method: :post %>
         </td>
       </tr>
       <% end %>

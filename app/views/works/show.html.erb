@@ -5,6 +5,45 @@
     messages will go here
   </p>
 </section>
+<section class="main-show">
+
+  <article class="work-content">
+    <h2 class="work-title"> <%= @work.title %> </h2>
+    <ul class="work-details">
+      <li class="work-creator">
+        Created by: <%= @work.creator %>
+      </li>
+      <li class="work-published">
+        Published: <%= @work.published %>
+      </li>
+      <li class="work-description">
+        <%= @work.description %>
+      </li>
+    </ul>
+    <ul class="work-buttons">
+      <li class="back-to-category-view-button">
+        <%= link_to "Back to #{@work.category} list", "#{@work.category}s", method: :get %>
+      </li>
+      <li class="edit-button">
+        <%= link_to "Edit", edit_work_path(@work.id), method: :get %>
+      </li>
+      <li class="upvote-button">
+        <%= link_to "Upvote", new_vote_path(@work.id), method: :post %>
+      </li>
+      <li class="delete-button">
+        <%= link_to "Delete", work_path(@work.id), method: :delete, data: { confirm: "Really delete this #{@work.category}?"} %>
+      </li>
+    </ul>
+
+  </article>
+
+
+
+  <article class="work-votes-users">
+
+  </article>
+
+</section>
 
 
 </section>
