@@ -7,6 +7,8 @@ Rails.application.routes.draw do
   get 'albums/new', to: 'works#new', as: 'new_album'
   get 'movies/new', to: 'works#new', as: 'new_movie'
   get 'books/new', to: 'works#new',  as: 'new_book'
+
+  patch 'works/:id/upvote', to: 'works#upvote',  as: 'upvote'
   # resources :welcome
   resources :users
   resources :votes

@@ -18,7 +18,10 @@ class WorksController < ApplicationController
   end
 
   def show
-    @work = Work.find(params[:id])
+    @work = Work.find_by(id: params[:id]) #changed to find_by; if not found -return nil
+    if @work.nil?
+      render status: :not_found, body:nil
+    end
   end
 
   def show_albums
@@ -49,6 +52,11 @@ class WorksController < ApplicationController
     work = Work.find(params[:id])
     work.destroy
     redirect_to welcome_index_path
+  end
+
+  def upvote
+    @work = Work.find(params[:id])
+    @work.votes.create  #create new vote for this work
   end
 
   private

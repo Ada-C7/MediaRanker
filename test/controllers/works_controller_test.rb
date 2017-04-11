@@ -13,7 +13,17 @@ describe WorksController do
       must_respond_with :success
     end
   end
-  describe "new" do
+  describe "show" do
+    it "shows a work that exists" do
+      w = Work.first
+      get work_path(w)
+      must_respond_with :success
+    end
+    it "return a 404 not found status when work is not exist" do
+      work_id = Work.last.id + 1
+      get work_path(work_id)
+      must_respond_with :not_found
+    end
 
   end
 
