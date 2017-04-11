@@ -1,0 +1,9 @@
+<h2> All Categories of Media </h2>
+
+<ul>
+  <% @works.each do |work| %>
+  <li>
+    <%= work.title %>
+  </li>
+  <% end %>
+</ul>
