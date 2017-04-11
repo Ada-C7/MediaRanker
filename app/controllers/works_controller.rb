@@ -6,5 +6,9 @@ class WorksController < ApplicationController
     @albums = @works.find_all { |work| work.category == "album" }
     @movies = @works.find_all { |work| work.category == "movie" }
   end
-  
+
+  def show
+    @work = Work.find(params[:id])
+  end
+
 end

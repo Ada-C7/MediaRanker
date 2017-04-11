@@ -10,4 +10,5 @@ describe WorksController do
     get work_path(works(:work_one).id)
     must_respond_with :success
   end
+  
 end
