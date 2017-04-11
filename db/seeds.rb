@@ -6,11 +6,13 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 require 'csv'
-require_relative 'media_seeds.csv'
+
+count = 0
 
 
-CSV.foreach('media_seeds.csv', :headers => true) do |row|
+CSV.foreach(Rails.root.join('db', 'media_seeds.csv'), :headers => true) do |row|
+  count += 1
   Work.create(:title => row['title'], :creator => row['creator'], :category => row['category'], :year => row['publication_year'], :description => row['description'])
-  puts "#{row.id} successfully added!"
+  puts "row #{count} successfully added!"
 
 end
