@@ -1,12 +1,12 @@
 <section class="index">
 
 <section class="featured-work">
-  <% featured_work = Work.max_votes(@works) %>
+  <% featured_work = Work.max_votes %>
   <p class="featured-details">
     Media Spotlight: <%= featured_work.title %> by <%= featured_work.creator %>
   </p>
   <p>
-    <%= featured_work.votes.count %> votes
+    <%= featured_work.votes_count %> votes
   </p>
 </section>
 <section class="top-ten-all-types">

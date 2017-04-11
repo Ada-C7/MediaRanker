@@ -9,38 +9,22 @@ class Work < ApplicationRecord
   validates :category, presence: true
   validates_inclusion_of :category, :in => ["book", "movie", "album"], :allow_nil => true
 
-  def self.max_votes(array)
-    max_votes = 0
-    target = nil
-    array.each do |work|
-      if work.votes.count > max_votes
-        max_votes = work.votes.count
-        target = work
-        puts "work is #{work}"
-      end
-    end
-    return target
+  def self.max_votes
+    # max_votes = 0
+    # target = nil
+    # array.each do |work|
+    #   if work.votes.count > max_votes
+    #     max_votes = work.votes.count
+    #     target = work
+    #     puts "work is #{work}"
+    #   end
+    # end
+    # return target
+    Work.order('votes_count DESC').limit(1).first
+
   end
 
   def self.top_ten(category)
-    # array = Work.where(category: category)
-    # all_counts = []
-    # array.each do |work|
-    #   work_and_count = {title: work, count: work.votes.count}
-    #   all_counts << work_and_count
-    # end
-    # all_counts = all_counts.group_by { |w| w[:count] }
-    # all_counts = all_counts.sort_by  { |k, v| -k }
-    # top_ten = all_counts.map(&:last).flatten
-    #
-    # top_ten_titles = []
-    # top_ten.each do |hash|
-    #   object = hash[:title]
-    #   puts object
-    #   top_ten_titles << object
-    # end
-    #
-    # return top_ten_titles.first(10)
 
     return Work.order('votes_count DESC').where(category: category).limit(10)
 
