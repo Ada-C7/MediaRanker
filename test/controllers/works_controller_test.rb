@@ -1,6 +1,7 @@
 require "test_helper"
 
 describe WorksController do
+  #pos index
   it "should get index" do
     get works_path
     must_respond_with :success
@@ -24,7 +25,7 @@ describe WorksController do
     must_respond_with :success
   end
 
-  #pos update route
+  #pos create redirect
   it "should redirect to index after adding a work" do
     post works_path params: { work:
             { title: "Title",
@@ -37,7 +38,7 @@ describe WorksController do
     must_redirect_to works_path
   end
 
-  #neg update route - NOT SURE HOW TO TEST THIS
+  #neg create route - NOT SURE HOW TO TEST THIS
   # it "should render new page with errors if work was not saved" do
   #   post works_path params: { work:
   #           { title: "",
@@ -49,7 +50,7 @@ describe WorksController do
   #   must_render new_work_path
   # end
 
-  #pos create update test
+  #pos create affect database test
   it "should affect the model when updating a book" do
     proc {
       post works_path, params: { work:
@@ -62,8 +63,8 @@ describe WorksController do
       }.must_change 'Work.count', 1
   end
 
-  #neg create update test - Not sure if this is actually testing
-  #What I want it to test.
+  #neg create test - Not sure if this is actually testing
+  #What I want it to test.  - not updating db
   it "should not affect the model when book is invalid" do
     proc {
       post works_path, params: { work:
@@ -100,5 +101,21 @@ describe WorksController do
     must_respond_with :redirect
     must_redirect_to work_path(works(:work_one).id)
   end
-  
+
+  #neg update test - is this overkill b/c of Model testing??
+  it "should not update a work if entry is invalid" do
+    put work_path(works(:work_one).id), params: {work: {title: ""} }
+
+    work = Work.find(works(:work_one).id)
+
+    work.title.must_equal "My Work"
+  end
+
+  #pos destroy test
+  it "should delete a work and redirect to work list" do
+      delete work_path(works(:work_one).id)
+      must_redirect_to works_path
+  end
+
+  #neg destroy test
 end
