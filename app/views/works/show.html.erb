@@ -1,4 +1,10 @@
-<%= @work.title %>
-Created by: <%= @work.created_by %>
-Published <%= @work.year_published %>
-<%= @work.description %>
+<%= @work.title %></br>
+Created by: <%= @work.created_by %></br>
+Published <%= @work.year_published %></br>
+<%= @work.description %></br>
+
+<%= button_to "Back to #{@work.category.capitalize} List", category_path(@work.category.pluralize), method: :get %>
+
+<%= button_to "Edit",edit_work_path(@work.id), method: :get %>
+
+<%= button_to "Delete", work_path(@work.id), method: :delete, data: {confirm: "Are you sure you want to delete this work?"} %>
