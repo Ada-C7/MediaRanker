@@ -31,6 +31,12 @@ describe Work do
       result.must_equal false
     end
 
+    it "Publication year should be 4-digit length " do
+      w = Work.new(category: "movie", title: "ABCDE", creator: "Abc", publication_year: "30993" )
+      result = w.valid?
+      result.must_equal false
+    end
+
     it "has uniqueless title" do
       w1= works(:pretzellogic)
       not_uniq_work.valid?.must_equal false

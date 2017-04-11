@@ -12,7 +12,7 @@ class Work < ApplicationRecord
 
   validates :publication_year, presence: true
   validates :publication_year, numericality: {:greater_than_or_equal_to => 0}
-
+  validates :publication_year, length: { is: 4}
   def total_votes
     return self.votes.count
   end
