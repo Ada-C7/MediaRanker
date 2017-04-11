@@ -37,13 +37,12 @@ class UsersController < ApplicationController
   def destroy
     #need to add validations in the model
     User.find(params[:id]).destroy
-    redirect_to driver_path
+    redirect_to user_path
   end
 
   private
   def user_params
     return params.require(:user).permit(:user_name)
-
   end
 
 end
