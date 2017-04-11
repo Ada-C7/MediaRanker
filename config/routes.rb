@@ -8,8 +8,8 @@ Rails.application.routes.draw do
   get 'books', to: 'works#books', as: 'books'
   get 'albums', to: 'works#albums', as: 'albums'
 
-  get 'books/new', to:'works#new', as: 'new_book'
+  get 'books/new', to:'works#new_book', as: 'new_book'
   get 'albums/new', to:'works#new', as: 'new_album'
-  get 'movies/new', to:'works#new', as: 'new_movie'
+  get 'movies/new', to:'works#new_movie', as: 'new_movie'
 
 end

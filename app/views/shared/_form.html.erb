@@ -12,6 +12,8 @@
     <%= f.label :description %>
     <%= f.text_field :description %>
 
+    <%= f.hidden_field :category, :value => @work.category %>
+
     <%= f.submit value: "Submit" %>
   <% end %>
 </section>

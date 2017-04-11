@@ -1,13 +1,28 @@
 class WorksController < ApplicationController
 
-  # def movies
-  # end
+  def movies
+    # @movies =
+  end
+
+  def books
+  end
+
+  def alubms
+  end
   #
-  # def books
-  # end
-  #
-  # def alubms
-  # end
+  def new_movie
+    @work = Work.new
+    @work.category = "movie"
+    render "works/movies/new"
+  end
+
+  def new_book
+    # @work = Work.new
+  end
+
+  def new_album
+    # @work = Work.new
+  end
 
   def new
     @work = Work.new

@@ -1,8 +1,9 @@
 <header>
-  <h1> Edit Page </h1>
+  <%= render "shared/header" %>
 </header>
 
 <main>
+  <h1> Edit Page </h1>
   <%= render partial: "form", locals: { submit_text: "Update"} %>
 
   <% if @work.errors.any? %>
