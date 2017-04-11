@@ -1,5 +1,5 @@
 <section id="content">
-  <h2>All Trips!</h2>
+  <h2>All Works!</h2>
 
   <table>
     <tr>
@@ -11,10 +11,10 @@
     </tr>
     <% @works.each do | work | %>
     <tr>
-      <td><%= work.category, work_path(work.work_id) %></td>
-      <td><%= work.title, work_path(work.work_id) %></td>
+      <td><%= work.category %></td>
+      <td><%= work.title %></td> 
       <td><%= work.creator %></td>
-      <td><%= work.publication %></td>
+      <td><%= work.pub_year %></td>
       <td>$<%= work.description %></td>
     </tr>
     <% end %>

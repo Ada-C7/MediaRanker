@@ -10,11 +10,11 @@ require "csv"
 
 CSV.foreach("db/media_seeds.csv", :headers => true) do |line|
   w = Work.new
-  w.category = line[1].to_s
-  w.title = line[2].to_s
-  w.creator = line[3].to_s
-  w.pub_year = line[4].to_i
-  w.description = line[5]
+  w.category = line[0].to_s
+  w.title = line[1].to_s
+  w.creator = line[2].to_s
+  w.pub_year = line[3].to_i
+  w.description = line[4]
   w.save
 
   puts "#{w.name} saved"
