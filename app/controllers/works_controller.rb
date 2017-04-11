@@ -6,15 +6,20 @@ class WorksController < ApplicationController
   end
 
 
+
   def show
     @selected_work = Work.find params[:id]
+  end
+
+  def new
+    @work = Work.new
   end
 
   def create
     @work = Work.create work_params
 
     unless @work.id ==  nil
-      redirect_to workers_path
+      redirect_to works_path
     else
       render "new"
     end
@@ -26,9 +31,10 @@ class WorksController < ApplicationController
 
   def update
     @work = Work.find params[:id]
+    @work.update! work_params
 
     if @work.save
-      redirect_to workers_path
+      redirect_to works_path
     else
       render "edit"
     end
@@ -36,7 +42,7 @@ class WorksController < ApplicationController
 
   def destroy
     Work.destroy params[:id]
-    redirect_to workers_path
+    redirect_to works_path
   end
 
 

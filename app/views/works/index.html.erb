@@ -4,9 +4,7 @@
 <% categories.each do |k, v| %>
   <h2><%= k %></h2>
     <% v.each do |work| %>
-    <h3><%= link_to work[:title], work_path(work.id) %></h3>
-    <p><%= work[:creator] %></p>
-    <p><%= work[:year] %></p>
-    <p><%= work[:description] if work[:description] != nil %></p>
+      <h3><%= link_to work[:title], work_path(work.id) %> by <%= work[:creator] %></h3>
     <% end %>
+    <h3><%= link_to "add new #{k}", new_work_path %></h3>
 <% end %>
