@@ -7,6 +7,10 @@ class WorksController < ApplicationController
     @movies = works.find_all { |work| work.category == "movie" }
   end
 
+  def index_books
+    @books = Work.where(category: "book")
+  end
+
   def show
     @work = Work.find_by_id(params[:id])
     if !@work

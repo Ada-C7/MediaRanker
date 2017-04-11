@@ -1,0 +1,5 @@
+<h1>All Books</h1>
+
+<% @books.each do |book| %>
+  <h3> <%= link_to book.title, work_path(book.id) %> by <%= book.creator %> </h3>
+<% end %>
