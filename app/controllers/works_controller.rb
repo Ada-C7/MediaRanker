@@ -18,11 +18,25 @@ class WorksController < ApplicationController
     @work = Work.new
   end
 
+  def create
+    @work = Work.create work_params
+
+    if @work.id != nil
+      redirect_to works_path
+    end
+  end
+
   def edit
     @work = Work.find_by_id(params[:id])
     if !@work
       render_404
     end
+  end
+
+  private
+
+  def work_params
+    params.require(:work).permit(:title, :category, :creator, :pub_yr, :desc)
   end
 
 end

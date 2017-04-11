@@ -26,7 +26,7 @@ describe WorksController do
 
   #pos create route
   it "should redirect to index after adding a work" do
-    post works_path params: { works:
+    post works_path params: { work:
             { title: "Title",
               category: "book",
               creator: "creator",
