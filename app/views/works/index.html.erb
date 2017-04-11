@@ -7,4 +7,5 @@
       <h3><%= link_to work[:title], work_path(work.id) %> by <%= work[:creator] %></h3>
     <% end %>
     <h3><%= link_to "add new #{k}", new_work_path %></h3>
+    <h3><%= link_to "see all #{k}s", k+"s" %></h3>
 <% end %>

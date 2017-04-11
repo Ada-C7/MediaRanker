@@ -6,6 +6,14 @@ class WorksController < ApplicationController
   end
 
 
+  def show_category
+    works = Work.all
+    @category_works = []
+    works.each do |work|
+      @category_works << work if work[:category] == params[:category]
+    end
+    return @category_works
+  end
 
   def show
     @selected_work = Work.find params[:id]
