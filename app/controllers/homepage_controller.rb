@@ -8,6 +8,6 @@ class HomepageController < ApplicationController
   def books
   end
 
-  def albumns
+  def albums
   end
 end

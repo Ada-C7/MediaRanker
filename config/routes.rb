@@ -5,6 +5,6 @@ Rails.application.routes.draw do
 
   get 'movies', to: 'homepage#movies', as: 'movies'
   get 'books', to: 'homepage#books', as: 'books'
-  get 'albumns', to: 'homepage#albumns', as: 'albumns'
+  get 'albums', to: 'homepage#albums', as: 'albums'
 
 end

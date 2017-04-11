@@ -23,12 +23,12 @@
   </section>
 
   <section>
-    <h2>Albumns</h2>
+    <h2>Albums</h2>
     <ul>
-    <% Work.all.where(category: "albumn").each do |albumn| %>
-      <li><%= albumn.title %></li>
+    <% Work.all.where(category: "albumn").each do |album| %>
+      <li><%= album.title %></li>
     <% end %>
     </ul>
-    <%= link_to "All Albumns", albumns_path %>
+    <%= link_to "All Albumns", albums_path %>
   </section>
 </main>
