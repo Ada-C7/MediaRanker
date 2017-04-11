@@ -49,6 +49,7 @@ describe Work do
       work.errors.messages.must_include :publication_year
     end
 
+#our seed files do not have descriptions
     # it "Requires a description" do #failure case test
     #   work = Work.new
     #   result = work.valid?
@@ -59,6 +60,7 @@ describe Work do
     #   work.errors.messages.must_include :description
     # end
 
+##holding this here until I decide what other validations I want to add to the model - these are unique tests brought over from Dan's books project
 #     it "Must have a unique title" do
 #       a = Author.create!(name: "test author")
 #       # Add a book to the B to be a duplicate with
