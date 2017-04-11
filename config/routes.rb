@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   get 'albums', :to => 'albums#index'
   get 'books', :to => 'books#index'
   get 'movies', :to => 'movies#index'
+  root "works#index" #root defaults to first one
 
 
   resources :works
