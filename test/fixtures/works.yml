@@ -4,8 +4,14 @@
 # model remove the "{}" from the fixture names and add the columns immediately
 # below each fixture, per the syntax in the comments below
 #
-one: {}
-# column: value
-#
-two: {}
-# column: value
+one:
+  mediatype: album
+  title: Can't Buy a Thrill
+  creator: Steely Dan
+  year: 1972
+
+two:
+  mediatype: album
+  title: Let it Be
+  creator: The Beatles
+  year: 1969
