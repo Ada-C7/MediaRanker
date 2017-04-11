@@ -8,13 +8,12 @@
 
 require 'csv'
 
-CSV.open('media_seeds.csv', 'r', :headers => true).each do |line|
+CSV.open('db/media_seeds.csv', 'r', :headers => true).each do |line|
+  category = line["category"]
   title = line["title"]
-  vin = line["vin"]
-  creator
-  publication_year
-  description
+  creator = line["creator"]
+  pub_yr = line["publication_year"].to_i
+  description = line["description"]
 
-  # driver_array << {name: name, vin: vin, availability: true}
-  Work.create({title: name, vin: vin, availability: true})
+  Work.create({category: category, title: title, creator: creator, pub_yr: pub_yr, desc: description})
 end
