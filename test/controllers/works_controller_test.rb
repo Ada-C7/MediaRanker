@@ -13,6 +13,12 @@ describe WorksController do
     must_respond_with :success
   end
 
+  #pos index_books
+  it "should get index_books page" do
+    get books_path
+    must_respond_with :success
+  end
+
   #neg show test
   it "should show a 404 if work not found" do
     get work_path(1)
