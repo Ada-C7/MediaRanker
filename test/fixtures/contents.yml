@@ -1,15 +1,17 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
-  category: MyString
-  title: MyString
-  creator: MyString
-  publication_year: MyString
-  description: MyText
+shrek:
+  category: "movie"
+  title: "shrek"
+  creator: "DreamWorks"
+  publication_year: "2001"
+  description: "Once upon a time, in a far away swamp, there lived an ogre named Shrek (Mike Myers)
+   whose precious solitude is suddenly shattered by an invasion of annoying fairy tale characters. "
 
-two:
-  category: MyString
-  title: MyString
-  creator: MyString
-  publication_year: MyString
-  description: MyText
+hp:
+  category: "book"
+  title: "Harry Potter and the Sorcerer's Stone"
+  creator: "JK Rowling"
+  publication_year: "1997"
+  description: "Harry Potter and the Philosopher's Stone is the first novel
+   in the Harry Potter series and J. K. Rowling's debut novel, first published in 1997 by Bloomsbury."
