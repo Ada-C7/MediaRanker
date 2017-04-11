@@ -6,7 +6,6 @@
 
 <h2>Top Albums</h2>
 <ul>
-
   <% @albums = @works.select {|work| work.category == "album"} %>
 
   <% @albums.each do |album| %>
@@ -18,7 +17,6 @@
 
 <h2>Top Books</h2>
 <ul>
-
   <% @books = @works.select {|work| work.category == "book"} %>
 
   <% @books.each do |book| %>
@@ -30,7 +28,6 @@
 
 <h2>Top Movies</h2>
 <ul>
-
   <% @movies = @works.select {|work| work.category == "movie"} %>
 
   <% @movies.each do |movie| %>
