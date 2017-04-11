@@ -18,17 +18,6 @@ describe User do
       user.errors.messages.must_include :name
     end
 
-#our seed files do not have descriptions
-    # it "Requires a description" do #failure case test
-    #   work = Work.new
-    #   result = work.valid?
-    #   result.must_equal false
-    #
-    #   #Check that the validation we're testing
-    #   # did actually failure
-    #   work.errors.messages.must_include :description
-    # end
-
 ##holding this here until I decide what other validations I want to add to the model - these are unique tests brought over from Dan's books project
 #     it "Must have a unique title" do
 #       a = Author.create!(name: "test author")
