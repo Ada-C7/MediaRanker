@@ -5,11 +5,11 @@
 # below each fixture, per the syntax in the comments below
 #
 one:
-  user: aurora
-  work: linnets
+  user_id: aurora
+  work_id: linnets
 # column: value
 #
 two:
-  user: felix
-  work: fall
+  user_id: felix
+  work_id: fall
 # column: value

@@ -3,7 +3,13 @@ require "test_helper"
 describe Vote do
   let(:vote) { Vote.new }
 
-  it "must be valid" do
-    value(vote).must_be :valid?
-  end
+  # must have user id
+
+  # must have work id
+
+  # work id must be unique
+
+  # can create a new vote
+
+  
 end
