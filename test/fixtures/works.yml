@@ -1,11 +1,39 @@
-# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+graduate:
+  title: The Graduate
+  creator: Mike Nichols
+  year_published: 1967
+  description: There is a great future in plastics. Think about it. Will you think about it?
+  category: movie
 
-# This model initially had no columns defined. If you add columns to the
-# model remove the "{}" from the fixture names and add the columns immediately
-# below each fixture, per the syntax in the comments below
-#
-one: {}
-# column: value
-#
-two: {}
-# column: value
+bone_people:
+  title: The Bone People
+  creator: Keri Hulme
+  year_published: 1983
+  description: She had debated, in the frivolity of the beginning, whether to build a hole or a tower; a hole, because she was fond of hobbits, or a tower — well, a tower for many reasons, but chiefly because she liked spiral staircases.
+  category: book
+
+libertines:
+  title: The Libertines
+  creator: The Libertines
+  year_published: 2004
+  description: Please don't get me wrong / See I forgive you with a song / We'll call the Likely Lads / But if it's left to you / I know exactly what you'd do / With all the dreams we had
+  category: album
+
+no_title:
+  creator: John Cameron Mitchell
+  year_published: 2001
+  description: Six inches forward and five inches back.
+  category: movie
+
+no_category:
+  title: Cat's Cradle
+  creator: Kurt Vonnegut
+  year_published: 1963
+  description: We do, doodley do, doodley do, doodley do, What we must, muddily must, muddily must, muddily must; Muddily do, muddily do, muddily do, muddily do, Until we bust, bodily bust, bodily bust, bodily bust.
+
+bad_category:
+  title: Get RID!
+  creator: Robots in Disguise
+  year_published: 2005
+  description: Turn it up turn it up turn it up turn it up / Turn it up turn it up turn it up turn it up / Turn me on
+  category: music
