@@ -1,6 +1,14 @@
 class WorksController < ApplicationController
-  def index
-    @works = Work.all
+  def index_album
+    @albums = Work.where(category: "album")
+  end
+
+  def index_movie
+    @movies = Work.where(category: "movie")
+  end
+
+  def index_book
+    @book = Work.where(category: "book")
   end
 
   def show
@@ -10,5 +18,13 @@ class WorksController < ApplicationController
     end
   end
 
+  def edit
+    @work = Work.find(params[:id])
+  end
+
+  def update
+    @work = Work.find(params[:id])
+
+  end
 
 end

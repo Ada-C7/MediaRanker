@@ -5,7 +5,15 @@
 
 <ul>
 
-   <% @works.each do |work| %>
+   <% @albums.each do |work| %>
+  <li> <%= work.category %> <%= work.title %> </li>
+    <% end %>
+  </li>
+</ul>
+
+<ul>
+
+   <% @movies.each do |work| %>
   <li> <%= work.category %> <%= work.title %> </li>
     <% end %>
   </li>
