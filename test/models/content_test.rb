@@ -33,4 +33,14 @@ describe Content do
     content3.valid?.must_equal false
   end
 
+  it "must have a creator on creation" do
+    content4 = Content.new
+    content4.title = "Another Test"
+    content4.category = "Internet"
+    content4.publication_year = "2009"
+    content4.description = "This be test"
+
+    content4.valid?.must_equal false
+  end
+
 end
