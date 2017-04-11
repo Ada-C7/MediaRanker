@@ -8,6 +8,13 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
+  <header>
+    <%=image_tag ("owl.jpg")%>
+    <%=link_to "Media Ranker", welcome_index_path%>
+    <strong>Ranking the Best of Everything </strong>
+    <div> Login button </div>
+  </header>
+
   <body>
     <%= yield %>
   </body>
