@@ -1,13 +1,13 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
-  type: 
-  title: MyString
-  published: 1
-  description: MyText
+fall:
+  category: "movie"
+  title: "Legends of the Fall"
+  published: 1995
+  description: "Brad Pitt. Enough said."
 
-two:
-  type: 
-  title: MyString
-  published: 1
-  description: MyText
+linnets:
+  category: "book"
+  title: "Linnets & Valerians"
+  published: 1964
+  description: "A delightful children's fantasy."
