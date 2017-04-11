@@ -28,4 +28,4 @@ csv.each do |row|
   w.save
 end
 
-puts "There are now #{Work.count} rows in the trips table"
+puts "There are now #{Work.count} rows in the works table"
