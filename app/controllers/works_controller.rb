@@ -9,6 +9,7 @@ class WorksController < ApplicationController
   end
 
   def create
+
     @work = Work.create(work_params)
     if @work.save
       redirect_to :root
@@ -56,7 +57,7 @@ class WorksController < ApplicationController
   private
 
   def work_params
-    params.require(:work).permit(:title, :type, :description, :published)
+    params.require(:work).permit(:title, :creator, :published, :description, :category)
   end
 
 end
