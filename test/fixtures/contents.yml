@@ -1,5 +1,11 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
+hacking:
+  category: "album"
+  title: "Music For Hacking"
+  creator: "Zoe Blade"
+  publication_year: "2009"
+  
 shrek:
   category: "movie"
   title: "shrek"
