@@ -29,14 +29,14 @@ class WorksController < ApplicationController
 
   def update
     @work = Work.find params[:id]
-    @work.category = work_params[:category]
+    #update should not change category
     @work.title = work_params[:title]
     @work.creator = work_params[:creator]
     @work.description = work_params[:description]
     @work.publication_year = work_params[:publication_year]
 
     if @work.save
-      redirect_to work_path
+      redirect_to work_path #this needs to redirect to category path
     else
       render "edit"
     end
@@ -44,7 +44,7 @@ class WorksController < ApplicationController
 
   def destroy
     Work.destroy(params[:id])
-    redirect_to works_path #this needs to be edited in the future to movies path
+    redirect_to works_path #this needs to be edited in the future to category path
   end
 end
 
