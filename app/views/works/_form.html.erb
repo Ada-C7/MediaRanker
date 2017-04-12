@@ -1,4 +1,5 @@
-<%= form_for @work, method: form_method do |f| %>
+<%= form_for @work, url: work_path, method: form_method do |f| %>
+blablablaa
   <p>
   <%= f.label :title, "YoYoYo" %>
   <%= f.text_field :title %>

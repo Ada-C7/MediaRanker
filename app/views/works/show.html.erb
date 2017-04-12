@@ -17,5 +17,7 @@
 <% elsif @result_work.category == "album" %>
 <%= link_to "Back to album list", albums_path %>
 <% elsif @result_work.category == "movie" %>
-<%= link_to "Back to movie list" %>
+<%= link_to "Back to movie list", movies_path %>
 <% end %>
+
+<%= link_to "Edit", edit_work_path %>

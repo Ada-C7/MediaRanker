@@ -1,12 +1,13 @@
 class WorksController < ApplicationController
   def index
-    @works = Work.all
-    @movies = Work.all.select {|work| work.category == "movie"}
+    # @works = Work.all
+    super
+    # @movies = Work.all.select {|work| work.category == "movie"}
 
-    @books = Work.all.select {|work| work.category == "book"}
+    # @books = Work.all.select {|work| work.category == "book"}
     # @books.order(title: :desc)
 
-    @albums = Work.all.select {|work| work.category == "album"}
+    # @albums = Work.all.select {|work| work.category == "album"}
   end
 
   def show
@@ -37,6 +38,29 @@ class WorksController < ApplicationController
   # end
   # ...
 # end
+  end
+
+  def edit
+    @work = Work.find(params[:id])
+  end
+
+  def update
+    @work = Work.find(params[:id])
+
+    @work.title = work_params[:title]
+    @work.creator = work_params[:creator]
+
+    @work.description = work_params[:description]
+
+    if @work.save
+      redirect_to work_path(@work.id)
+    # elsif @work.save && @work.category == "album"
+    #   redirect_to albums_path
+    # elsif @work.save && @work.category == "movie"
+    #   redirect_to movies_path
+    else
+      render "edit"
+    end
   end
 
   private
