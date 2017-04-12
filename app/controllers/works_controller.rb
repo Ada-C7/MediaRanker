@@ -9,4 +9,11 @@ class WorksController < ApplicationController
     @work = Work.find_by_id(params[:id])
     render_404 if !@work
   end
+
+  def new
+    @work = Work.new
+    render_404 if ["movies", "books", "albums"].exclude?(params[:category])
+  end
+
+
 end

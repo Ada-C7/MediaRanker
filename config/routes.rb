@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
   root to: "works#index"
-  
-  resources :works
+
+  get '/:category/new', to: 'works#new', as: 'new_work'
+
+  resources :works, except: :new
 end

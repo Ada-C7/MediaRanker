@@ -25,4 +25,24 @@ describe WorksController do
     get work_path(1)
     must_respond_with :missing
   end
+
+  it "should show the new book form" do
+    get new_work_path("books")
+    must_respond_with :success
+  end
+
+  it "should show the new movie form" do
+    get new_work_path("movies")
+    must_respond_with :success
+  end
+
+  it "should show the new album form" do
+    get new_work_path("albums")
+    must_respond_with :success
+  end
+
+  it "should show a 404 when form not found" do
+    get new_work_path("broken")
+    must_respond_with :missing
+  end
 end
