@@ -23,10 +23,14 @@ describe WorksController do
       must_respond_with :success
     end
 
-   it "should show the new work form" do
+  it "should show the new work form" do
      get new_work_path
      must_respond_with :success
-   end
+  end
+
+  it "should redirect to category list after adding work" do
+
+  end
 
   it "should increase the work count by one after adding work" do
   proc {

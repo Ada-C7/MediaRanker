@@ -4,6 +4,9 @@ Rails.application.routes.draw do
   get 'movies', :to => 'movies#index'
   root "works#index" #root defaults to first one
 
+  resources :books
+  resources :movies
+  resources :albums
 
   resources :works
 
