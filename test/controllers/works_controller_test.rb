@@ -18,7 +18,14 @@ describe WorksController do
   end
 
   it "updating work should redirect to root" do
-    patch work_path, params: { work: { title: "" }}
+    patch work_path(works(:linnets)), work: {
+      linnets:
+      { category: "movie",
+        title: "Linnets or Valerians",
+        published: 1988,
+        description: "blah",
+        user: :felix  }
+      }
     must_redirect_to root_path
   end
 
