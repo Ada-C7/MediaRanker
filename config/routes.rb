@@ -6,4 +6,6 @@ Rails.application.routes.draw do
 
  get "/:category", to: "works#show_category", as: 'category'
 
+ get "/:category/new", to: "works#new", as: 'new_with_category'
+
 end
