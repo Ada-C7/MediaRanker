@@ -1,4 +1,0 @@
-<h2>Top Movies</h2>
-<ul><% @movies.each do |movie| %>
-  <li><%= link_to movie.title, movie_path(movie.id) %> by <%= movie.created_by %></li>
-<% end %></ul>

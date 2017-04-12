@@ -29,7 +29,6 @@ class WorksController < ApplicationController
 
   def edit
     @work = Work.find(params[:id])
-    @work.category = params[:category]
   end
 
   def update
@@ -37,7 +36,7 @@ class WorksController < ApplicationController
     @work.update_attributes(work_params)
 
     if @work.save
-      redirect_to work_path(@work.category)
+      redirect_to works_path(@work.category.pluralize)
     else
       render :edit
     end
