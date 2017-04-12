@@ -22,13 +22,17 @@ class WorksController < ApplicationController
     unless @work.id == nil
       case @work.category
         when "album"
+          flash[:success] = "Successfully created album #{@work.id}."
           redirect_to albums_path
         when "movie"
+          flash[:success] = "Successfully created movie #{@work.id}."
           redirect_to movies_path
         when "book"
+          flash[:success] = "Successfully created book #{@work.id}."
           redirect_to books_path
       end
     else
+      flash.now[:error] = "A problem occured: Could not create #{@work.category}"
       render "new"
     end
   end
@@ -46,14 +50,17 @@ class WorksController < ApplicationController
     @work.publication_year = work_params[:publication_year]
 
     if @work.save
+      # flash[:success] = "Successfully created #{@work.category} #{@work.id}."
       redirect_to work_path #this needs to redirect to category path
     else
+      # flash.now[:error] = "A problem occured: Could not update #{@work.category}"
       render "edit"
     end
   end
 
   def destroy
     Work.destroy(params[:id])
+    # flash[:success] = "Successfully destroyed #{@work.category} #{@work.id}."
     redirect_to works_path #this needs to be edited in the future to category path
   end
 end

@@ -10,9 +10,18 @@
 
   <body>
     <header>
-    <h2><%= link_to "Media Ranker", root_path %></h2><h3>Ranking the Best of Everything</h3> 
-
+    <h2><%= link_to "Media Ranker", root_path %></h2><h3>Ranking the Best of Everything</h3>
   </header>
+
+  </body>
+
+  <body>
+    <section class="flash">
+     <% flash.each do |name, message| %>
+       <div class="<%= name %>"><%= message %></div>
+     <% end %>
+    </section>
     <%= yield %>
   </body>
+
 </html>

@@ -1,3 +1,10 @@
+<% @work.errors.each do |field, msg| %>
+    <li>
+      <%= field %>: <%= msg %>
+    </li>
+  <% end %>
+
+
 
 <%= form_for @work do |f| %>
 
