@@ -1,17 +1,26 @@
 class WorksController < ApplicationController
   def index
-    @albums = Work.where(category: "album")
-    @movies = Work.where(category: "movie")
-    @books = Work.where(category: "book")
+    @books = index_book
+    @movies = index_movie
+    @albums = index_album
+    # @works = Work.all
+    # @albums = Work.where(category: "album")
+    # @movies = Work.where(category: "movie")
+    # @books = Work.where(category: "book")
   end
 
-  # def index_movie
-  #   @movies = Work.where(category: "movie")
-  # end
+  def index_album
+    @albums = Work.where(category: "album")
+  end
+
+
+  def index_movie
+    @movies = Work.where(category: "movie")
+  end
   #
-  # def index_book
-  #   @book = Work.where(category: "book")
-  # end
+  def index_book
+    @books = Work.where(category: "book")
+  end
 
   def show
     @result_work = Work.find_by_id(params[:id])

@@ -1,5 +1,5 @@
 class AlbumsController < ApplicationController
-  def index_movie
-    @movies = Work.where(category: "movie")
+  def index
+    @albums = Work.where(category: "album")
   end
 end
