@@ -10,7 +10,15 @@ class SessionsController < ApplicationController
       session[:user_id] = user.id
       redirect_to root_path
     else
-      #should create a new user (call user method??  REDIRECT?) if none found
+      #should create a new user (call user method??  REDIRECT?)
+      user = User.new
+      user.name = params[:name]
+
+      if user.save
+        flash[:success] = "You have successfully logged in as new user #{ user.name }"
+        session[:user_id] = user.id
+        redirect_to users_path
+      end
     end
   end
 
