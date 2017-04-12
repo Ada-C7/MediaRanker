@@ -1,2 +1,22 @@
-<h1>Works#show</h1>
-<p>Find me in app/views/works/show.html.erb</p>
+<section id="content">
+  <h2>Albums!</h2>
+
+  <table>
+    <tr>
+      <th>Category</th>
+      <th>Title</th>
+      <th>Creator</th>
+      <th>Publication Year</th>
+      <th>Description</th>
+    </tr>
+    <% @works.each do | work | %>
+    <tr>
+      <td><%= work.category %></td>
+      <td><%= work.title %></td>
+      <td><%= work.creator %></td>
+      <td><%= work.pub_year %></td>
+      <td><%= work.description %></td>
+    </tr>
+    <% end %>
+  </table>
+</section>
