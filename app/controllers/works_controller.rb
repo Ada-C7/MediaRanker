@@ -38,8 +38,10 @@ class WorksController < ApplicationController
     @work = Work.create work_params
 
     if @work.id != nil
-      redirect_to works_path
+      flash[:success] = "Work added successfully!"
+      redirect_to books_path
     else
+      flash.now[:error] = "Error has occured."
       render "new"
     end
   end
