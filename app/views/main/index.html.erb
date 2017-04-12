@@ -1,0 +1,31 @@
+<h1>Media Raker</h1>
+<p>
+  Media Spotlight: <%= @spot.title%> by <%= @spot.creator%>
+  Synopsis: <%= @spot.description %>
+</p>
+<div>
+  <h2> Top Books </h2>
+  <ul>
+    <% @books.each do |book| %>
+    <li> <%= book.title %> by <%= book.creator %> </li>
+    <% end %>
+  </ul>
+</div>
+
+<div>
+  <h2> Top Movies </h2>
+  <ul>
+    <% @movies.each do |movie| %>
+    <li> <%= movie.title %> by <%= movie.creator %> </li>
+    <% end %>
+  </ul>
+</div>
+
+<div>
+  <h2> Top Albums </h2>
+  <ul>
+    <% @albums.each do |album| %>
+    <li> <%= album.title %> by <%= album.creator %> </li>
+    <% end %>
+  </ul>
+</div>
