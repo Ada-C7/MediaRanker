@@ -4,9 +4,7 @@
     <p>Created by: <%=@work.creator%></p>
     <p>Published: <%=@work.publication_year%></p>
     <p>Description: <%=@work.description%></p>
-    <p>Category: <%=@work.category%></p>
 
-    <p>Total votes for this work: <%=@work.votes_count%></p>
     <%if session[:user_id]%>
       <p>User: <%=@user.username%></p>
       <p>User's total votes: <%=@user.votes.length%></p>
@@ -26,10 +24,21 @@
 
     <%= button_to 'Delete', work_path(@work.id), method: :delete, data: {confirm: 'Are you sure?' } %>
   </section>
-  
+
   <article>
-    <h3>Total votes for this <%=@work.category%>:</h3>
-    <table> Table with user (user name and date) votes goes here
+    <p>Total votes for this work: <%=@work.votes_count%></p>
+    <h3>Votes for this <%=@work.category%>:</h3>
+    <table>
+      <tr>
+        <th>User</th>
+        <th> Date </th>
+      </tr>
+      <%@work.votes.each do |vote|%>
+        <tr>
+          <td> <%= vote.user.username  %>  </td>
+          <td> <%= vote.created_at.month%>/<%= vote.created_at.day%>/<%= vote.created_at.year%></td>
+        </tr>
+      <%end%>
     </table>
   </article>
 </main>
