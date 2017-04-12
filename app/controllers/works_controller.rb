@@ -4,19 +4,19 @@ class WorksController < ApplicationController
     @works = Work.all
   end
 
-  def new
-    @work = Work.new
-  end
-
-  def create
-    @work = Work.create(work_params)
-    if @work.save
-      redirect_to :root
-    else
-      # puts "didn't save, #{@work.errors.messages}"
-      render :new
-    end
-  end
+  # def new
+  #   @work = Work.new
+  # end
+  #
+  # def create
+  #   @work = Work.create(work_params)
+  #   if @work.save
+  #     redirect_to :root
+  #   else
+  #     # puts "didn't save, #{@work.errors.messages}"
+  #     render :new
+  #   end
+  # end
 
   def show
     @work = Work.find_by_id(params[:id])

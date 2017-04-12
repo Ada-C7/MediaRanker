@@ -9,7 +9,7 @@
   </ul>
   <% end %>
 
-  <%= form_for @work do |f| %>
+  <%= form_for(:post, :url => url_for(:controller => locals[:controller], :action => locals[:action])) do |f| %>
   <ul>
     <li>
       <%= f.label :name, "Name: " %>
