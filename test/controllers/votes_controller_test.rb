@@ -1,5 +1,7 @@
 require "test_helper"
 
+class VotesControllerTest < ActionDispatch::IntegrationTest
+
 describe VotesController do
   it "should get index" do
     get votes_index_url
@@ -26,4 +28,5 @@ describe VotesController do
     value(response).must_be :success?
   end
 
+end
 end

@@ -1,5 +1,7 @@
 require "test_helper"
 
+class UsersControllerTest < ActionDispatch::IntegrationTest
+
 describe UsersController do
   it "should get index" do
     get users_index_url
@@ -26,4 +28,5 @@ describe UsersController do
     value(response).must_be :success?
   end
 
+end
 end
