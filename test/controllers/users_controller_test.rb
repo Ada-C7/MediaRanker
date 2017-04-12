@@ -13,13 +13,13 @@ describe UsersController do
     must_respond_with :success
   end
 
-  it "shows a user based on if" do
+  it "Show Works: shows a user based on if" do
     user = User.first
     get user_path(user)
     must_respond_with :success
   end
 
-  it "return a 404 if the user doesn't exist" do
+  it "Show Works: return a 404 if the user doesn't exist" do
     user_id = User.last.id
     user_id += 1
     get user_path(user_id)
