@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  get 'movies/index'
+
   get 'albums/index'
 
   root "media_ranker#index"
@@ -9,6 +11,7 @@ Rails.application.routes.draw do
   resources :votes
   resources :books
   resources :albums
+  resources :movies
 
 
 end
