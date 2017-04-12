@@ -2,8 +2,24 @@ require "test_helper"
 
 describe WorksController do
 
+  describe 'index' do
+
+    it "gets the index page successfully" do
+      Work.count.must_be :>, 0
+      get homepage_path
+      must_respond_with :success
+    end
+
+    it 'still successful when there are no works' do
+      Work.destroy_all
+      get homepage_path
+      must_respond_with :success
+    end
+
+  end
+
   describe 'movies' do
-    it 'gets the movies index page' do
+    it 'gets the movies page' do
       works = Work.all
       movies = works.where(category: "movie")
       movies.count.must_be :>, 0
@@ -20,7 +36,7 @@ describe WorksController do
   end
 
   describe 'books' do
-    it 'gets the books index page' do
+    it 'gets the books page' do
       works = Work.all
       books = works.where(category: "book")
       books.count.must_be :>, 0
@@ -37,7 +53,7 @@ describe WorksController do
   end
 
   describe 'albums' do
-    it 'gets the albums index page' do
+    it 'gets the albums page' do
       works = Work.all
       albums = works.where(category: "album")
       albums.count.must_be :>, 0
@@ -82,18 +98,13 @@ describe WorksController do
    end
   end
 
-  describe 'edit' do
+  describe 'update' do
 
-    it 'should update an work with good input' do
-      edited_info = { title: "New Title" }
-      # you need an id for work_path... copying from curric
-      put work_path(works(:nemo).id), params: { work: edited_info }
+    it 'should update a work' do
+      put work_path(works(:nemo).id), params: {work: {title: "new title"}}
 
-      work = Work.find_by(title: "New Title")
-      # this example of finding object did not work
-      # post = Post(posts(:one).id)
-
-      work.title.must_equal "New Title"
+      work = Work.find(works(:nemo).id)
+      work.title.must_equal "new title"
 
       must_respond_with :redirect
     end
@@ -111,6 +122,18 @@ describe WorksController do
     #
     #   must_respond_with :redirect
     # end
+  end
 
+  describe 'destory' do
+
+    it 'should delete the work' do
+      work = works(:nemo)
+      work.destroy
+      Work.where(title: "Finding Nemo").first.must_be_nil
+      # these dont work
+      # NoMethodError: undefined method `response_code' for nil:NilClass
+      # must_respond_with :redirect
+      # must_redirect_to movies_path
+    end
   end
 end
