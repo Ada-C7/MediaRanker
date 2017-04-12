@@ -9,7 +9,6 @@ class BooksController < ApplicationController
 
   def create
     @book = Work.create book_params
-    # wait... all this info should be from works..right?
     if @book.id != nil
       redirect_to books_path
     else

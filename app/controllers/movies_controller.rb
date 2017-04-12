@@ -9,7 +9,6 @@ class MoviesController < ApplicationController
 
   def create
     @movie = Work.create movie_params
-    # wait... all this info should be from works..right?
     if @movie.id != nil
       redirect_to movies_path
     else

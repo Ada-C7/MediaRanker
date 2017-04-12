@@ -3,14 +3,39 @@ class WorksController < ApplicationController
     @works = Work.all
   end
 
-  def new
+  def show
+    @result_work = Work.find(params[:id])
   end
 
-  def create
+  def edit
+    @work = Work.find(params[:id])
   end
+
+  def update
+    @work = passenger.find(params[:id])
+    @work.title = work_params[:title]
+    @work.creator = work_params[:creator]
+    @work.publication_year = work_params[:publication_year]
+    @work.description = work_params[:description]
+
+    if @work.save
+      flash[:updated] = "Book updated successfully"
+      redirect_to book_path(@work.id)
+    else
+      render "edit"
+    end
+  end
+
+  def upvote
+  end
+
+  def delete
+  end
+
+
 
   private
-  def movie_params
+  def work_params
     category_params
   end
 end

@@ -1,17 +1,25 @@
-<h3>Title</h3>
+<h3> <%= @result_work.title %></h3>
 <p>
-Created by:
+Created by: <%= @result_work.creator %>
 </p>
 <p>
-Published:
+Published: <%= @result_work.publication_year %>
 </p>
 <p>
-<!-- description -->
+<%= @result_work.description %>
 </p>
 
-<h3>User Summary: <%= link_to @result_user.name %></h3>
-<p>Joined site <%= @result_user.join_date %></p>
-<h4>Votes</h4>
-<!-- insert upvotes table -->
+<!-- Back to creator list -->
+<% if @result_work.category == 'movie' %>
+  <%= link_to "Back to movie list", movies_path %>
+<% elsif @result_work.category == 'book' %>
+  <%= link_to "Back to book list", books_path %>
+<% else @result_work.category == 'album'%>
+  <%= link_to "Back to album list", albums_path %>
+<% end %>
 
-<%= link_to "See all Users", users_path, class: "button" %>
+
+<!-- Edit -->
+<!-- Upvote -->
+<h3>__ Votes for this Album</h3>
+<!-- table that includes users that voted and date they voted  -->
