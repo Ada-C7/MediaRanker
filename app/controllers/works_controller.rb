@@ -5,4 +5,7 @@ class WorksController < ApplicationController
   def show
     @work = Work.find(params[:id])
   end
+  def works_by_category
+    @works_by_category = Work.by_category(params[:category])
+  end
 end
