@@ -7,8 +7,14 @@ class WorksController < ApplicationController
     @works = Work.where(category: (params[:category]).singularize)
   end
 
+  def vote
+  end
+  
   def show
-    @work = Work.find(params[:id])
+    @work = Work.find_by(id: params[:id])
+    if @work.nil?
+      head :not_found
+    end
   end
 
   def new
@@ -23,7 +29,7 @@ class WorksController < ApplicationController
     if @work.save
       redirect_to works_path(@work.category)
     else
-      render :new
+      render :new, status: :bad_request
     end
   end
 

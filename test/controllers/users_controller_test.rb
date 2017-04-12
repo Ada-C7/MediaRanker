@@ -9,6 +9,10 @@ describe UsersController do
 
   end
 
+  describe "retrieve a user from the database for a session" do
+    
+  end
+
   describe "Session" do
 
   end
