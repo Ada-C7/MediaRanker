@@ -8,6 +8,16 @@ class WorksController < ApplicationController
     @works.where(category: "album")
   end
 
+  def book_index
+    @works = Work.all
+    @works.where(category: "book")
+  end
+
+  def movie_index
+    @works = Work.all
+    @works.where(category: "movie")
+  end
+
   def new
     @work = Work.new(params[:id])
   end
