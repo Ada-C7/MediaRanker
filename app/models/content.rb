@@ -8,4 +8,12 @@ class Content < ApplicationRecord
   def self.albums
     return Content.all.select { |c| c.category == "album"}
   end
+
+  def self.movies
+    return Content.all.select { |c| c.category == "movie"}
+  end
+
+  def self.books
+    return Content.all.select { |c| c.category == "book"}
+  end
 end

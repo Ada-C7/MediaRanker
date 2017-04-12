@@ -34,4 +34,25 @@ describe Content do
     contents(:shrek).valid?.must_equal true
   end
 
+  it "self.albums returns an array of albums" do
+    albums = Content.albums
+    albums.each do |a|
+      a.category.must_equal "album"
+    end
+  end
+
+  it "self.movies returns an array of movies" do
+    movies = Content.movies
+    movies.each do |m|
+      m.category.must_equal "movie"
+    end
+  end
+
+  it "self.books returns an array of books" do
+    books = Content.books
+    books.each do |b|
+      b.category.must_equal "book"
+    end
+  end
+
 end
