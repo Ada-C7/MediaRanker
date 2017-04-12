@@ -10,7 +10,7 @@ class AlbumsController < ApplicationController
   def create
     @album = Work.create! work_params
     unless @album.id == nil
-      redirect_to work_path(@album.id)
+      redirect_to albums_path
     else
       render "new"
     end

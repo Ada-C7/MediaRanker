@@ -10,7 +10,7 @@ class MoviesController < ApplicationController
   def create
     @movie = Work.create! work_params
     unless @movie.id == nil
-      redirect_to work_path(@movie.id)
+      redirect_to movies_path
     else
       render "new"
     end

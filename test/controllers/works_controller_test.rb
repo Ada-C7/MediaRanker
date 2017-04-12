@@ -13,24 +13,20 @@ describe WorksController do
     must_respond_with :missing
   end
 
-  it "should get form for new" do
-    get new_work_path(work.id)
-    must_respond_with :success
-  end
+  # it "should get form for new" do
+  #   get new_work_path(work.id)
+  #   must_respond_with :success
+  # end
 
   it "should get form for edit" do
       get edit_work_path(work.id)
       must_respond_with :success
     end
-
-  it "should show the new work form" do
-     get new_work_path
-     must_respond_with :success
-  end
-
-  it "should redirect to category list after adding work" do
-
-  end
+  #
+  # it "should show the new work form" do
+  #    get new_work_path
+  #    must_respond_with :success
+  # end
 
   it "should increase the work count by one after adding work" do
   proc {

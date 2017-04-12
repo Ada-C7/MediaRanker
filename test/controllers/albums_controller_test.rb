@@ -1,9 +1,25 @@
 require "test_helper"
 
 describe AlbumsController do
-  it "should get index" do
-    get albums_index_url
-    value(response).must_be :success?
-  end
+  let(:work) {works(:my_book)}
 
+  it "should get form for new" do
+        get new_album_path(work.id)
+        must_respond_with :success
+      end
+
+   it "should show the new albums form" do
+     get new_album_path
+     must_respond_with :success
+   end
+
+   it "should redirect to album list after adding album" do
+     post works_path, params: { work:
+     { category: work.category,
+       title: work.title
+       }
+     }
+     must_redirect_to albums_path
+
+   end
 end

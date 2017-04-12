@@ -1,9 +1,26 @@
 require "test_helper"
 
 describe MoviesController do
-  it "should get index" do
-    get movies_index_url
-    value(response).must_be :success?
-  end
+  let(:work) {works(:my_book)}
+
+  it "should get form for new" do
+        get new_movie_path(work.id)
+        must_respond_with :success
+      end
+
+   it "should show the new movies form" do
+     get new_movie_path
+     must_respond_with :success
+   end
+
+   it "should redirect to movie list after adding movie" do
+     post works_path, params: { work:
+     { category: work.category,
+       title: work.title
+       }
+     }
+     must_redirect_to movies_path
+
+   end
 
 end

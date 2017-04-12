@@ -11,7 +11,7 @@ class BooksController < ApplicationController
   def create
     @book = Work.create! work_params
     unless @book.id == nil
-      redirect_to work_path(@book.id)
+      redirect_to books_path
     else
       render "new"
     end
