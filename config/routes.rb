@@ -2,9 +2,14 @@ Rails.application.routes.draw do
 
   root 'welcome#index', as: 'welcome'
 
-  resources :works, except: [:index]
+  resources :works
   resources :users
   resources :votes
+
+  get 'albums', to: 'works#albums', as: 'albums'
+  get 'books', to: 'works#books', as: 'books'
+  get 'movies', to: 'works#movies', as: 'movies'
+
 
 
 

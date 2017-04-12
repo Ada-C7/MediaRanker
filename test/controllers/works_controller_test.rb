@@ -1,8 +1,49 @@
 require "test_helper"
 
 describe WorksController do
-  it "should get index" do
+  describe "albums" do
+    it "Responds successfully" do
+      Work.count.must_be :>, 0
+      get albums_path
+      must_respond_with :success
+    end
 
-  end
+    it "Still responds successfully when there are no albums" do
+      Work.destroy_all
+      get albums_path
+      must_respond_with :success
 
-end
+    end
+  end # END of describe "albums"
+
+  describe "books" do
+    it "Responds successfully" do
+      Work.count.must_be :>, 0
+      get books_path
+      must_respond_with :success
+    end
+
+    it "Still responds successfully when there are no books" do
+      Work.destroy_all
+      get books_path
+      must_respond_with :success
+
+    end
+  end # END of describe "books"
+
+  describe "movies" do
+    it "Responds successfully" do
+      Work.count.must_be :>, 0
+      get movies_path
+      must_respond_with :success
+    end
+
+    it "Still responds successfully when there are no movies" do
+      Work.destroy_all
+      get movies_path
+      must_respond_with :success
+
+    end
+  end # END of describe "movies"
+
+end # END of describe WorksController

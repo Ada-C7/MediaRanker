@@ -4,4 +4,6 @@ class WelcomeController < ApplicationController
     @books = Work.where(category: "book")
     @albums = Work.where(category: "album")
   end
+
+
 end
