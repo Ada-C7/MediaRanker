@@ -1,6 +1,6 @@
-<h1>Add a new </h1>
+<h1>Add a new <%= params[:category].singularize %></h1>
 
-<%= form_for @work do |f| %>
+<%= form_for @work, url: category_path(params[:category]) do |f| %>
   <%= f.label :title %>
   <%= f.text_field :title %>
 

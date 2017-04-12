@@ -6,7 +6,7 @@ class WorksController < ApplicationController
   def show_category
     works = Work.all
     @category_works = []
-
+    # binding.pry
     works.each do |work|
       if work[:category] == params[:category].singularize
         @category_works << work
@@ -20,18 +20,30 @@ class WorksController < ApplicationController
   end
 
   def new
-    @work = Work.new
+    @work = Work.new(category: params[:category])
   end
 
   def create
-    @work = Work.create work_params
+    work = Work.create work_params
+    work.category = params[:category].singularize
 
-    if @work.id != nil
-      redirect_to works_path
+    if work.save
+      redirect_to category_path(params[:category])
     else
-      render "new"
+      render 'new'
     end
   end
+
+  # def create
+  #   work = Work.new
+  #   work.category = params[:category]
+  #
+  #   if work.save
+  #     redirect_to category_path(work.category)
+  #   else
+  #     puts work.errors.messages
+  #   end
+  # end
 
   def update
     @work = Work.find_by_id(params[:id])
@@ -52,12 +64,12 @@ class WorksController < ApplicationController
   def destroy
     Work.destroy(params[:id])
 
-    redirect_to works_path
+    redirect_to category_path
   end
 
   private
 
   def work_params
-    params.require(:work).permit(:category, :title, :author_id, :publication_year, :description)
+    params.require(:work).permit(:category, :title, :creator, :publication_year, :description)
   end
 end
