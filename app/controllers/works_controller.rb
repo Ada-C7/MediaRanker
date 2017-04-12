@@ -1,26 +1,28 @@
 class WorksController < ApplicationController
 
   def index
-
-    @books = Work.where(category: "book").limit(10)
-   @albums = Work.where(category: "album").limit(10)
-   @movies = Work.where(category: "movie").limit(10)
-
-    # @works = Work.all.sort {|d1, d2| d1.id <=> d2.id}
+    @books = books[0..9]
+    @albums = albums[0..9]
+    @movies = movies[0..9]
   end
 
  def books
-   @books = Work.where(category: "book")
-
+   books = Work.where(category: "book")
+   @books = books.sort {|b1, b2| b2.votes.count <=> b1.votes.count}
+   return @books
  end
 
  def albums
-   @albums = Work.where(category: "album")
+   albums = Work.where(category: "album")
+   @albums = albums.sort {|a1, a2| a2.votes.count <=> a1.votes.count}
+   return @albums
  end
 
 def movies
-   @movies = Work.where(category: "movie")
-end
+   movies = Work.where(category: "movie")
+   @movies = movies.sort {|m1, m2| m2.votes.count <=> m1.votes.count}
+   return @movies
+ end
 
 
   def show
@@ -60,7 +62,7 @@ end
   end
 
   private
-  def passenger_params
+  def work_params
   params.require(:work).permit(:category, :title, :creator, :publication_year, :description)
   end
 
