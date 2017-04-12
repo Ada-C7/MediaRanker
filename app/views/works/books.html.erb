@@ -1,6 +1,7 @@
 <header>
   <%= render "shared/header" %>
 </header>
+
 <main>
   <section>
     <h2>Books</h2>
@@ -9,6 +10,10 @@
       <li><%= link_to book.title, work_path(book.id) %></li>
     <% end %>
     </ul>
-    <%= link_to "Add Book", new_book_path %>
   </section>
+
+  <nav>
+    <%= link_to "All Media", homepage_path %>
+    <%= link_to "Add Book", new_book_path %>
+  </nav>
 </main>

@@ -1,6 +1,7 @@
 <header>
   <%= render "shared/header" %>
 </header>
+
 <main>
   <section>
     <h2>Albums</h2>
@@ -9,6 +10,9 @@
       <li><%= link_to album.title, work_path(album.id) %></li>
     <% end %>
     </ul>
-    <%= link_to "Add Album", new_album_path %>
   </section>
+  <nav>
+    <%= link_to "All Media", homepage_path %>
+    <%= link_to "Add Album", new_album_path %>
+  </nav>
 </main>
