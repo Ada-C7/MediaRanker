@@ -7,5 +7,11 @@ Rails.application.routes.draw do
   get "movies", to:"works#movies"
 
   get "albums", to:"works#albums"
-  
+
+  get "login" , to:"sessions#login_form"
+  post "login", to:"sessions#login"
+
+  delete "logout", to:"sessions#logout" 
+
+
 end

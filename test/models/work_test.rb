@@ -1,26 +1,30 @@
 require "test_helper"
 
 describe Work do
-  let(:work) { Work.new }
-  #
-  # it "must be valid" do
-  #   value(work).must_be :valid?
-  # end
+  let(:work1) { Work.new }
 
-  it "Movie requires a title" do
-  work.valid?.must_equal false
+# Testing Validations  
+  it "Work must be valid" do
+    # album1.category = "album"
+    work1.title = "My Life"
 
-  work.errors.messages.must_include :title
-end
+    work1.must_be :valid?
+  end
 
+  it "Work requires a title" do
+    work1.valid?.must_equal false
 
-
+    work1.errors.messages.must_include :title
+  end
 
   it "If a title is given the movie is valid" do
-  work.title = "Neemo"
-  work.valid?
+    work1.title = "Neemo"
+    work1.valid?
 
-  work.errors.messages[:title].must_equal []
-end
+    work1.errors.messages[:title].must_equal []
+  end
+
+
+
 
 end
