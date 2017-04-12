@@ -8,17 +8,9 @@ resources :works
 # resources :users
 # resources :votes
 
+get "/login", to: "sessions#login_form"#, as: "login_form"
+post "/login", to: "sessions#login"#, as: "login"
+
+delete "/login", to: "sessions#logout"
+
 end
-
-
-# get 'albums/index'
-#
-#   get 'books/index'
-#
-#   get 'movies/index'
-#
-#   get 'users/index'
-#
-#   get 'works/index'
-
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
