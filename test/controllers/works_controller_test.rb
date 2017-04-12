@@ -82,6 +82,14 @@ describe WorksController do
   #  end
  end
 
+ describe 'edit' do
+   it 'shows you an edit page/form' do
+     work_id = Work.first.id
+     get edit_work_path(work_id)
+     must_respond_with :success
+   end
+ end
+
  describe 'create' do
 
    it 'should create a work with good data' do
