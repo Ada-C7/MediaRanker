@@ -1,0 +1,22 @@
+<h2>List of Movies</h2>
+
+<section id="category-table">
+  <table>
+    <tr>
+      <th>Votes</th>
+      <th>Title</th>
+      <th>Created By</th>
+      <th>Published</th>
+      <th>Upvote</th>
+    </tr>
+    <% @movies.each do | movie | %>
+    <tr>
+      <td>(movie votes)</td>
+      <td><%= movie.title %></td>
+      <td><%= movie.creator %></td>
+      <td><%= movie.year %></td>
+      <td>(upvote button)</td>
+    </tr>
+    <% end %>
+  </table>
+</section>

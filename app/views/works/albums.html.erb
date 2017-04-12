@@ -1,0 +1,22 @@
+<h2>List of Albums</h2>
+
+<section id="category-table">
+  <table>
+    <tr>
+      <th>Votes</th>
+      <th>Title</th>
+      <th>Created By</th>
+      <th>Published</th>
+      <th>Upvote</th>
+    </tr>
+    <% @albums.each do | album | %>
+    <tr>
+      <td>(album votes)</td>
+      <td><%= album.title %></td>
+      <td><%= album.creator %></td>
+      <td><%= album.year %></td>
+      <td>(upvote button)</td>
+    </tr>
+    <% end %>
+  </table>
+</section>

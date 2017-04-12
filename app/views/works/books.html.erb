@@ -1,0 +1,22 @@
+<h2>List of Books</h2>
+
+<section id="category-table">
+  <table>
+    <tr>
+      <th>Votes</th>
+      <th>Title</th>
+      <th>Created By</th>
+      <th>Published</th>
+      <th>Upvote</th>
+    </tr>
+    <% @books.each do | book | %>
+    <tr>
+      <td>(book votes)</td>
+      <td><%= book.title %></td>
+      <td><%= book.creator %></td>
+      <td><%= book.year %></td>
+      <td>(upvote button)</td>
+    </tr>
+    <% end %>
+  </table>
+</section>
