@@ -33,8 +33,8 @@ Rails.application.routes.draw do
 
 
   #NEED LOGIN ROUTE W/ POST
-  get 'login', to: 'users#login_index'
-  post 'login', to: 'users#create_login'
+  get 'login', to: 'sessions#new'
+  post 'login', to: 'sessions#create'
 end
 
 
