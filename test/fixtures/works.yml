@@ -1,29 +1,29 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 owl:
-  category: book
+  category: 'book'
   title: "The owl"
   creator: "Sanchez"
   publish_year: "1999"
   description: "A great book"
 
-  duck:
-  category: book
+duck:
+  category: 'book'
   title: "The duck"
   creator: "Haby"
   publish_year: "2010"
   description: "A great duck"
 
-  cat:
-    category: movie
-    title: "The cat"
-    creator: "Hamlet"
-    publish_year: "2017"
-    description: "Sweet"
+cat:
+  category: 'movie'
+  title: "The cat"
+  creator: "Hamlet"
+  publish_year: "2017"
+  description: "Sweet"
 
-    dog:
-      category: album
-      title: "The singing dog"
-      creator: "Rosco"
-      publish_year: "2010"
-      description: "The nice voice"
+dog:
+  category: 'album'
+  title: "The singing dog"
+  creator: "Rosco"
+  publish_year: "2010"
+  description: "The nice voice"
