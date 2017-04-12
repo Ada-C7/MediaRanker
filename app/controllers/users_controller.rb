@@ -9,12 +9,12 @@ class UsersController < ApplicationController
   end
 
   def create
-    @user = User.create(user_params)
-    if @user.save
-      redirect_to :root
-    else
-      render :new
-    end
+    # @user = User.create(user_params)
+    # if @user.save
+    #   redirect_to :root
+    # else
+    #   render :new
+    # end
 
   end
 
@@ -22,7 +22,7 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
   end
 
-  
+
 
   private
 

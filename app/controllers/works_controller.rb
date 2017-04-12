@@ -15,8 +15,6 @@ class WorksController < ApplicationController
     if @work.save
       redirect_to works_path
     else
-      puts "------------------------"
-      puts "AAAAAAAAAARGH"
       render_error
     end
 

@@ -14,14 +14,25 @@
       <h1><%= link_to "Media Ranker", :root, method: :get %></h1>
       <h2>Ranking the Best of Everything</h2>
       <ul>
-        <li>
-          Login status ("Logged in as username")
-        </li>
-        <li>
-          <%= button_to "Log In", login_path, method: :get %>
-        </li>
+        <% if session[:user_id] == nil %>
+
+          <li><%= link_to "Log In", login_path %></li>
+
+        <% else  %>
+          <li>
+            Logged in as <%= link_to "#{User.find_by_id(session[:user_id]).username}", user_path(session[:user_id]) %>
+          </li>
+          <li>
+            <%= link_to "Log Out", login_path, method: :delete %>
+          </li>
+        <% end %>
       </ul>
     </header>
+    <section class="flash">
+    <% flash.each do |name, message| %>
+      <div class="<%= name %>"><%= message %></div>
+    <% end %>
+    </section>
     <%= yield %>
     <footer class="main-footer">
 

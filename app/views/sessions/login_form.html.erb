@@ -1,0 +1,16 @@
+<h3>Login Form</h3>
+
+<%= form_tag login_path do %>
+<%= label_tag "User" %>
+<%= text_field_tag :username %>
+<%= submit_tag :Login %>
+<% end %>
+
+<ul>
+
+  <% @users.each do |user| %>
+  <li>
+    <%= user.username %>
+  </li>
+  <% end %>
+</ul>
