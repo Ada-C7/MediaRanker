@@ -5,6 +5,7 @@ Rails.application.routes.draw do
 
  resources :works
 
+ resources :users
 
  get "/:category", to: "works#show_category", as: 'category'
 
