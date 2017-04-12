@@ -3,13 +3,13 @@
     <h2>Movies</h2>
     <ul>
     <% @movies.each do |movie| %>
-      <li><%= movie.title %></li>
+      <li><%= link_to movie.title, work_path(movie.id) %></li>
     <% end %>
     </ul>
   </section>
 
   <nav>
-    <%= button_to "Back All Media", homepage_path, :class => "button", :method => :get %>
+    <%= button_to "Back To All Media", homepage_path, :class => "button", :method => :get %>
     <%= button_to "Add Movie", new_movie_path, :class => "button", :method => :get %>
   </nav>
 
