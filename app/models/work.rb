@@ -1,14 +1,14 @@
 class Work < ApplicationRecord
 
-  def books
+  def self.books
     Work.where(category: "book")
   end
 
-  def albums
+  def self.albums
     Work.where(category: "album")
   end
 
-  def movies
+  def self.movies
     Work.where(category: "movies")
   end
 end
