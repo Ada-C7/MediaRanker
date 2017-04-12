@@ -11,4 +11,7 @@ Rails.application.routes.draw do
   get '/login', to: 'sessions#login_form'
   post '/login', to: 'sessions#login'
   delete '/logout', to: 'sessions#logout'
+
+  get '/users', to: 'users#index'
+  get '/users/:id', to: 'users#show', as: 'user'
 end
