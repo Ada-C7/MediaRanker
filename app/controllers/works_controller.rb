@@ -7,16 +7,19 @@ class WorksController < ApplicationController
 
   def albums
     @works = Work.where(category: "album")
+    @category = "Albums"
     render "category"
   end
 
   def books
     @works = Work.where(category: "book")
+    @category = "Books"
     render "category"
   end
 
   def movies
     @works = Work.where(category: "movie")
+    @category = "Movies"
     render "category"
   end
 

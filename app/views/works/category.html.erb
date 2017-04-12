@@ -1,1 +1,27 @@
-<h1>List of Albums</h1>
+
+<section>
+  <h1>List of <%=@category%> </h1>
+</section>
+
+
+
+<section class="table_scroll">
+  <table>
+    <tr>
+      <th>Votes</th>
+      <th>Title</th>
+      <th>Created By</th>
+      <th>Published</th>
+      <th>Upvote</th>
+    </tr>
+    <% @works.each do |work| %>
+    <tr>
+      <td>A vote </td>
+      <td><%= link_to work.title, work_path(work) %></td>
+      <td><%= work.creator%></td>
+      <td><%= work.publication_year%></td>
+      <th>Upvote button</th>
+    </tr>
+    <% end %>
+  </table>
+</section>
