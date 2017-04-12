@@ -134,14 +134,19 @@ describe WorksController do
 
   describe 'destory' do
 
-    it 'should delete the work' do
-      work = works(:nemo)
-      work.destroy
-      Work.where(title: "Finding Nemo").first.must_be_nil
-      # these dont work
-      # NoMethodError: undefined method `response_code' for nil:NilClass
-      # must_respond_with :redirect
-      # must_redirect_to movies_path
+    it 'should delete a work' do
+      proc {delete work_path(works(:nemo).id) }.must_change 'Work.count', -1
+      must_respond_with :redirect
+      must_redirect_to movies_path
     end
+
+    it 'should do nothing if work DNE and you try to destory' do
+      id = Work.last.id
+      id += 1
+      proc { delete work_path(id) }
+      # must_respond_with :error
+      # must_respond_with :redirect
+    end
+
   end
 end
