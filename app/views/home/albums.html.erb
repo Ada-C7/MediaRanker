@@ -1,0 +1,7 @@
+<h1>All Albums</h1>
+<ul>
+     <% @albums.each do | submission | %>
+     <li> <%=  submission.title %> by  <%=  submission.author %></li>
+     <li> <%=  submission.votes.size %></li>
+     <% end %>
+</ul>

@@ -10,30 +10,12 @@ class Submission < ApplicationRecord
      end
 
 
-     def self.show_albums
+     def self.show(tootsy)
           submissions = Submission.left_outer_joins(:votes)
                 .select('submissions.*, COUNT(votes.*) as vote_count')
                 .group('submissions.id')
                 .order('vote_count DESC')
-                .where("category = ?", "Album")
-                .limit(5)
-     end
-
-     def self.show_books
-          submissions = Submission.left_outer_joins(:votes)
-                .select('submissions.*, COUNT(votes.*) as vote_count')
-                .group('submissions.id')
-                .order('vote_count DESC')
-                .where("category = ?", "Book")
-                .limit(5)
-     end
-
-     def self.show_movie
-          submissions = Submission.left_outer_joins(:votes)
-                .select('submissions.*, COUNT(votes.*) as vote_count')
-                .group('submissions.id')
-                .order('vote_count DESC')
-                .where("category = ?", "Movie")
+                .where("category = ?", tootsy )
                 .limit(5)
      end
 end

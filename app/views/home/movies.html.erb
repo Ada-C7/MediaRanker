@@ -1,0 +1,7 @@
+<h1>All Movies</h1>
+<ul>
+     <% @movies.each do | submission | %>
+     <li> <%=  submission.title %> by  <%=  submission.author %></li>
+     <li> <%=  submission.votes.size %></li>
+     <% end %>
+</ul>
