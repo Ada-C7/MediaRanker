@@ -1,0 +1,31 @@
+<h1>Access#login</h1>
+<h1>Login</h1>
+
+<%= form_tag '/login' do %>
+
+  Name: <%= text_field_tag :name %></br>
+  Password: <%= password_field_tag :password %>
+  <%= submit_tag "Submit" %>
+
+<% end %>
+
+
+<!-- <div> -->
+<!-- <%= form_tag(access_attempt_login_path, :method => :post) do %>
+
+<table>
+<tr>
+<td><%#= label_tag(:name)%></td>
+<td><%#= text_field_tag(:name, params[:name])%></td>
+</tr>
+<tr>
+<td><%#= label_tag(:password)%></td>
+<td><%#= password_field_tag(:password)%></td>
+</tr>
+
+<td>&nbsp;</td>
+<td><%#= submit_tag("Log In")%></td>
+</tr>
+</table>
+<%end %>
+</div> -->
