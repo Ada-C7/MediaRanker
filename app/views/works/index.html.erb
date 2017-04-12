@@ -1,9 +1,36 @@
 <h1> List of works </h1>
 <ul>
-  <% @works.each_with_index do |work, index| %>
-  <li>
-    <%= link_to work.title, work_path(work.id) %>
-  </li>
+  <h2><%= link_to "MOVIES", movies_path %></h2>
+  <% @works.each do |work| %>
+  <% if work.category == "movie" %>
+  <ul>
+    <li>
+      <%= link_to work.title, work_path(work.id) %>
+    </li>
+  </ul>
+  <% end %>
+  <% end %>
+
+  <h2><%= link_to "BOOKS", books_path%></h2>
+  <% @works.each do |work| %>
+  <% if work.category == "book" %>
+  <ul>
+    <li>
+      <%= link_to work.title, work_path(work.id) %>
+    </li>
+  </ul>
+  <% end %>
+  <% end %>
+
+  <h2><%= link_to "ALBUMS", albums_path %></h2>
+  <% @works.each do |work| %>
+  <% if work.category == "album" %>
+  <ul>
+    <li>
+      <%= link_to work.title, work_path(work.id) %>
+    </li>
+  </ul>
+  <% end %>
 
   <% end %>
 </ul>

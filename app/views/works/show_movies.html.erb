@@ -1,9 +1,11 @@
 <h1> List of Movies </h1>
 <ul>
-  <% @movies.each_with_index do |work| %>
+  <% @movies.each do |work| %>
   <li>
     <%= link_to work.title, work_path(work.id) %>
   </li>
 
   <% end %>
 </ul>
+
+<%= link_to "Add a new Movie", new_movies_path, method: :get %>

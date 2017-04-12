@@ -1,6 +1,6 @@
-<h1> List of Movies </h1>
+<h1> List of Albums </h1>
 <ul>
-  <% @albums.each_with_index do |work| %>
+  <% @albums.each do |work| %>
   <li>
     <%= link_to work.title, work_path(work.id) %>
   </li>
