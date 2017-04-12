@@ -1,1 +1,12 @@
-<h1>Album</h1>
+<h1>Album Details</h1>
+
+<ul>
+  <li>Category: <%= @work.category %></li>
+  <li>Title: <%= @work.title %></li>
+  <li>Creator: <%= @work.creator %></li>
+  <li>Year: <%= @work.year %></li>
+  <li>Description: <%= @work.description %></li>
+</ul>
+
+  <h3> <%= link_to "Home", works_path %></h3>
+  <h3> <%= link_to "All Albums", albums_path %></h3>
