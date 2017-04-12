@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'users/index'
+
   get 'votes/index'
 
   get 'welcome/index'
