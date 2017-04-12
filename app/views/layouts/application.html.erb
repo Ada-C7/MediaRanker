@@ -20,6 +20,11 @@
       <strong>Successfully logged out.</strong> (Either of these are shown on the front page
       Log out shown on any page)
     </p>
+    <section class="flash">
+      <% flash.each do |name, message| %>
+        <div class="<%= name %>"><%= message %></div>
+        <% end %>
+    </section>
   </header>
 
   <body>

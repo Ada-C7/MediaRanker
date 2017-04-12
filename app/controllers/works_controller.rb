@@ -1,7 +1,7 @@
 class WorksController < ApplicationController
   # View media by category
   def index
-      @works = Work.all
+    @works = Work.all
   end
 
   def movie_index
