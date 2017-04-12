@@ -1,0 +1,7 @@
+<h2> List of Media </h2>
+
+<ul>
+  <% @works.each do |work| %>
+    <li><%= "Title:#{work.title}, Category:#{work.category}" %></li>
+  <% end %>
+</ul>
