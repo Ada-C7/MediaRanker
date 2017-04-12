@@ -6,7 +6,7 @@
 </section>
 
 <section id="show-votes">
-  <h2>(number of votes) votes for this <%= @result_work.category.capitalize %></h2>
+  <h2><%= @result_work.votes.length %> votes for this <%= @result_work.category.capitalize %></h2>
   <table>
     <tr>
       <th>User</th>
