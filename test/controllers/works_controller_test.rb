@@ -1,9 +1,10 @@
 require "test_helper"
 
+class WorksControllerTest < ActionDispatch::IntegrationTest
 describe WorksController do
   it "should get index" do
-    get works_index_url
-    value(response).must_be :success?
+    get works_path
+    must_respond_with :success
   end
 
   it "should get show" do
@@ -31,4 +32,5 @@ describe WorksController do
     value(response).must_be :success?
   end
 
+end
 end

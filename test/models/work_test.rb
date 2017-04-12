@@ -8,7 +8,7 @@ describe Work do
   end
 
   it "will work with a title" do
-    work.title = "Amelie"
+    work.title = works(:amelie).title
     work.valid?
     work.errors.messages.wont_include :title
   end
@@ -24,7 +24,7 @@ describe Work do
   end
 
   it "valid categories are album, movie, or book" do
-    work.category = "album"
+    work.category = works(:amelie).category
     work.valid?
     work.errors.messages.wont_include :category
   end
