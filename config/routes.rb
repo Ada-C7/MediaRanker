@@ -2,9 +2,9 @@ Rails.application.routes.draw do
   root "works#index"
 
 resources :works
-resources :movies
-resources :books
-resources :albums
+# resources :movies
+# resources :books
+# resources :albums
 # resources :users
 # resources :votes
 
