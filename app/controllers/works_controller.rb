@@ -68,18 +68,29 @@ class WorksController < ApplicationController
 
   def upvote
     @work = Work.find_by(id: params[:id])
+
     if session[:user_id] == nil
       flash[:failure] = "You must log in to vote"
       redirect_to work_path(@work.id)
     else
+      flag = false
       userid = session[:user_id]
       @user = User.find_by(id: userid)
+      vote = Vote.new(work: @work, user: @user)
+      @work.votes.each do |v|
+        if v.user_id == session[:user_id]
+          flash[:failure] = "You cannot vote more than one time for this work"
+          redirect_to work_path(@work.id)
+          flag = true
+        end
+      end
 
-      vote = Vote.create!(work: @work, user: @user)
-      if vote.save
+      if flag == false
+        vote.save
         redirect_to(:back)
       end
     end
+
   end
 
 

@@ -19,8 +19,5 @@ describe User do
         result = u.valid?
         result.must_equal true # DOESNT WORK WITH FALSE!
       end
-
-
     end # end of validation block
-
 end
