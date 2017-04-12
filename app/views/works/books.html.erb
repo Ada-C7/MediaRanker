@@ -13,7 +13,7 @@
   </section>
 
   <nav>
-    <%= link_to "All Media", homepage_path %>
-    <%= link_to "Add Book", new_book_path %>
+    <%= button_to "Back All Media", homepage_path, :class => "button", :method => :get %>
+    <%= button_to "Add Book", new_book_path, :class => "button", :method => :get %>
   </nav>
 </main>

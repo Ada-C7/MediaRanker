@@ -15,9 +15,9 @@
   <nav>
     <% route = find_path(@work) %>
 
-    <%= link_to "Back to #{@work.category}s", route %>
-    <%= link_to "Edit", edit_work_path %>
-    <%= link_to "Upvote"%>
-    <%= link_to "Delete", work_path(@work), method: :delete, data: { confirm: "Are you sure you want to delete #{@work.title}?" } %>
+    <%= button_to "Back to #{@work.category}s", route, :class => "button", :method => :get %>
+    <%= button_to "Edit", edit_work_path, :class => "button", :method => :get %>
+    <%= button_to "Upvote", :class => "button", :method => :get %>
+    <div><%= button_to "Delete", work_path(@work), :class => "button",  :method => :delete, data: { confirm: "Are you sure you want to delete #{@work.title}?" } %></div>
   </nav>
 </main>
