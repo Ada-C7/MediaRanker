@@ -4,7 +4,15 @@
 <h2> published: <%= @work.published_year %> </h2>
 <h2> <%= @work.description %> </h2>
 
-<%= link_to "Back to list", works_path %>
-<%= link_to "Edit", edit_work_path(@work.id) %>
-<%= link_to "Delete", work_path(@work), method: :delete,
+<% if @work.category == "movie"%>
+<%= button_to 'Back to movie list', movies_path, method: :get %>
+<% elsif @work.category == "book"%>
+<%= button_to 'Back to book list', books_path, method: :get %>
+<% elsif @work.category == "album"%>
+<%= button_to 'Back to album list', albums_path, method: :get %>
+<%end%>
+
+<%= button_to "Back to all lists", root_path, method: :get %>
+<%= button_to "Edit", edit_work_path(@work.id), method: :get %>
+<%= button_to "Delete", work_path(@work), method: :delete,
     data: {confirm: "Are you sure"} %>

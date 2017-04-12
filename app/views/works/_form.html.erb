@@ -7,7 +7,7 @@
     <%= field %>:
     <%= problem %>
   </li>
-  <% end %>
+    <% end %>
   <% end %>
 </ul>
 <% end %>
@@ -15,13 +15,18 @@
 <%= form_for @work do |f| %>
 <%= f.label :title %>
 <%= f.text_field :title %>
+
 <%= f.label :created_by %>
 <%= f.text_field :created_by %>
+
 <%= f.label :published_year %>
 <%= f.text_field :published_year %>
+
 <%= f.label :description %>
 <%= f.text_field :description %>
+
 <!-- <%= f.label :category %>
 <%= f.text_field :category %> -->
+
 <%= f.submit %>
 <% end %>

@@ -8,9 +8,9 @@ Rails.application.routes.draw do
   get 'books', to:'works#show_books', as: 'books'
   get 'albums', to:'works#show_albums', as: 'albums'
 
-  get 'movies/new', to:'works#new', as: 'new_movies'
-  get 'books/new', to:'works#snew', as: 'new_books'
-  get 'albums/new', to:'works#new', as: 'new_albums'
+  get 'movie/new', to:'works#new', as: 'new_movie'
+  get 'book/new', to:'works#new', as: 'new_book'
+  get 'album/new', to:'works#new', as: 'new_album'
 
 
 end
