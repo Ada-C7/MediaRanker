@@ -5,7 +5,7 @@ class WorksController < ApplicationController
       @spotlight_work = Work.all.sample
       @categories = Work.all.map {|work| work.category}.uniq
 
-    elsif ['book', 'album', 'movie'].include? params[:category]
+    else
       @category = params[:category]
       @works = Work.where(category: @category)
 
