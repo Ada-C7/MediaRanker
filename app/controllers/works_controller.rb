@@ -1,5 +1,5 @@
 class WorksController < ApplicationController
-  def index_album
+  def index
     @albums = Work.where(category: "album")
   end
 
@@ -19,7 +19,10 @@ class WorksController < ApplicationController
   end
 
   def edit
-    @work = Work.find(params[:id])
+    @work = Work.find_by_id(params[:id])
+    if !@work
+      render_404
+    end
   end
 
   def update
@@ -36,7 +39,21 @@ class WorksController < ApplicationController
   end
 
   def new
-    
+    @work = Work.new
+  end
+
+  def create
+    @work = Work.create work_params
+
+    if @work.id != nil
+      redirect_to works_path
+    end
+
+  end
+
+  def destroy
+    Work.destroy(params[:id])
+    redirect_to works_path
   end
 
 private
