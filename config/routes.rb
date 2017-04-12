@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  # did I mess things up by saying homepage...
+  # how to globablly look for homepage
   root 'works#index', as:'homepage'
   # need to change this - dont need all the restful routes
   resources :works, except: [:index, :new]

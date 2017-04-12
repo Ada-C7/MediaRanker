@@ -11,6 +11,8 @@
     <% end %>
   </article>
 
+  <h2><%= "Add New #{@work.category.capitalize}"%></h2>
+
   <%= form_for @work do |f| %>
     <%= f.label :title %>
     <%= f.text_field :title %>

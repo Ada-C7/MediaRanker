@@ -38,10 +38,10 @@ class WorksController < ApplicationController
     @work = Work.new(works_params)
 
     if @work.save # is true - IE validations pass
-      flash[:success] = "Added #{@work.title} Successfully"
+      flash[:success] = "Successfully created #{@work.category} #{@work.id}"
       redirect_to find_path(@work)
     else # We know the validations didn't pass so want to show messages
-      flash.now[:failure] = "Error: Item was not added"
+      flash.now[:failure] = "A problem occured: Could not add #{@work.category}"
       if @work.category == "movie"
         render "works/movies/new", status: :bad_request
       elsif @work.category == "book"
