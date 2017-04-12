@@ -1,4 +1,4 @@
 <h3> List of all users:</h3>
-<% @users.each do |w|%>
-  <p><%= w.username%>: <%= w.date_of_joining%></p>
+<% @users.each do |u|%>
+  <p><%=link_to u.username, user_path(u.id)%>: <%= u.date_of_joining%></p>
 <% end%>
