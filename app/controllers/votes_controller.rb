@@ -5,27 +5,26 @@ class VotesController < ApplicationController
       flash[:error] = "Not logged in"
       redirect_to :back
     else
-      user = User.find_by_id(session[:user_id])
-      if session[:user_id] && !user.duplicate_vote?(params[:id]) #user hasn't already voted for this work
-        @vote = Vote.new
-        @vote.user_id = session[:user_id]
-        @vote.work_id = params[:id]
-        if @vote.save
-          flash[:success] = "Successfully upvoted!"
-          redirect_to :root
-        else
-          flash.now[:error] = "Sorry, something went wrong and your vote was not counted."
-        end
-      else
+      @vote = Vote.new
+      @vote.user_id = session[:user_id]
+      @vote.work_id = params[:id]
+      if !@vote.save
         flash[:error] = "Could not upvote. User has already voted for this work."
+        redirect_to :root
+      else
+        flash[:success] = "Successfully upvoted!"
+        redirect_to :root
       end
-
     end
+
+
   end
 
 
   private
-
-
+  #
+  # def duplicate_vote?(id_of_work)
+  #   Vote.find(:all, :conditions => ["user_id = ? and work_id = ?", session[:user_id], id_of_work]).any?
+  # end
 
 end
