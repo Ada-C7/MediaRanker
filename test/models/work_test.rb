@@ -27,6 +27,13 @@ describe Work do
     work.errors.messages[:title].must_be :empty?
   end
 
+  it "can't create work with with blank title" do
+    work.title = ""
+
+    work.valid?
+    work.errors.messages.must_include :title
+  end
+
   it "works require a category" do
     work = works(:no_category)
 
