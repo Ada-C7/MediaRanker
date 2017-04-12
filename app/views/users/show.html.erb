@@ -1,0 +1,67 @@
+<section class="show">
+
+  <header class="show-header">
+
+    <h1 class="user-show-header">User Summary: <%= link_to @user.username, user_path(@user.id) %></h1>
+    <p class="joined-site-date">
+      Joined site <%= @user.created_at %>
+    </p>
+  </header>
+  <section class="show-votes-list">
+    <% if @user.votes.count == 0 %>
+    <p>
+      No votes yet.
+    </p>
+    <% else %>
+    <table class="user-votes-table">
+      <tr>
+        <th>
+          Media Title
+        </th>
+        <th>
+          Created By
+        </th>
+        <th>
+          Published
+        </th>
+        <th>
+          Category
+        </th>
+        <th>
+          Voted On
+        </th>
+      </tr>
+      <% @user.votes.order("created_at DESC").each do |vote| %>
+      <tr>
+        <td>
+          <%= vote.work.title %>
+        </td>
+        <td>
+          <%= vote.work.creator %>
+        </td>
+        <td>
+          <%= vote.work.published %>
+        </td>
+        <td>
+          <%= vote.work.category %>
+        </td>
+        <td>
+          <%= vote.created_at %>
+        </td>
+      </tr>
+      <% end %>
+    </table>
+    <% end %>
+  </section>
+  <footer class="user-show-footer">
+    <ul>
+      <li>
+        <%= link_to "See all Users", users_path %>
+      </li>
+      <li>
+        <%= link_to "Back to Media List", works_path %>
+      </li>
+    </ul>
+  </footer>
+
+</section>
