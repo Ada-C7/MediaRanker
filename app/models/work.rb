@@ -1,2 +1,12 @@
 class Work < ApplicationRecord
+
+    def categories_list(works)
+      works.each do | work |
+        @categories_list << work.category
+        @categories_list = @categories_list.uniq
+      end
+      return @categories_list
+    end
+
+
 end

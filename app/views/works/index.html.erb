@@ -1,24 +1,35 @@
 
 <h1>Media Spotlight: <%=@works.first.title%> by <%=@works.first.created_by%></h1>
 <%=@works.first.description %>
+
+
+
+
+
+
 <table>
   <tr>
     Top Movies
   </tr>
-  <% @works.each do |work| %>
+  <% @works[0..9].each do |work| %>
   <tr>
     <td>
       <%=link_to work.title, work_path(work.id)%> by <%=work.created_by%>
     </td>
   </tr>
+
   <% end %>
+
 </table>
+
+View more movies </br>
+
 <table>
   <tr>
     Top Books
   </tr>
 
-  <% @works.each do |work| %>
+  <% @works[0..9].each do |work| %>
   <tr>
     <td>
       <%=link_to work.title, work_path(work.id)%> by <%=work.created_by%>
@@ -26,12 +37,13 @@
   </tr>
   <% end %>
 </table>
+View more books </br>
 <table>
   <tr>
     Top Albums
   </tr>
 
-  <% @works.each do |work| %>
+  <% @works[0..9].each do |work| %>
   <tr>
     <td>
       <%=link_to work.title, work_path(work.id)%> by <%=work.created_by%>
@@ -39,3 +51,4 @@
   </tr>
   <% end %>
 </table>
+View more albums </br>
