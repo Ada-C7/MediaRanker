@@ -12,7 +12,7 @@
     <% @movies.each do | movie | %>
     <tr>
       <td>(movie votes)</td>
-      <td><%= movie.title %></td>
+      <td><%= link_to movie.title, work_path(movie.id) %></td>
       <td><%= movie.creator %></td>
       <td><%= movie.year %></td>
       <td>(upvote button)</td>
