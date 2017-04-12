@@ -3,8 +3,26 @@ class WorksController < ApplicationController
     @works = Work.all
   end
 
+  def new
+    @work = Work.new
+  end
+
+  def create
+    @work = Work.create trip_params
+
+    if @work.id != nil
+      redirect_to root_path
+    else
+      render "new"
+    end
+  end
+
   def show
-    @result_work = Work.find(params[:id])
+    @result_work = Work.find_by_id(params[:id])
+
+    if !@result_work
+      render_404
+    end
   end
 
   def edit
@@ -25,7 +43,6 @@ class WorksController < ApplicationController
     else
       render "edit"
     end
-
   end
 
   def books
