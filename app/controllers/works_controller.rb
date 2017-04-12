@@ -27,6 +27,10 @@ class WorksController < ApplicationController
     @work = Work.new(category: "album")
   end
 
+  def new
+    @work = Work.new
+  end
+
   def create
     @work = Work.new(work_params)
 
