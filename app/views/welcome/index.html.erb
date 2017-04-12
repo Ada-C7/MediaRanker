@@ -2,9 +2,17 @@
 <!-- <% @works.each do |work| %> -->
 <!-- <%= link_to "Work #{work.title}", work_path(work.id) %> -->
 <!-- <%end%> -->
-<h2 class = 'category'><% ['book', 'album', 'movie'].each do |category| %> </h2>
+
+<!-- <h3 class = "top_works">Top Books</h3> -->
+<!-- <h3>Top Albums</h3> -->
+<!-- <h3>Top Movies</h3> -->
+
+<% ['book', 'album', 'movie'].each do |category| %>
   <%  category_list = Work.by_category(category) %>
-    <% category_list.each do |work| %>
-      <%= link_to "Work #{work.title}", work_path(work.id) %>
+  <%="Top #{category.capitalize}s" %>
+
+    <h4 class ="category"><% category_list.each do |work| %></h4>
+
+      <p class ="titles"><%= link_to "Work #{work.title}", work_path(work.id) %></p>
     <% end %>
   <%end %>
