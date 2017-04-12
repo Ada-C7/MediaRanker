@@ -1,10 +1,19 @@
 <h1>List of Movies</h1>
 
+<table>
+  <tr>
+    <th>Votes</th>
+    <th>Title</th>
+    <th>Creator</th>
+  </tr>
 <% @movies.each do |movie| %>
-<p>
-  <%= link_to movie.title, work_path(movie.id) %>
-</p>
-<% end %>
+  <tr>
+    <td>0</td>
+    <td><%= link_to movie.title, work_path(movie.id) %></td>
+    <td><%= movie.creator %></td>
+  </tr>
+  <% end %>
+</table>
 
 <%= link_to "Back to all media", root_path %>
 <%= link_to "Add new movie", new_movie_path %>

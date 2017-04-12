@@ -1,10 +1,19 @@
 <h1>List of Albums</h1>
 
+<table>
+  <tr>
+    <th>Votes</th>
+    <th>Title</th>
+    <th>Creator</th>
+  </tr>
 <% @albums.each do |album| %>
-<p>
-  <%= link_to album.title, work_path(album.id) %>
-</p>
-<% end %>
+  <tr>
+    <td>0</td>
+    <td><%= link_to album.title, work_path(album.id) %></td>
+    <td><%= album.creator %></td>
+  </tr>
+  <% end %>
+</table>
 
 <%= link_to "Back to all media", root_path %>
 <%= link_to "Add new album", new_album_path %>
