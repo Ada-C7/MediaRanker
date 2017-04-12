@@ -25,8 +25,7 @@
 <%= f.label :description %>
 <%= f.text_field :description %>
 
-<!-- <%= f.label :category %>
-<%= f.text_field :category %> -->
+<%= f.hidden_field :category, :value => @work.category %>
 
 <%= f.submit %>
 <% end %>

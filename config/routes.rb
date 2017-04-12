@@ -8,11 +8,17 @@ Rails.application.routes.draw do
   get 'books', to:'works#show_books', as: 'books'
   get 'albums', to:'works#show_albums', as: 'albums'
 
-  get 'movie/new', to:'works#new', as: 'new_movie'
-  get 'book/new', to:'works#new', as: 'new_book'
-  get 'album/new', to:'works#new', as: 'new_album'
+  get 'movie/new', to:'works#new_movie', as: 'new_movie'
+  get 'book/new', to:'works#new_book', as: 'new_book'
+  get 'album/new', to:'works#new_album', as: 'new_album'
 
+  post 'movies', to:'works#create'
+  post 'albums', to:'works#create'
+  post 'books', to:'works#create'
 
+  get 'login', to: 'sessions#new'
+  post 'login', to: 'sessions#create'
+  delete 'logout', to: 'sessions#destroy'
 end
 # Rails.application.routes.draw do
 #   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html

@@ -15,8 +15,16 @@ class WorksController < ApplicationController
     @albums = Work.where(category: "album")
   end
 
-  def new
-    @work = Work.new
+  def new_movie
+    @work = Work.new(category: "movie")
+  end
+
+  def new_book
+    @work = Work.new(category: "book")
+  end
+
+  def new_album
+    @work = Work.new(category: "album")
   end
 
   def create
@@ -25,6 +33,7 @@ class WorksController < ApplicationController
     if @work.save
       redirect_to root_path
     else
+
       render :new, status: :bad_request
     end
   end
@@ -58,7 +67,7 @@ class WorksController < ApplicationController
   private
 
   def work_params
-    return params.require(:work).permit(:title, :creator, :publication_year, :description)
+    return params.require(:work).permit(:title, :creator, :publication_year, :description, :category)
   end
 
 end
