@@ -1,4 +1,12 @@
 class UsersController < ApplicationController
+  def index
+    @users = User.all
+    # .sort {|d1, d2| d1.id <=> d2.id}
+  end
+
+  def show
+    @user=User.find(params[:id])
+  end
 
 
   def new
@@ -16,6 +24,8 @@ class UsersController < ApplicationController
       render "new"
     end
   end
+
+
 
 
   def user_params
