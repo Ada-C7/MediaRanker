@@ -1,8 +1,8 @@
 
 <tr>
-  <td> votes  </td>
+  <td> <%= item.votes_count  %>  </td>
   <td> <%=link_to "#{item.title}",work_path(item.id)%></td>
   <td> <%= item.creator  %> </td>
   <td> <%= item.publication_year%> </td>
-  <td>  Upvote  </td>
+  <td>  <%= button_to 'Upvote', upvote_path(item) , method: :post %>  </td>
 </tr>

@@ -9,7 +9,6 @@ class WorksController < ApplicationController
 
   def create
     @work = Work.create(work_params)
-    # @work.save
     if @work.id != nil
       flash[:success] = "Successfully added"
       redirect_to send("#{@work.category}s_path")
@@ -26,7 +25,6 @@ class WorksController < ApplicationController
     end
     userid = session[:user_id]
     @user = User.find_by(id: userid)
-    # @work1 = Work.find_by(id: params[:id])
   end
 
   def show_albums
@@ -68,7 +66,7 @@ class WorksController < ApplicationController
 
     vote = Vote.create!(work: @work, user: @user)
     if vote.save
-      redirect_to work_path(@work.id)
+      redirect_to(:back) 
     end
   end
 
