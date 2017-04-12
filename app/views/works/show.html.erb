@@ -1,0 +1,19 @@
+<section>
+  <h3><%= @work.title %></h3>
+
+  <% if @work.creator %>
+    <p>Created by: <%= @work.creator %></p>
+  <% end %>
+
+  <% if @work.year_published %>
+    <p>Published: <%= @work.year_published %></p>
+  <% end %>
+
+  <% if @work.description %>
+    <p><%= @work.description %></p>
+  <% end %>
+</section>
+
+<section>
+  <h3>[placeholder] Votes for this <%= @work.category.capitalize %></h3>
+</section>
