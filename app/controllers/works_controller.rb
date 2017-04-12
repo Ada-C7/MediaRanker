@@ -39,6 +39,21 @@ class WorksController < ApplicationController
     redirect_to works_path
   end
 
+  def movies
+    @works = Work.gather_movies
+    render "index"
+  end
+
+  def books
+    @works = Work.gather_books
+    render "index"
+  end
+
+  def albums
+    @works = Work.gather_albums
+    render "index"
+  end
+
   private
 
   def work_params
