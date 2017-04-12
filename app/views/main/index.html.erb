@@ -10,6 +10,8 @@
     <li> <%= book.title %> by <%= book.creator %> </li>
     <% end %>
   </ul>
+
+  <%= link_to "More Books", list_works_path("books"), work_category: "Books" %>
 </div>
 
 <div>
@@ -19,6 +21,8 @@
     <li> <%= movie.title %> by <%= movie.creator %> </li>
     <% end %>
   </ul>
+  <%= link_to "More Movies", list_works_path("movies"), work_category: "Movies" %>
+  <!-- link_to "Link text", some_path(:foo => "bar", :baz => "quux"), user: @user, :method => :post -->
 </div>
 
 <div>
@@ -28,4 +32,6 @@
     <li> <%= album.title %> by <%= album.creator %> </li>
     <% end %>
   </ul>
+  <% @work_category = "Albums" %>
+  <%= link_to "More Albums", list_works_path("albums"), work_category: "Albums" %>
 </div>
