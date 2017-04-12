@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  get 'works/index'
+  # get 'works/index'
 
   root "works#index"
 
