@@ -4,9 +4,18 @@ Rails.application.routes.draw do
   get 'movies', :to => 'movies#index'
   root "works#index" #root defaults to first one
 
+  get "/login", to: "sessions#login_form", as: "login_form"
+  post "/login", to: "sessions#login", as: "login"
+  # post "/login", to: "sessions#login_existing", as: "login_existing"
+
+
+  delete '/login', to: "sessions#logout", as: "logout"
+
+
   resources :books
   resources :movies
   resources :albums
+  resources :users
 
   resources :works
 

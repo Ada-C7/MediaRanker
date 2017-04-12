@@ -10,12 +10,12 @@ class UsersController < ApplicationController
     end
   end
 
-  def create
-    @user = User.create! user_params
-    unless @user.id == nil
-      flash[:sucess] = "Successfully created new user #{@user.name} with ID #{@user.id}"
-    else
-      render "new" #should go back to login page
-    end
-  end
+  # def create
+  #   @user = User.create! user_params
+  #   unless @user.id == nil
+  #     flash[:sucess] = "Successfully created new user #{@user.name} with ID #{@user.id}"
+  #   else
+  #     render "new" #should go back to login page
+  #   end
+  # end
 end
