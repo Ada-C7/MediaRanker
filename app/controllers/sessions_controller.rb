@@ -7,10 +7,13 @@ class SessionsController < ApplicationController
 
     if user
       session[:user_id] = user.id
+      session[:username] = user.name
       flash[:success] = "#{user.name} is logged in!!!"
       redirect_to root_path
     end
   end
+
+
 
   def destroy
     session[:user_id] = nil
