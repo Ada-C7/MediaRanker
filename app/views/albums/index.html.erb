@@ -1,2 +1,9 @@
-<h1>Albums#index</h1>
-<p>Find me in app/views/albums/index.html.erb</p>
+<h3>List of Albums</h3>
+
+<ul>
+  <% @albums.each do |work| %>
+    <li>
+      <%= link_to work.title, work_path(work.id) %>
+    </li>
+  <% end %>
+</ul>

@@ -1,2 +1,12 @@
-<h1>Movies#index</h1>
-<p>Find me in app/views/movies/index.html.erb</p>
+<h3>List of Movies</h3>
+
+<ul>
+  <% @movies.each do |work| %>
+    <li>
+      <%= link_to work.title, work_path(work.id) %>
+    </li>
+  <% end %>
+</ul>
+<!-- table that collects info from works table??? -->
+<!-- link that will add a new movie -->
+<!-- link that will redirect to the home page -->
