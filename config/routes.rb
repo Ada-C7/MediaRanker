@@ -1,15 +1,18 @@
 Rails.application.routes.draw do
-  get 'users/index'
+  root to: "works#index"
 
-  get 'users/show'
+  get ":category", to: "works#works_index", as: "works"
 
-  get 'works/index'
+  get ":category/new", to: "works#new", as: "new_work"
 
-  get 'works/show'
+  get ":category/:id/edit",  to: "works#edit", as: "edit_work"
 
-  get 'works/edit'
+  post ":category", to: "works#create"
 
-  get 'works/new'
+  get ":category/:id",  to: "works#show", as: "work"
 
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  patch ":category/:id", to: "works#update"
+
+  delete ":category/:id", to: "works#destroy"
+
 end
