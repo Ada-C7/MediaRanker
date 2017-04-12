@@ -1,0 +1,7 @@
+
+<section id = "albums">
+<h2> Top Albums </h2>
+<% @albums.each  do |item|  %>
+<%=render partial: 'list',  locals:{item:item} %>
+<%end%>
+</section>

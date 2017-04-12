@@ -2,10 +2,11 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
   root "welcome#index", as:'welcome'
-  resources :welcome
-  resources :works
-  resources :votes
-  resources :users
+  resources :welcome,:works, :votes,:users
+
+  get 'books', to: 'works#books_index'
+  get 'albums', to: 'works#albums_index'
+  get 'movies', to: 'works#movies_index'
 
   get 'login', to:'sessions#new'
   post 'login', to:'sessions#create'
