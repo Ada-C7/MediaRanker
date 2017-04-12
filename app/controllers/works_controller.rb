@@ -9,20 +9,6 @@ class WorksController < ApplicationController
   def mediatype_list
   end
 
-  def create
-    @work = Work.create work_params
-
-    if @work.id != nil
-      redirect to root_path
-    else
-      render "new"
-    end
-  end
-
-  def new
-    @work = Work.new
-  end
-
   def edit
   end
 
