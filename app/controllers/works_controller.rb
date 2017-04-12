@@ -3,6 +3,13 @@ class WorksController < ApplicationController
     @works = Work.all
   end
 
+  def top_works
+    @top_albums = Work.where(category: "album").order("votes_count").limit(10)
+    @top_books = Work.where(category: "book").order("votes_count").limit(10)
+    @top_movies = Work.where(category: "movie").order("votes_count").limit(10)
+    @spotlight_work = Work.order("votes_count DESC").last
+  end
+
   def new
     @work = Work.new
   end
@@ -28,14 +35,14 @@ class WorksController < ApplicationController
   end
 
   def show_albums
-    @all_albums = Work.where(category: "album")
+    @all_albums = Work.where(category: "album").order("title")
   end
 
   def show_books
-    @all_books = Work.where(category: "book")
+    @all_books = Work.where(category: "book").order("title")
   end
   def show_movies
-    @all_movies = Work.where(category: "movie")
+    @all_movies = Work.where(category: "movie").order("title")
   end
 
   def edit
@@ -59,16 +66,7 @@ class WorksController < ApplicationController
     end
   end
 
-  def upvote
-    userid = session[:user_id]
-    @user = User.find_by(id: userid)
-    @work = Work.find_by(id: params[:id])
 
-    vote = Vote.create!(work: @work, user: @user)
-    if vote.save
-      redirect_to(:back) 
-    end
-  end
 
   private
   def work_params

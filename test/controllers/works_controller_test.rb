@@ -102,4 +102,15 @@ describe WorksController do
     end
   end # end of edit block
 
+
+    describe "upvote" do
+      it "changes votes count " do
+        w = Work.find_by(votes_count: 1)
+        result = w.votes_count
+        u = User.last
+        vote = Vote.create!(work: w, user: u)
+        w.votes_count.must_equal result + 1
+      end
+    end # end of upvote block
+
 end # end of class

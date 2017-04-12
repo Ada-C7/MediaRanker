@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  root "welcome#index"
+  root "works#top_works"
   get 'albums', to: 'works#show_albums'
   get 'movies', to: 'works#show_movies'
   get 'books', to: 'works#show_books'
@@ -10,7 +10,7 @@ Rails.application.routes.draw do
 
   # post '/works/:id/votes', to: 'votes#create', as: 'new_vote'
   post 'works/:id/upvote', to: 'works#upvote',  as: 'upvote'
-  
+
   resources :users
   resources :votes
   resources :works

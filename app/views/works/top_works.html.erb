@@ -1,5 +1,7 @@
 
 <section>
+  <h3>Spotlight: <%=link_to @spotlight_work.title, work_path(@spotlight_work.id)%>, votes:  <%=@spotlight_work.votes_count%></h3>
+
   <h2> Top albums: </h2>
   <ul>
     <%@top_albums.each do |item|%>

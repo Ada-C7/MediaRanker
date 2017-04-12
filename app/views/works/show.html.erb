@@ -4,13 +4,13 @@
     <p>Created by: <%=@work.creator%></p>
     <p>Published: <%=@work.publication_year%></p>
     <p>Description: <%=@work.description%></p>
+    <p>Category: <%=@work.category%></p>
 
     <p>Total votes for this work: <%=@work.votes_count%></p>
     <%if session[:user_id]%>
       <p>User: <%=@user.username%></p>
+      <p>User's total votes: <%=@user.votes.length%></p>
     <%end%>
-    <p>User's total votes: <%=@user.votes.length%></p>
-
   </article>
   <section id = "buttons">
     <% if @work.category == "movie"%>
@@ -26,6 +26,7 @@
 
     <%= button_to 'Delete', work_path(@work.id), method: :delete, data: {confirm: 'Are you sure?' } %>
   </section>
+  
   <article>
     <h3>Total votes for this <%=@work.category%>:</h3>
     <table> Table with user (user name and date) votes goes here
