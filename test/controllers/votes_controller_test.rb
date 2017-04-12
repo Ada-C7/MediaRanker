@@ -1,8 +1,8 @@
 require "test_helper"
 
-describe MoviesController do
+describe VotesController do
   it "should get index" do
-    get movies_index_url
+    get votes_index_url
     value(response).must_be :success?
   end
 
