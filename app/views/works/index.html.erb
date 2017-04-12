@@ -25,8 +25,4 @@
   <table>
 </section>
 
-<!-- <ul>
-  <% @works.each do |work| %>
-    <li><%= "Title:#{work.title}, Category:#{work.category}" %></li>
-  <% end %>
-</ul> -->
+<%= link_to "Add a new #{@category.singularize }", new_work_path(@category) %>
