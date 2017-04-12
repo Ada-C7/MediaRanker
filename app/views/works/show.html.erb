@@ -7,3 +7,14 @@
 <%= link_to "Delete", work_path(@work.id), method: :delete,
     data: {confirm: "Are you sure"} %>
 <%= link_to "Back to #{@work.category.capitalize} list", works_path(@work.category.pluralize) %>
+
+<% if session[:user_id] %>
+<%= link_to "vote for this", vote_path(@work.id), method: :post %>
+<% end %>
+
+<section>
+  <h3> User Votes </h3>
+<% @work.users.each do |user| %>
+<%= link_to user.name, user_path(user.id) %>
+<% end %>
+</section>

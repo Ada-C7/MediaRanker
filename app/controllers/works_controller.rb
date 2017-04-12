@@ -8,8 +8,17 @@ class WorksController < ApplicationController
   end
 
   def vote
+    upvote = Vote.new(user_id: session[:user_id], work_id: params[:id])
+
+    if upvote.save
+      flash[:success] = "You voted"
+      redirect_to work_path(params[:id])
+    else
+      flash[:failure] = "You Already Voted for This Book!"
+      redirect_to work_path(params[:id])
+    end
   end
-  
+
   def show
     @work = Work.find_by(id: params[:id])
     if @work.nil?

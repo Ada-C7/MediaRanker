@@ -10,7 +10,7 @@ Rails.application.routes.draw do
 
   delete 'logout', to: "sessions#destroy"
 
-  post ":category/:id/vote", to: "works#vote", as "vote"
+  post "works/:id/vote", to: "works#vote", as: "vote"
 
   get ":category", to: "works#works_index", as: "works", constraints: { category: /(albums)|(movies)|(books)|(album)|(movie)|(book)/ }
 
