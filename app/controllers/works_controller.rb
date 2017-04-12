@@ -1,15 +1,21 @@
 class WorksController < ApplicationController
 
+  def index
+    @works = Work.all
+  end
+
   def movies
-    # @movies =
+    @movies = find_movies
   end
 
   def books
+    @books = find_books
   end
 
-  def alubms
+  def albums
+    @albums = find_albums
   end
-  #
+
   def new_movie
     @work = Work.new
     @work.category = "movie"
@@ -45,24 +51,24 @@ class WorksController < ApplicationController
   end
 
   def show
-    @work = Work.find(params[:id])
+    @work = find_work
   end
 
   def edit
-    @work = Work.find(params[:id])
+    @work = find_work
   end
 
   def update
-    @work = Work.find(params[:id])
+    @work = find_work
     @work.update_attributes(works_params)
 
     redirect_to work_path(@work.id)
   end
 
   def destroy
-    work = Work.find(params[:id])
+    work = find_work
     path = find_path(work)
-    Work.find(params[:id]).destroy
+    work.destroy
     redirect_to path
   end
 
@@ -73,6 +79,22 @@ private
                                          :creator,
                                          :publication_year,
                                          :description)
+  end
+
+  def find_work
+    Work.find(params[:id])
+  end
+
+  def find_movies
+    Work.all.where(category: "movie")
+  end
+
+  def find_books
+    Work.all.where(category: "book")
+  end
+
+  def find_albums
+    Work.all.where(category: "album")
   end
 
   def find_path(work)

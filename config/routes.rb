@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  root 'homepage#index', as:'homepage'
+  root 'works#index', as:'homepage'
   # need to change this - dont need all the restful routes
 
   get 'movies', to: 'works#movies', as: 'movies'

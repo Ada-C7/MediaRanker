@@ -6,7 +6,7 @@
   <section>
     <h2>Books</h2>
     <ul>
-    <% Work.all.where(category: "book").each do |book| %>
+    <% @books.each do |book| %>
       <li><%= link_to book.title, work_path(book.id) %></li>
     <% end %>
     </ul>
