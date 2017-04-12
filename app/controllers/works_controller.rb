@@ -1,15 +1,17 @@
 class WorksController < ApplicationController
   def index
     @albums = Work.where(category: "album")
-  end
-
-  def index_movie
     @movies = Work.where(category: "movie")
+    @books = Work.where(category: "book")
   end
 
-  def index_book
-    @book = Work.where(category: "book")
-  end
+  # def index_movie
+  #   @movies = Work.where(category: "movie")
+  # end
+  #
+  # def index_book
+  #   @book = Work.where(category: "book")
+  # end
 
   def show
     @result_work = Work.find_by_id(params[:id])
@@ -56,11 +58,11 @@ class WorksController < ApplicationController
     redirect_to works_path
   end
 
-private
+  private
 
-def work_params
-  params.require(:work).permit(:category, :title, :creator, :publish_year, :description)
-end
+  def work_params
+    params.require(:work).permit(:category, :title, :creator, :publish_year, :description)
+  end
 
 
 end

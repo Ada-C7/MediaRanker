@@ -10,3 +10,29 @@
     <% end %>
   </li>
 </ul>
+
+
+<h2>Top Albums</h2>
+
+<ul>
+<% 10.times do |album| %>
+<li> <%= "#{ @albums[album].title }" %> </li>
+<% end %>
+</ul>
+
+
+<h2>Top Movies</h2>
+
+<ul>
+<% 10.times do |m| %>
+<li> <%= "#{ @movies[m].title }" %> </li>
+<% end %>
+</ul>
+
+<h2>Top Books</h2>
+
+<ul>
+<% 10.times do |b| %>
+<li> <%= "#{ @books[b].title }" %> </li>
+<% end %>
+</ul>
