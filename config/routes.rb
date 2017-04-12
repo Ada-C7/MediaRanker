@@ -9,5 +9,5 @@ Rails.application.routes.draw do
 
   get 'votes/index'
 
-  get 'users/index'
+  get 'users/index', to: "users#index"
 end

@@ -7,9 +7,9 @@
   </tr>
   <% @users.each do | user | %>
   <tr>
-    <td><% user.name %> </td>
+    <td><%= user.name %> </td>
     <td>(number of votes associated with user)</td>
-    <td><% user.created_at %></td>
+    <td><%= user.created_at.strftime("%b %d, %Y") %></td>
   </tr>
   <% end %>
 </table>
