@@ -1,5 +1,8 @@
-<h2>All <%= @category_works.first.category %></h2>
+<h2>List of <%= @category %></h2>
   <% @category_works.each do |work| %>
   <%= work.title %>
   <%= work.category %>
 <% end %>
+
+<h3><%= link_to "View all Media", works_path %></h3>
+<h3><%= link_to "Add new #{@category.singularize}", new_work_path(:category => @category.singularize) %></h3>

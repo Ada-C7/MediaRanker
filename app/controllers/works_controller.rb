@@ -7,9 +7,9 @@ class WorksController < ApplicationController
 
 
   def show_category
-    works = Work.all
+    @category = params[:category]
     @category_works = []
-    works.each do |work|
+    Work.all.each do |work|
       @category_works << work if work[:category] == params[:category].singularize
     end
     return @category_works

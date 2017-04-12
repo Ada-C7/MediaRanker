@@ -1,11 +1,11 @@
 <h1>Media</h1>
 
+<h2>Top Movies</h2>
+  <%= render partial: "category", locals: {category: "movie"} %>
 
-<% categories.each do |category, works| %>
-  <h2>Top <%= category.pluralize %></h2>
-    <% works[0..9].each do |work| %>
-      <h3><%= link_to work[:title], work_path(work.id) %> by <%= work[:creator] %></h3>
-    <% end %>
-    <h3><%= link_to "add new #{category}", new_work_path %></h3>
-    <h3><%= link_to "see all #{category.pluralize(2)}", category_path(category.pluralize(2)) %></h3>
-<% end %>
+
+<h2>Top Books</h2>
+  <%= render partial: "category", locals: {category: "book"} %>
+
+<h2>Top Albums</h2>
+  <%= render partial: "category", locals: {category: "album"}%>
