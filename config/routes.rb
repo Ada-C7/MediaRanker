@@ -5,4 +5,6 @@ Rails.application.routes.draw do
   get '/books', to: 'works#index_books', as: 'books'
   get '/albums', to: 'works#index_albums', as: 'albums'
   get '/movies', to: 'works#index_movies', as: 'movies'
+
+  get '/login', to: 'sessions#login'
 end
