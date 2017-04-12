@@ -1,6 +1,6 @@
 <h1>Add an Album</h1>
 
-<%= form_for @album do |f| %>
+<%= form_for Work.new do |f| %>
   <%= f.hidden_field :category, :value => "album" %>
  <%= f.label :title %>
  <%= f.text_field :title %>

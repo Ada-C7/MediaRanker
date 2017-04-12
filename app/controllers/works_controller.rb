@@ -18,7 +18,7 @@ class WorksController < ApplicationController
   end
 
   def create
-    @work = Work.create! work_params
+    @work = Work.create work_params
     unless @work.id == nil
       case @work.category
         when "album"
@@ -32,8 +32,17 @@ class WorksController < ApplicationController
           redirect_to books_path
       end
     else
-      # flash.now[:error] = "A problem occured: Could not create #{@work.category}"
-      render "new"
+      case @work.category
+      when "album"
+        flash.now[:error] = "A problem occured: Could not create album"
+        render 'albums/new'
+      when "movie"
+        flash.now[:error] = "A problem occured: Could not create movie"
+        render 'movies/new'
+      when "book"
+        flash.now[:error] = "A problem occured: Could not create book"
+        render 'books/new'
+      end
     end
   end
 

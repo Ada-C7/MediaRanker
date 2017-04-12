@@ -1,6 +1,6 @@
 <h1>Add a Book</h1>
 
-<%= form_for @book do |f| %>
+<%= form_for Work.new do |f| %>
 <%= f.hidden_field :category, :value => "book" %>
 
  <%= f.label :title %>
