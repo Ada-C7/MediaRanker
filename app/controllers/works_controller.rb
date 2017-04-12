@@ -21,6 +21,8 @@ class WorksController < ApplicationController
 
   def show
     @work = Work.find_by_id(params[:id])
+
+    render_404 if @work.nil?
   end
 
   def edit
