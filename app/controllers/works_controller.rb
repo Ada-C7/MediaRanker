@@ -2,7 +2,7 @@ class WorksController < ApplicationController
 
   def index
     if params[:category] == 'all'
-      @spotlight_work = Work.all.sample
+      @spotlight_work = Work.all.max_by { |work| work.votes.count }
       @categories = Work.all.map {|work| work.category}.uniq
 
     else

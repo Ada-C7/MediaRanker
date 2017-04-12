@@ -5,12 +5,13 @@
   <p><%= @work.description %></p>
 
   <section>
-    <%= link_to "Back to #{@work.category} list", works_path(@work.category) %>
+    <%= link_to "Back to #{@work.category} list", "/#{@work.category.pluralize}" %>
+    <%= link_to "Upvote", "/#{@work.category.pluralize}/#{@work.id}/upvote", method: :patch %>
   </section>
 </article>
 
 <article>
-  <h3>5 Votes for this <%= @work.category.capitalize %></h3>
+  <h3><%= @work.votes.count %> Votes for this <%= @work.category.capitalize %></h3>
   <table>
     <thead>
       <tr>
@@ -19,10 +20,12 @@
       </tr>
     </thead>
     <tbody>
-      <tr>
-        <td>USERNAME HERE</td>
-        <td>DATE HERE</td>
-      </tr>
+      <% @work.votes.each do |vote| %>
+        <tr>
+          <td><%= vote.user.username %></td>
+          <td><%= vote.created_at.strftime('%b %e, %Y') %></td>
+        </tr>
+      <% end %>
     </tbody>
   </table>
 </article>
