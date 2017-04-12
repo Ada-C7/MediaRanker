@@ -32,13 +32,7 @@ class WorksController < ApplicationController
     @work = Work.new(works_params)
 
     if @work.save # is true - IE validations pass
-      if @work.category == "movie"
-        redirect_to movies_path
-      elsif @work.category == "book"
-        redirect_to books_path
-      elsif @work.category == "album"
-        redirect_to albums_path
-      end
+      redirect_to find_path(@work)
     else # We know the validations didn't pass so want to show messages
       if @work.category == "movie"
         render "works/movies/new", status: :bad_request
@@ -65,9 +59,11 @@ class WorksController < ApplicationController
     redirect_to work_path(@work.id)
   end
 
-  def destory
-    Work.find(params[:id]).destory
-    # redirect_to
+  def destroy
+    work = Work.find(params[:id])
+    path = find_path(work)
+    Work.find(params[:id]).destroy
+    redirect_to path
   end
 
 private
@@ -78,4 +74,15 @@ private
                                          :publication_year,
                                          :description)
   end
+
+  def find_path(work)
+    if work.category == "movie"
+      return movies_path
+    elsif work.category == "book"
+      return books_path
+    elsif work.category == "album"
+      return albums_path
+    end
+  end
+
 end
