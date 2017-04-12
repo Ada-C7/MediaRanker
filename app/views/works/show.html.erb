@@ -13,7 +13,9 @@
   </section>
 
   <section>
-    <%= link_to "Back", :back %>
+    <% route = find_path(@work) %>
+
+    <%= link_to "Back to #{@work.category}s", route %>
     <%= link_to "Edit", edit_work_path %>
   </section>
 </main>
