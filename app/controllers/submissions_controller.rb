@@ -1,22 +1,12 @@
 class SubmissionsController < ApplicationController
   before_action :set_submission, only: [:show, :edit, :update, :destroy]
 
-  # GET /submissions
-  # GET /submissions.json
-  def index
-    @submissions = Submission.all
-  
-    @album_submissions
-    @book_submissions
-    @movie_submissions
-  end
+  def index; end
 
-  # GET /submissions/1
-  # GET /submissions/1.json
   def show
+       @submission = Submission.find_by_id(params[:id])
   end
 
-  # GET /submissions/new
   def new
     @submission = Submission.new
   end

@@ -1,4 +1,9 @@
 <p id="notice"><%= notice %></p>
 
-<%= link_to 'Edit', edit_submission_path(@submission) %> |
-<%= link_to 'Back', submissions_path %>
+<h3> <%= @submission.title %> </h3>
+<p> Created by: <%= @submission.author %>
+<p> Published: <%= @submission.publish_date %>
+<p> Summary: <%= @submission.summary %>
+
+<p><%= link_to 'Edit', edit_submission_path(@submission) %> |
+<%= link_to 'Back', root_path %></p>
