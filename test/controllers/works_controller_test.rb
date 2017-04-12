@@ -6,6 +6,16 @@ describe WorksController do
     must_respond_with :success
   end
 
+  it "should get books index" do
+    get category_path("books")
+    must_respond_with :success
+  end
+
+  it "should show a 404 when media index not found" do
+    get category_path("bad_path")
+    must_respond_with :missing
+  end
+
   it "should show one book" do
     get work_path(works(:bone_people))
     must_respond_with :success
