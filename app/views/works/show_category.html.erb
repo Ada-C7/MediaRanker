@@ -40,7 +40,8 @@
   </tr>
 </table>
 
-
+<% if @categorized_works.length > 0 %>
 <%= link_to "View all media", works_path, method: :get %>
 <%= link_to "Add a new #{@categorized_works.first.category}", category_path(@categorized_works.first.category.pluralize), method: :get %>
 <%# problem here if there is no media of a given category %>
+<% end %>
