@@ -10,9 +10,17 @@ class WorksController < ApplicationController
   end
 
   def create
+    @work = Work.create work_params
+
+    if @work.id != nil
+      redirect to root_path
+    else
+      render "new"
+    end
   end
 
   def new
+    @work = Work.new
   end
 
   def edit
@@ -26,6 +34,12 @@ class WorksController < ApplicationController
   end
 
   def destroy
+  end
+
+  private
+
+  def work_params
+    params.require(:work).permit(:id, :mediatype, :title, :creator, :year, :description)
   end
 
 end
