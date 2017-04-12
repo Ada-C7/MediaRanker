@@ -1,11 +1,11 @@
 Rails.application.routes.draw do
   root "works#index"
 
-  get "/albums", to: "albums#index", as: "albums_path"
+  get "/albums", to: "albums#index"
 
-  get "/books", to: "books#index", as: "books_path"
+  get "/books", to: "books#index"
 
-  get "/movies", to: "movies#index", as: "movies_path"
+  get "/movies", to: "movies#index"
 
 
   resources :works
