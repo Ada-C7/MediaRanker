@@ -15,7 +15,7 @@ describe AlbumsController do
 
    it "should redirect to album list after adding album" do
      post works_path, params: { work:
-     { category: work.category,
+     { category: "album",
        title: work.title
        }
      }

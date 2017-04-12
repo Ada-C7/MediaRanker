@@ -15,7 +15,7 @@ describe MoviesController do
 
    it "should redirect to movie list after adding movie" do
      post works_path, params: { work:
-     { category: work.category,
+     { category: "movie",
        title: work.title
        }
      }

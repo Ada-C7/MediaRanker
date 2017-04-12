@@ -20,7 +20,14 @@ class WorksController < ApplicationController
   def create
     @work = Work.create! work_params
     unless @work.id == nil
-      redirect_to work_path(@work.id)
+      case @work.category
+        when "album"
+          redirect_to albums_path
+        when "movie"
+          redirect_to movies_path
+        when "book"
+          redirect_to books_path
+      end
     else
       render "new"
     end

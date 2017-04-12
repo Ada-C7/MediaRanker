@@ -15,7 +15,7 @@ describe BooksController do
 
    it "should redirect to book list after adding book" do
      post works_path, params: { work:
-     { category: work.category,
+     { category: "book",
        title: work.title
        }
      }
