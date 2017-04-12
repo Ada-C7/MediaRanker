@@ -12,4 +12,8 @@ class Work < ApplicationRecord
   def self.albums
     @albums = Work.where(media_type: 'album')
   end
+
+  def self.movies
+    @movies = Work.where(media_type: 'movie')
+  end
 end
