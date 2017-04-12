@@ -68,6 +68,10 @@ class WorksController < ApplicationController
     redirect_to works_path
   end
 
+  def vote
+    @vote = Vote.create(user_id: session[:user_id], work_id: params[:id])
+  end
+
   private
 
   def work_params

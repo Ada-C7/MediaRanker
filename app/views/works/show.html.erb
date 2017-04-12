@@ -12,7 +12,11 @@
 <%= button_to 'Back to album list', albums_path, method: :get %>
 <%end%>
 
-<%= button_to "Back to all lists", root_path, method: :get %>
-<%= button_to "Edit", edit_work_path(@work.id), method: :get %>
-<%= button_to "Delete", work_path(@work), method: :delete,
-    data: {confirm: "Are you sure"} %>
+<%= link_to "Back to all lists", root_path, method: :get %>
+<%= link_to "Edit", edit_work_path(@work.id), method: :get %>
+<%= link_to "Delete", work_path(@work), method: :delete,
+data: {confirm: "Are you sure"} %>
+
+<% if session[:user_id] %>
+<%= link_to "Vote for this #{@work.category}.", vote_path(@work.id), method: :post %>
+<% end %>

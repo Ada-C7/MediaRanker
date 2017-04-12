@@ -16,6 +16,7 @@ Rails.application.routes.draw do
   post 'albums', to:'works#create'
   post 'books', to:'works#create'
 
+  post 'works/:id/vote', to: 'works#vote', as: 'vote'
   get 'login', to: 'sessions#new'
   post 'login', to: 'sessions#create'
   delete 'logout', to: 'sessions#destroy'
