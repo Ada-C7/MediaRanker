@@ -1,9 +1,9 @@
-# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
-
-one:
-  username: MyString
-  category: MyString
-
-two:
-  username: MyString
-  category: MyString
+# # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+#
+# one:
+#   username: MyString
+#   category: MyString
+#
+# two:
+#   username: MyString
+#   category: MyString
