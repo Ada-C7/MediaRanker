@@ -12,8 +12,19 @@
     <header>
       <h1><%= link_to "Media Ranker", root_path %></h1>
       <h2>Ranking the Best of Everything</h2>
-      <p>Login/Logout Button will go here</p>
+      <% if !session[:user] %>
+        <%= link_to "Login", login_path %>
+        <p>You are not logged in</p>
+      <% else %>
+        <%= link_to "Logout", login_path, method: :delete %>
+        <p>You are logged in as <%= session[:user_name] %></p>
+      <% end %>
     </header>
+    <section class="flash">
+      <% flash.each do |name, message| %>
+      <div class="<%= name %>"><%= message %></div>
+      <% end %>
+    </section>
     <%= yield %>
   </body>
 </html>
