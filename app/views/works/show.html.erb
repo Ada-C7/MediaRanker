@@ -1,0 +1,28 @@
+<article class="media-details">
+  <h3><%= @work.title %></h3>
+  <p>Created by: <%= @work.creator %></p>
+  <p>Published: <%= @work.publication_year %></p>
+  <p><%= @work.description %></p>
+
+  <section>
+    <%= link_to "Back to #{@work.category} list", works_path(@work.category) %>
+  </section>
+</article>
+
+<article>
+  <h3>5 Votes for this <%= @work.category.capitalize %></h3>
+  <table>
+    <thead>
+      <tr>
+        <th>User</th>
+        <th>Date</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>USERNAME HERE</td>
+        <td>DATE HERE</td>
+      </tr>
+    </tbody>
+  </table>
+</article>

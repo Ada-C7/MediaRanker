@@ -1,7 +1,16 @@
 class WorksController < ApplicationController
+
   def index
-    @spotlight_work = Work.all.sample
-    @categories = Work.all.map {|work| work.category}.uniq
+    if params[:category] == 'all'
+      @spotlight_work = Work.all.sample
+      @categories = Work.all.map {|work| work.category}.uniq
+
+    elsif ['book', 'album', 'movie'].include? params[:category]
+      @category = params[:category]
+      @works = Work.where(category: @category)
+
+      render :category_index
+    end
   end
 
   def new
@@ -11,11 +20,7 @@ class WorksController < ApplicationController
   end
 
   def show
-  end
-
-  def show_category
-    @category = params[:category]
-    @works = Work.where(category: @category)
+    @work = Work.find_by_id(params[:id])
   end
 
   def edit
