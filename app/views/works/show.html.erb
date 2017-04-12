@@ -1,0 +1,9 @@
+<h2><%= @work.title %></h2>
+<p><%= "Created by: #{@work.creator}" %></p>
+<p><%= "Published: #{@work.publication_year}" %></p>
+<p><%= @work.description if !@work.description.nil?%></p>
+
+<section>
+  <%= link_to "Back to #{@work.category} list", works_path(@work.category.pluralize) %>
+
+</secion>

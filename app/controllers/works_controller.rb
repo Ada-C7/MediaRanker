@@ -11,14 +11,19 @@ class WorksController < ApplicationController
 
   def create
     @work = Work.new(work_params)
-    category = params[:work][:category].to_s.pluralize
 
     if @work.save
-      redirect_to works_path(category)
+      redirect_to works_path(@work.category.pluralize)
     else
       render :new
     end
   end
+
+  def show
+    @work = Work.find(params[:id])
+  end
+
+
 
   private
 
