@@ -3,4 +3,7 @@ Rails.application.routes.draw do
 
   root "welcome#index", as:'welcome'
   resources :welcome
+  resources :works
+  resources :votes
+  resources :users
 end

@@ -54,6 +54,14 @@ it "can find a user's name through their vote" do
 end
 
 
+describe "testing model method" do
+  it "can display a single category" do
+    a = Work.all
+#not sure how to write this without writing the controller
+  end
+end
+
+
   end
 
 

@@ -6,4 +6,10 @@ has_many :votes
 
   validates :category, presence: true , inclusion: { in: %w(album movie book)}
 
+def show_category(type)
+  all = Work.all
+  all.select!{|item| item.category == type}
+  return all
+end
+
 end
