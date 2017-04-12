@@ -9,6 +9,6 @@ class Work < ApplicationRecord
   end
 
   def self.movies
-    Work.where(category: "movies")
+    Work.where(category: "movie")
   end
 end
