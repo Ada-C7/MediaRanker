@@ -32,4 +32,15 @@ describe Work do
       result.must_equal false
     end
   end
+
+  describe "relations" do
+    it "can have votes" do
+
+    end
+
+    it "can call up a list of those votes" do
+
+    end
+
+  end
 end

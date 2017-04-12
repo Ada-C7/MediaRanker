@@ -1,24 +1,16 @@
 require "test_helper"
 
 describe WorksController do
-  it "should get index" do
-    get works_index_url
-    value(response).must_be :success?
+  describe "pull a work from the database" do
+
   end
 
-  it "should get show" do
-    get works_show_url
-    value(response).must_be :success?
+  describe "create a new work" do
+
   end
 
-  it "should get edit" do
-    get works_edit_url
-    value(response).must_be :success?
-  end
+  describe "update a work" do
 
-  it "should get new" do
-    get works_new_url
-    value(response).must_be :success?
   end
 
 end

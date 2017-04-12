@@ -1,14 +1,16 @@
 require "test_helper"
 
 describe UsersController do
-  it "should get index" do
-    get users_index_url
-    value(response).must_be :success?
+  describe "pull a user from the database" do
+
   end
 
-  it "should get show" do
-    get users_show_url
-    value(response).must_be :success?
+  describe "create a new user" do
+
+  end
+
+  describe "Session" do
+
   end
 
 end

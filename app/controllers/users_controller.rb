@@ -12,7 +12,7 @@ class UsersController < ApplicationController
   end
 
   def create
-  @user = User.create user_params
+    @user = User.create user_params
 
     if @user.id != nil
       flash[:success] = "User added successfully"
