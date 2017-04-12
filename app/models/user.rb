@@ -4,6 +4,8 @@ class User < ApplicationRecord
   validates :username, presence: true
   validates :username, format: {with: /[a-zA-Z, 1-9, _]+/}
 
+  validates :username, uniqueness: true
+
   validates :date_of_joining, presence: true
 
   def total_votes

@@ -12,8 +12,15 @@
     <%=image_tag ("owl.jpg")%>
     <%=link_to "Media Ranker", root_path%>
     <strong>Ranking the Best of Everything </strong>
-    <div> Login button </div>
+    <div><%=button_to "Login", new_user_path, method: :get%> </div>
   </header>
+
+
+  <section class="flash">
+    <% flash.each do |name, message| %>
+    <div class="<%= name %>"><%= message %></div>
+    <% end %>
+  </section>
 
   <body>
     <%= yield %>

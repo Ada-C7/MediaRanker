@@ -8,12 +8,13 @@ class WorksController < ApplicationController
   end
 
   def create
-    @work = Work.new(work_params)
-    #@work.user_id = rand(100...200) #test
-    @work.save
-    if @work.save
+    @work = Work.create(work_params)
+    # @work.save
+    if @work.id != nil
+      flash[:success] = "Successfully added"
       redirect_to send("#{@work.category}s_path")
     else
+      flash[:failure] = "Work wasn't saves, try again"
       render :new, status: :bad_request
     end
   end
@@ -23,6 +24,7 @@ class WorksController < ApplicationController
     if @work.nil?
       head :not_found
     end
+    # @user = User.new(username: "natalia", date_of_joining: "today")
   end
 
   def show_albums
@@ -58,8 +60,10 @@ class WorksController < ApplicationController
   end
 
   def upvote
-    vote = Vote.new(work: @work, user: @user)
+    # @user1 =  User.create!(username:"natalia1234", date_of_joining: "21/01/2009")
+    vote = Vote.new(work: @work, user: @user) # @user
     vote.save # ???? save doesnt work
+
     if vote.save
       redirect_to root_path
     end

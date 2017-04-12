@@ -5,19 +5,9 @@ class VotesController < ApplicationController
   #   @vote.work = params[:work_id]
   #   @vote.user = params[:user_id]
   #   @vote.save
-  # end
-
-  # def show
-  #
-  # end
-  #
-  # def edit
-  #
-  # end
-  #
-  # def update
-  #
-  #
+  #   if @vote.save
+  #     redirect_to root_path
+  #   end
   # end
 
   private

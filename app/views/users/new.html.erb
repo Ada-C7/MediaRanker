@@ -1,0 +1,22 @@
+<% if @user.errors.messages.length > 0 %>
+<section>
+  <h2> Something went wrong</h2>
+  <ul>
+    <%@user.errors.messages.each do |field, problems| %>
+      <% problems.each do |problem| %>
+        <li>
+          <%= field %>
+          <%= problem %>
+        </li>
+      <% end %>
+    <% end %>
+  </ul>
+</section>
+<%end%>
+
+<%= form_for @user do |f| %>
+  <%= f.label :username %>
+  <%= f.text_field :username %>
+
+  <%= f.submit value: "Create" %>
+<% end %>

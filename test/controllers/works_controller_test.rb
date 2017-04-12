@@ -92,8 +92,13 @@ describe WorksController do
   describe "destroy" do
     it " successfully deletes from database" do
       w = Work.create!(category: "movie", title: "test title",creator: "creator test", publication_year: "1111", description: "description goes here" )
-      delete work_path(w.id) 
+      delete work_path(w.id)
       must_redirect_to movies_path
+    end
+    it "after deletion, work doesn't exist anymore" do
+      w = Work.create!(category: "movie", title: "test title",creator: "creator test", publication_year: "1111", description: "description goes here" )
+      delete work_path(w.id)
+      Work.find_by(title: "test title").must_equal nil
     end
   end # end of edit block
 
