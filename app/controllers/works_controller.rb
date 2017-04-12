@@ -4,18 +4,15 @@ class WorksController < ApplicationController
   end
 
   def album_index
-    @works = Work.all
-    @works.where(category: "album")
+    @works = Work.all.where(category: "album")
   end
 
   def book_index
-    @works = Work.all
-    @works.where(category: "book")
+    @works = Work.all.where(category: "book")
   end
 
   def movie_index
-    @works = Work.all
-    @works.where(category: "movie")
+    @works = Work.all.where(category: "movie")
   end
 
   def new

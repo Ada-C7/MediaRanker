@@ -1,9 +1,10 @@
-<h2> Book Only </h2>
+<h2> Album Only </h2>
 
 <ul>
   <% @works.each do |work| %>
   <li>
     <%= "Title: #{work.title}" %>
+    <%= "Category: #{work.category}" %>
     <%= "Created By: #{work.creator}" %>
     <%= "Published: #{work.pub_date}" %>
   </li>
