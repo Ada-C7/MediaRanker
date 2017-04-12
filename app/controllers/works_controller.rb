@@ -17,14 +17,14 @@ def show
 end
 
 def show_category
-  @category = Work.find_by_id(params[:category])
+  @work = Work.find_by(params[:category])
 end
 
 def update
-  work = Word.find_by_id(params[:id])
+  work = Work.find_by_id(params[:id])
 
   if work.update(work_params)
-    redirect category_path
+    redirect_to category_path_path
   else
     render 'edit'
   end
@@ -41,10 +41,10 @@ def new
 end
 
 def create
-  @work = Work.new
+  @work = Work.create(work_params)
 
-  if @work.create(work_params)
-    redirect to work_path(@work.id)
+  if @work.id !=nil
+    redirect_to work_path(@work.id)
   else
     render 'new'
   end
