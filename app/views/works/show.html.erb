@@ -3,7 +3,6 @@
 
   <table>
     <tr>
-      <th>Category</th>
       <th>Title</th>
       <th>Creator</th>
       <th>Publication Year</th>
@@ -11,7 +10,6 @@
     </tr>
     <% @works.each do | work | %>
     <tr>
-      <td><%= work.category %></td>
       <td><%= work.title %></td>
       <td><%= work.creator %></td>
       <td><%= work.pub_year %></td>
