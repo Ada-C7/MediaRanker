@@ -104,13 +104,20 @@ describe WorksController do
 
 
     describe "upvote" do
-      it "changes votes count " do
-        w = Work.find_by(votes_count: 1)
-        result = w.votes_count
-        u = User.last
-        vote = Vote.create!(work: w, user: u)
-        w.votes_count.must_equal result + 1
-      end
+      # it " redirects back after creating new vote " do
+      #   w = Work.create!(category: "movie", title: "test title3",creator: "creator test", publication_year: "1111", description: "description goes here" )
+      #   u = User.create!(username: "nanana", date_of_joining: "12/01/2016")
+      #   vote = Vote.create!(work: w, user: u)
+      #   post upvote_path(w.id)
+      #   must_redirect_to (:back)
+      # end
+      # it "" do
+      #   w = Work.create!(category: "movie", title: "test title3",creator: "creator test", publication_year: "1111", description: "description goes here" )
+      #   result = w.votes_count
+      #   u = User.last
+      #   vote = Vote.create!(work: w, user: u)
+      #   w.votes_count.must_equal result + 1
+      # end
     end # end of upvote block
 
 end # end of class

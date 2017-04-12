@@ -66,6 +66,16 @@ class WorksController < ApplicationController
     end
   end
 
+  def upvote
+    userid = session[:user_id]
+    @user = User.find_by(id: userid)
+    @work = Work.find_by(id: params[:id])
+
+    vote = Vote.create!(work: @work, user: @user)
+    if vote.save
+      redirect_to(:back)
+    end
+  end
 
 
   private
