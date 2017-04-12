@@ -6,10 +6,11 @@ has_many :votes
 
   validates :category, presence: true , inclusion: { in: %w(album movie book)}
 
-def show_category(type)
+def self.show_category(cat)
+  chosen = []
   all = Work.all
-  all.select!{|item| item.category == type}
-  return all
+  all.each{|item| item.category == cat ? (chosen << item ): next}
+  return chosen
 end
 
 end
