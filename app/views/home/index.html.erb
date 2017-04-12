@@ -5,24 +5,24 @@
 
     <section class='albums'>
       <h2> Top Albums </h2>
-      <% @albums.each do |album| %>
-      <div><%= link_to "#{album.title} by #{album.creator}", work_path(album.id)%></div>
+      <% @albums.sort_by{|a| a.votes.count}.reverse.each do |album| %>
+      <div><%= link_to "#{album.title} by #{album.creator}", work_path(album.id)%> <%= album.votes.count%> votes</div>
       <%end%>
       <%= link_to "All Albums", albums_path%>
     </section>
 
     <section class='books'>
       <h2> Top Books </h2>
-      <% @books.each do |book| %>
-      <div><%= link_to "#{book.title} by #{book.creator}", work_path(book.id)%></div>
+      <% @books.sort_by{|a| a.votes.count}.reverse.each do |book| %>
+      <div><%= link_to "#{book.title} by #{book.creator}", work_path(book.id)%> <%= book.votes.count%> votes</div>
       <%end%>
       <%= link_to "All Books", books_path%>
     </section>
 
     <section class='movies'>
       <h2> Top Movies </h2>
-      <% @movies.each do |movie| %>
-      <div><%= link_to "#{movie.title} by #{movie.creator}", work_path(movie.id)%></div>
+      <% @movies.sort_by{|a| a.votes.count}.reverse.each do |movie| %>
+      <div><%= link_to "#{movie.title} by #{movie.creator}", work_path(movie.id)%> <%= movie.votes.count%> votes</div>
       <%end%>
       <%= link_to "All Movies", movies_path%>
     </section>

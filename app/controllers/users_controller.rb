@@ -8,7 +8,7 @@ class UsersController < ApplicationController
     end
 
     def show
-        @user = User.find(id: params[:id])
+        @user = User.find(params[:id])
         head :not_found if @user.nil?
     end
 

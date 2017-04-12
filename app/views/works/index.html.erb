@@ -3,13 +3,22 @@
 <% else %>
 <h1>All <%= @works.sample.category.capitalize%>s</h1>
 
-<% @works.each do |work| %>
-<div>Votes: <%= work.votes.count%></div>
-<div><%= link_to "Title: #{work.title}", work_path(work.id)%></div>
-<div>Created by: <%= work.creator %></div>
-<div>Published: <%= work.published_year%></div>
-<div>Description: <%= work.description%></div>
-<div><%= button_to 'Upvote', upvote_path(work.id) %></div>
+<table>
+  <tr>
+  <th>Votes</th>
+  <th>Title</th>
+  <th>Created by</th>
+  <th>Published</th>
+  <th>Upvote</th>
+</tr>
+<tr>
+<% @works.sort_by{|a| a.votes.count}.reverse.each do |work| %>
+<td><%= work.votes.count%></td>
+<td><%= link_to "Title: #{work.title}", work_path(work.id)%></td>
+<td><%= work.creator %></td>
+<td><%= work.published_year%></td>
+<td><%= button_to work.votes.select { |vote| vote[:user_id] == session[:user_id] }.empty? ? 'Upvote' : 'Remove Vote', upvote_path(work.id) %></td>
+</tr>
 <% end %>
 <%end%>
 

@@ -3,11 +3,24 @@
 User Since: <%= @user.created_at %>
 
 <%= @user.name%>'s Votes:
-<ul>
-  <% @user.works.each do |work| %>
-  <li> <%= work.title %> by <%=work.creator%></li>
+<table>
+  <tr>
+    <th>Media Title</th>
+    <th>Created by</th>
+    <th>Published</th>
+    <th>Category</th>
+    <th>Vote On</th>
+  </tr>
+  <tr>
+  <% @user.works.sort_by{|a| a.votes.select{|v| v[:user_id] == @user.id}[0].created_at}.reverse.each do |work| %>
+  <td> <%= link_to "#{work.title}", work_path(work.id) %></td>
+  <td> <%=work.creator%></td>
+  <td><%= work.published_year%></td>
+  <td><%= work.category%></td>
+  <td><%= work.votes.select{|v| v[:user_id] == @user.id}[0].created_at%></td>
+</tr>
     <%end%>
-</ul>
+</table>
 
 <%= link_to 'All Users', users_path %>
 <%= link_to "View All Media", home_path %>
