@@ -1,4 +1,22 @@
-<h2><%= @result_work.title %></h2>
-<p>Created by: <%= @result_work.creator %></p>
-<p>Published: <%= @result_work.year %></p>
-<p><%= @result_work.description %></p>
+<section id="show-data">
+  <h2><%= @result_work.title %></h2>
+  <p>Created by: <%= @result_work.creator %></p>
+  <p>Published: <%= @result_work.year %></p>
+  <p><%= @result_work.description %></p>
+</section>
+
+<section id="show-votes">
+  <h2>(number of votes) votes for this <%= @result_work.mediatype.capitalize %></h2>
+  <table>
+    <tr>
+      <th>User</th>
+      <th>Date</th>
+    </tr>
+    <!-- for each vote do -->
+    <tr>
+      <th>(link to username)</th>
+      <th>(date vote added)</th>
+    </tr>
+    <!-- end -->
+  </table>  
+</section>
