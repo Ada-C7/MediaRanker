@@ -1,0 +1,8 @@
+<% selected_works = @works.select { |work| work.category == category} %>
+    <% selected_works[0..9].each do |work| %>
+    <h3><%= link_to work.title, work_path(work.id) %> by <%= work.creator %></h3>
+    <% end %>
+
+
+<h3><%= link_to "add new #{category}", new_work_path(:category => category.to_s) %></h3>
+<h3><%= link_to "see all #{category.pluralize}", category_path(category.pluralize) %></h3>
