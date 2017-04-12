@@ -4,4 +4,9 @@ class WorksController < ApplicationController
     @books = Work.where(category: "book")
     @movies = Work.where(category: "movie")
   end
+
+  def show
+    @work = Work.find_by_id(params[:id])
+  
+  end
 end
