@@ -11,9 +11,15 @@ h3 {
   width: 30%;
 }
 
-p.titles {
+li.titles {
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   /*display: inline-block;
   width: 30%;*/
+}
+
+.top_ten {
+
+  display: inline-block;
+  width: 32%;
 
 }
