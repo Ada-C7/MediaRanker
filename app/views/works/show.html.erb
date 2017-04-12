@@ -1,5 +1,8 @@
-<h1>all works unsorted</h1>
-
-<% @works.each do |work| %>
-<%= render partial: "work_summary", locals {work: work} %>
-<% end %>
+<h1><%= "#{@work.title}" %> </h1>
+<ul>
+    <li>Category: <%= "#{@work.category}" %>
+    <!-- <li>Title: <%= "#{@work.title}" %> -->
+    <li>Creator: <%= "#{@work.creator}" %>
+    <li>Publication year: <%= "#{@work.publication_year}" %>
+    <li>Description: <%= "#{@work.description}" %>
+</ul>

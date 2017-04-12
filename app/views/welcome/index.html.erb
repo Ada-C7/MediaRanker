@@ -1,1 +1,10 @@
 <h1>Media Ranker Welcome Page!</h1> 
+<!-- <% @works.each do |work| %> -->
+<!-- <%= link_to "Work #{work.title}", work_path(work.id) %> -->
+<!-- <%end%> -->
+<% ['book', 'album', 'movie'].each do |category| %>
+  <%  category_list = Work.by_category(category) %>
+    <% category_list.each do |work| %>
+      <%= link_to "Work #{work.title}", work_path(work.id) %>
+    <% end %>
+  <%end %>
