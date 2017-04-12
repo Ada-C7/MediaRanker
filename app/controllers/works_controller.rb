@@ -5,11 +5,12 @@ class WorksController < ApplicationController
   end
 
   def new
+    # don't have to be logged in
     @work = Work.new
   end
 
   def create
-
+    # don't have to be logged in
     @work = Work.new(work_params)
     @work.user_id = rand(11..20) # this is a hack until we have session user info stuff to put in
     if @work.save
@@ -21,6 +22,7 @@ class WorksController < ApplicationController
   end
 
   def show
+    # don't have to be logged in
     @work = Work.find_by_id(params[:id])
     if !@work
       render_404
@@ -28,10 +30,12 @@ class WorksController < ApplicationController
   end
 
   def edit
+    # don't have to be logged in
     @work = Work.find(params[:id])
   end
 
   def update
+    # don't have to be logged in
     @work = Work.find(params[:id])
     if @work.update(work_params)
       redirect_to :root
@@ -41,6 +45,7 @@ class WorksController < ApplicationController
   end
 
   def destroy
+    # don't have to be logged in
     @work = Work.find(params[:id])
     @work.votes.each do |vote|
       vote.destroy

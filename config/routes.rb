@@ -14,7 +14,6 @@ Rails.application.routes.draw do
   post '/works/:id/votes', to: 'votes#create', as: 'new_vote'
   resources :votes, only: [:show, :new]
 
-  # get '/login', to: 'users#login', as: 'login'
   resources :users, only: [:index, :show, :login, :create]
 
   get '/login', to: 'sessions#login_form'
