@@ -12,12 +12,12 @@
       <th>User</th>
       <th>Date</th>
     </tr>
-    <!-- for each vote do -->
+    <% @result_work.votes.each do | vote | %>
     <tr>
-      <td>(link to username)</td>
-      <td>(date vote added)</td>
+      <td><%= link_to vote.user_id.name, user_path(vote.user_id) %></td>
+      <td><%= vote.created_on %></td>
     </tr>
-    <!-- end -->
+    <% end %>
   </table>
 </section>
 
