@@ -3,5 +3,11 @@
 <div>Created by: <%= @work.creator %></div>
 <div>Published: <%= @work.published_year%></div>
 <div>Description: <%= @work.description%></div>
+<div> All votes: <%= @work.votes.count %> </div>
+
+<%= button_to 'Upvote', upvote_path(@work.id) %>
+
+
+<%= link_to "Delete", work_path(@work.id), method: :delete, data: {confirm: "Are you sure to delete the #{@work.category} #{@work.title}?"}%>
 
 <%= link_to "View All Media", home_path %>

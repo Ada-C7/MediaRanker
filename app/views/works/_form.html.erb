@@ -1,0 +1,16 @@
+<%= link_to "Return to the previous page", :back %>
+
+<%= form_for @work do |d| %>
+  Title: <%= d.text_field :title %>
+  Creator: <%= d.text_field :creator %>
+  Publication Year: <%= d.number_field :published_year %>
+  Description: <%= d.text_field :description %>
+  Category: <%= d.select :category, ['album', 'book', 'movie'], :prompt => 'Select One' %>
+  <%= d.submit value: "#{submit_text}"%>
+<%end%>
+
+<% if @work.errors.any? %>
+  <% @work.errors.each do |attribute, message| %>
+    <%= attribute.capitalize %> <%= message %>
+  <% end %>
+<% end %>

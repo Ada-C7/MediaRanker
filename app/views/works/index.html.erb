@@ -1,3 +1,6 @@
+<% if @works.empty? %>
+<h1> There are no <%= request.path[1..-1].capitalize %>! </h1>
+<% else %>
 <h1>All <%= @works.sample.category.capitalize%>s</h1>
 
 <% @works.each do |work| %>
@@ -8,5 +11,7 @@
 <div>Description: <%= work.description%></div>
 <div>Upvote</div>
 <% end %>
+<%end%>
 
 <%= link_to "View All Media", home_path %>
+<%= link_to "Add a New Media", new_work_path%>

@@ -20,6 +20,16 @@ class UsersController < ApplicationController
             render :new, status: :bad_request
         end
     end
+
+    def upvote
+        if session[:user_id]
+            Vote.new(user_id: session[:user_id], work_id: params[:id])
+        else
+            flash[:failure] = 'Must be loged in to vote'
+            redirect_to :back
+        end
+    end
+
     # ~~~~~~~~~~~~~~~~~~~~~~~~ooooooooooooooooooooooo~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
     private

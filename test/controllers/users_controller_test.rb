@@ -3,6 +3,7 @@ require 'test_helper'
 describe UsersController do
     describe 'index' do
         it 'Responds Successfully' do
+            User.count.must_be :>, 0
             get users_path
             must_respond_with :success
         end
@@ -16,8 +17,8 @@ describe UsersController do
 
     describe 'new' do
         it 'should get new' do
-            get users_new_url
-            value(response).must_be :success?
+            get new_user_path
+            must_respond_with :success
         end
     end
 

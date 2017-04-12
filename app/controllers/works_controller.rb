@@ -11,8 +11,10 @@ class WorksController < ApplicationController
     def create
         new
         if @work.update(work_params)
-            redirect_to works_path
+            flash[:success] = "#{@work.title} added successfully"
+            redirect_to home_path
         else
+            flash.now[:failure] = 'Media was not created'
             render :new, status: :bad_request
         end
     end
@@ -27,7 +29,7 @@ class WorksController < ApplicationController
     end
 
     def edit
-        @user = Work.find(params[:id])
+        @work = Work.find(params[:id])
     end
 
     def show
@@ -38,13 +40,13 @@ class WorksController < ApplicationController
     def destroy
         work = Work.find(params[:id])
         work.destroy
-        redirect_to works_path
+        redirect_to home_path
     end
     # ~~~~~~~~~~~~~~~~~~~~~~~~ooooooooooooooooooooooo~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
     private
 
     def work_params
-        params.require(:work).permit(:title, :type, :creator, :published_year, :description)
+        params.require(:work).permit(:title, :category, :creator, :published_year, :description)
     end
 end

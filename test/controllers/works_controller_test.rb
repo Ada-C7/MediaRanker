@@ -17,15 +17,22 @@ describe WorksController do
 
     describe 'new' do
         it 'should get new' do
-            get works_new_url
-            value(response).must_be :success?
+            get new_work_path
+            must_respond_with :success
         end
     end
 
     describe 'create' do
-        it 'should get create' do
-            get works_create_url
-            value(response).must_be :success?
+        it 'adds a work to the database' do
+            work_data = { work: { title: 'Tofu Russell', category: 'movie' } }
+            post works_path, params: work_data
+            must_redirect_to works_path
+        end
+
+        it 're-renders the new work form if user is invalid' do
+            work_data = { work: { title: nil } }
+            post works_path, params: work_data
+            must_respond_with :bad_request
         end
     end
 
@@ -38,8 +45,9 @@ describe WorksController do
 
     describe 'edit' do
         it 'should get edit' do
-            get works_edit_url
-            value(response).must_be :success?
+            user = User.first
+            get edit_work_path(user)
+            must_respond_with :success
         end
     end
 
