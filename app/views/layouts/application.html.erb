@@ -17,7 +17,7 @@
         <p>You are not logged in</p>
       <% else %>
         <%= link_to "Logout", login_path, method: :delete %>
-        <p>You are logged in as (username) </p>
+        <p>You are logged in as <%= session[:user_name] %></p>
       <% end %>
     </header>
     <section class="flash">
