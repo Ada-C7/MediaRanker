@@ -1,7 +1,14 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  username: 
+  username: sara
+  id: 1
+
 
 two:
-  username: 
+  username: beza
+  id: 2
+
+three:
+  username: chucha
+  id: 3

@@ -1,6 +1,6 @@
 require "test_helper"
 describe Work do
-  let(:work) {Work.new }
+
 
   describe "validations" do
     it "can be created with all attributes" do
@@ -38,14 +38,19 @@ describe Work do
     end
 
 
-  describe "testing relations" do
+describe "testing relations" do
 
 it "can count how many votes it has" do
-  #this is where that test would go
+work= Work.find(2)
+work.votes.length.must_equal 2
 end
 
 it "can find a user's name through their vote" do
-  #this is where that test would go
+  work= Work.find(2)
+  a = work.votes[0].user_id
+  b = User.find(a).username
+  b.must_equal "sara"
+
 end
 
 
