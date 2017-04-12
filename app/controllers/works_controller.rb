@@ -48,6 +48,7 @@ class WorksController < ApplicationController
     @work = Work.new
   end
 
+
   private
 
   def work_params
