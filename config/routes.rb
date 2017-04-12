@@ -6,5 +6,6 @@ Rails.application.routes.draw do
   get '/albums', to: 'works#index_albums', as: 'albums'
   get '/movies', to: 'works#index_movies', as: 'movies'
 
-  get '/login', to: 'sessions#login'
+  get '/login', to: 'sessions#login_form'
+  post '/login', to: 'sessions#login'
 end
