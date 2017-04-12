@@ -1,11 +1,16 @@
 Rails.application.routes.draw do
+  root 'works#index'
+
   get 'movies/index'
 
   get 'books/index'
 
   get '/works', to: 'works#index'
+  get '/works/new', to: 'works#new', as: 'new_work'
 
   get '/works/:id', to: 'works#show', as: 'work'
+
+
 
   get '/albums', to: 'albums#index'
 
