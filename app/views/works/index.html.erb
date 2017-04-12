@@ -1,2 +1,12 @@
-<h1>Works#index</h1>
-<p>Find me in app/views/works/index.html.erb</p>
+<h1>Media</h1>
+
+
+<% categories.each do |k, v| %>
+  <h2><%= k %></h2>
+    <% v.each do |work| %>
+    <h3><%= link_to work[:title], work_path(work.id) %></h3>
+    <p><%= work[:creator] %></p>
+    <p><%= work[:year] %></p>
+    <p><%= work[:description] if work[:description] != nil %></p>
+    <% end %>
+<% end %>
