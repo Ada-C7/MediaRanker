@@ -16,4 +16,17 @@ class WorksController < ApplicationController
   def new
     @work = Work.new
   end
+
+  def create
+    @work = Work.create work_params
+    unless @work.id == nil
+      redirect_to books_path
+    end
+  end
+
+  private
+
+  def work_params
+    params.require(:work).permit(:title, :creator, :description, :publication_year)
+  end
 end
