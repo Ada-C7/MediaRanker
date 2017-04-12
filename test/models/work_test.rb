@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class WorkTest < ActiveSupport::TestCase
+ class WorkTest < ActiveSupport::TestCase
 
   #negative test
 
