@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  root 'works#index'
+  root "works#index"
 
   get '/users', to: 'users#index'
   get '/users/:id', to: 'users#show', as: 'user'
