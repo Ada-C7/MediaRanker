@@ -1,4 +1,11 @@
 <h1>Media Ranker Index</h1>
+
+<p>
+  <% Work.spot_light.each do |item|%>
+  Media Spotlight: <%= item.title%></br>
+  Votes: <%= item.votes.count%>
+  <% end %>
+</p>
 <table>
   <tr>
     <th>
@@ -9,7 +16,8 @@
 <tr>
 
 <td>
-<%= movie.title %>
+<%= movie.title %></br>
+<%= movie.votes.count %> votes
 <td>
 </tr>
 <% end %>
@@ -25,7 +33,8 @@
 <% @books.each do |book| %>
 <tr>
 <td>
-<%= book.title %>
+<%= book.title %></br>
+<%= book.votes.count %> votes
 </td>
 </tr>
 <% end %>
@@ -41,7 +50,8 @@
 <% @albums.each do |album| %>
 <tr>
 <td>
-<%= album.title %>
+<%= album.title %></br>
+<%= album.votes.count %> votes
 </td>
 </tr>
 <% end %>
