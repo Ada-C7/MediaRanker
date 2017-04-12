@@ -4,7 +4,6 @@
   <% @albums.each do |album| %>
   <li>
     <%= link_to "Title: #{album.title}", album_path(album.id) %>
-    <%= "Category: #{album.category}" %>
     <%= "Created By: #{album.creator}" %>
     <%= "Published: #{album.pub_date}" %>
   </li>
@@ -16,7 +15,6 @@
   <% @books.each do |book| %>
   <li>
     <%= link_to "Title: #{book.title}", book_path(book.id) %>
-    <%= "Category: #{book.category}" %>
     <%= "Created By: #{book.creator}" %>
     <%= "Published: #{book.pub_date}" %>
   </li>
@@ -28,7 +26,6 @@
   <% @movies.each do |movie| %>
   <li>
     <%= link_to "Title: #{movie.title}", movie_path(movie.id) %>
-    <%= "Category: #{movie.category}" %>
     <%= "Created By: #{movie.creator}" %>
     <%= "Published: #{movie.pub_date}" %>
   </li>
