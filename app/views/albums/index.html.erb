@@ -4,7 +4,7 @@
 <ul>
 <% @albums.each do |a| %>
 <li>
-  <%= a.title %>
+  <%=link_to a.title, album_path(a.id) %>
 </li>
 <% end %>
 </ul>

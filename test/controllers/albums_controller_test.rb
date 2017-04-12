@@ -9,6 +9,6 @@ describe AlbumsController do
   it "should show an individual album" do
       get album_path(contents(:hacking).id)
       must_respond_with :success
-    end
+  end
 
 end

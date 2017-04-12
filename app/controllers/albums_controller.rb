@@ -4,6 +4,6 @@ class AlbumsController < ApplicationController
   end
 
   def show
-      @album = Content.albums.find(params[:id])
+      @album = Content.find(params[:id])
   end
 end
