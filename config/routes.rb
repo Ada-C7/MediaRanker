@@ -3,4 +3,7 @@ Rails.application.routes.draw do
 
  resources :works
 
+
+ get "/:category", to: "works#show_category", as: 'category'
+
 end

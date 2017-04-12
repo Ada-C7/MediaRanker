@@ -1,12 +1,11 @@
 <h1>Media</h1>
 
+<h2>Top Movies</h2>
+  <%= render partial: "category", locals: {category: "movie"} %>
 
-<% categories.each do |k, v| %>
-  <h2><%= k %></h2>
-    <% v.each do |work| %>
-    <h3><%= link_to work[:title], work_path(work.id) %></h3>
-    <p><%= work[:creator] %></p>
-    <p><%= work[:year] %></p>
-    <p><%= work[:description] if work[:description] != nil %></p>
-    <% end %>
-<% end %>
+
+<h2>Top Books</h2>
+  <%= render partial: "category", locals: {category: "book"} %>
+
+<h2>Top Albums</h2>
+  <%= render partial: "category", locals: {category: "album"}%>

@@ -1,0 +1,18 @@
+<%= form_for @work do |f| %>
+<%= f.label :title %>
+<%= f.text_field :title %>
+
+<%= f.label :creator %>
+<%= f.text_field :creator %>
+
+<%= f.label :year %>
+<%= f.text_field :year%>
+
+<%= f.label :description %>
+<%= f.text_area :description %>
+
+<%= f.hidden_field :category, value: params[:category] %>
+
+
+<%= f.submit %>
+<% end %>

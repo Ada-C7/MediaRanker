@@ -1,2 +1,8 @@
-<h1>Works#show</h1>
-<p>Find me in app/views/works/show.html.erb</p>
+<h1><%=@selected_work.category %>: <%=@selected_work.title %></h1>
+<p>Created by: <%= @selected_work.creator %></p>
+<p>Publication year: <%= @selected_work.year %></p>
+<p>Description: <%= @selected_work.description %></p>
+
+<h4><%= link_to "edit #{@selected_work.category}", edit_work_path %></h4>
+<h4><%= link_to "delete #{@selected_work.category}", work_path, data: { confirm: "Are you sure you want to delete this #{@selected_work.category}"},method: :destroy %></h4>
+<h4><%= link_to "home", works_path %></h4>
