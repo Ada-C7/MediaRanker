@@ -1,6 +1,11 @@
 
 <h1>Media Spotlight: <%=@works.first.title%> by <%=@works.first.created_by%></h1>
-<%=@works.first.description %>
+<p>
+  <%=@works.first.description %> </br>
+
+</p>
+
+
 
 
 
@@ -11,25 +16,34 @@
   <tr>
     Top Movies
   </tr>
-  <% @works[0..9].each do |work| %>
+  <% @movies = [] %>
+  <% @works.each do |work| %>
+  <% if work.category == "movie" %>
+  <% @movies << work %>
+  <% end %>
+  <% end %>
+  <% @movies[0..9].each do |work| %>
   <tr>
     <td>
       <%=link_to work.title, work_path(work.id)%> by <%=work.created_by%>
     </td>
   </tr>
-
   <% end %>
-
 </table>
 
-View more movies </br>
+<%= link_to "View more movies", category_path("movies"), method: :get %></br>
 
 <table>
   <tr>
     Top Books
   </tr>
-
-  <% @works[0..9].each do |work| %>
+  <% @books = [] %>
+  <% @works.each do |work| %>
+  <% if work.category == "book" %>
+  <% @books << work %>
+  <% end %>
+  <% end %>
+  <% @books[0..9].each do |work| %>
   <tr>
     <td>
       <%=link_to work.title, work_path(work.id)%> by <%=work.created_by%>
@@ -37,13 +51,20 @@ View more movies </br>
   </tr>
   <% end %>
 </table>
-View more books </br>
+
+<%= link_to "View more books", category_path("books"), method: :get %></br>
+
 <table>
   <tr>
     Top Albums
   </tr>
-
-  <% @works[0..9].each do |work| %>
+  <% @albums = [] %>
+  <% @works.each do |work| %>
+  <% if work.category == "album" %>
+  <% @albums << work %>
+  <% end %>
+  <% end %>
+  <% @albums[0..9].each do |work| %>
   <tr>
     <td>
       <%=link_to work.title, work_path(work.id)%> by <%=work.created_by%>
@@ -51,4 +72,5 @@ View more books </br>
   </tr>
   <% end %>
 </table>
-View more albums </br>
+
+<%= link_to "View more alboms", category_path("albums"), method: :get %></br>

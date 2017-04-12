@@ -58,6 +58,11 @@ class WorksController < ApplicationController
         end
       end
 
+      def destroy
+        Work.destroy(params[:id])
+        redirect_to drivers_path
+      end
+
 
       private
 

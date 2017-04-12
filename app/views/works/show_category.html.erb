@@ -1,12 +1,46 @@
-<% @categorized_works.each do |work| %>
 <table>
+  <th>
+    <tr>
+      <td>
+        Votes
+      </td>
+      <td>
+        Title
+      </td>
+      <td>
+        Created By
+      </td>
+      <td>
+        Published
+      </td>
+      <td>
+        Upvote
+      </td>
+    </tr>
+  </th>
+  <% @categorized_works.each do |work| %>
+
   <tr>
     <td>
-      <%= work.title %>
+      <%= link_to "#" %>
     </td>
     <td>
-      <%= work.category %>
+      <%= link_to work.title, work_path(work.id), method: :get %>
     </td>
+    <td>
+      <%= work.created_by %>
+    </td>
+    <td>
+      <%= work.year_published %>
+    </td>
+    <td>
+      <%= button_to "Upvote" %>
+    </td>
+    <% end %>
   </tr>
 </table>
-<% end %>
+
+
+<%= link_to "View all media", works_path, method: :get %>
+<%= link_to "Add a new #{@categorized_works.first.category}", category_path(@categorized_works.first.category.pluralize), method: :get %>
+<%# problem here if there is no media of a given category %>
