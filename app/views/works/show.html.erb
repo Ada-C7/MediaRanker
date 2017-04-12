@@ -5,7 +5,7 @@
     <p>Published: <%=@work.publication_year%></p>
     <p>Description: <%=@work.description%></p>
 
-    <p>Total votes: <%=@work.votes.length%></p>
+    <p>Total votes for this work: <%=@work.votes_count%></p>
     <%if session[:user_id]%>
       <p>User: <%=@user.username%></p>
     <%end%>

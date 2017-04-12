@@ -26,6 +26,7 @@ class WorksController < ApplicationController
     end
     userid = session[:user_id]
     @user = User.find_by(id: userid)
+    # @work1 = Work.find_by(id: params[:id])
   end
 
   def show_albums
@@ -61,20 +62,19 @@ class WorksController < ApplicationController
   end
 
   def upvote
-    # @user1 =  User.create!(username:"natalia1234", date_of_joining: "21/01/2009")
     userid = session[:user_id]
     @user = User.find_by(id: userid)
+    @work = Work.find_by(id: params[:id])
 
     vote = Vote.create!(work: @work, user: @user)
-    # vote.save # ???? save doesnt work
     if vote.save
-      redirect_to root_path
+      redirect_to work_path(@work.id)
     end
   end
 
   private
   def work_params
-    return params.require(:work).permit( :category, :title, :creator, :publication_year, :description)
+    return params.require(:work).permit(:id, :category, :title, :creator, :publication_year, :description)
   end
 
 end
