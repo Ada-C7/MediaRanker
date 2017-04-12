@@ -1,0 +1,14 @@
+<h3><%= "#{params[:category].capitalize} List" %> </h3>
+
+<% @items_of_category.each  %>
+
+
+
+<ol>
+  <% @items_of_category.each do |item| %>
+
+  <li>
+    <h3><%= item.title %>  </h3>
+  </li>
+  <% end %>
+</ol>

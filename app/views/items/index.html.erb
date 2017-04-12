@@ -1,0 +1,16 @@
+<h2 class ="index_page">Media List</h2>
+
+
+<% ['book', 'album', 'movie'].each do |category| %>
+
+<section class = "category_list">
+  <h2><%= "#{category.capitalize}s"%></h2>
+  <ul>
+    <%  category_list = Item.by_category(category)%>
+    <% category_list.each do |item| %>
+    <li><h3><%= item.title %>  </h3>  </li>
+    <% end %>
+  </ol>
+</section>
+</ul>
+<% end %>
