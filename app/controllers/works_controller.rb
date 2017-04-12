@@ -71,6 +71,7 @@ class WorksController < ApplicationController
     work = find_work
     path = find_path(work)
     work.destroy
+    flash[:success] = "#{work.title} was deleted"
     redirect_to path
   end
 
