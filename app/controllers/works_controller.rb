@@ -13,7 +13,7 @@ class WorksController < ApplicationController
     if @work.save
       redirect_to :root
     else
-      puts "didn't save, #{@work.errors.messages}"
+      # puts "didn't save, #{@work.errors.messages}"
       render :new
     end
   end
@@ -49,12 +49,6 @@ class WorksController < ApplicationController
   def destroy
     Work.destroy(params[:id])
     redirect_to :root
-  end
-
-  private
-
-  def work_params
-    params.require(:work).permit(:category, :name, :created_by, :pub_year, :desc)
   end
 
 end
