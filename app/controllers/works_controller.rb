@@ -32,7 +32,7 @@ class WorksController < ApplicationController
           redirect_to books_path
       end
     else
-      flash.now[:error] = "A problem occured: Could not create #{@work.category}"
+      # flash.now[:error] = "A problem occured: Could not create #{@work.category}"
       render "new"
     end
   end
