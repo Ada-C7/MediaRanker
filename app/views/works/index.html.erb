@@ -2,7 +2,7 @@
 
 <p>
   <% Work.spot_light.each do |item|%>
-  Media Spotlight: <%= item.title%></br>
+  Media Spotlight: <%= link_to item.title, work_path(item.id) %></br>
   Votes: <%= item.votes.count%>
   <% end %>
 </p>
@@ -16,7 +16,7 @@
 <tr>
 
 <td>
-<%= movie.title %></br>
+<%= link_to movie.title, work_path(movie.id) %></br>
 <%= movie.votes.count %> votes
 <td>
 </tr>
@@ -33,7 +33,7 @@
 <% @books.each do |book| %>
 <tr>
 <td>
-<%= book.title %></br>
+<%= link_to book.title, work_path(book.id) %></br>
 <%= book.votes.count %> votes
 </td>
 </tr>
@@ -50,7 +50,7 @@
 <% @albums.each do |album| %>
 <tr>
 <td>
-<%= album.title %></br>
+<%= link_to album.title, work_path(album.id) %></br>
 <%= album.votes.count %> votes
 </td>
 </tr>

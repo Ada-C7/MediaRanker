@@ -1,0 +1,29 @@
+<h1>Work Detail Page</h1>
+
+<%= @work.title %></br>
+Created by: <%= @work.creator %></br>
+Published: <%= @work.publication_year %></br>
+Description: <%= @work.description %></br>
+<%= @work.votes.count %> votes for this <%= @work.category %></br>
+
+<table>
+  <tr>
+    <th>
+      User
+    </th>
+    <th>
+      Date
+    </th>
+  </tr>
+<% @work.votes.each do |vote| %>
+<tr>
+
+<td>
+<%= User.find(vote.user_id).name %>
+</td>
+<td>
+<%= vote.created_at.strftime("%b %d, %Y") %>
+</td>
+</tr>
+<% end %>
+</table>
