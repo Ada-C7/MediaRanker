@@ -11,6 +11,7 @@ class WorksController < ApplicationController
 
   def create
     @work = Work.new(work_params)
+    @work.category = params[:works].singularize
 
     if @work.save
       redirect_to works_path(@work.category.pluralize)
