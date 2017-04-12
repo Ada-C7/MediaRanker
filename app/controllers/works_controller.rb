@@ -12,8 +12,25 @@ class WorksController < ApplicationController
 
   def new
     @work = Work.new
+    @category = params[:category].singularize
+
     render_404 if ["movies", "books", "albums"].exclude?(params[:category])
   end
 
+  def create
+    @work = Work.create work_params
+    @category = params[:work][:category].singularize
 
+    unless @work.id == nil
+      redirect_to works_path
+    else
+      render "new"
+    end
+  end
+
+  private
+
+  def work_params
+    params.require(:work).permit(:title, :creator, :year_published, :description, :category)
+  end
 end

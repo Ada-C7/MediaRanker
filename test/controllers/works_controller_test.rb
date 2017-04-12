@@ -45,4 +45,23 @@ describe WorksController do
     get new_work_path("broken")
     must_respond_with :missing
   end
+
+  it "should redirect to the list after adding work" do
+    post works_path, params: { work: {
+      title: "Testing",
+      category: "movie"
+      }
+    }
+    must_redirect_to works_path
+  end
+
+  it "should affect the model when creating a work" do
+    proc {
+      post works_path, params: { work: {
+        title: "Testing",
+        category: "album"
+        }
+      }
+    }.must_change 'Work.count', 1
+  end
 end
