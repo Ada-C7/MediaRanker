@@ -5,4 +5,5 @@ Rails.application.routes.draw do
   post 'works', to: 'works#create' #go through :works instead?
 
   get 'works/:id', to: 'works#show', as: 'work'
+  get 'works/:id/edit', to: 'works#edit', as: 'edit_work'
 end
