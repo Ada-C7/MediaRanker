@@ -82,19 +82,6 @@ describe Work do
     work.errors.messages.must_include :pub_year
   end
 
-  # desc
-  # positive
-  it "Works are valid with desc" do
-    work.valid?
-    work.errors.messages[:desc].must_equal []
-  end
-
-  # negative
-  it "Works are invalid without desc" do
-    work = Work.create(category: "movie", name: "test", created_by: "test buddy", pub_year: 1000)
-    work.valid?.must_equal false
-    work.errors.messages.must_include :desc
-  end
 
 
   # 1+ test for each custom method

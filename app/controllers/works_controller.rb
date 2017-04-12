@@ -13,7 +13,7 @@ class WorksController < ApplicationController
     if @work.save
       redirect_to :root
     else
-      # puts "didn't save, #{@work.errors.messages}"
+      puts "didn't save, #{@work.errors.messages}"
       render :new
     end
   end

@@ -1,0 +1,25 @@
+  <section class="work-details">
+    <h1> <%= @work.name %> </h1>
+    <ul>
+      <li>
+        Created by: <%= @work.created_by %>
+      </li>
+      <li>
+        Published in: <%= @work.pub_year %>
+      </li>
+      <li>
+        Description: <%= @work.desc %>
+      </li>
+    </ul>
+
+    <section class="work-nav">
+      <ul>
+        <li>
+          <%= button_to "Edit Work", edit_work_path, method: :get %>
+        </li>
+        <li>
+          <%= button_to "Delete Work", work_path(@work.id), method: :delete, data: { confirm: "Do you really want to delete this work? Such ingenuity and passion went into making it!" } %>
+        </li>
+      </ul>
+    </section>
+  </section>

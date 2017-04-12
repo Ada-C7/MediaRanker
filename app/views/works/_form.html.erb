@@ -1,0 +1,36 @@
+<section class="form">
+  <% if @work.errors.any? %>
+  <ul class="error">
+    <% @work.errors.each do |field, msg| %>
+    <li>
+      Oops! <strong><%= field.capitalize %></strong> <%= msg %>
+    </li>
+    <% end %>
+  </ul>
+  <% end %>
+
+  <%= form_for @work do |f| %>
+  <ul>
+    <li>
+      <%= f.label :name, "Name: " %>
+      <%= f.text_field :name %>
+    </li>
+    <li>
+      <%= f.label :created_by, "Created By: " %>
+      <%= f.text_field :created_by %>
+    </li>
+    <li>
+      <%= f.label :pub_year, "Publication Year: " %>
+      <%= f.text_field :pub_year %>
+    </li>
+    <li>
+      <%= f.label :desc %>
+      <%= f.text_area :desc, size: "30x12" %>
+    </li>
+    <li>
+      <%= f.submit %>
+    </li>
+  </ul>
+  <% end %>
+  <%= button_to "Cancel", :back, method: :get %>
+</section>
