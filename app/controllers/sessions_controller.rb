@@ -11,8 +11,11 @@ class SessionsController < ApplicationController
       flash[:success] = "Welcome back #{ user.name }!"
       redirect_to root_path
     else # did not find
-      flash.now[:error] = "User not found"
-      render :login_form
+      new_user = User.create(name: params[:name])
+      session[:user] = new_user.id
+      session[:user_name] = new_user.name
+      flash[:success] = "Thanks for joining, #{ new_user.name }!"
+      redirect_to root_path
     end
   end
 
