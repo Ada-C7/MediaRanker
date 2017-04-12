@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+
+  root to: 'works#index'
   get 'votes/index'
 
   get 'users/index'
