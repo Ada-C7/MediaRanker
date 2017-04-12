@@ -8,6 +8,9 @@
 <p>
   <%= @result_work.description %>
 </p>
+<p>
+  <%= @result_work.category %>
+</p>
 
 <% if @result_work.category == "book" %>
 <%= link_to "Back to book list", books_path %>

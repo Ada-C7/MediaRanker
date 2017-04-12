@@ -1,9 +1,6 @@
 Rails.application.routes.draw do
   root 'works#index'
 
-  get 'movies/index'
-
-  get 'books/index'
 
   get '/works', to: 'works#index'
 
@@ -12,11 +9,19 @@ Rails.application.routes.draw do
   get '/books/new', to: 'books#new', as: 'new_book'
   post '/books', to: 'books#create'
 
-  post 'works', to: 'books#create'
+  post '/works', to: 'books#create'
 
   get '/works/:id', to: 'works#show', as: 'work'
 
+  get '/albums/new', to: 'albums#new', as: 'new_album'
+  post '/albums', to: 'albums#create'
 
+  post '/works', to: 'album#create'
+
+  get '/movies/new', to: 'movies#new', as: 'new_movie'
+  post '/movies', to: 'movies#create'
+
+  post '/works', to: 'movies#create'
 
   get '/albums', to: 'albums#index'
 

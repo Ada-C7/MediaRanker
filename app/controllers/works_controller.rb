@@ -20,8 +20,23 @@ class WorksController < ApplicationController
   def create
     @work = Work.create work_params
     unless @work.id == nil
-      redirect_to books_path
+      redirect_to works_path
     end
+
+
+  #   def index
+  # ...
+  # if params[:pending]
+  #    # pending related stuff
+  # end
+  # if params[:live]
+  #   # live related stuff
+  # end
+  # if params[:sold]
+  #   # sold related stuff
+  # end
+  # ...
+# end
   end
 
   private
