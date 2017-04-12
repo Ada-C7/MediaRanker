@@ -11,7 +11,7 @@ class WorksController < ApplicationController
   end
 
   def create
-    @work = Work.create trip_params
+    @work = Work.create work_params
 
     if @work.id != nil
       redirect_to root_path

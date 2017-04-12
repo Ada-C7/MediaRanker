@@ -11,12 +11,16 @@ describe Work do
     book.save.must_equal false
   end
 
-  it "all works require a mediatype" do
-    book.mediatype = nil
+  # need to fix so that only allows category to be movie, book or album
+  it "all works require a category" do
+    book.category = nil
     book.save.must_equal false
   end
 
   it "is able to create a new work" do
+    book.title = "The Wizard of Oz"
+    book.valid?
 
+    book.erros.messages[:title].must_equal []
   end
 end

@@ -12,7 +12,7 @@
     <p>(number of votes)</p>
   </ul>
   <% end %>
-  <p>(all movies link)</p>
+  <p><%= link_to "View all movies", movies_path %></p>
 </section>
 
 <section id="top-books">
@@ -24,11 +24,11 @@
     <p>(number of votes)</p>
   </ul>
   <% end %>
-  <p>(all books link)</p>
+  <p><%= link_to "View all books", books_path %></p>
 </section>
 
 <section id="top-albums">
-  <h2>Top Albumbs</h2>
+  <h2>Top Albums</h2>
   <% @albums.each do | album | %>
   <ul>
     <h3><%= link_to album.title, work_path(album.id) %></h3>
@@ -36,5 +36,5 @@
     <p>(number of votes)</p>
   </ul>
   <% end %>
-  <p>(all albums link)</p>
+  <p><%= link_to "View all albums", albums_path %></p>
 </section>
