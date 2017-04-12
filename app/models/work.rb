@@ -6,10 +6,12 @@ class Work < ApplicationRecord
   #   @movies = Work.where(category: "movie")
   #
   # end
-  validates :category, presence: true
+  has_many :votes
   validates :title, presence: true
-  validates :creator, presence: true
-  validates :publication_year, presence: true
-  validates :description, presence: true
+
+  def spot_light
+
+
+  end
 
 end

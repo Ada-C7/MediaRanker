@@ -18,3 +18,19 @@ CSV.read("support/media_seeds.csv", {:headers => true}).each do |work|
         }
   Work.create(args)
 end
+
+
+CSV.read("support/users_seeds.csv", {:headers => true}).each do |user|
+  args = {
+          :name => user[1],
+        }
+  User.create(args)
+end
+
+CSV.read("support/votes_seeds.csv", {:headers => true}).each do |vote|
+  args = {
+          :user_id => vote[1],
+          :work_id => vote[2],
+        }
+  Vote.create(args)
+end

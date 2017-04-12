@@ -1,15 +1,15 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
-  category: MyString
-  title: MyString
-  creator: MyString
-  publication_year: 1
-  description: MyText
+movie1:
+  category: movie
+  title: Neemo
+  creator: Helen Anderson
+  publication_year: 2005
+  description: Curious fish got lost
 
-two:
-  category: MyString
-  title: MyString
-  creator: MyString
-  publication_year: 1
-  description: MyText
+movie2:
+  category: movie
+  title: sunshine
+  creator: ""
+  publication_year:
+  description: ""
