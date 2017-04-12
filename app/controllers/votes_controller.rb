@@ -1,25 +1,24 @@
 class VotesController < ApplicationController
-  def new
-    @vote = Vote.new
-  end
 
-  def create
-    @vote = Vote.new(vote_params)
-    @vote.save
-  end
+  # def create
+  #   @vote = Vote.new
+  #   @vote.work = params[:work_id]
+  #   @vote.user = params[:user_id]
+  #   @vote.save
+  # end
 
-  def show
-
-  end
-
-  def edit
-
-  end
-
-  def update
-
-
-  end
+  # def show
+  #
+  # end
+  #
+  # def edit
+  #
+  # end
+  #
+  # def update
+  #
+  #
+  # end
 
   private
   def vote_params

@@ -6,7 +6,7 @@ describe Work do
     let(:not_uniq_work) {Work.new(category: "movie", title: "Pretzel Logic", creator: "Eft", publication_year: 1793 )}
     let(:work) {Work.new}
     let(:work_all_attributes) {Work.new(category: "movie", title: "Pretzel", creator: "Eft", publication_year: 1793 )}
-    it "Can be created with all attributes" do
+    it "can be created with all attributes" do
       w = works(:pretzellogic)
       result = w.valid?
       result.must_equal true
@@ -16,7 +16,7 @@ describe Work do
       result.must_equal true
     end
 
-    it "Requires a title, creator, publication_year " do
+    it "requires a title, creator, publication_year " do
       result = work.valid?
       result.must_equal false
       work.errors.messages.must_include :title
@@ -24,14 +24,13 @@ describe Work do
       work.errors.messages.must_include :publication_year
     end
 
-
-    it "Publication year should be only numeric > than 0 " do
+    it "publication year should be only numeric > than 0 " do
       w = Work.new(category: "movie", title: "ABCDE", creator: "Abc", publication_year: "-1993" )
       result = w.valid?
       result.must_equal false
     end
 
-    it "Publication year should be 4-digit length " do
+    it "publication year should be 4-digit length " do
       w = Work.new(category: "movie", title: "ABCDE", creator: "Abc", publication_year: "30993" )
       result = w.valid?
       result.must_equal false
@@ -44,4 +43,15 @@ describe Work do
     end
   end # end of validation block
 
+  # 
+  # describe "Test relationship" do
+  #   let(:work) {Work.new(category: "movie", title: "Pretzel Logic - 2", creator: "Eft", publication_year: 1793 )}
+  #   it "" do
+  #     work.
+  #   end
+  #
+  #   it "" do
+  #   end
+  #
+  # end # end of test relationship blog
 end

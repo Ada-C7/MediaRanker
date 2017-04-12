@@ -1,9 +1,6 @@
 class Work < ApplicationRecord
   has_many :votes
 
-  # validates :category, presence: true
-  # validates :category, format: {with: /[a-zA-Z]+/}
-  # validates :category, inclusion: {in: %w(movie book album)}
 
   validates :title, presence: true, uniqueness: true
 
@@ -14,11 +11,12 @@ class Work < ApplicationRecord
   validates :publication_year, numericality: {:greater_than_or_equal_to => 0}
   validates :publication_year, length: { is: 4}
   def total_votes
-    return self.votes.count
+    self.votes.length
   end
 
-  def add_one_vote
+  # def add_one_vote
+  #   self.votes += 1
+  # end
 
-  end
 
 end

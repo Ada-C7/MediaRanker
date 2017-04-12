@@ -4,8 +4,8 @@
     <p>Created by: <%=@work.creator%></p>
     <p>Published: <%=@work.publication_year%></p>
     <p>Description: <%=@work.description%></p>
-    
-    <p>Total votes: <%=@work.total_votes%></p>
+
+    <p>Total votes: <%=@work.votes.count%></p>
 
   </article>
   <section id = "buttons">
@@ -18,7 +18,7 @@
     <%end%>
     <%= button_to 'Edit', edit_work_path, method: :get %>
 
-    <%= button_to 'Upvote', upvote_path(@work.id) , method: :patch %>
+    <%= button_to 'Upvote', upvote_path(@work) , method: :post %>
 
     <%= button_to 'Delete', work_path(@work.id), method: :delete, data: {confirm: 'Are you sure?' } %>
   </section>

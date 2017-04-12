@@ -9,11 +9,12 @@ class WorksController < ApplicationController
 
   def create
     @work = Work.new(work_params)
+    #@work.user_id = rand(100...200) #test
     @work.save
     if @work.save
       redirect_to send("#{@work.category}s_path")
     else
-      render :new, status: :bad_request #{}"new_#{@work.category}_path"
+      render :new, status: :bad_request
     end
   end
 
@@ -57,10 +58,11 @@ class WorksController < ApplicationController
   end
 
   def upvote
-    # @work = Work.find(params[:id])
-    # @work.add_one_vote
-    # @user = User.find(pa)
-    # @work.votes.create  #create new vote for this work
+    vote = Vote.new(work: @work, user: @user)
+    vote.save # ???? save doesnt work
+    if vote.save
+      redirect_to root_path
+    end
   end
 
   private
