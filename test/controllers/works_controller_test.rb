@@ -88,6 +88,10 @@ describe WorksController do
      get edit_work_path(work_id)
      must_respond_with :success
    end
+
+  #  it 'returns 404 if work DNE and you try to edit it' do
+  #
+  #  end
  end
 
  describe 'create' do
@@ -99,7 +103,7 @@ describe WorksController do
      must_redirect_to movies_path
    end
 
-   it "re-renders a new form if passed invalid input" do
+   it "re-renders a new form if passed invalid data" do
      movie_data = { category: "movie", creator: "Pixar", publication_year: "1997" }
      post works_path, params: { work: movie_data }
      must_respond_with :bad_request
@@ -140,6 +144,7 @@ describe WorksController do
       must_redirect_to movies_path
     end
 
+    # do I need this? - Oh would this ever come up?
     it 'should do nothing if work DNE and you try to destory' do
       id = Work.last.id
       id += 1
