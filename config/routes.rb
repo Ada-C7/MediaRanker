@@ -8,4 +8,22 @@ Rails.application.routes.draw do
   patch '/works/:id', to: 'works#update'
   put '/works/:id', to: 'works#update'
   delete '/works/:id', to: 'works#destroy'
+
+  # TODO URLS that exist in model site
+  # root welcome#index
+  # '/works/:id'
+  # '/works/:id/edit'
+  # '/login'
+  # '/users'
+  # '/users/:id'
+
+  # '/books'
+  # '/movies'
+  # '/albums'
+  # each route goes to different controller#action BUT render the same view page
+
+  # '/books/new'
+  # '/movies/new'
+  # '/albums/new'
+
 end
