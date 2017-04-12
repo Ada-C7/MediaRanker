@@ -21,6 +21,6 @@ describe Work do
     book.title = "The Wizard of Oz"
     book.valid?
 
-    book.erros.messages[:title].must_equal []
+    book.errors.messages[:title].must_equal []
   end
 end
