@@ -42,6 +42,22 @@ class WorksController < ApplicationController
         work.destroy
         redirect_to home_path
     end
+
+    def upvote
+        @work = Work.find_by(id: params[:id])
+        already_voted = @work.votes.select { |vote| vote[:user_id] == session[:user_id] }
+
+        if session[:user_id] && already_voted.empty?
+            Vote.create(user_id: session[:user_id], work_id: @work.id)
+            flash[:success] = "Successfully voted for #{@work.title}"
+        elsif session[:user_id] && !already_voted.empty?
+            already_voted[0].destroy
+            flash[:unvote] = 'Vote Recanted'
+        else
+            flash[:failure] = 'Must be loged in to vote'
+        end
+        redirect_to :back
+    end
     # ~~~~~~~~~~~~~~~~~~~~~~~~ooooooooooooooooooooooo~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
     private

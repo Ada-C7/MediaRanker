@@ -4,12 +4,12 @@
 <h1>All <%= @works.sample.category.capitalize%>s</h1>
 
 <% @works.each do |work| %>
-<div>Votes</div>
+<div>Votes: <%= work.votes.count%></div>
 <div><%= link_to "Title: #{work.title}", work_path(work.id)%></div>
 <div>Created by: <%= work.creator %></div>
 <div>Published: <%= work.published_year%></div>
 <div>Description: <%= work.description%></div>
-<div>Upvote</div>
+<div><%= button_to 'Upvote', upvote_path(work.id) %></div>
 <% end %>
 <%end%>
 
