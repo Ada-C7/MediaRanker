@@ -1,0 +1,34 @@
+<h1>Home#index</h1>
+
+<h1>Spotlight</h1>
+<ul>
+     <% @spotlight.each do | submission | %>
+     <li> <%=  submission.title %> by <%=  submission.author %></li>
+     <li> <%=  submission.summary %>
+     <li> <%=  submission.votes.size %></li>
+     <% end %>
+</ul>
+
+<h1>Top Albums</h1>
+<ul>
+     <% @albums.each do | submission | %>
+     <li> <%=  submission.title %> by  <%=  submission.author %></li>
+     <li> <%=  submission.votes.size %></li>
+     <% end %>
+</ul>
+
+<h1>Top Books</h1>
+<ul>
+     <% @books.each do | submission | %>
+     <li> <%=  submission.title %> by  <%=  submission.author %></li>
+     <li> <%=  submission.votes.count %></li>
+     <% end %>
+</ul>
+
+<h1>Top Movies</h1>
+<ul>
+     <% @movies.each do | submission | %>
+     <li> <%=  submission.title %> by  <%=  submission.author %></li>
+     <li> <%=  submission.votes.count %></li>
+     <% end %>
+</ul>

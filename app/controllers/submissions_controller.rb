@@ -5,6 +5,10 @@ class SubmissionsController < ApplicationController
   # GET /submissions.json
   def index
     @submissions = Submission.all
+  
+    @album_submissions
+    @book_submissions
+    @movie_submissions
   end
 
   # GET /submissions/1

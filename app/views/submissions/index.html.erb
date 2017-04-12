@@ -2,6 +2,33 @@
 
 <h1>Submissions</h1>
 
+<h1>Spotlight</h1>
+
+
+<h1>Albums</h1>
+<ul>
+     <% @album_submissions.each do | submission | %>
+     <li> <%=  submission.title %> by  <%=  submission.author %></li>
+     <li> <%=  submission.votes.count %></li>
+     <% end %>
+</ul>
+
+<h1>Books</h1>
+<ul>
+     <% @book_submissions.each do | submission | %>
+     <li> <%=  submission.title %> by  <%=  submission.author %></li>
+     <li> <%=  submission.votes.count %></li>
+     <% end %>
+</ul>
+
+<h1>Movies</h1>
+<ul>
+     <% @movie_submissions.each do | submission | %>
+     <li> <%=  submission.title %> by  <%=  submission.author %></li>
+     <li> <%=  submission.votes.count %></li>
+     <% end %>
+</ul>
+
 <table>
   <thead>
     <tr>
