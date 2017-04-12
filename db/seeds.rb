@@ -19,3 +19,23 @@ CSV.foreach("db/media_seeds.csv", :headers => true) do |line|
 
   puts "#{p.title} saved"
 end
+
+
+users = [
+  {
+    name: "Margot Lee Shetterly",
+  },
+  {
+    name: "Sandi Metz",
+  },
+  {
+    name: "Octavia E. Butler",
+  },
+  {
+    name: "Kelsey"
+  }
+]
+
+users.each do | user |
+  User.create(user)
+end
