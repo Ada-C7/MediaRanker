@@ -6,18 +6,18 @@ class User < ApplicationRecord
   validates :username, presence: true
   validates :username, uniqueness: true
 
-  # this method most likely doesn't work
-  def duplicate_vote?(work)
-    votes = self.votes
+  def duplicate_vote?(this_work_id)
+    work = Work.find_by_id(this_work_id)
+    duplicate = false
+    work.votes.each do |vote|
+      if vote.work_id == this_work_id
+        return duplicate = true
 
-    votes.each do |vote|
-      if vote.work == work
-        return true
       end
     end
+    return duplicate
 
   end
-
 
 
 end

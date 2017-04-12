@@ -1,53 +1,48 @@
 <section class="show">
+  
+  <section class="main-show">
 
-<section class="message-area">
-  <p>
-    messages will go here ("Successfully upvoted!" "You must be logged in to do that!")
-  </p>
-</section>
-<section class="main-show">
+    <article class="work-content">
+      <h2 class="work-title"> <%= @work.title %> </h2>
+      <ul class="work-details">
+        <li class="work-creator">
+          Created by: <%= @work.creator %>
+        </li>
+        <li class="work-published">
+          Published: <%= @work.published %>
+        </li>
+        <li class="work-description">
+          <%= @work.description %>
+        </li>
+      </ul>
+      <ul class="work-buttons">
+        <li class="back-to-category-view-button">
+          <%= link_to "Back to #{@work.category} list", "#{@work.category}s", method: :get %>
+        </li>
+        <li class="edit-button">
+          <%= link_to "Edit", edit_work_path(@work.id), method: :get %>
+        </li>
+        <li class="upvote-button">
+          <%= link_to "Upvote", new_vote_path(@work.id), method: :post %>
+        </li>
+        <li class="delete-button">
+          <%= link_to "Delete", work_path(@work.id), method: :delete, data: { confirm: "Really delete this #{@work.category}? All associated votes will be lost."} %>
+        </li>
+      </ul>
 
-  <article class="work-content">
-    <h2 class="work-title"> <%= @work.title %> </h2>
-    <ul class="work-details">
-      <li class="work-creator">
-        Created by: <%= @work.creator %>
-      </li>
-      <li class="work-published">
-        Published: <%= @work.published %>
-      </li>
-      <li class="work-description">
-        <%= @work.description %>
-      </li>
-    </ul>
-    <ul class="work-buttons">
-      <li class="back-to-category-view-button">
-        <%= link_to "Back to #{@work.category} list", "#{@work.category}s", method: :get %>
-      </li>
-      <li class="edit-button">
-        <%= link_to "Edit", edit_work_path(@work.id), method: :get %>
-      </li>
-      <li class="upvote-button">
-        <%= link_to "Upvote", new_vote_path(@work.id), method: :post %>
-      </li>
-      <li class="delete-button">
-        <%= link_to "Delete", work_path(@work.id), method: :delete, data: { confirm: "Really delete this #{@work.category}? All associated votes will be lost."} %>
-      </li>
-    </ul>
-
-  </article>
+    </article>
 
 
 
-  <article class="work-votes-users">
+    <article class="work-votes-users">
 
-    <h1 class="votes-title"> <%= @work.votes_count %> votes for this <%=@work.category.capitalize %> </h1>
+      <h1 class="votes-title"> <%= @work.votes_count %> votes for this <%=@work.category.capitalize %> </h1>
 
-    <% if @work.votes_count == 0 %>
+      <% if @work.votes_count == 0 %>
       <p>
         No votes yet for this <%= @work.category %>!
       </p>
-    <% else %>
+      <% else %>
       <table class="work-votes-table">
         <tr>
           <th>
@@ -68,10 +63,10 @@
         </tr>
         <% end %>
       </table>
-    <% end %>
-  </article>
+      <% end %>
+    </article>
 
-</section>
+  </section>
 
 
 </section>
