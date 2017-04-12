@@ -1,4 +1,7 @@
 <h2> Main Page Only </h2>
+
+<%= button_to "Add New", new_work_path, method: :get %>
+
 <h3> Albums </h3>
 <ul>
   <% @albums.each do |album| %>

@@ -1,13 +1,13 @@
 class VotesController < ApplicationController
   def index
-    @users = User.all
+    @votes = User.all
   end
 
   def new
-    @user = User.new(params[:id])
+    @vote = User.new(params[:id])
   end
 
   def create
-    @user = User.create(params[:id])
+    @vote = User.create
   end
 end
