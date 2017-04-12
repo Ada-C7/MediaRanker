@@ -19,4 +19,8 @@ Rails.application.routes.draw do
   get '/albums/new', to: 'albums#new', as: 'new_album'
   post '/albums', to: 'albums#create'
 
+  get '/login', to: 'sessions#login_form'
+  post '/login', to: 'sessions#login'
+  delete '/logout', to: 'sessions#logout'
+
 end
