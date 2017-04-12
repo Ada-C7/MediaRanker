@@ -1,16 +1,52 @@
-<h3>Media Spotlight: <%= link_to %></h3>
+<h3>Media Spotlight: <%= link_to @works.sample.title %> </h3>
 
 <section>
   <h3>Top Movies</h3>
-  <ul>
+  <% movies = @works.where(category: 'movie') %>
+  <% if movies.length > 10 %>
+    <% movies_ten = movies[1..10] %>
+  <% else %>
+    <% movies_ten = movies %>
+  <% end %>
 
-  </ul>
+  <% movies_ten.each do |movie| %>
+    <li>
+      <%= link_to movie.title, work_path(movie.id) %> by <%= movie.creator %>
+    </li>
+  <% end %>
+  <%= link_to "View More Movies", movies_path %>
 </section>
 
 <section>
   <h3>Top Books</h3>
+  <% books = @works.where(category: 'book') %>
+  <% if books.length > 10 %>
+    <% books_ten = books[1..10] %>
+  <% else %>
+    <% books_ten = books %>
+  <% end %>
+
+  <% books_ten.each do |book| %>
+    <li>
+      <%= link_to book.title, work_path(book.id) %> by <%= book.creator %>
+    </li>
+  <% end %>
+  <%= link_to "View More Books", books_path %>
 </section>
 
 <section>
   <h3>Top Albums</h3>
+  <% albums = @works.where(category: 'album') %>
+  <% if albums.length > 10 %>
+    <% albums_ten = albums[1..10] %>
+  <% else %>
+    <% albums_ten = albums %>
+  <% end %>
+
+  <% albums_ten.each do |album| %>
+    <li>
+      <%= link_to album.title, work_path(album.id) %> by <%= album.creator %>
+    </li>
+  <% end %>
+  <%= link_to "View More Albums", albums_path %>
 </section>

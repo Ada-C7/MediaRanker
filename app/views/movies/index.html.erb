@@ -1,12 +1,15 @@
 <h3>List of Movies</h3>
 
 <ul>
-  <% @movies.each do |work| %>
+  <% @movies.each do |movie| %>
     <li>
-      <%= link_to work.title, work_path(work.id) %>
+      <%= link_to movie.title, work_path(movie.id) %>
     </li>
   <% end %>
 </ul>
+<!-- link back to all media page -->
+<%= link_to 'Back to Media', root_path %>
+
 <!-- table that collects info from works table??? -->
 <!-- link that will add a new movie -->
 <!-- link that will redirect to the home page -->

@@ -1,10 +1,11 @@
 <h3>List of Books</h3>
 
 <ul>
-  <% @books.each do |work| %>
+  <% @books.each do |book| %>
     <li>
-      <%= link_to work.title, work_path(work.id) %>
+      <%= link_to book.title, work_path(book.id) %>
     </li>
   <% end %>
 </ul>
+<!-- link back to all media page -->
 <%= link_to 'Back to Media', root_path %>

@@ -1,9 +1,11 @@
 <h3>List of Albums</h3>
 
 <ul>
-  <% @albums.each do |work| %>
+  <% @albums.each do |album| %>
     <li>
-      <%= link_to work.title, work_path(work.id) %>
+      <%= link_to album.title, work_path(album.id) %>
     </li>
   <% end %>
 </ul>
+<!-- link back to all media page -->
+<%= link_to 'Back to Media', root_path %>
