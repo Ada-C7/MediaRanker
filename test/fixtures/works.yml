@@ -1,13 +1,18 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
-  type: 
-  title: MyString
-  description: MyText
-  creator: 
+rubber_soul:
+  category: album
+  title: Rubber Soul
+  description: A great album
+  creator: The Beatles
 
-two:
-  type: 
-  title: MyString
-  description: MyText
-  creator: 
+the_avengers:
+  category: movie
+  title: The Avengers
+  description: The greatest superhero movie of all time
+  creator: Joss Whedon
+
+missing_title:
+  category: book
+  description: A book without a title is no book at all.
+  creator: A Foolish Author
