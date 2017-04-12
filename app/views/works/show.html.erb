@@ -6,8 +6,10 @@
     <p>Description: <%=@work.description%></p>
 
     <p>Total votes: <%=@work.votes.length%></p>
-
-    <p>User: <%=@user%></p>
+    <%if session[:user_id]%>
+      <p>User: <%=@user.username%></p>
+    <%end%>
+    <p>User's total votes: <%=@user.votes.length%></p>
 
   </article>
   <section id = "buttons">

@@ -24,6 +24,8 @@ class WorksController < ApplicationController
     if @work.nil?
       head :not_found
     end
+    userid = session[:user_id]
+    @user = User.find_by(id: userid)
   end
 
   def show_albums
@@ -60,8 +62,11 @@ class WorksController < ApplicationController
 
   def upvote
     # @user1 =  User.create!(username:"natalia1234", date_of_joining: "21/01/2009")
-    vote = Vote.new(work: @work, user: @user) # @user
-    vote.save # ???? save doesnt work
+    userid = session[:user_id]
+    @user = User.find_by(id: userid)
+
+    vote = Vote.create!(work: @work, user: @user)
+    # vote.save # ???? save doesnt work
     if vote.save
       redirect_to root_path
     end

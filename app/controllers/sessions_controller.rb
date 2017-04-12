@@ -11,7 +11,7 @@ class SessionsController < ApplicationController
       flash[:success] = "#{ user.username } is successfully logged in"
       redirect_to root_path
     else
-      flash[:failure] = "User wasn't logged in, try again"
+      flash[:failure] = "Username doesn't exist, try login again"
       render :new, status: :bad_request
     end
   end
