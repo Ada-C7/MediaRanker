@@ -4,15 +4,27 @@ class WorksController < ApplicationController
   end
 
   def album_index
-    @works = Work.all.where(category: "album")
+    @works = Work.where(category: "album")
   end
 
   def book_index
-    @works = Work.all.where(category: "book")
+    @works = Work.where(category: "book")
   end
 
   def movie_index
-    @works = Work.all.where(category: "movie")
+    @works = Work.where(category: "movie")
+  end
+
+  def album_show
+    @work = Work.find_by(category: "album", id: params[:id])
+  end
+
+  def movie_show
+    @work = Work.find_by(category: "movie", id: params[:id])
+  end
+
+  def book_show
+    @work = Work.find_by(category: "book", id: params[:id])
   end
 
   def new

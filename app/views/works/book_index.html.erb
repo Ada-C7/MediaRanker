@@ -3,7 +3,7 @@
 <ul>
   <% @works.each do |work| %>
   <li>
-    <%= "Title: #{work.title}" %>
+    <%= link_to "Title: #{work.title}", book_path(work.id) %>
     <%= "Category: #{work.category}" %>
     <%= "Created By: #{work.creator}" %>
     <%= "Published: #{work.pub_date}" %>
