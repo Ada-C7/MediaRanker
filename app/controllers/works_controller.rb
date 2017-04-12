@@ -1,5 +1,6 @@
 class WorksController < ApplicationController
   def index
-    @works = Work.all
+    @category = params[:works]
+    @works = Work.where(category: @category.singularize )
   end
 end

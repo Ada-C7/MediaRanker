@@ -1,3 +1,4 @@
 Rails.application.routes.draw do
-  get 'works', to: 'works#index', as: 'works'
+  categories = { works: /(albums)|(movies)|(books)/ }
+  get ':works', to: 'works#index', as: 'works', constraints: categories
 end
