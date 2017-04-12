@@ -3,7 +3,7 @@
 <section class="featured-work">
   <% featured_work = Work.max_votes %>
   <p class="featured-details">
-    Media Spotlight: <%= featured_work.title %> by <%= featured_work.creator %>
+    Media Spotlight: <%= link_to featured_work.title, work_path(featured_work.id) %> by <%= featured_work.creator %>
   </p>
   <p>
     <%= featured_work.votes_count %> votes

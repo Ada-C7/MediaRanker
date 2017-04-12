@@ -6,6 +6,7 @@ class User < ApplicationRecord
   validates :username, presence: true
   validates :username, uniqueness: true
 
+  # this method most likely doesn't work
   def duplicate_vote?(work)
     votes = self.votes
 

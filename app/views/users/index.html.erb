@@ -1,0 +1,42 @@
+<section class="index">
+  <h1 class="user-index-header">List of Users</h1>
+  <article class="users-list">
+    <% if @users.empty? %>
+    <p>
+      No users found.
+    </p>
+    <% else %>
+    <table class="users-table">
+      <tr>
+        <th>
+          Username
+        </th>
+        <th>
+          Votes
+        </th>
+        <th>
+          Joined
+        </th>
+      </tr>
+      <% @users.each do |user| %>
+      <tr>
+        <td>
+          <%= link_to user.username, user_path(user.id) %>
+        </td>
+        <td>
+          <%= user.votes.count %>
+        </td>
+        <td>
+          <%= user.created_at %>
+        </td>
+      </tr>
+      <% end %>
+    </table>
+    <% end %>
+  </article>
+  <section>
+    <%= link_to "Back to media list", works_path %>
+  </section>
+
+
+</section>
