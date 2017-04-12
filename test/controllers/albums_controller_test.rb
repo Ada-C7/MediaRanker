@@ -11,4 +11,9 @@ describe AlbumsController do
       must_respond_with :success
   end
 
+  it "should get an edit page" do
+    get edit_album_path(contents(:hacking).id)
+    must_respond_with :success
+  end
+
 end

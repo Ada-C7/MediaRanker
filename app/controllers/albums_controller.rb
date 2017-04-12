@@ -6,4 +6,9 @@ class AlbumsController < ApplicationController
   def show
       @album = Content.find(params[:id])
   end
+
+  def edit
+    @album = Content.find(params[:id])
+  end
+
 end
