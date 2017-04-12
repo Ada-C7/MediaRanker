@@ -12,6 +12,13 @@
     <header>
       <h1><%= link_to "Media Ranker", homepage_path %></h1>
     </header>
+
+    <section class="flash">
+      <% flash.each do |name, message| %>
+        <div class="<%= name %>"><%= message %></div>
+      <% end %>
+    </section>
+    
     <%= yield %>
   </body>
 </html>
