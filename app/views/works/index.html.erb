@@ -1,2 +1,34 @@
-<h1>Works#index</h1>
-<p>Find me in app/views/works/index.html.erb</p>
+<h1>Welcome#index</h1>
+<section id = "welcome">
+  <h1> Top Movies</h1>
+  <%@movies.each do |movie|%>
+    <p>
+      <%= movie.title%> by <%= movie.creator%>
+    </p>
+  <% end %>
+
+</section>
+
+<section id = "welcome">
+  <h1> Top Books</h1>
+  <%@books.each do |book|%>
+    <p>
+      <%= book.title%> by <%= book.creator%>
+    </p>
+  <% end %>
+
+
+</section>
+
+<section id = "welcome">
+  <h1> Top Albums</h1>
+  <%@albums.each do |album|%>
+    <p>
+      <%=album.title%> by <%= album.creator%>
+      <%=link_to album.title, work_path(album.id)%>
+    </p>
+  <% end %>
+
+  <%= link_to "View more albums", albums_path%>
+
+</section>

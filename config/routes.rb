@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-  root 'welcome#index', as: 'welcome'
+  root 'works#index', as: 'welcome'
 
   resources :works
   resources :users
@@ -9,6 +9,8 @@ Rails.application.routes.draw do
   get 'albums', to: 'works#albums', as: 'albums'
   get 'books', to: 'works#books', as: 'books'
   get 'movies', to: 'works#movies', as: 'movies'
+
+
 
 
 

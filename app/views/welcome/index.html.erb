@@ -1,5 +1,5 @@
 <h1>Welcome#index</h1>
-<section id = "welcome_movies">
+<section id = "welcome">
   <h1> Top Movies</h1>
   <%@movies.each do |movie|%>
     <p>
@@ -7,11 +7,9 @@
     </p>
   <% end %>
 
-
-
 </section>
 
-<section id = "welcome_books">
+<section id = "welcome">
   <h1> Top Books</h1>
   <%@books.each do |book|%>
     <p>
@@ -22,11 +20,12 @@
 
 </section>
 
-<section id = "welcome_albums">
+<section id = "welcome">
   <h1> Top Albums</h1>
   <%@albums.each do |album|%>
     <p>
-      <%= album.title%> by <%= album.creator%>
+      <%=album.title%> by <%= album.creator%>
+      <%#=link_to album.title, work_path(album.id)%>
     </p>
   <% end %>
 

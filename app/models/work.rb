@@ -4,6 +4,7 @@ class Work < ApplicationRecord
   validates :creator, presence: true
   validates :publication_year, presence: true
   has_many :votes
+  has_many :users, through: :votes
 
 
 end

@@ -1,5 +1,8 @@
 class WorksController < ApplicationController
   def index
+    @movies = Work.where(category: "movie")
+    @books = Work.where(category: "book")
+    @albums = Work.where(category: "album")
   end
 
   def albums
@@ -17,4 +20,21 @@ class WorksController < ApplicationController
     render "category"
   end
 
-end
+  def show
+    @work = Work.find_by(id: params[:id]) #returns nil
+    if @work.nil?
+      head :not_found
+    end
+  end
+
+
+  #PRIVATE
+  private
+  def work_params
+    return params.require(:work).permit(:category, :title, :creator, :publication_year, :description)
+  end
+
+
+
+
+end # END of class WorksController
