@@ -1,6 +1,9 @@
 class SessionsController < ApplicationController
-  def login_form; end
+  def login_form
+    @user = User.new
+  end
 
   def login
+    
   end
 end
