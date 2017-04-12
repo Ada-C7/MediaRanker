@@ -11,5 +11,6 @@ Rails.application.routes.draw do
   get 'movies', to: 'works#movie_index', as: 'movies'
   get 'movies/:id', to: 'works#movie_show', as: 'movie'
 
-
+  get 'login', to: 'sessions#new'
+  post 'login', to: 'sessions#create'
 end

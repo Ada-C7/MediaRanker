@@ -32,25 +32,16 @@ class WorksController < ApplicationController
   end
 
   def create
-    @work = Work.new(work_params)
+    @work = Work.create(work_params)
 
-    if @work.save
+    if @work.id != nil
+      flash[:success] = "Success! Added to the list."
       redirect_to works_path
     else
+      flash[:success] = "It didn't work, try again?"
       render :new
     end
   end
-
-  #   def create
-  #   @book = Book.create book_params
-  #
-  #   if @book.id != nil
-  #     flash[:success] = "Book added successfully"
-  #     redirect_to books_path
-  #   else
-  #     render :new
-  #   end
-  # end
 
   def edit
     @work = Work.find(params[:id])
