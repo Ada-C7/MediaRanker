@@ -7,11 +7,11 @@ Rails.application.routes.draw do
   root 'welcome#index'
   get '/:media_type', to: 'works#index', as: 'works', constraints: { media_type: /(albums)|(movies)|(books)/ }
   get '/:media_type/:id', to: 'works#new', as: 'new_work', constraints: { media_type: /(albums)|(movies)|(books)/ }
-  # post '/works', to: 'works#create'
-  # get '/works/:id', to: 'works#show', as: 'work'
-  # get '/works/:id/edit', to: 'works#edit', as: 'edit_work'
-  # patch '/works/:id', to: 'works#update'
-  # delete '/works/:id', to: 'works#destroy'
+  post '/works', to: 'works#create'
+  get '/works/:id', to: 'works#show', as: 'work'
+  get '/works/:id/edit', to: 'works#edit', as: 'edit_work'
+  patch '/works/:id', to: 'works#update'
+  delete '/works/:id', to: 'works#destroy'
 
   # '/login'
   # '/users'
