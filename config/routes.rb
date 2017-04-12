@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  get 'votes/index'
+
+  get 'users/index'
+
   get 'books/index'
 
   get 'albums/index'
