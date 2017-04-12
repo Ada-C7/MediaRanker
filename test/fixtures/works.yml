@@ -5,19 +5,19 @@
 # below each fixture, per the syntax in the comments below
 #
 album:
-  mediatype: album
+  category: album
   title: Can't Buy a Thrill
   creator: Steely Dan
   year: 1972
 
 movie:
-  mediatype: movie
+  category: movie
   title: Let it Be
   creator: The Beatles
   year: 1969
 
 book:
-  mediatype: book
+  category: book
   title: POODR
   creator: Sandi Metz
   year: 2010

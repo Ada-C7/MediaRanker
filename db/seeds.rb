@@ -10,7 +10,7 @@ require "csv"
 CSV.foreach("db/media_seeds.csv", :headers => true) do |line|
 
   p = Work.new
-  p.mediatype = line[0].to_s
+  p.category = line[0].to_s
   p.title = line[1].to_s
   p.creator = line[2].to_s
   p.year = line[3].to_i

@@ -1,12 +1,9 @@
 class WorksController < ApplicationController
   def index
     @works = Work.all
-    @books = Work.where(mediatype: 'book')
-    @movies = Work.where(mediatype: 'movie')
-    @albums = Work.where(mediatype: 'album')
-  end
-
-  def mediatype_list
+    @books = Work.where(category: 'book')
+    @movies = Work.where(category: 'movie')
+    @albums = Work.where(category: 'album')
   end
 
   def edit
@@ -25,7 +22,7 @@ class WorksController < ApplicationController
   private
 
   def work_params
-    params.require(:work).permit(:id, :mediatype, :title, :creator, :year, :description)
+    params.require(:work).permit(:id, :category, :title, :creator, :year, :description)
   end
 
 end
