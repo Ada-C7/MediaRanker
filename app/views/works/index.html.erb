@@ -9,7 +9,7 @@
   <ul>
     <h3><%= link_to movie.title, work_path(movie.id) %></h3>
     <h4>by <%= movie.creator %></h4>
-    <p>(number of votes)</p>
+    <p><%= movie.votes.length %> votes</p>
   </ul>
   <% end %>
   <p><%= link_to "View all movies", movies_path %></p>
@@ -21,7 +21,7 @@
   <ul>
     <h3><%= link_to book.title, work_path(book.id) %></h3>
     <h4>by <%= book.creator %></h4>
-    <p>(number of votes)</p>
+    <p><%= book.votes.length %> votes</p>
   </ul>
   <% end %>
   <p><%= link_to "View all books", books_path %></p>
@@ -33,7 +33,7 @@
   <ul>
     <h3><%= link_to album.title, work_path(album.id) %></h3>
     <h4>by <%= album.creator %></h4>
-    <p>(number of votes)</p>
+    <p><%= album.votes.length %> votes</p>
   </ul>
   <% end %>
   <p><%= link_to "View all albums", albums_path %></p>
