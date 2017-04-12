@@ -10,11 +10,14 @@ class WorksController < ApplicationController
 
   def create
 
-    @work = Work.create(work_params)
+    @work = Work.new(work_params)
+    @work.user_id = rand(11..20) # this is a hack until we have session user info stuff to put in
     if @work.save
       redirect_to works_path
     else
-      render :new
+      puts "------------------------"
+      puts "AAAAAAAAAARGH"
+      render_error
     end
 
   end
@@ -50,8 +53,6 @@ class WorksController < ApplicationController
 
   def movies
     @movies = Work.where(category: "movie").order('votes_count DESC')
-    # @movies = Work.joins(:votes).group("work.votes, ").order("max(votes.count) DESC")
-
   end
 
   def books

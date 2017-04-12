@@ -64,8 +64,30 @@ describe WorksController do
     delete work_path(works(:linnets))
     must_redirect_to root_path
   end
-  #
-  # it "" do
+
+  # it "must update DB upon create" do
+  #   proc { post works_path, params: { work:
+  #         { title: "The Dispossessed",
+  #           published: 1985,
+  #           description: "scifi yeah",
+  #           creator: "Ursula K. LeGuin",
+  #           category: "book"
+  #         }
+  #       }
+  #     }.must_change 'Work.count', 1
+  # end
+
+  it "should return a 500 if create is unsuccessful" do
+     post works_path, params: { work:
+          { title: "The Dispossessed",
+            published: 1985,
+            description: "scifi yeah",
+            creator: "Ursula K. LeGuin"          }
+        }
+      must_respond_with :internal_server_error
+  end
+
+  # it "must redirect to root upon create" do
   #
   # end
 
