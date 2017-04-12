@@ -1,7 +1,7 @@
 class WorksController < ApplicationController
   def index
     @works = Work.all
-    @books = Work.where(mediatype: 'books')
+    @books = Work.where(mediatype: 'book')
     @movies = Work.where(mediatype: 'movie')
     @albums = Work.where(mediatype: 'album')
   end
