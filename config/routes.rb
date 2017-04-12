@@ -14,6 +14,9 @@ Rails.application.routes.draw do
   resources :votes
   resources :works
 
+  get 'login', to: 'sessions#new'
+  post 'login', to: 'sessions#create'
+
 
 
 end

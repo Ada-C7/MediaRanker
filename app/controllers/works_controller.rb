@@ -24,7 +24,6 @@ class WorksController < ApplicationController
     if @work.nil?
       head :not_found
     end
-    # @user = User.new(username: "natalia", date_of_joining: "today")
   end
 
   def show_albums
@@ -63,7 +62,6 @@ class WorksController < ApplicationController
     # @user1 =  User.create!(username:"natalia1234", date_of_joining: "21/01/2009")
     vote = Vote.new(work: @work, user: @user) # @user
     vote.save # ???? save doesnt work
-
     if vote.save
       redirect_to root_path
     end

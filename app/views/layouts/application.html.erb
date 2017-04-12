@@ -12,7 +12,9 @@
     <%=image_tag ("owl.jpg")%>
     <%=link_to "Media Ranker", root_path%>
     <strong>Ranking the Best of Everything </strong>
-    <div><%=button_to "Login", new_user_path, method: :get%> </div>
+
+    <div><%=button_to "Login", login_path, method: :get%> </div>
+    <div><%=button_to "Create new user", new_user_path, method: :get%> </div>
   </header>
 
 
