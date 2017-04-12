@@ -1,0 +1,12 @@
+<h1>Works#index</h1>
+
+<div class = "top-ten">
+<% ["book", "movie", "album"].each do |category| %>
+<% category_list = Work.by_category(category) %>
+<% counter = 1 %>
+<% category_list.each do |work| %>
+<%= link_to "Work:#{category} #{work.title}", work_path(work.id) %>
+<% counter += 1 %>
+<% end %>
+<% end %>
+</div>
