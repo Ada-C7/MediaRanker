@@ -1,5 +1,11 @@
 Rails.application.routes.draw do
 
+  get 'movies/index'
+
+  get 'movies/new'
+
+  get 'movies/:id', to: 'movies#show', as: 'movie'
+
   root to: 'works#index'
   get 'votes/index'
 
