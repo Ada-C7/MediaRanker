@@ -9,6 +9,6 @@ Rails.application.routes.draw do
 
     get '/movies', to: 'movies#index', as: 'movies'
 
-    get '/users', to: 'users#index', as: 'user'
-
+    get '/users', to: 'users#index', as: 'users'
+    get '/users/:id', to: 'users#show', as: 'user'
 end
