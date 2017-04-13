@@ -13,7 +13,7 @@ class SessionsController < ApplicationController
       user.name = params[:name]
       user.save
       session[:user_id] = user.id
-      flash.now[:success] = "#{user.name} added!"
+      flash[:success] = "#{user.name} added!"
       redirect_to root_path
     end
   end
