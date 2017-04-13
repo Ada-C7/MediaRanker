@@ -8,21 +8,25 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <header>
-    <%= image_tag 'rancor' %>
-    <h2>
-      <%= link_to "Media Rancor", root_path %>
-      <small>Ranking the Best of Everything</small>
-    </h2>
-
-    <div>
-      <p>Logged in as <a>[USERNAME]</a></p>
-      <a>Log Out</a>
-    </div>
-
-  </header>
-
   <body>
-    <%= yield %>
+
+    <header>
+
+      <h2>
+        <%= link_to "Media Rancor", root_path %>
+        <small>Ranking the Best of Everything</small>
+      </h2>
+
+      <div>
+        <p class="text-right">Logged in as <a>[USERNAME]</a></p>
+        <a class="button float-right">Log Out</a>
+      </div>
+
+    </header>
+
+    <main>
+      <%= yield %>
+    </main>
+
   </body>
 </html>

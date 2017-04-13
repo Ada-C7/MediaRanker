@@ -14,8 +14,14 @@
  *= require_self
  */
 
-header img {
- width: 150px;
+header {
+ background-image: url('rancor');
+ background-repeat: no-repeat;
+ background-size: contain;
+}
+
+header h2 {
+  margin-left: 100px;
 }
 
 header div {
