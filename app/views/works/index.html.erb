@@ -1,9 +1,10 @@
 <h1>Top Works</h1>
 
 <!-- <h1>Media Spotlight</h1> -->
-
-<h2>Top Work!</h2>
-<%= @top_work.title %>
+<% if @top_work != nil %
+  <h2>Top Work!</h2>
+  <%= @top_work.title %>
+<% end %>
 
 <h2>Books</h2>
 <% @books[0..9].each do |book| %>
