@@ -1,15 +1,19 @@
 class WorksController < ApplicationController
+  before_action :top_work, only: [:index]
+
+  def top_work
+    most_votes = Work.all.sort_by { |work| -work.votes.count }.first
+    if most_votes.votes.count > 5
+      return @top_work = most_votes
+    end
+  end
+
   def index
     @works = Work.all.sort_by do |work|
       -work.votes.count
     end
   end
-  def top_work
-    works = Work.all.sort_by do |work|
-      -work.votes.count
-    end
-    @top_work = works.first
-  end
+
   def works_index
     @works = Work.where(category: (params[:category]).singularize).sort_by do |work|
       -work.votes.count
