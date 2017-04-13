@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  root "works#top_works"
+
   get 'albums', to: 'works#show_albums'
   get 'movies', to: 'works#show_movies'
   get 'books', to: 'works#show_books'
@@ -20,6 +22,6 @@ Rails.application.routes.draw do
 
   delete 'logout', to: 'sessions#destroy'
 
-  root "works#top_works"
+
 
 end
