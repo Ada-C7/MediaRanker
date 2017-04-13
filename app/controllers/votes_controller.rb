@@ -1,16 +1,12 @@
 class VotesController < ApplicationController
-  def index
+
+  def upvote
+    params[:work_id]
+    @vote = Vote.create
+
+    if @vote.id != nil
+      redirect_to votes_path
+    end
   end
 
-  def new
-  end
-
-  def update
-  end
-
-  def delete
-  end
-
-  def show
-  end
 end

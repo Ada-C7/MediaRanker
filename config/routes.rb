@@ -6,10 +6,12 @@ Rails.application.routes.draw do
 
   resources :works
   resources :users
-  resources :votes
   resources :books
   resources :albums
   resources :movies
+
+
+  post "/votes/upvote", to: "votes#upvote"
 
   get "/login", to: "sessions#login_form"
 

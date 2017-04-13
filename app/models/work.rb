@@ -1,5 +1,6 @@
 class Work < ApplicationRecord
-
+  has_many :votes
+  
   def self.books
     Work.where(category: "book")
   end

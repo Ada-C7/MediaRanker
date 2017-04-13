@@ -6,11 +6,10 @@
   <p>Published: <%= @result_album.pub_year %></p>
   <p><%= @result_album.description %></p>
 
-  <p>***add upvote button***</p>
-
 <%= link_to "Back to album list", albums_path, class: :button %>
 <%= link_to "Edit", edit_album_path, class: :button %>
 <%= link_to "Delete", album_path, class: :button %>
+<%= link_to "Upvote", votes_upvote_path(work_id: @result_album.id), class: :button, method: :post %>
 
   <h3> ? Votes for this album</h3>
 
