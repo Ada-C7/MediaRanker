@@ -26,31 +26,31 @@ describe UsersController do
           name: "George"
         }
       }
-      post user_path params: :id
+      post users_path, params: new_user
       must_redirect_to users_path
 
     end
 
     it "directs to the index with no log-in warning" do
       user_data = { user: { name: nil } }
-      post user_path, params: user_data
+      post users_path, params: user_data
       must_redirect_to users_path
     end
   end
 
-  # describe "show" do
-  #   it "shows a user that exists" do
-  #     book = Book.first
-  #     get book_path(book)
-  #     must_respond_with :success
-  #   end
-  #
-  #   it "return a 404 if the book doesn't exist" do
-  #     book_id = Book.last.id
-  #     book_id += 1
-  #     get book_path(book_id)
-  #
-  #     must_respond_with :not_found
-  #   end
-  # end
+  describe "show" do
+    it "shows a user that exists" do
+      user = User.first
+      get user_path(user)
+      must_respond_with :success
+    end
+
+    it "return a 404 if the user doesn't exist" do
+      user_id = User.last.id
+      user_id += 1
+      get user_path(user_id)
+
+      must_respond_with :not_found
+    end
+  end
 end
