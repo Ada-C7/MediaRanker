@@ -9,6 +9,28 @@ class WorksController < ApplicationController
 
   def show
     @work = Work.find_by_id(params[:id])
+  end
 
+  def new
+    @work = Work.new
+  end
+
+  def create
+    #derives category from params
+    @work = Work.new(work_params)
+    @work.category = params[:category]
+
+    if @work.save
+      flash[:success] = "Successfully created #{@work.category} #{@work.id}"
+      redirect_to :back
+    else
+      flash.now[:success] = "A problem occurred: Could not create #{@work.category}"
+      render "new"
+  end
+
+  private
+
+  def work_params
+    params.require(:work).permit(:category, :title, :creator, :pub_year, :description)
   end
 end
