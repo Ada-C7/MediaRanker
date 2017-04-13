@@ -17,7 +17,7 @@ class WorksController < ApplicationController
 
     if @work.save
       flash[:success] = "Successfully created #{@work.category} #{@work.id}"
-      redirect_to :back
+      redirect_back(fallback_location: root_path)
     else
       flash.now[:failure] = "A problem occurred: Could not create #{@work.category}"
       render "new"
