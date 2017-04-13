@@ -6,6 +6,8 @@ Rails.application.routes.draw do
   root 'items#index'
 
   get 'items', to:'items#index'
+  get 'items/:id', to:'items#show', as: 'item'
+
   get ':category', to: 'items#index_by_category', as: 'category_index'
 
   get ':category/new',   to:'items#new', as:'new_item_by_category'

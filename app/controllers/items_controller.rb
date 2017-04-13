@@ -10,7 +10,7 @@ class ItemsController < ApplicationController
   end
 
   def new
-    @item = Item.new(category:params[:category].singularize)
+    @item = Item.new(category:params[:category])
   end
 
 
@@ -18,16 +18,16 @@ class ItemsController < ApplicationController
 
     @item= Item.new(item_params)
     @item.save
-    # if @passenger.save
-    #   redirect_to passengers_path
-    # else
-    #   render :new
-    # end
+    if @item.save
+      redirect_to category_index_path(item_params[:category])
+    else
+      render :new
+    end
   end
 
-  # def show
-  #   @item = Item.find(params[:id])
-  # end
+   def show
+     @item = Item.find(params[:id])
+   end
 
   private
 
