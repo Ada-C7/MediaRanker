@@ -30,6 +30,10 @@ class WorksController < ApplicationController
 
   def edit
     @work = Work.find(params[:id])
+
+    if !@work
+      render_404
+    end
   end
 
   def update
@@ -42,25 +46,27 @@ class WorksController < ApplicationController
     @work.description = work_params[:description]
 
     if @work.save
+      flash[:success] = "#{ @work.category.capitalize } successfully updated!"
       redirect_to work_path(@work.id)
     else
+      flash[:error] = "An error occurred"
       render "edit"
     end
   end
 
   def books
-    @books = Work.where(category: 'book')
-    @books.sort { | b1, b2 | b2.votes.count <=> b1.votes.count }
+    books = Work.where(category: 'book')
+    @books = books.sort { | b1, b2 | b2.votes.count <=> b1.votes.count }
   end
 
   def movies
-    @movies = Work.where(category: 'movie')
-    @movies.sort { | m1, m2 | m2.votes.count <=> m1.votes.count }
+    movies = Work.where(category: 'movie')
+    @movies = movies.sort { | m1, m2 | m2.votes.count <=> m1.votes.count }
   end
 
   def albums
-    @albums = Work.where(category: 'album')
-    @albums.sort { | a1, a2 | a2.votes.count <=> a1.votes.count }
+    albums = Work.where(category: 'album')
+    @albums = albums.sort { | a1, a2 | a2.votes.count <=> a1.votes.count }
   end
 
   def spotlight
