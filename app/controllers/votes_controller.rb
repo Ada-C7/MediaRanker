@@ -6,8 +6,8 @@ class VotesController < ApplicationController
 
   def upvote
     @vote = Vote.new
-    @vote.work_id = params[:work][:id]
-    @vote.user_id = sessions[:id]
+    @vote.work_id = params[:id]
+    @vote.user_id = session[:id]
     if @vote.save
       flash[:success] = "Successfully upvoted!"
       redirect_to work_path
