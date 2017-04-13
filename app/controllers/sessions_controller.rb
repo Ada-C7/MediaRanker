@@ -10,7 +10,6 @@ class SessionsController < ApplicationController
       session[:user_id] = user.id
       redirect_to root_path
     else
-      #should create a new user (call user method??  REDIRECT?)
       user = User.new
       user.name = params[:name]
 
