@@ -16,15 +16,7 @@ class VotesController < ApplicationController
         redirect_to :root
       end
     end
-
-
   end
 
-
-  private
-  #
-  # def duplicate_vote?(id_of_work)
-  #   Vote.find(:all, :conditions => ["user_id = ? and work_id = ?", session[:user_id], id_of_work]).any?
-  # end
 
 end

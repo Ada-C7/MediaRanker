@@ -27,4 +27,9 @@ describe Vote do
     vote.save.must_equal true
   end
 
+  it "won't create a vote that isn't unique" do
+    vote = Vote.new(work: works(:linnets), user: users(:aurora))
+    vote.save.must_equal false
+  end
+
 end
