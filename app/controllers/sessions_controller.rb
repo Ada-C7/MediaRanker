@@ -8,7 +8,7 @@
     if user
       # found successfully
       session[:user_id] = user.id
-      flash[:success] = "HELLO #{ user.name }"
+      flash.now[:success] = "HELLO #{ user.name }"
       redirect_to works_path
     else
       # did not find
@@ -21,6 +21,6 @@
     # session[:user_id] = nil
     session.delete(:user_id)
     flash[:success] = "You are successfully logged out"
-    redirect_to work_path
+    redirect_to works_path
   end
 end

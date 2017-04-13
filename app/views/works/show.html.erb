@@ -6,6 +6,13 @@ Published: <%= @work.publication_year %></br>
 Description: <%= @work.description %></br>
 <%= @work.votes.count %> votes for this <%= @work.category %></br>
 
+<nav>
+<%= link_to "Back to movie list", works_path %>
+<%= link_to "Edit", edit_work_path%>
+<%= link_to "Upvote", works_path %>
+<%= link_to "Delete", work_path,method: :delete%>
+
+</nav>
 <table>
   <tr>
     <th>

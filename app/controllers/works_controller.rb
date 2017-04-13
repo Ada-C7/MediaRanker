@@ -56,10 +56,30 @@ def movies
     end
   end
 
+    def Upvote
+      work = Work.find(params[:id])
+
+      if vote_one
+        vote = Vote.create!
+      else
+        # redirect_to edit_trip_path(trip.id), :flash => { :error => "Please rate trip #{trip.id} before creating new trip" }
+      end
+
+
+    end
+
   def destroy
     Work.destroy(params[:id])
     redirect_to works_path
   end
+
+  private
+  def work_params
+    params.require(:work).permit(:title, :creator, :publication_year, :description)
+  end
+
+
+
 
   private
   def work_params
