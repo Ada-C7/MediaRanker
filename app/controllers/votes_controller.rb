@@ -5,7 +5,11 @@ class VotesController < ApplicationController
     @vote.user_id = session[:user]
     @vote.save
 
-    flash[:sucess] = "Hoorrayyyy! Your upvote worked."
-    redirect_to root_path
+    if @vote.save
+      flash[:sucess] = "Hoorrayyyy! Your upvote worked."
+      redirect_to root_path
+    else
+      flash[:fail] = "Your vote FAILED"
+    end
   end
 end
