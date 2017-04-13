@@ -1,6 +1,6 @@
 <h3>Top Albums</h3>
 
-  <% @works.each do |work| %>
+  <% Work.where(category: 'album').each do |work| %>
     <ul>
       <li>
         <%= link_to work.name, work_path(work.id) %> by <%= work.created_by %>

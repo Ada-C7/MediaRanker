@@ -11,11 +11,11 @@
   <tbody>
     <% @works.each do |work| %>
     <tr>
-      <td> X </td>
+      <td> work.votes.length </td>
       <td><%= link_to work.name, work_path(work.id) %></td>
       <td><%= work.created_by %></td>
       <td><%= work.pub_year %></td>
-      <td>(upvote button)</td>
+      <td><%= link_to "Upvote", upvote_path, class: "button" %></td>
     </tr>
     <% end %>
   </tbody>

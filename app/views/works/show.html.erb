@@ -11,10 +11,10 @@
   </p>
 
   <section>
-      <%= link_to "Back to list", :back, class: "button" %>
-      <%= button_to "Edit", edit_work_path, class: "button", method: :get %>
+    <%= link_to "Back to list", :back, class: "button" %>
+    <%= button_to "Edit", edit_work_path, class: "button", method: :get %>
     <%= link_to "Upvote", upvote_path, class: "button" %>
-      <%= button_to "Delete Work", work_path(@work.id), method: :delete, class: "alert button", data: { confirm: "Do you really want to delete this work? Such ingenuity and passion went into making it!" } %>
+    <%= button_to "Delete Work", work_path(@work.id), method: :delete, class: "alert button", data: { confirm: "Do you really want to delete this work? Such ingenuity and passion went into making it!" } %>
   </section>
 
   <article class="voting-users columns large-6 small-12">
