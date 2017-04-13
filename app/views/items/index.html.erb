@@ -6,18 +6,17 @@
 
 
 
-<% ['book', 'album', 'movie'].each do |category| %>
+<% ['movie', 'book', 'album'].each do |category| %>
 
 <section class = "category_list">
-  <h2><%= "#{category.capitalize}s"%></h2>
+  <h2><%= "Top #{category.capitalize}s"%></h2>
   <ul>
     <%  category_list = Item.by_category(category)%>
     <% category_list.each do |item| %>
     <li><h3><%= link_to item.title, item_path(item) %></h3> </li>
-
-
     <% end %>
-  </ol>
+  </ul>
+  <%= link_to "View more #{category}s", category_index_path(category) %>
+
 </section>
-</ul>
 <% end %>
