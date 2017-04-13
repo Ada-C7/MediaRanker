@@ -35,6 +35,7 @@ Rails.application.routes.draw do
   #NEED LOGIN ROUTE W/ POST
   get 'login', to: 'sessions#new'
   post 'login', to: 'sessions#create'
+  delete 'login', to: 'sessions#destroy'
 end
 
 
@@ -57,5 +58,6 @@ end
 #  books GET    /books(.:format)          users#books_index
 #        POST   /books(.:format)          users#create_book
 # new_book GET    /books/new(.:format)      users#new_book
-#  login GET    /login(.:format)          users#login_index
-#        POST   /login(.:format)          users#create_login
+#  login GET    /login(.:format)          sessions#new
+#        POST   /login(.:format)          sessions#create
+#        DELETE /login(.:format)          sessions#destroy
