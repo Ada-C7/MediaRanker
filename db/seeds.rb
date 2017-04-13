@@ -51,6 +51,3 @@ end
     vote = Vote.create({:user_id => random_users.sample.id, :work_id => movie.id})
   end
 end
-# CSV.foreach('db/media_seeds.csv', :headers => true) do |medium|
-#   Medium.create(category: medium[:category], title: medium[:title], creator: medium[:creator], publication_year: medium[:publication_year], description: medium[:description])
-# end
