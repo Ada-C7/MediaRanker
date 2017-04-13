@@ -71,13 +71,16 @@ class WorksController < ApplicationController
   def vote
     @vote = Vote.create(user_id: session[:user_id], work_id: params[:id])
 
-    if @vote.save
-      redirect_to work_path
+    @work.votes.each do |vote|
+      if vote.user_id == session[:user_id]
+        flash[:failure] = "You can only vote for this #{@work.category} once."
+      else
+        flash[:succes] = "Successfully voted"
+      end
     end
   end
 
   private
-
   def work_params
     return params.require(:work).permit(:title, :created_by, :published_year, :description, :category)
   end
