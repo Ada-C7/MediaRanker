@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+
   root 'works#index', as: 'root'
 
   get '/works', to: 'works#index'
@@ -36,6 +37,8 @@ Rails.application.routes.draw do
   get '/movies', to: 'movies#index'
 
   get '/books', to: 'books#index'
+
+  get '/users', to: 'users#index'
 
 
 
