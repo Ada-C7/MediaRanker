@@ -1,0 +1,29 @@
+<header>
+
+  <h2>Media Ranker</h2>
+  <h3>Ranking the best of everything</h3>
+
+</header>
+
+<body>
+  <h2>Top Books</h2>
+
+<ul>
+  <% @works.each do |work| %>
+    <% if work.category == "book" %>
+      <li><%= link_to work.category, work_path(work.id) %></li>
+    <% end %>
+  <% end %>
+</ul>
+
+  <h2>Top Albums</h2>
+
+<ul>
+  <% @works.each do |work| %>
+    <% if work.category == "album" %>
+      <li><%= link_to work.category, work_path(work.id) %></li>
+    <% end %>
+  <% end %>
+</ul>
+
+</body>
