@@ -1,3 +1,21 @@
 <h3>User info:</h3>
 <p>Username: <%=@user.username%></p>
 <p>Date of joining: <%=@user.date_of_joining%></p>
+<table>
+  <tr>
+    <th> Media title  </th>
+    <th>Created by</th>
+    <th> Published </th>
+    <th>  Category  </th>
+    <th>  Voted on  </th>
+  </tr>
+  <%@user.votes.each do |v|%>
+  <tr>
+    <td><%=link_to find_work(v.work_id).title, work_path(v.work_id)%></td>
+    <td><%=find_work(v.work_id).creator%></td>
+    <td><%=find_work(v.work_id).publication_year%></td>
+    <td><%=find_work(v.work_id).category%></td>
+    <td><%=v.created_at.month%>/<%=v.created_at.day%>/<%=v.created_at.year%></td>
+  </tr>
+  <%end%>
+</table>

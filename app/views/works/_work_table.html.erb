@@ -5,4 +5,5 @@
   <td> <%= item.creator  %> </td>
   <td> <%= item.publication_year%> </td>
   <td>  <%= button_to 'Upvote', upvote_path(item) , method: :post %>  </td>
+  <td>  <%= button_to 'Downvote', downvote_path(item) , method: :delete %>  </td>
 </tr>
