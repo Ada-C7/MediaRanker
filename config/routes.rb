@@ -7,22 +7,12 @@ Rails.application.routes.draw do
   patch '/works/:id', to: 'works#update'
   delete '/works/:id', to: 'works#destroy'
 
-  # get '/works/new', to: 'works#new', as: 'new_work'
-
   get '/books/new', to: 'books#new', as: 'new_book'
   post '/books', to: 'books#create'
-  # post '/works', to: 'books#create'
 
   get '/works/:id/edit', to: 'works#edit', as: 'edit_work'
 
-  # put '/works/:id/edit', to: 'works#update'
-
-  # put '/works/:id', to: 'albums#update'
-
-  # put '/works/:id', to: 'movies#update'
-
   get '/works/:id', to: 'works#show', as: 'work'
-
 
   get '/albums/new', to: 'albums#new', as: 'new_album'
   post '/albums', to: 'albums#create'
@@ -46,6 +36,16 @@ Rails.application.routes.draw do
 
   put '/logout', to: "sessions#logout"
 
+
+# post '/works', to: 'books#create'
+
+# get '/works/new', to: 'works#new', as: 'new_work'
+
+  # put '/works/:id/edit', to: 'works#update'
+
+  # put '/works/:id', to: 'albums#update'
+
+  # put '/works/:id', to: 'movies#update'
 
 
 
