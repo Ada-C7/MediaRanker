@@ -14,4 +14,5 @@
       <li class ="titles"><%= link_to "#{work.title}", work_path(work.id) %></li>
     <% end %>
   </section>
+<%= link_to "View all #{category.pluralize}".pluralize, category_path(category.pluralize) %>
   <%end %>
