@@ -1,25 +1,47 @@
-  <section class="work-details">
-    <h1> <%= @work.name %> </h1>
-    <ul>
-      <li>
-        Created by: <%= @work.created_by %>
-      </li>
-      <li>
-        Published in: <%= @work.pub_year %>
-      </li>
-      <li>
-        Description: <%= @work.desc %>
-      </li>
-    </ul>
+<article class="media-details columns large-6 small-12">
+  <h3> <%= @work.name %> </h3>
+  <p>
+    Created by: <%= @work.created_by %>
+  </p>
+  <p>
+    Published in: <%= @work.pub_year %>
+  </p>
+  <p>
+    Description: <%= @work.desc %>
+  </p>
 
-    <section class="work-nav">
-      <ul>
-        <li>
-          <%= button_to "Edit Work", edit_work_path, method: :get %>
-        </li>
-        <li>
-          <%= button_to "Delete Work", work_path(@work.id), method: :delete, data: { confirm: "Do you really want to delete this work? Such ingenuity and passion went into making it!" } %>
-        </li>
-      </ul>
-    </section>
+  <section>
+    <a class="button">
+      <%= link_to "Back to list", :back %>
+    </a>
+    <a class="button">
+      <%= button_to "Edit", edit_work_path, method: :get %>
+    </a>
+    <a class="button">
+      Upvote
+    </a>
+    <a class="alert button">
+      <%= button_to "Delete Work", work_path(@work.id), method: :delete, data: { confirm: "Do you really want to delete this work? Such ingenuity and passion went into making it!" } %>
+    </a>
   </section>
+
+  <article class="voting-users columns large-6 small-12">
+    <h3>X Votes</h3>
+    <table>
+      <thead>
+        <th>User</th>
+        <th>Date</th>
+      </thead>
+      <tbody>
+        <tr>
+          <td>
+            Username
+          </td>
+          <td>
+            Date voted
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </article>
+</article>

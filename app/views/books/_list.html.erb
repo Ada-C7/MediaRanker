@@ -1,12 +1,13 @@
-<h1>Books</h1>
-<section id="works-lists">
+<h3>Top Books</h3>
 
   <% @works.each do |work| %>
     <ul>
       <li>
         <%= link_to work.name, work_path(work.id) %> by <%= work.created_by %>
       </li>
+      <li>
+        X votes
+      </li>
     </ul>
   <% end %>
-
-</section>
+<%= link_to "View More Books", books_path %>
