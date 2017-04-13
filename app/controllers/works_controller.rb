@@ -33,7 +33,7 @@ end
   end
 
   def show
-    @work = Work.find_by(params[:id])
+    @work = Work.find_by(id: params[:id])
     if @work.nil?
       head :not_found
     end
@@ -55,6 +55,16 @@ end
     work = Work.find(params[:id])
     work.destroy_all
     redirect_to works_path
+  end
+
+  def vote
+    works_vote = Vote.create!(user_id: session[:user_id], work_id:params[:id])
+
+    if works_vote
+      flash[:success] = "Your vote has been recorded!"
+      redirect_to work_path(params[:id])
+    end
+
   end
 
   private

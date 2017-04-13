@@ -1,0 +1,11 @@
+
+<section id = "show">
+<h2> Show</h2>
+<%= @work.title%>
+<%if session[:user_id]%>
+<%= link_to "Upvote", vote_path(@work.id), method: :post%>
+<%= flash[:success]%>
+
+<%end%>
+
+</section>
