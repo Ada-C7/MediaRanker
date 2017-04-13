@@ -20,4 +20,14 @@ describe Vote do
     vote.valid?.must_equal true
   end
 
+  describe "Vote.unique?" do
+    it "returns false if vote has already been made" do
+      Vote.unique?(users(:lynn).id, works(:work_one).id).must_equal false
+    end
+
+    it "returns true if vote has not been made" do
+      Vote.unique?(users(:lynn).id, works(:no_votes_work).id).must_equal true
+    end
+  end
+
 end

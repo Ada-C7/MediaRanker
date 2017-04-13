@@ -17,4 +17,11 @@ work_two:
   category: "film"
   desc: "A film about my other work"
   pub_yr: 1980
+
+no_votes_work:
+  title: "Third"
+  creator: "That guy"
+  category: "Album"
+  desc: "Music"
+  pub_yr: 2012
 # column: value
