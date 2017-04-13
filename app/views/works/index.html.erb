@@ -2,6 +2,9 @@
 
 <!-- <h1>Media Spotlight</h1> -->
 
+<h2>Top Work!</h2>
+<%= @top_work.title %>
+
 <h2>Books</h2>
 <% @books[0..9].each do |book| %>
   <h3> <%= link_to book.title, work_path(book.id) %> by <%= book.creator %> </h3>
