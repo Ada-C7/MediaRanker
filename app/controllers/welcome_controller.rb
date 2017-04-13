@@ -1,7 +1,10 @@
 class WelcomeController < ApplicationController
   def index
-    @works = Work.all
+    @books = Work.books
+    @movies = Work.movies
+    @albums = Work.albums
     @spotlight = Work.spotlight
   end
+
 
 end

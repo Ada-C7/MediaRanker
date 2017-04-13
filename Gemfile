@@ -63,3 +63,5 @@ group :test do
 end
 
 gem 'hirb'
+gem 'faker'
+gem 'binding_of_caller'
