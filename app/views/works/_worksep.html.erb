@@ -3,9 +3,9 @@
   <thead>
     <tr>
       <th>Votes</th>
-      <th>Title:</th>
-      <th>Created By: </th>
-      <th>Published:</th>
+      <th>Title</th>
+      <th>Created By </th>
+      <th>Published</th>
       <th>Upvote</th>
     </tr>
   </thead>
@@ -13,10 +13,13 @@
   <% works.each do |item| %>
     <tr>
         <td>Number</td>
-        <td><%= item.title %></td>
+        <td><%= link_to item.title, work_path(item.id) %></td>
         <td> <%= item.creator%></td>
         <td><%= item.publication_year%></td>
-        <td>Upvote </td>
+        <td><% if session[:user_id] %>
+              <%= link_to "Upvote", vote_path(@work.id), method: :post %>
+            <% end %>
+        </td>
     </tr>
   <% end %>
     </tbody>
@@ -24,5 +27,3 @@
 </section>
 
 <p><%= link_to "View all Media", welcome_path, class: "button" %></p>
-
-Add a new book
