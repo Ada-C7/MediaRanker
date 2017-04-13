@@ -46,10 +46,13 @@ class WorksController < ApplicationController
     Work.destroy(params[:id])
 
     if category == "book"
+      flash[:success] = "book deleted"
       redirect_to books_path
     elsif category == "album"
+      flash[:success] = "album deleted"
       redirect_to albums_path
     elsif category == "movie"
+      flash[:success] = "movie deleted"
       redirect_to movies_path
     end
   end
