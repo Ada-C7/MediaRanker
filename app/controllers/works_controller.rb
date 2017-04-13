@@ -17,23 +17,22 @@ def show
 end
 
 def show_category
-  @work = Work.find_by(params[:category])
+  @works = Work.where(category: params[:category])
 end
 
 def update
   work = Work.find_by_id(params[:id])
 
   if work.update(work_params)
-    redirect_to category_path_path
+    redirect_to work_path
   else
     render 'edit'
   end
 end
 
 def destroy
-  Work.destroy(params[:id])
-
-  redirect category_path
+  work = Work.destroy(params[:id])
+  redirect_to category_path(work.category)
 end
 
 def new
