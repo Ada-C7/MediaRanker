@@ -14,6 +14,7 @@ class BooksController < ApplicationController
     @book.save
 
     unless @book.id == nil
+      flash[:success] = "#{@book.title} added!"
       redirect_to books_path
     end
   end

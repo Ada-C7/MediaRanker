@@ -13,6 +13,7 @@ class MoviesController < ApplicationController
     @movie.save
 
     unless @movie.id == nil
+      flash[:success] = "#{@movie.title} added!"
       redirect_to movies_path
     end
   end

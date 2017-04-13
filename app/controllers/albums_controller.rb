@@ -13,6 +13,7 @@ class AlbumsController < ApplicationController
     @album.save
 
     unless @album.id == nil
+      flash[:success] = "#{@album.title} added!"
       redirect_to albums_path
     end
   end
