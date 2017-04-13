@@ -9,7 +9,9 @@
   </head>
 
   <header>
-    <%=image_tag ("owl.jpg")%>
+    <%=link_to  root_path do %>
+      <%=image_tag ("owl.jpg")%>
+    <%end%>
     <%=link_to "Media Ranker", root_path%>
     <strong>Ranking the Best of Everything </strong>
     <% if session[:user_id]== nil %>

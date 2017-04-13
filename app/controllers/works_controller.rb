@@ -4,9 +4,9 @@ class WorksController < ApplicationController
   end
 
   def top_works
-    @top_albums = Work.where(category: "album").order("votes_count").limit(10)
-    @top_books = Work.where(category: "book").order("votes_count").limit(10)
-    @top_movies = Work.where(category: "movie").order("votes_count").limit(10)
+    @top_albums = Work.where(category: "album").order("-votes_count ASC").limit(10)
+    @top_books = Work.where(category: "book").order("-votes_count ASC").limit(10)
+    @top_movies = Work.where(category: "movie").order("-votes_count ASC").limit(10)
     @spotlight_work = Work.order("-votes_count ASC").first
   end
 
@@ -84,9 +84,30 @@ class WorksController < ApplicationController
           user_already_voted = true
         end
       end
-
       if user_already_voted == false
         vote.save
+        redirect_to(:back)
+      end
+    end
+  end
+
+  def downvote
+    @work = Work.find_by(id: params[:id])
+
+    if session[:user_id] == nil
+      flash[:failure] = "You must log in to vote"
+      redirect_to work_path(@work.id)
+    else
+      user_already_downvoted = false
+      userid = session[:user_id]
+      @user = User.find_by(id: userid)
+      vote = Vote.where(work_id: @work.id, user_id: @user.id).first
+
+      if vote != nil
+        Vote.destroy(vote.id)
+        redirect_to(:back)
+      else
+        flash[:failure] = "You cannot downvote more than one time for this work"
         redirect_to(:back)
       end
     end

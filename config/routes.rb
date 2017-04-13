@@ -10,6 +10,7 @@ Rails.application.routes.draw do
 
   # post '/works/:id/votes', to: 'votes#create', as: 'new_vote'
   post 'works/:id/upvote', to: 'works#upvote',  as: 'upvote'
+  delete 'works/:id/downvote', to: 'works#downvote', as: 'downvote'
 
   resources :users
   resources :votes
