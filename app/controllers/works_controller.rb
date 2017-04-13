@@ -56,17 +56,24 @@ def movies
     end
   end
 
-    def Upvote
-      work = Work.find(params[:id])
+  def upvote
+    if !session[:user_id]
 
-      if vote_one
-        vote = Vote.create!
-      else
-        # redirect_to edit_trip_path(trip.id), :flash => { :error => "Please rate trip #{trip.id} before creating new trip" }
-      end
+      flash[:error] = "Must be loggen in to vote"
+      redirect_to :back
+    elsif Vote.where(user_id: session[:user_id]).where(work_id: params[:id]) == []
 
-
+    work = Work.find(params[:id])
+    vote = Vote.create
+    vote.work_id = work.id
+    vote.user_id = session[:user_id]
+    vote.save
+    redirect_to :back
+    else
+    flash[:error] = "Already voted on this"
+    redirect_to :back
     end
+  end
 
   def destroy
     Work.destroy(params[:id])

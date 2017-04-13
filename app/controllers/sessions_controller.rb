@@ -3,11 +3,15 @@
   def login_form; end
 
   def login
+    # found successfully
+
     user = User.find_by_name(params[:name])
-    if user
-      # found successfully
+    if !user
+      user = User.create(name: (params[:name]))
       session[:user_id] = user.id
-      flash.now[:success] = "HELLO #{ user.name }"
+
+      flash[:success] = "
+Successfully created new user #{user.name}with ID #{user.id}"
       redirect_to works_path
     else
       # did not find
@@ -19,7 +23,7 @@
   def logout
     # session[:user_id] = nil
     session.delete(:user_id)
-    flash.now[:success] = "You are successfully logged out"
+    flash[:success] = "You are successfully logged out"
     redirect_to works_path
   end
 end

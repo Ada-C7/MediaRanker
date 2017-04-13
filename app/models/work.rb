@@ -28,13 +28,11 @@ class Work < ApplicationRecord
   end
 
   def self.vote_one
-    work = Wok.all.each do |work|
+    if Work.votes.user_id == session[:user_id]
+      return true
+    else
+      return false
 
-      if work.votes.count == 0
-        return "can vote"
-      else
-        return "Can't vote more than once"
-      end
     end
 
   end
