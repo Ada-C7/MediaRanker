@@ -54,7 +54,7 @@
         <%= button_to "View All Media", works_path, method: :get %>
       </li>
       <li>
-        <%= link_to "Add a New Album", new_work_path, method: :get %>
+        <%= link_to "Add a New Album", new_work_path(category: "album"), method: :get %>
       </li>
     </ul>
   </section>

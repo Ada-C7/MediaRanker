@@ -1,0 +1,17 @@
+<article class="top-#{category}s">
+  <h2 class="category-header">Top <%=category.capitalize%></h2>
+  <% num = 1 %>
+
+  <% works = Work.top_ten(category) %>
+  <% works.each do |work| %>
+    <p class="work-details">
+      <%= num %>. <%= link_to work.title, work_path(work.id) %> by <%= work.creator %>
+    </p>
+    <p class="work-votes">
+      <%= work.votes_count %> votes
+    </p>
+    <% num += 1 %>
+  <% end %>
+  <%= link_to "View More #{category.capitalize.pluralize}", "works/#{category.pluralize}", method: :get %>
+
+</article>

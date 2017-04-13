@@ -10,25 +10,13 @@
   </p>
 </section>
 <section class="top-ten-all-types">
-  <article class="top movies">
-    <h2 class="category-header">Top Movies</h2>
-    <% num = 1 %>
+  <%= render partial: "indexcategory", locals: {category: "movie"} %>
 
-    <% movies = Work.top_ten("movie") %>
-    <% movies.each do |movie| %>
-      <p class="work-details">
-        <%= num %>. <%= link_to movie.title, work_path(movie.id) %> by <%= movie.creator %>
-      </p>
-      <p class="work-votes">
-        <%= movie.votes_count %> votes
-      </p>
-      <% num += 1 %>
-    <% end %>
-    <%= link_to "View More Movies", movies_path, method: :get %>
+  <%= render partial: "indexcategory", locals: {category: "book"} %>
 
-  </article>
+  <%= render partial: "indexcategory", locals: {category: "album"} %>
 
-  <article class="top books">
+  <!-- <article class="top books">
     <h2 class="category-header">Top Books</h2>
     <% num = 1 %>
 
@@ -45,9 +33,9 @@
     <% end %>
     <%= link_to "View More Books", books_path, method: :get %>
 
-  </article>
+  </article> -->
 
-  <article class="top albums">
+  <!-- <article class="top albums">
     <h2 class="category-header">Top Albums</h2>
     <% num = 1 %>
     <% albums = Work.top_ten("album") %>
@@ -62,7 +50,7 @@
     <% end %>
     <%= link_to "View More Albums", albums_path, method: :get %>
 
-  </article>
+  </article> -->
 </section>
 
 
