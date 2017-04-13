@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   get "/books", to: "works#books"
   get "/movies", to: "works#movies"
 
-  post '/upvote', to: "votes#upvote"
+  post 'work/:id/upvote', to: "votes#upvote", as: "upvote"
 
   get 'users', to: "users#index"
   get 'users/:id', to: "users#show", as: "user"

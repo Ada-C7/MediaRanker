@@ -12,11 +12,11 @@
   </tr>
   <% @result_user.votes.each do | vote | %>
   <tr>
-    <th><%= vote.title %></th>
-    <th><%= vote.creator %></th>
-    <th><%= vote.year %></th>
-    <th><%= vote.category %></th>
-    <th><%= vote.created_on %></th>
+    <td><%= vote.work.title %></td>
+    <td><%= vote.work.creator %></td>
+    <td><%= vote.work.year %></td>
+    <td><%= vote.work.category %></td>
+    <td><%= vote.created_at %></td>
   </tr>
   <% end %>
 </table>

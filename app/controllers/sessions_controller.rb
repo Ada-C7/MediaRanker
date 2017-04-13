@@ -21,7 +21,7 @@ class SessionsController < ApplicationController
 
   def logout
     session[:user] = nil
-    redirect_to root_path
     flash[:success] = "See you next time!"
+    redirect_to root_path
   end
 end

@@ -14,16 +14,19 @@
     </tr>
     <% @result_work.votes.each do | vote | %>
     <tr>
-      <td><%= link_to vote.user_id.name, user_path(vote.user_id) %></td>
-      <td><%= vote.created_on %></td>
+      <td><%= link_to vote.user.name, user_path(vote.user_id) %></td>
+      <td><%= vote.created_at.strftime("%b %d, %Y") %></td>
+      <td>
     </tr>
     <% end %>
   </table>
 </section>
+<p></p>
 
 <p>(link to category list)</p>
+<%= link_to "Back to " %>
 <%= link_to "Edit", edit_work_path(@result_work.id) %>
-<p>(upvote)</p>
+<%= link_to "Upvote", upvote_path, method: :post %>
 <%= link_to "Delete", work_path(@result_work.id),
 data: { confirm: "Are you sure you want to delete this?" },
 method: :delete %>
