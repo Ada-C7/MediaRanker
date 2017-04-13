@@ -9,6 +9,16 @@
   </head>
 
   <body>
-    <%= yield %>
+    <header>
+      <!-- <%= image_tag("owl.jpg", alt: "owl reading a book") %> -->
+      <h2>
+        <%= link_to "Media Ranker", works_path("movies") %>
+        <span class="small">Ranking the Best of Everything</span>
+      </h2>
+    </header>
+
+    <main>
+      <%= yield %>
+    </main>
   </body>
 </html>
