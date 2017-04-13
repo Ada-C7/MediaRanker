@@ -41,9 +41,17 @@ class WorksController < ApplicationController
   end
 
   def destroy
+    work = Work.find(params[:id])
+    category = work.category
     Work.destroy(params[:id])
 
-  redirect_to works_path
+    if category == "book"
+      redirect_to books_path
+    elsif category == "album"
+      redirect_to albums_path
+    elsif category == "movie"
+      redirect_to movies_path
+    end
   end
 
 
