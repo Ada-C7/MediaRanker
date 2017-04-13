@@ -14,7 +14,7 @@ class SessionsController < ApplicationController
         redirect_to :homepage
       else
         flash.now[:failure] = "Sign up failed, try again"
-        render :new
+        render :new, status: :bad_request
       end
 
     elsif user
@@ -23,7 +23,7 @@ class SessionsController < ApplicationController
       redirect_to :homepage
     end
   end
-  
+
   def logout
     session[:user_id] = nil
     flash[:logout] = "Logged Out"

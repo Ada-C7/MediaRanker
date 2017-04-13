@@ -21,24 +21,16 @@ describe SessionsController do
       post login_path, params: { user: user_data }
       must_respond_with :redirect
       must_redirect_to homepage_path
-
     end
 
-    it 'does something when given empty sting' do
-
-    end
+    # it 'renders new page when given empty sting' do
+    #   user_data = { username: ""}
+    #   post login_path, params: { user: user_data }
+    #   must_respond_with :
+    # end
   end
 
   describe 'logout' do
 
   end
 end
-
-# login is a create method
-# it 'should create a new user with good data' do
-#   user_data = { username: "cynbin"}
-#   post users_path, params: { user: user_data }
-#   must_respond_with :success
-#   # must_respond_with :redirect
-#   # must_redirect_to user_path
-# end
