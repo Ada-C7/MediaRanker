@@ -2,7 +2,15 @@ Rails.application.routes.draw do
 
   root 'works#index'
   resources :works
-  # to automatically choose category from URL, need to write custom update and create methods to account for url var (book, movie, album)
+
+  get '/users', to: 'users#index'
+  get '/users/:id', to: 'users#show', as: 'user'
+
+  post '/upvote', to: 'votes#create', as: 'upvote'
+
+  get '/login', to: 'sessions#login_form'
+  post '/login', to: 'sessions#login'
+  delete '/logout', to: 'sessions#logout'
 
   get '/albums', to: 'albums#index'
   get '/albums/new', to: 'albums#new', as: 'new_album'

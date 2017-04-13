@@ -1,0 +1,13 @@
+<h3> Login Form </h3>
+
+<ul>
+<%= form_tag login_path do %>
+<li>
+  <%= label_tag "Login Name: " %>
+  <%= text_field_tag "name" %>
+</li>
+<li>
+  <%= submit_tag "Login" %>
+</li>
+  <% end %>
+</ul>
