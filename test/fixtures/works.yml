@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+antonia:
+  category: "book"
+  title: "My Antonia"
+  creator: "Willa Cather"
+  publication_year: 1918
+  description: "Prairie sadness"
+
+hamilton:
+  category: "album"
+  title: "Hamilton: the Musical"
+  creator: "Lin-Manuel Miranda"
+  publication_year: 2014
+  description: "so much fun. leslie odom is awesome"

@@ -1,0 +1,25 @@
+<h1>Index</h1>
+<h2>Top Movies</h2>
+<ul>
+    <% @movies.each do |movie| %>
+    <li>
+        <%= movie.title %> by: <%= movie.creator %>
+    </li>
+    <% end %>
+</ul>
+<h2>Top Books</h2>
+<ul>
+    <% @books.each do |book| %>
+    <li>
+        <%= book.title %> by: <%= book.creator %>
+    </li>
+    <% end %>
+</ul>
+<h2>Top Albums</h2>
+<ul>
+    <%= @albums.each do |album| %>
+    <li>
+        <%= album.title %> by: <%=album.creator %>
+    </li>
+    <% end %>
+</ul>
