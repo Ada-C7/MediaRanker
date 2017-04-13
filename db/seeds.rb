@@ -19,7 +19,7 @@ end
 
 works_array = []
 CSV.read("db/media_seeds.csv", headers: true).map do |line|
-  work = { category: line[0], title: line[1], creator: line[2], published: line[3], description: line[4], user_id: rand(10) }
+  work = { category: line[0], title: line[1], creator: line[2], published: line[3], description: line[4] }
   works_array << work
 end
 
