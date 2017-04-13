@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   root 'works#index', as:'homepage'
   # need to change this - dont need all the restful routes
   resources :works, except: [:index, :new]
+  resources :users
 
   get 'movies', to: 'works#movies', as: 'movies'
   get 'books', to: 'works#books', as: 'books'
