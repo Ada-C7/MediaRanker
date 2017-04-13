@@ -4,7 +4,7 @@
 <%= @album.title %>
 
 <%= link_to "Delete", album_path(@album.id),
-    data: { confirm: "Are you sure you want to delete this book?" },
+    data: { confirm: "Are you sure you want to delete this album?" },
     method: :delete
 %>
 <%= link_to "Edit", edit_album_path(@album.id) %>

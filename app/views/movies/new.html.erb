@@ -1,0 +1,5 @@
+<h1>Make a new movie</h1>
+
+<%= form_for @movie, :url => { :action => "create" } do |form| %>
+<%= render partial: "form", locals: { f: form } %>
+<% end %>
