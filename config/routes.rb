@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  root "works#top_works"
+
   get 'albums', to: 'works#show_albums'
   get 'movies', to: 'works#show_movies'
   get 'books', to: 'works#show_books'
@@ -8,7 +8,6 @@ Rails.application.routes.draw do
   get 'movies/new', to: 'works#new', as: 'new_movie'
   get 'books/new', to: 'works#new',  as: 'new_book'
 
-  # post '/works/:id/votes', to: 'votes#create', as: 'new_vote'
   post 'works/:id/upvote', to: 'works#upvote',  as: 'upvote'
   delete 'works/:id/downvote', to: 'works#downvote', as: 'downvote'
 
@@ -21,6 +20,6 @@ Rails.application.routes.draw do
 
   delete 'logout', to: 'sessions#destroy'
 
-
+  root "works#top_works"
 
 end
