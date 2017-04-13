@@ -14,12 +14,6 @@
       <%= link_to "MEDIA RANKER", root_path %>
 
       <div>
-        <!-- <section class="session">
-          <% session.each do |name, message| %>
-          <div class="<%= name %>"><%= message %></div>
-          <% end %>
-        </section> -->
-
         <%= link_to "New User", new_user_path %>
         <% if session[:user_id] %>
         <%= session[:user_name] %>

@@ -5,11 +5,11 @@
 <h2> <%= @work.description %> </h2>
 
 <% if @work.category == "movie"%>
-<%= button_to 'Back to movie list', movies_path, method: :get %>
+  <%= button_to 'Back to movie list', movies_path, method: :get %>
 <% elsif @work.category == "book"%>
-<%= button_to 'Back to book list', books_path, method: :get %>
+  <%= button_to 'Back to book list', books_path, method: :get %>
 <% elsif @work.category == "album"%>
-<%= button_to 'Back to album list', albums_path, method: :get %>
+  <%= button_to 'Back to album list', albums_path, method: :get %>
 <%end%>
 
 <%= link_to "Back to all lists", root_path, method: :get %>
@@ -18,5 +18,12 @@
 data: {confirm: "Are you sure"} %>
 
 <% if session[:user_id] %>
-<%= link_to "Vote for this #{@work.category}.", vote_path(@work.id), method: :post %>
+  <%= link_to "Vote for this #{@work.category}.", vote_path(@work.id), method: :post %>
 <% end %>
+
+<section>
+  <h4>Who else voted for this <%= @work.category %> </h4>
+  <% @work.users.each do |user| %>
+    <h5><%= link_to user.name, user_path(user.id) %> </h5>
+  <% end %>
+</section>
