@@ -28,6 +28,20 @@ describe BooksController do
     must_respond_with :success
   end
 
+  it "should create a new book" do
+    proc   {
+    post books_path, params: { content:
+       { category: "book",
+         title: "Some post",
+         creator: "Me",
+         publication_year: "2017"
+         }  }
+  }.must_change 'Content.count', 1
+
+  must_respond_with :redirect
+  must_redirect_to books_path
+  end
+
   it "should destroy a book" do
     proc {
   # run the delete verb on the post_path with a param equal to 1

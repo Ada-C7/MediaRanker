@@ -25,6 +25,17 @@ class BooksController < ApplicationController
     @book = Content.new
   end
 
+  def create
+    book = Content.new book_params
+    book[:category] = "book"
+    book.save
+
+    if book.save
+      redirect_to books_path
+    end
+
+  end
+
   def destroy
     Content.destroy(params[:id])
 
