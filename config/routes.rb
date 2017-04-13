@@ -2,6 +2,8 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   root "mediaranker#index"
 
+  post "/works/:id/upvote", to: "votes#upvote", as: "upvote"
+
   resources :works, except: [:index, :new, :create]
   resources :votes, except: [:destroy, :edit, :update]
   resources :users, except: [:destroy, :edit, :update]
