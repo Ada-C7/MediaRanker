@@ -10,12 +10,13 @@ class WorksController < ApplicationController
   end
 
   def index_album
-    @albums = Work.where(category: "album")
+    @albums = Work.where(category: "album") #.order by method.limit
   end
-
+  # unique constraints
 
   def index_movie
     @movies = Work.where(category: "movie")
+
   end
   #
   def index_book

@@ -1,7 +1,8 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 owl:
-  category: 'book'
+  # broken fixture, category
+  category: 'food'
   title: "The owl"
   creator: "Sanchez"
   publish_year: "1999"
@@ -15,15 +16,17 @@ duck:
   description: "A great duck"
 
 cat:
+  # broken fixture, title
   category: 'movie'
-  title: "The cat"
+  title:
   creator: "Hamlet"
   publish_year: "2017"
   description: "Sweet"
 
 dog:
+  # broken fixture, publish_year and creator
   category: 'album'
   title: "The singing dog"
-  creator: "Rosco"
-  publish_year: "2010"
+  creator:
+  publish_year: 
   description: "The nice voice"
