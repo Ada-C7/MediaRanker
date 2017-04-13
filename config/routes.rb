@@ -14,4 +14,6 @@ Rails.application.routes.draw do
 
   get '/users', to: 'users#index'
   get '/users/:id', to: 'users#show', as: 'user'
+
+  post '/works/:id/vote', to: "votes#create", as: 'new_vote'
 end
