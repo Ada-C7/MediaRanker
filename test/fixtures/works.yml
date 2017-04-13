@@ -1,15 +1,22 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  category: MyString
-  title: MyString
-  creator: MyString
-  publication_year: 1
-  description: MyString
+  category: movie
+  title: Movie title
+  creator: movie creator
+  publication_year: 199
+  description: movie description
 
 two:
-  category: MyString
-  title: MyString
+  category: book
+  title: Book Title
   creator: MyString
   publication_year: 1
-  description: MyString
+  description: book description
+
+three:
+  category: album
+  title: album title
+  creator: katie
+  publication_year: 1980
+  description: album description

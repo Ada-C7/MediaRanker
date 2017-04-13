@@ -1,1 +1,9 @@
+<!-- basically here I need to say if the route is category path "albums", show just albums. -->
+
+
 <h1> index.html.erb </h1>
+
+  <h4 class ="category"><% @works.each do |work| %></h4>
+    <li class ="titles"><%= link_to "#{work.title}", work_path(work.id) %></li>
+  <% end %>
+</section>
