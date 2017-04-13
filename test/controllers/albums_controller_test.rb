@@ -16,11 +16,14 @@ describe AlbumsController do
     must_respond_with :success
   end
 
+  # it "should update an album" do
+  #   patch album_path
+  # end
+
   it "should delete an album object" do
-    @album = Content.albums.sample
     proc {
   # run the delete verb on the post_path with a param equal to 1
-  delete album_path(@album)
+  delete album_path(contents(:hacking).id)
   }.must_change 'Content.count', -1
   end
 
