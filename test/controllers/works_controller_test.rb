@@ -97,7 +97,7 @@ describe WorksController do
 
   #pos edit test
   it "should get form to edit work" do
-    get edit_work_path((works(:work_one).id))
+    get edit_work_path(works(:work_one).id)
     must_respond_with :success
   end
 
