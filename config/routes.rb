@@ -22,8 +22,6 @@ Rails.application.routes.draw do
   delete 'logout', to: 'sessions#destroy'
 end
 # Rails.application.routes.draw do
-#   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
-#
 #   get 'tasks', to: 'tasks#index', as: 'tasks'
 #   get 'tasks/new', to: 'tasks#new', as: 'new_task'
 #   post 'tasks', to: 'tasks#create'
@@ -35,5 +33,4 @@ end
 #   patch 'tasks/:id', to: 'tasks#update'
 #   post 'tasks/:id/completed', to: 'tasks#completed', as: 'completed_task'
 #   delete 'tasks/:id', to: 'tasks#destroy'
-#
 # end

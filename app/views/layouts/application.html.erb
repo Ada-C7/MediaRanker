@@ -13,17 +13,18 @@
     <nav>
       <%= link_to "MEDIA RANKER", root_path %>
       <%= link_to "New User", new_user_path %>
+
       <% if session[:user_id] %>
       <%= link_to "Logout", logout_path, method: :delete %>
       <% else %>
-      <%= link_to "login", login_path %>
+      <%= link_to "login", login_path, method: :get %>
       <% end %>
 
     </nav>
     <section class="flash">
       <% flash.each do |name, message| %>
-        <div class="<%= name %>"><%=message %></div>
-        <% end %>
+      <div class="<%= name %>"><%=message %></div>
+      <% end %>
     </section>
   </header>
   <main>
