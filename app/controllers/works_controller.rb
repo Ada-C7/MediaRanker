@@ -7,7 +7,7 @@ class WorksController < ApplicationController
     @top_albums = Work.where(category: "album").order("votes_count").limit(10)
     @top_books = Work.where(category: "book").order("votes_count").limit(10)
     @top_movies = Work.where(category: "movie").order("votes_count").limit(10)
-    @spotlight_work = Work.order("votes_count DESC").last
+    @spotlight_work = Work.order("-votes_count ASC").first
   end
 
   def new
@@ -26,7 +26,7 @@ class WorksController < ApplicationController
   end
 
   def show
-    @work = Work.find_by(id: params[:id]) #changed to find_by; if not found -return nil
+    @work = Work.find_by(id: params[:id])
     if @work.nil?
       head :not_found
     end
@@ -35,14 +35,14 @@ class WorksController < ApplicationController
   end
 
   def show_albums
-    @all_albums = Work.where(category: "album").order("title")
+    @all_albums = Work.where(category: "album").order("-votes_count ASC")
   end
 
   def show_books
-    @all_books = Work.where(category: "book").order("title")
+    @all_books = Work.where(category: "book").order("-votes_count ASC")
   end
   def show_movies
-    @all_movies = Work.where(category: "movie").order("title")
+    @all_movies = Work.where(category: "movie").order("-votes_count ASC")
   end
 
   def edit
@@ -90,7 +90,6 @@ class WorksController < ApplicationController
         redirect_to(:back)
       end
     end
-
   end
 
 
