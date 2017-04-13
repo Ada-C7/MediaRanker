@@ -6,7 +6,10 @@ def self.by_category(category)
   where(category: category)
 end
 
-
+def self.spotlight
+  r = rand(1..Item.all.count)
+  find(r)
+end
 
 
 end
