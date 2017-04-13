@@ -6,11 +6,11 @@ class ItemsController < ApplicationController
   end
 
   def index_by_category
-    @items_of_category = Item.by_category(params[:category])
+    @items_of_category = Item.by_category(params[:category].singularize)
   end
 
   def new
-    @item = Item.new(category:params[:category])
+    @item = Item.new(category:params[:category].singularize)
   end
 
 
@@ -25,8 +25,9 @@ class ItemsController < ApplicationController
     # end
   end
 
-
-
+  # def show
+  #   @item = Item.find(params[:id])
+  # end
 
   private
 
