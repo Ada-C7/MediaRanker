@@ -7,15 +7,15 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 require 'csv'
 
-users = %w(zoralie martin bob erik chamelea fishface mrmonkeyhead uglifier awesomeprint george)
-
-users.each do |user|
-  newu = User.create!({username: "#{user}"})
-  if !newu.id
-    puts "couldn't create user #{user.username}"
-  end
-
-end
+# users = %w(zoralie martin bob erik chamelea fishface mrmonkeyhead uglifier awesomeprint george)
+#
+# users.each do |user|
+#   newu = User.create!({username: "#{user}"})
+#   if !newu.id
+#     puts "couldn't create user #{user.username}"
+#   end
+#
+# end
 
 works_array = []
 CSV.read("db/media_seeds.csv", headers: true).map do |line|
