@@ -3,10 +3,13 @@ class WorksController < ApplicationController
     @works = Work.all
   end
 
+  def show
+    @work = Work.find_by_id(params[:id])
+  end
+
   def show_category
     works = Work.all
     @category_works = []
-    # binding.pry
     works.each do |work|
       if work[:category] == params[:category].singularize
         @category_works << work
@@ -34,37 +37,27 @@ class WorksController < ApplicationController
     end
   end
 
-  # def create
-  #   work = Work.new
-  #   work.category = params[:category]
-  #
-  #   if work.save
-  #     redirect_to category_path(work.category)
-  #   else
-  #     puts work.errors.messages
-  #   end
-  # end
-
   def update
     @work = Work.find_by_id(params[:id])
 
-    @work.category = work_params[:category]
     @work.title = work_params[:title]
     @work.creator = work_params[:creator]
     @work.publication_year = work_params[:publication_year]
     @work.description = work_params[:description]
 
     if @work.save
-      redirect_to category_path(params[:category])
+      redirect_to category_path(category: @work.category.pluralize)
     else
       render "edit"
     end
   end
 
   def destroy
-    Work.destroy(params[:id])
+    work = Work.find_by_id(params[:id])
+    category = work.category
+    work.destroy
 
-    redirect_to category_path
+    redirect_to category_path(category.pluralize)
   end
 
   private
