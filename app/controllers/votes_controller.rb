@@ -1,28 +1,9 @@
 class VotesController < ApplicationController
   def index
-    @users = User.all
+    @votes = Vote.all
   end
 
   def show
-    @user = User.find(params[:id])
-  end
-
-  #Create a user
-  def new
-    @user = User.new
-  end
-
-  def create
-    @user = User.new(user_params)
-    if @user.save
-      redirect_to users_path
-    else
-      render :new
-    end
-  end
-
-  private
-  def user_params
-    return params.require(:user).permit(:username)
+    @vote = Vote.find(params[:id])
   end
 end
