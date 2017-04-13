@@ -5,6 +5,19 @@ class WorksController < ApplicationController
     @movies = Work.where(category: "movie").limit(10)
   end
 
+  def new
+    @work = Work.new
+  end
+
+  def create
+    @work = Work.new(work_params)
+    if @work.save
+      redirect_to works_path
+    else
+      render :new
+    end
+  end
+
   def albums
     @works = Work.where(category: "album")
     @category = "Albums"
@@ -30,14 +43,33 @@ class WorksController < ApplicationController
     end
   end
 
+  def edit
+    @work = Work.find_by(id: params[:id])
+    session.delete(:return_to)
+    session[:return_to] ||= request.referer
+    @back_url = session[:return_to]
+  end
+
+  def update
+    work = Work.find_by(id: params[:id])
+    work.update_attributes(work_params)
+    work.save
+    redirect_to session[:return_to]
+  end
+
+  def destroy
+    work = Work.find_by(id: params[:id])
+    work.destroy
+    redirect_to works_path
+  end
+
+
 
   #PRIVATE
   private
   def work_params
     return params.require(:work).permit(:category, :title, :creator, :publication_year, :description)
   end
-
-
 
 
 end # END of class WorksController

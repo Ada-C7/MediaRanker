@@ -10,7 +10,9 @@ Rails.application.routes.draw do
   get 'books', to: 'works#books', as: 'books'
   get 'movies', to: 'works#movies', as: 'movies'
 
-
+  get 'login', to: 'sessions#new'
+  post 'login', to: 'sessions#create'
+  delete 'logout', to: 'sessions#destroy'
 
 
 

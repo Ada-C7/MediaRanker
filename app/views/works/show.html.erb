@@ -10,6 +10,12 @@
   <p>
     <%=@work.description %>
   </p>
+  <p>
+    <%= link_to "This links wrong", works_path%>
+    <%= link_to "Edit", edit_work_path%>
+    <%= link_to "Delete", work_path,
+    data: {method: :delete, confirm: "Are you sure you want to delete this work from the list?"}%>
+  </p>
 
 </section>
 

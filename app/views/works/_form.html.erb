@@ -1,0 +1,22 @@
+
+<%= form_for @work do |f| %>
+<div>
+  <%= f.label :title, class: "label" %>
+  <%= f.text_field :title, class: "field"%>
+</div>
+<div>
+  <%= f.label :creator, class: "label"%>
+  <%= f.text_field :creator, class: "field"%>
+</div>
+<div>
+  <%= f.label :publication_year, class: "label"%>
+  <%= f.number_field :publication_year, class: "field"%>
+</div>
+<div>
+  <%= f.label :description, class: "label"%>
+  <%= f.text_field :description, class: "field"%>
+</div>
+<div id = "_form_section_submit">
+  <%= f.submit value: "UPDATE"%>
+</div>
+<% end %>
