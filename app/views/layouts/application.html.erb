@@ -9,6 +9,16 @@
   </head>
 
   <body>
+    <header>
+      <h1><%= link_to "Media Ranker", root_path %> Ranking the Best of Everything</h1>
+      <% if session[:user_id] %>
+        <p>Logged in as <%= User.find_by_id(session[:user_id]).username %></p>
+        <p><%= link_to "Log Out", logout_path, method: :delete %></p>
+      <% else %>
+        <p>Not logged in.</p>
+        <p><%= link_to "Login", login_path %></p>
+      <% end %>
+    </header>
     <%= yield %>
   </body>
 </html>
