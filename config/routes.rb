@@ -9,4 +9,6 @@ Rails.application.routes.draw do
 
     get '/movies', to: 'movies#index', as: 'movies'
 
+    get '/users', to: 'users#index', as: 'user'
+
 end
