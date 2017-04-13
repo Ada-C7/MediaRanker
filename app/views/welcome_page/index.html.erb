@@ -9,6 +9,12 @@
 <li><%= link_to "#{work.title}", work_path(work.id), :class => "title-link" %></li>
 <% counter += 1 %>
 <% end %>
+<%= link_to "View all #{category.pluralize}".pluralize, category_path(category.pluralize) %>
+
 </ul>
 <% end %>
 </div>
+
+
+
+<!-- category = Work.by_category(category) -->
