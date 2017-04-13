@@ -1,3 +1,12 @@
 <h2> <%= @item.title  %></h2>
 <h3>Created by: <%= @item.creator  %> </h3>
 <h3>Published: <%= @item.publication_year %> </h3>
+
+
+<%= button_to "Back to #{@item.category} list", category_index_path(@item.category),
+method: :get %>
+
+<%= "edit" %>
+
+<%= "upvote"%>
+<%= "delete" %>

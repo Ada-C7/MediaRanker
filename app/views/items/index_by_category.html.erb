@@ -8,7 +8,7 @@
   <% @items_of_category.each do |item| %>
 
   <li>
-    <h3><%= item.title %>  </h3>
+    <h3><%= link_to item.title, item_path(item) %> </h3>
   </li>
   <% end %>
 </ol>
@@ -16,5 +16,5 @@
 <%= button_to "View all media", items_path,
 method: :get %>
 
-<%= button_to "Add a new #{params[:category]}", new_item_by_category_path(params[:category]),
+<%= button_to "Add a new #{params[:category].singularize}", new_item_by_category_path(params[:category]),
 method: :get %>
