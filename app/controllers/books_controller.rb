@@ -1,6 +1,7 @@
 class BooksController < ApplicationController
   def index
     @books = Work.all.select {|work| work.category == "book"}
+    @books.sort_by{|book| book[:votes]}.reverse
   end
 
   def new
