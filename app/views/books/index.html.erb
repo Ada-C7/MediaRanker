@@ -1,2 +1,10 @@
 <h1>Books#index</h1>
 <p>Find me in app/views/books/index.html.erb</p>
+
+<ul>
+<% @books.each do |b| %>
+<li>
+  <%=link_to b.title, book_path(b.id) %>
+</li>
+<% end %>
+</ul>
