@@ -21,4 +21,11 @@ describe VotesController do
     }.must_change 'Vote.count', 1
   end
 
+  it "will not affect user model if vote is invalid" do
+    proc {
+      post login_path(), params: { name: users(:lynn).name }
+      post new_vote_path(works(:work_one).id)
+    }.must_change 'Vote.count', 0
+  end
+
 end
