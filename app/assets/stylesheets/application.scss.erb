@@ -1,4 +1,4 @@
-@import url('foundation.css');
+@import url(<%= asset_url('foundation.css') %>);
 
 header h2 .small {
      font-size: smaller;
@@ -9,7 +9,7 @@ header h2 .small {
  }
 
  header h2::before {
-   content: url('owl.jpg');
+   content: url(<%= image_url('owl.jpg') %>);
    height: 50px;
  }
 
