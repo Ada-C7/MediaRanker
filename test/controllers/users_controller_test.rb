@@ -9,21 +9,27 @@ describe UsersController do
   end
 
   # create should change the db count
-  # it "creating a new user should change the db count of users" do
-  #   post user_path
-  # end
+  it "must update DB upon create" do
+    proc { post users_path, params: { user:
+          { username: "felicity"
+          }
+        }
+      }.must_change 'User.count', 1
+  end
+
+
+  # create should redirect to root
+
+  it "creating a new user should redirect to root" do
+    post users_path, user: {username: "georgianna"}
+    must_redirect_to :root
+  end
   #
-  #
-  # # create should redirect to root
-  #
-  # it "creating a new user should redirect to root" do
-  #
-  # end
-  #
-  # # show should redirect to individual user's page
-  # it "show user should show one user" do
-  #
-  # end
+  # show should redirect to individual user's page
+  it "show user should show one user" do
+    get user_path(users(:aurora))
+    must_respond_with :success
+  end
 
 
 
