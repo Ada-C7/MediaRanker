@@ -39,7 +39,12 @@ Rails.application.routes.draw do
   get '/books', to: 'books#index'
 
   get '/users', to: 'users#index'
+  get '/users/:id', to: 'users#show', as: 'user'
 
+  get '/login', to: "sessions#login_form"
+  post '/login', to: "sessions#login"
+
+  put '/logout', to: "sessions#logout"
 
 
 
