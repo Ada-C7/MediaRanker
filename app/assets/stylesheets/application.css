@@ -13,6 +13,7 @@
  *= require_tree .
  *= require_self
  */
+  @import url('foundation.css');
 
 header{
   border-style: dotted;
