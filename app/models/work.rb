@@ -25,7 +25,17 @@ class Work < ApplicationRecord
       end
     end
     return spot
-
   end
 
+  def self.vote_one
+    work = Wok.all.each do |work|
+
+      if work.votes.count == 0
+        return "can vote"
+      else
+        return "Can't vote more than once"
+      end
+    end
+
+  end
 end
