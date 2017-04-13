@@ -1,6 +1,7 @@
 <h1>Category#index</h1>
-This is my single index for books, albums, and movies
+<!-- <%= params[:category] %>
+<br>This is my single index for books, albums, and movies -->
 
 <% @works.each do |work| %>
-<%= "#{work.title}"%>
+<li><%= link_to "#{work.title}", work_path(work.id), :class => "title-link" %></li>
 <% end %>
