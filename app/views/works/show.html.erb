@@ -23,7 +23,6 @@
 </section>
 <p></p>
 
-<p>(link to category list)</p>
 <%= link_to "Back to #{ @result_work.category.capitalize }s, " %>
 <%= link_to "Edit", edit_work_path(@result_work.id, :category => @result_work.category) %>
 <%= link_to "Upvote", upvote_path, method: :post %>
