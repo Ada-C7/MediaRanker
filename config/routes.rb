@@ -5,9 +5,7 @@ Rails.application.routes.draw do
 
   root 'items#index'
 
-
   resources :items, except: [:new, :create]
-
 
   # get 'items', to:'items#index'
   # get 'items/:id', to:'items#show', as: 'item'
