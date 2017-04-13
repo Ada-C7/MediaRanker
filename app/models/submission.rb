@@ -15,7 +15,8 @@ class Submission < ApplicationRecord
                 .select('submissions.*, COUNT(votes.*) as vote_count')
                 .group('submissions.id')
                 .order('vote_count DESC')
-                .where("category = ?", tootsy )
+                .where("category = ?", tootsy)
                 .limit(5)
      end
+
 end

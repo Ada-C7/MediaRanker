@@ -1,17 +1,25 @@
-<%= form_for(submission) do |f| %>
-  <% if submission.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(submission.errors.count, "error") %> prohibited this submission from being saved:</h2>
 
-      <ul>
-      <% submission.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
+<% @submission.errors.each do |field, msg | %>
+     <li>
+          <h6> <%= field %> <%= msg %> </h6>
+     </l1>
+<% end %>
 
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+
+  <%=form_for @submission, method: form_method do | f | %>
+
+       <%= f.label :title, class: 'hidden' %>
+       <%= f.text_field :title, placeholder: 'Title of Submission' %>
+
+       <%= f.label :author, class: 'hidden'  %>
+       <%= f.text_field :author, placeholder: 'Author of Submission' %>
+
+       <%= f.label :publish_date, class: 'hidden'  %>
+       <%= f.text_field :publish_date, placeholder: 'Year' %>
+
+       <%= f.label :summary, class: 'hidden'  %>
+       <%= f.text_area :summary, placeholder: 'Brief Description' %>
+
+       <%= f.submit submit_text %>
+  </>
 <% end %>

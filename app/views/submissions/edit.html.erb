@@ -1,6 +1,5 @@
 <h1>Editing Submission</h1>
 
-<%= render 'form', submission: @submission %>
+<%= render partial: "form", locals: {submit_text: "Edit Submission", form_method: :patch} %>
 
-<%= link_to 'Show', @submission %> |
-<%= link_to 'Back', submissions_path %>
+<%= link_to 'Back', root_path %>
