@@ -1,3 +1,5 @@
 <h1> Edit Media</h1>
 
-<%= render partial: "form", locals: { action_name: "Update", form_method: :update } %>
+<%= form_for @album, :url => { :action => "update" } do |form| %>
+<%= render partial: "form", locals: { f: form } %>
+<% end %>

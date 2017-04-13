@@ -3,11 +3,15 @@ class AlbumsController < ApplicationController
     @albums = Content.albums
   end
 
+  def new
+    @album = Content.new
+  end
+
   def create
     album = Content.new album_params
     album[:category] = "album"
     album.save
-    
+
     if album.save
       redirect_to albums_path
     end

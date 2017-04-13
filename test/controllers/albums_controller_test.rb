@@ -31,6 +31,12 @@ describe AlbumsController do
   }.must_change 'Content.count', -1
   end
 
+  it "should get the new page" do
+    get new_album_path
+    must_respond_with :success
+
+  end
+
   it "should make a new album object" do
     proc   {
     post albums_path, params: { content:

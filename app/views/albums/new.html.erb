@@ -1,0 +1,5 @@
+<h1>Make new Album</h1>
+
+<%= form_for @album, :url => { :action => "create" } do |form| %>
+<%= render partial: "form", locals: { f: form } %>
+<% end %>
