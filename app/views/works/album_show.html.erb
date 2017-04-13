@@ -7,4 +7,5 @@
     <%= "Published: #{@work.pub_date}" %>
   </li>
 </ul>
+<%= button_to "Edit Album", edit_work_path, method: :get %>
 <%= link_to "Back to All Albums", albums_path %>

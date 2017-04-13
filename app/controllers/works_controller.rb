@@ -52,7 +52,7 @@ class WorksController < ApplicationController
     work.update_attributes(work_params)
     work.save
 
-    redirect_to works_path
+    redirect_to work_path
   end
 
   def delete
