@@ -15,6 +15,7 @@ class WorksController < ApplicationController
 
   def new
     @work = Work.new
+    @category = params[:category]
   end
 
   def create
