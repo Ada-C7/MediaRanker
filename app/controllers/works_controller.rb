@@ -13,5 +13,6 @@ class WorksController < ApplicationController
 
   def new
     @work = Work.new
+    @media_type = params[:media_type]
   end
 end
