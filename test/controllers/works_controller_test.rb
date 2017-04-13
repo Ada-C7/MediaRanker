@@ -66,6 +66,23 @@ describe WorksController do
     end
   end
 
+  describe "update" do
+    it "updates a work" do
+      work_data = {
+        work: {
+          category: "book",
+          title: "Jane Eyre",
+          creator: "Charlotte Bronte",
+          publication_year: 1978,
+          description: "Empowering female gothic romance"
+          }
+        }
+      work = Work.first
+      patch work_path(work), params: work_data
+    end
+
+  end
+
   describe "destroy" do
     it "deletes a work that exists" do
       work = Work.first
@@ -73,11 +90,5 @@ describe WorksController do
       must_redirect_to works_path
     end
 
-    it "will return a 404 not found status when asked to delete a work that doesn't exist" do
-      work_id = Work.last.id
-      work_id += 1
-      delete work_path(work_id)
-      must_respond_with :not_found
-    end
   end
 end

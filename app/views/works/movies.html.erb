@@ -4,10 +4,6 @@
 
 <main>
 
-
-  <h1>Movies</h1>
-  <% @works.each do |item| %>
-  <%= render partial: "worksep", locals:{item:item} %>
-  <% end %>
+  <%= render partial: "worksep", locals:{works:@works} %>
 
 </main>
