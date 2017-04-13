@@ -25,4 +25,5 @@
   <table>
 </section>
 
-<%= link_to "Add a new #{@category.singularize }", new_work_path(@category) %>
+<%= link_to "Add a new #{@category.singularize }", new_work_path(@category),
+  class: "button" %>
