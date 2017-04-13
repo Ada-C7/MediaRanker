@@ -41,6 +41,13 @@ describe MoviesController do
 
   must_respond_with :redirect
   must_redirect_to movies_path
+  end
+
+  it "should delete a movie" do
+    proc {
+  # run the delete verb on the post_path with a param equal to 1
+  delete album_path(contents(:shrek).id)
+  }.must_change 'Content.count', -1
 
   end
 
