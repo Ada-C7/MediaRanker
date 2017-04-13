@@ -25,6 +25,17 @@ class MoviesController < ApplicationController
     @movie = Content.new
   end
 
+  def create
+    movie = Content.new movie_params
+    movie[:category] = "movie"
+    movie.save
+
+    if movie.save
+      redirect_to movies_path
+    end
+
+  end
+
 
 
   private

@@ -29,4 +29,19 @@ describe MoviesController do
     must_respond_with :success
   end
 
+  it "should create a new movie" do
+    proc   {
+    post movies_path, params: { content:
+       { category: "movie",
+         title: "Some post",
+         creator: "Me",
+         publication_year: "2017"
+         }  }
+  }.must_change 'Content.count', 1
+
+  must_respond_with :redirect
+  must_redirect_to movies_path
+
+  end
+
 end
