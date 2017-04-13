@@ -7,6 +7,10 @@ class BooksController < ApplicationController
     @book = Content.find(params[:id])
   end
 
+  def edit
+    @book = Content.find(params[:id])
+  end
+
   def destroy
     Content.destroy(params[:id])
 
