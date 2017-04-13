@@ -73,7 +73,7 @@ class WorksController < ApplicationController
       flash[:failure] = "You must log in to vote"
       redirect_to work_path(@work.id)
     else
-      flag = false
+      user_already_voted = false
       userid = session[:user_id]
       @user = User.find_by(id: userid)
       vote = Vote.new(work: @work, user: @user)
@@ -81,11 +81,11 @@ class WorksController < ApplicationController
         if v.user_id == session[:user_id]
           flash[:failure] = "You cannot vote more than one time for this work"
           redirect_to work_path(@work.id)
-          flag = true
+          user_already_voted = true
         end
       end
 
-      if flag == false
+      if user_already_voted == false
         vote.save
         redirect_to(:back)
       end

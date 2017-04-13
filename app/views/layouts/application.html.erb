@@ -15,7 +15,10 @@
     <% if session[:user_id]== nil %>
       <div><%=button_to "Login", login_path, method: :get%> </div>
     <%else%>
-      <div><%=button_to "Logout", logout_path, method: :delete%> </div>
+      <div>
+        <%=button_to "Logout", logout_path, method: :delete%>
+        <strong>logged in as <%=current_user(session[:user_id])%></strong>
+       </div>
     <%end%>
     <div><%=button_to "Create new user", new_user_path, method: :get%> </div>
   </header>
