@@ -50,14 +50,12 @@ class WorksController < ApplicationController
   end
 
   def upvote
-
       work = Work.find(params[:id])
       vote = Vote.create
       vote.work_id = work.id
       vote.user_id = session[:user_id]
       vote.save
-      redirect_to root_path
-    
+      redirect_to :back 
   end
 
   def create
