@@ -1,11 +1,26 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>MediaRanker</title>
+    <title>Media Ranker</title>
     <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+
+    <header class = "navigation">
+      <h2 class = "header">
+        <%= link_to "Media Ranker", root_path %>
+        <small>Ranking the Best of Everything</small>
+      </h2>
+      <div class = "bottom-header">
+        <p class = "login-text">
+          LOGIC: Text changes based on User/Lurker
+        </p>
+        <a class = "log-button" > Log </a>
+        <!-- ABOVE: logic for login/log out button -->
+      </div>
+    </header>
+
   </head>
 
   <body>
