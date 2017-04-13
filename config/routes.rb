@@ -1,8 +1,6 @@
 Rails.application.routes.draw do
-  # did I mess things up by saying homepage...
-  # how to globablly look for homepage
   root 'works#index', as:'homepage'
-  # need to change this - dont need all the restful routes
+
   resources :works, except: [:index, :new]
   resources :users, only: [:index, :show, :create]
 
@@ -16,5 +14,5 @@ Rails.application.routes.draw do
 
   get 'login', to: 'sessions#new'
   post 'login', to: 'sessions#login'
-  delete 'logout', to: 'sessions#destroy'
+  delete 'logout', to: 'sessions#logout'
 end
