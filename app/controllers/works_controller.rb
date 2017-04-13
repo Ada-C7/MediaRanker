@@ -2,7 +2,7 @@ class WorksController < ApplicationController
   def index
     @works = Work.all
     movies
-    books
+    books #= books[0..9]
     albums
   end
 
@@ -50,14 +50,19 @@ class WorksController < ApplicationController
 
   def books
     @books = Work.where(category: 'book')
+    @books.sort { | b1, b2 | b2.votes.count <=> b1.votes.count }
+    # return @books
   end
 
   def movies
     @movies = Work.where(category: 'movie')
+    @movies.sort { | m1, m2 | m2.votes.count <=> m1.votes.count }
+    # return @movies
   end
 
   def albums
     @albums = Work.where(category: 'album')
+    @albums.sort { | a1, a2 | a2.votes.count <=> a1.votes.count }
   end
 
   def destroy
