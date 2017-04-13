@@ -3,10 +3,10 @@ class MoviesController < ApplicationController
     @movies = Work.where(category: 'movie')
   end
 
-  def new
+  def show
     @movie = Work.find(params[:id])
   end
 
-  def show
+  def new
   end
 end
