@@ -38,36 +38,47 @@ class WorksController < ApplicationController
 
   def update
     @work = Work.find(params[:id])
-        @work.title = work_params[:title]
-        @work.created_by = work_params[:created_by]
-        @work.year_published = work_params[:year_published]
-        @work.description = work_params[:description]
-        if @work.update(work_params)
-          redirect_to work_path(@work.id)
-        else
-          render "edit"
-        end
-      end
+    @work.title = work_params[:title]
+    @work.created_by = work_params[:created_by]
+    @work.year_published = work_params[:year_published]
+    @work.description = work_params[:description]
+    if @work.update(work_params)
+      redirect_to work_path(@work.id)
+    else
+      render "edit"
+    end
+  end
 
-      def create
-        @work = Work.create work_params
-        unless @work.id == nil
-          redirect_to works_path
-        else
-          render "new"
-        end
-      end
+  def upvote
 
-      def destroy
-        Work.destroy(params[:id])
-        redirect_to drivers_path
-      end
+      work = Work.find(params[:id])
+      vote = Vote.create
+      vote.work_id = work.id
+      vote.user_id = session[:user_id]
+      vote.save
+      redirect_to root_path
+    
+  end
+
+  def create
+    @work = Work.create work_params
+    unless @work.id == nil
+      redirect_to works_path
+    else
+      render "new"
+    end
+  end
+
+  def destroy
+    Work.destroy(params[:id])
+    redirect_to drivers_path
+  end
 
 
-      private
+  private
 
   def work_params
-    params.require(:work).permit(:title, :created_by, :year_published, :description)
+    params.require(:work).permit(:id, :title, :created_by, :year_published, :description)
   end
 
 end

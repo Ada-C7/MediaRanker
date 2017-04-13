@@ -1,0 +1,21 @@
+Vote
+<% @votes.each do |vote| %>
+<ul>
+
+
+<li>
+
+<%= vote.id %>
+</li>
+<li>
+
+
+<%= vote.user_id %>
+</li>
+<li>
+
+
+<%= vote.work_id %>
+</li>
+</ul>
+<% end %>

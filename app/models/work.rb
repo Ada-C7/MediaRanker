@@ -1,5 +1,5 @@
 class Work < ApplicationRecord
-    # has_many :votes
+     has_many :votes
     # def categories_list(works)
     #   @categories_list = []
     #   works.each do | work |
