@@ -7,8 +7,6 @@ class WorksController < ApplicationController
     @albums = Work.where(category: 'album')
   end
 
-
-
   # def new
   #   @work = Work.new
   # end

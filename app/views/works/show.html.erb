@@ -11,9 +11,9 @@
   </p>
 
   <section>
-    <%= link_to "Back to list", :back, class: "button" %>
+    <%= link_to "Back to list", :root, class: "button" %>
     <%= button_to "Edit", edit_work_path, class: "button", method: :get %>
-    <%= link_to "Upvote", upvote_path, class: "button" %>
+    <%= link_to "Upvote", upvote_path, class: "button", method: :post %>
     <%= button_to "Delete Work", work_path(@work.id), method: :delete, class: "alert button", data: { confirm: "Do you really want to delete this work? Such ingenuity and passion went into making it!" } %>
   </section>
 
