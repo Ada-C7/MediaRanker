@@ -54,4 +54,6 @@ describe Work do
     work.valid?.must_equal true
   end
 
+  # not testing counter cache functionality 
+
 end
