@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   root to: "works#index"
 
   resources :works, except: :new
+  patch "/works/:id/upvote", to: "works#upvote", as: "upvote"
 
   get "/users", to: "users#index"
   get "/users/:id", to: "users#show", as: "user"

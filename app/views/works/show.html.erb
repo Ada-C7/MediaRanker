@@ -1,4 +1,5 @@
 <section>
+
   <h3><%= @work.title %></h3>
 
   <% if @work.creator %>
@@ -14,6 +15,13 @@
   <% end %>
 </section>
 
+<p>
+  <%= link_to "Back to #{@work.category} list", category_path(@work.category.pluralize) %>
+  [edit]
+  <%= link_to "Upvote", upvote_path(@work.id), method: :patch %>
+  [delete]
+</p>
+
 <section>
-  <h3>[placeholder] Votes for this <%= @work.category.capitalize %></h3>
+  <h3><%= @work.votes.count %> Votes for this <%= @work.category.capitalize %></h3>
 </section>

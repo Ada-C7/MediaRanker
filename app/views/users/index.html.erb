@@ -15,7 +15,7 @@
           <%= link_to user.username, user_path(user.id) %>
         </td>
         <td>
-          [Votes Placeholder]
+          <%= user.votes.count %>
         </td>
         <td>
           <%= user.created_at %>

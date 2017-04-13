@@ -33,6 +33,20 @@ class WorksController < ApplicationController
     end
   end
 
+  def upvote
+    if session[:user_id]
+      vote = Vote.create(user_id: session[:user_id], work_id: params[:id])
+      if vote.id
+        flash[:success] = "Successfully upvoted!"
+      else
+        flash[:error] = "You've already voted for this"
+      end
+    else
+      flash[:error] = "You must log in to do that"
+    end
+    redirect_to :back
+  end
+
   private
 
   def work_params

@@ -28,4 +28,15 @@ describe Vote do
     vote.work = Work.create(title: "A Book", category: "book")
     vote.work.class.must_equal Work
   end
+
+  it "a user can't vote for the same work more than once" do
+    vote.user = User.create(username: "Yay")
+    vote.work = Work.create(title: "A Movie", category: "movie")
+    vote.save
+
+    new_vote = Vote.new
+    vote.user = User.create(username: "Yay")
+    vote.work = Work.create(title: "A Movie", category: "movie")
+    new_vote.valid?.must_equal false
+  end
 end
