@@ -1,0 +1,28 @@
+<section id="content">
+
+  <h2><%= @result_movie.title %></h2>
+
+  <h3>Created by: ?</h3>
+  <p>Published: <%= @result_movie.pub_year %></p>
+  <p><%= @result_movie.description %></p>
+
+  <p>***add upvote button***</p>
+
+<%= link_to "Back to movie list", movies_path, class: :button %>
+<%= link_to "Edit", edit_movie_path, class: :button %>
+<%= link_to "Delete", movie_path, class: :button %>
+
+  <h3> ? Votes for this movie</h3>
+
+
+  <table>
+    <tr>
+      <th>User</th>
+      <th>Date</th>
+    </tr>
+    <td>User who voted</td>
+    <td>Date voted</td>
+
+  </table>
+
+</section>

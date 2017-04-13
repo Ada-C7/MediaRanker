@@ -6,8 +6,13 @@
   <p>Published: <%= @result_album.pub_year %></p>
   <p><%= @result_album.description %></p>
 
-  <p>***buttons here (back to album list, edit, upvote, delete)***</p>
-  <h3> ? Votes for this movie</h3>
+  <p>***add upvote button***</p>
+
+<%= link_to "Back to album list", albums_path, class: :button %>
+<%= link_to "Edit", edit_album_path, class: :button %>
+<%= link_to "Delete", album_path, class: :button %>
+
+  <h3> ? Votes for this album</h3>
 
 
   <table>
@@ -15,8 +20,8 @@
       <th>User</th>
       <th>Date</th>
     </tr>
-
-
+    <td>User who voted</td>
+    <td>Date voted</td>
 
   </table>
 

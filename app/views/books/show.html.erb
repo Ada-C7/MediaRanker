@@ -1,0 +1,28 @@
+<section id="content">
+
+  <h2><%= @result_book.title %></h2>
+
+  <h3>Created by: ?</h3>
+  <p>Published: <%= @result_book.pub_year %></p>
+  <p><%= @result_book.description %></p>
+
+  <p>***add upvote button***</p>
+
+<%= link_to "Back to book list", books_path, class: :button %>
+<%= link_to "Edit", edit_book_path, class: :button %>
+<%= link_to "Delete", book_path, class: :button %>
+
+  <h3> ? Votes for this book</h3>
+
+
+  <table>
+    <tr>
+      <th>User</th>
+      <th>Date</th>
+    </tr>
+    <td>User who voted</td>
+    <td>Date voted</td>
+
+  </table>
+
+</section>
