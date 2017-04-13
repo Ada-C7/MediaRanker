@@ -1,8 +1,17 @@
-<h1> <%= @work.title %> </h1>
+<h1> <%= link_to @work.title %> </h1>
 
 <h2> <%= @work.creator %> </h2>
 <h2> <%= @work.pub_yr %> </h2>
 <h2> <%= @work.desc %> </h2>
+
+<% if @work.category == "book" %>
+  <%= link_to "Back to book list", books_path %>
+<% elsif @work.category == "album" %>
+  <%= link_to "Back to album list", albums_path %>
+<% elsif @work.category == "movie" %>
+  <%= link_to "Back to movies list", movies_path %>
+<% end %>
+
 
 <%= link_to "Edit", edit_work_path(@work.id) %>
 
