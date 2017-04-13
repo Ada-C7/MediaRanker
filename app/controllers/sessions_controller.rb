@@ -8,7 +8,8 @@ class SessionsController < ApplicationController
 
     if user
       session[:user_id] = user.id
-      # flash[:success] = "Successfully logged in as existing user #{user.username}"
+      session[:username] = user.username
+      flash[:success] = "Successfully logged in as existing user #{user.username}"
       # redirect_to root_path
       redirect_to works_path("albums")
     end
@@ -16,7 +17,7 @@ class SessionsController < ApplicationController
 
   def destroy
     session[:user_id] = nil
-    flash[:logout] = "You're logged out!"
+    flash[:logout] = "Successfully logged out"
     # redirect_to root_path
     redirect_to works_path("albums")
   end

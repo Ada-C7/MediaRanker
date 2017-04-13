@@ -17,7 +17,7 @@
       </h2>
       <div>
         <% if session[:user_id] %>
-          <p>Logged in </p>
+          <p>Logged in as <%= session[:username] %></p>
           <%= link_to "Log Out", logout_path, method: :delete %>
         <% else %>
           <p>Not logged in</p>
@@ -25,6 +25,12 @@
         <% end %>
       </div>
     </header>
+
+    <section class="flash">
+      <% flash.each do |name, message| %>
+        <div class="<%= name %>"><%= message %></div>
+      <% end %>
+    </section>
 
     <main>
       <%= yield %>
