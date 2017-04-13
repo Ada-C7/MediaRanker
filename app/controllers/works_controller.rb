@@ -80,7 +80,7 @@ class WorksController < ApplicationController
       @work.votes.each do |v|
         if v.user_id == session[:user_id]
           flash[:failure] = "You cannot vote more than one time for this work"
-          redirect_to work_path(@work.id)
+          redirect_to(:back)
           user_already_voted = true
         end
       end

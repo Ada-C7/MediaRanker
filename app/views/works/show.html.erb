@@ -5,10 +5,7 @@
     <p>Published: <%=@work.publication_year%></p>
     <p>Description: <%=@work.description%></p>
 
-    <%if session[:user_id]%>
-      <p>User: <%=@user.username%></p>
-      <p>User's total votes: <%=@user.votes.length%></p>
-    <%end%>
+  
 
   </article>
   <section id = "buttons">
