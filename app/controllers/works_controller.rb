@@ -41,17 +41,17 @@ class WorksController < ApplicationController
 
   def movies
     @works = Work.gather_movies
-    render "index"
+    render "movies"
   end
 
   def books
     @works = Work.gather_books
-    render "index"
+    render "books"
   end
 
   def albums
     @works = Work.gather_albums
-    render "index"
+    render "albums"
   end
 
   private

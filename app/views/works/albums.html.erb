@@ -4,5 +4,10 @@
 
 <main>
 
-  <%= render partial: "shared/worksep", locals: { submit_text: "Update "} %>
+
+  <h1>Albums</h1>
+  <% @works.each do |item| %>
+  <%= render partial: "worksep", locals:{item:item} %>
+  <% end %>
+
 </main>
