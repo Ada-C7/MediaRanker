@@ -11,14 +11,9 @@ class WorksController < ApplicationController
     @work = Work.find_by_id(params[:id])
   end
 
-  def new
-    @work = Work.new
-    # @work.category = params[:category]
-  end
 
   def create
     @work = Work.new(work_params)
-    @work.category = params[:category]
 
     if @work.save
       flash[:success] = "Successfully created #{@work.category} #{@work.id}"

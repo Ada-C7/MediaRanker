@@ -10,6 +10,7 @@
   <h3>Add a new <%= @work.category %></h3>
 
   <%= form_for @work do |f| %>
+    <%= f.hidden_field :category, value: @work.category %>
 
     <%= f.label :title %>
     <%= f.text_field :title %>
