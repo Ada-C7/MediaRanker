@@ -18,6 +18,6 @@ csv.each do |row|
   w.title = row['title']
   w.creator = row['creator']
   w.publication_year = row['publication_year']
-  w.desciption = row['desciption']
+  w.desciption = row['description']
   w.save
 end
