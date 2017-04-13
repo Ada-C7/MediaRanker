@@ -7,6 +7,6 @@ class VotesController < ApplicationController
     )
 
     vote.save
-    redirect_to "/#{work.category.pluralize}/#{work.id}"
+    redirect_to :back
   end
 end

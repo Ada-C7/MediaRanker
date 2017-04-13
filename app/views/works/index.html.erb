@@ -8,11 +8,11 @@
     <ul>
       <% Work.where(category: category)[0..9].each do |work| %>
         <li>
-          <h4><%= link_to work.title, "/#{category.pluralize}/#{work.id}" %> by <%= work.creator %></h4>
+          <h4><%= link_to work.title, work_path(category, work.id) %> by <%= work.creator %></h4>
           <p><%= work.votes.count %> votes</p>
         </li>
       <% end %>
     </ul>
-    <%= link_to "View More #{category.pluralize.capitalize}", "/#{category.pluralize}" %>
+    <%= link_to "View More #{category.pluralize.capitalize}", works_path(category) %>
   </section>
 <% end %>
