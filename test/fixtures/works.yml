@@ -9,6 +9,14 @@ lee:
   publication_year: 2016
   description: Good book that came before the movie
 
+# work with complete data
+mee:
+  category: movie
+  title: Hidden Figures
+  creator: Margot Lee Shetterly
+  publication_year: 2016
+  description: Good movie that came after the book
+
 # work without description
 dan:
   category: album
