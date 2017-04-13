@@ -15,22 +15,24 @@
     <% else %>
     <table class="user-votes-table">
       <tr>
-        <th>
-          Media Title
-        </th>
-        <th>
-          Created By
-        </th>
-        <th>
-          Published
-        </th>
-        <th>
-          Category
-        </th>
-        <th>
-          Voted On
-        </th>
-      </tr>
+        <thead>
+          <th>
+            Media Title
+          </th>
+          <th>
+            Created By
+          </th>
+          <th>
+            Published
+          </th>
+          <th>
+            Category
+          </th>
+          <th>
+            Voted On
+          </th>
+        </tr>
+      </thead>
       <% @user.votes.order("created_at DESC").each do |vote| %>
       <tr>
         <td>

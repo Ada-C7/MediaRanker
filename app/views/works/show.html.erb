@@ -1,32 +1,30 @@
 <section class="show">
 
-  <section class="main-show">
+  <section class="main-show row">
 
-    <article class="work-content">
-      <h2 class="work-title"> <%= @work.title %> </h2>
-      <ul class="work-details">
-        <li class="work-creator">
-          Created by: <%= @work.creator %>
-        </li>
-        <li class="work-published">
-          Published: <%= @work.published %>
-        </li>
-        <li class="work-description">
-          <%= @work.description %>
-        </li>
-      </ul>
+    <article class="work-content columns large-6 small-12">
+      <h3 class="work-title"> <%= @work.title %> </h3>
+      <p class="work-creator">
+        Created by: <%= @work.creator %>
+      </p>
+      <p class="work-published">
+        Published: <%= @work.published %>
+      </p>
+      <p class="work-description">
+        <%= @work.description %>
+      </p>
       <ul class="work-buttons">
         <li class="back-to-category-view-button">
-          <%= link_to "Back to #{@work.category} list", "#{@work.category}s", method: :get %>
+          <%= link_to "Back to #{@work.category} list", "#{@work.category}s", method: :get, class: "button" %>
         </li>
         <li class="edit-button">
-          <%= link_to "Edit", edit_work_path(@work.id), method: :get %>
+          <%= link_to "Edit", edit_work_path(@work.id), method: :get, class: "button" %>
         </li>
         <li class="upvote-button">
-          <%= link_to "Upvote", new_vote_path(@work.id), method: :post %>
+          <%= link_to "Upvote", new_vote_path(@work.id), method: :post, class: "button" %>
         </li>
         <li class="delete-button">
-          <%= link_to "Delete", work_path(@work.id), method: :delete, data: { confirm: "Really delete this #{@work.category}? All associated votes will be lost."} %>
+          <%= link_to "Delete", work_path(@work.id), method: :delete, data: { confirm: "Really delete this #{@work.category}? All associated votes will be lost."}, class: "button alert" %>
         </li>
       </ul>
 
@@ -34,9 +32,9 @@
 
 
 
-    <article class="work-votes-users">
+    <article class="work-votes-users columns large-6 small-12">
 
-      <h1 class="votes-title"> <%= @work.votes_count %> votes for this <%=@work.category.capitalize %> </h1>
+      <h3 class="votes-title"> <%= @work.votes_count %> votes for this <%=@work.category.capitalize %> </h3>
 
       <% if @work.votes_count == 0 %>
       <p>
@@ -44,14 +42,16 @@
       </p>
       <% else %>
       <table class="work-votes-table">
-        <tr>
-          <th>
-            User
-          </th>
-          <th>
-            Date
-          </th>
-        </tr>
+        <thead>
+          <tr>
+            <th>
+              User
+            </th>
+            <th>
+              Date
+            </th>
+          </tr>
+        </thead>
         <% @work.votes.each do |vote| %>
         <tr>
           <td>

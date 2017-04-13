@@ -16,12 +16,13 @@
 
 @import url('foundation.css');
 
+/*application*/
 * {
   list-style: none;
 }
 
 .main-header {
-  border-bottom: solid .5 grey;
+  border-bottom: .5 grey;
   max-width: 100%;
 }
 
@@ -47,6 +48,20 @@
   padding: 20px 0;
 }
 
+.flash.success {
+  background-color: green;
+}
+
+.owl {
+  height: auto;
+}
+
+.main-header .row::after {
+    display: table;
+    content: ' ';
+    clear: both;
+  }
+
 /*index*/
 
 .featured-details {
@@ -67,4 +82,23 @@
 
 .work-creator-top-ten {
   font-size: 20px;
+}
+
+/*category list*/
+.bottom-buttons {
+  display: block;
+}
+.bottom-buttons li {
+  display: inline-block;
+}
+
+
+/*work show*/
+
+.work-buttons {
+  display: block
+}
+
+.work-buttons li {
+  display: inline-block
 }

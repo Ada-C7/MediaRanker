@@ -9,11 +9,11 @@
     </div>
     <% else %>
     <% featured_work = Work.max_votes %>
-    <div class="row large-up-12">
-    <p class="featured-details">
+    <div class="row">
+    <p class="columns small-12 featured-details">
       Media Spotlight: <%= link_to featured_work.title, work_path(featured_work.id) %> by <%= featured_work.creator %>
     </p>
-    <p class="featured-votes">
+    <p class="columns small-12 featured-votes">
       <%= featured_work.votes_count %> votes - <%= featured_work.description %>
     </p>
   </div>

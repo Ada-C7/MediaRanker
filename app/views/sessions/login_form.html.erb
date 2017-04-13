@@ -1,16 +1,7 @@
-<h3>Login Form</h3>
+<h2>Login Form</h2>
 
 <%= form_tag login_path do %>
-<%= label_tag "User" %>
-<%= text_field_tag :username %>
-<%= submit_tag :Login %>
+  <%= label_tag "Username" %>
+  <%= text_field_tag :username %>
+  <%= submit_tag :Login, class: "button" %>
 <% end %>
-
-<ul>
-
-  <% @users.each do |user| %>
-  <li>
-    <%= user.username %>
-  </li>
-  <% end %>
-</ul>

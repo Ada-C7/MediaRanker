@@ -1,4 +1,4 @@
-<h1 class="category-header">List of <%=category.capitalize.pluralize%></h1>
+<h3 class="category-header">List of <%=category.capitalize.pluralize%></h3>
 
 <section class="category-table">
   <% if !Work.where(category: category).any? %>
@@ -8,23 +8,25 @@
   <% else %>
   <% works = Work.where(category: category) %>
   <table>
-    <tr>
-      <th>
-        Votes
-      </th>
-      <th>
-        Title
-      </th>
-      <th>
-        Created By
-      </th>
-      <th>
-        Published
-      </th>
-      <th>
-        Upvote
-      </th>
-    </tr>
+    <thead>
+      <tr>
+        <th>
+          Votes
+        </th>
+        <th>
+          Title
+        </th>
+        <th>
+          Created By
+        </th>
+        <th>
+          Published
+        </th>
+        <th>
+          Upvote
+        </th>
+      </tr>
+    </thead>
     <% works.each do |work| %>
     <tr>
       <td>
@@ -40,7 +42,7 @@
         <%= work.published %>
       </td>
       <td>
-        <%= link_to "Upvote", new_vote_path(work.id), method: :post %>
+        <%= link_to "Upvote", new_vote_path(work.id), method: :post, class: "button" %>
       </td>
     </tr>
     <% end %>
@@ -50,10 +52,10 @@
 <section class="bottom-buttons">
   <ul>
     <li>
-      <%= button_to "View All Media", works_path, method: :get %>
+      <%= link_to "View All Media", works_path, method: :get,  class: "button" %>
     </li>
     <li>
-      <%= link_to "Add a New #{category.capitalize}", new_work_path(category: category), method: :get %>
+      <%= link_to "Add a New #{category.capitalize}", new_work_path(category: category), method: :get,  class: "button" %>
     </li>
   </ul>
 </section>
