@@ -1,9 +1,9 @@
 class WorksController < ApplicationController
   def index
-    @works = Work.all
-    movies
-    books #= books[0..9]
-    albums
+    @works = Work.all.sort { | b1, b2 | b2.votes.count <=> b1.votes.count }
+    @movies = movies[0..9]
+    @books = books[0..9]
+    @albums = albums[0..9]
   end
 
   def new
@@ -51,13 +51,11 @@ class WorksController < ApplicationController
   def books
     @books = Work.where(category: 'book')
     @books.sort { | b1, b2 | b2.votes.count <=> b1.votes.count }
-    # return @books
   end
 
   def movies
     @movies = Work.where(category: 'movie')
     @movies.sort { | m1, m2 | m2.votes.count <=> m1.votes.count }
-    # return @movies
   end
 
   def albums
