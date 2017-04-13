@@ -1,8 +1,6 @@
 Rails.application.routes.draw do
 
-  get 'movies/index'
-
-  get 'albums/index'
+  get 'sessions/index'
 
   root "media_ranker#index"
 
@@ -13,5 +11,10 @@ Rails.application.routes.draw do
   resources :albums
   resources :movies
 
+  get "/login", to: "sessions#login_form"
+
+  post "/login", to: "sessions#login"
+
+  delete "/logout", to: "sessions#logout"
 
 end
