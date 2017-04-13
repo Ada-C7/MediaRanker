@@ -7,9 +7,16 @@ class SessionsController < ApplicationController
 
     if user.nil?
       user = User.create(username: params[:username])
-    end
 
-    if user
+      if user.id != nil
+        flash[:success] = "#{ user.username } added successfully"
+        redirect_to :homepage
+      else
+        flash.now[:failure] = "Sign up failed, try again"
+        render :new
+      end
+      
+    elsif user
       session[:user_id] = user.id
       flash[:success] = "#{ user.username } is successfully logged in"
       redirect_to :homepage
