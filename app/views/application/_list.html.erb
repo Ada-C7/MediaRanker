@@ -1,6 +1,6 @@
 <h3>List of <%=@works.first.category%>s</h3>
 
-<section>
+<section class="media-table">
   <table>
     <thead>
       <tr>
@@ -22,8 +22,7 @@
       </tr>
       <% end %>
     </tbody>
-
-
-
   </table>
+  <%= link_to "View all media", works_path %>
+  <%= link_to "Add a new #{@works.first.category}", new_work_path %>
 </section>
