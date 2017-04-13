@@ -40,9 +40,9 @@ def new
 end
 
 def create
-  @work = Work.create(work_params)
+  @work = Work.new(work_params)
 
-  if @work.id !=nil
+  if @work.save
     redirect_to work_path(@work.id)
   else
     render 'new'
