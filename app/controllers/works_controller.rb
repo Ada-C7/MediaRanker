@@ -13,11 +13,10 @@ class WorksController < ApplicationController
 
   def new
     @work = Work.new
-    @work.category = params[:category]
+    # @work.category = params[:category]
   end
 
   def create
-    #derives category from params
     @work = Work.new(work_params)
     @work.category = params[:category]
 
