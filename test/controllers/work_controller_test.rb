@@ -142,19 +142,19 @@ describe WorksController do
 
     describe "update" do
       it "should change the work details" do
-            work = works(:book)
-            updated_title = "UpdatedTitle"
-            updated_creator = "UpdatedCreator"
+        work = works(:book)
+        updated_title = "UpdatedTitle"
+        updated_creator = "UpdatedCreator"
 
-            patch work_path, work: {id: work.id, title: updated_title, creator: updated_creator, category: work.category, description: work.description, pub_date: work.pub_date}
+        patch work_path, work: {id: work.id, title: updated_title, creator: updated_creator, category: work.category, description: work.description, pub_date: work.pub_date}
 
-            assert_equal updated_title, work.title
-            assert_equal updated_creator, work.creator
+        assert_equal updated_title, work.title
+        assert_equal updated_creator, work.creator
 
-    #
-          # must_respond_with :redirect
-          # must_redirect_to works_path
-        end
+        #
+        # must_respond_with :redirect
+        # must_redirect_to works_path
+      end
 
       # it "should show an error if mandatory fields are changed to empty" do
       #
@@ -164,14 +164,14 @@ describe WorksController do
 
     ### TW: WHY DOES IT COUNT 4 ITEMS (STARTING 5) RATHER THAN 2 (STARTING 3)?
     describe "delete/destroy" do
-      # it "should remove a row from the database" do
-      #   proc {
-      #     Work.first.destroy
-      #     get works_path
-      #   }.must_change 'Work.count', 1
-      #
-      #   must_respond_with :redirect
-      #   must_redirect_to works_path
-      # end
+      it "should remove a row from the database" do
+        proc {
+          Work.first.destroy
+          get works_path
+        }.must_change 'Work.count', 1
+
+        must_respond_with :redirect
+        must_redirect_to works_path
+      end
     end
   end

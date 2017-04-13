@@ -7,7 +7,7 @@ class VotesController < ApplicationController
     @vote = User.new(params[:id])
   end
 
-  def create
-    @vote = User.create
+  def show_by_work
+    @vote = Work.find(params[:id]).votes
   end
 end
