@@ -1,6 +1,12 @@
 <h2>Media Ranker</h2>
 <h3>Ranking the Best of Everything</h3>
 
+<% if @works.first.votes.count > 2 %>
+<h4>Media Spotlight: <%= link_to @works.first.title, work_path(@works.first.id) %> by <%= @works.first.created_by %></h4>
+<p><%= @works.first.votes.count %> votes <%= @works.first.description %></p>
+
+<% end %>
+
 <h4>Top Movies</h4>
 <ul>
 <% @works.each do |work| %>
