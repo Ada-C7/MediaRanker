@@ -9,4 +9,4 @@ method: :get %>
 <%= "edit" %>
 
 <%= "upvote"%>
-<%= "delete" %>
+<%= button_to "Delete", item_path(@item), method: :delete, data:  {confirm: "Are you sure?"} %>

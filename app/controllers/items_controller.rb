@@ -29,7 +29,12 @@ class ItemsController < ApplicationController
      @item = Item.find(params[:id])
    end
 
-
+   def destroy
+     item = Item.find(params[:id])
+     category= item.category
+     item.destroy
+     redirect_to category_index_path(category)
+   end
 
   private
 

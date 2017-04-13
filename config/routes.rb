@@ -8,6 +8,8 @@ Rails.application.routes.draw do
   get 'items', to:'items#index'
   get 'items/:id', to:'items#show', as: 'item'
 
+  delete 'items/:id', to:'items#destroy'
+
   get ':category', to: 'items#index_by_category', as: 'category_index'
 
   get ':category/new',   to:'items#new', as:'new_item_by_category'
