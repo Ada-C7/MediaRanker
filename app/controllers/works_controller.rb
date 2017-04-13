@@ -19,6 +19,24 @@ class WorksController < ApplicationController
     end
   end
 
+  def show
+    @work = Work.find(params[:id])
+  end
+
+  def vote
+    @user = User.find(params[:id])
+    new_vote = Vote.create(user_id: @user.id, work_id: params[:id])
+    if new_vote
+      flash[:voted] = "Successfully Upvoted!"
+      redirect_to work_path(params[:id])
+    end
+  end
+  # user_book = UserBook.create(user_id: session[:user_id], book_id: params[:id])
+  #
+  # if user_book
+  #   flash[:success] = "Book Bought!"
+  #   redirect_to user_path(session[:user_id])
+  # end
 
   private
   def work_params

@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   root 'main#index', as: 'main'
   resources :users
   resources :works, except: [:index]
-
+  post 'works/:id/vote', to: 'works#vote', as: 'vote'
 
   get 'works/:work_category/index', to: 'works#index', as: 'list_works'
 

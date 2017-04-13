@@ -1,7 +1,7 @@
 <h1>List of <%= @work_category.capitalize%></h1>
 <ul>
 <% @works.each do |work|%>
-<li><%= work.votes.count %> <%= work.title %> <%= work.creator %> <%= work.publication_year %></li>
+<li><%= work.votes.count %> <%= link_to work.title, work_path(work.id) %> <%= work.creator %> <%= work.publication_year %></li>
 <% end %>
 </ul>
 
