@@ -1,7 +1,13 @@
-<h2>List of <%= @category %></h2>
+<h2>List of <%= @category.pluralize(2) %></h2>
   <% @category_works.each do |work| %>
-  <%= work.title %>
-  <%= work.category %>
+  <ul>
+  <p>////////////////////////////////</p>
+  <%= work.votes %>
+  <%= link_to work.title, work_path(work.id) %>
+  <%= work.creator %>
+  <%= work.year %>
+  <%= link_to "Upvote", upvote_path(work.id), method: :post %> 
+  </ul>
 <% end %>
 
 <h3><%= link_to "View all Media", works_path %></h3>

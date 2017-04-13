@@ -3,6 +3,7 @@
 <p>Publication year: <%= @selected_work.year %></p>
 <p>Description: <%= @selected_work.description %></p>
 
-<h4><%= link_to "edit #{@selected_work.category}", edit_work_path %></h4>
-<h4><%= link_to "delete #{@selected_work.category}", work_path(@selected_work.id), data: { confirm: "Are you sure you want to delete this #{@selected_work.category}"},method: :delete %></h4>
-<h4><%= link_to "home", works_path %></h4>
+<h4><%= link_to "Back to #{@selected_work.category} list", category_path(@selected_work.category) %></h4>
+<h4><%= link_to "Edit", edit_work_path %></h4>
+<h4><%= link_to "Upvote", upvote_path(@selected_work.id), method: :post %></h4>
+<h4><%= link_to "Delete", work_path(@selected_work.id), data: { confirm: "Are you sure you want to delete this #{@selected_work.category}"}, method: :delete %></h4>

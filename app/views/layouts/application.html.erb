@@ -9,9 +9,25 @@
   </head>
 
   <body>
+    <h2><%= link_to "Media Ranker", works_path %></h2>
     <nav>
-      
+      <% if session[:user_id] %>
+        <ul>Logged in as <%= User.find_by_id(session[:user_id]).name %></ul>
+        <%= link_to "Log Out", logout_path, method: :delete %>
+      <% else %>
+        <ul>Not Logged In</ul>
+        <%= link_to "Log In", login_path %>
+      <% end %>
+
     </nav>
+
+    <section class="flash">
+      <% flash.each do |name, message| %>
+        <div class="<%= name %>"><%= message %></div>
+      <% end %>
+    </section>
+
+
     <%= yield %>
   </body>
 </html>
