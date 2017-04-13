@@ -9,7 +9,7 @@ class SessionsController < ApplicationController
     if @user
       session[:user_id] = @user.id
       flash[:success] = "Successfully logged in as existing user #{@user.username}"
-      redirect_to :back
+      redirect_to root_path
     else
       @user = User.create(user_params)
 
