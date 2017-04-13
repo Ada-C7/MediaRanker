@@ -15,6 +15,15 @@
         <%= link_to "Media Ranker", works_path("movies") %>
         <span class="small">Ranking the Best of Everything</span>
       </h2>
+      <div>
+        <% if session[:user_id] %>
+          <p>Logged in </p>
+
+        <% else %>
+          <p>Not logged in</p>
+          <%= link_to "Log In", login_path %>
+        <% end %>
+      </div>
     </header>
 
     <main>

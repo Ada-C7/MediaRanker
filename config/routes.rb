@@ -8,4 +8,8 @@ Rails.application.routes.draw do
   get 'works/:id/edit', to: 'works#edit', as: 'edit_work'
   patch 'works/:id', to: 'works#update'
   delete 'works/:id', to: 'works#destroy'
+
+  get 'login', to: 'sessions#new'
+  post 'login', to: 'sessions#create'
+  
 end
