@@ -7,7 +7,7 @@ class WorksController < ApplicationController
 
     else
       @category = params[:category]
-      @works = Work.where(category: @category)
+      @works = Work.where(category: @category).sort_by { |work| work.votes.count }.reverse
 
       render :category_index
     end
