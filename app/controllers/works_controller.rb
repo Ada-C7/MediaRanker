@@ -66,52 +66,6 @@ class WorksController < ApplicationController
     end
   end
 
-  def upvote
-    @work = Work.find_by(id: params[:id])
-
-    if session[:user_id] == nil
-      flash[:failure] = "You must log in to vote"
-      redirect_to work_path(@work.id)
-    else
-      user_already_voted = false
-      userid = session[:user_id]
-      @user = User.find_by(id: userid)
-      vote = Vote.new(work: @work, user: @user)
-      @work.votes.each do |v|
-        if v.user_id == session[:user_id]
-          flash[:failure] = "You cannot vote more than one time for this work"
-          redirect_to(:back)
-          user_already_voted = true
-        end
-      end
-      if user_already_voted == false
-        vote.save
-        redirect_to(:back)
-      end
-    end
-  end
-
-  def downvote
-    @work = Work.find_by(id: params[:id])
-
-    if session[:user_id] == nil
-      flash[:failure] = "You must log in to vote"
-      redirect_to work_path(@work.id)
-    else
-      user_already_downvoted = false
-      userid = session[:user_id]
-      @user = User.find_by(id: userid)
-      vote = Vote.where(work_id: @work.id, user_id: @user.id).first
-
-      if vote != nil
-        Vote.destroy(vote.id)
-        redirect_to(:back)
-      else
-        flash[:failure] = "You cannot downvote more than one time for this work / or if work has 0 votes / or if never voted for the work before"
-        redirect_to(:back)
-      end
-    end
-  end
 
 
   private
