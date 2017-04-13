@@ -14,7 +14,7 @@
   <% if request.original_url.include? "localhost"%>
     <%= f.hidden_field :category, value: request.original_url[22..-6]%>
   <% elsif request.original_url.include? "herokuapp"%>
-    <%= f.hidden_field :category, value: request.original_url[22..-6]%>
+    <%= f.hidden_field :category, value: request.original_url[43..-6]%>
   <%end%>
 
   <%= f.submit value: "#{submit_text}" %>
