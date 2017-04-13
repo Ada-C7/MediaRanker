@@ -10,23 +10,35 @@
 
   <body>
     <header class="main-header">
-      <%= image_tag "owl.jpg" %>
-      <h1><%= link_to "Media Ranker", :root, method: :get %></h1>
-      <h2>Ranking the Best of Everything</h2>
+      <div class="row">
+
+      <div class="small-2 medium-2 columns">
+        <%= image_tag "owl.jpg" %>
+      </div>
+
+
+        <h1 class="small-6 medium-3 columns"><%= link_to "Media Ranker", :root, method: :get %></h1>
+        <h2 class="small-6 medium-5 columns">Ranking the Best of Everything</h2>
+
+
       <ul>
         <% if session[:user_id] == nil %>
-
-          <li><%= link_to "Log In", login_path %></li>
+        <div class="small-5 medium-1 columns float-right">
+          <li><%= button_to "Log In", login_path, method: :get %></li>
+        </div>
 
         <% else  %>
+        <div class="small-4 medium-2 columns float-right">
+            <li>
+              Logged in as <%= link_to " #{User.find_by_id(session[:user_id]).username}", user_path(session[:user_id]) %>
+            </li>
           <li>
-            Logged in as <%= link_to "#{User.find_by_id(session[:user_id]).username}", user_path(session[:user_id]) %>
+            <%= button_to "Log Out", login_path, method: :delete %>
           </li>
-          <li>
-            <%= link_to "Log Out", login_path, method: :delete %>
-          </li>
+        </div>
         <% end %>
       </ul>
+    </div>
     </header>
     <section class="flash">
     <% flash.each do |name, message| %>
