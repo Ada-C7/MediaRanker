@@ -11,6 +11,16 @@ class BooksController < ApplicationController
     @book = Content.find(params[:id])
   end
 
+  def update
+    @book = Content.find(params[:id])
+
+    if @book.update book_params
+      redirect_to book_path
+    else
+      render "edit"
+    end
+  end
+
   def destroy
     Content.destroy(params[:id])
 
@@ -20,6 +30,7 @@ class BooksController < ApplicationController
   private
 
   def book_params
+    params.require(:content).permit(:category, :title, :creator, :publication_year, :description)
   end
 
 end

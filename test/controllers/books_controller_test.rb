@@ -16,6 +16,13 @@ describe BooksController do
     must_respond_with :success
   end
 
+  it "should update a book object" do
+    patch book_path(contents(:hp).id), params: {content: { description: "Test" } }
+    must_respond_with :found
+    must_respond_with :redirect
+    must_redirect_to book_path
+  end
+
   it "should destroy a book" do
     proc {
   # run the delete verb on the post_path with a param equal to 1
