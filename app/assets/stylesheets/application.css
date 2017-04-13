@@ -13,3 +13,9 @@
  *= require_tree .
  *= require_self
  */
+
+@import url('foundation.css');
+
+* {
+  list-style: none;
+}

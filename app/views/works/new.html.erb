@@ -1,4 +1,4 @@
 <section class="new-work">
   <h1 class="new-work-header">Add a new <%= params[:category] %></h1>
-  <%= render partial: "form" %>
+  <%= render partial: "form", locals: {category: params[:category]} %>
 </section>
