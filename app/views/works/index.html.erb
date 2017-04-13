@@ -4,3 +4,5 @@
 <li><%= work.votes.count %> <%= work.title %> <%= work.creator %> <%= work.publication_year %></li>
 <% end %>
 </ul>
+
+<%= link_to "Add New #{@work_category.capitalize}", new_work_path %>

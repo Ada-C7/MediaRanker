@@ -3,14 +3,7 @@ class Work < ApplicationRecord
   has_many :users, through: :votes
   validates :title, presence: true, uniqueness: { scope: :category,
     message: "Cannot have two work with the same title in the same category" }
-
-  # def category_not_match
-  #   a = Work.where(category: self.category).where(title: self.title)
-  #   if a.category == self.category
-  #     return true
-  #   end
-  # end
-
+  validates :publication_year, numericality: { greater_than: 0, less_than_or_equal_to: Time.now.year}
   validates :category, presence: true, inclusion: %w(album book movie)
 end
 #validates scope:
