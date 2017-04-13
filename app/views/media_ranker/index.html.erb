@@ -1,5 +1,5 @@
 <section id="content">
-  
+
   <h2>Media Spotlight:</h2>
   <p>
     Amazing people. Amazing things.
@@ -22,6 +22,11 @@
 
 
   </table>
+  <section>
+    <p>
+      <%=link_to "View more albums", albums_path %>
+    </p>
+  </section>
 
   <h2>Top books:</h2>
 
@@ -39,9 +44,14 @@
     <% end %>
 
   </table>
+  <section>
+    <p>
+      <%=link_to "View more books", books_path %>
+    </p>
+  </section>
 
   <h2>Top movies:</h2>
-
+  
   <table>
     <tr>
       <th>Title</th>
@@ -50,6 +60,10 @@
     </tr>
 
   </table>
+  <section>
+    <p>
+      <%=link_to "View more movies", movies_path %>
+    </p>
+  </section>
 
-  <p>need to link to books, albums, and movies</p>
 </section>
