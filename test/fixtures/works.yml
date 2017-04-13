@@ -4,8 +4,18 @@
 # model remove the "{}" from the fixture names and add the columns immediately
 # below each fixture, per the syntax in the comments below
 #
-one: {}
+alice:
+  title: Alice's Adventures in Wonderland
+  creator: Lewis Carroll
+  publication_year: 1865
+  description: Alice's Adventures in Wonderland is an 1865 novel written by English mathematician Charles Lutwidge Dodgson under the pseudonym Lewis Carroll.
+  category: book
 # column: value
 #
-two: {}
+anne:
+  title: Anne of Green Gables
+  creator: L.M. Montgomery
+  publication_year: 1908
+  description: Anne of Green Gables is a 1908 novel by Canadian author Lucy Maud Montgomery (published as L. M. Montgomery). Written for all ages, it has been considered a children's novel since the mid-twentieth century.
+  category: book
 # column: value
