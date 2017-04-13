@@ -23,7 +23,7 @@ class AlbumsController < ApplicationController
 
   def destroy
     Content.destroy(params[:id])
-
+    
     redirect_to albums_path
   end
 

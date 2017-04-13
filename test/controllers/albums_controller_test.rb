@@ -31,4 +31,18 @@ describe AlbumsController do
   }.must_change 'Content.count', -1
   end
 
+  it "should make a new album object" do
+    proc   {
+    post albums_path, params: { content:
+       { category: "album",
+         title: "Some post",
+         creator: "Me",
+         publication_year: "2017"
+         }  }
+  }.must_change 'Content.count', 1
+
+  must_respond_with :redirect
+  must_redirect_to post_index_path
+  end
+
 end
