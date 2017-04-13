@@ -17,7 +17,9 @@ Rails.application.routes.draw do
   resources :albums
   resources :users
 
-  resources :works
+  resources :works do
+    post "/upvote", to: "votes#create", as: "upvote"
+  end
 
   get 'votes/index'
 
