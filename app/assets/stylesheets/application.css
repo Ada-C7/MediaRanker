@@ -14,4 +14,9 @@
  *= require_self
  */
 
+ header {
+   max-width: 100%
+ }
+
+
 @import url('foundation.css')
