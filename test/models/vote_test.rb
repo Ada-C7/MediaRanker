@@ -8,4 +8,9 @@ describe Vote do
     vote.errors.must_include :work
   end
 
+  it "Cannot create a vote without a user" do
+    vote.valid?.must_equal false
+    vote.errors.must_include :user
+  end
+
 end
