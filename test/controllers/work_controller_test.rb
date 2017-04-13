@@ -17,13 +17,13 @@ describe WorksController do
 
   describe "album_index" do
     it "responds successfully" do
-      Work.where(category: "Album").count.must_be :>, 0
+      Work.where(category: "album").count.must_be :>, 0
       get albums_path
       must_respond_with :success
     end
 
     it "still responds successfully when there are no albums" do
-      Work.where(category: "Album").destroy_all
+      Work.where(category: "album").destroy_all
       get albums_path
       must_respond_with :success
     end
@@ -31,13 +31,13 @@ describe WorksController do
 
   describe "book_index" do
     it "responds successfully" do
-      Work.where(category: "Book").count.must_be :>, 0
+      Work.where(category: "book").count.must_be :>, 0
       get books_path
       must_respond_with :success
     end
 
     it "still responds successfully when there are no books" do
-      Work.where(category: "Book").destroy_all
+      Work.where(category: "book").destroy_all
       get books_path
       must_respond_with :success
     end
@@ -45,13 +45,13 @@ describe WorksController do
 
   describe "movie_index" do
     it "responds successfully" do
-      Work.where(category: "Movie").count.must_be :>, 0
+      Work.where(category: "movie").count.must_be :>, 0
       get movies_path
       must_respond_with :success
     end
 
     it "still responds successfully when there are no movies" do
-      Work.where(category: "Movie").destroy_all
+      Work.where(category: "movie").destroy_all
       get movies_path
       must_respond_with :success
     end
@@ -76,7 +76,6 @@ describe WorksController do
         must_redirect_to works_path
       end
 
-      # Not fully understanding the "bad request", how did it test if the form re-rendered?
       it "re-renders the new work form if the work is invalid" do
         work_data = { work: { title: "NoCategory"}}
         post works_path, params: work_data
@@ -85,15 +84,15 @@ describe WorksController do
     end
 
     describe "album_show" do
-      # #WHY DOESN'T THIS WORK?
-      # it "shows an album that exists" do
-      #   work = Work.where(category: "Album").first
-      #   get album_path(work.id)
-      #   must_respond_with :success
-      # end
+      #WHY DOESN'T THIS WORK?
+      it "shows an album that exists" do
+        work = works(:album)
+        get album_path(work.id)
+        must_respond_with :success
+      end
 
       it "returns a 404 not found status when asked for an album that doesn't exist" do
-        work_id = Work.where(category: "Album").last.id
+        work_id = Work.where(category: "album").last.id
         work_id += 1
         get album_path(work_id)
         must_respond_with :not_found
@@ -110,7 +109,7 @@ describe WorksController do
       # end
 
       it "returns a 404 not found status when asked for a book that doesn't exist" do
-        work_id = Work.where(category: "Book").last.id
+        work_id = Work.where(category: "book").last.id
         work_id += 1
         get book_path(work_id)
         must_respond_with :not_found
@@ -126,7 +125,7 @@ describe WorksController do
       # end
 
       it "returns a 404 not found status when asked for a movie that doesn't exist" do
-        work_id = Work.where(category: "Movie").last.id
+        work_id = Work.where(category: "movie").last.id
         work_id += 1
         get movie_path(work_id)
         must_respond_with :not_found
@@ -146,7 +145,11 @@ describe WorksController do
         updated_title = "UpdatedTitle"
         updated_creator = "UpdatedCreator"
 
-        patch work_path, work: {id: work.id, title: updated_title, creator: updated_creator, category: work.category, description: work.description, pub_date: work.pub_date}
+        patch work_path(work.id), work: {id: work.id, title: updated_title, creator: updated_creator, category: work.category, description: work.description, pub_date: work.pub_date}
+
+        work = Work.find(work.id)
+
+
 
         assert_equal updated_title, work.title
         assert_equal updated_creator, work.creator
@@ -166,9 +169,9 @@ describe WorksController do
     describe "delete/destroy" do
       it "should remove a row from the database" do
         proc {
-          Work.first.destroy
-          get works_path
-        }.must_change 'Work.count', 1
+          work = works(:movie)
+          delete work_path(work.id)
+        }.must_change 'Work.count', -1
 
         must_respond_with :redirect
         must_redirect_to works_path

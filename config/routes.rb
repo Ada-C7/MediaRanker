@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   root 'welcome#index', as: 'welcome'
   resources :works
   resources :votes, except: [:edit, :update, :destroy]
-  resources :users, except: [:edit, :update]
+  resources :users, except: [:edit, :update, :destroy, :new]
 
   get 'albums', to: 'works#album_index', as: 'albums'
   get 'albums/:id', to: 'works#album_show', as: 'album'
