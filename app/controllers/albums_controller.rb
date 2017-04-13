@@ -3,6 +3,17 @@ class AlbumsController < ApplicationController
     @albums = Content.albums
   end
 
+  def create
+    album = Content.new album_params
+    album[:category] = "album"
+    album.save
+    
+    if album.save
+      redirect_to albums_path
+    end
+
+  end
+
   def show
       @album = Content.find(params[:id])
   end
@@ -23,14 +34,15 @@ class AlbumsController < ApplicationController
 
   def destroy
     Content.destroy(params[:id])
-    
+
     redirect_to albums_path
   end
 
   private
 
   def album_params
-    params.require(:content).permit(:title, :creator, :publication_year, :description)
+    params.require(:content).permit(:category, :title, :creator, :publication_year, :description)
+
   end
 
 end

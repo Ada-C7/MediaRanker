@@ -42,7 +42,7 @@ describe AlbumsController do
   }.must_change 'Content.count', 1
 
   must_respond_with :redirect
-  must_redirect_to post_index_path
+  must_redirect_to albums_path
   end
 
 end
