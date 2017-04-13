@@ -1,7 +1,10 @@
 class WorksController < ApplicationController
 
   @work = Work.where(category: 'work')
-  @books = Work.where(category: 'book')
+
+  def books
+    @books = Work.where(category: 'book').order('votes_count DESC')
+  end
   @albums = Work.where(category: 'album')
   @movies = Work.where(category: 'movies')
 

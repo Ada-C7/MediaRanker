@@ -2,29 +2,27 @@ class SessionsController < ApplicationController
 
   def login_form; end
 
-
   def login
     #raise
-    author = Author.find_by_name(params[:name])
+    user = User.find_by_name(params[:name])
 
-    if author
+    if user
       #logic for found
-      session[:author_id] = author.id
-      flash[:success] = "Hello, #{ author.name }"
+      session[:user_id] = user.id
+      flash[:success] = "Hello, #{ user.name }!"
       redirect_to root_path
     else
       #did not find
-      flash.now[:error] = "Author not found."
+      flash.now[:error] = "Pal, I looked, but I couldn't find your user name."
       render :login_form #in this case, this is the same as render "new"
     end
   end
 
   def logout
     #session[:author_id] = nil
-    session.delete[:author_id]
+    session.delete[:user_id]
     flash[:success] = "You are successfully logged out."
     redirect_to root_path
   end
-
 
 end
