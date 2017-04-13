@@ -28,7 +28,7 @@ class Work < ApplicationRecord
   end
 
   def self.top_books
-
+    albums.order(:votes).limit(10)
   end
 
 end
