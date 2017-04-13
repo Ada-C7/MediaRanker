@@ -28,6 +28,17 @@ class WorksController < ApplicationController
     @work = Work.find(params[:id])
   end
 
+  def update
+    @work = Work.find(params[:id])
+    @work.assign_attributes(work_params)
+
+    if @work.save
+      redirect_to work_path(@work)
+    else
+      render :edit
+    end
+  end
+
 
 
   private
