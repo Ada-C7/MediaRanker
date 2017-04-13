@@ -7,7 +7,6 @@ class VotesController < ApplicationController
         vote.work_id = params[:id]
         vote.user_id = session[:user_id]
         vote.save
-        raise
         redirect_to work_path
       else
         flash[:warning] = "You can only vote once for each work."
