@@ -15,8 +15,8 @@
     <td><%= vote.work.title %></td>
     <td><%= vote.work.creator %></td>
     <td><%= vote.work.year %></td>
-    <td><%= vote.work.category %></td>
-    <td><%= vote.created_at %></td>
+    <td><%= vote.work.category.capitalize %></td>
+    <td><%= vote.created_at.strftime("%b %d, %Y") %></td>
   </tr>
   <% end %>
 </table>

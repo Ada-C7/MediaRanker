@@ -1,6 +1,6 @@
 <section id="media-spotlight">
-  <h2>Media Spotlight: (title of media with highest votes) by (creator of media with highest votes)</h2>
-  <p>(number of votes) - (description)</p>
+  <h2>Media Spotlight: <%= @spotlight.title %> by <%= @spotlight.creator %></h2>
+  <p> <%= @spotlight.votes.length %> - <%= @spotlight.description %> </p>
 </section>
 
 <section id="top-movies">

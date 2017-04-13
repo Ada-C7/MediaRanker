@@ -1,6 +1,6 @@
 class WorksController < ApplicationController
   def index
-    @works = Work.all.sort { | b1, b2 | b2.votes.count <=> b1.votes.count }
+    @spotlight = spotlight[0]
     @movies = movies[0..9]
     @books = books[0..9]
     @albums = albums[0..9]
@@ -61,6 +61,11 @@ class WorksController < ApplicationController
   def albums
     @albums = Work.where(category: 'album')
     @albums.sort { | a1, a2 | a2.votes.count <=> a1.votes.count }
+  end
+
+  def spotlight
+    @spotlight = Work.all
+    @spotlight.sort { | s1, s2 | s2.votes.count <=> s1.votes.count }
   end
 
   def destroy
