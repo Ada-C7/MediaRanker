@@ -48,7 +48,7 @@ describe Work do
 
   it "requires that a creator and publish_year attribute be present"
   # negative test
-    work.valid?.must_equal false
-    work.errors.messages[:creator].must_equal []
-    # work.errors.messages[:publish_year].must_equal []
+  # work.valid?.must_equal false
+  # work.errors.messages[:creator].must_equal []
+  # work.errors.messages[:publish_year].must_equal []
 end
