@@ -4,19 +4,13 @@ class UsersController < ApplicationController
     @users = User.all
   end
 
-  # def new
-  #   @user = User.new
-  # end
-
   def create
     user = User.create user_params
 
     if user.id != nil
       flash[:success] = "User added successfully"
-      redirect_to user_path(user.id)
     else
       flash.now[:failure] = "Sign up failed, try again"
-      render :new
     end
   end
 
@@ -27,6 +21,10 @@ class UsersController < ApplicationController
     end
   end
 private
+
+  def user_params
+    return params.required(:user).permit(:username)
+  end
 
   def find_user
     User.find_by(id: params[:id])
