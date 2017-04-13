@@ -13,4 +13,8 @@ Rails.application.routes.draw do
   get 'books/new', to:'works#new_book', as: 'new_book'
   get 'albums/new', to:'works#new_album', as: 'new_album'
   get 'movies/new', to:'works#new_movie', as: 'new_movie'
+
+  get 'login', to: 'sessions#new'
+  post 'login', to: 'sessions#create'
+  delete 'logout', to: 'sessions#destroy'
 end
