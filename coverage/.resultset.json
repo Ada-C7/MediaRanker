@@ -7,15 +7,15 @@
         1,
         null,
         1,
-        5,
-        5,
+        4,
+        4,
         2,
         2,
         2,
         null,
-        3,
-        3,
-        3,
+        2,
+        2,
+        2,
         2,
         2,
         2,
@@ -90,11 +90,12 @@
         1,
         null,
         null,
-        1,
-        1,
-        1,
-        1,
-        1,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
         null,
         null,
         null
@@ -102,7 +103,7 @@
       "/Users/lynntrickey/Documents/ada/c7-stacks/rails/MediaRanker/app/controllers/votes_controller.rb": [
         1,
         1,
-        2,
+        1,
         0,
         0,
         0,
@@ -111,8 +112,8 @@
         0,
         null,
         null,
-        2,
-        2,
+        1,
+        1,
         null,
         null,
         null
@@ -470,6 +471,6 @@
         null
       ]
     },
-    "timestamp": 1492114232
+    "timestamp": 1492114637
   }
 }

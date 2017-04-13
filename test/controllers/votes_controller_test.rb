@@ -6,12 +6,13 @@ describe VotesController do
     must_respond_with :redirect
     must_redirect_to login_path
   end
-
+  
+  # ASK AURORA??
   # it "will redirect to show page if user is logged in and votes" do
   #   post login_path users(:lynn)
   #   post new_vote_path votes(:vote_one)
   #   must_respond_with :redirect
-  #   must_redirect_to work_path
+  #   must_redirect_to work_path(works(:work_one).id)
   # end
 
 end
