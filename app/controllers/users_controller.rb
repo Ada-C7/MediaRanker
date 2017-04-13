@@ -14,11 +14,10 @@ class UsersController < ApplicationController
   end
 
   def create
-    @user = User.create user_params
+    @user = User.new user_params
     unless @user.id == nil
       flash[:success] = "User added successfully"
       redirect_to user_path
-
     else
       flash.now[:error] = "Error has occured"
       render "new"

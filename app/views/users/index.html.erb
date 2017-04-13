@@ -19,7 +19,7 @@
       <%= user.name  %>
     </td>
     <td>
-      <%= user.votes.count %>
+
     </td>
     <td>
       <%= user.created_at.strftime("%b %d, %Y")%>
@@ -28,3 +28,4 @@
     <% end %>
   </tr>
 </table>
+<%= button_to "Back to media list", works_index_path, method: :get %>

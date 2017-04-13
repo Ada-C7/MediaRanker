@@ -15,8 +15,8 @@ class SessionsController < ApplicationController
       # did not find
       user = User.create(name: (params[:name]))
       session[:user_id] = user.id
-      flash[:success] = "User created"
-      redirect_to root_path
+      flash[:success] = "User #{user.name} created"
+      redirect_to users_path
     end
   end
 

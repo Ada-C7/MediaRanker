@@ -1,7 +1,8 @@
 Rails.application.routes.draw do
 
-  resources :users
 
+  get '/users', to: 'users#index'
+  
 
   get '/login', to: 'sessions#login_form', as: 'login'
   post '/login', to: 'sessions#login'
