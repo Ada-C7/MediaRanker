@@ -28,7 +28,24 @@ class WorksController < ApplicationController
     @work = Work.find(params[:id])
   end
 
+  def update
+    @work = Work.find(params[:id])
+    @work.assign_attributes(work_params)
 
+    if @work.save
+      redirect_to work_path(@work)
+    else
+      render :edit
+    end
+  end
+
+  def destroy
+    work = Work.find(params[:id])
+    category = work.category
+    work.destroy
+    
+    redirect_to works_path(category.pluralize)
+  end
 
   private
 
