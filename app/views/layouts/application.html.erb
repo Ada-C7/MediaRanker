@@ -17,9 +17,9 @@
         <%= link_to "New User", new_user_path %>
         <% if session[:user_id] %>
         <%= session[:user_name] %>
-        <%= link_to "Logout", logout_path, method: :delete %>
+        <%= link_to "Logout", logout_path, method: :delete, class: "button" %>
         <% else %>
-        <%= link_to "login", login_path, method: :get %>
+        <%= link_to "login", login_path, method: :get, class: "button" %>
         <% end %>
       </div>
 
