@@ -80,6 +80,18 @@
         null,
         null
       ],
+      "/Users/lynntrickey/Documents/ada/c7-stacks/rails/MediaRanker/test/controllers/votes_controller_test.rb": [
+        1,
+        null,
+        1,
+        null,
+        null,
+        null
+      ],
+      "/Users/lynntrickey/Documents/ada/c7-stacks/rails/MediaRanker/app/controllers/votes_controller.rb": [
+        1,
+        null
+      ],
       "/Users/lynntrickey/Documents/ada/c7-stacks/rails/MediaRanker/test/controllers/works_controller_test.rb": [
         1,
         null,
@@ -345,7 +357,7 @@
         1,
         null,
         1,
-        3,
+        4,
         null,
         1,
         1,
@@ -354,6 +366,13 @@
         null,
         1,
         1,
+        1,
+        null,
+        null,
+        1,
+        1,
+        1,
+        null,
         1,
         null,
         null,
@@ -426,6 +445,6 @@
         null
       ]
     },
-    "timestamp": 1492055331
+    "timestamp": 1492112365
   }
 }

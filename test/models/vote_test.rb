@@ -13,4 +13,11 @@ describe Vote do
     vote.errors.must_include :user
   end
 
+  it "Can create a new vote" do
+    vote.user_id = (users(:lynn).id)
+    vote.work_id = (works(:work_one).id)
+
+    vote.valid?.must_equal true
+  end
+
 end
