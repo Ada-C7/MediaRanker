@@ -7,7 +7,8 @@ Rails.application.routes.draw do
 
   get 'items', to:'items#index'
   get 'items/:id', to:'items#show', as: 'item'
-
+  get 'items/:id/edit', to:'items#edit', as: 'edit_item'
+  patch 'items/:id', to:'items#update'
   delete 'items/:id', to:'items#destroy'
 
   get ':category', to: 'items#index_by_category', as: 'category_index'

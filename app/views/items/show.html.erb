@@ -6,7 +6,9 @@
 <%= button_to "Back to #{@item.category} list", category_index_path(@item.category),
 method: :get %>
 
-<%= "edit" %>
+<%= button_to "Edit", edit_item_path(@item),
+method: :get %>
 
 <%= "upvote"%>
+
 <%= button_to "Delete", item_path(@item), method: :delete, data:  {confirm: "Are you sure?"} %>
