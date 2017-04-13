@@ -3,18 +3,22 @@
 
 <section>
   <h3>Top Movies</h3>
+
   <% movies = @works.where(category: 'movie') %>
   <% if movies.length > 10 %>
-    <% movies_ten = movies[1..10] %>
+    <% movies_ten = movies[0..9] %>
   <% else %>
     <% movies_ten = movies %>
   <% end %>
-
+  <ul>
   <% movies_ten.each do |movie| %>
     <li>
-      <%= link_to movie.title, work_path(movie.id) %> by <%= movie.creator %>
+      <h4>
+      <%= link_to movie.title, work_path(movie.id) %> by <small><%= movie.creator %></small>
+      </h4>
     </li>
   <% end %>
+  </ul>
   <%= link_to "View More Movies", movies_path %>
 </section>
 
@@ -22,16 +26,19 @@
   <h3>Top Books</h3>
   <% books = @works.where(category: 'book') %>
   <% if books.length > 10 %>
-    <% books_ten = books[1..10] %>
+    <% books_ten = books[0..9] %>
   <% else %>
     <% books_ten = books %>
   <% end %>
-
+  <ul>
   <% books_ten.each do |book| %>
     <li>
-      <%= link_to book.title, work_path(book.id) %> by <%= book.creator %>
+      <h4>
+      <%= link_to book.title, work_path(book.id) %> by <small><%= book.creator %></small>
+      </h4>
     </li>
   <% end %>
+</ul>
   <%= link_to "View More Books", books_path %>
 </section>
 
@@ -39,15 +46,19 @@
   <h3>Top Albums</h3>
   <% albums = @works.where(category: 'album') %>
   <% if albums.length > 10 %>
-    <% albums_ten = albums[1..10] %>
+    <% albums_ten = albums[0..9] %>
   <% else %>
     <% albums_ten = albums %>
   <% end %>
 
+  <ul>
   <% albums_ten.each do |album| %>
     <li>
-      <%= link_to album.title, work_path(album.id) %> by <%= album.creator %>
+      <h4>
+      <%= link_to album.title, work_path(album.id) %> by <small><%= album.creator %></small>
+      </h4>
     </li>
   <% end %>
+</ul>
   <%= link_to "View More Albums", albums_path %>
 </section>

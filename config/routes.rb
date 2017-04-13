@@ -4,8 +4,10 @@ Rails.application.routes.draw do
   get '/users', to: 'users#index'
   get '/users/:id', to: 'users#show', as: 'user'
 
-  get 'works/index'
   get '/works/:id', to: 'works#show', as: 'work'
+  get '/works/:id/edit', to: 'works#edit', as: 'edit_work'
+  put 'works/:id', to: 'works#update'
+  get 'works/index'
 
   get '/movies', to: 'movies#index'
   get '/movies/new', to: 'movies#new', as: 'new_movie'

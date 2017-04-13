@@ -11,21 +11,20 @@
   <body>
     <header>
 
-    <h1>Welcome To Books App!</h1>
+    <h2>
+      <%= link_to 'Media Ranker', root_path %>
+      <small>Ranking the Best of Everything</small>
+    </h2>
     <nav>
-      <ul>
-        <% if session[:name] %>
-          <p>
-            Logged in as <%= "#{user.name}" %>
-          </p>
-          <li><%= link_to 'Log Out', logout_path, method: :delete %></li>
+      <section>
+        <% if session[:user_id] %>
+          <p>Logged in as <%= link_to "#{User.find_by_id(session[:user_id]).name}", user_path(session[:user_id]) %></p>
+          <%= link_to 'Log Out', logout_path, method: :delete %>
         <% else %>
-        <p>
-          Not logged in
-        </p>
-          <li><%= link_to 'Log In', login_path %></li>
+          <p>Not logged in</p>
+          <%= link_to 'Log In', login_path %>
         <% end %>
-      </ul>
+      </section>
     </nav>
   </header>
     <%= yield %>

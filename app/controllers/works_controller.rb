@@ -12,9 +12,9 @@ class WorksController < ApplicationController
   end
 
   def update
-    @work = passenger.find(params[:id])
-    @work.title = work_params[:title]
     @work.creator = work_params[:creator]
+    @work = Work.find(params[:id])
+    @work.title = work_params[:title]
     @work.publication_year = work_params[:publication_year]
     @work.description = work_params[:description]
 
@@ -36,6 +36,6 @@ class WorksController < ApplicationController
 
   private
   def work_params
-    category_params
+    super
   end
 end

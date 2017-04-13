@@ -9,15 +9,21 @@ class AlbumsController < ApplicationController
 
   def create
     @album = Work.create album_params
+    @album.category = "album"
+    @album.save
+
     if @album.id != nil
+      flash[:success] = "Album added successfully"
       redirect_to albums_path
     else
+      flash.now[:error] = "Error has occurred"
       render "new"
     end
   end
 
   private
   def album_params
-    category_params
+    work_params
+    # params.require(:work).permit(:category, :title, :creator, :publication_year, :description)
   end
 end

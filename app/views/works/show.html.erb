@@ -10,6 +10,8 @@ Published: <%= @result_work.publication_year %>
 </p>
 
 <!-- Back to creator list -->
+<section>
+
 <% if @result_work.category == 'movie' %>
   <%= link_to "Back to movie list", movies_path %>
 <% elsif @result_work.category == 'book' %>
@@ -18,8 +20,10 @@ Published: <%= @result_work.publication_year %>
   <%= link_to "Back to album list", albums_path %>
 <% end %>
 
-
-<!-- Edit -->
-<!-- Upvote -->
+<!-- Edit  link -->
+<%= link_to 'Edit', edit_work_path(@result_work.id) %>
+<!-- Upvote link-->
+<!-- Delete link-->
+</section>
 <h3>__ Votes for this Album</h3>
 <!-- table that includes users that voted and date they voted  -->
