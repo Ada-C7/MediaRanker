@@ -1,5 +1,10 @@
 class Item < ApplicationRecord
   has_many :votes
+  has_many :users, through: :votes
+
+
+
+
 
 validates :category, presence: true, inclusion: { in: ['book', 'album', 'movie'],  message: "item must be album, book, or movie" }
 

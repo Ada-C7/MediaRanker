@@ -2,7 +2,6 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
 
-
   root 'items#index'
 
   resources :items, except: [:new, :create]
@@ -13,6 +12,20 @@ Rails.application.routes.draw do
   # patch 'items/:id', to:'items#update'
   # delete 'items/:id', to:'items#destroy'
 
+
+    get 'users', to:'users#index'
+    #get 'users/new', to:'users#new', as: 'new_user'
+    #post 'users', to:'users#create'
+    get 'users/:id', to:'users#show', as: 'user'
+
+      get 'login', to: 'sessions#new'
+
+      post 'login', to: 'sessions#create'
+
+      delete 'logout', to: 'sessions#destroy'
+
+
+
   get ':category', to: 'items#index_by_category', as: 'category_index'
 
   get ':category/new',   to:'items#new', as:'new_item_by_category'
@@ -20,5 +33,7 @@ Rails.application.routes.draw do
 
 
 
+  #CREATE VOTE
+  #post 'books/:id/buy', to: 'books#buy', as: 'buy'
 
 end
