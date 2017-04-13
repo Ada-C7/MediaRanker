@@ -1,0 +1,25 @@
+<section>
+  <table>
+    <thead>
+      <tr>
+        <th>Votes</th>
+        <th>Title</th>
+        <th>Created By</th>
+        <th>Published</th>
+        <th>Upvote</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @albums.each do |album| %>
+        <tr>
+          <td>0</td>
+          <td><%= album.title %></td>
+          <td><%= album.creator %></td>
+          <td><%= album.publication_year %></td>
+          <td>Upvote</td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</section>

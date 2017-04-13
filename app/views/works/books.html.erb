@@ -1,12 +1,32 @@
 <main>
   <section>
-    <h2>Books</h2>
-    <ul>
-    <% @books.each do |book| %>
-      <li><%= link_to book.title, work_path(book.id) %></li>
-    <% end %>
-    </ul>
-  </section>
+    <h3>Books</h3>
+      <section>
+        <table>
+          <thead>
+            <tr>
+              <th>Votes</th>
+              <th>Title</th>
+              <th>Created By</th>
+              <th>Published</th>
+              <th>Upvote</th>
+            </tr>
+          </thead>
+
+          <tbody>
+            <% @books.each do |book| %>
+              <tr>
+                <td>0</td>
+                <td><%= book.title %></td>
+                <td><%= book.creator %></td>
+                <td><%= book.publication_year %></td>
+                <td>Upvote</td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+      </section>
+    </section>
 
   <nav>
     <%= button_to "Back To All Media", homepage_path, :class => "button", :method => :get %>
