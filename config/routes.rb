@@ -18,7 +18,7 @@ Rails.application.routes.draw do
   resources :users
 
   resources :works do
-    post "/upvote", to: "votes#create", as: "upvote"
+    patch "/upvote", to: "works#upvote"
   end
 
   get 'votes/index'

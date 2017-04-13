@@ -67,6 +67,36 @@ class WorksController < ApplicationController
     end
   end
 
+  def upvote
+    work = Work.find_by_id params[:work_id]#this is one work object
+    user = User.find_by_name(params[:name]) # this is one user object
+    if work.already_voted?(user) == true
+      flash[:error] = "Could not upvote"
+      redirect_to :back
+
+      # redirect_to work_path(work.id)
+    else
+      @vote = Vote.create!(user_id:user.id, work_id:work.id)
+      flash[:success] = "success"
+      redirect_to :back
+    end
+  end
+
+
+
+    # #if user upvoting already voted, he/she cannot vote again
+    # user_vote_count = 0
+    # Vote.all.each do |vote|
+    #   if vote.work_id == @work.id && vote.user_id == @user.id
+    #     user_vote_count += 1
+    #   end
+    # end
+    #
+    # if user_vote_count
+
+
+
+
   def destroy
     Work.destroy(params[:id])
     # flash[:success] = "Successfully destroyed #{@work.category} #{@work.id}."
@@ -80,3 +110,7 @@ private
 def work_params
   params.require(:work).permit(:category, :title, :creator, :description, :publication_year)
 end
+
+# def vote_params
+#   params.require(:vote).permit(:user_id, :work_id)
+# end
