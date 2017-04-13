@@ -39,7 +39,7 @@ Rails.application.routes.draw do
 
 # post '/works', to: 'books#create'
 
-# get '/works/new', to: 'works#new', as: 'new_work'
+ # get '/works/new', to: 'works#new'#, as: 'new_work'
 
   # put '/works/:id/edit', to: 'works#update'
 
