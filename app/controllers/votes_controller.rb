@@ -5,6 +5,7 @@ class VotesController < ApplicationController
       vote.work_id = params[:id]
       vote.user_id = session[:user_id]
       if vote.save
+        # raise
         redirect_to work_path
       end
     else
