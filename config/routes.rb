@@ -3,7 +3,7 @@ Rails.application.routes.draw do
 
 
 
-  root to: 'works#index'
+  root 'works#index'
   get 'works/movies', to: 'works#movies', as: 'movies'
   get 'works/books', to: 'works#books', as: 'books'
   get 'works/albums', to: 'works#albums', as: 'albums'
