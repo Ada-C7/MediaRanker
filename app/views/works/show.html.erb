@@ -5,8 +5,9 @@
   <p><%= @work.description %></p>
 
   <section>
-    <%= link_to "Back to #{@work.category} list", "/#{@work.category.pluralize}" %>
-    <%= link_to "Upvote", "/#{@work.category.pluralize}/#{@work.id}/upvote", method: :patch %>
+    <%= link_to "Back to #{@work.category} list", works_path(@work.category) %>
+    <%= link_to "Edit", edit_work_path(@work.id) %>
+    <%= link_to "Upvote", upvote_path(@work.id), method: :patch %>
   </section>
 </article>
 

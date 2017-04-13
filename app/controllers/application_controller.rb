@@ -1,6 +1,6 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
-  helper_method :works_path, :work_path, :new_work_path, :upvote_path
+  helper_method :works_path, :work_path, :new_work_path, :edit_work_path, :upvote_path
 
   def works_path(category = params[:category])
     url_for(action: 'index', controller: 'works', category: category)
@@ -12,6 +12,10 @@ class ApplicationController < ActionController::Base
 
   def new_work_path(category)
     url_for(action: 'new', controller: 'works', category: category)
+  end
+
+  def edit_work_path(id)
+    url_for(action: 'edit', controller: 'works', category: Work.find(id).category, id: id)
   end
 
   def upvote_path(id)
