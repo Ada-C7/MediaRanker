@@ -24,4 +24,11 @@ no_votes_work:
   category: "Album"
   desc: "Music"
   pub_yr: 2012
+
+new_vote_work:
+  title: "VOTE FOR ME"
+  creator: "Plz"
+  category: "Album"
+  desc: "Music"
+  pub_yr: 2014
 # column: value

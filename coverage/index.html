@@ -14,27 +14,27 @@
       <img src="./assets/0.10.0/loading.gif" alt="loading"/>
     </div>
     <div id="wrapper" style="display:none;">
-      <div class="timestamp">Generated <abbr class="timeago" title="2017-04-13T16:09:10-07:00">2017-04-13T16:09:10-07:00</abbr></div>
+      <div class="timestamp">Generated <abbr class="timeago" title="2017-04-13T16:13:00-07:00">2017-04-13T16:13:00-07:00</abbr></div>
       <ul class="group_tabs"></ul>
 
       <div id="content">
         <div class="file_list_container" id="AllFiles">
   <h2>
     <span class="group_name">All Files</span>
-    (<span class="covered_percent"><span class="green">98.09%</span></span>
+    (<span class="covered_percent"><span class="green">100.0%</span></span>
      covered at
      <span class="covered_strength">
        <span class="green">
-         1.38
+         1.45
        </span>
     </span> hits/line)
   </h2>
   <a name="AllFiles"></a>
   <div>
     <b>15</b> files in total.
-    <b>262</b> relevant lines. 
-    <span class="green"><b>257</b> lines covered</span> and
-    <span class="red"><b>5</b> lines missed </span>
+    <b>266</b> relevant lines. 
+    <span class="green"><b>266</b> lines covered</span> and
+    <span class="red"><b>0</b> lines missed </span>
   </div>
   <table class="file_list">
     <thead>
@@ -57,7 +57,7 @@
         <td>8</td>
         <td>8</td>
         <td>0</td>
-        <td>1.4</td>
+        <td>1.6</td>
       </tr>
       
       <tr>
@@ -67,7 +67,7 @@
         <td>18</td>
         <td>18</td>
         <td>0</td>
-        <td>2.1</td>
+        <td>2.4</td>
       </tr>
       
       <tr>
@@ -82,12 +82,12 @@
       
       <tr>
         <td class="strong"><a href="#de90cdec1577d84aa23feb1c59f6539a10b4cd79" class="src_link" title="app/controllers/votes_controller.rb">app/controllers/votes_controller.rb</a></td>
-        <td class="red strong">61.54 %</td>
+        <td class="green strong">100.0 %</td>
         <td>21</td>
         <td>13</td>
-        <td>8</td>
-        <td>5</td>
-        <td>0.7</td>
+        <td>13</td>
+        <td>0</td>
+        <td>1.2</td>
       </tr>
       
       <tr>
@@ -127,7 +127,7 @@
         <td>8</td>
         <td>8</td>
         <td>0</td>
-        <td>1.6</td>
+        <td>2.0</td>
       </tr>
       
       <tr>
@@ -137,7 +137,7 @@
         <td>9</td>
         <td>9</td>
         <td>0</td>
-        <td>3.2</td>
+        <td>3.6</td>
       </tr>
       
       <tr>
@@ -153,9 +153,9 @@
       <tr>
         <td class="strong"><a href="#1eeb937207423cbf0a1ed9e4eaaee6de2d37fcef" class="src_link" title="test/controllers/votes_controller_test.rb">test/controllers/votes_controller_test.rb</a></td>
         <td class="green strong">100.0 %</td>
-        <td>23</td>
-        <td>11</td>
-        <td>11</td>
+        <td>24</td>
+        <td>15</td>
+        <td>15</td>
         <td>0</td>
         <td>1.0</td>
       </tr>
@@ -278,14 +278,14 @@
           <code class="ruby">  def logged_in?</code>
         </li>
       
-        <li class="covered" data-hits="2" data-linenumber="9">
-          <span class="hits">2</span>
+        <li class="covered" data-hits="3" data-linenumber="9">
+          <span class="hits">3</span>
           
           <code class="ruby">    if session[:user_id]</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="10">
-          <span class="hits">1</span>
+        <li class="covered" data-hits="2" data-linenumber="10">
+          <span class="hits">2</span>
           
           <code class="ruby">      return true</code>
         </li>
@@ -374,32 +374,32 @@
           <code class="ruby">  def login</code>
         </li>
       
-        <li class="covered" data-hits="5" data-linenumber="6">
-          <span class="hits">5</span>
+        <li class="covered" data-hits="6" data-linenumber="6">
+          <span class="hits">6</span>
           
           <code class="ruby">    user = User.find_by_name(params[:name])</code>
         </li>
       
-        <li class="covered" data-hits="5" data-linenumber="7">
-          <span class="hits">5</span>
+        <li class="covered" data-hits="6" data-linenumber="7">
+          <span class="hits">6</span>
           
           <code class="ruby">    if user</code>
         </li>
       
-        <li class="covered" data-hits="3" data-linenumber="8">
-          <span class="hits">3</span>
+        <li class="covered" data-hits="4" data-linenumber="8">
+          <span class="hits">4</span>
           
           <code class="ruby">      flash[:success] = &quot;Successfully logged in as #{ user.name }&quot;</code>
         </li>
       
-        <li class="covered" data-hits="3" data-linenumber="9">
-          <span class="hits">3</span>
+        <li class="covered" data-hits="4" data-linenumber="9">
+          <span class="hits">4</span>
           
           <code class="ruby">      session[:user_id] = user.id</code>
         </li>
       
-        <li class="covered" data-hits="3" data-linenumber="10">
-          <span class="hits">3</span>
+        <li class="covered" data-hits="4" data-linenumber="10">
+          <span class="hits">4</span>
           
           <code class="ruby">      redirect_to root_path</code>
         </li>
@@ -627,11 +627,11 @@
         <div class="source_table" id="de90cdec1577d84aa23feb1c59f6539a10b4cd79">
   <div class="header">
     <h3>app/controllers/votes_controller.rb</h3>
-    <h4><span class="red">61.54 %</span> covered</h4>
+    <h4><span class="green">100.0 %</span> covered</h4>
     <div>
       <b>13</b> relevant lines. 
-      <span class="green"><b>8</b> lines covered</span> and
-      <span class="red"><b>5</b> lines missed.</span>
+      <span class="green"><b>13</b> lines covered</span> and
+      <span class="red"><b>0</b> lines missed.</span>
     </div>
   </div>
   
@@ -656,44 +656,44 @@
           <code class="ruby">  def create</code>
         </li>
       
-        <li class="covered" data-hits="2" data-linenumber="4">
-          <span class="hits">2</span>
+        <li class="covered" data-hits="3" data-linenumber="4">
+          <span class="hits">3</span>
           
           <code class="ruby">    if logged_in? #application controller method!</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="5">
-          <span class="hits">1</span>
+        <li class="covered" data-hits="2" data-linenumber="5">
+          <span class="hits">2</span>
           
           <code class="ruby">      if Vote.unique?(session[:user_id], params[:id])</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="6">
-          
+        <li class="covered" data-hits="1" data-linenumber="6">
+          <span class="hits">1</span>
           
           <code class="ruby">        vote = Vote.new</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="7">
-          
+        <li class="covered" data-hits="1" data-linenumber="7">
+          <span class="hits">1</span>
           
           <code class="ruby">        vote.work_id = params[:id]</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="8">
-          
+        <li class="covered" data-hits="1" data-linenumber="8">
+          <span class="hits">1</span>
           
           <code class="ruby">        vote.user_id = session[:user_id]</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="9">
-          
+        <li class="covered" data-hits="1" data-linenumber="9">
+          <span class="hits">1</span>
           
           <code class="ruby">        vote.save</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="10">
-          
+        <li class="covered" data-hits="1" data-linenumber="10">
+          <span class="hits">1</span>
           
           <code class="ruby">        redirect_to work_path</code>
         </li>
@@ -1394,20 +1394,20 @@
           <code class="ruby">  def self.unique?(session_user_id, params_id)</code>
         </li>
       
-        <li class="covered" data-hits="3" data-linenumber="6">
-          <span class="hits">3</span>
+        <li class="covered" data-hits="4" data-linenumber="6">
+          <span class="hits">4</span>
           
           <code class="ruby">    same_vote = Vote.where(user_id: session_user_id, work_id: params_id)</code>
         </li>
       
-        <li class="covered" data-hits="3" data-linenumber="7">
-          <span class="hits">3</span>
+        <li class="covered" data-hits="4" data-linenumber="7">
+          <span class="hits">4</span>
           
           <code class="ruby">    if same_vote == []</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="8">
-          <span class="hits">1</span>
+        <li class="covered" data-hits="2" data-linenumber="8">
+          <span class="hits">2</span>
           
           <code class="ruby">      true</code>
         </li>
@@ -1520,8 +1520,8 @@
           <code class="ruby">    all_works = Work.all</code>
         </li>
       
-        <li class="covered" data-hits="12" data-linenumber="10">
-          <span class="hits">12</span>
+        <li class="covered" data-hits="15" data-linenumber="10">
+          <span class="hits">15</span>
           
           <code class="ruby">    votes = all_works.map { |work| work.votes.length }</code>
         </li>
@@ -1703,8 +1703,8 @@
     <h3>test/controllers/votes_controller_test.rb</h3>
     <h4><span class="green">100.0 %</span> covered</h4>
     <div>
-      <b>11</b> relevant lines. 
-      <span class="green"><b>11</b> lines covered</span> and
+      <b>15</b> relevant lines. 
+      <span class="green"><b>15</b> lines covered</span> and
       <span class="red"><b>0</b> lines missed.</span>
     </div>
   </div>
@@ -1808,43 +1808,49 @@
           <code class="ruby"></code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="17">
+        <li class="covered" data-hits="1" data-linenumber="17">
+          <span class="hits">1</span>
           
-          
-          <code class="ruby">#  NOT WORKING!!</code>
+          <code class="ruby">  it &quot;will affect user model if vote is valid&quot; do</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="18">
+        <li class="covered" data-hits="1" data-linenumber="18">
+          <span class="hits">1</span>
           
-          
-          <code class="ruby">  # it &quot;will affect user model if vote is valid&quot; do</code>
+          <code class="ruby">    proc {</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="19">
+        <li class="covered" data-hits="1" data-linenumber="19">
+          <span class="hits">1</span>
           
-          
-          <code class="ruby">  #   post login_path(), params: { name: users(:lynn).name }</code>
+          <code class="ruby">      post login_path(), params: { name: users(:lynn).name }</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="20">
+        <li class="covered" data-hits="1" data-linenumber="20">
+          <span class="hits">1</span>
           
-          
-          <code class="ruby">  #   proc { post new_vote_path(works(:work_one).id) }.must_change &#39;Vote.count&#39;, 1</code>
+          <code class="ruby">      post new_vote_path(works(:new_vote_work).id)</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="21">
           
           
-          <code class="ruby">  # end</code>
+          <code class="ruby">    }.must_change &#39;Vote.count&#39;, 1</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="22">
           
           
-          <code class="ruby"></code>
+          <code class="ruby">  end</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="23">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="24">
           
           
           <code class="ruby">end</code>

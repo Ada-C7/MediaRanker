@@ -14,10 +14,11 @@ describe VotesController do
     must_redirect_to work_path(works(:work_one).id)
   end
 
-#  NOT WORKING!!
-  # it "will affect user model if vote is valid" do
-  #   post login_path(), params: { name: users(:lynn).name }
-  #   proc { post new_vote_path(works(:work_one).id) }.must_change 'Vote.count', 1
-  # end
+  it "will affect user model if vote is valid" do
+    proc {
+      post login_path(), params: { name: users(:lynn).name }
+      post new_vote_path(works(:new_vote_work).id)
+    }.must_change 'Vote.count', 1
+  end
 
 end
