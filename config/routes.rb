@@ -4,9 +4,10 @@ Rails.application.routes.draw do
   resources :users
   resources :works, except: [:index]
   post 'works/:id/vote', to: 'works#vote', as: 'vote'
-
   get 'works/:work_category/index', to: 'works#index', as: 'list_works'
-
+  get 'sessions/new', to: 'sessions#new', as: 'login'
+  post 'sessions/new', to: 'sessions#create'
+  delete 'sessions/:id', to: 'sessions#destroy', as: 'logout'
   # get 'works/new', to: 'works#new', as: 'new_work'
   # post 'works', to: 'works#create'
   # get 'works/:id', to: 'works#show', as: 'work'
@@ -16,14 +17,3 @@ Rails.application.routes.draw do
 
 
 end
-
-
-# root 'welcome#index', as: 'welcome'
-# get 'tasks', to: 'tasks#index', as: 'tasks'
-# get 'tasks/new', to: 'tasks#new', as: 'new_task'
-# post 'tasks', to: 'tasks#create'
-# get 'tasks/:id', to: 'tasks#show', as: 'task'
-# get 'tasks/:id/edit', to: 'tasks#edit', as: 'edit_task'
-# patch 'tasks/:id', to: 'tasks#update'
-# delete 'tasks/:id', to: 'tasks#destroy'
-# patch  'tasks/:id/complete', to: 'tasks#complete', as: 'complete_task'

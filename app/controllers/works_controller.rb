@@ -11,10 +11,11 @@ class WorksController < ApplicationController
 
   def create
     @work = Work.create(work_params)
-    if @work.save
-      flash[:success] = "Book added successfully"
+    if @work.id != nil
+      flash[:success] = "#{@work.category.capitalize} added successfully"
       redirect_to list_works_path(@work.category + "s")
     else
+      flash.now[:error] = "#{@work.category.capitalize} not added.  Try again."
       render :new, status: :bad_request
     end
   end
@@ -24,11 +25,15 @@ class WorksController < ApplicationController
   end
 
   def vote
-    @user = User.find(params[:id])
-    new_vote = Vote.create(user_id: @user.id, work_id: params[:id])
-    if new_vote
-      flash[:voted] = "Successfully Upvoted!"
-      redirect_to work_path(params[:id])
+    if session[:user_id]
+      new_vote = Vote.create!(user_id: session[:user_id], work_id: params[:id])
+        if new_vote
+          flash[:voted] = "Successfully Upvoted!"
+          redirect_to work_path(params[:id])
+        end
+    else
+      flash[:error] = "You must login to vote!"
+      redirect_to :back
     end
   end
   # user_book = UserBook.create(user_id: session[:user_id], book_id: params[:id])

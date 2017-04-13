@@ -1,4 +1,5 @@
 <h1>Media Raker</h1>
+
 <p>
   Media Spotlight: <%= @spot.title%> by <%= @spot.creator%>
   Synopsis: <%= @spot.description %>
@@ -7,7 +8,7 @@
   <h2> Top Books </h2>
   <ul>
     <% @books.each do |book| %>
-    <li> <%= book.title %> by <%= book.creator %> </li>
+    <li> <%= link_to "#{book.title}", work_path(book.id) %> by <%= book.creator %> </li>
     <% end %>
   </ul>
 
@@ -18,7 +19,7 @@
   <h2> Top Movies </h2>
   <ul>
     <% @movies.each do |movie| %>
-    <li> <%= movie.title %> by <%= movie.creator %> </li>
+    <li> <%= link_to "#{movie.title}", work_path(movie.id) %> by <%= movie.creator %> </li>
     <% end %>
   </ul>
   <%= link_to "More Movies", list_works_path("movies"), work_category: "Movies" %>
@@ -29,7 +30,7 @@
   <h2> Top Albums </h2>
   <ul>
     <% @albums.each do |album| %>
-    <li> <%= album.title %> by <%= album.creator %> </li>
+    <li> <%= link_to "#{album.title}" %> by <%= album.creator %> </li>
     <% end %>
   </ul>
   <% @work_category = "Albums" %>
