@@ -12,4 +12,9 @@ describe MoviesController do
     must_respond_with :success
   end
 
+  it "should retrieve the edit page" do
+    get edit_movie_path(contents(:shrek).id)
+    must_respond_with :success
+  end
+
 end
