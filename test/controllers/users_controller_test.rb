@@ -14,6 +14,26 @@ describe UsersController do
       get users_path
       must_respond_with :success
     end
-
   end
+
+  describe 'show' do
+
+    it 'should show a users page' do
+      id = User.first.id
+      get user_path(id)
+      must_respond_with :success
+    end
+
+   #  it 'returns a 404 if work DNE' do
+
+   #  end
+  end
+
+  # describe 'edit' do
+  #   it 'shows you an edit page/form' do
+  #     work_id = Work.first.id
+  #     get edit_work_path(work_id)
+  #     must_respond_with :success
+  #   end
+  # end
 end
