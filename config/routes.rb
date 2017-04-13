@@ -6,6 +6,8 @@ Rails.application.routes.draw do
     patch "/#{category.pluralize}/:id/upvote", to: "votes#upvote", as: "upvote_#{category}"
   end
 
+  resources :users, only: [:show, :index]
+
   get '/login', to: "sessions#login_form"
   post '/login', to: "sessions#login"
   post '/logout', to: "sessions#logout"
