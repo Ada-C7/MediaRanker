@@ -1,10 +1,10 @@
-<h2>Media Spotlight: <% spotlight = @works.sample %>
+<h2>Media Spotlight: <% spotlight = @top_works.first %>
 <%= link_to spotlight.title, work_path(spotlight.id) %> by: <%= spotlight.creator %> </h2>
 
 
 <h2>Top Albums</h2>
 <ul>
-  <% @albums.each do |album| %>
+  <% @top_albums[0..9].each do |album| %>
   <li>
     <%= link_to album.title, work_path(album.id) %> by <%= album.creator %>
   </li>
@@ -16,7 +16,7 @@
 
 <h2>Top Books</h2>
 <ul>
-  <% @books.each do |book| %>
+  <% @top_books[0..9].each do |book| %>
   <li>
     <%= link_to book.title, work_path(book.id) %> by <%= book.creator %>
   </li>
@@ -28,7 +28,7 @@
 
 <h2>Top Movies</h2>
 <ul>
-  <% @movies.each do |movie| %>
+  <% @top_movies[0..9].each do |movie| %>
   <li>
     <%= link_to movie.title, work_path(movie.id) %> by <%= movie.creator %>
   </li>
