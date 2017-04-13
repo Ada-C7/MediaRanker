@@ -4,6 +4,11 @@ class WorksController < ApplicationController
   end
 
   def show
+    @work = Work.find_by(id: params[:id])
+
+    if @work.nil?
+      head :not_found
+    end
   end
 
   def update
@@ -15,6 +20,7 @@ class WorksController < ApplicationController
   # ALBUMS
 
   def albums_index
+    @albums = Work.where(category: "album")
   end
 
   def create_album

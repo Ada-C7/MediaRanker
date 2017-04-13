@@ -11,13 +11,4 @@ class UsersController < ApplicationController
     end
   end
 
-  # LOGIN
-
-  def login_index
-  end
-
-  def create_login
-  end
-
-
 end
