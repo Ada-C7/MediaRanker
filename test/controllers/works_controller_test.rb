@@ -15,7 +15,6 @@ describe WorksController do
       get homepage_path
       must_respond_with :success
     end
-
   end
 
   describe 'movies' do
@@ -77,9 +76,13 @@ describe WorksController do
      must_respond_with :success
    end
 
-  #  it 'returns a 404 if work DNE' do
-
-  #  end
+   it 'returns a 404 if work DNE' do
+     work = Work.first
+     id = work.id
+     work.destroy
+     get work_path(id)
+     must_respond_with :not_found
+   end
  end
 
  describe 'edit' do
@@ -87,6 +90,14 @@ describe WorksController do
      work_id = Work.first.id
      get edit_work_path(work_id)
      must_respond_with :success
+   end
+
+   it 'returns 404 if work DNE and you try to edit it' do
+     work = Work.first
+     id = work.id
+     work.destroy
+     get edit_work_path(id)
+     must_respond_with :not_found
    end
  end
 
@@ -99,7 +110,7 @@ describe WorksController do
      must_redirect_to movies_path
    end
 
-   it "re-renders a new form if passed invalid input" do
+   it "re-renders a new form if passed invalid data" do
      movie_data = { category: "movie", creator: "Pixar", publication_year: "1997" }
      post works_path, params: { work: movie_data }
      must_respond_with :bad_request
@@ -109,7 +120,7 @@ describe WorksController do
   describe 'update' do
 
     it 'should update a work' do
-      put work_path(works(:nemo).id), params: {work: {title: "new title"}}
+      put work_path(works(:nemo).id), params: { work: {title: "new title"}}
 
       work = Work.find(works(:nemo).id)
       work.title.must_equal "new title"
@@ -117,19 +128,17 @@ describe WorksController do
       must_respond_with :redirect
     end
 
-    # it "should update a post" do
-    #   put post_path(posts(:one).id), params: {post: {title: "Some title goes here", description: "la la la"} }
-    #
-    #   # find the post with that ID in the database
-    #   post = Post(posts(:one).id)
-    #
-    #
-    #      # verify the post was changed properly
-    #   post.title.must_equal "Some title goes here"
-    #   post.description.must_equal "la la la"
-    #
-    #   must_respond_with :redirect
-    # end
+    it 'return 404 if work DNE' do
+      work = works(:nemo)
+      work.destroy
+      put work_path(work), params: { work: {title: "new title"}}
+      must_respond_with :not_found
+    end
+
+    it 'does not update if new info is bad' do
+      put work_path(works(:nemo).id), params: { work: {title: ""} }
+      must_respond_with :bad_request
+    end
   end
 
   describe 'destory' do
@@ -140,12 +149,12 @@ describe WorksController do
       must_redirect_to movies_path
     end
 
-    it 'should do nothing if work DNE and you try to destory' do
+    # do I need this? - Oh would this ever come up?
+    it 'return 404 if work DNE and you try to destory' do
       id = Work.last.id
       id += 1
-      proc { delete work_path(id) }
-      # must_respond_with :error
-      # must_respond_with :redirect
+      delete work_path(id)
+      must_respond_with :not_found
     end
 
   end
