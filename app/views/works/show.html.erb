@@ -1,23 +1,41 @@
 
 <section id = "show">
-<h2> Show</h2>
-<%= @work.title%>
-<%if session[:user_id]%>
-<%= link_to "Upvote", vote_path(@work.id), method: :post%>
-<%= flash[:success]%>
+<!--  Display item details -->
+<h2> <%=@work.title%></h2>
+<br>
+Created By:<%= @work.created_by%>
+<br>
+Published:<%= @work.published%>
+<br>
+<%=@work.description%>
 
+<!-- Vote Link -->
+<%if session[:user_id]%>
+<%= link_to " Upvote ", vote_path(@work.id), method: :post%>
+<%= flash[:success]%>
 <%end%>
 
-
+<!-- Logic to display appropriate "back to" for each category  -->
 <% case @work.category%>
   <% when "book" %>
- <%= link_to "Back to #{@work.category}s", books_path%>
+ <%= link_to "Back to #{@work.category.capitalize}s", books_path%>
  <% when "album" %>
- <%= link_to "Back to #{@work.category}s", albums_path%>
+ <%= link_to "Back to #{@work.category.capitalize}s", albums_path%>
  <% when "movie" %>
- <%= link_to "Back to #{@work.category}s", movies_path%>
+ <%= link_to "Back to #{@work.category.capitalize}s", movies_path%>
   <%end%>
+
+<!-- Edit Link -->
+<%= link_to "Edit #{@work.category.capitalize}", edit_work_path%>
+
+<!-- Destroy Link -->
+<%= link_to "Delete #{@work.category.capitalize}", works_path(@work.id), method: :delete, data:{confirm: "Are you sure?"} %>
 </section>
+
+ <!--  Add Media -->
+<%= link_to "Add new media", new_work_path%>
+
+<!--  Display each vote for displayed item-->
 <section id = "vote_display">
   <table>
     <%counter = 0 %>

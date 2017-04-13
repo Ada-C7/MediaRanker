@@ -24,11 +24,12 @@ end
 
   def create
     @work = Work.new(work_params)
-
+    @work.save
     if @work.save
       redirect_to works_path
     else
       render :new, status: :bad_request
+      flash[:failure] = "Could not save your item"
     end
   end
 
@@ -71,6 +72,6 @@ end
   private
 
   def work_params
-    return params.require(:work).permit(:title, :created_by, :published, :description)
+    return params.require(:work).permit(:title, :created_by, :published, :description, :category)
   end
 end

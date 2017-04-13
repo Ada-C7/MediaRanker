@@ -1,0 +1,23 @@
+<%= form_for @work do |f|%>
+<%=f.label :title%>
+<%=f.text_field :title%>
+
+<%=f.label :created_by%>
+<%=f.text_field :created_by%>
+
+<%=f.label :published%>
+<%=f.text_field :published%>
+
+<%= f.submit value:"Edit"%>
+<%end%>
+
+
+<!-- Logic to display appropriate "back to" for each category  -->
+<% case @work.category%>
+  <% when "book" %>
+ <%= link_to "Back to #{@work.category.capitalize}s", books_path%>
+ <% when "album" %>
+ <%= link_to "Back to #{@work.category.capitalize}s", albums_path%>
+ <% when "movie" %>
+ <%= link_to "Back to #{@work.category.capitalize}s", movies_path%>
+  <%end%>
