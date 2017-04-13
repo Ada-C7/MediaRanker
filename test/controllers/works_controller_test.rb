@@ -23,4 +23,8 @@ describe WorksController do
     #   must_respond_with :not_found
     # end
   end
+
+  describe "destroy" do
+    # similar to show, delete _path, & possibly redirect
+  end
 end
