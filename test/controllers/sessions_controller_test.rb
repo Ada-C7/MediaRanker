@@ -1,9 +1,9 @@
 require "test_helper"
 
 describe SessionsController do
-  it "should get index" do
-    get sessions_index_url
-    value(response).must_be :success?
+  it "should get new" do
+    get login_path
+    assert_response :success
   end
 
 end

@@ -1,13 +1,15 @@
 class SessionsController < ApplicationController
+
   def login_form; end
 
   def login
-    # need to give them user id
-    flash[:success] = "Login successful!"
+    user_to_login = User.find_or_create(params[:username])
+    flash[:success] = "Logged in as #{ user_to_login.username }!"
+    redirect_to root_path
   end
 
   def logout
-    # session[:user_id] = nil
+    session[:user_id] = nil
     flash[:success] = "You have been successfully logged out!"
     redirect_to root_path
   end

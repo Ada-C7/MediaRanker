@@ -11,7 +11,7 @@
   <body>
 
     <nav>
-      <% unless session[:user_id] %>
+      <% unless session[:username] %>
       <%= link_to "Login", login_path %>
       <% else %>
       <%= link_to "Logout", logout_path, method: :delete %>
