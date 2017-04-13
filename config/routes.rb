@@ -1,12 +1,4 @@
 Rails.application.routes.draw do
-  get 'users/index'
-
-  get 'votes/index'
-
-  get 'welcome/index'
-
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
-
   # welcome page shows top 10 of all three works
   root 'welcome#index'
   get '/:media_type', to: 'works#index', as: 'works', constraints: { media_type: /(albums)|(movies)|(books)/ }
@@ -17,6 +9,8 @@ Rails.application.routes.draw do
   patch '/works/:id', to: 'works#update'
   delete '/works/:id', to: 'works#destroy'
 
+  get 'users/index'
+  get 'votes/index'
   # '/login'
   # '/users'
   # '/users/:id'
