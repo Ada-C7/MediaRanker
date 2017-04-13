@@ -7,16 +7,16 @@
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
 
-    <header class = "navigation">
-      <h2 class = "header">
+    <header class = "navigation row">
+      <h2 class = "columns large-9 small-12">
         <%= link_to "Media Ranker", root_path %>
         <small>Ranking the Best of Everything</small>
       </h2>
-      <div class = "bottom-header">
-        <p class = "login-text">
+      <div class = "columns large-3 small-12">
+        <p class = "text-right">
           LOGIC: Text changes based on User/Lurker
         </p>
-        <a class = "log-button" > Log </a>
+        <a class = "button float-right" > Log </a>
         <!-- ABOVE: logic for login/log out button -->
       </div>
     </header>
