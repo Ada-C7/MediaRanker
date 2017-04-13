@@ -4,5 +4,6 @@ class BooksController < ApplicationController
   end
 
   def show
+    @book = Content.find(params[:id])
   end
 end
