@@ -1,9 +1,10 @@
 require "test_helper"
 
 describe HomesController do
-  it "should get index" do
-    get homes_index_url
-    value(response).must_be :success?
+  describe "BooksControllerTest" do
+    it "should get index" do
+      get root_path
+      must_respond_with :success
+    end
   end
-
 end

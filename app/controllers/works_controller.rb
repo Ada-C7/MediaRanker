@@ -1,15 +1,9 @@
 class WorksController < ApplicationController
-  def index
-    @works = Work.all
-    @spotlight_work = Work.spotlight
-  end
-
   def show
-    @result_work = Work.find(params[:id])
-  end
-
-  def create
-    @work = Work.new(work_params)
+    @result_work = Work.find_by_id(params[:id])
+    if !@result_work
+      render_404
+    end
   end
 
   def edit
@@ -18,27 +12,40 @@ class WorksController < ApplicationController
 
   def update
     @work = Work.find(params[:id])
-
     if @work.update(work_params)
-
-      category = params[:category]
-      if category == "movie"
+      if @work.category == "movie"
         redirect_to movies_path
-      elsif category == "book"
+      elsif @work.category == "book"
         redirect_to books_path
-      else # category == "album"
+      else
         redirect_to albums_path
       end
-
     else
       render "edit"
     end
   end
 
-  def destroy
-    Trip.destroy(params[:id])
+  def create
+    @work = Work.create(work_params)
+    if @work.id != nil
+      flash[:success] = "#{@work.category} added successfully"
+      if @work.category == "movie"
+        redirect_to movies_path
+      elsif @work.category == "book"
+        redirect_to books_path
+      else
+        redirect_to albums_path
+      end
+    else
+      flash.now[:error] = "Error has occured"
+      render "new"
+    end
+  end
 
+  def destroy
     category = params[:category]
+    Work.destroy(params[:id])
+
     if category == "movie"
       redirect_to movies_path
     elsif category == "book"
@@ -46,9 +53,7 @@ class WorksController < ApplicationController
     else # category == "album"
       redirect_to albums_path
     end
-
   end
-
 
   private
 
