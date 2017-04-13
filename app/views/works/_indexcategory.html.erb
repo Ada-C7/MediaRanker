@@ -3,15 +3,20 @@
   <% num = 1 %>
 
   <% works = Work.top_ten(category) %>
-  <% works.each do |work| %>
-    <p class="work-details">
-      <%= num %>. <%= link_to work.title, work_path(work.id) %> by <%= work.creator %>
-    </p>
-    <p class="work-votes">
-      <%= work.votes_count %> votes
-    </p>
-    <% num += 1 %>
+  <% if works.empty? %>
+  <p>
+    No <%= category.pluralize %> found.
+  </p>
+  <% else %>
+    <% works.each do |work| %>
+      <p class="work-details">
+        <%= num %>. <%= link_to work.title, work_path(work.id) %> by <%= work.creator %>
+      </p>
+      <p class="work-votes">
+        <%= work.votes_count %> votes
+      </p>
+      <% num += 1 %>
+    <% end %>
+    <%= link_to "View More #{category.capitalize.pluralize}", "works/#{category.pluralize}", method: :get %>
   <% end %>
-  <%= link_to "View More #{category.capitalize.pluralize}", "works/#{category.pluralize}", method: :get %>
-
 </article>
