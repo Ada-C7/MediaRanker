@@ -1,0 +1,11 @@
+<h2> <%= "#{work_type}s" %></h2>
+
+<ul>
+  <li>
+    <%= "Title: #{@work.title}" %>
+    <%= "Created By: #{@work.creator}" %>
+    <%= "Published: #{@work.pub_date}" %>
+  </li>
+</ul>
+
+<%= button_to "Edit #{work_type}", edit_work_path, method: :get %>
