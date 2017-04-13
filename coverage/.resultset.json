@@ -345,7 +345,12 @@
         1,
         null,
         1,
-        2,
+        3,
+        null,
+        1,
+        1,
+        1,
+        null,
         null,
         1,
         1,
@@ -357,7 +362,7 @@
       "/Users/lynntrickey/Documents/ada/c7-stacks/rails/MediaRanker/app/models/vote.rb": [
         1,
         1,
-        null,
+        1,
         null,
         null
       ],
@@ -421,6 +426,6 @@
         null
       ]
     },
-    "timestamp": 1492052441
+    "timestamp": 1492055331
   }
 }

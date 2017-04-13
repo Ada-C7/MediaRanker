@@ -10,6 +10,11 @@ work_one:
   category: "book"
   desc: "A book by My Creator"
   pub_yr: 1920
-  
-two: {}
+
+work_two:
+  title: "My Other Work"
+  creator: "My Other Creator"
+  category: "film"
+  desc: "A film about my other work"
+  pub_yr: 1980
 # column: value
