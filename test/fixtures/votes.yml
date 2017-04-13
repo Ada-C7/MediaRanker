@@ -7,3 +7,7 @@ one:
 two:
   work_id: 2
   user_id: 2
+
+three:
+  work_id: 3
+  user_id: 1

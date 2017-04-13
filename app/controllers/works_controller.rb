@@ -17,14 +17,23 @@ class WorksController < ApplicationController
 
   def album_show
     @work = Work.find_by(category: "album", id: params[:id])
+    if @work.nil?
+      head :not_found
+    end
   end
 
   def movie_show
     @work = Work.find_by(category: "movie", id: params[:id])
+    if @work.nil?
+      head :not_found
+    end
   end
 
   def book_show
     @work = Work.find_by(category: "book", id: params[:id])
+    if @work.nil?
+      head :not_found
+    end
   end
 
   def new
@@ -39,7 +48,7 @@ class WorksController < ApplicationController
       redirect_to works_path
     else
       flash[:success] = "It didn't work, try again?"
-      render :new
+      render :new, status: :bad_request
     end
   end
 
