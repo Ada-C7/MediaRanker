@@ -1,4 +1,6 @@
 class Work < ApplicationRecord
+  has_many :votes
+
   validates :category, presence: true,
   inclusion: { in: %w(movie book album), message: "%{value} is not a valid category" }
 
@@ -9,5 +11,4 @@ class Work < ApplicationRecord
   validates :pub_year, presence: true,
   numericality: { only_integer: true },
   length: { is: 4 }
-
 end

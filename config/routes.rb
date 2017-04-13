@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   get '/users', to: 'users#index'
   get '/users/:id', to: 'users#show', as: 'user'
 
-  post '/upvote', to: 'votes#create', as: 'upvote'
+  post '/upvote', to: 'votes#upvote', as: 'upvote'
 
   get '/login', to: 'sessions#login_form'
   post '/login', to: 'sessions#login'

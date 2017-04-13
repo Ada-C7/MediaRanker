@@ -2,15 +2,21 @@ class SessionsController < ApplicationController
   def login_form; end
 
   def login
-    user = User.create(params[:name])
-    if user
-      session[:id] = user.id
-      session[:name] = user.name
-      flash[:success] = "Welcome, #{ user.name }"
+    if User.find_by_name(params[:name])
+      @user = User.find_by_name(params[:name])
+    else
+      @user = User.new
+      @user.name = params[:name]
+    end
+
+    session[:id] = @user.id
+    session[:name] = @user.name
+    if @user.save
+      flash[:success] = "Welcome, #{ @user.name }"
       redirect_to :root
     else
-      flash.now[:error] = "Invalid username"
-      render :login_form
+      flash.now[:error] = "Failed to log in"
+      render works_path
     end
   end
 
