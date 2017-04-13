@@ -11,6 +11,14 @@
   <body>
     <header>
       <h1><%= link_to "Media Ranker", homepage_path %></h1>
+      <section>
+        <p><%= link_to "New User", new_user_path %></p>
+        <% if session[:user_id] %>
+          <p><%= link_to "Log Out", logout_path, method: :delete %></p>
+        <% else %>
+          <p><%= link_to "Log In", login_path %></p>
+        <% end %>
+      </section>
     </header>
 
     <section class="flash">
@@ -18,7 +26,7 @@
         <div class="<%= name %>"><%= message %></div>
       <% end %>
     </section>
-    
+
     <%= yield %>
   </body>
 </html>
