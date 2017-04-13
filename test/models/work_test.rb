@@ -44,4 +44,15 @@ describe Work do
     work.valid?.must_equal true
   end
 
+  describe "Work.top_work" do
+    it "returns a work object" do
+      top_work = Work.top_work
+      top_work.must_be_instance_of Work
+    end
+
+    it "returns a work with the most votes" do
+      top_work = Work.top_work
+      top_work.must_equal (works(:work_one))
+    end
+  end
 end

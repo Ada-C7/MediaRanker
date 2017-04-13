@@ -11,7 +11,7 @@
     <%= link_to book.title, work_path(book.id) %> by <%= book.creator %>
   </h3>
   <h4>
-    Votes: <%= book.votes.length %>
+    <%= book.votes.length %> votes
   </h4>
 <% end %>
 <%= link_to "More Books", books_path %>
@@ -22,7 +22,7 @@
     <%= link_to album.title, work_path(album.id) %> by <%= album.creator %>
   </h3>
   <h4>
-    Votes: <%= album.votes.length %>
+    <%= album.votes.length %> votes
   </h4>
 <% end %>
 <%= link_to "More Albums", albums_path %>
@@ -33,7 +33,7 @@
     <%= link_to movie.title, work_path(movie.id) %> by <%= movie.creator %>
   </h3>
   <h4>
-    Votes: <%= movie.votes.length %>
+    <%= movie.votes.length %> votes
   </h4>
 <% end %>
 <%= link_to "More Movies", movies_path %>

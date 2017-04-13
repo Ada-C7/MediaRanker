@@ -7,9 +7,12 @@
 vote_one:
   user: lynn
   work: work_one
-# column: value
-#
+
 vote_two:
   user: anne
   work: work_two
+
+vote_three:
+  user: bob
+  work: work_one
 # column: value
