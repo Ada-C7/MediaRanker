@@ -4,7 +4,6 @@ class SessionsController < ApplicationController
 
   def login
     user = User.find_by_name(params[:name])
-
     if user
       flash[:success] = "Successfully logged in as #{ user.name }"
       session[:user_id] = user.id
@@ -12,7 +11,6 @@ class SessionsController < ApplicationController
     else
       user = User.new
       user.name = params[:name]
-
       if user.save
         flash[:success] = "You have successfully logged in as new user #{ user.name }"
         session[:user_id] = user.id

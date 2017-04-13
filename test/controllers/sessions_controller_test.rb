@@ -27,4 +27,9 @@ describe SessionsController do
     post login_path, params: {name: "Louise"}
     must_redirect_to users_path
   end
+
+  it "should redirect to root when logged out" do
+    delete logout_path
+    must_redirect_to root_path
+  end
 end
