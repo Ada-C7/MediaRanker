@@ -13,21 +13,18 @@ Rails.application.routes.draw do
   # delete 'items/:id', to:'items#destroy'
 
 
-    get 'users', to:'users#index'
-    #get 'users/new', to:'users#new', as: 'new_user'
-    #post 'users', to:'users#create'
-    get 'users/:id', to:'users#show', as: 'user'
+  get 'users', to:'users#index'
+  #get 'users/new', to:'users#new', as: 'new_user'
+  #post 'users', to:'users#create'
+  get 'users/:id', to:'users#show', as: 'user'
 
-      get 'login', to: 'sessions#new'
 
-      post 'login', to: 'sessions#create'
-
-      delete 'logout', to: 'sessions#destroy'
-
+  get 'login', to: 'sessions#new'
+  post 'login', to: 'sessions#create'
+  delete 'logout', to: 'sessions#destroy'
 
 
   get ':category', to: 'items#index_by_category', as: 'category_index'
-
   get ':category/new',   to:'items#new', as:'new_item_by_category'
   post ':category',   to:'items#create'
 
