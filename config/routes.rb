@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   get '/works', to: 'works#index'
   put '/works/:id', to: 'works#update'
   patch '/works/:id', to: 'works#update'
+  delete '/works/:id', to: 'works#destroy'
 
   # get '/works/new', to: 'works#new', as: 'new_work'
 
@@ -35,6 +36,7 @@ Rails.application.routes.draw do
   get '/movies', to: 'movies#index'
 
   get '/books', to: 'books#index'
+
 
 
 
