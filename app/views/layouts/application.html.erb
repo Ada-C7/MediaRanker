@@ -9,6 +9,23 @@
   </head>
 
   <body>
+      <h1>Welcome to MediaRanker!</h1>
+    <nav>
+        <ul>
+            <li><a href=<%= root_path %>>All Works</a></li>
+            <li><a href=<%= new_work_path %>>New Work</a></li>
+
+            <% if !session[:user_id] %>
+                <%= link_to 'Login', login_path %>
+            <% else %>
+            <%= link_to 'Logout', logout_path, method: :delete %>
+            <% end %>
+        </ul>
+    </nav>
+    <section class="flash">
+        <% flash.each do |name, message| %>
+        <div class="<%= name %>"><%= message %></div>
+        <% end %>
     <%= yield %>
   </body>
 </html>
