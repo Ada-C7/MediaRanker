@@ -1,7 +1,21 @@
 <h1>Category#index</h1>
 <!-- <%= params[:category] %>
 <br>This is my single index for books, albums, and movies -->
-
-<% @works.each do |work| %>
-<li><%= link_to "#{work.title}", work_path(work.id), :class => "title-link" %></li>
-<% end %>
+<table>
+  <th>Votes:</th>
+  <th>Title:</th>
+  <th>Created By:</th>
+  <th>Published:</th>
+  <th>Upvotes:</th>
+  <% @works.each do |work| %>
+  <tr>
+    <td> Votes </td>
+    <td><%= link_to "#{work.title}", work_path(work.id) %></td>
+    <td><%= "#{work.creator}" %></td>
+    <td><%= "#{work.publication_year}" %></td>
+    <td> Upvotes Button </td>
+  </tr>
+  <% end %>
+</table>
+<br>
+<%= link_to "Back to list", root_path %>

@@ -14,7 +14,11 @@
 *= require_self*/
 /**/
 
-* {
+@import url('foundation.css');
+
+
+
+ /*{
   font-family: "Helvetica Neue";
 }
 
@@ -26,8 +30,11 @@
 
 .title-link:hover {
   color: pink;
-}
+}*/
 
+/*
+
+*
 .columns {
   -webkit-column-count: 3;
   -moz-column-count: 3;
@@ -35,4 +42,4 @@
   -webkit-column-gap: 30px;
   column-gap: 30px;
   -moz-column-gap: 30px;
-}
+}*/
