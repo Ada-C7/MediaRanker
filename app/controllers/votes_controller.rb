@@ -3,7 +3,13 @@ class VotesController < ApplicationController
         vote = Vote.new
         vote[:work_id] = params[:id]
         vote[:user_id] = session[:user_id]
-        vote.save
-        redirect_to root_path
+
+        if vote.save
+            flash[:success] = "Thanks for voting"
+            redirect_to root_path
+        else
+            flash[:error] = "Your vote has not been counted"
+            redirect_to login_path
+        end
     end
 end
