@@ -1,12 +1,18 @@
 class VotesController < ApplicationController
   def upvote
-    work = Work.find_by_id(params[:id])
-    vote = Vote.new(
-      work_id: work.id,
-      user_id: 1
-    )
+    if session[:user_id]
+      work = Work.find_by_id(params[:id])
+      vote = Vote.new(
+        work_id: work.id,
+        user_id: session[:user_id]
+      )
 
-    vote.save
+      vote.save
+      flash[:success] = "Successfully upvoted!"
+    else
+      flash[:error] = "You must be logged in to vote."
+    end
+
     redirect_to :back
   end
 end
