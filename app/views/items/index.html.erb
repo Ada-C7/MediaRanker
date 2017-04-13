@@ -8,7 +8,7 @@
     </li>
     <% end %>
   </ul>
-  <%= link_to 'View More Movies', movies_path %>
+  <%= link_to 'View More Movies', category_path("movie") %>
 </div>
 
 <div class="books">
@@ -19,7 +19,7 @@
     </li>
     <% end %>
   </ul>
-  <%= link_to 'View More Books', books_path %>
+  <%= link_to 'View More Books', category_path("book") %>
 </div>
 
 <div class="albums">
@@ -30,5 +30,5 @@
     </li>
     <% end %>
   </ul>
-  <%= link_to 'View More Albums', albums_path %>
+  <%= link_to 'View More Albums', category_path("album") %>
 </div>

@@ -1,0 +1,10 @@
+<h1><%=@category%></h1>
+<ul>
+  <% @items_by_category.each do |item| %>
+  <li>
+    <%=item.category%>, <%=item.title%>, <%=item.creator%>, <%=item.publication_year%>, <%=item.description%>
+  </li>
+  <% end %>
+</ul>
+<%= link_to 'Back to homepage', root_path %>
+<%= link_to "Create new #{@category}", new_item_path(@category) %>

@@ -1,8 +1,9 @@
 Rails.application.routes.draw do
   root "items#index"
   get 'item/index'
-  get '/albums', to: 'items#albums', as: 'albums'
-  get '/books', to: 'items#books', as: 'books'
-  get '/movies', to: 'items#movies', as: 'movies'
+  get '/:category', to: 'items#category', as: 'category'
+  get '/:category/new', to: 'items#new', as: 'new_item'
+  post '/:category', to: 'items#create'
+  # get '/movies', to: 'items#category(movie)', as: 'movies'
   resources :items
 end

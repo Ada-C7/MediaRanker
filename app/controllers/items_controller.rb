@@ -7,20 +7,24 @@ class ItemsController < ApplicationController
     @books = Item.where(category: "book")
   end
 
-  def albums
-    @albums = Item.where(category: "album")
+  def category
+    @category = params[:category]
+    @items_by_category = Item.where(category: @category)
   end
+  #
+  # def books
+  #   @items = Item.where(category: "book")
+  #   render "category"
+  # end
+  #
+  # def movies
+  #   @items = Item.where(category: "movie")
+  #   render "category"
+  # end
 
-  def books
-    @books = Item.where(category: "book")
-  end
-
-  def movies
-    @movies = Item.where(category: "movie")
-  end
-  
   def new
-    @item = Item.new
+    @category = params[:category]
+    @item = Item.new(category: @category)
   end
 
   def create
@@ -54,7 +58,7 @@ class ItemsController < ApplicationController
 
   private
   def item_params
-    return params.require(:item).permit(:category, :title, :created_by, :published, :description)
+    return params.require(:item).permit(:category, :title, :creator, :publication_year, :description)
   end
 
 end

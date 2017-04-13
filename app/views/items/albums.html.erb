@@ -1,9 +1,0 @@
-<h1>Albums</h1>
-<ul>
-  <% @albums.each do |album| %>
-  <li>
-    <%=album.category%>, <%=album.title%>, <%=album.creator%>, <%=album.publication_year%>, <%=album.description%>
-  </li>
-  <% end %>
-</ul>
-<%= link_to 'Back to homepage', items_path %>
