@@ -34,6 +34,7 @@ end
 
   def show
     @work = Work.find_by(id: params[:id])
+    @votes = @work.user_votes
     if @work.nil?
       head :not_found
     end

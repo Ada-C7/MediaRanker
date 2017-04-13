@@ -8,4 +8,25 @@
 
 <%end%>
 
+
+<% case @work.category%>
+  <% when "book" %>
+ <%= link_to "Back to #{@work.category}s", books_path%>
+ <% when "album" %>
+ <%= link_to "Back to #{@work.category}s", albums_path%>
+ <% when "movie" %>
+ <%= link_to "Back to #{@work.category}s", movies_path%>
+  <%end%>
+</section>
+<section id = "vote_display">
+  <table>
+    <%counter = 0 %>
+  <%@votes.each do |voter,date|%>
+    <tr>
+      <td> <%=link_to "#{voter}", user_path(@work.votes[counter].user_id)%> </td>
+      <td> <%=date%> </td>
+      <%counter += 1 %>
+    </tr>
+  <%end%>
+</table>
 </section>
