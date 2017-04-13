@@ -1,5 +1,5 @@
 <section class="show">
-  
+
   <section class="main-show">
 
     <article class="work-content">
@@ -58,7 +58,7 @@
             <%= link_to vote.user.username, user_path(vote.user.id) %>
           </td>
           <td>
-            <%= vote.created_at %>
+            <%= vote.created_at.strftime("%b %d, %Y") %>
           </td>
         </tr>
         <% end %>

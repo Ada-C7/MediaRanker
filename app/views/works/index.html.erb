@@ -16,41 +16,6 @@
 
   <%= render partial: "indexcategory", locals: {category: "album"} %>
 
-  <!-- <article class="top books">
-    <h2 class="category-header">Top Books</h2>
-    <% num = 1 %>
-
-    <% books = Work.top_ten("book") %>
-    <% books.each do |book| %>
-      <p class="work-details">
-        <%= num %>. <%= link_to book.title, work_path(book.id) %> by <%= book.creator %>
-      </p>
-      <p class="work-votes">
-        <%= book.votes_count %> votes
-      </p>
-      <% num += 1 %>
-
-    <% end %>
-    <%= link_to "View More Books", books_path, method: :get %>
-
-  </article> -->
-
-  <!-- <article class="top albums">
-    <h2 class="category-header">Top Albums</h2>
-    <% num = 1 %>
-    <% albums = Work.top_ten("album") %>
-    <% albums.each do |album| %>
-      <p class="work-details">
-        <%= num %>. <%= link_to album.title, work_path(album.id) %> by <%= album.creator %>
-      </p>
-      <p class="work-votes">
-        <%= album.votes_count %> votes
-      </p>
-      <% num += 1 %>
-    <% end %>
-    <%= link_to "View More Albums", albums_path, method: :get %>
-
-  </article> -->
 </section>
 
 

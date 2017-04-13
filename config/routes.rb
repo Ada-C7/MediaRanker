@@ -4,7 +4,6 @@ Rails.application.routes.draw do
 
 
   root to: 'works#index'
-  # get 'works/category', to: 'works#category', as: 'category'
   get 'works/movies', to: 'works#movies', as: 'movies'
   get 'works/books', to: 'works#books', as: 'books'
   get 'works/albums', to: 'works#albums', as: 'albums'
