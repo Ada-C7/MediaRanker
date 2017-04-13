@@ -16,20 +16,24 @@
         <%end%>
       </section>
     </div>
-    <section>
-      <% if @work.category == "movie"%>
-      <%= button_to 'Back to movie list', movies_path, method: :get, class:"button medium success" %>
-      <% elsif @work.category == "book"%>
-      <%= button_to 'Back to book list', books_path, method: :get, class:"button medium success" %>
-      <% elsif @work.category == "album"%>
-      <%= button_to 'Back to album list', albums_path, method: :get, class:"button medium success" %>
-      <%end%>
-    </section>
-    <section>
-      <%= button_to 'Edit', edit_work_path, method: :get, class:"button" %>
-      <%= button_to 'Delete', work_path(@work.id), method: :delete, data: {confirm: 'Are you sure?' }, class:"button alert" %>
-    </section>
+    <div class = "row">
+      <section class = "large-4 columns" >
+        <% if @work.category == "movie"%>
+        <%= button_to 'Back to movie list', movies_path, method: :get, class:"button medium success" %>
+        <% elsif @work.category == "book"%>
+        <%= button_to 'Back to book list', books_path, method: :get, class:"button medium success" %>
+        <% elsif @work.category == "album"%>
+        <%= button_to 'Back to album list', albums_path, method: :get, class:"button medium success" %>
+        <%end%>
+      </section>
+      <div class="button-group">
+        <%= link_to 'Edit', edit_work_path, method: :get, class:"button" %>
+        <%= link_to 'Delete', work_path(@work.id), method: :delete, data: {confirm: 'Are you sure?' }, class:"button alert" %>
+      </div>
+    </div>
   </section>
+
+
 
   <section class = "small-12 large-6 columns">
     <article>

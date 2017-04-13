@@ -110,8 +110,13 @@ class WorksController < ApplicationController
         Vote.destroy(vote.id)
         redirect_to(:back)
       else
-        flash[:failure] = "You cannot downvote more than one time for this work / or if work has 0 votes / or if never voted for the work before"
-        redirect_to(:back)
+        if @work.votes.length == 0
+          flash[:failure] = "You cannot downvote if work has 0 votes "
+          redirect_to(:back)
+        else
+          flash[:failure] = "You cannot downvote more than one time for this work / or if never voted for the work before"
+          redirect_to(:back)
+        end
       end
     end
   end

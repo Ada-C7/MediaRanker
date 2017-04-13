@@ -48,6 +48,9 @@ body, .flash, #spotlight{
 .fi-like{
   color: #45933E;
 }
+.fi-like:hover, .fi-dislike:hover{
+  opacity: 0.2;
+}
 .fi-dislike{
   color: #F9534D;
 }
@@ -65,9 +68,15 @@ h3{
 #total_votes{
   color: #E3B505;
 }
-
+#spotlight{
+  margin-left: 10%;
+}
 #spotlight a{
     font-size: 180%;
+}
+#spotlight a:hover{
+    opacity: 0.7;
+    color: white;
 }
 #spotlight a, #user_has_no_votes{
   color: #016FB9;
@@ -95,7 +104,7 @@ table{
   font-weight: bold;
 }
 h2{
-  color: #484D78;
+  color: white;
   font-weight: bold;
 }
 
