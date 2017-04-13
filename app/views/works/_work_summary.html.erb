@@ -1,6 +1,6 @@
 <li>
-  <h4><%=link_to item.title, work_path(item.id)%>
-    <small> by <%=item.creator %></small>
-    <p>Votes: <%=item.votes_count %></p>
+  <h4 id = "title_summary"><%=link_to item.title, work_path(item.id)%>
+    <p id = "author"> by <%=item.creator %><small> <%=item.votes_count %> vote(s)</small></p>
+
   </h4>
 </li>

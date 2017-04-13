@@ -1,3 +1,11 @@
+<div class = "row">
+    <div class = "large-2 column">
+      <%= button_to 'View all media', root_path, method: :get, class:"button large" %>
+    </div>
+    <div class = "large-10 column">
+      <%= button_to 'Add a new movie', new_movie_path, method: :get, class:"button large" %>
+    </div>
+</div>
 <% if @all_movies.length == 0 %>
   <p>There are no movies to show</p>
 <%else%>
@@ -16,5 +24,3 @@
     <%end%>
   </table>
 <%end%>
-  <%= button_to 'View all media', root_path, method: :get %>
-  <%= button_to 'Add a new movie', new_movie_path, method: :get %>

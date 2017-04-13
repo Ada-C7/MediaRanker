@@ -1,20 +1,23 @@
-<%= form_for @work do |f| %>
-  <%= f.label :title %>
-  <%= f.text_field :title %>
 
-  <%= f.label :creator %>
-  <%= f.text_field :creator %>
+<div class = "form" >
+  <%= form_for @work do |f| %>
+    <%= f.label :title %>
+    <%= f.text_field :title %>
 
-  <%= f.label :publication_year %>
-  <%= f.text_field :publication_year %>
+    <%= f.label :creator %>
+    <%= f.text_field :creator %>
 
-  <%= f.label :description %>
-  <%= f.text_field :description %>
-  <% if request.original_url.include? "localhost"%>
-    <%= f.hidden_field :category, value: request.original_url[22..-6]%>
-  <% elsif request.original_url.include? "herokuapp"%>
-    <%= f.hidden_field :category, value: request.original_url[43..-6]%>
-  <%end%>
+    <%= f.label :publication_year %>
+    <%= f.text_field :publication_year %>
 
-  <%= f.submit value: "#{submit_text}" %>
-<% end %>
+    <%= f.label :description %>
+    <%= f.text_field :description %>
+    <% if request.original_url.include? "localhost"%>
+      <%= f.hidden_field :category, value: request.original_url[22..-6]%>
+    <% elsif request.original_url.include? "herokuapp"%>
+      <%= f.hidden_field :category, value: request.original_url[43..-6]%>
+    <%end%>
+
+    <%= f.submit value: "#{submit_text}" , class:"button large"%>
+  <% end %>
+</div>

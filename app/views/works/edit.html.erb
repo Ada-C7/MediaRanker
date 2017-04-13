@@ -14,18 +14,20 @@
 </section>
 <%end%>
 
-<%= form_for @work do |f| %>
-  <%= f.label :title %>
-  <%= f.text_field :title %>
+<div class = "form">
+  <%= form_for @work do |f| %>
+    <%= f.label :title %>
+    <%= f.text_field :title %>
 
-  <%= f.label :creator %>
-  <%= f.text_field :creator %>
+    <%= f.label :creator %>
+    <%= f.text_field :creator %>
 
-  <%= f.label :publication_year %>
-  <%= f.text_field :publication_year %>
+    <%= f.label :publication_year %>
+    <%= f.text_field :publication_year %>
 
-  <%= f.label :description %>
-  <%= f.text_field :description %>
+    <%= f.label :description %>
+    <%= f.text_field :description %>
 
-  <%= f.submit value: "Edit" %>
-<% end %>
+    <%= f.submit value: "Edit" , class:"button large"%>
+  <% end %>
+</div>

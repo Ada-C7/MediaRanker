@@ -1,44 +1,52 @@
-<main>
-  <article>
+<main class = "row">
+  <section class = "small-12 large-6 columns">
     <h3>Title: <%=@work.title%></h3>
-    <p>Created by: <%=@work.creator%></p>
-    <p>Published: <%=@work.publication_year%></p>
-    <p>Description: <%=@work.description%></p>
-
-  
-
-  </article>
-  <section id = "buttons">
-    <% if @work.category == "movie"%>
-    <%= button_to 'Back to movie list', movies_path, method: :get %>
-    <% elsif @work.category == "book"%>
-    <%= button_to 'Back to book list', books_path, method: :get %>
-    <% elsif @work.category == "album"%>
-    <%= button_to 'Back to album list', albums_path, method: :get %>
-    <%end%>
-    <%= button_to 'Edit', edit_work_path, method: :get %>
-
-    <%= button_to 'Upvote', upvote_path(@work) , method: :post %>
-
-    <%= button_to 'Downvote', downvote_path(@work) , method: :delete %>
-
-    <%= button_to 'Delete', work_path(@work.id), method: :delete, data: {confirm: 'Are you sure?' } %>
+    <div class = "row">
+      <section id ="work_description" class = "small-12 large-6 columns">
+        <p>Created by: <%=@work.creator%></p>
+        <p>Published: <%=@work.publication_year%></p>
+        <p>Description: <%=@work.description%></p>
+      </section>
+      <section class = "small-12 large-6 columns" id = "likes_dislike">
+        <%=link_to upvote_path(@work), method: :post do%>
+          <i class="fi-like"></i>
+        <%end%>
+        <%= link_to downvote_path(@work), method: :delete do%>
+          <i class="fi-dislike"></i>
+        <%end%>
+      </section>
+    </div>
+    <section>
+      <% if @work.category == "movie"%>
+      <%= button_to 'Back to movie list', movies_path, method: :get, class:"button medium success" %>
+      <% elsif @work.category == "book"%>
+      <%= button_to 'Back to book list', books_path, method: :get, class:"button medium success" %>
+      <% elsif @work.category == "album"%>
+      <%= button_to 'Back to album list', albums_path, method: :get, class:"button medium success" %>
+      <%end%>
+    </section>
+    <section>
+      <%= button_to 'Edit', edit_work_path, method: :get, class:"button" %>
+      <%= button_to 'Delete', work_path(@work.id), method: :delete, data: {confirm: 'Are you sure?' }, class:"button alert" %>
+    </section>
   </section>
 
-  <article>
-    <p>Total votes for this work: <%=@work.votes_count%></p>
-    <h3>Votes for this <%=@work.category%>:</h3>
-    <table>
-      <tr>
-        <th>User</th>
-        <th> Date </th>
-      </tr>
-      <%@work.votes.each do |vote|%>
+  <section class = "small-12 large-6 columns">
+    <article>
+      <h3 id = "total_votes">Total votes for this work: <%=@work.votes_count%></h3>
+      <h3>Votes for this <%=@work.category%>:</h3>
+      <table>
         <tr>
-          <td> <%=link_to vote.user.username, user_path(vote.user.id)  %>  </td>
-          <td> <%= vote.created_at.month%>/<%= vote.created_at.day%>/<%= vote.created_at.year%></td>
+          <th>User</th>
+          <th> Date </th>
         </tr>
-      <%end%>
-    </table>
-  </article>
+        <%@work.votes.each do |vote|%>
+          <tr>
+            <td> <%=link_to vote.user.username, user_path(vote.user.id)  %>  </td>
+            <td> <%= vote.created_at.month%>/<%= vote.created_at.day%>/<%= vote.created_at.year%></td>
+          </tr>
+        <%end%>
+      </table>
+    </article>
+  </section>
 </main>

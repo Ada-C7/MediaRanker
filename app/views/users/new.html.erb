@@ -13,10 +13,11 @@
   </ul>
 </section>
 <%end%>
+<div class = "form">
+  <%= form_for @user do |f| %>
+    <%= f.label :username %>
+    <%= f.text_field :username %>
 
-<%= form_for @user do |f| %>
-  <%= f.label :username %>
-  <%= f.text_field :username %>
-
-  <%= f.submit value: "Create" %>
-<% end %>
+    <%= f.submit value: "Create" , class:"button large"%>
+  <% end %>
+</div>

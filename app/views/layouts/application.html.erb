@@ -9,24 +9,34 @@
   </head>
 
   <header>
-    <section>
-      <%=link_to  root_path do %>
-        <%=image_tag ("owl.jpg")%>
-      <%end%>
-  </section>
-  <section>
-    <%=link_to "Media Ranker", root_path%>
-    <strong>Ranking the Best of Everything </strong>
-  </section>
-    <% if session[:user_id]== nil %>
-      <div><%=button_to "Login", login_path, method: :get%> </div>
-    <%else%>
-      <div>
-        <%=button_to "Logout", logout_path, method: :delete%>
-        <strong>logged in as <%=link_to current_user(session[:user_id]), user_path(session[:user_id])%></strong>
-       </div>
-    <%end%>
-    <div><%=button_to "Create new user", new_user_path, method: :get%> </div>
+    <section class = "row">
+      <section class = "small-6 medium-3 large-3 columns">
+        <%=link_to  root_path do %>
+          <%=image_tag ("owl.jpg")%>
+        <%end%>
+      </section>
+      <section  class = "small-6 medium-6 large-6 columns" id = "title-banner">
+        <%=link_to "Media Ranker", root_path%>
+        <strong>Ranking the Best of Everything </strong>
+      </section>
+      <section  class = "small-12 medium-3 large-3 columns" id = "login-logout-section">
+        <section class = "row">
+          <section class = " large-6 columns">
+            <%=button_to "Create new user", new_user_path, method: :get, class:"button small"%>
+          </section>
+          <section class = " large-6 columns">
+          <% if session[:user_id]== nil %>
+            <div><%=button_to "Login", login_path, method: :get,  class:"button small"%> </div>
+          <%else%>
+            <div>
+              <%=button_to "Logout", logout_path, method: :delete, class:"button small"%>
+              <strong id ="session_user">logged in as <%=link_to current_user(session[:user_id]), user_path(session[:user_id])%></strong>
+             </div>
+          <%end%>
+        </section>
+        </section>
+      </section>
+    </section>
   </header>
 
   <section class="flash">
