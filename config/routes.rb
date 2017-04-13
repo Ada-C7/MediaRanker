@@ -36,6 +36,8 @@ Rails.application.routes.draw do
 
   put '/logout', to: "sessions#logout"
 
+  post 'works/:id/upvote', to: 'work#upvote', as: 'upvote'
+
 
 # post '/works', to: 'books#create'
 

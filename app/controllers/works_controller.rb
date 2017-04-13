@@ -57,6 +57,22 @@ class WorksController < ApplicationController
     end
   end
 
+  def upvote
+    @result_work = Work.find(params[:id])
+    vote = Vote.new
+    vote.user_id = session[:user_id]
+    vote.work_id = paramas[:id]
+    vote.save
+    @result_work.vote += 1
+    @result_work.save
+
+    if vote.save && @result_work.save
+      flash[:success] = "Successfully upvoted!"
+      redirect_to work_path(@result_work.id)
+    end
+
+  end
+
 
   def edit
     @work = Work.find(params[:id])
