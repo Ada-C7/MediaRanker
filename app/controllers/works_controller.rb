@@ -25,16 +25,7 @@ class WorksController < ApplicationController
   end
 
   def vote
-    if session[:user_id]
-      new_vote = Vote.create!(user_id: session[:user_id], work_id: params[:id])
-        if new_vote
-          flash[:voted] = "Successfully Upvoted!"
-          redirect_to work_path(params[:id])
-        end
-    else
-      flash[:error] = "You must login to vote!"
-      redirect_to :back
-    end
+
   end
   # user_book = UserBook.create(user_id: session[:user_id], book_id: params[:id])
   #
