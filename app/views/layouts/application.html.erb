@@ -1,14 +1,29 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>MediaRanker</title>
-    <%= csrf_meta_tags %>
+<head>
+  <title>MediaRanker</title>
+  <%= csrf_meta_tags %>
 
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-  </head>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+</head>
 
-  <body>
-    <%= yield %>
-  </body>
+<body>
+
+
+
+  <header>
+    <%= image_tag "owl.jpg", alt:"Owl reading a book"%>
+    <h1> <%= link_to "Media Ranker", items_path %> Ranking the Best of Everything </h1>
+
+  </header>
+
+
+
+
+
+
+
+  <%= yield %>
+</body>
 </html>
