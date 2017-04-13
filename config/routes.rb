@@ -4,7 +4,9 @@ Rails.application.routes.draw do
 
   get '/works', to: 'works#index'
   put '/works/:id', to: 'works#update'
-  patch '/works/:id', to: 'works#update'
+  post 'works/:id/upvote', to: 'works#upvote', as: 'upvote'
+
+  # patch '/works/:id', to: 'works#update'
   delete '/works/:id', to: 'works#destroy'
 
   get '/books/new', to: 'books#new', as: 'new_book'
@@ -36,7 +38,6 @@ Rails.application.routes.draw do
 
   put '/logout', to: "sessions#logout"
 
-  post 'works/:id/upvote', to: 'work#upvote', as: 'upvote'
 
 
 # post '/works', to: 'books#create'
