@@ -1,21 +1,23 @@
 <h1>Works#index</h1>
-<div>
+
 <% ["book", "movie", "album"].each do |category| %>
 <% category_list = Work.by_category(category) %>
 
-<%= "#{category}:" %>
+<h1><%= "Top #{category.capitalize}'s:" %></h1>
+
 <% counter = 1 %>
 <ul>
-<% category_list.each do |work| %>
-<div class="row">
-<li class="small-3 columns"><%= link_to "#{work.title}", work_path(work.id), :class => "title-link" %></li>
-<% counter += 1 %>
-</div>
-<% end %>
-<%= link_to "View all #{category.pluralize}".pluralize, category_path(category.pluralize) %>
-</ul>
+<div class="small-6 large-4 columns"> <% category_list.each do |work| %>
 
+<li><%= link_to "#{work.title}", work_path(work.id) %></li>
+<% counter += 1 %>
 <% end %>
+<br>
+<%= link_to "View all #{category.pluralize}".pluralize, category_path(category.pluralize) %>
+
+</ul>
+<% end %>
+
 
 </div>
 
