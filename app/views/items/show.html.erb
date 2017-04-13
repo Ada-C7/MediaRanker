@@ -1,0 +1,7 @@
+<h1><%= @item[:title] %></h1>
+<h2>Created by: <%= @item[:creator] %></h2>
+<h2>Published: <%= @item[:publication_year] %></h2>
+<h2><%= @item[:description] %></h2>
+
+<%= link_to "Back to #{@item.category}s", category_path(@item.category) %>
+<%= link_to 'Back to homepage', root_path %>

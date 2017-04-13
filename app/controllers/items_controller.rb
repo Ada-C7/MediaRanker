@@ -11,16 +11,6 @@ class ItemsController < ApplicationController
     @category = params[:category]
     @items_by_category = Item.where(category: @category)
   end
-  #
-  # def books
-  #   @items = Item.where(category: "book")
-  #   render "category"
-  # end
-  #
-  # def movies
-  #   @items = Item.where(category: "movie")
-  #   render "category"
-  # end
 
   def new
     @category = params[:category]
@@ -30,7 +20,7 @@ class ItemsController < ApplicationController
   def create
     @item = Item.create(item_params)
     if @item.save
-      redirect_to items_path
+      redirect_to category_path(@item.category)
     else
       render :new
     end

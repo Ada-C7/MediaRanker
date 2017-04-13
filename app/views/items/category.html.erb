@@ -2,7 +2,7 @@
 <ul>
   <% @items_by_category.each do |item| %>
   <li>
-    <%=item.category%>, <%=item.title%>, <%=item.creator%>, <%=item.publication_year%>, <%=item.description%>
+    <%= link_to "#{item.title}", item_path(item.id) %>, <%=item.creator%>, <%=item.publication_year%>, <%=item.description%>
   </li>
   <% end %>
 </ul>
