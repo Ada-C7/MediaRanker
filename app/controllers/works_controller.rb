@@ -48,6 +48,13 @@ class WorksController < ApplicationController
   end
 
   def destroy
+    work = Work.find_by_id(params[:id])
+    category = work.category
+
+    work.remove_votes
+    work.destroy
+
+    redirect_to works_path(category)
   end
 
   private
