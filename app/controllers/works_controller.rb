@@ -43,7 +43,7 @@ class WorksController < ApplicationController
     work = Work.find(params[:id])
     category = work.category
     work.destroy
-    
+
     redirect_to works_path(category.pluralize)
   end
 
