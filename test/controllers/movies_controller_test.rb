@@ -22,7 +22,11 @@ describe MoviesController do
     must_respond_with :found
     must_respond_with :redirect
     must_redirect_to movie_path
+  end
 
+  it "should retrieve the new page" do
+    get new_movie_path
+    must_respond_with :success
   end
 
 end

@@ -19,7 +19,10 @@ class MoviesController < ApplicationController
     else
       render "edit"
     end
+  end
 
+  def new
+    @movie = Content.new
   end
 
 
