@@ -12,7 +12,6 @@ class WorksController < ApplicationController
   def create
     # don't have to be logged in
     @work = Work.new(work_params)
-    @work.user_id = rand(11..20) # this is a hack until we have session user info stuff to put in
     if @work.save
       redirect_to works_path
     else

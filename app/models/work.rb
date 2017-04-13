@@ -1,7 +1,6 @@
 class Work < ApplicationRecord
 
   has_many :votes
-  belongs_to :user
 
   validates :title, presence: true
   validates :published, presence: true

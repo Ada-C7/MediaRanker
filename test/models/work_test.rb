@@ -1,7 +1,7 @@
 require "test_helper"
 
 describe Work do
-  let(:work) { Work.new(user: users(:aurora)) }
+  let(:work) { Work.new }
 
   # must have a title
   it "cannot create a work without a title" do
@@ -50,7 +50,7 @@ describe Work do
 
   # must be able to create new work
   it "must be able to create new work" do
-    work = Work.new(title: "big stuff", published: 1986, description: "Some stuff here.", user: users(:felix), category: "movie")
+    work = Work.new(title: "big stuff", published: 1986, description: "Some stuff here.", category: "movie")
     work.valid?.must_equal true
   end
 
