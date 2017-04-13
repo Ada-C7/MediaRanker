@@ -1,27 +1,39 @@
 <header>
 
-  <h2>Media Ranker</h2>
-  <h3>Ranking the best of everything</h3>
+  <h1>Media Ranker</h1>
+  <h2>Ranking the best of everything</h2>
 
 </header>
 
 <body>
+
+<section class="spotlight-section">
+  <h2>Media Spotlight</h2>
+
+    <li><%= link_to @rand_record.title, work_path(@rand_record.id) %></li>
+
+</section>
+
+
+<section class="top-books">
   <h2>Top Books</h2>
 
 <ul>
   <% @works.each do |work| %>
     <% if work.category == "book" %>
-      <li><%= link_to work.category, work_path(work.id) %></li>
+      <li><%= link_to work.title, work_path(work.id) %></li>
     <% end %>
   <% end %>
 </ul>
+</section>
 
+<section class="top-albums">
   <h2>Top Albums</h2>
 
 <ul>
   <% @works.each do |work| %>
     <% if work.category == "album" %>
-      <li><%= link_to work.category, work_path(work.id) %></li>
+      <li><%= link_to work.title, work_path(work.id) %></li>
     <% end %>
   <% end %>
 </ul>
