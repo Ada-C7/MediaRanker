@@ -18,4 +18,7 @@ Rails.application.routes.draw do
   get ':category/new',   to:'items#new', as:'new_item_by_category'
   post ':category',   to:'items#create'
 
+
+
+
 end
