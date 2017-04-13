@@ -13,6 +13,7 @@ class WorksController < ApplicationController
 
   def new
     @work = Work.new
+    @work.category = params[:category]
   end
 
   def create
@@ -24,8 +25,9 @@ class WorksController < ApplicationController
       flash[:success] = "Successfully created #{@work.category} #{@work.id}"
       redirect_to :back
     else
-      flash.now[:success] = "A problem occurred: Could not create #{@work.category}"
+      flash.now[:failure] = "A problem occurred: Could not create #{@work.category}"
       render "new"
+    end
   end
 
   private
