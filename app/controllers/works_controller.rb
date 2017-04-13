@@ -1,10 +1,16 @@
 class WorksController < ApplicationController
   def index
-    @works = Work.all
+    @works = Work.all.sort_by do |work|
+      -work.votes.count
+    end
   end
 
   def works_index
-    @works = Work.where(category: (params[:category]).singularize)
+    @works = Work.where(category: (params[:category]).singularize).sort_by do |work|
+      -work.votes.count
+    end
+    # @works.sort_by { |work| work.votes.count}
+    #this needs some sort of each loop!!!!!!
   end
 
   def vote
