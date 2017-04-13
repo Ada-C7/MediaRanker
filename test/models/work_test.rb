@@ -48,6 +48,7 @@ describe Work do
       # did actually failure
       work.errors.messages.must_include :publication_year
     end
+  end
 
 #our seed files do not have descriptions
     # it "Requires a description" do #failure case test
@@ -101,5 +102,18 @@ describe Work do
 #         book.author.must_equal authors(:metz)  #"authors" calls out the file authors.yml
 #       end
 #     end
-  end
+
+    describe Work do
+      describe 'relations' do
+        it "Can has it vote count increased when someone votes for a work" do
+          a_work = Work.create(category: 'test category', title: 'test title', creator: 'test creator', publication_year: 1978)
+          a_user = User.create(name: 'test name')
+          new_vote = Vote.create!(user_id: a_user.id, work_id: a_work.id)
+
+          a_work.vote_count.must_include new_vote
+        end
+      end
+    end
+
+
 end

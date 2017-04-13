@@ -32,4 +32,8 @@ class Work < ApplicationRecord
   def self.gather_albums
     return Work.where(category: "album")
   end
+
+  def vote_count
+    # count = @work.vote.count
+  end
 end
