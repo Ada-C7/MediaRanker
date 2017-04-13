@@ -17,4 +17,12 @@ describe MoviesController do
     must_respond_with :success
   end
 
+  it "should update a movie object" do
+    patch movie_path(contents(:shrek).id), params: {content: { description: "Test" } }
+    must_respond_with :found
+    must_respond_with :redirect
+    must_redirect_to movie_path
+
+  end
+
 end
