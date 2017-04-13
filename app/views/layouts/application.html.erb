@@ -24,7 +24,7 @@
       <ul>
         <% if session[:user_id] == nil %>
         <div class="small-5 medium-1 columns float-right">
-          <li><%= button_to "Log In", login_path, method: :get %></li>
+          <li><%= link_to "Log In", login_path, method: :get, class: "button" %></li>
         </div>
 
         <% else  %>
@@ -33,7 +33,7 @@
               Logged in as <%= link_to " #{User.find_by_id(session[:user_id]).username}", user_path(session[:user_id]) %>
             </li>
           <li>
-            <%= button_to "Log Out", login_path, method: :delete %>
+            <%= link_to "Log Out", login_path, method: :delete, class: "button" %>
           </li>
         </div>
         <% end %>

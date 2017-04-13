@@ -46,3 +46,25 @@
   height: 80px;
   padding: 20px 0;
 }
+
+/*index*/
+
+.featured-details {
+  font-size: 31px;
+}
+
+.featured-votes {
+  font-size: 16px;
+}
+
+
+
+/*index-category*/
+
+.work-details {
+  font-size: 25px;
+}
+
+.work-creator-top-ten {
+  font-size: 20px;
+}

@@ -1,28 +1,39 @@
 <section class="index">
 
-<section class="featured-work">
-  <% if !Work.any? %>
-    <p>
-      Media Spotlight: No media yet!
-    </p>
-  <% else %>
+  <section class="featured-work">
+    <% if !Work.any? %>
+    <div class="row">
+      <p>
+        Media Spotlight: No media yet!
+      </p>
+    </div>
+    <% else %>
     <% featured_work = Work.max_votes %>
+    <div class="row large-up-12">
     <p class="featured-details">
       Media Spotlight: <%= link_to featured_work.title, work_path(featured_work.id) %> by <%= featured_work.creator %>
     </p>
-    <p>
-      <%= featured_work.votes_count %> votes
+    <p class="featured-votes">
+      <%= featured_work.votes_count %> votes - <%= featured_work.description %>
     </p>
-  <% end %>
-</section>
-<section class="top-ten-all-types">
-  <%= render partial: "indexcategory", locals: {category: "movie"} %>
+  </div>
+    <% end %>
+  </section>
+  <section class="top-ten-all-types">
+    <div class="small-12 large-4 columns">
+      <%= render partial: "indexcategory", locals: {category: "movie"} %>
+    </div>
 
-  <%= render partial: "indexcategory", locals: {category: "book"} %>
+    <div class="small-12 large-4 columns">
+      <%= render partial: "indexcategory", locals: {category: "book"} %>
+    </div>
 
-  <%= render partial: "indexcategory", locals: {category: "album"} %>
+    <div class="small-12 large-4 columns">
+      <%= render partial: "indexcategory", locals: {category: "album"} %>
+    </div>
 
-</section>
+
+  </section>
 
 
 </section>
