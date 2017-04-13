@@ -16,9 +16,13 @@ describe AlbumsController do
     must_respond_with :success
   end
 
-  # it "should update an album" do
-  #   patch album_path
-  # end
+  it "should update an album" do
+    patch album_path(contents(:hacking).id), params: {content: { description: "Test" } }
+    must_respond_with :found
+    must_respond_with :redirect
+    must_redirect_to album_path
+
+  end
 
   it "should delete an album object" do
     proc {
