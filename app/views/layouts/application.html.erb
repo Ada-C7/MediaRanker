@@ -11,8 +11,8 @@
   <header>
     <h1><%= link_to "Media Ranker", mainpages_path %> Ranking the Best of Everything</h1>
 
-    <p>Not Logged in/Logged in as <a href="#">[username]</a></p>
-    <button>Log In/Log Out</button>
+    <p>Not Logged in/Logged in as <a href="#">[username]</a> <%= link_to "Log In/Log Out", new_user_path %></p>
+
     <p>
       <strong>Successfully created new user [username] with ID [index number].</strong>
       (This message shows only after logging in. Go to a different page
