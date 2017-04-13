@@ -1,3 +1,24 @@
 <h1> Index </h1>
 
 find me app/views/works/index.html.erb
+
+<h2> All Albums</h2>
+<ul>
+
+<% 10.times do |t|%>
+
+<% album = all_albums[t]  %>
+
+<li>
+Title: <%= album.title %>, Creator: <%= album.creator %>
+</li>
+<% end %>
+</ul>
+
+<h2> All works </h2>
+<ul>
+
+<% @works.each do |work| %>
+<li>Title <%= work.title %> Creator <%= work.creator %></li>
+<% end %>
+</ul>
