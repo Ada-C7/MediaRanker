@@ -1,8 +1,8 @@
 class CreateVotes < ActiveRecord::Migration[5.0]
   def change
     create_table :votes do |t|
-      t.string :user
-      t.string :work
+      t.belongs_to :user
+      t.belongs_to :work
       t.timestamps
     end
   end
