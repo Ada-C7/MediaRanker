@@ -18,6 +18,14 @@ class WorksController < ApplicationController
   end
 
   def create
+    work = Work.new(work_params)
+    work.category = params[:category]
+
+    if work.save
+      redirect_to work_path(work.id)
+    else
+      render :new
+    end
   end
 
   def show

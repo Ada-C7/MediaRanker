@@ -6,16 +6,16 @@ class ApplicationController < ActionController::Base
     url_for(action: 'index', controller: 'works', category: category)
   end
 
-  def work_path(category, id)
-    url_for(action: 'show', controller: 'works', category: category, id: id)
+  def work_path(id)
+    url_for(action: 'show', controller: 'works', category: Work.find(id).category, id: id)
   end
 
   def new_work_path(category)
     url_for(action: 'new', controller: 'works', category: category)
   end
 
-  def upvote_path(category, id)
-    url_for(action: 'upvote', controller: 'votes', category: category, id: id)
+  def upvote_path(id)
+    url_for(action: 'upvote', controller: 'votes', category: Work.find(id).category, id: id)
   end
 
   def render_404
