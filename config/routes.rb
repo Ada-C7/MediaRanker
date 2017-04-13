@@ -2,11 +2,11 @@ Rails.application.routes.draw do
 
   root "welcome#index"
 
-
-  get 'access/menu'
-  get 'access/login'
-  get 'access/attempt_login'
-  get 'access/logout'
+  #
+  # get 'access/menu'
+  # get 'access/login'
+  # get 'access/attempt_login'
+  # get 'access/logout'
 
 
   resources :works do
