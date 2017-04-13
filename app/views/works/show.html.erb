@@ -1,1 +1,33 @@
-<h1>WORKING</h1>
+<main class="row">
+  <article class = "media-details columns large-6 small-12">
+
+    <h3><%= @work.title %></h3>
+    <p> Created by: <%= @work.creator %></p>
+    <p>Published: <%= @work.publication_year %></p>
+    <p> <%= @work.description %></p>
+
+    <section>
+      <%= link_to "Back to Albums List", albums_path, class: 'button' %>
+      <%= link_to "Edit", edit_work_path(@work.id), class: 'button' %>
+      <%= link_to "Upvote", work_path, class: 'button' %> <!-- NOTE: Dummy path -->
+      <%= link_to "Delete", work_path(@work), class: 'button alert',
+      data: {method: :delete, confirm: "Are you sure?"} %>
+    </section>
+  </article>
+
+  <article class = "voting-users columns large-6 small-12">
+    <h3>Votes for this Album</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>User</th>
+          <th>Date</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>UserName</td>
+          <td>Date</td>
+        </table>
+      </article>
+    </main>
