@@ -24,9 +24,13 @@ describe UsersController do
       must_respond_with :success
     end
 
-   #  it 'returns a 404 if work DNE' do
-
-   #  end
+    it 'returns a 404 if work DNE' do
+      user = User.first
+      id = user.id
+      user.destroy
+      get user_path(id)
+      must_respond_with :not_found
+    end
   end
 
   # describe 'edit' do
