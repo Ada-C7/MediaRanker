@@ -12,7 +12,7 @@
     <h1> MediaRanker </h2>
     <nav>
   <ul>
-    <li><%= link_to "Add a Book", new_work_path %></li>
+    <li><%= link_to "Add New", new_work_path %></li>
     <% if session[:user_id] %>
       <li><%= link_to "Logout", logout_path, method: :delete %></li>
     <% else %>

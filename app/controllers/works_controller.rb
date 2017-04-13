@@ -37,7 +37,7 @@ class WorksController < ApplicationController
   end
 
   def new
-    @work = Work.new(params[:id])
+    @work = Work.new
   end
 
   def create
@@ -62,10 +62,6 @@ class WorksController < ApplicationController
     work.save
 
     redirect_to work_path
-  end
-
-  def delete
-    @work = Work.find(params[:id])
   end
 
   def destroy
