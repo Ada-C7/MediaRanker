@@ -1,5 +1,6 @@
-<h2 class ="index_page">
-  <%= "Media Spotlight: #{Item.spotlight.title} " %>
+<h2 class ="index_page"> Media Spotlight:
+  <% spotlight = Item.spotlight %>
+  <%= link_to spotlight.title, item_path(spotlight) %> by <%=spotlight.creator%>
 
 </h2>
 
