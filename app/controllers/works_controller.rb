@@ -63,6 +63,9 @@ class WorksController < ApplicationController
     work = Work.find(params[:id])
     if work.destroy
       redirect_to send("#{work.category}s_path")
+      work.votes.each do |v|
+        v.delete
+      end
     end
   end
 
