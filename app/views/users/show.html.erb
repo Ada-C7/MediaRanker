@@ -1,39 +1,17 @@
-<p id="notice"><%= notice %></p>
-
 <h3> <%= @user.username %> </h3>
-<p> Created by: <%= @user.created_at %>
+<p> Joined site on <%= @user.created_at %>
 
-Votes
+<h4>Votes</4>
+<% @user.votes.map do | vote | %>
+ <li>
+      <span> <%=  vote.submission.title %> </span>
+      <span> <%=  vote.submission.author %> </span>
+      <span> <%=  vote.submission.publish_date %> </span>
+      <span> <%=  vote.submission.category %> </span>
+      <span> <%=  vote.created_at %> </span>
+       <span> <%=  vote.user.username %> </span>
+</li>
+<% end %>
 
-<p>
-     <% if @submission.category == "Album" %>
-          <%= link_to 'Back to Albums', albums_path(@submission) %>
-     <% elsif @submission.category == "Book" %>
-          <%= link_to 'Back to Books', books_path(@submission) %>
-     <% else @submission.category == "Movies" %>
-          <%= link_to 'Back to Movies', movies_path(@submission) %>
-     <% end %>
-
-
-     <%= link_to 'Edit', edit_submission_path(@submission) %>
-     <%= link_to 'Upvote', upvote_submission_path(@submission)%>
-     <%= link_to 'Delete', submission_path(@submission),
-          data: { confirm: "Are you confident you'd like to delete this submission?" },
-          method: :delete
-      %>
-     <%= link_to 'Back', root_path %>
-
-     <p> <%= @submission.votes.count %> Votes for This <%= @submission.category %> </p>
-
-</p>
-
-<ul>
-     <li> <strong> <span> User </span> <span> Date </span> </strong> </li>
-     <% @submission.votes.each do | vote | %>
-          <li> <span> <%= vote.user.username %> </span> <span> <%= vote.created_at %> </span> </li>
-     <% end %>
-</ul>
-
-
-<%= link_to 'Edit', edit_user_path(@user) %> |
-<%= link_to 'Back', users_path %>
+<%= link_to 'See all Users', users_path %>
+<%= link_to 'Back to Media List', root_path %>

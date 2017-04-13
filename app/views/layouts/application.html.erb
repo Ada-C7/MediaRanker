@@ -12,7 +12,7 @@
           <header>
                <div class="logo">
                          <p>Logo Placeholder</p>
-                         <p>Media Ranker Ranking the <b></b>est of Everything</p>
+                         <p>Media Ranker Ranking the Best of Everything</p>
                </div>
                <nav>
                     <ul>
@@ -20,7 +20,7 @@
                          <%= link_to "Login", login_path %>
                          <% else %>
                          <p> Logged in as
-                              <%= link_to submission_path(session[:user_id]) %>
+                              <%= link_to User.find(session[:user_id]).username, user_path(session[:user_id]) %>
                            </p>
                          <li> <p> <%= link_to "Logout", logout_path, method: :delete %> </p> </li>
                          <% end %>
