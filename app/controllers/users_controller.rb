@@ -8,6 +8,18 @@ class UsersController < ApplicationController
     @user = User.new
   end
 
+  def create
+    user = User.create user_params
+
+    if user.id != nil
+      flash[:success] = "User added successfully"
+      redirect_to user_path(user.id)
+    else
+      flash.now[:failure] = "Sign up failed, try again"
+      render :new
+    end
+  end
+
   def show
     @user = find_user
     if @user.nil?

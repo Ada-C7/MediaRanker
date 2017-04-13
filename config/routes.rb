@@ -15,6 +15,6 @@ Rails.application.routes.draw do
   get 'movies/new', to:'works#new_movie', as: 'new_movie'
 
   get 'login', to: 'sessions#new'
-  post 'login', to: 'sessions#create'
+  post 'login', to: 'sessions#login'
   delete 'logout', to: 'sessions#destroy'
 end

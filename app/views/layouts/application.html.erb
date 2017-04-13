@@ -12,7 +12,6 @@
     <header>
       <h1><%= link_to "Media Ranker", homepage_path %></h1>
       <section>
-        <p><%= link_to "New User", new_user_path %></p>
         <% if session[:user_id] %>
           <p><%= link_to "Log Out", logout_path, method: :delete %></p>
         <% else %>

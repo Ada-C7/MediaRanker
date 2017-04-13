@@ -2,8 +2,12 @@ class SessionsController < ApplicationController
   def new
   end
 
-  def create
+  def login
     user = User.find_by(username: params[:username])
+
+    if user.nil?
+      user = User.create(username: params[:username])
+    end
 
     if user
       session[:user_id] = user.id
