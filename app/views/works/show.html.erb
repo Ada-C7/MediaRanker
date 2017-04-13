@@ -2,3 +2,5 @@
 <%= @result_work.title %>
 <h4>Created by: </h4> <%= @result_work.creator %>
 <h4>Published:</h4> <%= @result_work.created_at %>
+
+<%= link_to 'Upvote', upvote_path, method: :post %>

@@ -13,4 +13,5 @@ Rails.application.routes.draw do
     get '/users', to: 'users#index', as: 'users'
     get '/users/:id', to: 'users#show', as: 'user'
 
+    post 'work/:id/upvote', to:'votes#upvote', as: 'upvote'
 end
