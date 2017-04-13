@@ -24,7 +24,4 @@ class Work < ApplicationRecord
         return spotlight_work
       end
     end
-
-
-
   end
