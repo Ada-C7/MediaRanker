@@ -23,6 +23,11 @@ describe BooksController do
     must_redirect_to book_path
   end
 
+  it "should get the new page" do
+    get new_book_path
+    must_respond_with :success
+  end
+
   it "should destroy a book" do
     proc {
   # run the delete verb on the post_path with a param equal to 1

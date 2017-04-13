@@ -21,6 +21,10 @@ class BooksController < ApplicationController
     end
   end
 
+  def new
+    @book = Content.new
+  end
+
   def destroy
     Content.destroy(params[:id])
 
