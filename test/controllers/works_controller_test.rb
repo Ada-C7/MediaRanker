@@ -1,13 +1,6 @@
 require "test_helper"
 
 describe WorksController do
-  before do
-    get works_path
-    request.env["HTTP_REFERER"] = "coming_from_works"
-
-    get login_path
-    request.env["HTTP_REFERER"] = "coming_from_login"
-  end
 
   it "should get index" do
     get works_path
@@ -103,6 +96,8 @@ describe WorksController do
   end
 
   it "no vote added when upvote clicked when not logged in" do
-
+    proc {
+      patch upvote_path(works(:libertines).id)
+    }.must_change 'Vote.count', 0
   end
 end
