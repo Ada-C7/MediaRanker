@@ -74,9 +74,19 @@ describe Work do
       t = Work.reflect_on_association(:votes)
       t.macro.must_be :has_many
     end
+
+    #### VOTE COUNT IS VALIDATED MANUALLY -- HOW TO MAKE IT AUTO
+    it "can access votes" do
+      vote_count = 1
+      work = works(:book)
+      work.votes.count.must_equal 1
+    end
+    #### VOTE COUNT IS VALIDATED MANUALLY -- HOW TO MAKE IT AUTO
+    it "can access users" do
+      user_count = 1
+      work = works(:book)
+      work.users.count.must_equal 1
+    end
   end
 ####################################################
-
-
-
 end
