@@ -8,8 +8,22 @@ class WorksController < ApplicationController
     @work = Work.find(params[:id])
   end
 
-# private
-#   def work_params
-#     return params.require(:work).permit(:category, :title, :creator, :publication_year, :description)
-#   end
+  def new
+    @category = params[:category]
+    @work = Work.new(category: @category)
+  end
+
+  def create
+    @work = Work.create(work_params)
+    if @work.save
+      redirect_to category_path(@work.category)
+    else
+      render :new
+    end
+  end
+
+private
+  def work_params
+    return params.require(:work).permit(:category, :title, :creator, :publication_year, :description)
+  end
 end
