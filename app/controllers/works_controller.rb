@@ -53,12 +53,12 @@ class WorksController < ApplicationController
   end
 
   def new
-    @work = Work.new
+    @work = Work.new #(category: params[:category])
   end
 
   def create
     @work = Work.create work_params
-    p @work.errors
+    # @work.category = params[:category]
 
     if @work.id != nil
       redirect_to works_path

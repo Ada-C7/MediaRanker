@@ -2,7 +2,7 @@ Rails.application.routes.draw do
 
   root 'works#index'
 
-  resources :works
+  resources :works #, except: [:new]
   resources :users, only: [:index, :show, :create]
   # resources :albums, only: [:index]
 
@@ -16,6 +16,7 @@ Rails.application.routes.draw do
   get '/movies', to: 'works#index_movie', as: 'movies'
 
   get '/works/:id/upvote', to: 'works#vote', as: 'upvote'
+  # get '/category/new', to: 'works#new', as: 'new_category'
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
