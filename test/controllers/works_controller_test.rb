@@ -87,6 +87,8 @@ describe WorksController do
   #   }.must_change 'Work.count', 0
   # end
 
+  # what was it before? what was it after? are they equal? should be no
+
 
   # destroy - positive
   it "should delete a work and redirect to work list" do
@@ -99,9 +101,5 @@ describe WorksController do
       delete work_path(work)
     }.must_change 'Work.count', -1
   end
-
-
-  # work params
-
 
 end

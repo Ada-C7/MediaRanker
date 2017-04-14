@@ -5,15 +5,14 @@ class VotesController < ApplicationController
   end
 
   def upvote
-    @vote = Vote.new
-    @vote.work_id = params[:id]
-    @vote.user_id = session[:id]
-    if @vote.save
+    @vote = Vote.create(work_id: params[:id], user_id: session[:id])
+    raise
+    if @vote.id
       flash[:success] = "Successfully upvoted!"
-      redirect_to work_path
+      redirect_back(fallback_location: root_path)
     else
       flash.now[:error] = "Failed to upvote"
-      render work_path
+      render 'show'
     end
   end
 

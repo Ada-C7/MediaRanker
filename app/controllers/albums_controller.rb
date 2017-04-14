@@ -7,14 +7,14 @@ class AlbumsController < ApplicationController
     @work = Work.new
   end
 
-  def create
-    @work = Work.create(work_params)
-    @work.category = 'album'
-    if @work.save
-      redirect_to :root
-    else
-      render :new
-    end
-  end
+  # def create
+  #   @work = Work.create(work_params)
+  #   @work.category = 'album'
+  #   if @work.save
+  #     redirect_to :root
+  #   else
+  #     render :new
+  #   end
+  # end
 
 end
