@@ -62,7 +62,6 @@ class WorksController < ApplicationController
 
   def update
     @work = Work.find_by_id(params[:id])
-
     if @work.nil?
       render_404
     else
