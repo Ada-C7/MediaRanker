@@ -6,11 +6,12 @@
 }
 
 header h2 {
-  margin: 0 15%;
+  margin-top: 25px;
+  margin-left: 150px;
 }
 
 main.row, .flash {
-  margin: 1% 10%;
+  margin: 10px 50px;
 }
 
 ul {
