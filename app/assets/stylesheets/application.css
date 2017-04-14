@@ -14,3 +14,12 @@
  *= require_tree .
  *= require_self
  */
+
+/*Getting Header to work correctly!*/
+ .float-right {
+    float: right;
+}
+
+.page-header {
+  border-bottom: 1px solid lightgrey;
+}

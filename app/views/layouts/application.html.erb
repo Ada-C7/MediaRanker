@@ -9,24 +9,23 @@
   </head>
 
   <body>
-    <header>
-      <ul>
-        <li>
-          <%= link_to "Add New Media", new_work_path %>
-        </li>
-        <li>
-          <%= link_to "Home", works_path %>
-        </li>
-        <% if session[:user_id] %>
-          <li>
-            <%= link_to "Logout", logout_path, method: :delete %>
-          </li>
-        <% else %>
-          <li>
-            <%= link_to "Login", login_path %>
-          </li>
-        <% end %>
-      </ul>
+    <header class="page-header row">
+      <h2 class="columns large-9 small-12">
+        <%= link_to "Media Ranker", root_path %>
+        <small>Ranking the Best of Everything</small>
+      </h2>
+      <div class="columns large-3 small-12">
+        <p class= "text-right">
+          <% if session[:user_id] %>
+            Logged in
+            <%= link_to "Logout", logout_path, method: :delete, class: "button float-right" %>
+          <% else %>
+            Not Logged in
+            <%= link_to "Login", login_path, class: "button float-right" %>
+          <% end %>
+        </p>
+      </div>
+
     </header>
 
     <section class="flash">
@@ -35,7 +34,7 @@
       <% end %>
     </section>
 
-    <main>
+    <main class="row">
       <%= yield %>
     </main>
     <footer>
