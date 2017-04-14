@@ -6,7 +6,7 @@ class VotesController < ApplicationController
     @vote.save
 
     if @vote.save
-      flash[:sucess] = "Hoorrayyyy! Your upvote worked."
+      flash[:success] = "Hoorrayyyy! Your upvote worked."
       redirect_to root_path
     else
       flash[:failure] = "Your vote failed! YOU'RE a failure!!"
