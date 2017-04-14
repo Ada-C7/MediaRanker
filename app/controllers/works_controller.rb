@@ -6,9 +6,9 @@ class WorksController < ApplicationController
     @albums = albums[0..9]
   end
 
-  def new
-    @work = Work.new(category: params[:category])
-  end
+  # def new
+  #   @work = Work.new(category: params[:category])
+  # end
 
   def create
     @work = Work.create work_params
