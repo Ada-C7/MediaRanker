@@ -1,8 +1,8 @@
 
-<h1>Media Spotlight: <%=@works.first.title%> by <%=@works.first.created_by%></h1>
+<h1>Media Spotlight: <%= link_to @works.first.title, work_path(@works.first.id)%> by <%=@works.first.created_by%></h1>
 <p>
-  <%=@works.first.description %> </br>
 
+  <%=@works.first.votes.count %> votes - <%= @works.first.description %></br>
 </p>
 
 
@@ -18,15 +18,19 @@
   </tr>
   <% @movies = [] %>
   <% @works.each do |work| %>
-  <% if work.category == "movie" %>
-  <% @movies << work %>
-  <% end %>
+    <% if work.category == "movie" %>
+      <% @movies << work %>
+      <% end %>
   <% end %>
   <% @movies[0..9].each do |work| %>
   <tr>
     <td>
-      <%=link_to work.title, work_path(work.id)%> by <%=work.created_by%>
+      <%=link_to work.title, work_path(work.id)%> by <%=work.created_by%></br>
+      <%= work.votes.count %> votes
     </td>
+  </tr>
+  <tr>
+
   </tr>
   <% end %>
 </table>
@@ -46,7 +50,8 @@
   <% @books[0..9].each do |work| %>
   <tr>
     <td>
-      <%=link_to work.title, work_path(work.id)%> by <%=work.created_by%>
+      <%=link_to work.title, work_path(work.id)%> by <%=work.created_by%> </br>
+        <%= work.votes.count %> votes
     </td>
   </tr>
   <% end %>
@@ -67,7 +72,8 @@
   <% @albums[0..9].each do |work| %>
   <tr>
     <td>
-      <%=link_to work.title, work_path(work.id)%> by <%=work.created_by%>
+      <%=link_to work.title, work_path(work.id)%> by <%=work.created_by%></br>
+        <%= work.votes.count %> votes
     </td>
   </tr>
   <% end %>

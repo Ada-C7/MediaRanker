@@ -15,7 +15,7 @@ Published <%= @work.year_published %></br>
 <% @votes =   Vote.where(work_id: @work.id) %>
 
 
-<%= @votes.count %>  votes for this <%= @work.category %>
+<%= @votes.count %>  Votes for this <%= @work.category %>
 
 <table>
   <tr>
@@ -29,10 +29,10 @@ Published <%= @work.year_published %></br>
   <% @votes.each do |vote| %>
   <tr>
     <td>
-      <%= User.find(vote.user_id).name %>
+      <%= link_to User.find(vote.user_id).name, user_path(vote.user_id) %>
     </td>
     <td>
-      <%= vote.created_at %>
+      <%= vote.created_at.strftime("%b %d, %Y") %>
     </td>
   </tr>
   <% end %>

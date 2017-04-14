@@ -1,5 +1,8 @@
 class Work < ApplicationRecord
      has_many :votes
+
+     validates :title, presence: true
+     validates :title, uniqueness: true
     # def categories_list(works)
     #   @categories_list = []
     #   works.each do | work |

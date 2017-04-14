@@ -1,0 +1,53 @@
+<% @user = User.find(params[:id]) %>
+
+User Summary: <%= @user.name %> </br>
+Joined site: <%= @user.created_at.strftime("%b %d, %Y") %>
+
+
+
+<table>
+  <th>
+    <tr>
+
+      <td>
+       Media Title
+      </td>
+      <td>
+        Created By
+      </td>
+      <td>
+        Published
+      </td>
+      <td>
+        Category
+      </td>
+      <td>
+        Voted on
+      </td>
+    </tr>
+  </th>
+  <% @user.votes.each do | vote | %>
+
+  <tr>
+    <td>
+      <%= link_to vote.work.title, work_path(vote.work.id), method: :get %>
+    </td>
+    <td>
+      <%= vote.work.created_by %>
+    </td>
+    <td>
+      <%= vote.work.year_published %>
+    </td>
+    <td>
+      <%= vote.work.category.capitalize %>
+    </td>
+
+    <td>
+      <%= vote.created_at.strftime("%b %d, %Y") %>
+    </td>
+    <% end %>
+  </tr>
+</table>
+
+<%= button_to "See all users", users_path, method: :get%>
+<%= button_to "Back to media list", works_index_path, method: :get %>

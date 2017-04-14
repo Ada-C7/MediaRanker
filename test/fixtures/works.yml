@@ -1,15 +1,15 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  title: MyString
-  created_by: MyString
-  description: MyText
-  category: MyString
-  year_published: 1
+  title: Red Fish
+  created_by: Dr. Seuss
+  description: Kids book
+  category: book
+  year_published: 1945
 
 two:
-  title: MyString
-  created_by: MyString
-  description: MyText
-  category: MyString
-  year_published: 1
+  title: Shane
+  created_by: Joe Someone
+  description: Western
+  category: Book
+  year_published: 1955

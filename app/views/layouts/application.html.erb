@@ -9,11 +9,11 @@
   </head>
 
   <body>
-    MediaRanker Ranking the Best of Everything
+    <%= link_to "MediaRanker", root_path %> Ranking the Best of Everything
 <nav>
   <ul>
     <% if session[:user_id] %>
-      <li> logged in as <%= (User.find_by_id(session[:user_id])).name%></li>
+      <li> Logged in as <%= (User.find_by_id(session[:user_id])).name%></li>
       <li><%= link_to "Logout", logout_path, method: :delete %></li>
     <% else  %>
       <li> Not logged in </li>

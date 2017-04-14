@@ -2,6 +2,7 @@ Rails.application.routes.draw do
 
 
   get '/users', to: 'users#index'
+  resources :users
 
 
   get '/login', to: 'sessions#login_form', as: 'login'

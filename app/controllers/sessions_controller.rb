@@ -8,22 +8,23 @@ class SessionsController < ApplicationController
     #returns nil if not found
     if user
       # found successfuly
+
       session[:user_id] = user.id
-      flash[:success] = "Welcome #{user.name}"
+      flash[:success] = "Successfully logged in as existing user #{user.name}"
       redirect_to root_path
     else
       # did not find
       user = User.create(name: (params[:name]))
       session[:user_id] = user.id
-      flash[:success] = "User #{user.name} created"
-      redirect_to users_path
+      flash[:success] = "Successfully created new user #{user.name}  with ID #{user.id}"
+      redirect_to root_path
     end
   end
 
 
   def logout
     session[:user_id] = nil
-    flash[:success] = "Logout successful"
+    flash[:success] = "Successfully logged out"
     redirect_to root_path
   end
 
