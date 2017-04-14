@@ -5,41 +5,53 @@
 
 <div class="column column-one">
   <img src="https://unsplash.it/300/400" alt="W3Schools.com" >
+<div class="info">
+  <div class="category">Albums</div>
+    <% @albums.each do |work|%>
+    <p>
+      <%= work[:title] %>
+      <%= work[:creator] %>
+    </p>
 
-  <h1 class="category">Books</h1>
-  <span class="info">
-    <% @books.each do |work|%>
-    <%= work[:title] %>
-    <%= work[:creator] %>
-    <%end%>
-  </span>
-</div>
+      <%end%>
+    </div>
+  </div>
+
+
+
 
 <div class="column column-two">
-  <img src="https://unsplash.it/300/400" alt="W3Schools.com" >
 
-  <h1 class=" category">Movies</h1>
+
+  <img src="https://unsplash.it/300/400" alt="W3Schools.com" >
   <span class="info">
-  <% @movies.each do |work|%>
-  <%= work[:title] %>
-  <%= work[:creator] %>
+    <div class="category"> Movies</div>
+    <% @movies.each do |work|%>
+
+  <p>
+    <%= work[:title] %>
+    <%= work[:creator] %>
+  </p>
+
   <%end%>
   </span>
 </div>
-
 
 
 
 <div class="column column-three">
   <img src="https://unsplash.it/300/400" alt="W3Schools.com" >
-
-  <h1 class=" category">Albums</h1>
   <span class="info">
-  <% @albums.each do |work|%>
-  <%= work[:title] %>
-  <%= work[:creator] %>
+    <div class="category">Books</h1></div>
+  <% @books.each do |work|%>
+
+  <p>
+    <%= work[:title] %>
+    <%= work[:creator] %>
+  </p>
   <%end%>
   </span>
+
 </div>
 
 
@@ -48,4 +60,4 @@
 </section>
 
 
-<%#= link_to 'New Work', new_work_path %>
+<!-- <%= link_to 'New Work', new_work_path %> -->

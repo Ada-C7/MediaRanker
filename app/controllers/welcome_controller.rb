@@ -3,10 +3,10 @@ class WelcomeController < ApplicationController
 
   def index
       @books = Work.where(:category => "book")
-      @movies = Work.where(:category => "album")
-      @albums = Work.where(:category => "movie")
-
-     
+      @movies = Work.where(:category => "movie")
+      @albums = Work.where(:category => "album")
   end
+
+
 
 end
