@@ -5,8 +5,10 @@
     <th>User</th>
     <th>Date</th>
   </tr>
+  <% @work.votes.each do |vote| %>
   <tr>
-    <td></td>
-    <td></td>
+    <td><%= link_to vote.user_id, user_path(vote.user_id) %></td>
+    <td><%= vote.created_at.strftime("%b %d, %Y") %></td>
   </tr>
+  <% end %>
 </table>
