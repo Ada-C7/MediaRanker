@@ -17,7 +17,7 @@
 
 <p>
   <%= link_to "Back to #{@work.category} list", category_path(@work.category.pluralize) %>
-  [edit]
+  <%= link_to "Edit", edit_work_path(@work.id) %>
   <%= link_to "Upvote", upvote_path(@work.id), method: :patch %>
   [delete]
 </p>
