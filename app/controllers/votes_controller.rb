@@ -10,10 +10,10 @@ class VotesController < ApplicationController
       @vote.work_id = params[:id]
       if !@vote.save
         flash[:error] = "Could not upvote. User has already voted for this work."
-        redirect_to :root
+        redirect_to :back
       else
         flash[:success] = "Successfully upvoted!"
-        redirect_to :root
+        redirect_to :back
       end
     end
   end

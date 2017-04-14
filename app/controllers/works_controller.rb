@@ -1,5 +1,7 @@
 class WorksController < ApplicationController
 
+  before_action :find_work, only: [:edit, :update, :show, :destroy]
+
   def index
     @works = Work.all
   end
@@ -23,27 +25,22 @@ class WorksController < ApplicationController
 
   def edit
     # don't have to be logged in
-    @work = Work.find_by_id(params[:id])
     params[:category] = @work.category
-
   end
 
   def update
     # don't have to be logged in
-    @work = Work.find_by_id(params[:id])
     if @work.update(work_params)
       flash[:success] = "Successfully updated #{@work.category} #{@work.id}"
       redirect_to "/works/#{@work.category}s"
     else
       params[:category] = @work.category
-
       render :edit
     end
   end
 
   def show
     # don't have to be logged in
-    @work = Work.find_by_id(params[:id])
     if !@work
       render_404
     end
@@ -52,7 +49,6 @@ class WorksController < ApplicationController
 
   def destroy
     # don't have to be logged in
-    @work = Work.find(params[:id])
     @work.votes.each do |vote|
       vote.destroy
     end
@@ -81,6 +77,10 @@ class WorksController < ApplicationController
 
   def work_params
     params.require(:work).permit(:title, :creator, :published, :description, :category)
+  end
+
+  def find_work
+    @work = Work.find_by_id(params[:id])
   end
 
 end
