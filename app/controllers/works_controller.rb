@@ -50,6 +50,13 @@ class WorksController < ApplicationController
         redirect_to work_path(params[:id])
   end
 
+
+  # def upvote
+  #   @work = Work.find(params[:id])
+  #  @work.increment(:upvote, params[:id])
+  #
+  # end
+
   def destroy
     @work.destroy
     respond_to do |format|

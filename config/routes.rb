@@ -13,11 +13,15 @@ Rails.application.routes.draw do
 
 
   resources :works do
-    # member do
-    #   get :delete
-    #
-    # end
+    member do
+      # get :delete
+      get :upvote
+      post :upvote
+      # get "controller#upvote"
+
+    end
   end
+
 
 
   resources :users
