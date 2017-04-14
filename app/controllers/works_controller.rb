@@ -5,10 +5,6 @@ class WorksController < ApplicationController
   def show
     @work = Work.find(params[:id])
   end
-  # def category
-  #   @category = params[:category]
-  #
-  # end
 
   def new
     @category = params[:category]
@@ -23,6 +19,17 @@ class WorksController < ApplicationController
     else
       render :new
     end
+  end
+
+  def vote
+    # check if a user a user has voted for a certain work
+    if Vote.where(user_id: session[:user_id], work_id: params[:id]).empty?
+      Vote.create(user_id: session[:user_id], work_id: params[:id])
+      flash[:success] = "You voted successfully!"
+    else
+      flash[:failure] = "Sorry you can only vote once for this work."
+    end
+    redirect_to work_path
   end
 
 
