@@ -68,6 +68,42 @@ describe WorksController do
     end
   end
 
+  ###### AHHH - You don't have tests for new ###########
+  describe 'new' do
+
+  end
+
+  describe 'create' do
+
+    it 'should create a work with good data' do
+      movie_data = { category: "movie", title: "Bug's Life", creator: "Pixar", publication_year: "1997" }
+
+      # post works_path, params: { work: movie_data }
+      # should test that the work was created
+      # Work.find_by(title: "Bug's Life").wont_be_nil
+      # could also check that the count when up but checking count before and after
+
+      # coping the destory test pattern
+      proc { post works_path, params: { work: movie_data } }.must_change 'Work.count', +1
+
+      # double up and make sure the work is the db
+      work = Work.last
+      work.title.must_equal movie_data[:title]
+
+      must_respond_with :redirect
+      must_redirect_to movies_path
+    end
+
+    it "wont create a form and re-renders a new form if passed invalid data" do
+      movie_data = { category: "movie", creator: "Pixar", publication_year: "1997" }
+      start_count = Work.count
+      post works_path, params: { work: movie_data }
+      end_count = Work.count
+      start_count.must_equal end_count
+      must_respond_with :bad_request
+    end
+   end
+
  describe 'show' do
 
    it 'should show a works page' do
@@ -101,37 +137,20 @@ describe WorksController do
    end
  end
 
- describe 'create' do
-
-   it 'should create a work with good data' do
-     movie_data = { category: "movie", title: "Bug's Life", creator: "Pixar", publication_year: "1997" }
-     post works_path, params: { work: movie_data }
-     must_respond_with :redirect
-     must_redirect_to movies_path
-   end
-
-   it "re-renders a new form if passed invalid data" do
-     movie_data = { category: "movie", creator: "Pixar", publication_year: "1997" }
-     post works_path, params: { work: movie_data }
-     must_respond_with :bad_request
-   end
-  end
-
   describe 'update' do
 
     it 'should update a work' do
       put work_path(works(:nemo).id), params: { work: {title: "new title"}}
-
       work = Work.find(works(:nemo).id)
       work.title.must_equal "new title"
-
+      work.title.wont_equal "Finding Nemo"
       must_respond_with :redirect
     end
 
     it 'return 404 if work DNE' do
       work = works(:nemo)
       work.destroy
-      put work_path(work), params: { work: {title: "new title"}}
+      put work_path(work.id)
       must_respond_with :not_found
     end
 
@@ -144,7 +163,7 @@ describe WorksController do
   describe 'destory' do
 
     it 'should delete a work' do
-      proc {delete work_path(works(:nemo).id) }.must_change 'Work.count', -1
+      proc { delete work_path(works(:nemo).id) }.must_change 'Work.count', -1
       must_respond_with :redirect
       must_redirect_to movies_path
     end
@@ -159,15 +178,20 @@ describe WorksController do
   end
 
   describe 'vote' do
-    it 'should redirect to work_path' do
+    it 'should create a vote and redirect to work_path' do
       work_id = Work.first.id
       user_id = User.first.id
-      # vote is not getting created
-      # puts "Before: #{Vote.count}"
-      post vote_path(work_id, user_id)
-      # puts "After: #{Vote.count}"
+      controller.session[:user_id] = user_id
+      # this test says vote is not getting created
+      puts "Before: #{Vote.count}"
+      post vote_path(work_id)
+      puts "After: #{Vote.count}"
       must_respond_with :redirect
       must_redirect_to work_path(work_id)
+    end
+
+    it 'should not add a vote if user has already voted for that work' do
+
     end
   end
 end

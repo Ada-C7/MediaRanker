@@ -20,6 +20,7 @@ class UsersController < ApplicationController
       head :not_found
     end
   end
+
 private
 
   def user_params
