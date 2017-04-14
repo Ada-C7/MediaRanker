@@ -39,10 +39,23 @@ describe WorksController do
 
   describe "create" do
     it "should create a new instance of Work/add it to the database" do
-
+      # work_data = { work: { category: "book", title: "Book Title", creator: "MyString", publication_year: 1, description: "book description"}}
+      # post works_path, params: work_data
+      # must_redirect_to works_path
     end
 
     it "should redirect to works path" do
+    end
+
+    it "should render a new book if the book is not saved" do
+    end
+  end
+
+  describe "edit" do
+
+    it "should return/show an instance of work to edit" do
+      get :show, params: { id: 1 }
+      must_respond_with :success
     end
 
   end
