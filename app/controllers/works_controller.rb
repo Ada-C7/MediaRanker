@@ -36,7 +36,7 @@ class WorksController < ApplicationController
       redirect_to "/works/#{@work.category}s"
     else
       params[:category] = @work.category
-      
+
       render :edit
     end
   end
@@ -56,8 +56,13 @@ class WorksController < ApplicationController
     @work.votes.each do |vote|
       vote.destroy
     end
-    @work.destroy
-    redirect_to :root
+    if @work.destroy
+      flash[:success] = "Successfully destroyed #{@work.category} #{@work.id}"
+      redirect_to "/works/#{@work.category}s"
+    else
+      flash[:error] = "Sorry, couldn't delete the #{@work.category}"
+      render @work
+    end
   end
 
   def movies

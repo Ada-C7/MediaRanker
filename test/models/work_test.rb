@@ -93,6 +93,13 @@ describe Work do
     max_votes.must_equal works(:fall)
   end
 
+  it "sorts for work created first if tie in max_votes" do
+    Vote.create(user: users(:dog), work: works(:okcomputer))
+
+    max_votes = Work.max_votes
+    max_votes.must_equal works(:fall)
+  end
+
   # a work has many votes
   it "a work has many votes" do
     votes = works(:telling).votes

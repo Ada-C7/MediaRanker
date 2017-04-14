@@ -9,15 +9,11 @@ class Work < ApplicationRecord
   validates_inclusion_of :category, :in => ["book", "movie", "album"], :allow_nil => true
 
   def self.max_votes
-
-    Work.order('votes_count DESC').limit(1).first
-
+    return Work.order('votes_count DESC').limit(1).first
   end
 
   def self.top_ten(category)
-
     return Work.order('votes_count DESC').where(category: category).limit(10)
-
   end
 
 end
