@@ -1,6 +1,7 @@
 <h1>Media Ranker</h1>
 
 <div class="movies">
+  <h2>Top movies</h2>
   <ul>
     <% @movies.first(10).each do |movie| %>
     <li>
@@ -12,6 +13,7 @@
 </div>
 
 <div class="books">
+  <h2>Top books</h2>
   <ul>
     <% @books.first(10).each do |book| %>
     <li>
@@ -23,6 +25,7 @@
 </div>
 
 <div class="albums">
+  <h2>Top albums</h2>
   <ul>
     <% @albums.first(10).each do |album| %>
     <li>
