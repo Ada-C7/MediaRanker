@@ -101,11 +101,11 @@ class WorksController < ApplicationController
     vote = Vote.create(user_id: session[:user_id], work_id: params[:id])
 
     if vote
-      flash[:successful_vote] = "Voted"
-      redirect_to homepage_path
+      flash[:successful_vote] = "Successfully Voted"
+      redirect_to work_path(params[:id])
     else
       flash[:vote_failure] = "You have already voted for this"
-      redirect_to homepage_path
+      redirect_to work_path(params[:id])
     end
   end
 
