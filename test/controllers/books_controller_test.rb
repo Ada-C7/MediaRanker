@@ -4,7 +4,7 @@ class BooksControllerTest < ActionDispatch::IntegrationTest
 
 describe BooksController do
   it "should get index" do
-    get books_index_url
+    get books_path
     value(response).must_be :success?
   end
 

@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   resources :albums
   resources :movies
 
+  get "/votes", to: "votes#index"
 
   post "/votes/upvote", to: "votes#upvote"
 

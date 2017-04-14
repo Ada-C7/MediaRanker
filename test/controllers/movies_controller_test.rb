@@ -4,7 +4,7 @@ class MoviesControllerTest < ActionDispatch::IntegrationTest
 
 describe MoviesController do
   it "should get index" do
-    get movies_index_url
+    get movies_path
     value(response).must_be :success?
   end
 

@@ -4,7 +4,7 @@ class MediaRankerControllerTest < ActionDispatch::IntegrationTest
 
 describe MediaRankerController do
   it "should get index" do
-    get media_ranker_index_path
+    get root_path
     must_respond_with :success
   end
 
