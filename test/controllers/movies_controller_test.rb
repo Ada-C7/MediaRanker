@@ -8,5 +8,14 @@ describe MoviesController do
     value(response).must_be :success?
   end
 
+  it "should get new" do
+    get new_movie_path
+    value(response).must_be :success?
+  end
+
+  it "should get update" do
+    get movie_path
+    value(response).must_be :success?
+  end
 end
 end

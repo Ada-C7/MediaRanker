@@ -8,18 +8,18 @@ describe BooksController do
     value(response).must_be :success?
   end
 
-  # it "should get new" do
-  #   get books_new_url
-  #   value(response).must_be :success?
-  # end
-  #
-  # it "should get update" do
-  #   get books_update_url
-  #   value(response).must_be :success?
-  # end
-  #
+  it "should get new" do
+    get new_book_path
+    value(response).must_be :success?
+  end
+
+  it "should get update" do
+    get book_path
+    value(response).must_be :success?
+  end
+
   # it "should get delete" do
-  #   get books_delete_url
+  #   get book_path
   #   value(response).must_be :success?
   # end
 

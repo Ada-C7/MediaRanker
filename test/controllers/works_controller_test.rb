@@ -9,15 +9,15 @@ class WorksControllerTest < ActionDispatch::IntegrationTest
       must_respond_with :success
     end
 
-    # it "should get new" do
-    #   get works_new_url
-    #   value(response).must_be :success?
-    # end
-    #
-    # it "should get update" do
-    #   get works_update_url
-    #   value(response).must_be :success?
-    # end
+    it "should get new" do
+      get new_work_path
+      value(response).must_be :success?
+    end
+
+    it "should get update" do # why doesn't this test pass?
+      get work_path
+      value(response).must_be :success?
+    end
     #
     # it "should get delete" do
     #   get works_delete_url

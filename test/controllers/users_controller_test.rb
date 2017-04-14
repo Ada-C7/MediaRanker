@@ -8,16 +8,12 @@ describe UsersController do
     value(response).must_be :success?
   end
 
-  # it "should get new" do
-  #   get users_new_url
-  #   value(response).must_be :success?
-  # end
-  #
-  # it "should get update" do
-  #   get users_update_url
-  #   value(response).must_be :success?
-  # end
-  #
+  it "should get new" do
+    get new_user_path
+    value(response).must_be :success?
+  end
+
+  
   # it "should get delete" do
   #   get users_delete_url
   #   value(response).must_be :success?
