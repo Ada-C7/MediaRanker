@@ -1,7 +1,2 @@
-<li>
-  <%= link_to work.title, work_path(work.id) %>
-  <%= link_to "Edit", edit_work_path(work) %>
-  <!-- Want a button instead of a link? Change link_to to button_to -->
-  <%= link_to "Delete", work_path(work), method: :delete,
-        data: { confirm: "Are you sure you want to delete work #{work.title}" } %>
-</li>
+<h2> <%= link_to work.title, work_path(work.id) %> </h2> by <%=work.created_by%>
+</p>votes</p>

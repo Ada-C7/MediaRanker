@@ -5,7 +5,7 @@ class WorksController < ApplicationController
   end
 
   def new
-    @works = Work.new
+    @work = Work.new
   end
 
   def create
@@ -45,15 +45,12 @@ class WorksController < ApplicationController
 
   end
 
-  def upvote
-  end
-
-  def upvote
+  def vote
     vote = Vote.create(user_id: session[:user_id], work_id: params[:id])
 
     if vote
       flash[:success] = "Vote"
-      redirect_to params[:id]
+      redirect_to work_path(params[:id])
     end
 
   end
