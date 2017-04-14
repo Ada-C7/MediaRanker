@@ -29,12 +29,16 @@
   <strong>Description:</strong>
 <%= @work[:description] %>
 </p>
-<!--
-<div id="post_<%= @work.id %>_likes">
-  <%#= render partial: "votes", locals: {vote: @vote} %>
-</div> -->
 
 
-<%= link_to "upvote", upvote_work_path(:id => @work.id) %>
+<div id="work_<%= @work.id %>_votes">
+  <%= render partial: "votes", locals: {vote: @vote} %>
+</div>
+
+
+
+
+
+
 <%= link_to 'Edit', edit_work_path(@work) %> |
 <%= link_to 'Back', works_path %>

@@ -6,31 +6,33 @@ Rails.application.routes.draw do
 
 
   get 'welcome/menu'
-  get 'welcome/login'
 
-  # get 'welcome/attempt_login'
-  post 'welcome/attempt_login'
+  get 'welcome/login'
+  post 'welcome/login'
 
   get 'welcome/logout'
+  delete 'welcome/logout'
+
+  get 'logout' => 'welcome#destroy'
+
 
 
   resources :works do
     member do
-      # resource :vote, module: :works
+       resource :vote
       get :delete
-      get :upvote
-      # post :upvote
+      get :vote
+      post :vote
 
     end
   end
 
 
-
   resources :users
-  #   member do
-  #     get :delete
-  #
-  # end
+  resources :sessions, only: [:new, :create, :destroy]
+    # member do
+    #   get :delete
+
 
 
 end

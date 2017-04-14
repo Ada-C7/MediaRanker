@@ -1,7 +1,5 @@
 .welcome-nav{
-  margin: 8% 15% 5% 15%;
-  padding:0;
-  // height:100%;
+  margin: 1% 12% 0% 12%;
 }
 
 .container {
@@ -11,32 +9,24 @@
 .column {
     flex: 1;
     box-sizing: border-box;
-
 }
-
 
 .column-one {
     order: 3;
-
 }
 .column-two {
     order: 1;
-
-
 }
 .column-three {
     order: 4;
-
 }
 
-
-
-
+$transition: all 0.3s cubic-bezier(.05, .69, .14, 1);
+$sideWidth: 50px;
 
 .category {
-
-  	transform: rotate(90deg);
-  	transform-origin: left top 0 ;
+  transform:  rotate(-90deg) perspective(1px);
+      transform-origin: $sideWidth $sideWidth;
   //   position: relative;
   //   display: inline-block;
   //   border: 0;
@@ -44,7 +34,6 @@
     // float: left;
     font-size: 50px;
 // margin-top: 1.5em;
-
     font-family: 'Druk XCond Web';
     font-weight: 900;
     font-style: normal;
@@ -52,9 +41,8 @@
   }
 
   .info {
-
-     padding-left:   3em;
+    //  padding-left:   3em;
     //  padding: 1em;
-    float: right;
+    // float: right;
     // margin-top: -5em;
   }

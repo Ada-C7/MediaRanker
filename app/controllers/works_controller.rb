@@ -1,12 +1,23 @@
 class WorksController < ApplicationController
 
+
+
+
+
+
   def index
     @works = Work.all
+
+    @username = User.find(session[:user_id]).name
+
+    @user_id = session[:user_id]
   end
 
 
   def show
       @work = Work.find(params[:id])
+
+
   end
 
 
@@ -51,10 +62,8 @@ class WorksController < ApplicationController
   end
 
 
-  def upvote
 
 
-  end
 
   def destroy
     @work.destroy
@@ -73,4 +82,10 @@ class WorksController < ApplicationController
     def work_params
       params.require(:work).permit(:category, :title, :creator, :publication_year, :description)
     end
+
+
+
+
+
+
 end

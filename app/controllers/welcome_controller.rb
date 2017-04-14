@@ -7,32 +7,27 @@ class WelcomeController < ApplicationController
     @albums = Work.where(:category => "album")
 
 
-    @name = session[:name]
+    # @username = User.find(session[:user_id]).name
     @user_id = session[:user_id]
   end
 
   def login
-
+    user = User.find_by(name: params[:name])
+    if user
+      session[:user_id] = user.id
+      redirect_to root_path
+    end
   end
 
 
   def logout
-    session[:user_id]=nil
-    session[:name]=nil
-    flash[:notice] = 'You have logged out'
+
+    session.delete(:user_id)
+    @current_user = nil
     redirect_to root_path
   end
 
-  def attempt_login
-    if params[:name].present?
-      found_user = User.where(:name => params[:name]).first
 
-      if found_user
-        session[:user_id] = found_user.id
-        session[:name]= found_user.name
-        # flash[:notice] = 'You are logged in"
-        redirect_to(root_path)
-      end
-    end
-  end
+
+
 end
