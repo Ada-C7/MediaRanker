@@ -6,13 +6,13 @@
   <p>Published: <%= @result_book.pub_year %></p>
   <p><%= @result_book.description %></p>
 
-  <p>***add upvote button***</p>
-
 <%= link_to "Back to book list", books_path, class: :button %>
 <%= link_to "Edit", edit_book_path, class: :button %>
 <%= link_to "Delete", book_path, class: :button %>
+<%= link_to "Upvote", votes_upvote_path(work_id: @result_book.id), class: :button, method: :post %>
 
-  <h3> ? Votes for this book</h3>
+
+<h3> <%= @result_book.votes.length %> Votes for this album</h3>
 
 
   <table>
