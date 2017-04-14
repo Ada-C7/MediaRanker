@@ -28,7 +28,7 @@
     <ul>
       <% @books.each do |book| %>
       <li>
-        <h4><%= link_to book.title, work_path(book.id) %><small>by <%= book.creator %></small></h4>
+        <h4><%= link_to book.title, work_path(book.id) %><small> by <%= book.creator %></small></h4>
         <p>
           <%= book.votes.count %> votes
         </p>
