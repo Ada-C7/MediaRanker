@@ -3,4 +3,7 @@ class BooksController < WorksController
     @books = Work.where(category:"book")
   end
 
+  def new
+    @work = Work.new(category: "book")
+  end
 end

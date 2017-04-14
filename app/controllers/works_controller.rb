@@ -7,11 +7,11 @@ class WorksController < ApplicationController
   end
 
   def edit
-    @work = Work.find(params[:id])
+    @work = Work.find_by_id(params[:id])
   end
 
   def update
-    @work = Work.find(params[:id])
+    @work = Work.find_by_id(params[:id])
     if @work.update(work_params)
       if @work.category == "movie"
         redirect_to movies_path
@@ -38,19 +38,26 @@ class WorksController < ApplicationController
       end
     else
       flash.now[:error] = "Error has occured"
-      render "new"
+      if @work.category == "movie"
+        render "movies/new"
+      elsif @work.category == "book"
+        render "books/new"
+      else
+        render "albums/new"
+      end
     end
   end
 
   def destroy
-    category = params[:category]
+    work = Work.find_by_id(params[:id])
+    category = work.category
     Work.destroy(params[:id])
 
     if category == "movie"
       redirect_to movies_path
     elsif category == "book"
       redirect_to books_path
-    else # category == "album"
+    else
       redirect_to albums_path
     end
   end
