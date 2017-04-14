@@ -12,6 +12,7 @@
         <th>Media Title</th>
         <th>Created By</th>
         <th>Published</th>
+        <th>Vote</th>
         <th>Voted On</th>
       </tr>
     </thead>
@@ -21,6 +22,7 @@
           <td><%= vote.work.title %></td>
           <td><%= vote.work.creator %></td>
           <td><%= vote.work.publication_year %></td>
+          <td><%= vote.value == 1 ? "Upvote" : "Downvote" %></td>
           <td><%= vote.created_at.strftime('%b %e, %Y') %></td>
         </tr>
       <% end %>

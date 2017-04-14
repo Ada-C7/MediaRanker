@@ -19,6 +19,7 @@
       <thead>
         <tr>
           <th>User</th>
+          <th>Vote</th>
           <th>Date</th>
         </tr>
       </thead>
@@ -26,6 +27,7 @@
         <% @work.votes.each do |vote| %>
           <tr>
             <td><%= link_to vote.user.username, user_path(vote.user) %></td>
+            <td><%= vote.value == 1 ? "Upvote" : "Downvote" %></td>
             <td><%= vote.created_at.strftime('%b %e, %Y') %></td>
           </tr>
         <% end %>
