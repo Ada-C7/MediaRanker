@@ -1,9 +1,8 @@
-<% @submission.errors.each do |field, msg | %>
-     <li>
-     <h6> <%= field %> <%= msg %> </h6>
-     </l1>
-<% end %>
-
+<ul>
+  <% @submission.errors.each do |field, msg| %>
+    <li><%= msg %></li>
+  <% end %>
+</ul>
 
 <%=form_for @submission, method: form_method do | f | %>
 
