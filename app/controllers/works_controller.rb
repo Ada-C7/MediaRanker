@@ -15,22 +15,8 @@ class WorksController < ApplicationController
     @works = Work.where(category: "movie")
   end
 
-  def album_show
-    @work = Work.find_by(category: "album", id: params[:id])
-    if @work.nil?
-      head :not_found
-    end
-  end
-
-  def movie_show
-    @work = Work.find_by(category: "movie", id: params[:id])
-    if @work.nil?
-      head :not_found
-    end
-  end
-
-  def book_show
-    @work = Work.find_by(category: "book", id: params[:id])
+  def show
+    @work = Work.find_by(id: params[:id])
     if @work.nil?
       head :not_found
     end
