@@ -22,6 +22,17 @@ class WorksController < ApplicationController
     end
   end
 
+  def vote
+    if Vote.where(user_id: session[:user_id], work_id: params[:id]).empty?
+      Vote.create(user_id: session[:user_id], work_id: params[:id])
+      flash[:success] = "You voted successfully!"
+    else
+      flash[:failure] = "Sorry you can only vote once for this work."
+    end
+    redirect_to work_path
+  end
+
+
 private
   def work_params
     return params.require(:work).permit(:category, :title, :creator, :publication_year, :description)

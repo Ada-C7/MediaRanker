@@ -12,8 +12,11 @@ Rails.application.routes.draw do
   get '/:category/new', to: 'works#new', constraints: { category: /(books)|(movies)|(albums)/}, as: 'new_work'
   post '/:category', to: 'works#create', constraints: { category: /(books)|(movies)|(albums)/}
 
-
-  resources :works, except: [:index, :create]
+  resources :works, except: [:index, :create] do
+    member do
+      post 'vote'
+    end
+  end
 
   # get 'movies/index'
   #
