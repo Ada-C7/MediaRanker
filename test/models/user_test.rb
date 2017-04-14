@@ -22,7 +22,13 @@ describe User do
     user.save.must_equal true
   end
 
-  
+  # a user has many votes
+  it "a user has many votes" do
+    votes = users(:aurora).votes
+    votes.empty?.must_equal false
+  end
+
+
 
 
 end

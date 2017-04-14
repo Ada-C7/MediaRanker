@@ -93,4 +93,10 @@ describe Work do
     max_votes.must_equal works(:fall)
   end
 
+  # a work has many votes
+  it "a work has many votes" do
+    votes = works(:telling).votes
+    votes.first.user.username.must_equal "felixbenjamin"
+  end
+
 end
