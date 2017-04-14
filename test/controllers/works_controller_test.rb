@@ -11,44 +11,30 @@ describe WorksController do
   end
 
   it "should get new work page" do
-    get new_work_path
+    get new_category_path(book.category)
     must_respond_with :success
   end
-  #
-  # it "should get edit work page" do
-  #   get edit_work_path(album.id)
-  #   must_respond_with :success
-  # end
-  #
-  # it "should get work show page" do
-  #   get work_path(album.id)
-  #   must_respond_with :success
-  # end
-  #
-  # it "should show a 404 error when work not found" do
-  #   album.id = nil
-  #   get work_path(album.id)
-  #   must_respond_with :missing
-  # end
-  #
-  # it "should get books category page" do
-  #   get books_path
-  #   must_respond_with :success
-  # end
-  #
-  # it "should redierct books page after adding a new book" do
-  #   post works_path, params: {
-  #     book: {
-  #       title: "New Book",
-  #       creator: "Sandi",
-  #       year: 1984,
-  #       description: "A great book",
-  #       category: "book"
-  #     }
-  #   }
-  #   must_redirect_to books_path
-  # end
-  #
+
+  it "should get edit work page" do
+    get edit_work_path(album.id)
+    must_respond_with :success
+  end
+
+  it "should get work show page" do
+    get work_path(album.id)
+    must_respond_with :success
+  end
+
+  it "should show a 404 error when work not found" do
+    get work_path(50000)
+    must_respond_with :missing
+  end
+
+  it "should get the category index page" do
+    get show_category_path("album")
+    must_respond_with :success
+  end
+
   # it "should affect the model when adding a new book" do
   #   proc {
   #     post works_path, params: {
@@ -63,10 +49,10 @@ describe WorksController do
   #   }.must_change 'Work.count', 1
   # end
   #
-  # it "should delete a book and rediect to the books page" do
-  #   delete work_path(book.id)
-  #   must_redirect_to books_path
-  # end
+  it "should delete a book and rediect to the books page" do
+    delete work_path(params: book.id)
+    must_redirect_to root_path
+  end
   #
   # it "should get albums category page" do
   #   get albums_path

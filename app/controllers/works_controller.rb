@@ -93,7 +93,10 @@ class WorksController < ApplicationController
   def destroy
     Work.destroy(params[:id])
     votes = Vote.find_by_work_id(params[:id])
-    votes.destroy
+
+    if votes
+      votes.destroy
+    end
 
     redirect_to root_path
   end
