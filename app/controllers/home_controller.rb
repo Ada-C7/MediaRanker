@@ -8,15 +8,15 @@ class HomeController < ApplicationController
      end
 
      def albums
-          @albums = Submission.where("category = ?", "Album" )
+          @albums = Submission.show_all("Album")
      end
 
      def books
-          @books = Submission.where("category = ?", "Book" )
+          @books = Submission.show_all("Book")
      end
 
      def movies
-          @movies = Submission.where("category = ?", "Movie" )
+          @movies = Submission.show_all("Movie")
      end
 
 end

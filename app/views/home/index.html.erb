@@ -1,5 +1,3 @@
-<h1>Home#index</h1>
-
 <h1>Spotlight</h1>
 <ul>
      <% @spotlight.each do | submission | %>
@@ -13,7 +11,7 @@
 <ul>
      <% @albums.each do | submission | %>
      <li> <%= link_to submission.title, submission_path(submission.id) %> by  <%=  submission.author %></li>
-     <li> <%=  submission.votes.size %></li>
+     <li> <%= submission.votes.size %></li>
      <% end %>
 </ul>
 <p> <%= link_to "View More Albums", albums_path %> </p>
@@ -35,4 +33,4 @@
      <li> <%=  submission.votes.count %></li>
      <% end %>
 </ul>
-<p> <%= link_to "View More Movies", movies_path %> </p> 
+<p> <%= link_to "View More Movies", movies_path %> </p>

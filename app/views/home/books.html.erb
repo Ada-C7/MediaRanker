@@ -2,7 +2,7 @@
 <ul>
      <% @books.each do | submission | %>
           <li> <%= submission.votes.size %> </li>
-          <li> <%= submission.title %> </li>
+          <li> <%= link_to submission.title, submission_path(submission.id) %> </li>
           <li> <%= submission.author %> </li>
           <li> <%= submission.publish_date %> </li>
           <li> <%= link_to 'Upvote', upvote_submission_path(submission.id)%> </li>

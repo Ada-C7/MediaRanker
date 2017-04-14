@@ -16,6 +16,14 @@ class Submission < ApplicationRecord
                 .group('submissions.id')
                 .order('vote_count DESC')
                 .where("category = ?", tootsy)
-                .limit(5)
+                .limit(10)
+     end
+
+     def self.show_all(tootsy)
+          submissions = Submission.left_outer_joins(:votes)
+                .select('submissions.*, COUNT(votes.*) as vote_count')
+                .group('submissions.id')
+                .order('vote_count DESC')
+                .where("category = ?", tootsy)
      end
 end
