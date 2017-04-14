@@ -11,8 +11,7 @@ Rails.application.routes.draw do
 
   resources :works, except: [:index, :new]
 
-  get 'users', to:'users#index', as:'users'
-  get 'users/:id', to:'users#show', as:'user'
+  resources :users, only: [:index, :show]
 
   get 'login', to:'sessions#login_form'
   post 'login', to:'sessions#login'
