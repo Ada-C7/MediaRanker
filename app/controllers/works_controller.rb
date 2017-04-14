@@ -49,7 +49,7 @@ class WorksController < ApplicationController
       flash[:success] = "You have created a #{@work.category} #{@work.title}."
       redirect_to works_path
     else
-      render "new"
+      render "new", status: :bad_request
     end
   end
 
@@ -73,7 +73,7 @@ class WorksController < ApplicationController
       flash[:success] = "You have updated #{@work.title}."
       redirect_to work_path
     else
-      render "edit"
+      render "edit", status: :bad_request
     end
   end
 

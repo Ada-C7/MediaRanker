@@ -1,34 +1,84 @@
 require "test_helper"
 
 describe WorksController do
-  #pos index
-  it "should get index" do
-    get works_path
-    must_respond_with :success
+  describe "#index" do
+     #pos index
+    it "should get index" do
+      get works_path
+      must_respond_with :success
+    end
+
+    it "still works with multiple works" do
+      Work.count.must_be :>, 0
+      get works_path
+      must_respond_with :success
+    end
+
+    it "works with no works" do
+      Work.destroy_all
+      get works_path
+      must_respond_with :success
+    end
   end
 
-  # it "still works with multiple works" do
-  #   Work.count.must_be :>, 0
-  #   get works_path
-  #   must_respond_with :success
-  # end
+  describe "index_books" do
+    #pos index_books
+    it "should get index_books page" do
+      get books_path
+      must_respond_with :success
+    end
 
-  #pos index_books
-  it "should get index_books page" do
-    get books_path
-    must_respond_with :success
+    it "still works with multiple works" do
+      Work.count.must_be :>, 0
+      get books_path
+      must_respond_with :success
+    end
+
+    it "works with no works" do
+      Work.destroy_all
+      get books_path
+      must_respond_with :success
+    end
   end
 
-  #pos index_albums
-  it "should get index_albums page" do
-    get albums_path
-    must_respond_with :success
+  describe "index_albums" do
+    #pos index_albums
+    it "should get index_albums page" do
+      get albums_path
+      must_respond_with :success
+    end
+
+    it "still works with multiple works" do
+      Work.count.must_be :>, 0
+      get albums_path
+      must_respond_with :success
+    end
+
+    it "works with no works" do
+      Work.destroy_all
+      get albums_path
+      must_respond_with :success
+    end
   end
 
-  #pos index_movies
-  it "should get index_movies page" do
-    get movies_path
-    must_respond_with :success
+  describe "index_movies" do
+    #pos index_movies
+    it "should get index_movies page" do
+      get movies_path
+      must_respond_with :success
+    end
+
+    it "still works with multiple works" do
+      Work.count.must_be :>, 0
+      get movies_path
+      must_respond_with :success
+    end
+
+    it "works with no works" do
+      Work.destroy_all
+      get movies_path
+      must_respond_with :success
+    end
   end
 
   #pos show test
@@ -43,63 +93,68 @@ describe WorksController do
     must_respond_with :missing
   end
 
-  #pos new
-  it "should get form for new work" do
-    get new_work_path
-    must_respond_with :success
+  describe "#new" do
+    #pos new
+    it "should get form for new work" do
+      get new_work_path
+      must_respond_with :success
+    end
   end
 
-  #pos create redirect
-  it "should redirect to index after adding a work" do
-    post works_path params: { work:
+  describe "#create" do
+    #pos create redirect
+    it "should redirect to index after adding a work" do
+      post works_path params: { work:
+              { title: "Title",
+                category: "book",
+                creator: "creator",
+                pub_yr: 1970,
+                desc: "Desc" }
+            }
+      must_respond_with :redirect
+      must_redirect_to works_path
+    end
+
+    #neg create route - testing that it will go to new page.
+    it "should respond w/bad_request if not saved" do
+      post works_path params: { work:
+              { title: "",
+                category: "book",
+                creator: "creator",
+                pub_yr: 1970,
+                desc: "Desc" }
+            }
+        must_respond_with :bad_request
+    end
+
+    #pos create affect database test
+    it "should affect the model when updating a book" do
+      proc {
+        post works_path, params: { work:
             { title: "Title",
               category: "book",
               creator: "creator",
               pub_yr: 1970,
               desc: "Desc" }
-          }
-    must_respond_with :redirect
-    must_redirect_to works_path
-  end
+            }
+        }.must_change 'Work.count', 1
+    end
 
-  #neg create route - testing that it will go to new page.
-  it "should render new page if work was not saved" do
-    post works_path params: { work:
+    #neg create test - Not sure if this is actually testing
+    #What I want it to test.
+    it "should not affect the model when book is invalid" do
+      proc {
+        post works_path, params: { work:
             { title: "",
               category: "book",
               creator: "creator",
               pub_yr: 1970,
               desc: "Desc" }
-          }
-      must_respond_with :success
+            }
+        }.must_change 'Work.count', 0
+    end
   end
 
-  #pos create affect database test
-  it "should affect the model when updating a book" do
-    proc {
-      post works_path, params: { work:
-          { title: "Title",
-            category: "book",
-            creator: "creator",
-            pub_yr: 1970,
-            desc: "Desc" }
-          }
-      }.must_change 'Work.count', 1
-  end
-
-  #neg create test - Not sure if this is actually testing
-  #What I want it to test.  - not updating db
-  it "should not affect the model when book is invalid" do
-    proc {
-      post works_path, params: { work:
-          { title: "",
-            category: "book",
-            creator: "creator",
-            pub_yr: 1970,
-            desc: "Desc" }
-          }
-      }.must_change 'Work.count', 0
-  end
 
   #pos edit test
   it "should get form to edit work" do
