@@ -7,21 +7,21 @@ class WorksController < ApplicationController
   end
 
  def books
-   books = Work.where(category: "book")
-   @books = books.sort {|b1, b2| b2.votes.count <=> b1.votes.count}
-   return @books
+   works = Work.where(category: "book")
+   @works = works.sort {|b1, b2| b2.votes.count <=> b1.votes.count}
+   return @works
  end
 
  def albums
-   albums = Work.where(category: "album")
-   @albums = albums.sort {|a1, a2| a2.votes.count <=> a1.votes.count}
-   return @albums
+   works = Work.where(category: "album")
+   @works = works.sort {|a1, a2| a2.votes.count <=> a1.votes.count}
+   return @works
  end
 
 def movies
-   movies = Work.where(category: "movie")
-   @movies = movies.sort {|m1, m2| m2.votes.count <=> m1.votes.count}
-   return @movies
+   works = Work.where(category: "movie")
+   @works = works.sort {|m1, m2| m2.votes.count <=> m1.votes.count}
+   return @works
 end
 
 
@@ -89,6 +89,10 @@ end
   private
   def work_params
   params.require(:work).permit(:category, :title, :creator, :publication_year, :description)
+  end
+
+  def vote_params
+  params.require(:vote).permit(:id)
   end
 
 

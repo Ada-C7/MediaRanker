@@ -1,18 +1,40 @@
+<h1>List of Movies</h1>
 <table>
   <tr>
     <th>
-      All Movies
+      Votes
+    </th>
+    <th>
+      Title
+    </th>
+    <th>
+      Created By
+    </th>
+    <th>
+      Published
+    </th>
+    <th>
+      <%= button_to "Upvote", upvote_path(work.id), method: :post %>
     </th>
   </tr>
 
-<% @movies.each do |movie| %>
+<% @works.each do |work| %>
 <tr>
-<td>
-<%= movie.title %>
-</td>
-<td>
-<%= movie.votes.count %> votes
-</td>
+  <td>
+  <%= work.votes.count %>
+  </td>
+  <td>
+  <%= work.title %>
+  </td>
+  <td>
+  <%= work.creator %>
+  </td>
+  <td>
+  <%= work.publication_year %>
+  </td>
+  <td>
+  Upvote
+  </td>
 </tr>
 <% end %>
 </table>
