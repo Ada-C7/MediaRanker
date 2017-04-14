@@ -47,7 +47,7 @@ class WorksController < ApplicationController
       flash[:success] = "Success! Added to the list."
       redirect_to works_path
     else
-      flash[:success] = "It didn't work, try again?"
+      flash[:failure] = "It didn't work, try again?"
       render :new, status: :bad_request
     end
   end
@@ -58,12 +58,13 @@ class WorksController < ApplicationController
 
   def update
     work = Work.find(params[:id])
+    work.assign_attributes(work_params)
 
-    if work.update!(work_params)
+    if work.save
       flash[:success] = "Successfully updated!"
       redirect_to work_path
     else
-      flash[:success] = "It didn't work, try again?"
+      flash[:failure] = "It didn't work, try again?"
       render :new, status: :bad_request
     end
   end

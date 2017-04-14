@@ -151,12 +151,13 @@ describe WorksController do
         must_redirect_to work_path(work.id)
       end
 
+
+#### TW: This does not work
       it "should show an error if mandatory fields are changed to empty" do
           work = works(:movie)
-          patch work_path(work.id), work: {title: nil, creator: "UpdatedCreator"}
+          patch work_ path(work.id), work: {title: nil, creator: "UpdatedCreator"}
 
           must_respond_with :error
-
       end
     end
 

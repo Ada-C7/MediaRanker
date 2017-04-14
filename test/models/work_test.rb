@@ -18,6 +18,14 @@ describe Work do
       work.errors.messages.must_include :category
     end
 
+    it "is invalid without a category that is album, movie, or book" do
+      work = Work.new(title: "More Life", creator: "Drake", category: "test")
+      result = work.valid?
+      result.must_equal false
+
+      work.errors.messages.must_include :category
+    end
+
     it "is invalid without a creator" do
       work = Work.new
       result = work.valid?
@@ -25,10 +33,6 @@ describe Work do
 
       work.errors.messages.must_include :creator
     end
-
-####################################################
-
-    # Not sure about these series of tests
 
     it "creates work with title" do
       work = Work.create(title: "More Life")
@@ -44,10 +48,19 @@ describe Work do
       work = Work.create(creator: "Drake")
       work.errors.messages.wont_include :creator
     end
-####################################################
 
-    it "creates work with all fields" do
+    it "creates work with album" do
       work = Work.create(title: "More Life", creator: "Drake", category: "album")
+      work.id.wont_be_nil
+    end
+
+    it "creates work with book" do
+      work = Work.create(title: "More Life", creator: "Drake", category: "book")
+      work.id.wont_be_nil
+    end
+
+    it "creates work with movie" do
+      work = Work.create(title: "More Life", creator: "Drake", category: "movie")
       work.id.wont_be_nil
     end
   end
@@ -56,9 +69,12 @@ describe Work do
 
     # Not sure about whether this needs testing (or how to test has_manys)
 
-  describe "relationship" do
+  describe "associations" do
     it "should have many votes" do
     end
   end
 ####################################################
+
+
+
 end
