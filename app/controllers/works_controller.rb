@@ -86,8 +86,8 @@ class WorksController < ApplicationController
   end
 
   def spotlight
-    @spotlight = Work.all
-    @spotlight.sort { | s1, s2 | s2.votes.count <=> s1.votes.count }
+    spotlight = Work.all
+    @spotlight = spotlight.sort { | s1, s2 | s2.votes.count <=> s1.votes.count }
   end
 
   def destroy
