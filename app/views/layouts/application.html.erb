@@ -17,7 +17,7 @@
       <div class="columns large-3 small-12">
         <p class= "text-right">
           <% if session[:user_id] %>
-            Logged in
+            Logged in as <%= User.find_by_id(session[:id]) %>
             <%= link_to "Logout", logout_path, method: :delete, class: "button float-right" %>
           <% else %>
             Not Logged in
