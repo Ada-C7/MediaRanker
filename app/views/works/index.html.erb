@@ -1,31 +1,37 @@
 <main>
   <section>
-    <h2>Movies</h2>
-    <ul>
+    <h2>Media Spotlight</h2>
+  </section>
+  <section class="top-ten columns large-4 small-12">
+    <h3>Movies</h3>
+
     <% @works.where(category: "movie").each do |movie| %>
-      <li><%= link_to movie.title, work_path(movie.id) %></li>
+      <h3><%= link_to movie.title, work_path(movie.id) %> by <%= movie.creator %></h3>
+      <p><%= movie.votes.count %> votes</p>
     <% end %>
-    </ul>
+
     <%= link_to "View more Movies", movies_path %>
   </section>
 
-  <section>
-    <h2>Books</h2>
-    <ul>
+  <section class="top-ten columns large-4 small-12">
+    <h3>Books</h3>
+
     <% @works.where(category: "book").each do |book| %>
-      <li><%= link_to book.title, work_path(book.id) %></li>
+      <h3><%= link_to book.title, work_path(book.id) %> by <%= book.creator %></h3>
+      <p><%= book.votes.count %> votes</p>
     <% end %>
-    </ul>
+
     <%= link_to "View more Books", books_path %>
   </section>
 
-  <section>
-    <h2>Albums</h2>
-    <ul>
+  <section class="top-ten columns large-4 small-12">
+    <h3>Albums</h3>
+
     <% @works.where(category: "album").each do |album| %>
-      <li><%= link_to album.title, work_path(album.id) %></li>
+      <h3><%= link_to album.title, work_path(album.id) %> by <%= album.creator %></h3>
+      <p><%= album.votes.count %> votes</p>
     <% end %>
-    </ul>
+
     <%= link_to "View more Albums", albums_path %>
   </section>
 </main>
