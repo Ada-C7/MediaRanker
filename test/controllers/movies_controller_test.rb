@@ -14,7 +14,7 @@ describe MoviesController do
   end
 
   it "should get update" do
-    get movie_path
+    get edit_movie_path(:id => 1)
     value(response).must_be :success?
   end
 end

@@ -14,14 +14,14 @@ describe BooksController do
   end
 
   it "should get update" do
-    get book_path
+    get edit_book_path(:id => 1)
     value(response).must_be :success?
   end
 
-  # it "should get delete" do
-  #   get book_path
-  #   value(response).must_be :success?
-  # end
+  it "should get delete" do
+    get book_path(:id => 1)
+    value(response).must_be :success?
+  end
 
 end
 end

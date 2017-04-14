@@ -11,8 +11,8 @@ describe AlbumsController do
     value(response).must_be :success?
   end
 
-  it "should get update" do # http://stackoverflow.com/questions/21708256/no-route-matches-missing-required-keys-id
-    get album_path
+  it "should get update" do
+    get edit_album_path(:id => 1)
     value(response).must_be :success?
   end
 

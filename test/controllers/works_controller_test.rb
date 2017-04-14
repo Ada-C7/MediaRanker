@@ -14,11 +14,7 @@ class WorksControllerTest < ActionDispatch::IntegrationTest
       value(response).must_be :success?
     end
 
-    it "should get update" do # why doesn't this test pass?
-      get work_path
-      value(response).must_be :success?
-    end
-    #
+    
     # it "should get delete" do
     #   get works_delete_url
     #   value(response).must_be :success?

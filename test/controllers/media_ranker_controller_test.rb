@@ -12,9 +12,6 @@ describe MediaRankerController do
     value(response).must_be :success?
   end
 
-  it "should get update" do
-    get work_path
-    value(response).must_be :success?
-  end
+
 end
 end
