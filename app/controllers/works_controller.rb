@@ -58,10 +58,10 @@ class WorksController < ApplicationController
       @vote.work_id = params[:id]
       @vote.save
       flash[:success] = "Successfully upvoted!"
-      redirect_to work_path(@result_work.id)
+      redirect_to :back
     else
       flash[:error] = "you must be logged in to vote"
-      redirect_to work_path(@result_work.id)
+      redirect_to :back
     end
 
     # if @vote.save
