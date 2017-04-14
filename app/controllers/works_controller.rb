@@ -4,6 +4,8 @@ class WorksController < ApplicationController
     @albums = Work.show_category("album")
     @books = Work.show_category("book")
     @movies = Work.show_category("movie")
+
+    @highest = Work.most_votes
   end
 
 def books_index

@@ -14,6 +14,13 @@ class Work < ApplicationRecord
     return chosen
   end
 
+  def self.most_votes
+    a = Work.all
+    b = {}
+      a.each{|work| b[work.id] = work.votes.length}
+      b.max_by{|k,v| v}
+  end
+
   def user_votes
     final_votes = {}
     all_votes = Work.first.votes
@@ -25,4 +32,6 @@ class Work < ApplicationRecord
     return final_votes
 
   end
+
+
 end

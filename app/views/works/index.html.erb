@@ -1,6 +1,13 @@
 <section id = "top">
-<h2> Media Spotlight <h2>
-  
+<h2> Media Spotlight </h2>
+  <p>
+  <%@highest.each do |id, count| %>
+  <%="#{Work.find(id).title} by "%>
+    <%="#{Work.find(id).created_by}"%>
+      <%="#{Work.find(id).votes.length} votes"%>
+    <% break%>
+  <%end%>
+</p>
 </section>
 <section id = "albums">
 <h2> Top Albums </h2>
