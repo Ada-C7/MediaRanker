@@ -38,8 +38,10 @@ class WorksController < ApplicationController
     @work = Work.new(works_params)
 
     if @work.save # is true - IE validations pass
+      flash[:success] = "Successfully created #{@work.category} #{@work.id}"
       redirect_to find_path(@work)
     else # We know the validations didn't pass so want to show messages
+      flash.now[:failure] = "A problem occured: Could not add #{@work.category}"
       if @work.category == "movie"
         render "works/movies/new", status: :bad_request
       elsif @work.category == "book"
@@ -52,24 +54,47 @@ class WorksController < ApplicationController
 
   def show
     @work = find_work
+    if @work.nil?
+      head :not_found
+    end
   end
 
   def edit
     @work = find_work
+    if @work.nil?
+      head :not_found
+    end
   end
 
   def update
     @work = find_work
-    @work.update_attributes(works_params)
+    return head :not_found if @work.nil?
 
-    redirect_to work_path(@work.id)
+    if @work.update_attributes(works_params)
+      flash[:successful_edit] = "Updated #{@work.title}"
+      redirect_to work_path(@work.id)
+    else
+      flash.now[:failure_update] = "A problem occured: Could not update #{@work.category}"
+      if @work.category == "movie"
+        render :edit, status: :bad_request
+      elsif @work.category == "book"
+        render :edit, status: :bad_request
+      elsif @work.category == "album"
+        render :edit, status: :bad_request
+      end
+    end
   end
 
   def destroy
     work = find_work
-    path = find_path(work)
-    work.destroy
-    redirect_to path
+    if work.nil?
+      head :not_found
+    else
+      path = find_path(work)
+      work.destroy
+      flash[:success] = "#{work.title} was deleted"
+      redirect_to path
+    end
   end
 
 private
@@ -82,7 +107,7 @@ private
   end
 
   def find_work
-    Work.find(params[:id])
+    Work.find_by(id: params[:id])
   end
 
   def find_movies

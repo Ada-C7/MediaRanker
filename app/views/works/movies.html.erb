@@ -1,15 +1,35 @@
 <main>
   <section>
-    <h2>Movies</h2>
-    <ul>
-    <% @movies.each do |movie| %>
-      <li><%= movie.title %></li>
-    <% end %>
-    </ul>
+    <h3>Movies</h3>
+      <section>
+        <table>
+          <thead>
+            <tr>
+              <th>Votes</th>
+              <th>Title</th>
+              <th>Created By</th>
+              <th>Published</th>
+              <th>Upvote</th>
+            </tr>
+          </thead>
+
+          <tbody>
+            <% @movies.each do |movie| %>
+              <tr>
+                <td>0</td>
+                <td><%= link_to movie.title, work_path(movie.id) %></td>
+                <td><%= movie.creator %></td>
+                <td><%= movie.publication_year %></td>
+                <td>Upvote</td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+      </section>
   </section>
 
   <nav>
-    <%= button_to "Back All Media", homepage_path, :class => "button", :method => :get %>
+    <%= button_to "Back To All Media", homepage_path, :class => "button", :method => :get %>
     <%= button_to "Add Movie", new_movie_path, :class => "button", :method => :get %>
   </nav>
 

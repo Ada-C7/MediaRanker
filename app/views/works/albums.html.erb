@@ -1,14 +1,34 @@
 <main>
   <section>
-    <h2>Albums</h2>
-    <ul>
-    <% @albums.each do |album| %>
-      <li><%= link_to album.title, work_path(album.id) %></li>
-    <% end %>
-    </ul>
+    <h3>Albums</h3>
+    <section>
+      <table>
+        <thead>
+          <tr>
+            <th>Votes</th>
+            <th>Title</th>
+            <th>Created By</th>
+            <th>Published</th>
+            <th>Upvote</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <% @albums.each do |album| %>
+            <tr>
+              <td>0</td>
+              <td><%= album.title %></td>
+              <td><%= album.creator %></td>
+              <td><%= album.publication_year %></td>
+              <td>Upvote</td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </section>
   </section>
   <nav>
-    <%= button_to "Back All Media", homepage_path, :class => "button", :method => :get %>
+    <%= button_to "Back To All Media", homepage_path, :class => "button", :method => :get %>
     <%= button_to "Add Album", new_album_path, :class => "button", :method => :get %>
   </nav>
 </main>
