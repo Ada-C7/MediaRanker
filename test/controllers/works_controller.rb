@@ -29,16 +29,21 @@ describe WorksController do
 
   describe "create" do
     it "adds a work to the database" do
+      start_count = Work.count
       work_data = {
         work: {
           title: "test work",
           created_by: "keith sweat",
           category: "album",
           published: "1998",
-         }
-       }
+        }
+      }
+
+      end_count = Work.count
       post works_path, params: work_data
       must_redirect_to  works_path
+      end_count.must_be :==, start_count + 1
+
     end
 
     it "re-renders the new work form if the  work is invalid" do
