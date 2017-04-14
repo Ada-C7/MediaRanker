@@ -8,4 +8,5 @@ Rails.application.routes.draw do
   get '/:category/new', to: 'items#new', as: 'new_item'
   post '/:category', to: 'items#create'
   resources :items
+  resources :users, except: [:edit, :update, :destroy]
 end

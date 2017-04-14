@@ -1,9 +1,0 @@
-<h1>Movies</h1>
-<ul>
-  <% @movies.each do |movie| %>
-  <li>
-    <%=movie.category%>, <%=movie.title%>, <%=movie.creator%>, <%=movie.publication_year%>, <%=movie.description%>
-  </li>
-  <% end %>
-</ul>
-<%= link_to 'Back to homepage', items_path %>
