@@ -17,12 +17,13 @@ class WorksController < ApplicationController
 
   def category_index
       @works = Work.where(category: params[:category].singularize)
-      # @category = params[:category]
+      # render_404 if ["movies", "books", "albums"].exclude?(params[:category])
   end
-  #show_category
 
-  # render_404 if ["movies",].exclude?(params[:category])
-
+  def new
+    @work = Work.new
+    @work.category = params[:category].singularize
+  end
 
   def create
     @work = Work.new(work_params)
@@ -37,10 +38,11 @@ class WorksController < ApplicationController
       # elsif @work.category = "album"
       #   redirect_to albums_path
       # else
-        redirect_to works_path
+        redirect_to new_work_path(params[:work][:category])
       # end
     else
       flash.now[:failure] = "A problem occurred: Could not create #{@work.category}"
+      render "new"
       # if @work.category = "book"
       #   render "books/new"
       # elsif @work.category = "movie"
@@ -48,7 +50,7 @@ class WorksController < ApplicationController
       # elsif @work.category = "album"
       #   render "albums/new"
       # else
-        render "index"
+        # render "index"
       # end
       # render "new"
     end

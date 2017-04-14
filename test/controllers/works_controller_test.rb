@@ -9,15 +9,15 @@ describe WorksController do
   end
 
   #category_index
-  it "should get index" do
+  it "should get category index" do
     get category_path(work.category)
     must_respond_with :success
   end
 
-  # it "should get new form" do
-  #   get new_album_path
-  #   must_respond_with :success
-  # end
+  it "should get new form" do
+    get new_work_path(work.category)
+    must_respond_with :success
+  end
 
   #show
   it "should get show page" do
