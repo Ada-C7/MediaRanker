@@ -12,12 +12,19 @@ session[:user_id] = @user.id
 else
   #did not find
   @user = User.create(user_params)
-  flash[:success] = "User has been added"
+  flash[:success] = "User #{ @user.name} has been logged in"
   session[:user_id] = @user.id
   redirect_to user_path(@user.id)
   # flash.now[:error] = "User not found"
   # render :login_form
 end
+end
+
+def logout
+
+  session[:user_id] = nil
+  flash[:success] = " You have been logged out "
+  redirect_to root_path
 end
 
 

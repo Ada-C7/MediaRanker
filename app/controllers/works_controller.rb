@@ -74,6 +74,17 @@ class WorksController < ApplicationController
     redirect_to works_path
   end
 
+  def vote
+    @work = Work.find(params[:id])
+    if Vote.where(user_id: session[:user_id], work_id: params[:id]).empty?
+      Vote.create(user_id: session[:user_id], work_id: params[:id])
+      flash[:success] = "Successfully voted"
+    else
+      flash[:failure] = "You can only vote for this #{@work.category} once."
+    end
+    redirect_to work_path
+  end
+
   private
 
   def work_params
