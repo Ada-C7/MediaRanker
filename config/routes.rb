@@ -12,7 +12,7 @@ Rails.application.routes.draw do
   post '/albums/:content_id/', to: 'votes#create', as: 'album_vote'
 
   get '/login', to: 'session#login', as: 'login'
-  post '/login/:username', to: 'session#create', as: 'create_login'
+  post '/login', to: 'session#create', as: 'create_login'
 
   delete '/login', to: 'session#logout', as: 'logout'
 
