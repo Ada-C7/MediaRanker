@@ -1,0 +1,10 @@
+<h1>List of Albums</h1>
+<table>
+<tr><th>Votes</th><th>Title</th><th>Created By</th><th>Published</th><th>Upvote</th></tr>
+<% @albums.each do |album| %>
+<tr><td><%= album.votes.length %></td><td><%= album.title %></td><td><%= album.user.username %></td><td><%= album.publication_year %></td><td><%= button_to "Upvote", votes_path, params: { work_id: album.id}%></td></tr>
+<% end %>
+</table>
+
+<%= button_to "View all media", root_path, method: :get %>
+<%= button_to "Add a new album", albums_new_path, method: :get %>

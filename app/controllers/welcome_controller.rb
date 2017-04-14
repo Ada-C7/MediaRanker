@@ -5,6 +5,4 @@ class WelcomeController < ApplicationController
     @albums = Work.albums
     @spotlight = Work.spotlight
   end
-
-
 end

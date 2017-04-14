@@ -2,32 +2,35 @@
 <h3>Ranking the Best of Everything</h3>
 <h3>Media Spotlight: <%= @spotlight.title %> by <%= @spotlight.user.username %></h3>
 <p><%= @spotlight.votes.length %> votes - <%= @spotlight.description %></p>
-<div class="category">
-  <h4><%= link_to "Movies", movies_path %></h4>
-  <p><% @movies.each do |movie| %></p>
-  <li>
-    <%= movie.title %> by <%= movie.user.username %><br />
-    <%= movie.votes.length %> votes
-    <% end %>
-  </li>
-</div>
+<main>
+  <div class="category">
+    <h4><%= link_to "Movies", movies_path %></h4>
+    <p><% @movies.each do |movie| %></p>
+    <li>
+      <%= movie.title %> by <%= movie.user.username %><br />
+      <%= movie.votes.length %> votes
+      <% end %>
+    </li>
+  </div>
 
-<div class="category">
-  <h4>Books</h4>
-  <p><% @books.each do |book| %></p>
-  <li>
-    <%= book.title %> by <%= book.user.username %><br />
-    <%= book.votes.length %> votes
-    <% end %>
-  </li>
-</div>
 
-<div class="category">
-  <h4>Albums</h4>
-  <p><% @albums.each do |album| %></p>
-  <li>
-    <%= album.title %> by <%= album.user.username %><br />
-    <%= album.votes.length %> votes
-    <% end %>
-  </li>
-</div>
+  <div class="category">
+    <h4>Books</h4>
+    <p><% @books.each do |book| %></p>
+    <li>
+      <%= book.title %> by <%= book.user.username %><br />
+      <%= book.votes.length %> votes
+      <% end %>
+    </li>
+  </div>
+
+  <div class="category">
+    <h4>Albums</h4>
+    <p><% @albums.each do |album| %></p>
+    <li>
+      <%= album.title %> by <%= album.user.username %><br />
+      <%= album.votes.length %> votes
+      <% end %>
+    </li>
+  </div>
+</main>
