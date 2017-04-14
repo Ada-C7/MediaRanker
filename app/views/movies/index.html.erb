@@ -1,10 +1,60 @@
-<h1>List of Movies</h1>
-<p>
-  <% @movies.each do |a| %>
-  <ul>
-    <%= link_to a.title, work_path(a.id) %>, <%= a.creator %>, <%= a.publication_year %>
-  </ul>
-  <% end %>
+<h4>List of Movies</h4>
+
+
+
+<table>
+  <thead>
+    <tr>
+      <th>
+        Votes
+      </th>
+      <th>
+        Title
+      </th>
+      <th>
+        Created By
+      </th>
+      <th>
+        Published
+      </th>
+      <th>
+        Upvote
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @movies.each do |a| %>
+
+    <tr>
+      <td>
+        <%= a.votes.count %>
+      </td>
+      <td>
+        <%= link_to a.title, work_path(a.id) %>
+      </td>
+      <td>
+        <%= a.creator%>
+      </td>
+      <td>
+        <%= a.publication_year %>
+      </td>
+      <td>
+        <p class="button">
+          <%= link_to "Upvote", work_upvote_path(a.id), method: :patch %>
+        </p>
+      </td>
+    </tr>
+    <% end %>
+  </tbody>
+
+</table>
+
+
+
+
+<p class="button">
+  <%= link_to "View all media", root_path %>
 </p>
-<%= link_to "View all media", root_path %>
-<%= link_to "Add a new movie", new_movie_path %>
+<p class="button">
+  <%= link_to "Add a new movie", new_movie_path %>
+</p>
