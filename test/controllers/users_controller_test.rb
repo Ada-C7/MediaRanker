@@ -39,15 +39,6 @@ describe UsersController do
       user_data = { username: "cynbin"}
       post users_path, params: { user: user_data }
       must_respond_with :success
-      # must_respond_with :redirect
-      # must_redirect_to user_path
     end
-
   end
-  #
-  # it "re-renders a new form if passed invalid data" do
-  #   movie_data = { category: "movie", creator: "Pixar", publication_year: "1997" }
-  #   post works_path, params: { work: movie_data }
-  #   must_respond_with :bad_request
-  # end
 end

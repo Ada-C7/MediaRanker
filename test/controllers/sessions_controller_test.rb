@@ -30,7 +30,6 @@ describe SessionsController do
 
       must_respond_with :redirect
       must_redirect_to homepage_path
-
     end
 
     # it 'renders new page when given empty sting' do

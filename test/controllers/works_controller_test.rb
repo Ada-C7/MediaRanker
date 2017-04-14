@@ -67,7 +67,7 @@ describe WorksController do
       must_respond_with :success
     end
   end
-
+ ########################################################
   ###### AHHH - You don't have tests for new ###########
   describe 'new' do
 
@@ -86,7 +86,7 @@ describe WorksController do
       # coping the destory test pattern
       proc { post works_path, params: { work: movie_data } }.must_change 'Work.count', +1
 
-      # double up and make sure the work is the db
+      # can double up and make sure the work is the db
       work = Work.last
       work.title.must_equal movie_data[:title]
 
