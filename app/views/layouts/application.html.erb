@@ -24,6 +24,8 @@
     <% flash.each do |name, message| %>
       <h3 class="row status <%= name %>"><%= message %></div>
     <% end %>
-    <%= yield %>
+    <main class="row">
+      <%= yield %>
+    </main>
   </body>
 </html>
