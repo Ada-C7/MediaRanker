@@ -6,4 +6,6 @@
   <h4 class ="category"><% @works.each do |work| %></h4>
     <li class ="titles"><%= link_to "#{work.title}", work_path(work.id) %></li>
   <% end %>
+
+  <h4> <%= link_to "New media", new_work_path %> </h3>
 </section>

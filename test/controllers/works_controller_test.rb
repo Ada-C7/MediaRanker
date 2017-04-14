@@ -26,11 +26,12 @@ describe WorksController do
       get :show, params: { id: 1 }
       must_respond_with :success
     end
-    # #good data test
-    # it "should return a work's info based on the id" do
-    #   get :show, params: { id: 2 }
-    #   assigns(:works).must_equal(works(:two))
-    # end
+
+    it "returns 404 for a work that DNE" do #TODO NOT SURE WHY THIS IS FAILING
+      work_id = Work.last.id + 1
+      get :show, params: { id: 1 }
+      must_respond_with :not_found
+    end
   end
 
   describe "new" do
@@ -38,18 +39,13 @@ describe WorksController do
       get :new
       must_respond_with :success
     end
-
-    it "should create an array with nil" do
-      #is this right??
-    end
-
   end
 
   describe "create" do
     it "should create a new instance of Work/add it to the database" do
-      # work_data = { work: { category: "book", title: "Book Title", creator: "MyString", publication_year: 1, description: "book description"}}
-      # post works_path, params: work_data
-      # must_redirect_to works_path
+      work_data = { work: { category: "book", title: "Book Title", creator: "MyString", publication_year: 1, description: "book description"} }
+      post works_path, params: work_data
+      # must_redirect_to :index
     end
 
     it "should redirect to works path" do
