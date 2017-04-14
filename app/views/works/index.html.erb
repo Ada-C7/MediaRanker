@@ -1,8 +1,24 @@
-<h1>List of <%= @work_category.capitalize%></h1>
-<ul>
-<% @works.each do |work|%>
-<li><%= work.votes.count %> <%= link_to work.title, work_path(work.id) %> <%= work.creator %> <%= work.publication_year %></li>
-<% end %>
-</ul>
+<body>
+  <h1>List of <%= @work_category.capitalize%></h1>
+  <table>
+    <tr>
+      <th>Votes</th>
+      <th>Title</th>
+      <th>Created By</th>
+      <th>Published</th>
+      <th>Upvote</th>
+    </tr>
+    <% @works.each do |work|%>
+    <tr>
+      <td><%= work.votes.count %></td>
+      <td><%= link_to work.title, work_path(work.id) %></td>
+      <td><%= work.creator %></td>
+      <td><%= work.publication_year %></td>
+      <td><%= link_to "Upvote", vote_path(work.id), method: :post %></td>
+    </tr>
+    <% end %>
+  </table>
 
-<%= link_to "Add New #{@work_category.capitalize}", new_work_path %>
+  <div class = "button"><%= link_to "View all media", main_path %></div>
+  <div class = "button"><%= link_to "Add New #{@work_category.capitalize}", new_work_path %></div>
+</body>
