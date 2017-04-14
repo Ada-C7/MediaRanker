@@ -51,7 +51,7 @@ class ItemsController < ApplicationController
       Vote.create(user_id: session[:user_id], item_id: params[:id])
       flash[:success] = "You voted successfully!"
     else
-      flash[:failure] = "Sorry you can only vote once for this work."
+      flash[:failure] = "Sorry you can only vote once!"
     end
     redirect_to item_path
   end

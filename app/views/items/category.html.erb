@@ -1,11 +1,23 @@
 <h1><%=@category%></h1>
-<ul>
+
+<table style="width:75%">
+  <tr>
+    <th>Votes</th>
+    <th>Title</th>
+    <th>Created By</th>
+    <th>Published</th>
+    <th>Upvote</th>
+  </tr>
   <% @items_by_category.each do |item| %>
-  <li>
-    <%= link_to "#{item.title}", item_path(item.id) %>, <%=item.creator%>, <%=item.publication_year%>, <%=item.description%>
-    <%= button_to 'vote', upvote_item_path(item.id), :class => "button", method: :post %>
-  </li>
+    <tr>
+      <td><%= item.votes.count %>
+      <td><%= link_to "#{item.title}", item_path(item.id) %></td>
+      <td><%= item.creator %></td>
+      <td><%= item.publication_year %></td>
+      <td><%= button_to 'vote', upvote_item_path(item.id), :class => "button", method: :post %></td>
+    </tr>
   <% end %>
-</ul>
+</table>
+
 <%= link_to 'Back to homepage', root_path %>
 <%= link_to "Create new #{@category}", new_item_path(@category) %>
