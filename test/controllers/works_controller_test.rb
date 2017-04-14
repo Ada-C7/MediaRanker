@@ -14,7 +14,7 @@ describe WorksController do
   end
 
   it "should show a 404 when work not found" do
-    get work_path(1)
+    get work_path(999)
     must_respond_with :missing
   end
 
