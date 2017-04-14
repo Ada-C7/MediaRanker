@@ -2,9 +2,10 @@ class WorksController < ApplicationController
 
   def index
     @works = Work.all
-    @movies = Work.top_category('movie')
-    @books = Work.top_category('book')
-    @albums = Work.top_category('album')
+    @movies = Work.top_ten('movie')
+    @books = Work.top_ten('book')
+    @albums = Work.top_ten('album')
+    @spotlight_work = Work.spotlight
   end
 
   def category_index

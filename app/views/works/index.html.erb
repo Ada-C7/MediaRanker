@@ -1,9 +1,8 @@
 <section class="row spotlight">
   <div>
-    <% spotlight = @works.sample %>
-    <h3> Media Spotlight: <%= spotlight.name %> </h3>
+    <h3> Media Spotlight: <%= @spotlight_work.name %> </h3>
     <p>
-      X votes - "<%= spotlight.desc %>"
+      <%= @spotlight_work.votes_count %> votes - "<%= @spotlight_work.desc %>"
     </p>
   </div>
 </section>
@@ -16,7 +15,7 @@
             <%= link_to movie.name, work_path(movie.id) %> by <%= movie.created_by %>
           </li>
           <li>
-            X votes
+            <%= movie.votes_count %> votes
           </li>
         </ul>
       <% end %>
@@ -31,7 +30,7 @@
             <%= link_to book.name, work_path(book.id) %> by <%= book.created_by %>
           </li>
           <li>
-            X votes
+            <%= book.votes_count %> votes
           </li>
         </ul>
       <% end %>
@@ -46,7 +45,7 @@
             <%= link_to album.name, work_path(album.id) %> by <%= album.created_by %>
           </li>
           <li>
-            X votes
+            <%= album.votes_count %> votes
           </li>
         </ul>
       <% end %>

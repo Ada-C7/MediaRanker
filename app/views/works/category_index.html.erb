@@ -11,7 +11,7 @@
   <tbody>
     <% @works.each do |work| %>
     <tr>
-      <td> work.votes.length </td>
+      <td> <%= work.votes_count %> </td>
       <td><%= link_to work.name, work_path(work.id) %></td>
       <td><%= work.created_by %></td>
       <td><%= work.pub_year %></td>

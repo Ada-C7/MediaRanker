@@ -13,16 +13,16 @@ class Work < ApplicationRecord
   length: { is: 4 }
 
 
-  def self.top_ten
-    @top_ten = Work.all.order(:votes_count)[0..10]
+  def self.top_ten(category)
+    @top_ten = Work.where(category: category).order(votes_count: :desc)[0..10]
   end
 
   def self.spotlight
-    @top_ten = Work.all.order(:votes_count).first
+    @spotlight = Work.all.order(:votes_count).last
   end
 
   def self.top_category(category)
-    @top_ten = Work.where(category: category).order(votes_count: :desc)
+    @top_cat = Work.where(category: category).order(votes_count: :desc)
   end
 
 end
