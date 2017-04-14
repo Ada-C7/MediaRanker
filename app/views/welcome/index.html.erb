@@ -3,7 +3,7 @@
 <h3>Media Spotlight: <%= @spotlight.title %> by <%= @spotlight.user.username %></h3>
 <p><%= @spotlight.votes.length %> votes - <%= @spotlight.description %></p>
 <div class="category">
-  <h4>Movies</h4>
+  <h4><%= link_to "Movies", movies_path %></h4>
   <p><% @movies.each do |movie| %></p>
   <li>
     <%= movie.title %> by <%= movie.user.username %><br />

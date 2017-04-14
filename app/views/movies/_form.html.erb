@@ -1,0 +1,14 @@
+<section>
+  <%= form_for @movie, :url => url_for(:controller => 'movies', :action => 'create') do |t| %>
+  <%= t.label :title %>
+  <%= t.text_field :title %>
+
+  <%= t.label :publication_year %>
+  <%= t.text_field :publication_year %>
+
+  <%= t.label :description %>
+  <%= t.text_field :description %>
+
+  <%= t.submit value: "#{submit_text}" %>
+  <% end %>
+</section>

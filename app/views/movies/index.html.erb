@@ -1,0 +1,10 @@
+<h1>List of Movies</h1>
+<table>
+<tr><th>Votes</th><th>Title</th><th>Created By</th><th>Published</th><th>Upvote</th></tr>
+<% @movies.each do |movie| %>
+<tr><td><%= movie.votes.length %></td><td><%= movie.title %></td><td><%= movie.user.username %></td><td><%= movie.publication_year %></td><td><%= button_to "Upvote", votes_path, params: { work_id: movie.id}%></td></tr>
+<% end %>
+</table>
+
+<%= button_to "View all media", root_path, method: :get %>
+<%= button_to "Add a new movie", movies_new_path, method: :get %>

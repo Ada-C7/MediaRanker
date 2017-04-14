@@ -1,6 +1,7 @@
 class Work < ApplicationRecord
   has_many :votes
   belongs_to :user
+    # validates :category, presence: true, uniqueness: true
 
   def self.spotlight
     works = Work.all

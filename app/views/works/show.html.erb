@@ -1,1 +1,4 @@
-<h2>Media<%= @work.id %></h2>
+<h5>Media: <%= @work.title %></h5>
+<h6>Created by: <%= @work.user.username  %></h6>
+<h6>Published: <%= @work.publication_year  %></h6>
+<%= link_to "Back to movie List", drivers_path %>
