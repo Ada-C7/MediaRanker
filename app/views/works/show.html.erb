@@ -18,10 +18,7 @@
 data: {confirm: "Are you sure"} %>
 
 <% if session[:user_id] %>
-  <%= flash[:failure] %>
-  <% else %>
     <%= link_to "Vote for this #{@work.category}.", vote_path(@work.id), method: :post %>
-  <% end %>
 <% end %>
 
 <section>
