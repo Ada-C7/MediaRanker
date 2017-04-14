@@ -8,7 +8,7 @@
 
 <%= link_to "Back to book list", books_path, class: :button %>
 <%= link_to "Edit", edit_book_path, class: :button %>
-<%= link_to "Delete", book_path, class: :button %>
+<%= link_to "Delete", book_path, data: { confirm: "Are you positive?" }, mehod: :delete, :class => "alert button" %>
 <%= link_to "Upvote", votes_upvote_path(work_id: @result_book.id), class: :button, method: :post %>
 
 

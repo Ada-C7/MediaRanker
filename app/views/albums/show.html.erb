@@ -8,7 +8,7 @@
 
   <%= link_to "Back to album list", albums_path, class: :button %>
   <%= link_to "Edit", edit_album_path, class: :button %>
-  <%= link_to "Delete", album_path, class: :button %>
+  <%= link_to "Delete", album_path, data: { confirm: "Are you positive?" }, mehod: :delete, :class => "alert button" %>
   <%= link_to "Upvote", votes_upvote_path(work_id: @result_album.id), class: :button, method: :post %>
 
   <h3> <%= @result_album.votes.length %> Votes for this album</h3>
