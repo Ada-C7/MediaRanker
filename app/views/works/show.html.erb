@@ -23,7 +23,7 @@
 </section>
 <p></p>
 
-<%= link_to "Back to #{ @result_work.category.capitalize }s, " %>
+<%= link_to "Back to #{ @result_work.category.capitalize }s" %>
 <%= link_to "Edit", edit_work_path(@result_work.id, :category => @result_work.category) %>
 <%= link_to "Upvote", upvote_path, method: :post %>
 <%= link_to "Delete", work_path(@result_work.id),
