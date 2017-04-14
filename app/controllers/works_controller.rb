@@ -10,6 +10,7 @@ class WorksController < ApplicationController
         @result_work = Work.find_by_id(params[:id])
     end
 
+    #this doesn't work
     def edit
          @work = Work.find(params[:id])
     end

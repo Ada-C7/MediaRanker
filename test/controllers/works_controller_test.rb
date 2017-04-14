@@ -12,5 +12,9 @@ class WorksControllerTest < ActionDispatch::IntegrationTest
             get work_path(works(:antonia))
             must_respond_with :success
         end
+
+        it "should delete an object" do
+            proc { delete work_path(works(:antonia))}.must_change 'Work.count', -1
+        end
     end
 end
