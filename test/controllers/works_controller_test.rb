@@ -101,8 +101,8 @@ describe WorksController do
   end
 
   describe 'Works#update' do
-    work = Work.first
-    work_data = { work: { :name = "test name" } }
+    # work = Work.first
+    # work_data = { work: { :name = "test name" } }
   end
 
   describe 'Works#destroy' do
