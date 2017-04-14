@@ -38,13 +38,26 @@ ul {
   margin: 0;
 }
 
-main {
-  padding-top: 15px;
-
-}
 
 td a.button {
   margin: 0;
+}
+
+/*Flash notices*/
+.flash {
+  padding-top: 15px;
+}
+
+.success h3 {
+  color: green;
+}
+
+.warning h3 {
+  color: red;
+}
+
+.error h3 {
+  color: red;
 }
 
 /*Getting Header to work correctly!*/
