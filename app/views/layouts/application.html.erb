@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <img src="/assets/owl.jpg" style="width:160px;height:180px">
     <title>MediaRanker</title>
     <%= csrf_meta_tags %>
 
@@ -13,19 +14,21 @@
     <h2><%= link_to "Media Ranker", root_path %></h2><h3>Ranking the Best of Everything</h3>
   </header>
   <nav>
-  <ul>
+
     <% if session[:user_id] %>
     <% user_id = session[:user_id].to_s %>
-      <li>
-        Logged in as <%= User.find_by_id(user_id).name %>
-        <%= link_to "Logout",logout_path, method: :delete %></li>
+      <p>
+        Logged in as <%= link_to User.find_by_id(user_id).name, user_path(user_id) %>
+      </p>
+      <p class="button">
+        <%= link_to "Logout",logout_path, method: :delete %>
+      </p>
     <% else %>
-      <li><%= link_to "Login", login_path %></li>
+      <p class="button"><%= link_to "Login", login_path %></p>
     <% end %>
-  </ul>
-</nav>    <%= csrf_meta_tags %>
+  </nav>
+  <%= csrf_meta_tags %>
 
-  </body>
 
   <body>
     <section class="flash">
