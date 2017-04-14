@@ -13,12 +13,6 @@ describe UsersController do
     value(response).must_be :success?
   end
 
-  
-  # it "should get delete" do
-  #   get users_delete_url
-  #   value(response).must_be :success?
-  # end
-  #
   # it "should get show" do
   #   get users_show_url
   #   value(response).must_be :success?
