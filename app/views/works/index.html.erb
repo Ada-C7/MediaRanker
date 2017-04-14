@@ -14,7 +14,7 @@
 <ul>
 <% @movies[0..9].each do |movie| %>
   <li>
-    <h4> <%= link_to movie.title, work_path(movie.id) %> by <%= movie.creator %> </h4>
+    <h4> <%= link_to movie.title, work_path(movie.id) %> by <small><%= movie.creator %></small> </h4>
     <p> <%= movie.votes.length %> votes </p>
   </li>
 <% end %>
@@ -27,7 +27,7 @@
 <ul>
 <% @books[0..9].each do |book| %>
   <li>
-    <h4> <%= link_to book.title, work_path(book.id) %> by <%= book.creator %> </h4>
+    <h4> <%= link_to book.title, work_path(book.id) %> by <small><%= book.creator %></small> </h4>
     <p> <%= book.votes.length %> votes </p>
   </li>
 <% end %>
@@ -40,7 +40,7 @@
 <ul>
 <% @albums[0..9].each do |album| %>
   <li>
-    <h4> <%= link_to album.title, work_path(album.id) %> by <%= album.creator %> </h4>
+    <h4> <%= link_to album.title, work_path(album.id) %> by <small><%= album.creator %></small> </h4>
     <p> <%= album.votes.length %> votes </p>
   </li>
 <% end %>

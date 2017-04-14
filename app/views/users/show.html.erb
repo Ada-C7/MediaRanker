@@ -4,7 +4,7 @@
     User Summary: <%= link_to @user.name, user_path(@user.id) %>
   </h3>
   <p>
-    Joined site <%= @user.created_at %>
+    Joined site <%= (@user.created_at).strftime('%B %d, %Y') %>
   </p>
 
   <h4>Votes</h4>
@@ -26,9 +26,12 @@
           <td> <%= vote.work.creator %> </td>
           <td> <%= vote.work.pub_yr %> </td>
           <td> <%= vote.work.category %> </td>
-          <td> <%= vote.work.created_at %> </td>
+          <td> <%= (vote.work.created_at).strftime('%B %d, %Y') %> </td>
         </tr>
       <% end %>
     </tbody>
   </table>
+
+  <%= link_to "See all Users", users_path, class: "button" %>
+  <%= link_to "Back to Media List", root_path, class: "button" %>
 </section>
