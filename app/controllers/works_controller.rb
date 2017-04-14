@@ -15,7 +15,7 @@ class WorksController < ApplicationController
     end
   end
 
-  #show category
+  #show_category
   # @works = Work.where(category: params[:category].singularize)
   # render_404 if ["movies",].exclude?(params[:category])
 
@@ -26,11 +26,26 @@ class WorksController < ApplicationController
 
     if @work.save
       flash[:success] = "Successfully created #{@work.category} #{@work.id}"
-      # redirect_back(fallback_location: root_path)
-      redirect_to root_path
+      if @work.category = "book"
+        redirect_to books_path
+      elsif @work.category = "movie"
+        redirect_to movies_path
+      elsif @work.category = "album"
+        redirect_to albums_path
+      else
+        redirect_to works_path
+      end
     else
       flash.now[:failure] = "A problem occurred: Could not create #{@work.category}"
-      # this now also has a routing problem
+      if @work.category = "book"
+        render "books/new"
+      elsif @work.category = "movie"
+        render "movies/new"
+      elsif @work.category = "album"
+        render "albums/new"
+      else
+        render "index"
+      end
       # render "new"
     end
   end
