@@ -1,0 +1,7 @@
+<h1>Welcome#index</h1>
+
+<section id="works">
+  <% @works.each do |work| %>
+    <h3><%= link_to work.title, work_path(work.id) %></h3>
+  <% end %>
+</section>
