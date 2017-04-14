@@ -1,1 +1,18 @@
 @import url('foundation.css');
+
+.page-header {
+  background-image: url(owl.jpg);
+  background-repeat:  no-repeat;
+}
+
+header h2 {
+  margin: 0 15%;
+}
+
+main.row, .flash {
+  margin: 1% 10%;
+}
+
+ul {
+  list-style: none;
+}
