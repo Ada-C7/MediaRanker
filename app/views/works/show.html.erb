@@ -1,8 +1,8 @@
 <% if @vote %>
-  <ul>
+  <ul class="error">
     <% @vote.errors.each do |field, msg| %>
       <li>
-        <%= field %> <%= msg %>
+        <%= msg %>
       </li>
     <% end %>
   </ul>

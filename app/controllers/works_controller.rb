@@ -70,7 +70,7 @@ class WorksController < ApplicationController
         redirect_back(fallback_location: root_path)
       else
         @work = Work.find(params[:id])
-        flash.now[:error] = "You've already voted for this"
+        flash.now[:error] = "Could not upvote"
         render "show"
       end
     else

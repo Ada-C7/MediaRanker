@@ -22,7 +22,7 @@
       </section>
     </header>
     <% flash.each do |name, message| %>
-      <h3 class="row status <%= name %>"><%= message %></div>
+      <h3 class="row status <%= name %>"><%= message %></h3>
     <% end %>
     <main class="row">
       <%= yield %>
