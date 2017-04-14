@@ -1,7 +1,6 @@
 require "test_helper"
 
 describe WorksController do
-
   describe "book_index" do
     let(:book) {Work.where(category: "book")}
     it "is successful when there are many books" do
@@ -24,6 +23,30 @@ describe WorksController do
     it "runs successfully" do
       get new_work_path
       must_respond_with :success
+    end
+  end
+
+  describe "create" do
+    it "creates a new movie" do
+      start_count = Work.count
+
+      movie_data = {
+        movie: {
+          category: "movie",
+          title: "",
+          creator: "",
+          publication_year: "",
+          description: ""
+        }
+      }
+      post movies_path, params: movie_data
+      must_redirect_to movies_path
+
+      end_count = Work.count
+      end_count.must_equal start_count + 1
+
+      movie = Work.last
+      movie.title.must_equal movie_data[:movie][:title]
     end
   end
 
