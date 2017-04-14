@@ -1,14 +1,38 @@
-<h2>List of <%= @category.pluralize(2) %></h2>
-  <% @category_works.each do |work| %>
-  <ul>
-  <p>////////////////////////////////</p>
-  <%= work.votes.count %>
-  <%= link_to work.title, work_path(work.id) %>
-  <%= work.creator %>
-  <%= work.year %>
-  <%= link_to "Upvote", upvote_path(work.id), method: :post %>
-  </ul>
-<% end %>
+<main class="row">
 
-<h3><%= link_to "View all Media", works_path %></h3>
-<h3><%= link_to "Add new #{@category.singularize}", new_with_category_path(@category) %></h3>
+
+<h3>List of <%= @category.pluralize(2) %></h3>
+<section class="media-table">
+
+
+<table>
+  <thead>
+    <tr>
+      <th width="80">Votes</th>
+      <th>Title</th>
+      <th>Created By</th>
+      <th width="100">Published</th>
+      <th width="100">Upvote</th>
+    </tr>
+  </thead>
+
+  <tbody>
+  <% @category_works.each do |work| %>
+    <tr>
+      <td><%= work.votes.count %></td>
+      <td><%= link_to work.title, work_path(work.id) %></td>
+      <td><%= work.creator %></td>
+      <td><%= work.year %></td>
+      <td><%= link_to "Upvote", upvote_path(work.id), method: :post, class: "button" %></td>
+    </tr>
+  <% end %>
+  </tbody>
+</table>
+
+
+</table>
+</section>
+<p><%= link_to "View all Media", works_path, class: "button" %></p>
+<p><%= link_to "Add new #{@category.singularize}", new_with_category_path(@category), class: "button" %></p>
+
+</main>

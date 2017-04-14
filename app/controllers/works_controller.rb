@@ -44,14 +44,17 @@ class WorksController < ApplicationController
     @work.update! work_params
 
     if @work.save
-      redirect_to works_path
+      redirect_to category_path(@work.category)
     else
       render "edit"
     end
   end
 
   def destroy
+    votes = Vote.find_by_work_id(params[:id])
+    votes.destroy
     Work.destroy params[:id]
+
     redirect_to works_path
   end
 

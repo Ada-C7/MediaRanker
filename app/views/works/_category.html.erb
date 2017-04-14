@@ -8,5 +8,5 @@
     <% end %>
 
 
-<h3><%= link_to "add new #{category}", new_with_category_path(category.pluralize) %></h3>
-<h3><%= link_to "see all #{category.pluralize}", category_path(category.pluralize) %></h3>
+<h3><%= link_to "add new #{category}", new_with_category_path(category.pluralize), class: "button" %></h3>
+<h3><%= link_to "see all #{category.pluralize}", category_path(category.pluralize), class: "button" %></h3>

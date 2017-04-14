@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>MediaRanker</title>
+    <title>MediaRanker 2.0</title>
     <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
@@ -9,21 +9,21 @@
   </head>
 
   <body>
-    <header>
+    <header class="page-header-row">
 
+      <h2 class="columns small-12 large-9"><%= link_to "Media Ranker", works_path %><small> Ranking the Best of Everything</small></h2>
+      <img src="../../assets/owl.jpg" alt="owl-logo">
+      <div class="columns small-12 large-3">
+        <% if session[:user_id] %>
+          <p class="text-right">Logged in as <%= link_to User.find_by_id(session[:user_id]).name, user_path(session[:user_id]) %></p>
+          <%= link_to "Log Out", logout_path, method: :delete, class: "button float-right" %>
+        <% else %>
+          <p class = "text-right">Not Logged In</p>
+          <%= link_to "Log In", login_path, class: "button float-right" %>
+        <% end %>
+      </div>
 
-    <h2><%= link_to "Media Ranker", works_path %></h2>
-    <nav>
-      <% if session[:user_id] %>
-        <ul>Logged in as <%= link_to User.find_by_id(session[:user_id]).name, user_path(session[:user_id]) %></ul>
-        <%= link_to "Log Out", logout_path, method: :delete %>
-      <% else %>
-        <ul>Not Logged In</ul>
-        <%= link_to "Log In", login_path %>
-      <% end %>
-
-    </nav>
-      </header>
+    </header>
 
 
 
