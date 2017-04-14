@@ -1,9 +1,12 @@
-<h1>Movies</h1>
-
-<ul>
+<h1>List of Movies</h1>
 
    <% @movies.each do |work| %>
-  <li> <%= work.category %> <%= work.title %> </li>
+<table>
+<tr>
+  <td> <%= work.title %> <%= work.creator %> <%= work.publish_year %> </td>
+  </tr>
     <% end %>
-  </li>
-</ul>
+</table>
+
+<h3> <%= button_to("View all Media", root_path, method: :get) %> </h3>
+<h3> <%= button_to("Add", new_work_path, method: :get) %> </h3>
