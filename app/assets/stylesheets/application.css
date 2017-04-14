@@ -1331,8 +1331,8 @@ h6 {
   h5 small,
   h6 small {
     line-height: 0;
-    color: slategrey; }
- }
+    color: slategrey;
+  }
 
 h1 {
   font-size: 1.5rem;
