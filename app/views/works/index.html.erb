@@ -1,7 +1,7 @@
 <main class="row">
 
   <section class="row spotlight">
-    <% if @works %>
+    <% if !@works %>
     <div>
       <h3>Media Spotlight: <%= link_to @works.first.title, work_path(@works.first.id)%> by <%=@works.first.created_by%></h3>
       <p>
