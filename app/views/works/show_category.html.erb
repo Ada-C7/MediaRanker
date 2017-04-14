@@ -2,11 +2,11 @@
   <% @category_works.each do |work| %>
   <ul>
   <p>////////////////////////////////</p>
-  <%= work.votes %>
+  <%= work.votes.count %>
   <%= link_to work.title, work_path(work.id) %>
   <%= work.creator %>
   <%= work.year %>
-  <%= link_to "Upvote", upvote_path(work.id), method: :post %> 
+  <%= link_to "Upvote", upvote_path(work.id), method: :post %>
   </ul>
 <% end %>
 

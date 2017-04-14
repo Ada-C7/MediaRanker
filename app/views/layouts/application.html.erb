@@ -21,10 +21,20 @@
 
     </nav>
 
+
+
     <section class="flash">
       <% flash.each do |name, message| %>
         <div class="<%= name %>"><%= message %></div>
       <% end %>
+    </section>
+
+    <section class="errors">
+        <% if @vote %>
+          <% @vote.errors.messages.each do |msg| %>
+            <div><%= msg %></div>
+          <% end %>
+        <% end %>
     </section>
 
 
