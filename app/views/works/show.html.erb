@@ -1,8 +1,31 @@
-<ul>
-<li><h2><%= @work.title %></h2></li>
-<li>Created by: <%= @work.creator %></li>
-<li>Published by: <%= @work.publication_year %></li>
-</ul>
+<section>
+  <div>
+    <ul>
+      <li><h2><%= @work.title %></h2></li>
+      <li>Created by: <%= @work.creator %></li>
+      <li>Published: <%= @work.publication_year %></li>
+      <li><%= @work.description %></li>
+    </ul>
 
-<div class = "button"><%= link_to "Back to #{@work.category} list", list_works_path(@work.category+"s") %></div>
-<div class = "button"><%= link_to "Upvote", vote_path, method: :post %></div>
+    <div class = "button"><%= link_to "Back to #{@work.category} list", list_works_path(@work.category+"s") %></div>
+    <div class = "button"><%= link_to "Upvote", vote_path, method: :post %></div>
+  </div>
+  <div>
+    <h3><%= @work.votes.count %> Votes for this <%= @work.category.capitalize %></h3>
+    <table>
+      <tr>
+        <th> User </th>
+        <th> Date </th>
+      </tr>
+
+        <% @work.votes.each do |vote| %>
+          <tr>
+            <td><%= User.find(vote.user_id).username %></td>
+            <td><%= vote.created_at.strftime("%b %d,   %Y") %></td>
+          </tr>
+        <% end %>
+
+    </table>
+
+  </div>
+</section>
