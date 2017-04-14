@@ -1,10 +1,15 @@
 Rails.application.routes.draw do
 
+  get 'votes/new'
+
+  get 'votes/create'
+
   root 'contents#index'
 
   resources :books
   resources :movies
   resources :albums
+  resources :votes, only: [:create]
 
 
 
