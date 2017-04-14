@@ -43,15 +43,19 @@ describe Work do
     end
   end # end of validation block
 
-  # 
-  # describe "Test relationship" do
-  #   let(:work) {Work.new(category: "movie", title: "Pretzel Logic - 2", creator: "Eft", publication_year: 1793 )}
-  #   it "" do
-  #     work.
-  #   end
-  #
-  #   it "" do
-  #   end
-  #
-  # end # end of test relationship blog
+  describe "Test relationship" do
+    it "work has votes" do
+      w = works(:pretzellogic)
+      u = User.create!(username: "lalala", date_of_joining: "21/01/2015")
+      v = Vote.create!(work_id: w.id, user_id: u.id)
+      w.votes.must_include v
+    end
+    it "user has votes" do
+      w = works(:pretzellogic)
+      u = User.create!(username: "lalala", date_of_joining: "21/01/2015")
+      v = Vote.create!(work_id: w.id, user_id: u.id)
+      u.votes.must_include v
+    end
+
+  end # end of test relationship block
 end
