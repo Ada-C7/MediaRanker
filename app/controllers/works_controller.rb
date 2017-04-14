@@ -8,8 +8,8 @@ class WorksController < ApplicationController
   end
 
   def index
-    media_type = params[:media_type]
-    case media_type
+    @media_type = params[:media_type]
+    case @media_type
     when 'movies'
       @works = Work.movies
     when 'books'
