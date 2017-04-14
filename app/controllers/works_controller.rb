@@ -31,15 +31,27 @@ class WorksController < ApplicationController
     Work.destroy(params[:id])
 
     if @work.category == 'movie'
-      flash[:delete] = "Successfully destroyed movie #{@work.id}"
+      flash[:success] = "Successfully destroyed movie #{@work.id}"
       redirect_to movies_path
     elsif @work.category == 'book'
-      flash[:delete] = "Successfully destroyed book #{@work.id}"
+      flash[:success] = "Successfully destroyed book #{@work.id}"
       redirect_to books_path
     else
-      flash[:delete] = "Successfully destroyed album #{@work.id}"
+      flash[:success] = "Successfully destroyed album #{@work.id}"
       redirect_to albums_path
     end
+  end
+
+  def upvote
+    @work = Work.find(params[:id])
+
+    if Vote.where(user_id: session[:user_id], work_id: session[:id]).empty?
+      Vote.create(user_id: session[:user_id], work_id: session[:id])
+      flash[:success] = "Successfully upvoted!"
+    else
+      flash[:error] = "Could not upvote"
+    end
+    redirect_to work_path(@work.id)
   end
 
   private

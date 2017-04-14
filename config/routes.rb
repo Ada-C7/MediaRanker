@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   get '/works/:id/edit', to: 'works#edit', as: 'edit_work'
   put 'works/:id', to: 'works#update'
   get '/works/index'
-  delete "/works/:id", to: "works#destroy", as: "delete_work"
+  delete '/works/:id', to: 'works#destroy', as: 'delete_work'
 
   get '/movies', to: 'movies#index'
   get '/movies/new', to: 'movies#new', as: 'new_movie'
@@ -23,6 +23,7 @@ Rails.application.routes.draw do
   get '/albums/new', to: 'albums#new', as: 'new_album'
   post '/albums', to: 'albums#create'
 
+  post '/works/:id/upvote', to: 'works#upvote', as: 'upvote'
   get '/login', to: 'sessions#login_form'
   post '/login', to: 'sessions#login'
   delete '/logout', to: 'sessions#logout'

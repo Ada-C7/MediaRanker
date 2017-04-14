@@ -23,6 +23,7 @@ Published: <%= @result_work.publication_year %>
 <!-- Edit  link -->
 <%= link_to 'Edit', edit_work_path, class: :button %>
 <!-- Upvote link-->
+<%= link_to 'Upvote', upvote_path, method: :post, class: :button %>
 <!-- Delete link-->
 <%= link_to "Delete", work_path(@result_work.id),
   data: { confirm: "Are you sure?" }, :class => "alert button",
@@ -31,3 +32,20 @@ Published: <%= @result_work.publication_year %>
 </section>
 <h3>__ Votes for this Album</h3>
 <!-- table that includes users that voted and date they voted  -->
+
+<table>
+  <thead>
+    <tr>
+      <th>User</th>
+      <th>Date</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @movies.each do |movie| %>
+      <tr>
+        <td><%#= link_to user.name, user_path(user.id) %></td>
+        <td><%#= link_to movie.title, work_path(movie.id) %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
