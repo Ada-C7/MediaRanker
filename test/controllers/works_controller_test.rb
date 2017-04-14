@@ -66,11 +66,21 @@ describe WorksController do
     it 'creates a new work' do
       start_count = Work.count
 
-      post works_path
+      work_data = {
+        work: {
+          name: "test work"
+        }
+      }
+
+      post works_path, params: work_data
       must_redirect_to root
 
       end_count = Work.count
       end_count.must_equal start_count + 1
+    end
+
+    it 'responds with bad_request for bogus data' do
+
     end
   end
 
@@ -91,8 +101,12 @@ describe WorksController do
   end
 
   describe 'Works#update' do
+    work = Work.first
+    work_data = { work: { :name = "test name" } }
   end
 
   describe 'Works#destroy' do
+    it "destroys a work that exists" do
+    end
   end
 end

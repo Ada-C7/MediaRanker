@@ -25,7 +25,12 @@ class WorksController < ApplicationController
   end
 
   def create
-    @work = Work.new(work_params)
+    work = Work.new(work_params)
+    if work.save
+      redirect_to works_path
+    else
+      render :new, status: :bad_request
+    end
     # find a way to set media types without the user
   end
 
