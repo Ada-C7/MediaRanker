@@ -14,7 +14,7 @@
       <img src="./assets/0.10.0/loading.gif" alt="loading"/>
     </div>
     <div id="wrapper" style="display:none;">
-      <div class="timestamp">Generated <abbr class="timeago" title="2017-04-13T16:15:18-07:00">2017-04-13T16:15:18-07:00</abbr></div>
+      <div class="timestamp">Generated <abbr class="timeago" title="2017-04-13T16:51:52-07:00">2017-04-13T16:51:52-07:00</abbr></div>
       <ul class="group_tabs"></ul>
 
       <div id="content">
@@ -25,15 +25,15 @@
      covered at
      <span class="covered_strength">
        <span class="green">
-         1.5
+         1.47
        </span>
     </span> hits/line)
   </h2>
   <a name="AllFiles"></a>
   <div>
     <b>15</b> files in total.
-    <b>270</b> relevant lines. 
-    <span class="green"><b>270</b> lines covered</span> and
+    <b>268</b> relevant lines. 
+    <span class="green"><b>268</b> lines covered</span> and
     <span class="red"><b>0</b> lines missed </span>
   </div>
   <table class="file_list">
@@ -133,11 +133,11 @@
       <tr>
         <td class="strong"><a href="#2c3f3100d8f0744c6d21efb75e74976e0ce3db8d" class="src_link" title="app/models/work.rb">app/models/work.rb</a></td>
         <td class="green strong">100.0 %</td>
-        <td>15</td>
-        <td>9</td>
-        <td>9</td>
+        <td>13</td>
+        <td>7</td>
+        <td>7</td>
         <td>0</td>
-        <td>3.6</td>
+        <td>3.3</td>
       </tr>
       
       <tr>
@@ -1457,8 +1457,8 @@
     <h3>app/models/work.rb</h3>
     <h4><span class="green">100.0 %</span> covered</h4>
     <div>
-      <b>9</b> relevant lines. 
-      <span class="green"><b>9</b> lines covered</span> and
+      <b>7</b> relevant lines. 
+      <span class="green"><b>7</b> lines covered</span> and
       <span class="red"><b>0</b> lines missed.</span>
     </div>
   </div>
@@ -1523,34 +1523,22 @@
         <li class="covered" data-hits="15" data-linenumber="10">
           <span class="hits">15</span>
           
-          <code class="ruby">    votes = all_works.map { |work| work.votes.length }</code>
+          <code class="ruby">    return all_works.max_by { |work| work.votes.count }</code>
         </li>
       
-        <li class="covered" data-hits="3" data-linenumber="11">
-          <span class="hits">3</span>
-          
-          <code class="ruby">    highest = votes.max</code>
-        </li>
-      
-        <li class="covered" data-hits="6" data-linenumber="12">
-          <span class="hits">6</span>
-          
-          <code class="ruby">    return all_works.find { |work|  work.votes.length == highest }</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="13">
+        <li class="never" data-hits="" data-linenumber="11">
           
           
           <code class="ruby">  end</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="14">
+        <li class="never" data-hits="" data-linenumber="12">
           
           
           <code class="ruby"></code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="15">
+        <li class="never" data-hits="" data-linenumber="13">
           
           
           <code class="ruby">end</code>

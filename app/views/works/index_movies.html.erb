@@ -2,4 +2,5 @@
 
 <% @movies.each do |movie| %>
   <h3> <%= link_to movie.title, work_path(movie.id) %> by <%= movie.creator %> </h3>
+  <h4> <%= movie.votes.count %> votes </h4>
 <% end %>

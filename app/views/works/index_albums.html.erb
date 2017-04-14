@@ -2,4 +2,5 @@
 
 <% @albums.each do |album| %>
   <h3> <%= link_to album.title, work_path(album.id) %> by <%= album.creator %> </h3>
+  <h4> <%= album.votes.count %> votes </h4> 
 <% end %>

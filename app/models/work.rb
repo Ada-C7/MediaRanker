@@ -7,9 +7,7 @@ class Work < ApplicationRecord
 
   def self.top_work
     all_works = Work.all
-    votes = all_works.map { |work| work.votes.length }
-    highest = votes.max
-    return all_works.find { |work|  work.votes.length == highest }
+    return all_works.max_by { |work| work.votes.count }
   end
 
 end

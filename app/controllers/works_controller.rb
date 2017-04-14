@@ -8,15 +8,21 @@ class WorksController < ApplicationController
   end
 
   def index_books
-    @books = Work.where(category: "book")
+    books = Work.where(category: "book")
+    sorted_books = books.sort_by { |book| book.votes.count }
+    @books = sorted_books.reverse
   end
 
   def index_albums
-    @albums = Work.where(category: "album")
+    albums = Work.where(category: "album")
+    sorted_albums = albums.sort_by {|album| album.votes.count }
+    @albums = sorted_albums.reverse
   end
 
   def index_movies
-    @movies = Work.where(category: "movie")
+    movies = Work.where(category: "movie")
+    sorted_movies = movies.sort_by {|movie| movie.votes.count }
+    @movies = sorted_movies.reverse
   end
 
   def show

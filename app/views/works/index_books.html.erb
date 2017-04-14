@@ -2,4 +2,5 @@
 
 <% @books.each do |book| %>
   <h3> <%= link_to book.title, work_path(book.id) %> by <%= book.creator %> </h3>
+  <h4> <%= book.votes.count %> votes </h4>
 <% end %>
