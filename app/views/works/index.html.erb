@@ -11,7 +11,7 @@
     <p><%= movie.votes.length %> votes</p>
   </ul>
   <% end %>
-  <p><%= link_to "View all movies", movies_path %></p>
+  <p><%= link_to "View all movies", show_category_path(category: 'movie') %></p>
 </section>
 
 <section class="top-ten columns large-4 small-12" id="top-books">
@@ -22,7 +22,7 @@
     <p><%= book.votes.length %> votes</p>
   </ul>
   <% end %>
-  <p><%= link_to "View all books", books_path %></p>
+  <p><%= link_to "View all books", show_category_path(category: 'book') %></p>
 </section>
 
 <section class="top-ten columns large-4 small-12" id="top-albums">
@@ -33,5 +33,5 @@
     <p><%= album.votes.length %> votes</p>
   </ul>
   <% end %>
-  <p><%= link_to "View all albums", albums_path %></p>
+  <p><%= link_to "View all albums", show_category_path(category: 'work') %></p>
 </section>

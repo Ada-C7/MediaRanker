@@ -9,7 +9,7 @@ class VotesController < ApplicationController
       flash[:success] = "Hoorrayyyy! Your upvote worked."
       redirect_to :back
     else
-      flash[:failure] = "Your vote failed! YOU'RE a failure!!"
+      flash[:failure] = "Your vote failed! YOU'RE a failure!! ....just kidding. Login first silly! "
       redirect_to :back
     end
   end

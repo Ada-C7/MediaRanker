@@ -7,11 +7,12 @@ class WorksController < ApplicationController
   end
 
   def new
-    @work = Work.new
+    @work = Work.new(category: params[:category])
   end
 
   def create
     @work = Work.create work_params
+    @work.category = params[:category]
 
     if @work.id != nil
       redirect_to root_path
@@ -25,6 +26,21 @@ class WorksController < ApplicationController
 
     if !@result_work
       render_404
+    end
+  end
+
+  def show_category
+    @works = Work.where(category: params[:category])
+  end
+
+  def new_category
+    @work = Work.new
+    @work.category = params[:category]
+
+    if @work.id != nil
+      redirect_to show_category_path
+    else
+      render "new"
     end
   end
 
@@ -70,8 +86,8 @@ class WorksController < ApplicationController
   end
 
   def spotlight
-    @spotlight = Work.all
-    @spotlight.sort { | s1, s2 | s2.votes.count <=> s1.votes.count }
+    spotlight = Work.all
+    @spotlight = spotlight.sort { | s1, s2 | s2.votes.count <=> s1.votes.count }
   end
 
   def destroy

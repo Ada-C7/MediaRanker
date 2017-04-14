@@ -4,7 +4,7 @@
     <p>Created by: <%= @result_work.creator %></p>
     <p>Published: <%= @result_work.year %></p>
     <p><%= @result_work.description %></p>
-    <%= link_to "Back to #{ @result_work.category.capitalize }s", root_path, class: :button %>
+    <%= link_to "Back to #{ @result_work.category.capitalize }s", show_category_path(@result_work.category), class: :button %>
     <%= link_to "Edit", edit_work_path(@result_work.id, :category => @result_work.category), class: :button %>
     <%= link_to "Upvote", upvote_path, method: :post, class: :button %>
     <%= link_to "Delete", work_path(@result_work.id),
