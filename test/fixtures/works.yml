@@ -7,9 +7,16 @@ movie1:
   publication_year: 2005
   description: Curious fish got lost
 
-movie2:
-  category: movie
+book1:
+  category: book
   title: sunshine
+  creator: ""
+  publication_year:
+  description: ""
+
+album1:
+  category: album
+  title: Inside out
   creator: ""
   publication_year:
   description: ""
