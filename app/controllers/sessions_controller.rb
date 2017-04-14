@@ -12,9 +12,9 @@ class SessionsController < ApplicationController
     else
       #did not find
       user = User.new
-      session[:user_id] = user.id
       user.name = params[:name]
       user.save
+      session[:user_id] = user.id
       flash[:success] = "Created new user #{user.name}"
       redirect_to root_path
     end
