@@ -1,4 +1,5 @@
 class Content < ApplicationRecord
+  has_many :votes
 
   validates :title, presence: true
   validates :creator, presence: true
