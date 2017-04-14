@@ -1,5 +1,6 @@
 class MainController < ApplicationController
   def index
+    @work_category = "Work"
     works = Work.all
     votes = works.map{|work| [work.id, work.votes.count]}.to_h
     spot_id = votes.key(votes.values.max)

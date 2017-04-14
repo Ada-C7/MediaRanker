@@ -1382,7 +1382,9 @@ a {
     color: #1468a0; }
   a img {
     border: 0; }
-
+.button a {
+  color: white;
+}
 hr {
   clear: both;
   max-width: 75rem;
@@ -1583,7 +1585,7 @@ kbd {
   text-align: center;
   cursor: pointer;
   background-color: #1779ba;
-  color: #fefefe; }
+  color: white; }
   [data-whatinput='mouse'] .button {
     outline: 0; }
   .button:hover, .button:focus {

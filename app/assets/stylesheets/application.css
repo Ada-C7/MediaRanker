@@ -15,3 +15,7 @@
  */
 
 @import url('foundation.css');
+
+.button {
+  color: white;
+}

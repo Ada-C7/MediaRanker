@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
+
     <title>MediaRanker</title>
     <%= csrf_meta_tags %>
 
@@ -10,12 +11,15 @@
 
   <body>
     <nav>
+    <h2><%= link_to "MediaRanker", main_path %></h2>
+    <h3>Ranking the Best of Everything</h3>
   <ul>
-    <li><%= link_to "New User", new_user_path %></li>
-    <li><%= link_to "Add a work", new_work_path %></li>
+    <% user = User.find(session[:user_id]) %>
     <% if session[:user_id] %>
-      <li><%= link_to "Logout", logout_path(:user_id), method: :delete%></li>
+      <li>Logged in as <%= user.username %></li>
+      <li class = "button"><%= link_to "Logout", logout_path(:user_id), method: :delete%></li>
     <% else %>
+      <li><%= link_to "New User", new_user_path %></li>
       <li><%= link_to "Login", login_path, method: :get %></li>
     <% end %>
   </ul>
@@ -28,4 +32,5 @@
 
     <%= yield %>
   </body>
+
 </html>

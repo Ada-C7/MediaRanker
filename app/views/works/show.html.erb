@@ -1,9 +1,8 @@
 <ul>
 <li><h2><%= @work.title %></h2></li>
-<li><%= @work.creator %></li>
-<li><%= @work.publication_year %></li>
+<li>Created by: <%= @work.creator %></li>
+<li>Published by: <%= @work.publication_year %></li>
 </ul>
 
-<%= link_to "Main page", main_path %>
-<%= link_to "Back to #{@work.category} list", list_works_path(@work.category+"s") %>
-<%= link_to "Upvote", vote_path, method: :post %>
+<div class = "button"><%= link_to "Back to #{@work.category} list", list_works_path(@work.category+"s") %></div>
+<div class = "button"><%= link_to "Upvote", vote_path, method: :post %></div>

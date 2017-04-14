@@ -1,38 +1,39 @@
-<h1>Media Raker</h1>
-
 <p>
-  Media Spotlight: <%= @spot.title%> by <%= @spot.creator%>
+  <h3>Media Spotlight: <%= link_to @spot.title, work_path(@spot.id)%> by <%= @spot.creator%></h3>
   Synopsis: <%= @spot.description %>
 </p>
 <div>
-  <h2> Top Books </h2>
+  <h3> Top Books </h3>
   <ul>
-    <% @books.each do |book| %>
+    <% books = @books[0...10] %>
+    <% books.each do |book| %>
     <li> <%= link_to "#{book.title}", work_path(book.id) %> by <%= book.creator %> </li>
     <% end %>
   </ul>
 
-  <%= link_to "More Books", list_works_path("books"), work_category: "Books" %>
+  <div class="button"><%= link_to "More Books", list_works_path("books"), work_category: "Books" %></div>
 </div>
 
 <div>
-  <h2> Top Movies </h2>
+  <h3> Top Movies </h3>
   <ul>
-    <% @movies.each do |movie| %>
+    <% movies = @movies[0...10]%>
+    <% movies.each do |movie| %>
     <li> <%= link_to "#{movie.title}", work_path(movie.id) %> by <%= movie.creator %> </li>
     <% end %>
   </ul>
-  <%= link_to "More Movies", list_works_path("movies"), work_category: "Movies" %>
+  <div class="button"><%= link_to "More Movies", list_works_path("movies"), work_category: "Movies" %></div>
   <!-- link_to "Link text", some_path(:foo => "bar", :baz => "quux"), user: @user, :method => :post -->
 </div>
 
 <div>
-  <h2> Top Albums </h2>
+  <h3> Top Albums </h3>
   <ul>
-    <% @albums.each do |album| %>
+    <% albums = @albums[0...10]%>
+    <% albums.each do |album| %>
     <li> <%= link_to "#{album.title}" %> by <%= album.creator %> </li>
     <% end %>
   </ul>
   <% @work_category = "Albums" %>
-  <%= link_to "More Albums", list_works_path("albums"), work_category: "Albums" %>
+  <div class="button"><%= link_to "More Albums", list_works_path("albums"), work_category: "Albums" %></div>
 </div>
