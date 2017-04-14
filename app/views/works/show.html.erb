@@ -3,7 +3,9 @@
      Published: <%= @work[:publication_year] %> <br>
      Description: <%= @work[:description] %> <br>
      Votes: <%= @work.votes.count %>
-     <%= button_to "Vote", vote_work_path, :class => "button", method: :post %>
+     <%= link_to "Vote", vote_work_path, :class => "button", method: :post %>
      <%= link_to "Back to list", root_path, :class => "button" %>
 </h4>
+
+
 <br>
