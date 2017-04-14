@@ -7,5 +7,12 @@
   </li>
 </ul>
 
+<% @work.users.all.each do |user| %>
+<li>
+  <% user = User.find(user.id) %>
+  <h3><%= link_to "#{user.username}", user_path(user.id) %></h3>
+</li>
+<% end %>
+
 <%= button_to "Edit", edit_work_path, method: :get %>
 <%= button_to "Upvote", upvote_path, method: :post %>

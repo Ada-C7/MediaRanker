@@ -70,7 +70,7 @@ class WorksController < ApplicationController
   end
 
   def vote
-    @vote = Vote.create(user_id: session[:user_id], work_id: params[:id])
+    @vote = Vote.create!(user_id: session[:user_id], work_id: params[:id])
 
     if @vote
       flash[:success] = "Vote Added!"
@@ -78,8 +78,6 @@ class WorksController < ApplicationController
     end
   end
 
-  def max_vote
-  end
 
   private
 
