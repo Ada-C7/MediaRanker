@@ -12,30 +12,27 @@ class WorksController < ApplicationController
   end
 
   def update
-    @work.creator = work_params[:creator]
     @work = Work.find(params[:id])
     @work.title = work_params[:title]
+    @work.creator = work_params[:creator]
     @work.publication_year = work_params[:publication_year]
     @work.description = work_params[:description]
 
     if @work.save
       flash[:updated] = "Book updated successfully"
-      redirect_to book_path(@work.id)
+      redirect_to work_path(@work.id)
     else
       render "edit"
     end
   end
 
-  def upvote
+  def destroy
+    work = Work.find(params[:id])
+    #WIP.....you will likely use conditionals so you can redirect to the correct path
   end
-
-  def delete
-  end
-
-
 
   private
   def work_params
-    super
+    media_params # In ApplicationController :)
   end
 end

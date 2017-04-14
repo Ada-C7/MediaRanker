@@ -23,7 +23,6 @@ class AlbumsController < ApplicationController
 
   private
   def album_params
-    work_params
-    # params.require(:work).permit(:category, :title, :creator, :publication_year, :description)
+    media_params
   end
 end

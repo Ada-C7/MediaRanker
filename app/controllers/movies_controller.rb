@@ -23,7 +23,7 @@ class MoviesController < ApplicationController
 
   private
   def movie_params
-    work_params
+    media_params
     # params.require(:work).permit(:category, :title, :creator, :publication_year, :description)
   end
 end

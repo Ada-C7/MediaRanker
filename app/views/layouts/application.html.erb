@@ -25,6 +25,11 @@
           <%= link_to 'Log In', login_path %>
         <% end %>
       </section>
+      <section class="flash">
+      <% flash.each do |name, message| %>
+        <div class="<%= name %>"><%= message %></div>
+      <% end %>
+    </section>
     </nav>
   </header>
     <%= yield %>

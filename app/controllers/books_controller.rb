@@ -23,6 +23,6 @@ class BooksController < ApplicationController
 
   private
   def book_params
-    work_params
+    media_params
   end
 end

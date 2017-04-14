@@ -12,14 +12,19 @@ Rails.application.routes.draw do
   get '/movies', to: 'movies#index'
   get '/movies/new', to: 'movies#new', as: 'new_movie'
   post '/movies', to: 'movies#create'
+  delete '/works/:id', to: 'movies#destroy', as: 'delete_movie'
 
   get '/books', to: 'books#index'
   get '/books/new', to: 'books#new', as: 'new_book'
   post '/books', to: 'books#create'
+  delete '/works/:id', to: 'books#destroy', as: 'delete_book'
+
 
   get '/albums', to: 'albums#index'
   get '/albums/new', to: 'albums#new', as: 'new_album'
   post '/albums', to: 'albums#create'
+  delete '/works/:id', to: 'albums#destroy', as: 'delete_album'
+
 
   get '/login', to: 'sessions#login_form'
   post '/login', to: 'sessions#login'
