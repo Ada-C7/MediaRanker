@@ -54,11 +54,19 @@ describe WorksController do
   describe "edit" do
 
     it "should return/show an instance of work to edit" do
-      get :show, params: { id: 1 }
+      get :edit, params: { id: 1 }
       must_respond_with :success
     end
 
   end
 
+  describe "update" do
+    it "should return/show the correct instace of work to update " do
+    end
+
+    it "should save the updated instance fo Work" do
+    end
+
+  end
 
 end
