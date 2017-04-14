@@ -15,7 +15,7 @@ Rails.application.routes.draw do
   get "login" , to:"sessions#login_form"
   post "login", to:"sessions#login"
 
-  post "works/:id/upvote", to:"works#upvote"
+  patch "upvote", to:"votes#upvote"
 
   delete "logout", to:"sessions#logout"
 
