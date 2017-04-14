@@ -6,6 +6,14 @@ class Work < ApplicationRecord
   validates :creator, presence: true
 
   def vote_count
-    count = Vote.count
+    count = self.votes.count
+  end
+
+  def self.top_work
+    works = Work.all
+    spotlight = works.max_by do |work|
+      work.vote_count
+    end
+    return spotlight
   end
 end

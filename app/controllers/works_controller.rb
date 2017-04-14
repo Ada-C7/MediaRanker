@@ -39,28 +39,29 @@ class WorksController < ApplicationController
   end
 
   def edit
-    @work = Work.find(params[:id])
+    @work = Work.find_by(id: params[:id])
     if @work.nil?
       head :not_found
     end
   end
 
   def update
-    work = Work.find(params[:id])
-    work.assign_attributes(work_params)
-
-    if work.save
-      flash[:success] = "Successfully updated!"
-      redirect_to work_path
+    work = Work.find_by(id: params[:id])
+    if work.nil?
+      head :not_found
     else
-      flash[:failure] = "It didn't work, try again?"
-      render :new, status: :bad_request
+      work.assign_attributes(work_params)
+      if work.save
+        redirect_to work_path(work)
+      else
+        render :edit, status: :bad_request
+      end
     end
   end
 
   def destroy
-    work = Work.find(params[:id])
-    if @work.nil?
+    work = Work.find_by(id: params[:id])
+    if work.nil?
       head :not_found
     else
       work.destroy

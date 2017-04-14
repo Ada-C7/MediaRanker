@@ -1,6 +1,9 @@
 <section>
 <h2> Media Spotlight </h2>
-  <%= @works.maximum(:vote_count) %>
+  <h3><%= "#{@media_spotlight.title}" %></h3>
+  <br> <%= "Created By: #{@media_spotlight.creator}" %>
+  <br> <%= "Published: #{@media_spotlight.pub_date}" %>
+  <br> <%= "#{@media_spotlight.description}" %>
 </section>
 
 <section>

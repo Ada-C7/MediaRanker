@@ -3,6 +3,7 @@ class WelcomeController < ApplicationController
     @albums = Work.where(category: "album")
     @books = Work.where(category: "book")
     @movies = Work.where(category: "movie")
-    # @highest_vote
+    @works = Work.all
+    @media_spotlight = Work.top_work
   end
 end

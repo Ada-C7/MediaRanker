@@ -23,9 +23,9 @@ describe Vote do
 #### WHY DOES THIS NOT WORK?
     it "successfully creates a vote" do
       byebug
-      work_data = Work.last
-      user_data = User.last
-      vote = Vote.new(user: user_data, work: work_data)
+      work_id = Work.last.id
+      user_id = User.last.id
+      vote = Vote.new(user_id: user_id, work_id: work_id)
       result = vote.valid?
       result.must_equal true
     end
