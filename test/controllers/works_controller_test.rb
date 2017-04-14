@@ -139,6 +139,7 @@ describe WorksController do
 
   describe 'update' do
 
+    # success case
     it 'should update a work' do
       put work_path(works(:nemo).id), params: { work: {title: "new title"}}
       work = Work.find(works(:nemo).id)
@@ -154,6 +155,7 @@ describe WorksController do
       must_respond_with :not_found
     end
 
+    # failure case
     it 'does not update if new info is bad' do
       put work_path(works(:nemo).id), params: { work: {title: ""} }
       must_respond_with :bad_request
@@ -178,14 +180,14 @@ describe WorksController do
   end
 
   describe 'vote' do
+    setup do
+      @user = User.first
+      login(@user)
+    end
+
     it 'should create a vote and redirect to work_path' do
       work_id = Work.first.id
-      user_id = User.first.id
-      controller.session[:user_id] = user_id
-      # this test says vote is not getting created
-      puts "Before: #{Vote.count}"
-      post vote_path(work_id)
-      puts "After: #{Vote.count}"
+      proc { post vote_path(work_id) }.must_change 'Vote.count', +1
       must_respond_with :redirect
       must_redirect_to work_path(work_id)
     end
