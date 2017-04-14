@@ -10,13 +10,13 @@ class WorksController < ApplicationController
 
   def new
     @category = params[:category]
-    @work = Work.new(category: @category)
+    @work = Work.new(category: @category.singularize)
   end
 
   def create
     @work = Work.create(work_params)
     if @work.save
-      redirect_to category_path(@work.category)
+      redirect_to category_path(@work.category.pluralize)
     else
       render :new
     end
