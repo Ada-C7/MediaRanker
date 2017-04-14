@@ -17,7 +17,7 @@
       </h2>
       <div>
         <% if session[:user_id] %>
-          <p>Logged in as <%= session[:username] %></p>
+          <p>Logged in as <%= link_to session[:username], user_path(session[:user_id]) %></p>
           <%= link_to "Log Out", logout_path, method: :delete, class: "button" %>
         <% else %>
           <p>Not logged in</p>
