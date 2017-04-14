@@ -8,13 +8,9 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
 
     <nav class="header">
-      <img class="float-left" src="https://img.clipartfest.com/68b3f4fb38086c52573f631f3d29d19d_picture-cute-owl-scholar-clipart_500-540.jpeg" style="width:160px;height:180px">
-
       <div>
       <h2><%= link_to "Media Ranker", root_path %><small> Ranking the Best of Everything</small></h2>
-      </div>
 
-      <div>
 
       <% if session[:user_id] %>
       <% user_id = session[:user_id].to_s %>
