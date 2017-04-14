@@ -46,9 +46,9 @@ class WorksController < ApplicationController
 
     if @work.update(work_params)
       flash[:success] = "Successfully updated #{@category} #{@work.id}"
-      redirect_to work_path
+      redirect_to category_path(@work.category.pluralize)
     else
-      flash.now[:error] = "Error: #{@category}.capitalize not updated"
+      flash.now[:error] = "Error: #{@category.capitalize} not updated"
       render "edit"
     end
   end
@@ -63,16 +63,19 @@ class WorksController < ApplicationController
 
   def upvote
     if session[:user_id]
-      vote = Vote.create(user_id: session[:user_id], work_id: params[:id])
-      if vote.id
+      @vote = Vote.create(user_id: session[:user_id], work_id: params[:id])
+      if @vote.id
         flash[:success] = "Successfully upvoted!"
+        redirect_back(fallback_location: root_path)
       else
-        flash[:error] = "You've already voted for this"
+        @work = Work.find(params[:id])
+        flash.now[:error] = "You've already voted for this"
+        render "show"
       end
     else
       flash[:error] = "You must log in to do that"
+      redirect_back(fallback_location: root_path)
     end
-    redirect_back(fallback_location: root_path)
   end
 
   private
