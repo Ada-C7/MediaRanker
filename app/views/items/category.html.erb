@@ -19,5 +19,5 @@
   <% end %>
 </table>
 
-<%= link_to 'Back to homepage', root_path %>
-<%= link_to "Create new #{@category}", new_item_path(@category) %>
+<%= button_to 'Homepage', root_path, :class => "button" %>
+<%= button_to "Add new #{@category}", new_item_path(@category), :class => "button" %>
