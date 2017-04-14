@@ -26,4 +26,13 @@
   padding-left: 150px;
 }
 
+.top-ten {
+  overflow: hidden;
+}
+
+.top-ten ul {
+  list-style-type: none;
+  margin: 0;
+}
+
 @import url('foundation.css')
