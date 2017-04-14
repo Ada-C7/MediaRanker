@@ -1,8 +1,7 @@
-<h1>All Books</h1>
+<section class="media-table">
+<h3>List of Books</h3>
 
-<% @books.each do |book| %>
-  <h3> <%= link_to book.title, work_path(book.id) %> by <%= book.creator %> </h3>
-  <h4> <%= book.votes.count %> votes </h4>
-<% end %>
+<%= render partial: "specific_index" %>
 
-<%= link_to "Create new Book", new_work_path(:category => "book"), class: "button" %>
+  <%= link_to "Create new Book", new_work_path(:category => "book"), class: "button" %>
+</section>

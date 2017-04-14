@@ -24,6 +24,10 @@ th {
   text-align: left;
 }
 
+th.th-pub {
+  width: 100px;
+}
+
 ul {
   list-style-type: none;
   padding: 0;
@@ -35,7 +39,9 @@ main {
 
 }
 
-
+td a.button {
+  margin: 0;
+}
 
 /*Getting Header to work correctly!*/
  .float-right {

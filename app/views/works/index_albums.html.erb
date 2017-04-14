@@ -1,8 +1,5 @@
 <h1>All Albums</h1>
 
-<% @albums.each do |album| %>
-  <h3> <%= link_to album.title, work_path(album.id) %> by <%= album.creator %> </h3>
-  <h4> <%= album.votes.count %> votes </h4>
-<% end %>
+<%= render partial: "specific_index" %>
 
 <%= link_to "Create new Album", new_work_path(:category => "album"), class: "button" %>

@@ -1,0 +1,22 @@
+<table>
+  <thead>
+    <tr>
+      <th>Votes</th>
+      <th>Title</th>
+      <th>Created by</th>
+      <th class="th-pub">Published</th>
+      <th class="th-pub">Upvote</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @works.each do |work| %>
+      <tr>
+        <td><%= work.votes.count %></td>
+        <td><%= link_to work.title, work_path(work.id) %></td>
+        <td><%= work.creator %></td>
+        <td><%= work.pub_yr %></td>
+        <td><%= link_to "Upvote", new_vote_path(work.id), class: "button" %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
