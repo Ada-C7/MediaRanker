@@ -98,15 +98,16 @@ class WorksController < ApplicationController
   end
 
   def vote
-    vote = Vote.create(user_id: session[:user_id], work_id: params[:id])
 
-    if vote.id != nil
+    vote = Vote.create(user_id: session[:user_id], work_id: params[:id])
+    if session[:user_id].nil?
+      flash[:need_to_login] = "You need to login to vote"
+    elsif vote.id != nil
       flash[:successful_vote] = "Successfully Voted"
-      redirect_to work_path(params[:id])
     else
       flash[:vote_failure] = "You have already voted for this"
-      redirect_to work_path(params[:id])
     end
+    redirect_to work_path(params[:id])
   end
 
 private
