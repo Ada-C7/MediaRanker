@@ -15,14 +15,16 @@
  */
 @import url('foundation.css');
 
-body small{color:slategrey}
+body small{
+  color:slategrey;
+}
 
-.page-header {
-  max-width:100%;
+.page-header.row {
+  max-width: 100%;
   background: url('rancor');
-  background-repeat:no-repeat;
+  background-repeat: no-repeat;
   border-bottom: 1px solid darkgrey;
-  margin-bottom:10px
+  margin-bottom: 10px;
 }
 
 .page-header h2 {
@@ -33,27 +35,33 @@ body small{color:slategrey}
   margin-bottom: 5px;
 }
 
+.row {
+  max-width: 75rem;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+main {
+  display: block;
+}
+
 .failure{
-  color:#C70039;
+  color: #C70039;
 }
 
 .success {
-  color:#359b18;
+  color: #359b18;
 }
 
 .media-table .upvote.button {
-  margin:0;
+  margin: 0;
 }
 
 .top-ten ul {
-  list-style-type:none;margin-left:0px
+  list-style-type: none;
+  margin-left: 0px;
 }
 
 section.spotlight>div {
-  padding:2rem;
-}
-
-article {
-  padding-right: 0.9375rem;
-  padding-left: 0.9375rem;
+  padding: 2rem;
 }
