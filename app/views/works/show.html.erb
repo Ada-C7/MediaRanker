@@ -13,19 +13,19 @@ Published: <%= @result_work.publication_year %>
 <section>
 
 <% if @result_work.category == 'movie' %>
-  <%= link_to "Back to movie list", movies_path %>
+  <%= link_to "Back to movie list", movies_path, class: :button %>
 <% elsif @result_work.category == 'book' %>
-  <%= link_to "Back to book list", books_path %>
+  <%= link_to "Back to book list", books_path, class: :button %>
 <% else @result_work.category == 'album'%>
-  <%= link_to "Back to album list", albums_path %>
+  <%= link_to "Back to album list", albums_path, class: :button %>
 <% end %>
 
 <!-- Edit  link -->
-<%= link_to 'Edit', edit_work_path %>
+<%= link_to 'Edit', edit_work_path, class: :button %>
 <!-- Upvote link-->
 <!-- Delete link-->
 <%= link_to "Delete", work_path(@result_work.id),
-  data: { confirm: "Are you sure?" },
+  data: { confirm: "Are you sure?" }, :class => "alert button",
   method: :delete %>
 
 </section>
