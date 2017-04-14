@@ -3,6 +3,7 @@
   <% @items_by_category.each do |item| %>
   <li>
     <%= link_to "#{item.title}", item_path(item.id) %>, <%=item.creator%>, <%=item.publication_year%>, <%=item.description%>
+    <%= button_to 'vote', upvote_item_path(item.id), :class => "button", method: :post %>
   </li>
   <% end %>
 </ul>
