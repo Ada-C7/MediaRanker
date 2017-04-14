@@ -22,7 +22,7 @@ class SessionController < ApplicationController
   end
 
   def logout
-    session.delete[:user_id]
+    session.delete(:user_id)
     flash[:success] = "You are successfully logged out"
     redirect_to root_path
   end

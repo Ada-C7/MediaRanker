@@ -19,4 +19,11 @@ describe SessionController do
     must_respond_with :redirect
     must_redirect_to root_path
   end
+
+  it "allows users to logout" do
+    delete logout_path
+    must_respond_with :found
+    must_respond_with :redirect
+    must_redirect_to root_path
+  end
 end

@@ -14,6 +14,7 @@ Rails.application.routes.draw do
   get '/login', to: 'session#login', as: 'login'
   post '/login/:username', to: 'session#create', as: 'create_login'
 
+  delete '/login', to: 'session#logout', as: 'logout'
 
 
 
