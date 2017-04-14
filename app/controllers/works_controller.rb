@@ -15,7 +15,7 @@ class WorksController < ApplicationController
     if @work.save
       redirect_to works_path
     else
-      render_error
+      render new_work_path(params[:category])
     end
 
   end
