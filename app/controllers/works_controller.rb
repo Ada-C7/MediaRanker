@@ -64,7 +64,7 @@ class WorksController < ApplicationController
   end
 
   def upvote
-    if session[:user_id] = nil
+    if session[:user_id] == nil
       flash[:error] = "You must be logged in to do that"
       redirect_back(fallback_location: root_path)
     else
@@ -72,7 +72,7 @@ class WorksController < ApplicationController
       # get user id from session
       vote.user_id = session[:user_id]
       # get work id from page/link
-
+      vote.work_id = params[:id]
       # create new vote
       vote.save
       flash[:success] = "Successfully upvoted!"
