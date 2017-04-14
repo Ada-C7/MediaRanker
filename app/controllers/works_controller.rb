@@ -25,9 +25,13 @@ class WorksController < ApplicationController
   end
 
   def create_album
-    Work.create
-
-    redirect_to root_path #Change to albums
+    @album = Work.new(album_params)
+    @album.category = "album"
+    if @album.save
+      redirect_to root_path #Change to albums
+    else
+      render :new
+    end
   end
 
   def new_album
@@ -58,7 +62,7 @@ class WorksController < ApplicationController
 
   private
 
-  # def strong_params
-  #   return params.require(:driver).permit(:title, :creator, :publication_year, :description)
-  # end
+  def album_params
+    return params.permit(:title, :creator, :publication_year, :description)
+  end
 end
