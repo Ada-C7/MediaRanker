@@ -6,7 +6,7 @@
     No <%=category.pluralize%> found.
   </p>
   <% else %>
-  <% works = Work.where(category: category) %>
+  <% works = Work.where(category: category).order('votes_count DESC') %>
   <table>
     <thead>
       <tr>
