@@ -1,6 +1,7 @@
 class SessionsController < ApplicationController
 
   def new
+    session[:user_id]
     flash[:success] = "successfully created new user #{ user.username } with ID #{ user.id }"
   end
 
