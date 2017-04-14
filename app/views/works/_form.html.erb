@@ -11,6 +11,7 @@
 
   <%= form_for @work do |f| %>
   <ul>
+    <%= f.hidden_field :category, value: @category %>
     <li>
       <%= f.label :name, "Name: " %>
       <%= f.text_field :name %>

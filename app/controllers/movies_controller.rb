@@ -1,11 +1,11 @@
 class MoviesController < ApplicationController
-  def index
-    @works = Work.where(category: 'movie')
-  end
-
-  def new
-    @work = Work.new
-  end
+  # def index
+  #   @works = Work.where(category: 'movie')
+  # end
+  #
+  # def new
+  #   @work = Work.new
+  # end
 
   # def create
   #   @work = Work.create(work_params)

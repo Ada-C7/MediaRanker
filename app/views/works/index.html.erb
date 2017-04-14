@@ -9,11 +9,46 @@
 </section>
 
   <article class="top-ten columns large-4 small-12">
-    <%= render partial: 'movies/list' %>
+    <h3>Top Movies</h3>
+      <% @movies.each do |movie| %>
+        <ul>
+          <li>
+            <%= link_to movie.name, work_path(movie.id) %> by <%= movie.created_by %>
+          </li>
+          <li>
+            X votes
+          </li>
+        </ul>
+      <% end %>
+    <%= link_to "View More Movies", '/movies' %>
   </article>
   <article class="top-ten columns large-4 small-12">
-    <%= render partial: 'books/list' %>
+    <h3>Top Books</h3>
+
+      <% @books.each do |book| %>
+        <ul>
+          <li>
+            <%= link_to book.name, work_path(book.id) %> by <%= book.created_by %>
+          </li>
+          <li>
+            X votes
+          </li>
+        </ul>
+      <% end %>
+    <%= link_to "View More Books", '/books' %>
   </article>
   <article class="top-ten columns large-4 small-12">
-    <%= render partial: 'albums/list' %>
+    <h3>Top Albums</h3>
+
+      <% @albums.each do |album| %>
+        <ul>
+          <li>
+            <%= link_to album.name, work_path(album.id) %> by <%= album.created_by %>
+          </li>
+          <li>
+            X votes
+          </li>
+        </ul>
+      <% end %>
+    <%= link_to "View More Albums", '/albums' %>
   </article>

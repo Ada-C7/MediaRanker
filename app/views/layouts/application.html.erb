@@ -22,7 +22,7 @@
     <%= link_to "Login", login_path, class: "button float-right" %>
     <% else %>
     <p class="text-right">
-      Logged in as: <%= session[:name] %>
+      Logged in as: <%= link_to session[:name], user_path(session[:id]) %>
     </p>
     <%= link_to "Logout", logout_path, class: "button float-right", method: :delete %>
     <% end %>

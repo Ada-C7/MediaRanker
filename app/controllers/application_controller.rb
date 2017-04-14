@@ -6,10 +6,4 @@ class ApplicationController < ActionController::Base
     status: 404
   end
 
-  private
-
-  def work_params
-    params.require(:work).permit(:category, :name, :created_by, :pub_year, :desc)
-  end
-  
 end

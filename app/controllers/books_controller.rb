@@ -1,11 +1,11 @@
 class BooksController < ApplicationController
-  def index
-    @works = Work.where(category: 'book')
-  end
-
-  def new
-    @work = Work.new
-  end
+  # def index
+  #   @works = Work.where(category: 'book')
+  # end
+  #
+  # def new
+  #   @work = Work.new
+  # end
 
   # def create
   #   @work = Work.create(work_params)
