@@ -1,14 +1,23 @@
-<h3>Media Spotlight: [placeholder]</h3>
+<h3>
+  Media Spotlight:
+  <%= link_to @spotlight.title, work_path(@spotlight.id) %>
+  <%= "by #{@spotlight.creator}" if @spotlight.category && @spotlight.category != "" %>
+</h3>
+<p>
+  <%= pluralize(@spotlight.votes_count, "vote") %>
+  <%= "- #{@spotlight.description}" if @spotlight.description && @spotlight.description != "" %>
+</p>
 
 <section>
   <h3>Top Movies</h3>
   <ul>
     <% @movies.each do |movie| %>
       <li>
-        <h4><%= link_to movie.title, work_path(movie.id) %> by <%= movie.creator %></h4>
+        <h4><%= link_to movie.title, work_path(movie.id) %> <%= "by #{movie.creator}" if movie.creator && movie.creator != "" %></h4>
       </li>
     <% end %>
   </ul>
+  <%= link_to "View More Movies", category_path("movies") %>
 </section>
 
 <section>
@@ -16,10 +25,11 @@
   <ul>
     <% @books.each do |book| %>
       <li>
-        <h4><%= link_to book.title, work_path(book.id) %> by <%= book.creator %></h4>
+        <h4><%= link_to book.title, work_path(book.id) %> <%= "by #{book.creator}" if book.creator && book.creator != "" %></h4>
       </li>
     <% end %>
   </ul>
+  <%= link_to "View More Books", category_path("books") %>
 </section>
 
 <section>
@@ -27,8 +37,10 @@
   <ul>
     <% @albums.each do |album| %>
       <li>
-        <h4><%= link_to album.title, work_path(album.id) %> by <%= album.creator %></h4>
+        <h4><%= link_to album.title, work_path(album.id) %> <%= "by #{album.creator}" if album.creator && album.creator != "" %></h4>
+        <p><%= pluralize(album.votes_count, "vote") %></p>
       </li>
     <% end %>
   </ul>
+  <%= link_to "View More Albums", category_path("albums") %>
 </section>

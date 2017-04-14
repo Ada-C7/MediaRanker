@@ -1,8 +1,9 @@
 class WorksController < ApplicationController
   def index
-    @movies = Work.movies
-    @albums = Work.albums
-    @books = Work.books
+    @movies = Work.top_ten("movie")
+    @albums = Work.top_ten("album")
+    @books = Work.top_ten("book")
+    @spotlight = Work.spotlight
   end
 
   def show
@@ -11,7 +12,7 @@ class WorksController < ApplicationController
   end
 
   def show_category
-    @works = Work.where(category: params[:category].singularize)
+    @works = Work.category_sorted(params[:category].singularize)
     render_404 if ["movies", "books", "albums"].exclude?(params[:category])
   end
 
