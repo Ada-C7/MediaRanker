@@ -9,14 +9,11 @@ describe UsersController do
  it "Sould get show" do
   get user_path(users(:hallman).id)
   must_respond_with :success
-end
+ end
 
-it "Should show a 404 when user is not found" do
-get user_path(4)
-must_respond_with :missing
-end
-
-
-
+  it "Should show a 404 when user is not found" do
+  get user_path(4)
+  must_respond_with :missing
+  end
 
 end

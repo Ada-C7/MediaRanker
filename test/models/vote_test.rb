@@ -18,8 +18,4 @@ describe Vote do
   end
 
 
-
-
-
-
 end

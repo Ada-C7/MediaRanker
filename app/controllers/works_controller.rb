@@ -70,5 +70,4 @@ end
     params.require(:work).permit(:title, :creator, :publication_year, :description)
   end
 
-
 end

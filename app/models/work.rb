@@ -27,13 +27,4 @@ class Work < ApplicationRecord
     return spot
   end
 
-  def self.vote_one
-    if Work.votes.user_id == session[:user_id]
-      return true
-    else
-      return false
-
-    end
-
-  end
 end

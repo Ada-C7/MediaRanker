@@ -7,7 +7,6 @@ describe Work do
 
   it "Work must be valid" do
     work1.title = "My Life"
-
     work1.must_be :valid?
   end
 
@@ -27,23 +26,31 @@ describe Work do
     work1.errors.messages[:title].must_equal []
   end
 
+# Testing model relationship (has_many)
+  it "Responds to votes method" do
+    vote1 = Vote.create( work_id: works(:movie1).id, user_id: users(:anderson).id)
 
-  # Testing model relationship
-  describe "relation/has_many votes" do
-
-    it "Responds to votes method" do
-      vote1 = Vote.create( work_id: works(:movie1).id, user_id: users(:anderson).id)
-
-      works(:movie1).must_respond_to :votes
-    end
-    #
-    it "Can retrieve votes list " do
-      works(:movie1).votes.must_include votes(:voteone)
-    end
+    works(:movie1).must_respond_to :votes
   end
 
-end
-# vote1.must_respond_to :user
-# user_id: users(:anderson).id)
+# Why this one is not working??
+  # it "Can retrieve votes list " do
+  #   works(:movie1).votes.must_include votes(:voteone)
+  # end
 
-# binding.pry
+# Testing custom methods
+
+  it "Responds to spot_light method / Returns medium of maximum
+ votes" do
+
+  vote1 = Vote.create( work_id: works(:movie1).id, user_id: users(:anderson).id)
+
+  vote2 = Vote.create( work_id: works(:movie1).id, user_id: users(:hallman).id)
+
+  vote3 = Vote.create( work_id: works(:album1).id, user_id: users(:sulaiman).id)
+
+  (Work.spot_light.first.id).must_equal works(:movie1).id
+  end
+
+
+end
