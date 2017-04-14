@@ -76,6 +76,15 @@ describe WorksController do
         must_redirect_to works_path
       end
 
+      it "does not create a work row if not respecting strong params" do
+          work_data = {
+            work: {foo: "bar"}
+          }
+          post works_path, params: work_data
+
+          must_respond_with :bad_request
+        end
+
       it "re-renders the new work form if the work is invalid" do
         work_data = { work: { title: "NoCategory"}}
         post works_path, params: work_data
@@ -86,14 +95,14 @@ describe WorksController do
     describe "album_show" do
       it "shows an album that exists" do
         work = works(:album)
-        get album_path(work.id)
+        get work_path(work.id)
         must_respond_with :success
       end
 
       it "returns a 404 not found status when asked for an album that doesn't exist" do
         work_id = Work.where(category: "album").last.id
         work_id += 1
-        get album_path(work_id)
+        get work_path(work_id)
         must_respond_with :not_found
       end
     end
@@ -101,14 +110,14 @@ describe WorksController do
     describe "book_show" do
       it "shows a book that exists" do
         work = works(:book)
-        get book_path(work.id)
+        get work_path(work.id)
         must_respond_with :success
       end
 
       it "returns a 404 not found status when asked for a book that doesn't exist" do
         work_id = Work.where(category: "book").last.id
         work_id += 1
-        get book_path(work_id)
+        get work_path(work_id)
         must_respond_with :not_found
       end
     end
@@ -116,14 +125,14 @@ describe WorksController do
     describe "movie_show" do
       it "shows a movie that exists" do
         work = works(:movie)
-        get movie_path(work.id)
+        get work_path(work.id)
         must_respond_with :success
       end
 
       it "returns a 404 not found status when asked for a movie that doesn't exist" do
         work_id = Work.where(category: "movie").last.id
         work_id += 1
-        get movie_path(work_id)
+        get work_path(work_id)
         must_respond_with :not_found
       end
     end
@@ -155,7 +164,7 @@ describe WorksController do
 #### TW: This does not work
       it "should show an error if mandatory fields are changed to empty" do
           work = works(:movie)
-          patch work_ path(work.id), work: {title: nil, creator: "UpdatedCreator"}
+          patch work_path(work.id), work: {title: nil, creator: "UpdatedCreator"}
 
           must_respond_with :error
       end

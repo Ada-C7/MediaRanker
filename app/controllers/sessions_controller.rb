@@ -7,7 +7,7 @@ class SessionsController < ApplicationController
 
     if user
       session[:user_id] = user.id
-      flash[:success] = "#{ user.username } is successfully logged in"
+      flash[:success] = "#{ user.username }, with ID #{user.id} is successfully logged in!"
       redirect_to welcome_path
     end
   end
