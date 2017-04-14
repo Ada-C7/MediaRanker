@@ -144,9 +144,21 @@ describe WorksController do
     end
 
     it "delete an album and redirects to album list" do
-      delete  work_path(works(:lee).id)
+      delete  work_path(works(:dan).id)
       must_respond_with :redirect
       must_redirect_to albums_path
+    end
+
+    it "delete a book and redirects to book list" do
+      delete  work_path(works(:lee).id)
+      must_respond_with :redirect
+      must_redirect_to books_path
+    end
+
+    it "delete an movie and redirects to movie list" do
+      delete  work_path(works(:mee).id)
+      must_respond_with :redirect
+      must_redirect_to movies_path
     end
   end
 end
