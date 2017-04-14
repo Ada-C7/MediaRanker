@@ -1,6 +1,7 @@
 class WorksController < ApplicationController
   def index
     @works = Work.by_category(params[:category].singularize)
+    # @movies = Work.where(category: "movie")
   end
 
   def show

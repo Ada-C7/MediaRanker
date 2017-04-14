@@ -1,7 +1,15 @@
 <h1>Welcome#index</h1>
 
-<section id="works">
-  <% @works.each do |work| %>
-    <h3><%= link_to work.title, work_path(work.id) %></h3>
+<% ["book", "movie", "album"].each do |category| %>
+<% category_list = Work.by_category(category) %>
+<section class="top-ten columns large-4 small-12">
+<h1><%= "Top #{category.capitalize}'s:" %></h1>
+<ul>
+  <% category_list.each do |work| %>
+    <li><%= link_to "#{work.title}", work_path(work.id) %></li>
+    <% end %>
+    <br>
+    <%= link_to "View all #{category.pluralize}".pluralize, category_path(category.pluralize) %>
+    </ul>
+      </section>
   <% end %>
-</section>
