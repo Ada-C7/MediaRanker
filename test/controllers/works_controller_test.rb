@@ -5,6 +5,13 @@ require "test_helper"
 # did the database actually change
 
 describe WorksController do
+  describe 'Works#home' do
+    it "should get new_book for books" do
+      get root_path
+      must_respond_with :success
+    end
+  end
+
   describe 'Works#index' do
     it "should get index for books" do
       get works_path(media_type: "books")
@@ -55,18 +62,20 @@ describe WorksController do
     end
   end
 
-  describe 'Works#home' do
-    it "should get new_book for books" do
-      get root_path
-      must_respond_with :success
+  describe 'Works#create' do
+    it 'creates a new work' do
+      start_count = Work.count
+
+      post works_path
+      must_redirect_to root
+
+      end_count = Work.count
+      end_count.must_equal start_count + 1
     end
   end
 
-  describe 'Works#create' do
-  end
-
   describe 'Works#show' do
-    it "should get work path" do
+    it 'should get work path' do
       work = Work.first
       get work_path(work)
       must_respond_with :success
