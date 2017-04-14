@@ -26,8 +26,10 @@ class WorksController < ApplicationController
     @category = params[:work][:category].singularize
 
     unless @work.id == nil
-      redirect_to works_path
+      flash[:success] = "Successfully created #{@category} #{@work.id}"
+      redirect_to category_path(@category.pluralize)
     else
+      flash.now[:error] = "Error: #{@category}.capitalize not created"
       render "new"
     end
   end
@@ -35,6 +37,20 @@ class WorksController < ApplicationController
   def edit
     @work = Work.find(params[:id])
     @category = @work.category
+    render_404 if !@work
+  end
+
+  def update
+    @work = Work.find(params[:id])
+    @category = @work.category
+
+    if @work.update(work_params)
+      flash[:success] = "Successfully updated #{@category} #{@work.id}"
+      redirect_to work_path
+    else
+      flash.now[:error] = "Error: #{@category}.capitalize not updated"
+      render "edit"
+    end
   end
 
   def upvote
