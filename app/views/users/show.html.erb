@@ -1,6 +1,6 @@
-<h3>User Summary: <%= User.find_by_id(session[:user_id]).name %></h3>
+<h3>User Summary: <%= User.find_by_id(params[:id]).name %></h3>
 <p>
-  Joined site <%= User.find_by_id(session[:user_id]).created_at.strftime("%B %d, %Y") %>
+  Joined site <%= User.find_by_id(params[:id]).created_at.strftime("%B %d, %Y") %>
 </p>
 
 <h3><%= link_to "See All Users", users_path %></h3>
@@ -26,7 +26,7 @@
     </tr>
   </thead>
   <tbody>
-    <% User.find_by_id(session[:user_id]).votes.each do |vote| %>
+    <% User.find_by_id(params[:id]).votes.each do |vote| %>
 
     <tr>
       <td>
