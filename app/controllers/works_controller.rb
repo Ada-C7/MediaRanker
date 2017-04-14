@@ -1,25 +1,32 @@
 class WorksController < ApplicationController
-  before_action :top_work, only: [:index]
+  before_action :top_work, :books_index, :movies_index, :albums_index, only: [:index]
 
   def top_work
     if Work.all.length > 0
-    most_votes = Work.all.sort_by { |work| -work.votes.count }.first
+    most_votes = Work.sort_by_votes.first
       if most_votes.votes.count > 5
         return @top_work = most_votes
       end
     end
   end
 
+  def books_index
+    @books = Work.where(category: "book").sort_by_votes[0..9]
+  end
+
+  def movies_index
+    @movies = Work.where(category: "movie").sort_by_votes[0..9]
+  end
+
+  def albums_index
+    @albums = Work.where(category: "album").sort_by_votes[0..9]
+  end
+
   def index
-    @works = Work.all.sort_by do |work|
-      -work.votes.count
-    end
   end
 
   def works_index
-    @works = Work.where(category: (params[:category]).singularize).sort_by do |work|
-      -work.votes.count
-    end
+    @works = Work.where(category: (params[:category]).singularize).sort_by_votes
   end
 
   def vote

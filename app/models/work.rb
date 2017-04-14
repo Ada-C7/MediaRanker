@@ -5,4 +5,9 @@ class Work < ApplicationRecord
   validates :category, presence: true, inclusion: { in:%w(album movie book),
     message: "%{value} is not a valid category" }
 
+  def self.sort_by_votes
+    self.all.sort_by do |work|
+      -work.votes.count
+    end
+  end
 end

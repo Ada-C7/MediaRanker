@@ -10,29 +10,29 @@
 <section class="top-ten columns large-4 small-12">
   <h4>Top Movies</h4>
     <ul>
-      <% @works.each do |work| %>
-        <% if work.category == "movie" %>
+    <% if @movies != nil %>
+      <% @movies.each do |work| %>
           <li>
            <h4> <%= link_to work.title, work_path(work.id)%></h4>
            <small> by <%= work.created_by %></small>
           <p><%= work.votes.count %> votes</p>
          </li>
         <% end %>
-      <% end %>
+        <% end %>
   </ul>
   <%= link_to "View More Movies", works_path("movies") %>
 </section>
 
 <section class="top-ten columns large-4 small-12">
   <h4>Top Albums</h4>
-    <ul><% @works.each do |work| %>
-      <% if work.category == "album" %>
+  <% if @albums != nil %>
+    <ul><% @albums.each do |work| %>
         <li>
          <h4> <%= link_to work.title, work_path(work.id)%></h4>
          <small> by <%= work.created_by %></small>
         <p><%= work.votes.count %> votes</p>
        </li>
-      <% end %>
+    <% end %>
     <% end %>
     </ul>
   <%= link_to "View More Albums", works_path("albums") %>
@@ -40,15 +40,15 @@
 
 <section class="top-ten columns large-4 small-12">
   <h4>Top Books</h4>
-    <ul><% @works.each do |work| %>
-      <% if work.category == "book" %>
+  <% if @books != nil %>
+    <ul><% @books.each do |work| %>
       <li>
        <h4> <%= link_to work.title, work_path(work.id)%></h4>
        <small> by <%= work.created_by %></small>
       <p><%= work.votes.count %> votes</p>
      </li>
-     <% end %>
     <% end %>
     </ul>
+    <% end %>
   <%= link_to "View More Books", works_path("books") %>
 </section>
