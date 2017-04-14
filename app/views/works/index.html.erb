@@ -18,21 +18,21 @@
       <%= link_to movie.title, work_path(movie.id) %>
       <br/>
       <% end %>
-      <%= link_to "View more movies", movies_path %>
+      <%= link_to "View more movies", category_path("movies") %>
     </td>
     <td>
       <% @books[0..9].each do |book| %>
       <%= link_to book.title, work_path(book.id) %>
       <br/>
       <% end %>
-      <%= link_to "View more books", books_path %>
+      <%= link_to "View more books", category_path("books") %>
     </td>
     <td>
       <% @albums[0..9].each do |album| %>
       <%= link_to album.title, work_path(album.id) %>
       <br/>
       <% end %>
-      <%= link_to "View more albums", albums_path %>
+      <%= link_to "View more albums", category_path("albums") %>
 
     </td>
   </tr>

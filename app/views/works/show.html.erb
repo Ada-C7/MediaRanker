@@ -7,7 +7,7 @@
   </article>
   <section>
     <!--TODO: fix this link -->
-    <%= link_to "Back to #{@work.category} list", books_path, class: "button" %>
+    <%= link_to "Back to #{@work.category} list", category_path(@work.category), class: "button" %>
     <%= link_to "Edit", edit_work_path(@work.id), class: "button" %>
     <!-- Upvote -->
     <%= link_to "Delete", work_path(@work.id), data: { confirm: "Are you sure?"}, method: :delete %>
