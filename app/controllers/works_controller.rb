@@ -100,7 +100,7 @@ class WorksController < ApplicationController
   def vote
     vote = Vote.create(user_id: session[:user_id], work_id: params[:id])
 
-    if vote
+    if vote.id != nil
       flash[:successful_vote] = "Successfully Voted"
       redirect_to work_path(params[:id])
     else
