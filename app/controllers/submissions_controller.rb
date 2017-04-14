@@ -50,7 +50,7 @@ def upvote
      if @user
 
           if  @votes.any? {|vote| vote.submission_id == @submission.id && vote.user_id == @user.id }
-               flash[:error] = "Upvote aborted. Don't be greedy. One per submission."
+               flash[:error] = "Upvote aborted. Don't be greedy. One vote per submission."
                redirect_to(submission_path)
           else
                Vote.create(user: @user, submission: @submission)
