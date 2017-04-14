@@ -9,6 +9,9 @@
   </head>
 
   <body>
+    <header>
+
+
     <h2><%= link_to "Media Ranker", works_path %></h2>
     <nav>
       <% if session[:user_id] %>
@@ -20,6 +23,7 @@
       <% end %>
 
     </nav>
+      </header>
 
 
 
@@ -29,13 +33,6 @@
       <% end %>
     </section>
 
-    <section class="errors">
-        <% if @vote %>
-          <% @vote.errors.each do |field, msg| %>
-            <div><%= field %><%= msg %></div>
-          <% end %>
-        <% end %>
-    </section>
 
 
     <%= yield %>

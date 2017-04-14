@@ -1,6 +1,10 @@
+
 <% selected_works = @works.select { |work| work.category == category} %>
     <% selected_works[0..9].each do |work| %>
-    <h3><%= link_to work.title, work_path(work.id) %> by <%= work.creator %></h3>
+    <li>
+      <h4><%= link_to work.title, work_path(work.id) %> by <%= work.creator %></h4>
+      <p><%= work.votes.count %> <%= "vote".pluralize(work.votes.count) %></p>
+    </li>
     <% end %>
 
 

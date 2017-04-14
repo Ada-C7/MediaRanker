@@ -14,3 +14,9 @@
  *= require_self
  */
  @import url('foundation.css');
+
+ li {
+   list-style-type: none;
+ }
+
+ 
