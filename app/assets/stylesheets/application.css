@@ -1,6 +1,6 @@
 
-@import url('stylesheets/foundation.css');
-@import url('stylesheets/foundation-icons.css');
+@import url('foundation.css');
+@import url('foundation-icons.css');
 @import url('https://fonts.googleapis.com/css?family=Bitter');
 header{
   margin-bottom: 20px;
