@@ -6,20 +6,25 @@
   <p>Published: <%= @result_album.pub_year %></p>
   <p><%= @result_album.description %></p>
 
-<%= link_to "Back to album list", albums_path, class: :button %>
-<%= link_to "Edit", edit_album_path, class: :button %>
-<%= link_to "Delete", album_path, class: :button %>
-<%= link_to "Upvote", votes_upvote_path(work_id: @result_album.id), class: :button, method: :post %>
+  <%= link_to "Back to album list", albums_path, class: :button %>
+  <%= link_to "Edit", edit_album_path, class: :button %>
+  <%= link_to "Delete", album_path, class: :button %>
+  <%= link_to "Upvote", votes_upvote_path(work_id: @result_album.id), class: :button, method: :post %>
 
   <h3> <%= @result_album.votes.length %> Votes for this album</h3>
-
 
   <table>
     <tr>
       <th>User</th>
       <th>Date</th>
     </tr>
-    <td><%= @result_album.votes.created_at.to_date %>Date voted</td>
+
+    <% @votes.each do | vote | %>
+    <tr>
+      <td><%= vote.user_id.username %>User who voted</td>
+      <td><%= vote.created_at %>Date voted</td>
+    </tr>
+    <% end %>
 
   </table>
 

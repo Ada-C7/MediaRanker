@@ -22,4 +22,8 @@ class VotesController < ApplicationController
     end
   end
 
+  def created_at
+    @vote.created_at.to_date
+  end
+
 end
