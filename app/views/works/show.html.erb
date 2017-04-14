@@ -1,1 +1,24 @@
-<h2>view from works#show</h2>
+<article class="columns large-6 small-12">
+  <h3><%= @work.title %></h3>
+  <p>Created by: <%= @work.by %></p>
+  <p>Published: <%= @work.year %></p>
+  <p><%= @work.description %></p>
+</article>
+<article class="columns large-6 small-12">
+  <h3>TODO Votes for this <%= @work.media_type.capitalize %></h3>
+  <table>
+    <thead>
+      <tr>
+        <th>User</th>
+        <th>Date</th>
+      </tr>
+    </thead>
+    <tbody>
+    <!-- TODO each loop for votes -->
+      <tr>
+        <td>TODO username link</td>
+        <td>TODO vote date</td>
+      </tr>
+    </tbody>
+  </table>
+</article>

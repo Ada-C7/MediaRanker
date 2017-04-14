@@ -23,4 +23,8 @@ class WorksController < ApplicationController
     @work = Work.new
     @media_type = params[:media_type]
   end
+
+  def show
+    @work = Work.find(params[:id])
+  end
 end
