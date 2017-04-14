@@ -13,7 +13,7 @@
 </article>
 
 <article class="voting-users columns large-6 small-12">
-  <h3><%= @work.votes.count %> Votes for this <%= @work.category.capitalize %></h3>
+  <h3><%= @work.vote_total %> Votes for this <%= @work.category.capitalize %></h3>
   <% unless @work.votes.empty? %>
     <table>
       <thead>

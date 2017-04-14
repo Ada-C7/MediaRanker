@@ -2,12 +2,12 @@ class WorksController < ApplicationController
 
   def index
     if params[:category] == 'all'
-      @spotlight_work = Work.all.max_by { |work| work.votes.count }
+      @spotlight_work = Work.all.max_by { |work| work.vote_total }
       @categories = Work.all.map {|work| work.category}.uniq
 
     else
       @category = params[:category]
-      @works = Work.where(category: @category).sort_by { |work| work.votes.count }.reverse
+      @works = Work.where(category: @category).sort_by { |work| work.vote_total }.reverse
 
       render :category_index
     end

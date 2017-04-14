@@ -2,7 +2,7 @@
   <div>
     <h3>Media Spotlight: <%= link_to @spotlight_work.title, work_path(@spotlight_work.id) %> by <%= @spotlight_work.creator %></h3>
     <p>
-      <%= @spotlight_work.votes.count %> votes
+      <%= @spotlight_work.vote_total %> votes
       <%= "- #{@spotlight_work.description}" unless @spotlight_work.description.blank? %>
     </p>
   </div>
@@ -15,7 +15,7 @@
       <% Work.top_10(category).each do |work| %>
         <li>
           <h4><%= link_to work.title, work_path(work.id) %> by <%= work.creator %></h4>
-          <p><%= work.votes.count %> votes</p>
+          <p><%= work.vote_total %> votes</p>
         </li>
       <% end %>
     </ul>
