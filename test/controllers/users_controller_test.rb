@@ -13,10 +13,10 @@ describe UsersController do
     value(response).must_be :success?
   end
 
-  # it "should get show" do
-  #   get users_show_url
-  #   value(response).must_be :success?
-  # end
+  it "should get show" do
+    get user_path(:id => 1)
+    value(response).must_be :success?
+  end
 
 end
 end
