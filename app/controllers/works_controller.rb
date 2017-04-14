@@ -97,6 +97,18 @@ class WorksController < ApplicationController
     end
   end
 
+  def vote
+    vote = Vote.create(user_id: session[:user_id], work_id: params[:id])
+
+    if vote
+      flash[:successful_vote] = "Voted"
+      redirect_to homepage_path
+    else
+      flash[:vote_failure] = "You have already voted for this"
+      redirect_to homepage_path
+    end
+  end
+
 private
   def works_params
     return params.required(:work).permit(:category,
