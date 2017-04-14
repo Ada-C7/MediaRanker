@@ -15,32 +15,6 @@ class WorksController < ApplicationController
     @work_votes = Vote.where(work_id: params[:id])
   end
 
-  def new
-    @work = Work.new
-  end
-
-  def create
-    @work = Work.create work_params
-    unless @work.id == nil
-      redirect_to works_path
-    end
-
-
-  #   def index
-  # ...
-  # if params[:pending]
-  #    # pending related stuff
-  # end
-  # if params[:live]
-  #   # live related stuff
-  # end
-  # if params[:sold]
-  #   # sold related stuff
-  # end
-  # ...
-# end
-  end
-
   def destroy
     work = Work.find(params[:id])
     category = work.category
@@ -92,9 +66,7 @@ class WorksController < ApplicationController
     #   redirect_to work_path(@result_work.id)
     # end
 
-
   end
-
 
   def edit
     @work = Work.find(params[:id])
@@ -102,10 +74,8 @@ class WorksController < ApplicationController
 
   def update
     @work = Work.find(params[:id])
-
     @work.title = work_params[:title]
     @work.creator = work_params[:creator]
-
     @work.description = work_params[:description]
 
     if @work.save

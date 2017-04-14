@@ -5,33 +5,27 @@ Rails.application.routes.draw do
   get '/works', to: 'works#index'
   put '/works/:id', to: 'works#update'
   post 'works/:id/upvote', to: 'works#upvote', as: 'upvote'
-
   # patch '/works/:id', to: 'works#update'
   delete '/works/:id', to: 'works#destroy'
 
-  get '/books/new', to: 'books#new', as: 'new_book'
+  get '/books', to: 'books#index'
   post '/books', to: 'books#create'
-
+  get '/books/new', to: 'books#new', as: 'new_book'
   get '/works/:id/edit', to: 'works#edit', as: 'edit_work'
-
   get '/works/:id', to: 'works#show', as: 'work'
 
+  get '/albums', to: 'albums#index'
   get '/albums/new', to: 'albums#new', as: 'new_album'
   post '/albums', to: 'albums#create'
   # post '/works', to: 'album#create'
 
+  get '/movies', to: 'movies#index'
   get '/movies/new', to: 'movies#new', as: 'new_movie'
   post '/movies', to: 'movies#create'
   # post '/works', to: 'movies#create'
 
-  get '/albums', to: 'albums#index'
-
-  get '/movies', to: 'movies#index'
-
-  get '/books', to: 'books#index'
-
-  get '/users', to: 'users#index'
   get '/users/:id', to: 'users#show', as: 'user'
+  get '/users', to: 'users#index'
 
   get '/login', to: "sessions#login_form"
   post '/login', to: "sessions#login"
