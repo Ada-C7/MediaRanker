@@ -10,17 +10,8 @@ class WorksController < ApplicationController
     @work = Work.find(params[:id])
   end
 
-  def new
-    @work = Work.new
-  end
-
-  def create
-    @work = Work.new(books_params)
-    if @work.save
-      redirect_to books_path
-    else
-      render :new
-    end
+  def edit
+    @work = Work.find(params[:id])
   end
 
 private

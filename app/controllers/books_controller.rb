@@ -1,6 +1,6 @@
 class BooksController < ApplicationController
   def index
-    @works = Work.all
+    @works = Work.where(category: "book")
   end
 
   def show
