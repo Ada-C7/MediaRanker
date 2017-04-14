@@ -1,4 +1,3 @@
 class User < ApplicationRecord
-  def index
-  end 
+  has_many :votes
 end
