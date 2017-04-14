@@ -19,5 +19,11 @@ describe User do
         result = u.valid?
         result.must_equal true # DOESNT WORK WITH FALSE!
       end
+      it "Username should be unique" do
+        u = User.create(username: "user" , date_of_joining: "21/01/12" )
+        u1 = User.create(username: "user" , date_of_joining: "21/01/12" )
+        result = u1.valid?
+        result.must_equal false 
+      end
     end # end of validation block
 end

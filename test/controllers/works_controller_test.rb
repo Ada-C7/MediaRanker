@@ -99,6 +99,7 @@ describe WorksController do
       w = works(:royal_scam)
       delete work_path(w.id)
       Work.find_by(title: "test title").must_equal nil
+    
     end
   end # end of edit block
 
@@ -110,15 +111,24 @@ describe WorksController do
         post upvote_path(w.id)
         must_redirect_to work_path(w.id)
       end
-      it "" do
-        # w = works(:royal_scam)
-        # result = w.votes.length
-        # puts result
-        # u = User.create!(username: "asdf", date_of_joining: "31/01/2017")
-        # vote = Vote.create!(work: w, user: u)
-        # puts vote.work
-        # w.votes.length.must_equal result + 1
+
+      # it "" do
+      #   w = works(:royal_scam)
+      #   result = w.votes.length
+      #   u = User.create!(username: "asdf", date_of_joining: "31/01/2017")
+      #   vote = Vote.create!(work: w, user: u)
+      #   w.votes.length.must_equal result + 1
+      # end
+    end # end of upvote block
+    describe "downvote" do
+      it " redirects back after deleting vote " do
+        w = works(:royal_scam)
+        u = User.create!(username: "nanana", date_of_joining: "12/01/2016")
+        vote = Vote.create!(work: w, user: u)
+        delete downvote_path(w.id)
+        must_redirect_to work_path(w.id)
       end
+
     end # end of upvote block
 
 end # end of class

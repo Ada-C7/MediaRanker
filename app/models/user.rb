@@ -8,8 +8,6 @@ class User < ApplicationRecord
 
   validates :date_of_joining, presence: true
 
-  def total_votes
-    self.votes.length
-  end
+
 
 end
