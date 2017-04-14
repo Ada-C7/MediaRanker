@@ -15,6 +15,19 @@
  *= require_self
  */
 
+/*app-wide styles*/
+ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+/*body {
+  color: slategrey;
+}*/
+
+
+
 /*Getting Header to work correctly!*/
  .float-right {
     float: right;
@@ -22,7 +35,7 @@
 
 .page-header {
   max-width: 100%;
-  border-bottom: 1px solid darkgrey;
+  border-bottom: 1px solid slategrey;
   background: url("https://www.allsaints-netheravon.wilts.sch.uk/wilts/primary/allsaints/web/littleowl.png?width=640&height=480&scale=LIMIT_MAXSIZE");
   background-size: 150px auto;
   background-repeat: no-repeat;
@@ -30,12 +43,25 @@
 
 .page-header h2 {
   padding-left: 150px;
+  color: slategrey;
+}
+
+h1 small, h2 small, h3 small, h4 small, h5 small, h6 small {
+  color: slategrey;
 }
 
 /*Media Spotlight*/
 .spotlight {
-  margin-top: 25px;
-  padding-left: 25px;
+  /*margin-top: 25px;*/
+  padding: 25px;
+  color: black;
 }
 
 /*Top ten lists*/
+.top-ten h4 {
+  color: slategrey;
+}
+
+.top-ten p {
+  padding-bottom: 10px;
+}

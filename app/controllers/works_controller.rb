@@ -37,9 +37,16 @@ class WorksController < ApplicationController
   end
 
   def create
-    @work = Work.create work_params
+    @work = Work.new
 
-    if @work.id != nil
+    @work.title = work_params[:title]
+    @work.category = params[:category]
+    @work.creator = work_params[:creator]
+    @work.pub_yr = work_params[:pub_yr]
+    @work.desc = work_params[:desc]
+
+    if @work.save
+      flash[:success] = "You have created a #{@work.category} #{@work.title}."
       redirect_to works_path
     else
       render "new"
@@ -57,12 +64,13 @@ class WorksController < ApplicationController
     @work = Work.find(params[:id])
 
     @work.title = work_params[:title]
-    @work.category = work_params[:category]
+    @work.category = params[:category]
     @work.creator = work_params[:creator]
     @work.pub_yr = work_params[:pub_yr]
     @work.desc = work_params[:desc]
 
     if @work.save
+      flash[:success] = "You have updated #{@work.name}."
       redirect_to work_path
     else
       render "edit"
@@ -77,7 +85,7 @@ class WorksController < ApplicationController
   private
 
   def work_params
-    params.require(:work).permit(:title, :category, :creator, :pub_yr, :desc)
+    params.require(:work).permit(:title, :creator, :pub_yr, :desc)
   end
 
 end

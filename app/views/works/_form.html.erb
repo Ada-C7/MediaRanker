@@ -13,9 +13,6 @@
   <%= f.label :title %>
   <%= f.text_field :title %>
 
-  <%= f.label :category %>
-  <%= f.select :category, ["book", "album", "movie"] %>
-
   <%= f.label :creator %>
   <%= f.text_field :creator %>
 
@@ -24,6 +21,8 @@
 
   <%= f.label :desc, "Description" %>
   <%= f.text_area :desc, size: "60x12" %>
+
+  <%= hidden_field_tag 'category', params[:category] %>
 
   <%= f.submit action_name %>
 
