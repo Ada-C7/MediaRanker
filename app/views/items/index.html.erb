@@ -5,8 +5,8 @@
   <ul>
     <% @movies.first(10).each do |movie| %>
     <li>
-      <%= link_to "#{movie.title}", item_path(movie.id) %>, <%=movie.creator%>, <%=movie.publication_year%>, <%=movie.description%>
-      <%= movie.votes.count %> Votes
+      <%= link_to "#{movie.title}", item_path(movie.id) %>, by <%=movie.creator%>
+      <br><%= movie.votes.count %> Votes
     </li>
     <% end %>
   </ul>
@@ -18,8 +18,8 @@
   <ul>
     <% @books.first(10).each do |book| %>
     <li>
-      <%= link_to "#{book.title}", item_path(book.id) %>, <%=book.creator%>, <%=book.publication_year%>, <%=book.description%>
-      <%= book.votes.count %> Votes
+      <%= link_to "#{book.title}", item_path(book.id) %>, by <%=book.creator%>
+      <br><%= book.votes.count %> Votes
     </li>
     <% end %>
   </ul>
@@ -31,8 +31,8 @@
   <ul>
     <% @albums.first(10).each do |album| %>
     <li>
-      <%= link_to "#{album.title}", item_path(album.id) %>, <%=album.creator%>, <%=album.publication_year%>, <%=album.description%>
-      <%= album.votes.count %> Votes
+      <%= link_to "#{album.title}", item_path(album.id) %>, by <%=album.creator%>
+      <br><%= album.votes.count %> Votes
     </li>
     <% end %>
   </ul>
