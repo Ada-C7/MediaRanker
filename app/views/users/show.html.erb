@@ -22,11 +22,13 @@
     <tbody>
       <% @user.votes.each do |vote| %>
         <tr>
-          <td> <%= link_to vote.work.title, work_path(vote.work_id) %></td>
-          <td> <%= vote.work.creator %> </td>
-          <td> <%= vote.work.pub_yr %> </td>
-          <td> <%= vote.work.category %> </td>
-          <td> <%= (vote.work.created_at).strftime('%B %d, %Y') %> </td>
+          <% if vote.work != nil %>
+            <td> <%= link_to vote.work.title, work_path(vote.work_id) %></td>
+            <td> <%= vote.work.creator %> </td>
+            <td> <%= vote.work.pub_yr %> </td>
+            <td> <%= vote.work.category %> </td>
+            <td> <%= (vote.work.created_at).strftime('%B %d, %Y') %> </td>
+          <% end %>
         </tr>
       <% end %>
     </tbody>
