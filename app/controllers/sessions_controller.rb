@@ -13,7 +13,6 @@ class SessionsController < ApplicationController
                     redirect_to user_path(user.id)
                else
                     user = User.create(user_params)
-                    user.status = true
                     flash[:success] = "#{user.username}, you're now ready to deploy. Vote wisely."
                     session[:user_id] = user.id
                     redirect_to user_path(user.id)
