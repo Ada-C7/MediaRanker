@@ -53,12 +53,18 @@ class WorksController < ApplicationController
       redirect_to :back
     end
   end
-  # user_book = UserBook.create(user_id: session[:user_id], book_id: params[:id])
-  #
-  # if user_book
-  #   flash[:success] = "Book Bought!"
-  #   redirect_to user_path(session[:user_id])
-  # end
+
+  def edit
+    @work = Work.find(params[:id])
+    redirect_to work_path
+  end
+
+  def destroy
+    @work = Work.find(params[:id])
+    @work.destroy
+    flash[:sucess] = "You've deleted #{@work.category} #{@work.title.capitalize}!"
+    redirect_to main_path
+  end
 
   private
   def work_params
