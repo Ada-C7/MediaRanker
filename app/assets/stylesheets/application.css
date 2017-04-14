@@ -48,6 +48,10 @@ td a.button {
   padding-top: 15px;
 }
 
+.errors {
+  color: red;
+}
+
 .success h3 {
   color: green;
 }

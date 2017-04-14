@@ -1,13 +1,14 @@
+<section class="errors">
 <ul>
 
   <% @work.errors.each do |field, message| %>
       <li>
-        <%= field %> <%= message %>
+          <%= field %> <%= message %>
       </li>
   <% end %>
 
 </ul>
-
+</section>
 <%= form_for @work, method: form_method do |f| %>
 
   <%= f.label :title %>
