@@ -58,7 +58,8 @@ class WorksController < ApplicationController
     redirect_to works_path(category)
   end
 
-  def upvote
+  def vote
+    value = params[:vote_value]
     work = Work.find_by_id(params[:id])
     user = User.find_by_id(session[:user_id])
 
@@ -70,11 +71,11 @@ class WorksController < ApplicationController
       vote = Vote.new(
         work_id: work.id,
         user_id: user.id,
-        value: 1
+        value: value
       )
 
       vote.save
-      flash[:success] = "Successfully upvoted!"
+      flash[:success] = "Successfully voted!"
     end
 
     redirect_to :back
