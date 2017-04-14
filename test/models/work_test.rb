@@ -3,7 +3,7 @@ describe Work do
 
 
   describe "validations" do
-    it "can be created with all attributes" do
+  it "can be created with all attributes" do
       a = Work.create!(title: "kissed by a rose", category: "album", created_by: "SEAL", description: "best love song of the 90s", published: "london")
       result = a.valid?
       result.must_equal true
@@ -54,15 +54,24 @@ it "can find a user's name through their vote" do
 end
 
 
-describe "testing model method" do
+describe "testing model methods" do
   it "can display a single category" do
-    a = Work.all
-#not sure how to write this without writing the controller
+    books = Work.show_category("book")
+    books.each{|book| book.category.must_equal "book"}
   end
+
+  it "can count and return how many votes a work has accumulated"
+    a = Work.find(2).user_votes.length
+    print a
+    # a.must_equal 2
+
+    #this print "2" and works in the console but the test keeps calling it nil
+  end
+
 end
 
 
-  end
+
 
 
 end

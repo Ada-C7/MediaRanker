@@ -13,11 +13,12 @@
  *= require_tree .
  *= require_self
  */
-
+@import url('foundation.css');
 header{
 border-bottom-width:medium;
 border-bottom-style: inset;
-/*border-bottom-color: grey;*/
+border-bottom-color: grey;
+height:90px;
 }
 /*Owl image*/
 #heading {
