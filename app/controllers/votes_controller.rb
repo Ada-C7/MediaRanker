@@ -1,15 +1,22 @@
 class VotesController < ApplicationController
   def create
-    vote = Vote.new
-    vote.work_id = params[:work_id] #coming from movie index line 7
-    vote.user_id = session[:user_id]
-    vote.save!
+    vote_check = Vote.where({:user_id => session[:user_id], :work_id => params[:work_id]}) #array of result
 
-    if vote.work.category == "movie"
+    if vote_check.empty?
+
+      vote = Vote.new
+      vote.work_id = params[:work_id] #coming from movie index line 7
+      vote.user_id = session[:user_id]
+      vote.save!
+    end
+
+    category = Work.find(params[:work_id]).category
+
+    if category == "movie"
       redirect_to movies_path
-    elsif vote.work.category == "album"
+    elsif category == "album"
       redirect_to albums_path
-    elsif vote.work.category == "book"
+    elsif category == "book"
       redirect_to books_path
     end
   end
