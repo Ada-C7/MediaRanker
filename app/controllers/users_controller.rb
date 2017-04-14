@@ -13,12 +13,14 @@ class UsersController < ApplicationController
   end
 
   def create
-    user = User.create user_params
+    @user = User.create(user_params)
 
-    if user.id != nil
+    if @user.id
+      raise
       flash[:success] = "User added successfully"
       redirect_to user_path(user.id)
     else
+      raise
       flash.now[:failure] = "Sign up failed, try again"
       render :new
     end
@@ -27,6 +29,6 @@ class UsersController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:username, :first_name, :last_name)
+    params.require(:user).permit(:username)
   end
 end

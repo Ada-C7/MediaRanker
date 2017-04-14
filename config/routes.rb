@@ -35,7 +35,7 @@ Rails.application.routes.draw do
   #NEED LOGIN ROUTE W/ POST
   get 'login', to: 'sessions#new'
   post 'login', to: 'sessions#create'
-  delete 'login', to: 'sessions#destroy'
+  delete 'logout', to: 'sessions#destroy'
 end
 
 
