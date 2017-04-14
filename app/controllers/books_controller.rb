@@ -8,11 +8,13 @@ class BooksController < ApplicationController
     end
 
     def create
-        @book = Work.create book_params
+        @book = Work.new book_params
+        @book.category = 'book'
+        @book.save
     end
 
     private
     def book_params
-        params.require(:book).permit(:title, :creator, :publication_year, :description)
+        params.require(:work).permit(:title, :creator, :publication_year, :description)
     end
 end
