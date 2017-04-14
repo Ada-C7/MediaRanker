@@ -15,9 +15,14 @@ class WorksController < ApplicationController
     end
   end
 
+  #show category
+  # @works = Work.where(category: params[:category].singularize)
+  # render_404 if ["movies",].exclude?(params[:category])
+
 
   def create
     @work = Work.new(work_params)
+    # @category = params[:work][:category].singularize
 
     if @work.save
       flash[:success] = "Successfully created #{@work.category} #{@work.id}"

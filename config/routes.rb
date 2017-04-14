@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   post "/login", to: "sessions#login"
   delete "/logout", to: "sessions#logout"
 
-
+# get "/:category", to: "works#show_category", as: "category"
+# get "/:category/new", to: "works#new", as: "new_work"
 
 end
