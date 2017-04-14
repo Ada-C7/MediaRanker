@@ -1,7 +1,12 @@
 <h1>All Albums</h1>
 <ul>
      <% @albums.each do | submission | %>
-     <li> <%=  submission.title %> by  <%=  submission.author %></li>
-     <li> <%=  submission.votes.size %></li>
+          <li> <%= submission.votes.size %> </li>
+          <li> <%= submission.title %> </li>
+          <li> <%= submission.author %> </li>
+          <li> <%= submission.publish_date %> </li>
+          <li> <%= link_to 'Upvote', upvote_submission_path(submission.id)%> </li>
      <% end %>
 </ul>
+
+<%= link_to 'Back', root_path %> <%= link_to 'Add a New Album', add_album_path, method: :get %>

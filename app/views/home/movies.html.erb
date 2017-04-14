@@ -1,7 +1,12 @@
 <h1>All Movies</h1>
 <ul>
      <% @movies.each do | submission | %>
-     <li> <%=  link_to submission.title %> by  <%=  submission.author %></li>
-     <li> <%=  submission.votes.size %></li>
+          <li> <%= submission.votes.size %> </li>
+          <li> <%= submission.title %> </li>
+          <li> <%= submission.author %> </li>
+          <li> <%= submission.publish_date %> </li>
+          <li> <%= link_to 'Upvote', upvote_submission_path(submission.id)%> </li>
      <% end %>
 </ul>
+
+<%= link_to 'Back', root_path %> <%= link_to 'Add a New Movie', add_movie_path, method: :get %>
