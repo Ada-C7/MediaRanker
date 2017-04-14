@@ -1,2 +1,18 @@
-<h1>Users Summary</h1>
-<p>Joined Site</p>
+<h1>List of Users</h1>
+
+
+<table>
+  <tr>
+    <th>Username</th>
+    <th>Votes</th>
+    <th>Joined</th>
+  </tr>
+  <tr>
+    <td> <% @user.each do |person| %>
+       <%= link_to person.name, user_path(person.id) %>
+     <% end %> </td>
+  </tr>
+
+</table>
+
+<%= button_to "Back to Media List", root_path %>
