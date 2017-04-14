@@ -44,7 +44,7 @@ class WorksController < ApplicationController
     already_voted = work_votes.select {|work| work.work_id == @result_work.id}
 
     if already_voted.length > 0
-      flash[:error] = "You have already voted!"
+      flash[:error] = "Could not upvote"
       redirect_to work_path(@result_work.id)
       return
     end
