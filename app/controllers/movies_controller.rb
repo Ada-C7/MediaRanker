@@ -1,6 +1,7 @@
 class MoviesController < ApplicationController
   def index
-    @movies = Work.all.select {|work| work.category == "movie"}
+    @movies = Work.category_sorted("album")
+    # @movies = Work.all.select {|work| work.category == "movie"}
   end
 
   def new

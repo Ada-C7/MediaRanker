@@ -1,6 +1,7 @@
 class AlbumsController < ApplicationController
   def index
-    @albums = Work.all.select {|work| work.category == "album"}
+    @albums = Work.category_sorted("album")
+    # @albums = Work.all.select {|work| work.category == "album"}
   end
 
   def new

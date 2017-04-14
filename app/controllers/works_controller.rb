@@ -1,7 +1,11 @@
 class WorksController < ApplicationController
   def index
     # @works = Work.all
-    super
+    @works = Work.all
+    @spotlight = Work.spotlight
+    @movies = Work.top_ten("movie")
+    @books = Work.top_ten("book")
+    @albums = Work.top_ten("album")
     # @movies = Work.all.select {|work| work.category == "movie"}
 
     # @books = Work.all.select {|work| work.category == "book"}
@@ -39,19 +43,20 @@ class WorksController < ApplicationController
     @result_work = Work.find(params[:id])
     # @result_work = Work.find(shoe)
 
-    work_votes = Vote.where(user_id: session[:user_id])
+    # work_votes = Vote.where(user_id: session[:user_id])
+      # already_voted = @result_work.votes.select {|work| work.work_id == @result_work.id}
 
-    already_voted = work_votes.select {|work| work.work_id == @result_work.id}
+      already_voted = @result_work.votes.select {|vote| vote.user_id == session[:user_id] }
 
     if already_voted.length > 0
       flash[:error] = "Could not upvote"
-      redirect_to work_path(@result_work.id)
+      redirect_to :back
       return
     end
 
     if session[:user_id] != nil
-      @result_work.vote_count += 1
-      @result_work.save
+      # @result_work.vote_count += 1
+      # @result_work.save
 
       @vote = Vote.new
       @vote.user_id = session[:user_id]
