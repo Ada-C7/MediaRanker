@@ -58,10 +58,14 @@ class WorksController < ApplicationController
 
   def update
     work = Work.find(params[:id])
-    work.update_attributes(work_params)
-    work.save
 
-    redirect_to work_path
+    if work.update!(work_params)
+      flash[:success] = "Successfully updated!"
+      redirect_to work_path
+    else
+      flash[:success] = "It didn't work, try again?"
+      render :new, status: :bad_request
+    end
   end
 
   def destroy

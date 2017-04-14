@@ -1,1 +1,13 @@
-<%= render partial: "index", locals: { work_type: "Book", path: :book_path}%>
+<h2>All Books</h2>
+
+<ul>
+  <% @works.each do |work| %>
+  <li>
+    <%= link_to "Title: #{work.title}", book_path(work.id) %>
+    <%= "Category: #{work.category}" %>
+    <%= "Created By: #{work.creator}" %>
+    <%= "Published: #{work.pub_date}" %>
+  </li>
+  <% end %>
+</ul>
+<%= link_to "Main Page", welcome_path %>

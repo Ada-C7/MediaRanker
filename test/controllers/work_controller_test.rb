@@ -68,7 +68,7 @@ describe WorksController do
     it "adds a work row to the database" do
       proc {
         work_data = {
-          work: {title: "TestTitle", category: "TestCategory", creator: "TestCreator", description: "TestDescription", pub_date: "2000"}
+          work: {title: "TestTitle", category: "album", creator: "TestCreator", description: "TestDescription", pub_date: "2000"}
         }
         post works_path, params: work_data}.must_change 'Work.count', 1
 
@@ -84,7 +84,6 @@ describe WorksController do
     end
 
     describe "album_show" do
-      #WHY DOESN'T THIS WORK?
       it "shows an album that exists" do
         work = works(:album)
         get album_path(work.id)
@@ -100,13 +99,11 @@ describe WorksController do
     end
 
     describe "book_show" do
-
-      # #WHY DOESN'T THIS WORK?
-      # it "shows a book that exists" do
-      #   work = Work.where(category: "Book").first
-      #   get book_path(work.id)
-      #   must_respond_with :success
-      # end
+      it "shows a book that exists" do
+        work = works(:book)
+        get book_path(work.id)
+        must_respond_with :success
+      end
 
       it "returns a 404 not found status when asked for a book that doesn't exist" do
         work_id = Work.where(category: "book").last.id
@@ -116,13 +113,12 @@ describe WorksController do
       end
     end
 
-    describe "book_show" do
-      # #WHY DOESN'T THIS WORK?
-      # it "shows a book that exists" do
-      #   work = Work.where(category: "Book").first
-      #   get book_path(work.id)
-      #   must_respond_with :success
-      # end
+    describe "movie_show" do
+      it "shows a movie that exists" do
+        work = works(:movie)
+        get movie_path(work.id)
+        must_respond_with :success
+      end
 
       it "returns a 404 not found status when asked for a movie that doesn't exist" do
         work_id = Work.where(category: "movie").last.id
@@ -146,26 +142,24 @@ describe WorksController do
         updated_creator = "UpdatedCreator"
 
         patch work_path(work.id), work: {id: work.id, title: updated_title, creator: updated_creator, category: work.category, description: work.description, pub_date: work.pub_date}
-
         work = Work.find(work.id)
-
-
 
         assert_equal updated_title, work.title
         assert_equal updated_creator, work.creator
 
-        #
-        # must_respond_with :redirect
-        # must_redirect_to works_path
+        must_respond_with :redirect
+        must_redirect_to work_path(work.id)
       end
 
-      # it "should show an error if mandatory fields are changed to empty" do
-      #
-      # end
+      it "should show an error if mandatory fields are changed to empty" do
+          work = works(:movie)
+          patch work_path(work.id), work: {title: nil, creator: "UpdatedCreator"}
+
+          must_respond_with :error
+
+      end
     end
 
-
-    ### TW: WHY DOES IT COUNT 4 ITEMS (STARTING 5) RATHER THAN 2 (STARTING 3)?
     describe "delete/destroy" do
       it "should remove a row from the database" do
         proc {
