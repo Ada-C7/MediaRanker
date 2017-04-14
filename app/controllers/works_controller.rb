@@ -21,14 +21,17 @@ class WorksController < ApplicationController
     Work.destroy(params[:id])
 
     if category == "book"
-      flash[:success] = "book deleted"
+      flash[:success] = "Successfully deleted book #{work.id}"
       redirect_to books_path
     elsif category == "album"
-      flash[:success] = "album deleted"
+      flash[:success] = "Successfully deleted album #{work.id}"
       redirect_to albums_path
     elsif category == "movie"
-      flash[:success] = "movie deleted"
+      flash[:success] = "Successfully deleted movie #{work.id}"
       redirect_to movies_path
+    else
+      flash.now[:error] = "A problem occurred: Could not delete #{work.category}"
+      render "show"
     end
   end
 
