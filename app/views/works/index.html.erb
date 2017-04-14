@@ -6,7 +6,9 @@
 <ul>
 
 <% @movies.each do |movie| %>
-<li> <%= link_to movie.title, work_path(movie.id) %> </li>
+<%# movie.sort_by { |post| post.votes.size }.reverse %>
+<li>
+  <%= link_to movie.title, work_path(movie.id) %> <%= movie.votes.count %> </li>
 <% end %>
 </ul>
 
@@ -15,7 +17,7 @@
 
 <ul>
 <% @books.each do |book| %>
-<li> <%= link_to book.title, work_path(book.id) %> </li>
+<li> <%= link_to book.title, work_path(book.id) %> <%= book.votes.count %> </li>
 <% end %>
 </ul>
 
@@ -25,6 +27,6 @@
 
 <% @albums.each do |album| %>
 <li> <%= link_to album.title, work_path(album.id)
- %> </li>
+ %> <%= album.votes.count %> </li>
 <% end %>
 </ul>

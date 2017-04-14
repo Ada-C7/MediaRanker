@@ -13,7 +13,15 @@
     <th>Voted On</th>
   </tr>
   <tr>
-    <td></td>
+    <% @result_user.votes.each do |vote| %>
+    <td> <%= vote.work.title %> </td>
+    <td> <%= vote.work.creator %> </td>
+    <td> <%= vote.work.publish_year %> </td>
+    <td> <%= vote.work.category %> </td>
+    <td> <%= vote.created_at %> </td>
+    <% end %>
+
+    </td>
 
   </tr>
 </table>
