@@ -53,6 +53,14 @@ class WorksController < ApplicationController
     end
   end
 
+  def destroy
+    work = Work.find(params[:id])
+    category = work.category
+    work.destroy
+    flash[:success] = "Successfully destroyed #{category} #{params[:id]}"
+    redirect_to category_path(category.pluralize)
+  end
+
   def upvote
     if session[:user_id]
       vote = Vote.create(user_id: session[:user_id], work_id: params[:id])
