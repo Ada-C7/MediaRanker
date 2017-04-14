@@ -1,7 +1,19 @@
-<h1>All Media</h1>
-
-<section id="works">
+<h4>Something</h4>
+<table>
+  <tr>
+    <th>Votes:</th>
+    <th>Title:</th>
+    <th>Created By:</th>
+    <th>Published:</th>
+    <th>Upvotes:</th>
+  </tr>
   <% @works.each do |work| %>
-    <h3><%= link_to work.title, works_index_path(work.id) %></h3>
+    <tr>
+      <td> Votes </td>
+      <td><%= link_to "#{work.title}", work_path(work.id) %></td>
+      <td><%= "#{work.creator}" %></td>
+      <td><%= "#{work.publication_year}" %></td>
+      <td> Upvotes Button </td>
+    </tr>
   <% end %>
-</section>
+</table>

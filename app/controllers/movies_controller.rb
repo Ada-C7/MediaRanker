@@ -8,5 +8,7 @@ class MoviesController < ApplicationController
   end
 
   def new
+    @movie = Work.new(work_params)
   end
+
 end
