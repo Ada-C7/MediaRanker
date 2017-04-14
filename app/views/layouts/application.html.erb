@@ -14,13 +14,16 @@
       <p>
         Ranking the Best of Everything
       </p>
-      <p>
+      <nav>
+        <ul>
         <% unless session[:user_id] %>
-        <%= link_to "Log in!", login_path %>
+        <li><%= link_to "Log in!", login_path %>
+        </li>
         <% else %>
-        <%= link_to "Log out!", logout_path, method: :put %>
+        <li><%= link_to "Log out!", logout_path, method: :put %></li>
         <% end %>
-      </p>
+        </ul>
+      </nav>
     </header>
     <section class="flash">
       <% flash.each do |name, message| %>
