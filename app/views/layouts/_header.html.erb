@@ -1,36 +1,23 @@
-<link rel="stylesheet" href="app/assets/stylesheets/welcome.scss" type="text/css">
-<div class="bg-img">
-<header class="yay">
+<link rel="stylesheet" href="app/assets/stylesheets/primary.css.scss" type="text/css">
 
-  <div class="gradiant">
 
-    <div class="type-word"></div>
 
-    <nav class="ccsticky-nav">
+<nav class="ccsticky-nav">
+<section class="welcome-nav">
 <ul>
 <li><%= link_to "Media Ranker", root_path %></li>
 <li><%= link_to "Works", works_path %></li>
 <li><%= link_to "Users", users_path %></li>
 <li><%= link_to 'Logout', welcome_logout_path, method: :delete %></li>
 <li><%= link_to 'Login', welcome_login_path  %></li>
-
 <li>Logged in as: <%= @user_id %>
   <%= @username %></li>
 </ul>
-</nav>
-<section>
-
 </section>
+</nav>
 
 
 
-
-
-</div>
-</header>
-<script type="header/javascript" src="header.js"></script>
-</body>
-</div>
 
 
 

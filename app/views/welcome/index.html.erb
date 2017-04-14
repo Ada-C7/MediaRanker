@@ -1,18 +1,33 @@
-<section class="welcome-nav">
-<!-- <p id="notice"><%= notice %></p> -->
+<!-- <p id="notice"><%#= notice %></p> -->
+<link rel="stylesheet" href="app/assets/stylesheets/primary.css.scss" type="text/css">
+
+
+<div class="bg-img">
+<header class="yay">
+  <div class="gradiant">
+
+
+
+
+    <div class="type-word"></div>
+
+
+
+
+
+<section id="works_columns">
 
 <div class="container">
 
 <div class="column column-one">
-  <img src="https://unsplash.it/300/400" alt="W3Schools.com" >
 <div class="info">
+  <img src="https://unsplash.it/300/400" alt="W3Schools.com">
   <div class="category">Albums</div>
     <% @albums.each do |work|%>
     <p>
       <%= work[:title] %>
       <%= work[:creator] %>
     </p>
-
       <%end%>
     </div>
   </div>
@@ -21,43 +36,41 @@
 
 
 <div class="column column-two">
-
-
-  <img src="https://unsplash.it/300/400" alt="W3Schools.com" >
-  <span class="info">
-    <div class="category"> Movies</div>
+<div class="info">
+  <img src="https://unsplash.it/300/400" alt="W3Schools.com">
+    <div class="category">Movies</div>
     <% @movies.each do |work|%>
-
   <p>
     <%= work[:title] %>
     <%= work[:creator] %>
   </p>
-
   <%end%>
-  </span>
 </div>
+</div>
+
 
 
 
 <div class="column column-three">
-  <img src="https://unsplash.it/300/400" alt="W3Schools.com" >
-  <span class="info">
-    <div class="category">Books</h1></div>
+  <div class="info">
+  <img src="https://unsplash.it/300/400" alt="W3Schools.com">
+    <div class="category">Books</div>
   <% @books.each do |work|%>
-
   <p>
     <%= work[:title] %>
     <%= work[:creator] %>
   </p>
   <%end%>
-  </span>
-
 </div>
-
-
+</div>
 
 </div>
 </section>
 
+
+
+</div>
+</header>
+</div>
 
 <!-- <%= link_to 'New Work', new_work_path %> -->
