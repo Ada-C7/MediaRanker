@@ -17,7 +17,7 @@ describe WorksController do
     get edit_work_path(works(:one).id)
     must_respond_with :success
   end
-  #
+  
   # it "should show a 404 when work not found" do
   #   get work_path(1)
   #   must_respond_with :missing
@@ -37,24 +37,23 @@ describe WorksController do
       })
     must_redirect_to category_path("books")
   end
-  #
-  # it "should affect the model when creating a work" do
-  #   proc {
-  #     post works_path params: {work:
-  #       { title: "Testing",
-  #         author_id: authors(:metz).id,
-  #         description: "Whatevs",
-  #         isbn: rand(10-50)
-  #       } }
-  #   }.must_change 'Book.count', 1
-  #
-  # end
-  #
+
+  it "should affect the model when creating a work" do
+    proc {
+      post works_path(work:
+        { title: "Testing",
+          created_by: "Kelly",
+          category: "books",
+          description: "Whatevs"
+        })
+    }.must_change 'Work.count', 1
+
+  end
+
   it "should delete a work and redirect to worklist" do
     delete work_path(works(:one).id)
     must_redirect_to category_path("books")
   end
-  #
-  # end
+
 
 end
