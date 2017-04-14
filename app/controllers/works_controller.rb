@@ -7,15 +7,19 @@ class WorksController < ApplicationController
   def new
     # don't have to be logged in
     @work = Work.new
+    # session[:category] = params[:category]
   end
 
   def create
     # don't have to be logged in
     @work = Work.new(work_params)
     if @work.save
-      redirect_to works_path
+      flash[:success] = "Successfully created #{@work.category} #{@work.id}"
+      redirect_to "/works/#{@work.category}s"
     else
-      render new_work_path(params[:category])
+      params[:work] = @work
+      params[:category] = @work.category
+      render :new
     end
 
   end
