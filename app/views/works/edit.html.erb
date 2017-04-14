@@ -1,5 +1,16 @@
 <h1>Edit this <%= @work.category %></h1>
 
+<% if @work.errors.any? %>
+  <ul>
+    <% @work.errors.each do | field, msg | %>
+      <li>
+        <strong><%= field %> <%= msg %></strong>
+      </li>
+    <% end %>
+  </ul>
+<% end %>
+
+
 <%= form_for @work, url: work_path(@work.id), method: :patch do |f| %>
 
   <%= f.label :title %>

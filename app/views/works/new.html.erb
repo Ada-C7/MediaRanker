@@ -1,5 +1,15 @@
 <h1>Add a new <%= params[:category].singularize %></h1>
 
+<% if @work.errors.any? %>
+  <ul>
+    <% @work.errors.each do | field, msg | %>
+      <li>
+        <strong><%= field %> <%= msg %></strong>
+      </li>
+    <% end %>
+  </ul>
+<% end %>
+
 <%= form_for @work, url: category_path(params[:category]) do |f| %>
   <%= f.label :title %>
   <%= f.text_field :title %>

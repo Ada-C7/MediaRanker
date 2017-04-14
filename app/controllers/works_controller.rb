@@ -27,12 +27,14 @@ class WorksController < ApplicationController
   end
 
   def create
-    work = Work.create work_params
-    work.category = params[:category].singularize
+    @work = Work.create work_params
+    @work.category = params[:category].singularize
 
-    if work.save
+    if @work.save
+      flash[:success] = "#{work.category} added successfully"
       redirect_to category_path(params[:category])
     else
+      flash.now[:error] = "Error has occurred"
       render 'new'
     end
   end
@@ -46,8 +48,10 @@ class WorksController < ApplicationController
     @work.description = work_params[:description]
 
     if @work.save
+      flash[:success] = "#{@work.category} edited successfully"
       redirect_to category_path(category: @work.category.pluralize)
     else
+      flash.now[:error] = "Error has occurred"
       render "edit"
     end
   end
