@@ -1,4 +1,4 @@
-<h3>List of Movies</h3>
+<h3>List of Books</h3>
 <section class="media-table">
   <table>
     <thead>
@@ -16,8 +16,8 @@
         <td><%= book.votes.size %></td>
         <td><%= link_to book.title, work_path(book.id) %></td>
         <td><%= book.creator %></td>
-        <td><%= book.publication_year %></td>
-        <td><%= link_to "Upvote", upvote_path(book.id)%></td>
+        <td><%= book.publication_year.to_i%></td>
+        <td><%= "Upvote"%></td>
       </tr>
       <% end %>
     </tbody>

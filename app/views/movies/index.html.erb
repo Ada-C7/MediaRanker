@@ -16,8 +16,8 @@
         <td><%= movie.votes.size %></td>
         <td><%= link_to movie.title, work_path(movie.id) %></td>
         <td><%= movie.creator %></td>
-        <td><%= movie.publication_year %></td>
-        <td><%= link_to "Upvote", upvote_path(movie.id)%></td>
+        <td><%= movie.publication_year.to_i %></td>
+        <td><%=  "Upvote" %></td>
       </tr>
       <% end %>
     </tbody>
