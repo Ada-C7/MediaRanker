@@ -13,6 +13,11 @@ describe WorksController do
     must_respond_with :success
   end
 
+  it "should show a 404 when work not found" do
+    get work_path(1)
+    must_respond_with :missing
+  end
+
 
 
 end
