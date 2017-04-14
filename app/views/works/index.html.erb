@@ -1,38 +1,35 @@
-<section id="media-spotlight">
-  <h2>Media Spotlight: <%= @spotlight.title %> by <%= @spotlight.creator %></h2>
+<section class="row" id="media-spotlight">
+  <h3>Media Spotlight: <%= @spotlight.title %> by <%= @spotlight.creator %></h3>
   <p> <%= @spotlight.votes.length %> - <%= @spotlight.description %> </p>
 </section>
 
-<section id="top-movies">
-  <h2>Top Movies</h2>
+<section class="top-ten columns large-4 small-12" id="top-movies">
+  <h3>Top Movies</h3>
   <% @movies.each do | movie | %>
   <ul>
-    <h3><%= link_to movie.title, work_path(movie.id) %></h3>
-    <h4>by <%= movie.creator %></h4>
+    <h4><%= link_to movie.title, work_path(movie.id) %><small> by <%= movie.creator %></small></h4>
     <p><%= movie.votes.length %> votes</p>
   </ul>
   <% end %>
   <p><%= link_to "View all movies", movies_path %></p>
 </section>
 
-<section id="top-books">
-  <h2>Top Books</h2>
+<section class="top-ten columns large-4 small-12" id="top-books">
+  <h3>Top Books</h3>
   <% @books.each do | book | %>
   <ul>
-    <h3><%= link_to book.title, work_path(book.id) %></h3>
-    <h4>by <%= book.creator %></h4>
+    <h4><%= link_to book.title, work_path(book.id) %><small> by <%= book.creator %></small></h4>
     <p><%= book.votes.length %> votes</p>
   </ul>
   <% end %>
   <p><%= link_to "View all books", books_path %></p>
 </section>
 
-<section id="top-albums">
-  <h2>Top Albums</h2>
+<section class="top-ten columns large-4 small-12" id="top-albums">
+  <h3>Top Albums</h3>
   <% @albums.each do | album | %>
   <ul>
-    <h3><%= link_to album.title, work_path(album.id) %></h3>
-    <h4>by <%= album.creator %></h4>
+    <h4><%= link_to album.title, work_path(album.id) %><small> by <%= album.creator %></small></h4>
     <p><%= album.votes.length %> votes</p>
   </ul>
   <% end %>

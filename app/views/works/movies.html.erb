@@ -1,25 +1,32 @@
-<h2>List of Movies</h2>
+<section class="row">
+  <h3>List of Movies</h3>
 
-<section id="category-table">
-  <table>
-    <tr>
-      <th>Votes</th>
-      <th>Title</th>
-      <th>Created By</th>
-      <th>Published</th>
-      <th>Upvote</th>
-    </tr>
-    <% @movies.each do | movie | %>
-    <tr>
-      <td><%= movie.votes.length %></td>
-      <td><%= link_to movie.title, work_path(movie.id) %></td>
-      <td><%= movie.creator %></td>
-      <td><%= movie.year %></td>
-      <td><%= link_to "Upvote", upvote_path(movie.id), method: :post %></td>
-    </tr>
-    <% end %>
-  </table>
+  <section id="category-table">
+    <table>
+      <thead>
+        <tr>
+          <th>Votes</th>
+          <th>Title</th>
+          <th>Created By</th>
+          <th>Published</th>
+          <th>Upvote</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @movies.each do | movie | %>
+        <tr>
+          <td><%= movie.votes.length %></td>
+          <td><%= link_to movie.title, work_path(movie.id) %></td>
+          <td><%= movie.creator %></td>
+          <td><%= movie.year %></td>
+          <td><%= link_to "Upvote", upvote_path(movie.id), method: :post %></td>
+        </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </section>
+
+  <%= link_to "View all media", root_path %>
+  <%= link_to "Add a new movie", new_work_path(:category => "movie") %>
+
 </section>
-
-<%= link_to "View all media", root_path %>
-<%= link_to "Add a new movie", new_work_path(:category => "movie") %>

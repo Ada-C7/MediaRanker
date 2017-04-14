@@ -1,25 +1,32 @@
-<h2>List of Albums</h2>
+<section class="row">
+  <h2>List of Albums</h2>
 
-<section id="category-table">
-  <table>
-    <tr>
-      <th>Votes</th>
-      <th>Title</th>
-      <th>Created By</th>
-      <th>Published</th>
-      <th>Upvote</th>
-    </tr>
-    <% @albums.each do | album | %>
-    <tr>
-      <td><%= album.votes.length %></td>
-      <td><%= link_to album.title, work_path(album.id) %></td>
-      <td><%= album.creator %></td>
-      <td><%= album.year %></td>
-      <td><%= link_to "Upvote", upvote_path(album.id), method: :post %></td>
-    </tr>
-    <% end %>
-  </table>
+  <section id="category-table">
+    <table>
+      <thead>
+        <tr>
+          <th>Votes</th>
+          <th>Title</th>
+          <th>Created By</th>
+          <th>Published</th>
+          <th>Upvote</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @albums.each do | album | %>
+        <tr>
+          <td><%= album.votes.length %></td>
+          <td><%= link_to album.title, work_path(album.id) %></td>
+          <td><%= album.creator %></td>
+          <td><%= album.year %></td>
+          <td><%= link_to "Upvote", upvote_path(album.id), method: :post %></td>
+        </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </section>
+
+  <%= link_to "View all media", root_path %>
+  <%= link_to "Add a new album", new_work_path %>
+  
 </section>
-
-<%= link_to "View all media", root_path %>
-<%= link_to "Add a new album", new_work_path %>
