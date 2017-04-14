@@ -2,8 +2,9 @@ require "test_helper"
 
 describe ContentsController do
   it "should get index" do
-    get contents_index_url
-    value(response).must_be :success?
+    get root_path
+    must_respond_with :success
+
   end
 
 end

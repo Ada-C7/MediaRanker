@@ -3,7 +3,8 @@ require "test_helper"
 describe User do
   let(:user) { User.new }
 
-  it "must be valid" do
-    value(user).must_be :valid?
+  it "must have a username" do
+    user.username = "testname"
+    user.valid?.must_equal true
   end
 end
