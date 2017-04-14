@@ -25,7 +25,7 @@
     </p>
   </section>
 
-  <h2>Top books:</h2>
+  <h2>Top movies:</h2>
 
   <table>
     <% @books.each do | book | %>
@@ -45,7 +45,12 @@
   <h2>Top movies:</h2>
 
   <table>
-
+    <% @movies.each do | movie | %>
+    <tr>
+      <td><%= link_to movie.title, movie_path(movie.id) %></td>
+      <td>by <%= movie.creator %></td>
+    </tr>
+    <% end %>
 
   </table>
   <section>

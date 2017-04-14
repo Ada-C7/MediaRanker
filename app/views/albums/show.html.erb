@@ -19,13 +19,6 @@
       <th>Date</th>
     </tr>
 
-    <% @votes.each do | vote | %>
-    <tr>
-      <td><%= vote.user_id.username %>User who voted</td>
-      <td><%= vote.created_at %>Date voted</td>
-    </tr>
-    <% end %>
-
   </table>
 
 </section>
