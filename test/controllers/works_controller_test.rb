@@ -13,6 +13,12 @@ describe WorksController do
       assigns(:works).must_equal([works(:two)])
       # don't have to test if it's the correct category because the model already does that/tests
     end
+
+    it "is succssful when there are zero works" do
+      Work.destroy_all
+      get :index, params: { category: "book" }
+      must_respond_with :success
+    end
   end
 
   describe "show" do
@@ -29,6 +35,8 @@ describe WorksController do
 
   describe "new" do
     it "should get new" do
+      get :new
+      must_respond_with :success
     end
 
     it "should create an array with nil" do
