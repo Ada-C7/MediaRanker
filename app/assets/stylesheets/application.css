@@ -33,11 +33,11 @@ body small{color:slategrey}
   margin-bottom: 5px;
 }
 
-.status.failure{
+.failure{
   color:#C70039;
 }
 
-.status.success {
+.success {
   color:#359b18;
 }
 
