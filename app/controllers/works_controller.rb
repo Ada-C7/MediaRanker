@@ -1,9 +1,11 @@
 class WorksController < ApplicationController
   def index
+    # will need to order these by number of votes
     @albums = Work.where(category: "album")
     @books = Work.where(category: "book")
     @movies = Work.where(category: "movie")
 
+    #placeholder for picking top ranked work
     @spotlight = Work.all.sample
   end
 
@@ -27,12 +29,10 @@ class WorksController < ApplicationController
 
   def create
     @work = Work.new(work_params)
-    # @category = params[:work][:category].singularize
 
     if @work.save
       flash[:success] = "Successfully created #{@work.category} #{@work.id}"
       redirect_to new_work_path(params[:work][:category])
-
     else
       flash.now[:error] = "A problem occurred: Could not create #{@work.category}"
       render "new"
@@ -61,6 +61,24 @@ class WorksController < ApplicationController
 
     flash[:success] = "Successfully destroyed #{@work.category} #{@work.id}"
     redirect_to category_path(@work.category)
+  end
+
+  def upvote
+    if session[:user_id] = nil
+      flash[:error] = "You must be logged in to do that"
+      redirect_back(fallback_location: root_path)
+    else
+      vote = Vote.new
+      # get user id from session
+      vote.user_id = session[:user_id]
+      # get work id from page/link
+
+      # create new vote
+      vote.save
+      flash[:success] = "Successfully upvoted!"
+      redirect_back(fallback_location: root_path)
+
+    end
   end
 
   private
