@@ -17,3 +17,14 @@
 <%= link_to "Delete", work_path(@result_work.id), data: { confirm: "Are you sure you want to delete?" }, method: :delete %>
 
 <h3> <%= @result_work.votes.count %> Votes for this <%= @result_work.category %> </h3>
+<table>
+  <tr>
+  <th>User</th>
+  <th>Date</th>
+</tr>
+  <tr>
+  <td> <% @result_work.votes.each do |vote| %>
+    <%= vote.user.name %> <%= vote.created_at %>
+    <% end %>
+   </td></tr>
+</table>
