@@ -183,17 +183,25 @@ describe WorksController do
     setup do
       @user = User.first
       login(@user)
+      @work_id = Work.first.id
     end
 
     it 'should create a vote and redirect to work_path' do
-      work_id = Work.first.id
-      proc { post vote_path(work_id) }.must_change 'Vote.count', +1
+      proc { post vote_path(@work_id) }.must_change 'Vote.count', +1
       must_respond_with :redirect
-      must_redirect_to work_path(work_id)
+      must_redirect_to work_path(@work_id)
     end
 
     it 'should not add a vote if user has already voted for that work' do
-
+      #vote 1 - this one should work
+      post vote_path(@work_id)
+      before = Vote.count
+      # vote2 - this one should NOT work
+      post vote_path(@work_id)
+      after = Vote.count
+      before.must_equal after
+      must_respond_with :redirect
+      must_redirect_to work_path(@work_id)
     end
   end
 end
