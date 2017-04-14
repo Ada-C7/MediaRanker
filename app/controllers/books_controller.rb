@@ -11,6 +11,14 @@ class BooksController < ApplicationController
         @book = Work.new book_params
         @book.category = 'book'
         @book.save
+
+        if @book.id
+            flash[:success] = "You have successfully added the book #{@book.title}"
+            redirect_to books_path
+        else
+            flash[:error] = "Try again, your book was not added"
+            redirect_to new_book_path
+        end
     end
 
     private
