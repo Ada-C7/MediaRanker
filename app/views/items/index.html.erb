@@ -4,7 +4,7 @@
   <ul>
     <% @movies.first(10).each do |movie| %>
     <li>
-      <%=movie.category%>, <%=movie.title%>, <%=movie.creator%>, <%=movie.publication_year%>, <%=movie.description%>
+      <%= link_to "#{movie.title}", item_path(movie.id) %>, <%=movie.creator%>, <%=movie.publication_year%>, <%=movie.description%>
     </li>
     <% end %>
   </ul>
@@ -15,7 +15,7 @@
   <ul>
     <% @books.first(10).each do |book| %>
     <li>
-      <%=book.category%>, <%=book.title%>, <%=book.creator%>, <%=book.publication_year%>, <%=book.description%>
+      <%= link_to "#{book.title}", item_path(book.id) %>, <%=book.creator%>, <%=book.publication_year%>, <%=book.description%>
     </li>
     <% end %>
   </ul>
@@ -26,7 +26,7 @@
   <ul>
     <% @albums.first(10).each do |album| %>
     <li>
-      <%=album.category%>, <%=album.title%>, <%=album.creator%>, <%=album.publication_year%>, <%=album.description%>
+      <%= link_to "#{album.title}", item_path(album.id) %>, <%=album.creator%>, <%=album.publication_year%>, <%=album.description%>
     </li>
     <% end %>
   </ul>
