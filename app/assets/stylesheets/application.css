@@ -14,3 +14,24 @@
  *= require_self
  */
  @import url('foundation.css');
+
+ li {
+   list-style: none;
+ }
+
+ main {
+   padding: 20px;
+   margin: 20px;
+ }
+
+ h1 {
+   font-size: 3em;
+ }
+
+ .site-title {
+   text-align: right;
+ }
+
+ .column {
+   padding: 10px;
+ }

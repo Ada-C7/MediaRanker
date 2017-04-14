@@ -1,6 +1,6 @@
 <h1>User Summary: <%= @result_user.name %></h1>
 <p>
-  Joined site <%= @result_user.created_at %>
+  Joined site <%= @result_user.created_at.strftime("%b %d, %Y") %>
 </p>
 
 <h2>Votes</h2>

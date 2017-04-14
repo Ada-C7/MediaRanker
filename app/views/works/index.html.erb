@@ -1,10 +1,13 @@
+<div class="row">
+<section class="small-12 column">
 <h2>Media Spotlight: <% spotlight = @top_works.first %>
 <%= link_to spotlight.title, work_path(spotlight.id) %> by: <%= spotlight.creator %> </h2>
 <p>
   <%= spotlight.vote_count %> votes - <%= spotlight.description %>
 </p>
+</section>
 
-
+<section class="small-4 column">
 <h2>Top Movies</h2>
 <ul>
   <% @top_movies[0..9].each do |movie| %>
@@ -19,7 +22,9 @@
 <p>
   <%= link_to "View all movies", movies_path %>
 </p>
+</section>
 
+<section class="small-4 column">
 <h2>Top Books</h2>
 <ul>
   <% @top_books[0..9].each do |book| %>
@@ -34,8 +39,10 @@
 <p>
   <%= link_to "View all books", books_path %>
 </p>
+</section>
 
 
+<section class="small-4 column">
 <h2>Top Albums</h2>
 <ul>
   <% @top_albums[0..9].each do |album| %>
@@ -50,3 +57,8 @@
 <p>
   <%= link_to "View all albums", albums_path %>
 </p>
+
+</section>
+
+
+</div>
