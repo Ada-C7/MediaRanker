@@ -55,7 +55,7 @@ class SubmissionsController < ApplicationController
      end
 
      def destroy
-          @submission = Submission.find(params[:id])
+          @submission = Submission.find(params[:id]) 
           if @submission.votes.count > 0
                flash[:error] = "Apparently someone else has bad taste. This submission has votes and can't be deleted."
                redirect_to submission_path
