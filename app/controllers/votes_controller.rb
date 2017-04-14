@@ -1,20 +1,21 @@
 class VotesController < ApplicationController
 
-  def Upvote
+  def create
+    already_voted = Vote.where(user_id: session[:user_id]).where(work_id: params[:id])
+
     if !session[:user_id]
-      flash[:error] = "You must log in to do that"
+      flash[:error] = "You must log in to upvote"
+      redirect_to :back
+    elsif already_voted == []
+      work = Work.find(params[:id])
+      vote = Vote.create
+      vote.work_id = work.id
+      vote.user_id = session[:user_id]
+      vote.save
       redirect_to :back
     else
-      @vote = Vote.new
-      @vote.user_id = session[:user_id]
-      @vote.work_id = params[:id]
-      if !@vote.save
-        flash[:error] = "You already voted for this work."
-        redirect_to :root
-      else
-        flash[:success] = "Successfully voted!"
-        redirect_to :root
-      end
+      flash[:error] = "Already voted on this"
+      redirect_to :back
     end
   end
 
