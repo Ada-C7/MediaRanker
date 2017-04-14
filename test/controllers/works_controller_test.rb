@@ -52,14 +52,14 @@ describe WorksController do
 
   describe 'Works#show' do
     it "should get work path" do
-      get work_path(id: 5)
+      get work_path(id: 10)
       must_respond_with :success
     end
   end
 
   describe 'Works#edit' do
     it "should get edit_work path" do
-      get edit_work_path(id: 4)
+      get edit_work_path(id: 3)
       must_respond_with :success
     end
   end

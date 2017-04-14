@@ -24,7 +24,36 @@ class WorksController < ApplicationController
     @media_type = params[:media_type]
   end
 
+  def create
+    @work = Work.new(work_params)
+    # find a way to set media types without the user
+  end
+
   def show
     @work = Work.find(params[:id])
   end
+
+  def edit
+    @work = Work.find(params[:id])
+  end
+
+  def update
+    work = Work.find(params[:id])
+    work.update_attributes(work_params)
+    work.save
+
+    redirect_to work_path(work)
+  end
+
+  def destroy
+    work = Work.find(params[:id])
+    work.destroy
+
+    redirect_to works_path
+  end
+
+  private
+    def work_params
+      return params.require(:book).permit(:title, :by, :year, :description)
+    end
 end
