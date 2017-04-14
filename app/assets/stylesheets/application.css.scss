@@ -16,7 +16,7 @@
 
 
 a {
-    color: lightblue;
+    color: #1779ba;
 }
 
 .header {
@@ -46,5 +46,11 @@ a {
 
 .login {
   position: relative;
-  left: 15%;
+  right: 5%;
+  text-align: right;
+
+}
+
+.button a {
+  color: white
 }
