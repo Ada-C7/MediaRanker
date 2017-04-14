@@ -46,6 +46,16 @@ class ItemsController < ApplicationController
     redirect_to category_path(@item.category)
   end
 
+  def upvote
+    if Vote.where(user_id: session[:user_id], item_id: params[:id]).empty?
+      Vote.create(user_id: session[:user_id], item_id: params[:id])
+      flash[:success] = "You voted successfully!"
+    else
+      flash[:failure] = "Sorry you can only vote once for this work."
+    end
+    redirect_to item_path
+  end
+
   private
   def item_params
     return params.require(:item).permit(:category, :title, :creator, :publication_year, :description)

@@ -2,7 +2,9 @@
 <h2>Created by: <%= @item[:creator] %></h2>
 <h2>Published: <%= @item[:publication_year] %></h2>
 <h2><%= @item[:description] %></h2>
+<h2><%= @item.votes.count %></h2>
 
+<%= button_to '+1', upvote_item_path(@item), method: :post %>
 <%= link_to "Back to #{@item.category}s", category_path(@item.category) %>
 <%= link_to 'Back to homepage', root_path %>
 <%= link_to "Edit #{@item.category}", edit_item_path %>
