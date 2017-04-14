@@ -12,14 +12,36 @@
 
 
 
-  <header>
+  <nav>
     <%= image_tag "owl.jpg", alt:"Owl reading a book", class:"owl_img"%>
     <h1> <%= link_to "Media Ranker", items_path %> </h1>
     <h1> Ranking the Best of Everything </h1>
 
-  </header>
+    <ul class= "login">
+      <% if session[:user_id] %>
+        <li><%= "Logged in as #{session[:username]}"%></li>
+      <% else %>
+        <li>"Not logged in"</li>
+      <% end %>
 
 
+
+
+      <% if session[:user_id] %>
+        <li><%= button_to "Logout", logout_path, method: :delete %></li>
+      <% else %>
+        <li><%= button_to "Login", login_path, method: :get%></li>
+      <% end %>
+    </ul>
+
+
+  </nav>
+
+  <section class="flash">
+    <% flash.each do |name, message| %>
+      <div class="<%= name %>"><%= message %></div>
+    <% end %>
+  </section>
 
 
 

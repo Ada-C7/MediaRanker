@@ -8,6 +8,7 @@ class SessionsController < ApplicationController
 
     if user
       session[:user_id] = user.id
+      session[:username] = user.username
       flash[:success] = "Successfully logged in as existing user #{ user.username }"
       redirect_to root_path
 
@@ -17,6 +18,7 @@ class SessionsController < ApplicationController
       flash[:success] = "Successfully created new user  #{new_user.username}  with ID #{new_user.id}"
       redirect_to root_path
     end
+
 
   end
 

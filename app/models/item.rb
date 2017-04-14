@@ -3,9 +3,6 @@ class Item < ApplicationRecord
   has_many :users, through: :votes
 
 
-
-
-
 validates :category, presence: true, inclusion: { in: ['book', 'album', 'movie'],  message: "item must be album, book, or movie" }
 
 def self.by_category(category)
@@ -13,9 +10,9 @@ def self.by_category(category)
 end
 
 def self.spotlight
-  r = rand(1..Item.all.count)
-  find(r)
+  ids = Item.all.pluck(:id)
+  spotlight_id = ids.sample
+  find(spotlight_id)
 end
-
 
 end
