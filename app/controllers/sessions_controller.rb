@@ -11,8 +11,11 @@ session[:user_id] = user.id
   redirect_to root_path
 else
   #did not find
-  flash.now[:error] = "User not found"
-  render :login_form
+  user = User.new
+  user.id = params[:id]
+  user.save
+  # flash.now[:error] = "User not found"
+  # render :login_form
 end
 end
 end
