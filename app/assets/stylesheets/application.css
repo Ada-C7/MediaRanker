@@ -20,16 +20,15 @@ html, body {
      flex-flow: column nowrap;
 
      justify-content: flex-start;
-     padding: 1em;
 
      min-height: 100%;
      width: 100%;
 
-     background: -webkit-linear-gradient(#580e23, #761c35, #e88220 );
+     background: -webkit-linear-gradient(#3a0212,#410617, #580e23, #761c35, #e88220 );
      color: #fff;
-     background: -o-linear-gradient(#580e23, #761c35, #e88220); /* For Opera 11.1 to 12.0 */
-     background: -moz-linear-gradient(#580e23, #761c35, #e88220); /* For Firefox 3.6 to 15 */
-     background: linear-gradient(#580e23, #761c35, #e88220);
+     background: -o-linear-gradient(#3a0212,#410617, #580e23, #761c35, #e88220); /* For Opera 11.1 to 12.0 */
+     background: -moz-linear-gradient(#3a0212,#410617, #580e23, #761c35, #e88220); /* For Firefox 3.6 to 15 */
+     background: linear-gradient(#3a0212, #410617, #580e23, #761c35, #e88220);
      font-family: 'Poppins', serif;
      font-size: 10px;
 
@@ -40,7 +39,12 @@ html, body {
 
           align-items: center;
           justify-content: space-between;
-          height: 12em;
+          height: 10em;
+          padding: 1em 1em 1em 1em;
+
+          background-color: #fff;
+          border-bottom: 5px solid #761c35;
+
      }
 
           .logo {
@@ -49,7 +53,7 @@ html, body {
           }
 
                .logo img {
-                    max-height: 12em;
+                    max-height: 9em;
                }
 
           header a {
@@ -71,6 +75,7 @@ html, body {
                flex: 1 0 auto;
 
                justify-content: flex-end;
+
 
                font-size: 1.8em;
                text-transform: uppercase;
