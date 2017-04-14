@@ -25,6 +25,12 @@ describe WorksController do
       proc {
         get works_path(media_type: "panda")}.must_raise ActionController::UrlGenerationError
     end
+
+    it "successful when there are 0 works" do
+      Work.destroy_all
+      get works_path(media_type: "movies")
+      must_respond_with :success
+    end
   end
 
   describe 'Works#new' do
@@ -41,6 +47,11 @@ describe WorksController do
     it "should get new_book for books" do
       get new_work_path(media_type: "albums")
       must_respond_with :success
+    end
+
+    it "should raise error with invalid media_type " do
+      proc {
+        get new_work_path(media_type: "panda")}.must_raise ActionController::UrlGenerationError
     end
   end
 
