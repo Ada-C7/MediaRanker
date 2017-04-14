@@ -5,7 +5,7 @@ class SessionsController < ApplicationController
     user = User.find_by(username: params[:username])
     if user
       session[:user_id] = user.id
-      flash[:success] = "#{user.username} is successfully logged in"
+      flash[:success] = "#{user.username} is successfully logged in!"
       redirect_to main_path
     else
       flash.now.alert = "Invalid username"

@@ -43,14 +43,14 @@ require "test_helper"
       end
     end
 
-    describe "vote" do
-      it "votes when you logged in" do
-        work = Work.first
-        user = User.first
-        delete user_url(user), params: { 'session' => { :user_id => user.id }}
-
-        get vote_path(user_id: user.id, work_id: work.id)
-        must_respond_with :success
-      end
-    end
+    # describe "vote" do
+    #   it "votes when you logged in" do
+    #     work = Work.first
+    #     user = User.first
+    #     delete user_url(user), params: { 'session' => { :user_id => user.id }}
+    #
+    #     get vote_path(user_id: user.id, work_id: work.id)
+    #     must_respond_with :success
+    #   end
+    # end
   end

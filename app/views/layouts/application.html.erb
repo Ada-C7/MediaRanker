@@ -11,19 +11,18 @@
 
   <body>
     <nav>
-    <h2><%= link_to "MediaRanker", main_path %></h2>
-    <h3>Ranking the Best of Everything</h3>
-  <ul>
-    <% user = User.find(session[:user_id]) %>
-    <% if session[:user_id] %>
-      <li>Logged in as <%= user.username %></li>
-      <li class = "button"><%= link_to "Logout", logout_path(:user_id), method: :delete%></li>
-    <% else %>
-      <li><%= link_to "New User", new_user_path %></li>
-      <li><%= link_to "Login", login_path, method: :get %></li>
-    <% end %>
-  </ul>
-</nav>
+      <h2><%= link_to "MediaRanker", main_path %></h2>
+      <h3>Ranking the Best of Everything</h3>
+      <ul>
+        <% if session[:user_id] %>
+          <li>Logged in as <%= link_to User.find(session[:user_id]).username, user_path(session[:user_id])%></li>
+          <li class = "button"><%= link_to "Logout", logout_path(session[:user_id]), method: :delete%></li>
+        <% else %>
+          <li><%= link_to "New User", new_user_path %></li>
+          <li><%= link_to "Login", login_path, method: :get %></li>
+        <% end %>
+      </ul>
+    </nav>
     <section class = "flash">
       <% flash.each do |name, message| %>
        <div class = "<%= name %>"><%= message %></div>
