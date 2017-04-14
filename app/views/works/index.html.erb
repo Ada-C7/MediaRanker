@@ -7,5 +7,5 @@
     <li class ="titles"><%= link_to "#{work.title}", work_path(work.id) %></li>
   <% end %>
 
-  <h4> <%= link_to "New media", new_work_path %> </h3>
+  <h4> <%= link_to "New #{params[:category]}", new_work_by_category_path(params[:category]) %> </h3>
 </section>

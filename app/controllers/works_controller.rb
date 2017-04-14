@@ -12,13 +12,13 @@ class WorksController < ApplicationController
   end
 
   def new
-    @work = Work.new
+    @work = Work.new(category: params[:category])
   end
 
   def create
     work = Work.new(work_params)
     if work.save
-      redirect_to works_path
+      redirect_to category_path(work.category)
     else
       render :new
     end

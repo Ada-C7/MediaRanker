@@ -4,7 +4,8 @@ Rails.application.routes.draw do
 
   resources :users
   resources :works
-  get '/:category', to:'works#index', constraints: { category: /(book)|(movie)|(album)/}, as: "category"
+  get '/:category', to:'works#index', constraints: { category: /(book)|(movie)|(album)/ }, as: "category"
+  get '/:category/new', to:'works#new', constraints: { category: /(book)|(movie)|(album)/ }, as: 'new_work_by_category'
   resources :votes #TODO check do I need this??
 
 end
