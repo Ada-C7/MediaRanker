@@ -1,0 +1,11 @@
+<section class="top-ten columns large-4 small-12">
+  <h3>Top Books</h3>
+  <ul>
+    <% @books.each do |book| %>
+    <li><h4><%= link_to book.title, work_path(book) %>
+      <small>by: <%= book.creator %><small>
+        <p># Votes</p>
+      </h4></li>
+      <% end %>
+    </ul>
+  </section>

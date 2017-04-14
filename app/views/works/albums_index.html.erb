@@ -1,0 +1,11 @@
+<section class="top-ten columns large-4 small-12">
+  <h3>Top Albums</h3>
+  <ul>
+    <% @albums.each do |album| %>
+    <li><h4><%= link_to album.title, work_path(album) %>
+      <small>by: <%= album.creator %> <small>
+        <p># Votes</p>
+      </h4></li>
+      <% end %>
+    </ul>
+  </section>

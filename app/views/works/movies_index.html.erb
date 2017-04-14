@@ -1,0 +1,11 @@
+<section class="top-ten columns large-4 small-12">
+  <h3>Top Movies</h3>
+  <ul>
+    <% @movies.each do |movie| %>
+    <li><h4><%= link_to movie.title, work_path(movie) %>
+      <small>by: <%= movie.creator %> <small>
+        <p># Votes</p>
+        <h4></li>
+          <% end %>
+        </ul>
+      </section>
