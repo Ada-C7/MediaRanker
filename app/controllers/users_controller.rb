@@ -4,7 +4,10 @@ class UsersController < ApplicationController
   end
 
   def show
-    @user = User.find(params[:id])
+    @user = User.find_by(id: params[:id])
+    if @user.nil?
+      head :not_found
+    end
   end
 
   def new
@@ -19,7 +22,7 @@ class UsersController < ApplicationController
       redirect_to root_path
     else
       flash.now[:failure] = "User did not save, try again"
-      render :new
+      render :new, status: :bad_request
     end
   end
 

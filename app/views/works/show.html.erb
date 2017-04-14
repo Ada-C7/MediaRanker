@@ -1,20 +1,36 @@
-<h2><%= @work.title %></h2>
-<h3><%= @work.created_by %></h3>
-<h3><%= @work.publication_year %></h3>
+<section class="large-6 small-12">
+<h3><%= @work.title %></h3>
+<p>Created by: <%= @work.created_by %></p>
+<p>Published: <%= @work.publication_year %></p>
 <p><%= @work.description %></p>
 
-<%= link_to "Edit", edit_work_path(@work.id) %>
-<%= link_to "Delete", work_path(@work.id), method: :delete,
+<%= link_to "Edit", edit_work_path(@work.id), :class => "button" %>
+<%= link_to "Delete", work_path(@work.id),  :class => "button delete-btn", method: :delete,
     data: {confirm: "Are you sure"} %>
-<%= link_to "Back to #{@work.category.capitalize} list", works_path(@work.category.pluralize) %>
+<%= link_to "Back to #{@work.category} list", works_path(@work.category.pluralize), :class => "button" %>
 
 <% if session[:user_id] %>
-<%= link_to "vote for this", vote_path(@work.id), method: :post %>
+<%= link_to "Upvote", vote_path(@work.id), :class => "button", method: :post %>
 <% end %>
-
-<section>
-  <h3> User Votes </h3>
+</section>
+<section class="columns large-6 small-12">
+  <h3><%= @work.votes.count %> Votes for this <%= @work.category %></h3>
+  <table>
+    <thead>
+      <tr>
+        <th>User</th>
+        <th>Date</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% if @work.users.length > 0 %>
 <% @work.users.each do |user| %>
-<%= link_to user.name, user_path(user.id) %>
+<tr>
+<td><%= link_to user.name, user_path(user.id) %></td>
+<td><%= user.votes.find_by(work_id: @work.id).created_at.strftime("%a %d, %Y") %></td>
+</tr>
 <% end %>
+<% end %>
+</tbody>
+</table>
 </section>

@@ -1,35 +1,54 @@
-<h2>Media Ranker</h2>
-<h3>Ranking the Best of Everything</h3>
+<section class="row spotlight">
 
-<% if @top_work != nil %>
-<h4>Media Spotlight: <%= link_to @top_work.title, work_path(@top_work.id) %> by <%= @top_work.created_by %></h4>
-<p><%= @top_work.votes.count %> votes <%= @top_work.description %></p>
-<% end %>
-
-<h4>Top Movies</h4>
-<ul>
-<% @works.each do |work| %>
-  <% if work.category == "movie" %>
-  <li>Votes: <%= work.votes.count %>, <%= link_to work.title, work_path(work.id) %> by <%= work.created_by %></li>
-    <% end %>
-<% end %>
-<%= link_to "View More Movies", works_path("movies") %>
-</ul>
-
-<h4>Top Albums</h4>
-<ul><% @works.each do |work| %>
-  <% if work.category == "album" %>
-  <li> Votes: <%= work.votes.count %>, <%= link_to work.title, work_path(work.id)%> by <%= work.created_by %></li>
+  <% if @top_work != nil %>
+    <h3>Media Spotlight: <%= link_to @top_work.title, work_path(@top_work.id) %> by <%= @top_work.created_by %></h3>
+    <p><%= @top_work.votes.count %> votes <%= @top_work.description %></p>
   <% end %>
-<% end %>
-<%= link_to "View More Albums", works_path("albums") %>
-</ul>
 
-<h4>Top Books</h4>
-<ul><% @works.each do |work| %>
-  <% if work.category == "book" %>
-  <li>Votes: <%= work.votes.count %>, <%= link_to work.title, work_path(work.id) %> by <%= work.created_by %></li>
+</section>
+
+<section class="top-ten columns large-4 small-12">
+  <h4>Top Movies</h4>
+    <ul>
+      <% @works.each do |work| %>
+        <% if work.category == "movie" %>
+          <li>
+           <h4> <%= link_to work.title, work_path(work.id)%></h4>
+           <small> by <%= work.created_by %></small>
+          <p><%= work.votes.count %> votes</p>
+         </li>
+        <% end %>
+      <% end %>
+  </ul>
+  <%= link_to "View More Movies", works_path("movies") %>
+</section>
+
+<section class="top-ten columns large-4 small-12">
+  <h4>Top Albums</h4>
+    <ul><% @works.each do |work| %>
+      <% if work.category == "album" %>
+        <li>
+         <h4> <%= link_to work.title, work_path(work.id)%></h4>
+         <small> by <%= work.created_by %></small>
+        <p><%= work.votes.count %> votes</p>
+       </li>
+      <% end %>
     <% end %>
-<% end %>
-<%= link_to "View More Books", works_path("books") %>
-</ul>
+    </ul>
+  <%= link_to "View More Albums", works_path("albums") %>
+</section>
+
+<section class="top-ten columns large-4 small-12">
+  <h4>Top Books</h4>
+    <ul><% @works.each do |work| %>
+      <% if work.category == "book" %>
+      <li>
+       <h4> <%= link_to work.title, work_path(work.id)%></h4>
+       <small> by <%= work.created_by %></small>
+      <p><%= work.votes.count %> votes</p>
+     </li>
+     <% end %>
+    <% end %>
+    </ul>
+  <%= link_to "View More Books", works_path("books") %>
+</section>

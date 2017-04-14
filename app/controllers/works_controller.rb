@@ -2,9 +2,11 @@ class WorksController < ApplicationController
   before_action :top_work, only: [:index]
 
   def top_work
+    if Work.all.length > 0
     most_votes = Work.all.sort_by { |work| -work.votes.count }.first
-    if most_votes.votes.count > 5
-      return @top_work = most_votes
+      if most_votes.votes.count > 5
+        return @top_work = most_votes
+      end
     end
   end
 
@@ -56,7 +58,11 @@ class WorksController < ApplicationController
   end
 
   def edit
-    @work = Work.find(params[:id])
+    @work = Work.find_by(id: params[:id])
+
+    if @work.nil?
+      head :not_found
+    end
   end
 
   def update
@@ -66,16 +72,18 @@ class WorksController < ApplicationController
     if @work.save
       redirect_to works_path(@work.category.pluralize)
     else
-      render :edit
+      render :edit, status: :bad_request
     end
   end
 
   def destroy
-    work = Work.find(params[:id])
-    @destroyed_category = work.category
-    work.destroy
-
-    redirect_to works_path(@destroyed_category)
+    work = Work.find_by(id: params[:id])
+    if work.nil?
+      head :not_found
+    else
+      work.destroy
+      redirect_to root_path
+    end
   end
 
   private
