@@ -1502,7 +1502,8 @@ kbd {
   text-align: left; }
 
 .text-right {
-  text-align: right; }
+  text-align: right;
+  margin-right: 18px;}
 
 .text-center {
   text-align: center; }
@@ -3901,7 +3902,8 @@ a.thumbnail {
   float: left !important; }
 
 .float-right {
-  float: right !important; }
+  float: right !important;
+  margin-right: 18px; }
 
 .float-center {
   display: block;
