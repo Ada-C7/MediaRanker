@@ -1,6 +1,14 @@
 <main>
-  <section>
-    <h2>Media Spotlight</h2>
+
+  <section class="row spotlight">
+    <% top = find_top(@works) %>
+
+    <h3>Media Spotlight:
+    <% if top != nil %>
+      <%= link_to top.title, work_path(top.id) %> by <%= top.creator %> </h3>
+      <p> <%= top.votes.count%> votes </p>
+    <% end %>
+    
   </section>
 
   <% [@movies, @books, @albums].each_with_index do |collection, index| %>
