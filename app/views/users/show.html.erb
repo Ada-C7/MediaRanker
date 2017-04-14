@@ -1,0 +1,13 @@
+
+
+<h2> <%= "#{@user.username}"%></h2>
+
+
+
+<ul>
+  <% @user.votes.each do |work| %>
+  <li>
+    <%= work.title %>
+  </li>
+  <% end %>
+</ul>
