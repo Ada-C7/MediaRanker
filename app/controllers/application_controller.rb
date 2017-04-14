@@ -15,5 +15,7 @@ class ApplicationController < ActionController::Base
   @albums = Work.where(category: "album")
   # @top_albums = @albums.order(:votes)
   @top_albums = @albums.sort_by{|album| album[:votes]}.reverse
+
+  @work_votes = Vote.where(work_id: params[:id])
   end
 end

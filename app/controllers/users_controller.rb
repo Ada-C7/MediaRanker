@@ -5,6 +5,7 @@ class UsersController < ApplicationController
 
   def show
     @result_user = User.find(params[:id])
+    @user_votes = Vote.where(user_id: params[:id])
   end
   # def new
   #   @user = User.new
