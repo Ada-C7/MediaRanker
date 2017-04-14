@@ -1,6 +1,7 @@
 class WorksController < ApplicationController
 
   def edit
+    @work = Work.find(params[:id])
   end
 
   def show
@@ -24,9 +25,13 @@ class WorksController < ApplicationController
   end
 
   def create_album
+    Work.create
+
+    redirect_to root_path #Change to albums
   end
 
   def new_album
+    @album = Work.new
   end
 
   # MOVIES
@@ -50,4 +55,10 @@ class WorksController < ApplicationController
 
   def new_book
   end
+
+  private
+
+  # def strong_params
+  #   return params.require(:driver).permit(:title, :creator, :publication_year, :description)
+  # end
 end
