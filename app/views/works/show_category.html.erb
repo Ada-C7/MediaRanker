@@ -1,8 +1,9 @@
 <main class="row">
-
+<% if !@categorized_works.empty? %>
 <h3>List of <%=@categorized_works.first.category%></h3>
 <section class="media-table">
-
+<%else%> Looks like there are none of those!
+<% end %>
 
 <table>
   <thead>
