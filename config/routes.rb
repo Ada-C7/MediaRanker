@@ -12,6 +12,7 @@ Rails.application.routes.draw do
   post '/albums/:content_id/', to: 'votes#create', as: 'album_vote'
 
   get '/login', to: 'session#login', as: 'login'
+  post 'root', to: 'session#create', as: 'create_login'
 
 
 
