@@ -1,8 +1,10 @@
 <h1>All Users</h1>
 
+<ul>
+  <% @users.each do |user| %>
+    <li><%= user.name %>, <%= user.votes.count %>, <%= user.created_at.strftime("%b %d, %Y") %></li>
+  <% end %>
 
-
-
-
+</ul>
 
 <h3><%= link_to "back to media list", works_path %></h3>

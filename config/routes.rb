@@ -1,24 +1,22 @@
 Rails.application.routes.draw do
+  root "works#index"
+
   get 'sessions/index'
 
-  get 'users/index'
+  get '/users', to: "users#index"
+  get '/users/:id', to: "users#show", as: "user"
 
- root "works#index"
+  get '/login', to: "sessions#login_form"
+  post '/login', to: "sessions#login"
 
- get '/login', to: "sessions#login_form"
- post '/login', to: "sessions#login"
+  delete '/logout', to: "sessions#logout"
 
- delete '/logout', to: "sessions#logout"
+  post '/works/:id/upvote', to: "votes#create", as: 'upvote'
 
- post '/works/:id/upvote', to: "votes#create", as: 'upvote'
+  resources :works
 
+  get "/:category", to: "works#show_category", as: 'category'
 
- resources :works
-
-
-
- get "/:category", to: "works#show_category", as: 'category'
-
- get "/:category/new", to: "works#new", as: 'new_with_category'
+  get "/:category/new", to: "works#new", as: 'new_with_category'
 
 end

@@ -1,4 +1,15 @@
-<h2>One User</h2>
+<h2>User summary: <%= link_to @show_user.name, user_path(session[:user_id]) %> </h2>
+<p>Joined site: <%= @show_user.created_at.strftime("%b %d, %Y") %></p>
+
+
+<h3>Votes</h3>
+<% @user_votes.each do |vote| %>
+  <%= vote.work.title %>
+  <%= vote.work.creator %>
+  <%= vote.work.year %>
+  <%= vote.work.category %>
+  <%= vote.created_at.strftime("%b %d, %Y") %>
+<% end %>
 
 <h3><%= link_to "See all Users", users_path %></h3>
 <h3><%= link_to "Back to Medial List", works_path %></h3>

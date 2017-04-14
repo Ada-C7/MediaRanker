@@ -12,7 +12,7 @@
     <h2><%= link_to "Media Ranker", works_path %></h2>
     <nav>
       <% if session[:user_id] %>
-        <ul>Logged in as <%= User.find_by_id(session[:user_id]).name %></ul>
+        <ul>Logged in as <%= link_to User.find_by_id(session[:user_id]).name, user_path(session[:user_id]) %></ul>
         <%= link_to "Log Out", logout_path, method: :delete %>
       <% else %>
         <ul>Not Logged In</ul>
@@ -31,8 +31,8 @@
 
     <section class="errors">
         <% if @vote %>
-          <% @vote.errors.messages.each do |msg| %>
-            <div><%= msg %></div>
+          <% @vote.errors.each do |field, msg| %>
+            <div><%= field %><%= msg %></div>
           <% end %>
         <% end %>
     </section>

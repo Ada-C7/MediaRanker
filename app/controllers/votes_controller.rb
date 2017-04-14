@@ -1,7 +1,7 @@
 class VotesController < ApplicationController
 
   def create
-    # binding.pry
+  
     if !session[:user_id]
       flash[:error] = "You must log in to do that"
     elsif
@@ -18,7 +18,6 @@ class VotesController < ApplicationController
         end
       end
     end
-
 
     redirect_to :back
 

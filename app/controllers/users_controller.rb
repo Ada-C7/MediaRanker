@@ -16,6 +16,7 @@ class UsersController < ApplicationController
     if !@show_user
       render_404
     end
+    @user_votes = @show_user.votes
   end
 
   def destroy
