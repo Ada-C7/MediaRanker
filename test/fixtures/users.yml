@@ -5,3 +5,27 @@ aurora:
 
 felix:
   username: felixbenjamin
+
+mark:
+  username: markymark
+
+george:
+  username: george
+
+felicity:
+  username: felicity
+
+andrew:
+  username: andrew
+
+cat:
+  username: cat
+
+dog:
+  username: dog
+
+pig:
+  username: piglet
+
+horse:
+  username: horse

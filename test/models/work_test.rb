@@ -54,6 +54,42 @@ describe Work do
     work.valid?.must_equal true
   end
 
-  # not testing counter cache functionality 
+  ## not testing counter cache functionality
+
+  # testing self.top_ten(category)
+  it "returns the top ten votes works for album" do
+    top_albums = Work.top_ten("album")
+    top_albums.length.must_equal 2
+  end
+
+  it "album return is sorted by votes" do
+    top_albums = Work.top_ten("album")
+    top_albums.first.must_equal works(:okcomputer)
+  end
+  #
+  it "returns the top ten votes works for movie" do
+    top_movies = Work.top_ten("movie")
+    top_movies.length.must_equal 2
+  end
+
+  it "movie return is sorted by votes" do
+    top_movies = Work.top_ten("movie")
+    top_movies.first.must_equal works(:fall)
+  end
+  #
+  it "returns the top ten votes works for book" do
+    top_books = Work.top_ten("book")
+    top_books.length.must_equal 2
+  end
+
+  it "book return is sorted by votes" do
+    top_books = Work.top_ten("book")
+    top_books.first.must_equal works(:linnets)
+  end
+
+  # # testing self.max_votes - should be works(:fall)
+  # it "returns work with max votes" do
+  #
+  # end
 
 end

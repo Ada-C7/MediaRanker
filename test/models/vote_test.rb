@@ -17,13 +17,13 @@ describe Vote do
     vote = votes(:one)
     vote.work = nil
     vote.save.must_equal false
-    vote.work = works(:fall)
+    vote.work = works(:heat)
     vote.save.must_equal true
   end
 
   # can create a new vote
   it "can create a new vote" do
-    vote = Vote.new(work: works(:fall), user: users(:aurora))
+    vote = Vote.new(work: works(:fall), user: users(:mark))
     vote.save.must_equal true
   end
 
