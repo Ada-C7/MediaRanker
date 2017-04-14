@@ -5,10 +5,10 @@
   <p><%= @work.description %></p>
 
   <section>
-    <%= link_to "Back to #{@work.category} list", works_path(@work.category) %>
-    <%= link_to "Edit", edit_work_path(@work.id) %>
-    <%= link_to "Upvote", upvote_path(@work.id), method: :patch %>
-    <%= link_to "Delete", delete_work_path(@work.id), method: :delete, data: {confirm: "Are you sure you want to delete #{@work.title}?"} %>
+    <%= link_to "Back to #{@work.category} list", works_path(@work.category), class: "button" %>
+    <%= link_to "Edit", edit_work_path(@work.id), class: "button" %>
+    <%= link_to "Upvote", upvote_path(@work.id), method: :patch, class: "button" %>
+    <%= link_to "Delete", delete_work_path(@work.id), method: :delete, data: {confirm: "Are you sure you want to delete #{@work.title}?"}, class: "alert button" %>
   </section>
 </article>
 

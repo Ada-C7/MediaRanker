@@ -1,6 +1,6 @@
 <section class="row spotlight">
   <div>
-    <h3>Media Spotlight: <%= @spotlight_work.title %> by <%= @spotlight_work.creator %></h3>
+    <h3>Media Spotlight: <%= link_to @spotlight_work.title, work_path(@spotlight_work.id) %> by <%= @spotlight_work.creator %></h3>
     <p>
       <%= @spotlight_work.votes.count %> votes
       <%= "- #{@spotlight_work.description}" unless @spotlight_work.description.blank? %>
