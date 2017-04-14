@@ -1,10 +1,10 @@
-<section class="show">
+<section class="show row">
 
   <header class="show-header">
 
     <h1 class="user-show-header">User Summary: <%= link_to @user.username, user_path(@user.id) %></h1>
     <p class="joined-site-date">
-      Joined site <%= @user.created_at %>
+      Joined site <%= @user.created_at.strftime("%b %d, %Y") %>
     </p>
   </header>
   <section class="show-votes-list">
@@ -33,6 +33,8 @@
           </th>
         </tr>
       </thead>
+      <tbody>
+
       <% @user.votes.order("created_at DESC").each do |vote| %>
       <tr>
         <td>
@@ -52,16 +54,17 @@
         </td>
       </tr>
       <% end %>
+    </tbody>
     </table>
     <% end %>
   </section>
   <footer class="user-show-footer">
-    <ul>
+    <ul class="user-show-buttons">
       <li>
-        <%= link_to "See all Users", users_path %>
+        <%= link_to "See all Users", users_path, class: "button" %>
       </li>
       <li>
-        <%= link_to "Back to Media List", works_path %>
+        <%= link_to "Back to Media List", works_path, class: "button" %>
       </li>
     </ul>
   </footer>

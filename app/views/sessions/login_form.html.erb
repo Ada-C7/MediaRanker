@@ -1,7 +1,10 @@
-<h2>Login Form</h2>
+<section class="login-form row">
+  <h2>Login Form</h2>
 
-<%= form_tag login_path do %>
-  <%= label_tag "Username" %>
-  <%= text_field_tag :username %>
-  <%= submit_tag :Login, class: "button" %>
-<% end %>
+    <%= form_tag login_path do %>
+      <%= label_tag "Username" %>
+      <%= text_field_tag :username %>
+      <%= submit_tag :Login, class: "button" %>
+    <% end %>
+
+</section>

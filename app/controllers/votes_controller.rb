@@ -2,7 +2,7 @@ class VotesController < ApplicationController
 
   def create
     if !session[:user_id]
-      flash[:error] = "Not logged in"
+      flash[:error] = "You must log in to do that"
       redirect_back(fallback_location: :root)
     else
       @vote = Vote.new
