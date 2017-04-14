@@ -1,22 +1,58 @@
+/*
+*= require_tree .
+*= require_self
+*/
+
 @import url(<%= asset_url('foundation.css') %>);
 
  header {
    border-bottom: 1px solid lightgray;
+   background-image: url(<%= image_url('owl.jpg') %>);
+   background-repeat: no-repeat;
+   height: 150px;
  }
 
- header h2::before {
-   content: url(<%= image_url('owl.jpg') %>);
-   height: 50px;
+
+
+h3.success {
+   color: green;
  }
 
- h3.success {
-   color: "green"
+ .failure {
+   color: pink;
  }
 
  .small {
    color: gray;
    font-size: smaller;
  }
+
+ ul {
+   list-style-type: none;
+   margin-left: 0;
+ }
+
+ .spotlight div {
+   padding: 3% 0;
+ }
+
+.page-header p {
+  text-align: right;
+  margin-bottom: 5px;
+}
+
+.page-header .button {
+  float: right;
+}
+
+.page-header h2 {
+  float: left;
+  padding-left: 150px;
+}
+
+main {
+  clear: both;
+}
 
  /*header, header h2 {
   height: 15vh;

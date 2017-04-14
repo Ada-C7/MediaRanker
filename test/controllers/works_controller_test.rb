@@ -20,7 +20,7 @@ describe WorksController do
     it "returns a 404 status when asked for a category that doesn't exist" do
       # get works_path(:fake_category)
       get "/fake_category"
-
+      #proc must raise routing error
       must_respond_with :not_found
     end
   end

@@ -9,13 +9,13 @@
   </head>
 
   <body>
-    <header>
+    <header class="page-header">
       <!-- <%= image_tag("owl.jpg", alt: "owl reading a book") %> -->
-      <h2>
+      <h2 class="columns large-10 medium-10 small-12">
         <%= link_to "Media Ranker", home_path %>
         <span class="small">Ranking the Best of Everything</span>
       </h2>
-      <div>
+      <div class="columns large-2 medium-2 small-12">
         <% if session[:user_id] %>
           <p>Logged in as <%= link_to session[:username], user_path(session[:user_id]) %></p>
           <%= link_to "Log Out", logout_path, method: :delete, class: "button" %>
@@ -26,13 +26,13 @@
       </div>
     </header>
 
-    <section class="flash">
+    <section class="flash row">
       <% flash.each do |name, message| %>
         <h3 class="<%= name %>"><%= message %></h3>
       <% end %>
     </section>
 
-    <main>
+    <main class="row">
       <%= yield %>
     </main>
   </body>

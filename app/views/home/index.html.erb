@@ -1,12 +1,14 @@
-<section class="row">
-<h3>Media Spotlight: <%= %></h3>
-<p>description here</p>
+<section class="spotlight columns 12">
+  <div>
+    <h3>Media Spotlight: <%= %></h3>
+    <p>description here</p>
+  </div>
 </section>
 
 <% @works.each do |category, works| %>
 <section class="top-ten columns large-4 small-12">
     <h3><%= "Top #{category.capitalize}"%></h3>
-      <ul class="works-list">
+      <ul class="works">
         <% works.each do |work| %>
           <li>
             <h4>
