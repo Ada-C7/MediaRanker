@@ -1,4 +1,6 @@
 class UsersController < ApplicationController
+  attr_reader :user
+
   def index
     @users = User.all
   end

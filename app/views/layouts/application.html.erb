@@ -14,7 +14,11 @@
   <ul>
     <li><%= link_to "Add New", new_work_path %></li>
     <% if session[:user_id] %>
-      <li><%= link_to "Logout", logout_path, method: :delete %></li>
+      <li>
+        <%= link_to "Logout", logout_path, method: :delete %>
+        <% user = User.find(session[:user_id]) %>
+        <%= link_to "#{user.username}", user_path(user.id) %>
+      </li>
     <% else %>
       <li><%= link_to "Login", login_path%></li>
     <% end %>

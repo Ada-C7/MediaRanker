@@ -22,6 +22,7 @@ describe Vote do
 
 #### WHY DOES THIS NOT WORK?
     it "successfully creates a vote" do
+      byebug
       work_data = Work.last
       user_data = User.last
       vote = Vote.new(user: user_data, work: work_data)

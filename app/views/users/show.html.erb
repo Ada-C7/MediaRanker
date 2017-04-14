@@ -2,12 +2,15 @@
 
 <h2> <%= "#{@user.username}"%></h2>
 
-
-
 <ul>
-  <% @user.votes.each do |work| %>
+  <% @user.votes.all.each do |vote| %>
   <li>
-    <%= work.title %>
+    <% work = Work.find(vote.work_id) %>
+    <h3><%= link_to "#{work.title}", work_path(work.id) %></h3>
+    <%= "Created By: #{work.creator} " %><br>
+    <%= "Published: #{work.pub_date} " %><br>
+    <%= "Category: #{work.category} " %><br>
+    <%= "Voted On: #{work.created_at.to_date} " %><br>
   </li>
   <% end %>
 </ul>
