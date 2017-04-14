@@ -1,6 +1,6 @@
 <h1>Work Details</h1>
 
-<h3>Title: <%= @work.title %></h3> <%= button_to "Upvote", vote_path(user.id), method: :post %>
+<h3>Title: <%= @work.title %></h3> <%= button_to "Upvote", upvote_path, method: :post %>
 <ul>
   <li>Category: <%= @work.category %></li>
   <li>Creator: <%= @work.creator %></li>

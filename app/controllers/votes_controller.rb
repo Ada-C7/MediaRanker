@@ -5,7 +5,8 @@ class VotesController < ApplicationController
       flash[:error] = "You've already voted for this"
       redirect_to root_path
     else
-      vote = Vote.new vote[:work_id] = params[:id]
+      vote = Vote.new
+      vote[:work_id] = params[:id]
       vote[:user_id] = session[:user_id]
 
       if vote.save
