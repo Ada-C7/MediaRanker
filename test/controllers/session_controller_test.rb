@@ -11,6 +11,12 @@ describe SessionController do
     must_respond_with :found
     must_respond_with :redirect
     must_redirect_to root_path
+  end
 
+  it "allows a new user to login" do
+    post create_login_path("new user")
+    must_respond_with :found
+    must_respond_with :redirect
+    must_redirect_to root_path
   end
 end
