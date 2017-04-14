@@ -1,9 +1,5 @@
 class VotesController < ApplicationController
 
-  def index
-  #  @votes = Vote.where()
-  end
-
   def upvote
     @vote = Vote.create(work_id: params[:id], user_id: session[:id])
     if @vote
@@ -16,10 +12,4 @@ class VotesController < ApplicationController
     end
   end
 
-  def show
-    @vote = Vote.find_by_id(params[:id])
-    if !@vote
-      render_404
-    end
-  end
 end

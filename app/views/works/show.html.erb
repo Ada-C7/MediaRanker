@@ -19,21 +19,31 @@
 </article>
 
   <article class="voting-users columns large-6 small-12">
-    <h3>user.votes.length</h3>
+    <h3>
+      <% if @work.votes.length == 1 %>
+      1 Vote
+      <% else %>
+      <%= @work.votes.length %> Votes
+      <% end %>
+    </h3>
+    <% if @work.votes.length > 0 %>
     <table>
       <thead>
         <th>User</th>
         <th>Date</th>
       </thead>
       <tbody>
+        <% @work.votes.each do |vote| %>
         <tr>
           <td>
-            Username
+            <%= link_to vote.user.name, user_path(vote.user.id) %>
           </td>
           <td>
-            Date voted
+            <%= vote.created_at.strftime("%b %d, %Y") %>
           </td>
         </tr>
+        <% end %>
       </tbody>
     </table>
+    <% end %>
   </article>

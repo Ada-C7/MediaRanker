@@ -2,13 +2,13 @@ class WorksController < ApplicationController
 
   def index
     @works = Work.all
-    @movies = Work.where(category: 'movie')
-    @books = Work.where(category: 'book')
-    @albums = Work.where(category: 'album')
+    @movies = Work.top_category('movie')
+    @books = Work.top_category('book')
+    @albums = Work.top_category('album')
   end
 
   def category_index
-    @works = Work.where(category: params[:category].singularize)
+    @works = Work.top_category(params[:category].singularize)
   end
 
   def new
@@ -29,6 +29,7 @@ class WorksController < ApplicationController
 
   def show
     @work = Work.find_by_id(params[:id])
+    # raise
     if !@work
       render_404
     end
@@ -60,9 +61,6 @@ class WorksController < ApplicationController
   def destroy
     Work.destroy(params[:id])
     redirect_to :root
-  end
-
-  def upvote
   end
 
   private

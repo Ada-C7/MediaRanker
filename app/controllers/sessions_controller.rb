@@ -16,7 +16,7 @@ class SessionsController < ApplicationController
       redirect_to :root
     else
       flash.now[:error] = "Failed to log in"
-      render works_path
+      render :root
     end
   end
 

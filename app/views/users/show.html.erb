@@ -3,29 +3,31 @@
   Joined site: <%= @user.created_at.strftime("%b %d, %Y") %>
 </p>
 
-<h4>Votes</h4>
-  <table>
-    <thead>
-      <th>Media Title</th>
-      <th>Created by</th>
-      <th>Published in:</th>
-      <th>Category</th>
-      <th>Voted On</th>
-    </thead>
-    <tbody>
-      <% @user.votes.each do |vote| %>
-      <tr>
-        <td> <%= link_to vote.work.name, work_path(vote.work.id) %> </td>
-        <td><%= vote.work.created_by %></td>
-        <td><%= vote.work.pub_year %></td>
-        <td><%= vote.work.category %></td>
-        <td>
-          <%= vote.created_at.strftime("%b %d, %Y")%>
-        </td>
-      </tr>
-      <% end %>
-    </tbody>
-  </table>
+<h4> <%= @user.votes.length %> Votes</h4>
+<% if @user.votes.length > 0 %>
+<table>
+  <thead>
+    <th>Media Title</th>
+    <th>Created by</th>
+    <th>Published in:</th>
+    <th>Category</th>
+    <th>Voted On</th>
+  </thead>
+  <tbody>
+    <% @user.votes.each do |vote| %>
+    <tr>
+      <td> <%= link_to vote.work.name, work_path(vote.work.id) %> </td>
+      <td><%= vote.work.created_by %></td>
+      <td><%= vote.work.pub_year %></td>
+      <td><%= vote.work.category %></td>
+      <td>
+        <%= vote.created_at.strftime("%b %d, %Y")%>
+      </td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
+<% end %>
 
-    <%= link_to "See all users", users_path, class: "button" %>
-    <%= link_to "Back to Media List", works_path, class: "button" %>
+<%= link_to "See all users", users_path, class: "button" %>
+<%= link_to "Back to Media List", :root, class: "button" %>
