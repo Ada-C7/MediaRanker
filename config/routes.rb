@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-  root 'works#index'
+  root to: 'works#index'
 
   get '/works', to: 'works#index'
   put '/works/:id', to: 'works#update'
