@@ -1,0 +1,18 @@
+<section>
+  <%= form_for @work do |f| %>
+    <%= f.label :title %>
+    <%= f.text_field :title %>
+
+    <%= f.label :created_by %>
+    <%= f.text_field :created_by %>
+
+    <%= f.label :published %>
+    <%= f.integer_field :published%>
+
+    <%= f.label :description %>
+    <%= f.integer_field :description %>
+
+    <%= f.submit value: "#{submit_text} Work" %>
+
+  <% end %>
+</section>

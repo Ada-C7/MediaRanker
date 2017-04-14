@@ -45,11 +45,20 @@ class WorksController < ApplicationController
 
   end
 
-  # def mark_read
-  #   puts ">>> DPR: Marking a user as read!"
-  # end
+  def upvote
+  end
 
-private
+  def upvote
+    vote = Vote.create(user_id: session[:user_id], work_id: params[:id])
+
+    if vote
+      flash[:success] = "Vote"
+      redirect_to params[:id]
+    end
+
+  end
+
+  private
   def work_params
     return params.require(:work).permit( :title,:created_by,:description, :published, :category)
   end

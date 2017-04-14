@@ -1,0 +1,13 @@
+<article, class=columns large-6 small 12>
+  <h2><%= @work.title %></h2>
+  <p><%=Created: by @work.created_by%></p>
+  <p><%=Published: @work.published%></p>
+  <p><%= @work.description %></p>
+</article>
+
+
+<a class = "button"></a> <%= link_to "Back to #{@work.category} list", index_path(@work.id), method: :get %></a>
+
+<a class = "button"><%= link_to "Upvote", upvote_path(@work.id), method: :post %></a>
+
+<a class = "button"><%= link_to "Edit", work_path(@work.id), method: :get %></a>

@@ -11,3 +11,144 @@ parable:
   description: Fire drugs?
   published: 1993
   category: book
+  category: album
+
+countdown:
+  category: album
+  title: Countdown to Ecstasy
+  created_by: Steely Dan
+  published: 1973
+  description:
+
+pretzel:
+  category: album
+  title: Pretzel Logic
+  created_by: Steely Dan
+  published: 1974
+  description:
+
+katy:
+  category: album
+  title: Katy Lied
+  created_by: Steely Dan
+  published: 1975
+  description:
+
+royal:
+  category: album
+  title: The Royal Scam
+  created_by: Steely Dan
+  published: 1976
+  description:
+
+aja:
+  category: album
+  title: Aja
+  created_by: Steely Dan
+  published: 1977
+  description:
+
+gaucho:
+  category: album
+  title: Gaucho
+  created_by: Steely Dan
+  published: 1980
+  description:
+
+silence:
+  category: album
+  title: Silence Yourself
+  created_by: Savages
+  published: 2013
+  description:
+
+adore:
+  category: album
+  title: Adore Life
+  created_by: Savages
+  published: 2016
+  description:
+
+nvm:
+  category: album
+  title: NVM
+  created_by: Tacocat
+  published: 2014
+  description:
+
+lost:
+  category: album
+  title: Lost Time
+  created_by: Tacocat
+  published: 2016
+  description:
+
+chastity:
+  category: album
+  title: No Regrets
+  created_by: Chastity Belt
+  published: 2013
+  description:
+
+time:
+  category: album
+  title: Time to Go Home
+  created_by: Chastity Belt
+  published: 2015
+  description:
+
+sleater:
+  category: album
+  title: Sleater-Kinney
+  created_by: Sleater-Kinney
+  published: 1995
+  description:
+
+call:
+  category: album
+  title: Call the Doctor
+  created_by: Sleater-Kinney
+  published: 1996
+  description:
+
+dig:
+  category: album
+  title: Dig Me Out
+  created_by: Sleater-Kinney
+  published: 1997
+  description:
+
+hot:
+  category: album
+  title: The Hot Rock
+  created_by: Sleater-Kinney
+  published: 1999
+  description:
+
+all:
+  category: album
+  title: All Hands on the Bad One
+  created_by: Sleater-Kinney
+  published: 2000
+  description:
+
+one:
+  category: album
+  title: One Beat
+  created_by: Sleater-Kinney
+  published: 2002
+  description:
+
+woods:
+  category: album
+  title: The Woods
+  created_by: Sleater-Kinney
+  published: 2005
+  description:
+
+cities:
+  category: album
+  title: No Cities to Love
+  created_by: Sleater-Kinney
+  published: 2015
+  description:

@@ -1,0 +1,9 @@
+<h2>List of works</h2>
+
+<ul>
+  <% @works.each do |work| %>
+    <%= render partial: "work_summary", locals: { work: work } %>
+  <% end %>
+</ul>
+
+<%= link_to "Add a new work", new_work_path %>
