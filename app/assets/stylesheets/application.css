@@ -38,10 +38,10 @@
    list-style: none;
  }
 
- /*main {
+ main {
    padding: 20px;
    margin: 20px;
- }*/
+ }
 
  /*h1 {
    font-size: 3em;
@@ -51,9 +51,9 @@
    text-align: right;
  }*/
 
- /*.column {
+ .column {
    padding: 30px;
- }*/
+ }
 
 
 .success {
