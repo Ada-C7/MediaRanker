@@ -24,8 +24,12 @@ th {
   text-align: left;
 }
 
-th.th-pub {
+th.pub {
   width: 100px;
+}
+
+th.vote {
+  width: 80px;
 }
 
 ul {

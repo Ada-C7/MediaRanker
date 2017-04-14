@@ -1,5 +1,7 @@
-<h1>All Albums</h1>
+<section class="media-table">
+  <h3>List of Albums</h3>
 
-<%= render partial: "specific_index" %>
+  <%= render partial: "specific_index" %>
 
-<%= link_to "Create new Album", new_work_path(:category => "album"), class: "button" %>
+  <%= link_to "Create new Album", new_work_path(:category => "album"), class: "button" %>
+</section>
