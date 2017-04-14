@@ -27,8 +27,19 @@ class WorksController < ApplicationController
   end
 
   def destroy
-    work = Work.find(params[:id])
-    #WIP.....you will likely use conditionals so you can redirect to the correct path
+    @work = Work.find(params[:id])
+    Work.destroy(params[:id])
+
+    if @work.category == 'movie'
+      flash[:delete] = "Successfully destroyed movie #{@work.id}"
+      redirect_to movies_path
+    elsif @work.category == 'book'
+      flash[:delete] = "Successfully destroyed book #{@work.id}"
+      redirect_to books_path
+    else
+      flash[:delete] = "Successfully destroyed album #{@work.id}"
+      redirect_to albums_path
+    end
   end
 
   private

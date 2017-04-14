@@ -24,6 +24,9 @@ Published: <%= @result_work.publication_year %>
 <%= link_to 'Edit', edit_work_path %>
 <!-- Upvote link-->
 <!-- Delete link-->
+<%= link_to "Delete", work_path(@result_work.id),
+  data: { confirm: "Are you sure?" },
+  method: :delete %>
 
 </section>
 <h3>__ Votes for this Album</h3>

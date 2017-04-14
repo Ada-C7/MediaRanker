@@ -7,24 +7,21 @@ Rails.application.routes.draw do
   get '/works/:id', to: 'works#show', as: 'work'
   get '/works/:id/edit', to: 'works#edit', as: 'edit_work'
   put 'works/:id', to: 'works#update'
-  get 'works/index'
+  get '/works/index'
+  delete "/works/:id", to: "works#destroy", as: "delete_work"
 
   get '/movies', to: 'movies#index'
   get '/movies/new', to: 'movies#new', as: 'new_movie'
   post '/movies', to: 'movies#create'
-  delete '/works/:id', to: 'movies#destroy', as: 'delete_movie'
 
   get '/books', to: 'books#index'
   get '/books/new', to: 'books#new', as: 'new_book'
   post '/books', to: 'books#create'
-  delete '/works/:id', to: 'books#destroy', as: 'delete_book'
 
 
   get '/albums', to: 'albums#index'
   get '/albums/new', to: 'albums#new', as: 'new_album'
   post '/albums', to: 'albums#create'
-  delete '/works/:id', to: 'albums#destroy', as: 'delete_album'
-
 
   get '/login', to: 'sessions#login_form'
   post '/login', to: 'sessions#login'
