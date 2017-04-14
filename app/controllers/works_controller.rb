@@ -34,18 +34,15 @@ class WorksController < ApplicationController
     work.update_attributes(work_params)
     work.save
 
-    redirect_to work_path(user)
+    redirect_to work_path(work)
   end
 
   def destroy
-    user = Work.find(params[:id])
-    user.destroy
+    work = Work.find(params[:id])
+    work.destroy
 
-    redirect_to users_path
+    redirect_to works_path
 
-    # Another valid but perhaps less clean option for reloading the list of users
-    # @users = Work.all
-    # render :index
   end
 
   # def mark_read
@@ -53,7 +50,7 @@ class WorksController < ApplicationController
   # end
 
 private
-  def user_params
-    return params.require(:user).permit(:name)
+  def work_params
+    return params.require(:work).permit( :title,:created_by,:description, :published, :category)
   end
 end

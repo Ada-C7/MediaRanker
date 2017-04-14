@@ -41,17 +41,9 @@ class UsersController < ApplicationController
     user.destroy
 
     redirect_to users_path
-
-    # Another valid but perhaps less clean option for reloading the list of users
-    # @users = User.all
-    # render :index
   end
 
-  # def mark_read
-  #   puts ">>> DPR: Marking a user as read!"
-  # end
-
-private
+  private
   def user_params
     return params.require(:user).permit(:name)
   end
