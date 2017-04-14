@@ -1,0 +1,9 @@
+<section>
+<%=form_for @user do |f| %>
+  <%=f.label(:username, "Username")%>
+  <%=f.text_field (:username)%>
+
+  <%= f.submit "Join", class:"button"%>
+
+  <%end%>
+</section>
