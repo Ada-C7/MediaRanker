@@ -15,7 +15,9 @@ describe Work do
     end
 
     it "must be valid when given appropriate parameters" do
-      value(works(:rubber_soul)).must_be :valid?
+      works = works(:rubber_soul)
+
+      value(works).must_be :valid?
     end
 
     it "must have a unique title" do
