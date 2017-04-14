@@ -31,4 +31,51 @@ html, body {
      background: linear-gradient(#580e23, #761c35, #e88220);
      font-family: 'Poppins', serif;
      font-size: 10px;
+
 }
+     header {
+          display: flex;
+          flex-flow: row nowrap;
+
+          height: 12em;
+     }
+
+          .logo {
+               display: flex;
+               flex: 1 0 auto;
+          }
+
+          .logo img {
+               max-height: 12em;
+          }
+
+     .main {
+          display: flex;
+          flex-flow: column nowrap;
+
+          min-height: 90vh;
+     }
+
+          .spotlight {
+               display: flex;
+               flex-flow: row nowrap;
+          }
+
+          .content {
+               display: flex;
+               flex-flow: column nowrap;
+          }
+
+
+               .albums {
+                    display: flex;
+                    flex-flow: column nowrap;
+               }
+
+               .books {
+                    flex-flow: column nowrap;
+               }
+
+               .movies {
+                    flex-flow: column nowrap;
+               }

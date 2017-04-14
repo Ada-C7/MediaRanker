@@ -6,31 +6,35 @@
      <li> <%=  submission.votes.size %></li>
      <% end %>
 </ul>
+<% content_for :albums do %>
+     <h1>Top Albums</h1>
+     <ul>
+          <% @albums.each do | submission | %>
+          <li> <%= link_to submission.title, submission_path(submission.id) %> by  <%=  submission.author %></li>
+          <li> <%= submission.votes.size %></li>
+          <% end %>
+     </ul>
+     <p> <%= link_to "View More Albums", albums_path %> </p>
+<% end %>
 
-<h1>Top Albums</h1>
-<ul>
-     <% @albums.each do | submission | %>
-     <li> <%= link_to submission.title, submission_path(submission.id) %> by  <%=  submission.author %></li>
-     <li> <%= submission.votes.size %></li>
-     <% end %>
-</ul>
-<p> <%= link_to "View More Albums", albums_path %> </p>
+<% content_for :books do %>
+     <h1>Top Books</h1>
+     <ul>
+          <% @books.each do | submission | %>
+          <li> <%= link_to submission.title, submission_path(submission.id) %> by  <%=  submission.author %></li>
+          <li> <%=  submission.votes.count %></li>
+          <% end %>
+     </ul>
+     <p> <%= link_to "View More Books", books_path %> </p>
+<% end %>
 
-<h1>Top Books</h1>
-<ul>
-     <% @books.each do | submission | %>
-     <li> <%= link_to submission.title, submission_path(submission.id) %> by  <%=  submission.author %></li>
-     <li> <%=  submission.votes.count %></li>
-     <% end %>
-</ul>
-<p> <%= link_to "View More Books", books_path %> </p>
-
-
-<h1>Top Movies</h1>
-<ul>
-     <% @movies.each do | submission | %>
-     <li> <%= link_to submission.title, submission_path(submission.id) %> by  <%=  submission.author %></li>
-     <li> <%=  submission.votes.count %></li>
-     <% end %>
-</ul>
-<p> <%= link_to "View More Movies", movies_path %> </p>
+<% content_for :movies do %>
+     <h1>Top Movies</h1>
+     <ul>
+          <% @movies.each do | submission | %>
+          <li> <%= link_to submission.title, submission_path(submission.id) %> by  <%=  submission.author %></li>
+          <li> <%=  submission.votes.count %></li>
+          <% end %>
+     </ul>
+     <p> <%= link_to "View More Movies", movies_path %> </p>
+<% end %>

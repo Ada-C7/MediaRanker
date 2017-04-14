@@ -40,7 +40,31 @@
           </section>
 
           <main>
-               <%= yield %>
+               <section class="spotlight">
+                    <%= yield %>
+               </section>
+
+               <section class="content">
+
+                    <% if content_for?(:albums) %>
+                         <section class="albums">
+                              <%= yield :"albums"%>
+                         </section>
+                    <% end %>
+
+                    <% if content_for?(:books) %>
+                         <section class="books">
+                              <%= yield :"books"%>
+                         </section>
+                    <% end %>
+
+                    <% if content_for?(:movies) %>
+                         <section class="movies">
+                              <%= yield :"movies"%>
+                         </section>
+                    <% end %>
+
+               </section>
           </main>
      </body>
 </html>
