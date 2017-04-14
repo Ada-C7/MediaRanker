@@ -33,7 +33,13 @@ class Work < ApplicationRecord
     return Work.where(category: "album")
   end
 
-  def vote_count
-    # count = @work.vote.count
+  def self.vote_count
+    if @work.vote.id.count == 0
+      return 0
+    else
+      count = @work.vote.id.count
+      return count
+    end
   end
+
 end

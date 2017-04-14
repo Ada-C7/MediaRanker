@@ -7,10 +7,21 @@ class WorksController < ApplicationController
     @work = Work.new
   end
 
+  # def create
+  #   # using save! or create! bang will give a rails error message and tell you what validation failed
+  #   @work = Work.create(work_params)
+  #   if @work.save
+  #     redirect_to works_path
+  #   else
+  #     render :new
+  #   end
+  # end
+
   def create
     # using save! or create! bang will give a rails error message and tell you what validation failed
     @work = Work.create(work_params)
-    if @work.save
+    if @work.id != nil
+      flash[:success] = "Successfully created #{@work.category} #{@work_id}"
       redirect_to works_path
     else
       render :new
