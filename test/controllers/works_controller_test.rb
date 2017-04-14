@@ -39,20 +39,21 @@ describe WorksController do
     delete work_path(book.id)
     must_redirect_to root_path
   end
-  # it "should affect the model when adding a new work" do
-  #   proc {
-  #     post works_path, params: {
-  #       book: {
-  #         title: "New Book",
-  #         creator: "Sandi",
-  #         year: 1984,
-  #         description: "A great book",
-  #         category: "book"
-  #       }
-  #     }
-  #   }.must_change 'Work.count', 1
-  # end
-  #
+
+  it "should affect the model when adding a new work" do
+        proc {
+          post works_path, {
+            work: {
+              title: "New Book",
+              creator: "Sandi",
+              year: 1984,
+              description: "A great book",
+              category: "book"
+            }
+      }
+    }.must_change 'Work.count', 1
+  end
+
 
   # it "should redierct to the homepage page after adding a new work" do
   #   post works_path, params: {

@@ -2,7 +2,7 @@ class Work < ApplicationRecord
   has_many :votes
 
   validates :title, presence: true
-  validates :category, presence: true, inclusion: { in: %w(book, album, movie) }
+  validates :category, presence: true, inclusion: { in: %w(book album movie) }
 
   def top_spotlight
     # select work with the most votes
