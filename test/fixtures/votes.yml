@@ -9,5 +9,12 @@ valid_vote:
   content: shrek
 # column: value
 #
+invalid_vote:
+  user: user
+  content: hacking
+
+duplicate_vote:
+  user: user
+  content: hacking
 
 # column: value
