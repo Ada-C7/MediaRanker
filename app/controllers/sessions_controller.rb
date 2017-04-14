@@ -4,12 +4,14 @@ class SessionsController < ApplicationController
   def login
     user = User.find_by(username: params[:username])
 
-    unless user
+    if user
+      flash[:success] = "Successfully logged in as existing user #{user.username}"
+    else
       user = User.create(username: params[:username])
+      flash[:success] = "Successfully created new user #{user.username} with ID #{user.id}"
     end
 
     session[:user_id] = user.id
-    flash[:success] = "Successfully logged in!"
     redirect_to root_path
   end
 

@@ -1,9 +1,15 @@
-<section>
-  <h3>Media Spotlight: <%= @spotlight_work.title %> by <%= @spotlight_work.creator %></h3>
+<section class="row spotlight">
+  <div>
+    <h3>Media Spotlight: <%= link_to @spotlight_work.title, work_path(@spotlight_work.id) %> by <%= @spotlight_work.creator %></h3>
+    <p>
+      <%= @spotlight_work.votes.count %> votes
+      <%= "- #{@spotlight_work.description}" unless @spotlight_work.description.blank? %>
+    </p>
+  </div>
 </section>
 
 <% @categories.each do |category| %>
-  <section>
+  <section class="top-ten columns large-4 small-12">
     <h3>Top <%= category.pluralize.capitalize %></h3>
     <ul>
       <% Work.top_10(category).each do |work| %>
