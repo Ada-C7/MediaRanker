@@ -1,3 +1,13 @@
+<% if @vote %>
+  <ul class="errors">
+    <% @vote.errors.each do |column, message| %>
+      <li>
+        <strong><%= column.capitalize %></strong> <%= message %>
+      </li>
+    <% end %>
+  </ul>
+<% end %>
+
 <div class="row">
   <section class="small-6 column">
     <h3><%= @result_work.title %></h3>

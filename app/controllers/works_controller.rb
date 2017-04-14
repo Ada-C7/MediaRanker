@@ -42,36 +42,37 @@ class WorksController < ApplicationController
   def upvote
     logger.info "===================Upvoting an item"
     @result_work = Work.find(params[:id])
-    # @result_work = Work.find(shoe)
+    # # @result_work = Work.find(shoe)
 
     # work_votes = Vote.where(user_id: session[:user_id])
       # already_voted = @result_work.votes.select {|work| work.work_id == @result_work.id}
 
-      already_voted = @result_work.votes.select {|vote| vote.user_id == session[:user_id] }
-
-    if already_voted.length > 0
-      flash[:error] = "Could not upvote"
-      redirect_to :back
-      return
-    end
-
-    if session[:user_id] != nil
+    #   already_voted = @result_work.votes.select {|vote| vote.user_id == session[:user_id] }
+    #
+    # if already_v
+    #   flash[:error] = "Could not upvote"
+    #   redirect_to :back
+    #   return
+    # end
+    if session[:user_id]
       # @result_work.vote_count += 1
       # @result_work.save
+        @vote = Vote.new
+        @vote.user_id = session[:user_id]
+        @vote.work_id = params[:id]
+        if @vote.save
+          flash[:success] = "Successfully upvoted!"
+          # logger.info "===================Finished Upvoting an item #{@vote.errors.messages}"
 
-      @vote = Vote.new
-      @vote.user_id = session[:user_id]
-      @vote.work_id = params[:id]
-      @vote.save
-      flash[:success] = "Successfully upvoted!"
-      logger.info "===================Finished Upvoting an item #{@vote.errors.messages}"
-
-      redirect_to :back
+          redirect_to :back
+        else
+          flash.now[:error] = "Could not upvote"
+          render "show"
+      end
     else
-      flash[:error] = "you must be logged in to vote"
-      redirect_to :back
+        flash[:error] = "you must be logged in to vote"
+        redirect_to :back
     end
-
     # if @vote.save
     #   flash[:success] = "Successfully upvoted!"
     #   redirect_to work_path(@result_work.id)
