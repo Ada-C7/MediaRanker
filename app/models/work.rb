@@ -16,13 +16,13 @@ class Work < ApplicationRecord
 
   def user_votes
     final_votes = {}
-    all_votes = self.votes
+    all_votes = Work.first.votes
 
     all_votes.each do |vote|
       final_votes[User.find(vote.user_id).username] = vote.created_at.to_date
     end
 
     return final_votes
-    
+
   end
 end
