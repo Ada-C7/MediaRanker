@@ -11,15 +11,14 @@
   <header>
     <h1><%= link_to "Media Ranker", mainpages_path %> Ranking the Best of Everything</h1>
 
-    <p>Not Logged in/Logged in as <a href="#">[username]</a> <%= link_to "Log In/Log Out", new_user_path %></p>
+    <% unless session[:user_id] %>
+      <p>Not Logged in</p>
+      <%= link_to "Login", login_path %>
+    <% else %>
+      <p>Logged in as %= link_to @user.username, user_path(user.id) % </p>
+      <%= link_to "Logout", logout_path %>
+    <% end %>
 
-    <p>
-      <strong>Successfully created new user [username] with ID [index number].</strong>
-      (This message shows only after logging in. Go to a different page
-      it goes away. If on other page, redirects you to home)
-      <strong>Successfully logged out.</strong> (Either of these are shown on the front page
-      Log out shown on any page)
-    </p>
     <section class="flash">
       <% flash.each do |name, message| %>
         <div class="<%= name %>"><%= message %></div>
