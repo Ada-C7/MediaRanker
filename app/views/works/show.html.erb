@@ -4,7 +4,8 @@
   <p>Created by: <%= @work.creator %> </p>
   <p>Published: <%= @work.publication_year %></p>
   <p><%= @work.description %></p>
-  <%= link_to "Back to #{@work.category} list", work_path(@work.id) %>
+  <p><%= link_to "View all Media", welcome_path, class: "button" %></p>
+
 
 </article>
 

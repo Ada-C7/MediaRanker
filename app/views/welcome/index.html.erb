@@ -1,7 +1,9 @@
 <main>
 
 <section>
-<h1>Media Spotlight:<%= @works.spotlight %></h1>
+<h1>Media Spotlight:<%= link_to @works.find_spotlight.title, work_path(@works.find_spotlight.id)%>
+</h1><%= @works.find_spotlight.creator%>
+</h1><%= @works.find_spotlight.votes.count%><%= @works.find_spotlight.description%>
 
 </section>
 

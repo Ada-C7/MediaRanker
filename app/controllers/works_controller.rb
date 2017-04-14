@@ -92,6 +92,13 @@ class WorksController < ApplicationController
     # spotlight = work
   end
 
+  # def spotlight
+  #   count = []
+  #   @works.vote_count.each do
+  #
+  #   end
+  # end
+
 
   private
 
