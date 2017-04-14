@@ -21,5 +21,13 @@
 }
 
 .page-header {
-  border-bottom: 1px solid lightgrey;
+  max-width: 100%;
+  border-bottom: 1px solid darkgrey;
+  background: url("https://www.allsaints-netheravon.wilts.sch.uk/wilts/primary/allsaints/web/littleowl.png?width=640&height=480&scale=LIMIT_MAXSIZE");
+  background-size: 150px auto;
+  background-repeat: no-repeat;
+}
+
+.page-header h2 {
+  padding-left: 150px;
 }
