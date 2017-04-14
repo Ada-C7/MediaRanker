@@ -11,7 +11,7 @@
     <ul>
       <% @movies.each do |movie| %>
       <li>
-        <h4><%= link_to movie.title, work_path(movie.id) %> by <%= movie.creator %></h4>
+        <h4><%= link_to movie.title, work_path(movie.id) %><small> by <%= movie.creator %></small></h4>
         <p>
           <%= movie.votes.count %> votes
         </p>
@@ -19,7 +19,7 @@
       <% end %>
     </ul>
     <p>
-      <%= link_to "View all movies", movies_path %>
+      <%= link_to "View more movies", movies_path %>
     </p>
   </section>
 
@@ -28,7 +28,7 @@
     <ul>
       <% @books.each do |book| %>
       <li>
-        <h4><%= link_to book.title, work_path(book.id) %> by <%= book.creator %></h4>
+        <h4><%= link_to book.title, work_path(book.id) %><small>by <%= book.creator %></small></h4>
         <p>
           <%= book.votes.count %> votes
         </p>
@@ -36,7 +36,7 @@
       <% end %>
     </ul>
     <p>
-      <%= link_to "View all books", books_path %>
+      <%= link_to "View more books", books_path %>
     </p>
   </section>
 
@@ -45,7 +45,7 @@
     <ul>
       <% @albums.each do |album| %>
       <li>
-        <h4><%= link_to album.title, work_path(album.id) %> by <%= album.creator %></h4>
+        <h4><%= link_to album.title, work_path(album.id) %><small> by <%= album.creator %></small></h4>
         <p>
           <%= album.votes.count %> votes
         </p>
@@ -53,7 +53,7 @@
       <% end %>
     </ul>
     <p>
-      <%= link_to "View all albums", albums_path %>
+      <%= link_to "View more albums", albums_path %>
     </p>
   </section>
 </div>

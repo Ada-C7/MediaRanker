@@ -15,6 +15,11 @@
  */
  @import url('foundation.css');
 
+ header h2 {
+   box-sizing: inherit;
+   font-size: 2.5em;
+   color: slategrey;
+ }
  .page-header {
    max-width: 100%;
    background-image: url(http://www.clipartbest.com/cliparts/RiG/B5K/RiGB5KdxT.png);
@@ -28,20 +33,20 @@
    padding-left: 120px;
  }
 
- header h2 {
-   box-sizing: inherit;
-   font-size: 2.5em;
-   color: slategrey;
+
+
+ ul {
+   margin: 0px;
  }
 
  li {
    list-style: none;
  }
 
- main {
+ /*main {
    padding: 20px;
    margin: 20px;
- }
+ }*/
 
  /*h1 {
    font-size: 3em;
@@ -52,8 +57,14 @@
  }*/
 
  .column {
-   padding: 30px;
+   padding: 20px;
  }
+
+ main.row {
+    max-width: 75rem;
+    margin-right: auto;
+    margin-left: auto;
+}
 
 
 .success {
