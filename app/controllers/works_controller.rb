@@ -1,13 +1,13 @@
 class WorksController < ApplicationController
   def index
-    # @albums = Work.where(category: "album").limit(10)
-    # @books = Work.where(category: "book").limit(10)
-    # @movies = Work.where(category: "movie").limit(10)
-    @albums = Work.ordered_works("album")[0...10]
-    @books = Work.ordered_works("book")[0...10]
-    @movies = Work.ordered_works("movie")[0...10]
-    leader_id = Work.order_by_votes(Work.all)[0]
-    @leader = Work.find_by(id: leader_id)
+    @albums = Work.where(category: "album").limit(10)
+    @books = Work.where(category: "book").limit(10)
+    @movies = Work.where(category: "movie").limit(10)
+    # @albums = Work.ordered_works("album")[0...10]
+    # @books = Work.ordered_works("book")[0...10]
+    # @movies = Work.ordered_works("movie")[0...10]
+    # leader_id = Work.order_by_votes(Work.all)[0]
+    # @leader = Work.find_by(id: leader_id)
 
   end
 
@@ -70,14 +70,14 @@ class WorksController < ApplicationController
     work = Work.find_by(id: params[:id])
     work.update_attributes(work_params)
     work.save
+    # redirect_to session[:return_to]
     if session[:category] == "album"
       path = albums_path
     elsif session[:category] == "book"
       path = books_path
     elsif session[:category] == "movie"
       path = movies_path
-    end
-    # redirect_to session[:return_to]
+    end    
     redirect_to path
 
   end

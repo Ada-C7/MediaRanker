@@ -24,10 +24,14 @@ class Work < ApplicationRecord
 
   def self.order_by_votes(works)
     workId_numberOfVotes = {}
-    works.each do |work|
-      workId_numberOfVotes[work.id] = work.votes.count
+    if works.count > 0
+      works.each do |work|
+        workId_numberOfVotes[work.id] = work.votes.count
+      end
+      return workId_numberOfVotes.sort_by{|k,v| v }.reverse
+    else
+      []
     end
-    return workId_numberOfVotes.sort_by{|k,v| v }.reverse
   end
 
 

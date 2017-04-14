@@ -78,8 +78,6 @@ describe WorksController do
     it "creates a new work" do
       start_count = Work.count
 
-      session.delete(:category)
-      session[:category] ||= "album"
       work_data = {
         work: {
           title: "Thrill",
@@ -89,7 +87,6 @@ describe WorksController do
         }
       }
 
-      post works_path, params: work_data
       # must_redirect_to works_path
 
       end_count = Work.count
