@@ -65,7 +65,7 @@ describe WorksController do
     must_redirect_to root_path
   end
 
-  it "must update DB upon create" do
+  it "create must update DB upon create" do
     proc { post works_path, params: { work:
           { title: "The Dispossessed",
             published: 1985,

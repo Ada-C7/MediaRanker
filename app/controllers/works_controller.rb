@@ -14,6 +14,9 @@ class WorksController < ApplicationController
   def create
     # don't have to be logged in
     @work = Work.new(work_params)
+    if @work.title.match(/salmon/) || @work.title.match(/fish/)
+      flash[:alix] = "Hi, Alix!"
+    end
     if @work.save
       flash[:success] = "Successfully created #{@work.category} #{@work.id}"
       redirect_to "/works/#{@work.category}s"
