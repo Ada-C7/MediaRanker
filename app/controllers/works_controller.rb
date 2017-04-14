@@ -18,9 +18,6 @@ class WorksController < ApplicationController
   def create
     @work = Work.new(work_params)
     @work.category = params[:category].singularize
-    @work.valid?
-    puts ">>>>>>>>>>>> #{@work.errors.messages}"
-
     if @work.save
       redirect_to category_path(@work.category.pluralize)
     else
