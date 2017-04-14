@@ -6,7 +6,7 @@
 <% @works.each do |category, works| %>
 <section class="top-ten columns large-4 small-12">
     <h3><%= "Top #{category.capitalize}"%></h3>
-      <ul>
+      <ul class="works-list">
         <% works.each do |work| %>
           <li>
             <h4>

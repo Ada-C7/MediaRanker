@@ -11,25 +11,30 @@ class WorksController < ApplicationController
 
   def create
     @work = Work.new(work_params)
-    @work.category = params[:works].singularize
+    @category = params[:works].singularize
+    @work.category = @category
 
     if @work.save
       redirect_to works_path(@work.category.pluralize)
     else
-      render :new
+      render :new, status: :bad_request
     end
   end
 
   def show
-    @work = Work.find(params[:id])
+    @work = Work.find_by(id: params[:id])
+
+    head :not_found if @work.nil?
   end
 
   def edit
-    @work = Work.find(params[:id])
+    @work = Work.find_by(id: params[:id])
+
+    head :not_found if @work.nil?
   end
 
   def update
-    @work = Work.find(params[:id])
+    @work = Work.find_by(id: params[:id])
     @work.assign_attributes(work_params)
 
     if @work.save
@@ -41,11 +46,14 @@ class WorksController < ApplicationController
   end
 
   def destroy
-    work = Work.find(params[:id])
-    category = work.category
-    work.destroy
-
-    redirect_to works_path(category.pluralize)
+    work = Work.find_by(id: params[:id])
+    if @work.nil?
+      head :not_found
+    else
+      category = work.category
+      work.destroy
+      redirect_to works_path(category.pluralize)
+    end
   end
 
   def vote
