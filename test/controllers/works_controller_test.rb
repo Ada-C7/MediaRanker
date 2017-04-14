@@ -16,5 +16,10 @@ class WorksControllerTest < ActionDispatch::IntegrationTest
         it "should delete an object" do
             proc { delete work_path(works(:antonia))}.must_change 'Work.count', -1
         end
+
+        it "gives an error for nonexistent object" do
+            get work_path(0)
+            must_respond_with :missing
+        end
     end
 end
