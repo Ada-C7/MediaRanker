@@ -8,6 +8,27 @@
     </ul>
   </section>
 
+  <section>
+    <h3><%= "#{@work.votes.count} Votes for this #{@work.category}" %></h3>
+    <table>
+      <thead>
+        <tr>
+          <th>User</th>
+          <th>Date</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <% @work.votes.each do |vote| %>
+          <tr>
+            <th><%= vote.user.username %></th>
+            <th><%= vote.created_at.strftime("%m %d %Y") %></th>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </section>
+
   <nav>
     <% route = find_path(@work) %>
 
