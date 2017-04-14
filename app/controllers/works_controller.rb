@@ -1,13 +1,13 @@
 class WorksController < ApplicationController
   def index
 
-    # @works = Work.left_joins(:votes).group(:id).order('COUNT(votes.id) DESC')
-    # @albums = @works.where(category: "album").limit(10)
-    # @books = @works.where(category: "book").limit(10)
-    # @movies = @works.where(category: "movie").limit(10)
-    @albums = Work.where(category: "album").limit(10)
-    @books = Work.where(category: "book").limit(10)
-    @movies = Work.where(category: "movie").limit(10)
+    @works = Work.left_joins(:votes).group(:id).order('COUNT(votes.id) DESC')
+    @albums = @works.where(category: "album").limit(10)
+    @books = @works.where(category: "book").limit(10)
+    @movies = @works.where(category: "movie").limit(10)
+    # @albums = Work.where(category: "album").limit(10)
+    # @books = Work.where(category: "book").limit(10)
+    # @movies = Work.where(category: "movie").limit(10)
     # @albums = Work.ordered_works("album")[0...10]
     # @books = Work.ordered_works("book")[0...10]
     # @movies = Work.ordered_works("movie")[0...10]
