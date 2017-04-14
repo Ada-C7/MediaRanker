@@ -60,6 +60,7 @@ class WorksController < ApplicationController
 
   def upvote
     @result_work = Work.find(params[:id])
+    # @result_work = Work.find(shoe)
 
     work_votes = Vote.where(user_id: session[:user_id])
 
