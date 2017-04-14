@@ -18,7 +18,10 @@
      <%= f.label :summary, class: 'hidden'  %>
      <%= f.text_area :summary, placeholder: 'Brief Description' %>
 
-     <%= f.hidden_field :category, value: category %>
+     <% if form_method == :post %>
+          <%= f.hidden_field :category, value: category %>
+     <% else %>
+     <% end %>
 
      <%= f.submit submit_text %>
 

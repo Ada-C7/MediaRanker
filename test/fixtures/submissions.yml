@@ -13,3 +13,10 @@ empire:
   title: Empire Strikes Back
   publish_date: 1977-04-10 20:55:35
   summary: Epic love story between father and son.
+
+no-votes:
+  category: Movie
+  author: J.J. Brahms
+  title: Terminator
+  publish_date: 1977-04-10 20:55:35
+  summary: Typical girl meets boy story. With a mean robot.

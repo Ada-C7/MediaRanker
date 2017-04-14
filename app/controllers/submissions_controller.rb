@@ -47,7 +47,19 @@ class SubmissionsController < ApplicationController
 
                if @submission.save
                     flash[:success] = "Submission edited. All systems go."
-                    redirect_to albums_path
+                    if @submission.save && @submission.category == "Album"
+                         flash[:success] = "Album created. All systems go."
+                         redirect_to albums_path
+                    elsif @submission.save && @submission.category == "Book"
+                         flash[:success] = "Book created. All systems go."
+                         redirect_to books_path
+                    elsif @submission.save && @submission.category == "Movie"
+                         flash[:success] = "Movie created. All systems go."
+                         redirect_to movies_path
+                    else
+                         flash[:success] = "Damn. Submission not updated. Give it another try."
+                         render "new"
+                    end
                else
                     flash[:success] = "Damn. Submission not edited. Try again."
                     render "edit"
@@ -55,7 +67,7 @@ class SubmissionsController < ApplicationController
      end
 
      def destroy
-          @submission = Submission.find(params[:id]) 
+          @submission = Submission.find(params[:id])
           if @submission.votes.count > 0
                flash[:error] = "Apparently someone else has bad taste. This submission has votes and can't be deleted."
                redirect_to submission_path
