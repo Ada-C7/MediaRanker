@@ -16,7 +16,7 @@
           <tbody>
             <% @books.each do |book| %>
               <tr>
-                <td>0</td>
+                <td>book.votes.count</td>
                 <td><%= book.title %></td>
                 <td><%= book.creator %></td>
                 <td><%= book.publication_year %></td>

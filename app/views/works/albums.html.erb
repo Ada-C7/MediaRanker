@@ -16,7 +16,7 @@
         <tbody>
           <% @albums.each do |album| %>
             <tr>
-              <td>0</td>
+              <td>album.votes.count</td>
               <td><%= album.title %></td>
               <td><%= album.creator %></td>
               <td><%= album.publication_year %></td>
