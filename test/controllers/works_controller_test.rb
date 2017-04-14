@@ -26,7 +26,7 @@ describe WorksController do
   end
 
   it "should show a 404 error when work not found" do
-    get work_path(50000)
+    get work_path(0)
     must_respond_with :missing
   end
 
@@ -35,7 +35,11 @@ describe WorksController do
     must_respond_with :success
   end
 
-  # it "should affect the model when adding a new book" do
+  it "should delete a work and rediect to the homepage" do
+    delete work_path(book.id)
+    must_redirect_to root_path
+  end
+  # it "should affect the model when adding a new work" do
   #   proc {
   #     post works_path, params: {
   #       book: {
@@ -49,17 +53,8 @@ describe WorksController do
   #   }.must_change 'Work.count', 1
   # end
   #
-  it "should delete a book and rediect to the books page" do
-    delete work_path(params: book.id)
-    must_redirect_to root_path
-  end
-  #
-  # it "should get albums category page" do
-  #   get albums_path
-  #   must_respond_with :success
-  # end
-  #
-  # it "should redierct to albums page after adding a new album" do
+
+  # it "should redierct to the homepage page after adding a new work" do
   #   post works_path, params: {
   #     album: {
   #       title: "New album",
@@ -69,63 +64,6 @@ describe WorksController do
   #       category: "album"
   #     }
   #   }
-  #   must_redirect_to albums_path
-  # end
-  #
-  # it "should affect the model when adding a new album" do
-  #   proc {
-  #     post works_path, params: {
-  #       album: {
-  #         title: "New album",
-  #         creator: "Sandi",
-  #         year: 1984,
-  #         description: "A great album",
-  #         category: "album"
-  #       }
-  #     }
-  #   }.must_change 'Work.count', 1
-  # end
-  #
-  # it "should delete a album and rediect to the albums page" do
-  #   delete work_path(album.id)
-  #   must_redirect_to albums_path
-  # end
-  #
-  # it "should get movies category page" do
-  #   get movies_path
-  #   must_respond_with :success
-  # end
-  #
-  # it "should redierct to movies page after adding a new movie" do
-  #   post works_path, params: {
-  #     movie: {
-  #       title: "New movie",
-  #       creator: "Sandi",
-  #       year: 1984,
-  #       description: "A great movie",
-  #       category: "movie"
-  #     }
-  #   }
-  #   must_redirect_to movies_path
-  # end
-  #
-  # it "should affect the model when adding a new movie" do
-  #   proc {
-  #     post works_path, params: {
-  #       movie: {
-  #         title: "New movie",
-  #         creator: "Sandi",
-  #         year: 1984,
-  #         description: "A great movie",
-  #         category: "movie"
-  #       }
-  #     }
-  #   }.must_change 'Work.count', 1
-  #
-  # end
-  #
-  # it "should delete a movie and rediect to the movies page" do
-  #   delete work_path(movie.id)
-  #   must_redirect_to movies_path
+  #   must_redirect_to root_path
   # end
 end
