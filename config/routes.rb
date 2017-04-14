@@ -26,4 +26,6 @@ Rails.application.routes.draw do
 
 
     get '/albums', to: 'albums#index', as: 'albums'
+    get '/albums/new', to:'albums#new', as: 'new_album'
+    post '/albums', to:'albums#create'
 end
