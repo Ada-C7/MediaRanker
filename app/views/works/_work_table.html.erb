@@ -4,10 +4,6 @@
   <td> <%=link_to "#{item.title}",work_path(item.id)%></td>
   <td> <%= item.creator  %> </td>
   <td> <%= item.publication_year%> </td>
-  <td> <%=link_to upvote_path(item), method: :post do%>
-    <i class="fi-like"></i>
-  <%end%></td>
-  <td> <%= link_to downvote_path(item), method: :delete do%>
-    <i class="fi-dislike"></i>
-  <%end%></td>
+  <td> <%= link_to "Up", upvote_path(item), method: :post, class:"button medium button-up "  %> </td>
+  <td> <%= link_to "Down", downvote_path(item), method: :delete, class:"button medium button-down" %></td>
 </tr>

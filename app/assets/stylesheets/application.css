@@ -40,18 +40,16 @@ body, .flash, #spotlight{
 #work_description p{
   font-size: 120%;
 }
+.button-down{
+background-color: #66D7D1;
+}
+.button-up{
+background-color: #FC7753;
+}
 
-#likes_dislike{
-  font-size: 250%;
-}
-.fi-like{
-  color: #45933E;
-}
-.fi-like:hover, .fi-dislike:hover{
+
+.button-down:hover, .button-up:hover{
   opacity: 0.2;
-}
-.fi-dislike{
-  color: #F9534D;
 }
 
 .flash{
