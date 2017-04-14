@@ -1,8 +1,8 @@
 <h1>Work Details</h1>
 
+<h3>Title: <%= @work.title %></h3> <%= button_to "Upvote", vote_path(user.id), method: :patch %>
 <ul>
   <li>Category: <%= @work.category %></li>
-  <li>Title: <%= @work.title %></li>
   <li>Creator: <%= @work.creator %></li>
   <li>Year: <%= @work.year %></li>
   <li>Description: <%= @work.description %></li>

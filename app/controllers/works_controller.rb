@@ -1,13 +1,5 @@
 class WorksController < ApplicationController
 
-  @work = Work.where(category: 'work')
-
-  def books
-    @books = Work.where(category: 'book').order('votes_count DESC')
-  end
-  @albums = Work.where(category: 'album')
-  @movies = Work.where(category: 'movies')
-
   def index
     @works = Work.all
   end
@@ -21,11 +13,11 @@ class WorksController < ApplicationController
   end
 
   def new
-    @book = Work.new
+    @work = Work.new
   end
 
   def create
-    @book = Work.create work_params
+    @work = Work.create work_params
     puts @work.errors.messages
     if @work.id != nil
       flash[:success] = "Go you! You have successfully added a new work."
@@ -36,7 +28,23 @@ class WorksController < ApplicationController
     end
   end
 
+  def books
+    @books = Work.where(category: 'book').order('votes_count DESC')
+  end
+
+  def albums
+    @albums = Work.where(category: 'album').order('votes_count DESC')
+  end
+
+  def movies
+    @movies = Work.where(category: 'movies').order('votes_count DESC')
+  end
+
+
+  private
+
   def work_params
     params.require(:work).permit(:category, :title, :creator, :year, :desription)
   end
+
 end

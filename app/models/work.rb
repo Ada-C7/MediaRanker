@@ -1,4 +1,6 @@
 class Work < ApplicationRecord
   has_many :votes
-# validates :title, presence: true
+# validates :work_id, presence: true
+#validates :user_id, presence: true
+
 end
