@@ -11,8 +11,6 @@ describe User do
   it "should be able to associate with a Vote object" do
     proc {
     users(:user).votes.create
-  }.must_change 'users(:user).votes.length', 1
-
+    }.must_change 'users(:user).votes.length', 1
   end
-
 end
