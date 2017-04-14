@@ -56,6 +56,7 @@ class WorksController < ApplicationController
 
   def create
     @work = Work.create work_params
+    p @work.errors
 
     if @work.id != nil
       redirect_to works_path

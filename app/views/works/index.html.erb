@@ -6,8 +6,8 @@
 
 <ul>
 
-<% 10.times do |album| %>
-<li> <%= "#{ @albums[album].title }" %> </li>
+<% @albums.each do |album| %>
+<li> <%= album.title %> </li>
 <% end %>
 </ul>
 
@@ -16,15 +16,15 @@
 
 <ul>
 
-<% 1.times do |m| %>
-<li> <%= "#{ @movies[m].title }" %> </li>
+<% @movies.each do |m| %>
+<li> <%= m.title %> </li>
 <% end %>
 </ul>
 
 <h2>Top Books</h2>
 
 <ul>
-<% 1.times do |b| %>
-<li> <%= "#{ @books[b].title }" %> </li>
+<% @books.each do |b| %>
+<li> <%= b.title %> </li>
 <% end %>
 </ul>
