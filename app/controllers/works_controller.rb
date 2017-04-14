@@ -25,8 +25,13 @@ class WorksController < ApplicationController
       redirect_to root_path
     else
       flash.now[:failure] = "A problem occurred: Could not create #{@work.category}"
-      render "new"
+      # this now also has a routing problem
+      # render "new"
     end
+  end
+
+  def edit
+    @work = Work.find_by_id(params[:id])
   end
 
   private

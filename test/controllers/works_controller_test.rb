@@ -8,6 +8,7 @@ describe WorksController do
     must_respond_with :success
   end
 
+  #show
   it "should get show page" do
     get work_path(work.id)
     must_respond_with :success
@@ -18,6 +19,7 @@ describe WorksController do
     must_respond_with :missing
   end
 
+  #create
   it "should redirect to category list after adding work" do
     post works_path, params: { work:
       { category: "book",
@@ -42,6 +44,28 @@ describe WorksController do
     }.must_change 'Work.count', 1
   end
 
+  #edit
+  it "should get edit page" do
+    get edit_work_path(work.id)
+    must_respond_with :success
+  end
+
+  #update
+  it "should redirect to category list after updating a book" do
+
+  end
+
+  #delete
+  # it "should affect the model when deleting a book" do
+  #   proc {
+  #     delete works_path, work
+  #   }.must_change 'Work.count', -1
+  #
+  # end
+
+  it "should redirect to category list after deleting a book" do
+
+  end
 
 
 end

@@ -1,13 +1,3 @@
-<ul>
-  <% @work.errors.each do |field, msg| %>
-  <li>
-
-    <%= field %> <%= msg %>
-  </li>
-  <% end %>
-</ul>
-<main class="row">
-  <h3>Add a new <%= @work.category %></h3>
 
   <%= form_for @work do |f| %>
     <%= f.hidden_field :category, value: @work.category %>
@@ -27,4 +17,3 @@
     <%= f.submit %>
 
   <% end %>
-</main>
