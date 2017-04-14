@@ -23,9 +23,26 @@
 
 <div class="container">
 
+
+
+  <div class="column column-two">
+  <div class="info">
+    <iframe src="//giphy.com/embed/TlK63Eq6cJh39A1YL3q" width="480" height="480" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/2d-hand-drawn-benjy-brooke-TlK63Eq6cJh39A1YL3q">via GIPHY</a></p>
+      <!-- <div class="category">Movies</div> -->
+      <% @movies.each do |work|%>
+    <p>
+      <%= work[:title] %>
+      <%= work[:creator] %>
+    </p>
+    <%end%>
+  </div>
+  </div>
+
+
+
 <div class="column column-one">
 <div class="info">
-  <img src="https://unsplash.it/300/300" alt="W3Schools.com">
+<iframe src="//giphy.com/embed/3o7TKSmUJ0biYcNDry?html5=true" width="480" height="480" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/girl-musik-3o7TKSmUJ0biYcNDry">via GIPHY</a></p>
   <!-- <div class="category">Albums</div> -->
     <% @albums.each do |work|%>
     <p>
@@ -39,25 +56,14 @@
 
 
 
-<div class="column column-two">
-<div class="info">
-  <img src="https://unsplash.it/300/300" alt="W3Schools.com">
-    <!-- <div class="category">Movies</div> -->
-    <% @movies.each do |work|%>
-  <p>
-    <%= work[:title] %>
-    <%= work[:creator] %>
-  </p>
-  <%end%>
-</div>
-</div>
+
 
 
 
 
 <div class="column column-three">
   <div class="info">
-  <img src="https://unsplash.it/300/300" alt="W3Schools.com">
+<iframe src="//giphy.com/embed/l2SpXaJA67JaSqSxq?html5=true" width="480" height="480" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/animation-2d-l2SpXaJA67JaSqSxq">via GIPHY</a></p>
     <!-- <div class="category">Books</div> -->
   <% @books.each do |work|%>
   <p>

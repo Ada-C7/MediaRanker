@@ -146,37 +146,21 @@ a {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 #works_columns{
-  width: 100vw;
-  position: inherit;
-  margin-top: 750px;
+  max-width: 100%;
+  position: relative;
+  margin-top: 800px;
 }
 
 .container {
     display: flex;
-    margin: 5% 5% 5% 5%;
 
 }
 
 .column {
     flex: 1;
     box-sizing: border-box;
+
 }
 
 .column-one {
@@ -189,7 +173,11 @@ a {
     order: 4;
 }
 
-
+iframe{
+  width: 450px;
+    height: 450px;
+    float:right;
+}
 
 
 
