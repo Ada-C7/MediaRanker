@@ -32,4 +32,16 @@ describe Vote do
     vote.save.must_equal false
   end
 
+  # belongs to user
+  it "has a user" do
+    vote = votes(:one)
+    vote.user.must_equal users(:aurora)
+  end
+
+  # belongs to work
+  it "has a work" do
+    vote = votes(:one)
+    vote.work.must_equal works(:linnets)
+  end
+
 end
