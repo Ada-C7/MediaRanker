@@ -24,3 +24,7 @@
 .navigation h2 {
   padding-left: 150px;
 }
+
+ul li {
+  list-style: none;
+}
