@@ -12,11 +12,11 @@ book1:
   title: sunshine
   creator: ""
   publication_year:
-  description: ""
+  description: "A romantic book"
 
 album1:
   category: album
-  title: Inside out
+  title: Inside Out
   creator: ""
   publication_year:
   description: ""

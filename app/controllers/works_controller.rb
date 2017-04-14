@@ -4,6 +4,7 @@ class WorksController < ApplicationController
     @books = books[0..9]
     @albums = albums[0..9]
     @movies = movies[0..9]
+
   end
 
  def books
@@ -26,7 +27,10 @@ end
 
 
   def show
-  @work = Work.find(params[:id])
+  @work = Work.find_by(id: params[:id])
+    if !@work
+      render_404
+    end
   end
 
   def new
@@ -55,7 +59,6 @@ end
     redirect_to works_path
     end
   end
-
 
   def destroy
     Work.destroy(params[:id])
