@@ -1,5 +1,9 @@
 require "test_helper"
 
+# TO TEST:
+# does the HTTP request actually succeed?
+# did the database actually change
+
 describe WorksController do
   describe 'Works#index' do
     it "should get index for books" do
@@ -52,14 +56,16 @@ describe WorksController do
 
   describe 'Works#show' do
     it "should get work path" do
-      get work_path(id: 10)
+      work = Work.first
+      get work_path(work)
       must_respond_with :success
     end
   end
 
   describe 'Works#edit' do
     it "should get edit_work path" do
-      get edit_work_path(id: 3)
+      work = Work.first
+      get edit_work_path(work)
       must_respond_with :success
     end
   end
