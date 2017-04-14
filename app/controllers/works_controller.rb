@@ -20,4 +20,6 @@ class WorksController < ApplicationController
     @work = Work.find(params[:id])
   end
 
+  
+
 end

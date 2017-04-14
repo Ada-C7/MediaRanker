@@ -13,6 +13,4 @@
 <button>Upvote</button>
 <button>Delete</button>
 
-<p>
-  Votes from user table from _vote_by_user
-</p>
+<%= render partial: "votes/vote_for_media", locals: { work: @work } %>

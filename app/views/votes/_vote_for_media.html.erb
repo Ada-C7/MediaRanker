@@ -1,4 +1,4 @@
-<h2>[count] Votes for this [Album/Book/Movie]</h2>
+<h2><%= @work.votes.count %> Votes for this <%= @work.category.capitalize %></h2>
 
 <table>
   <tr>
