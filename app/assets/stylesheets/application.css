@@ -16,6 +16,14 @@
  */
 
 /*app-wide styles*/
+.button.red {
+  background-color: #cc4b37;
+}
+
+th {
+  text-align: left;
+}
+
 ul {
   list-style-type: none;
   padding: 0;
@@ -31,6 +39,10 @@ ul {
 /*Getting Header to work correctly!*/
  .float-right {
     float: right;
+}
+
+p.text-right {
+  margin-bottom: 5px;
 }
 
 .page-header {
@@ -53,7 +65,8 @@ h1 small, h2 small, h3 small, h4 small, h5 small, h6 small {
 /*Media Spotlight*/
 .spotlight {
   /*margin-top: 25px;*/
-  padding: 25px;
+  padding: 40px 30px;
+
   color: black;
 }
 
@@ -64,4 +77,9 @@ h1 small, h2 small, h3 small, h4 small, h5 small, h6 small {
 
 .top-ten p {
   padding-bottom: 10px;
+}
+
+/*Media Show pages*/
+.votes, .media-details {
+  padding-top: 15px;
 }
