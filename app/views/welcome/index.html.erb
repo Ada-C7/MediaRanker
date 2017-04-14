@@ -15,7 +15,7 @@
 
 
   <div class="category">
-    <h4>Books</h4>
+    <h4><%= link_to "Books", books_path %></h4>
     <p><% @books.each do |book| %></p>
     <li>
       <%= book.title %> by <%= book.user.username %><br />
@@ -25,7 +25,7 @@
   </div>
 
   <div class="category">
-    <h4>Albums</h4>
+    <h4><%= link_to "Albums", albums_path %></h4>
     <p><% @albums.each do |album| %></p>
     <li>
       <%= album.title %> by <%= album.user.username %><br />
