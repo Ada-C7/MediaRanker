@@ -4,12 +4,14 @@
 # model remove the '{}' from the fixture names and add the columns immediately
 # below each fixture, per the syntax in the comments below
 #
-hill:
-  #field value
-  name: Walter Hill
-# column: value
-#name of the record, (kind of a variable name - rails will assign this an id on its own, postgresql wants to handle
-belt:
-  #field value
-  name: Chastity Belt
-# column: value
+movie:
+  creator: "Alejandro"
+  title: "Holy Mountain"
+  
+
+album:
+  creator: "Chastity Belt"
+  title: "Time To Go Home"
+
+missing_title:
+  creator: hill

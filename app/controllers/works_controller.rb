@@ -23,22 +23,22 @@ class WorksController < ApplicationController
       flash[:success] = "Go you! You have successfully added a new work."
       redirect_to works_path
     else
-      flash.now[:error] = "Ooooo, Error 11! The olllde snack saddle is upon you."
+      flash.now[:error] = "Ooooo, Error 11! The olde snack saddle is upon you."
       render "new"
     end
   end
 
-  def books
-    @books = Work.where(category: 'book').order('votes_count DESC')
-  end
-
-  def albums
-    @albums = Work.where(category: 'album').order('votes_count DESC')
-  end
-
-  def movies
-    @movies = Work.where(category: 'movies').order('votes_count DESC')
-  end
+  # def books
+  #   @books = Work.where(category: 'book').order('votes_count DESC')
+  # end
+  #
+  # def albums
+  #   @albums = Work.where(category: 'album').order('votes_count DESC')
+  # end
+  #
+  # def movies
+  #   @movies = Work.where(category: 'movies').order('votes_count DESC')
+  # end
 
 
   private

@@ -14,7 +14,7 @@ class SessionsController < ApplicationController
       new_user.name = params[:name]
       new_user.save
       session[:user_id] = new_user_id
-      flash[:success] = "Great job. You're a fucking Media Rancor now."
+      flash[:success] = "Great job. You're a Media Rancor now."
       redirect_to root_path
        #in this case, this is the same as render "new"
     end

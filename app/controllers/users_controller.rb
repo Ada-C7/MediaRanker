@@ -21,7 +21,7 @@ def create
   @user = User.create user_params
   puts @user.errors.messages
   if @user.id != nil
-    flash[:success] = "Great job. Now you're a fucking Media Ranker."
+    flash[:success] = "Great job. Now you're a Media Ranker."
     redirect_to users_path
   else
     flash.now[:error] = "Ooooo, Error 11! The olllde snack saddle is upon you."
