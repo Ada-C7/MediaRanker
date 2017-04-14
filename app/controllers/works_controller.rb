@@ -24,9 +24,20 @@ class WorksController < ApplicationController
       flash[:success] = "Successfully created #{@work.category} #{@work_id}"
       redirect_to works_path
     else
-      render :new
+      render :new, status: :bad_request
     end
   end
+
+
+  # def create
+  #   classroom = Classroom.new(classroom_params)
+  #   if classroom.save
+  #     redirect_to classrooms_path
+  #   else
+  #     render :new, status: :bad_request
+  #   end
+  # end
+
 
   def show
     @work = Work.find_by(id: params[:id])
@@ -37,14 +48,22 @@ class WorksController < ApplicationController
 
   def edit
     @work = Work.find(params[:id])
+    if @work.nil?
+      head :not_found
+    end
   end
 
   def update
     @work = Work.find(params[:id])
-    if @work.update_attributes(work_params)
-      redirect_to work_path
+    if @work.nil?
+      head :not_found
     else
-      render :edit
+      @work.update_attributes(work_params)
+      if @work.save
+        redirect_to work_path(@work)
+      else
+        render :edit, status: :bad_request
+      end
     end
   end
 
@@ -68,7 +87,11 @@ class WorksController < ApplicationController
     render "albums"
   end
 
-  
+  def spotlight
+    @works.find_spotlight
+    # spotlight = work
+  end
+
 
   private
 

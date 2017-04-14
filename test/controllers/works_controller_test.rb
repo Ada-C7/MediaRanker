@@ -27,6 +27,7 @@ describe WorksController do
   describe "create" do
     #positive case - if we give it good data, it should create a book
     it "adds a work to the database" do
+      start_count = Work.count
       work_data = {
         work: {
           category: "book",
@@ -38,6 +39,12 @@ describe WorksController do
         } #saved data in a hash within a hash and as a local variable
       post works_path, params: work_data
       must_redirect_to works_path
+
+      end_count = Work.count
+      end_count.must_equal start_count + 1
+
+      work = Work.last
+      work.title.must_equal work_data[:work][:title]
     end
 
     #what happens when you send invalid data?
@@ -51,8 +58,10 @@ describe WorksController do
 
   describe "show" do
     it "shows a work that exists" do
-      work = Work.first
-      get work_path(work)
+      # work = Work.first
+      # get work_path(work)
+      work_id = Work.first
+      get work_path(work_id)
       must_respond_with :success
       #we are not ever checking the book that was pulled out of the database.
     end
@@ -66,8 +75,25 @@ describe WorksController do
     end
   end
 
+  describe "edit" do
+    it "routes to the edit page" do
+      work = Work.first
+      get edit_work_path(work)
+      must_respond_with :success
+    end
+
+    it "will return a 404 not found status when asked to edit a work that doesn't exist" do
+      work_id = Work.last.id
+      work_id += 1
+      get edit_path(work_id)
+
+      must_respond_with :not_found
+    end
+  end
+
   describe "update" do
     it "updates a work" do
+      work = Work.first
       work_data = {
         work: {
           category: "book",
@@ -77,18 +103,78 @@ describe WorksController do
           description: "Empowering female gothic romance"
           }
         }
-      work = Work.first
       patch work_path(work), params: work_data
+      must_redirect_to work_path(work)
+
+      Work.first.title.must_equal work_data[:work][:title]
     end
 
   end
 
+  # describe "update" do
+  #   it "updates the work" do
+  #     classroom = Classroom.first
+  #     classroom_data = {
+  #       classroom: {
+  #         designation: classroom.designation + "extra stuff"
+  #       }
+  #     }
+  #     patch classroom_path(classroom), params: classroom_data
+  #     must_redirect_to classroom_path(classroom)
+  #
+  #     Classroom.first.designation.must_equal classroom_data[:classroom][:designation]
+  #   end
+  #
+  #   it "respond with bad request for bogus data" do
+  #       classroom = Classroom.first
+  #       classroom_data = {
+  #         classroom: {
+  #           designation: ""
+  #         }
+  #       }
+  #       patch classroom_path(classroom), params: classroom_data
+  #       must_respond_with :bad_request
+  #
+  #       #make sure that what's in the database still matches
+  #       #what we had before
+  #       Classroom.first.designation.must_equal classroom.designation
+  #
+  #   end
+  #
+  #   it "returns 404 for a classroom that DNE" do
+  #     classroom_data = {
+  #       classroom: {
+  #         designation: "test designation"
+  #       }
+  #     }
+  #     classroom_id = Classroom.last.id + 1
+  #     patch classroom_path(classroom_id), params: classroom_data
+  #     must_respond_with :not_found
+  #
+  #   end
+  # end
+
   describe "destroy" do
     it "deletes a work that exists" do
+      start_count = Work.count
+
       work = Work.first
       delete work_path(work)
       must_redirect_to works_path
+
+      end_count = Work.count
+      end_count.must_equal start_count - 1
     end
 
+    it "will return a 404 not found status when asked to delete a work that doesn't exist" do
+      start_count = Work.count
+
+      work_id = Work.last.id + 1
+      delete work_path(work_id)
+      must_respond_with :not_found
+
+      end_count = Work.count
+      end_count.must_equal start_count
+    end
   end
 end

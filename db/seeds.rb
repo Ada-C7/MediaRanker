@@ -19,3 +19,18 @@ csv_works.each do |row|
   work.description = row['description']
   work.save
 end
+
+#GENERATE SOME USERS
+User.create(name: "Elizabeth")
+User.create(name: "Anna")
+User.create(name: "Emily")
+User.create(name: "Annika")
+User.create(name: "Kingsley")
+User.create(name: "Marie")
+User.create(name: "Bill")
+User.create(name: "Dara")
+
+#GENERATE SOME VOTES
+100.times do
+  Vote.create(user_id: Random.rand(8), work_id: Random.rand(26))
+end

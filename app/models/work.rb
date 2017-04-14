@@ -42,4 +42,15 @@ class Work < ApplicationRecord
     end
   end
 
+  def self.find_spotlight
+    winner = []
+    Work.all.each do
+      if work.vote.count.max
+        winner << work
+        return winner
+      end
+    end
+    # spotlight = Work.all.vote.count.max
+  end
+
 end

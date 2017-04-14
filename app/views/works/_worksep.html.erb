@@ -12,12 +12,12 @@
   <tbody>
   <% works.each do |item| %>
     <tr>
-        <td><%= item.vote_count %></td>
+        <td> <%=item.votes.count %></td>
         <td><%= link_to item.title, work_path(item.id) %></td>
         <td> <%= item.creator%></td>
         <td><%= item.publication_year%></td>
         <td><% if session[:user_id] %>
-              <%= link_to "Upvote", vote_path(@work.id), method: :post %>
+              <%= link_to "Upvote", vote_path(item.id), method: :post %>
             <% end %>
         </td>
     </tr>
