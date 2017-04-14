@@ -21,8 +21,8 @@ describe User do
       end
 
       it "is invalid without a unique name" do
-        user_one = User.new(name: "Fred")
-        user_two = User.new(name: "Fred")
+        user_one = User.create(name: "Fred")
+        user_two = User.create(name: "Fred")
         result = user_two.valid?
         result.must_equal false
     end

@@ -1,16 +1,4 @@
 class WorksController < ApplicationController
-  # before_action :top_work, only: [:index]
-
-  # def top_work
-  #   #move to model and call within index instead
-  #   if Work.all.length > 0
-  #   most_votes = Work.sort_by_votes.first
-  #     if most_votes.votes.count > 5
-  #       return @top_work = most_votes
-  #     end
-  #   end
-  # end
-
   def index
     @albums = Work.where(category: "album").sort_by_votes[0..9]
     @movies = Work.where(category: "movie").sort_by_votes[0..9]
@@ -30,8 +18,11 @@ class WorksController < ApplicationController
     if upvote.save
       flash[:success] = "You voted"
       redirect_to work_path(params[:id])
-    else
+    elsif session[:user_id]
       flash[:failure] = "You Already Voted for This Book!"
+      redirect_to work_path(params[:id])
+    else
+      flash[:failure] = "You Must Log In to do that!"
       redirect_to work_path(params[:id])
     end
   end

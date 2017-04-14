@@ -27,18 +27,18 @@ describe Vote do
       result.must_equal true
     end
   end
-  # describe "test the uniquness of user_id" do
-  #   it "rejects a duplicate user_id from voting" do
-  #     user_id = User.first.id
-  #     work_id = Work.first.id
-  #
-  #     vote_one = Vote.new(user_id: user_id, work_id: work_id)
-  #     vote_two = Vote.new(user_id: user_id, work_id: work_id)
-  #
-  #     result = vote_two.valid?
-  #     result.must_equal false
-  #   end
-  # end
+  describe "test the uniquness of user_id" do
+    it "rejects a duplicate user_id from voting" do
+      user_id = User.first.id
+      work_id = Work.first.id
+
+      vote_one = Vote.create(user_id: user_id, work_id: work_id)
+      vote_two = Vote.create(user_id: user_id, work_id: work_id)
+
+      result = vote_two.valid?
+      result.must_equal false
+    end
+  end
   describe "one test for the relationship" do
     it "can have users and works" do
       user = User.first
