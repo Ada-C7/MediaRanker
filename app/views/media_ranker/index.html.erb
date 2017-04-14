@@ -1,9 +1,10 @@
 <section id="content">
 
   <h2>Media Spotlight:</h2>
-  <p>
-    Amazing people. Amazing things.
-  </p>
+  <p><%= link_to @rand_work.title, @rand_work_path %></p>
+  <p>by <%= @rand_work.creator %></p>
+  <p><%= @rand_work.votes.length %> votes</p>
+  <p><%= @rand_work.description %></p>
 
 
   <h2>Top albums:</h2>
@@ -44,7 +45,7 @@
   <h2>Top movies:</h2>
 
   <table>
-  
+
 
   </table>
   <section>
