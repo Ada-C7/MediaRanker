@@ -34,7 +34,7 @@ describe WorksController do
       }}
 
       must_redirect_to works_path
-    end
+  end
 
   it "Should show a new movie" do
     get new_work_path(works(:movie1))
@@ -54,58 +54,58 @@ describe WorksController do
 
   it "shoud affect the model when creating a movie" do
 
-proc{
+  proc{
 
-   post works_path, params: {work:
-  { category: "movie",
-  title: "Neemo",
-  creator: "Helen Anderson",
-  publication_year: 2005,
-  description: "Curious fish got lost"
-  }
-}
-
-}.must_change 'Work.count', 1
-end
-
-
-it "delete a medium and redirect to mediaranker list/ Thank you Kari" do
-  delete work_path(works(:book1).id)
-  must_redirect_to works_path
-end
-
-# Test the difference
-
-it "should be able to create a work" do
-  proc   {
-    post works_path, params: { work: {category: "movie",
+     post works_path, params: {work:
+    { category: "movie",
     title: "Neemo",
     creator: "Helen Anderson",
     publication_year: 2005,
-    description: "Curious fish got lost"}  }
-  }.must_change 'Work.count', 1
+    description: "Curious fish got lost"
+    }
+  }
 
-  must_respond_with :redirect
-  must_redirect_to works_path
-end
+  }.must_change 'Work.count', 1
+  end
+
+
+  it "delete a medium and redirect to mediaranker list/ Thank you Kari" do
+    delete work_path(works(:book1).id)
+    must_redirect_to works_path
+  end
+
+# Test the difference
+
+  it "should be able to create a work" do
+    proc   {
+      post works_path, params: { work: {category: "movie",
+      title: "Neemo",
+      creator: "Helen Anderson",
+      publication_year: 2005,
+      description: "Curious fish got lost"}  }
+    }.must_change 'Work.count', 1
+
+    must_respond_with :redirect
+    must_redirect_to works_path
+  end
 
 # Changing a model
 
-it "should update a work" do
-  put work_path(works(:movie1).id), params: { work: {category: "movie",
-  title: "Neemo3",
-  creator: "Helen Anderson",
-  publication_year: 2005,
-  description: "Curious fish got lost"}  }
+  it "should update a work" do
+    put work_path(works(:movie1).id), params: { work: {category: "movie",
+    title: "Neemo3",
+    creator: "Helen Anderson",
+    publication_year: 2005,
+    description: "Curious fish got lost"}  }
 
-  #find the post with that ID in the database
-  work = Work.find(works(:movie1).id)
+    #find the post with that ID in the database
+    work = Work.find(works(:movie1).id)
 
-# verify the post was changed properly
-  work.title.must_equal "Neemo3"
-  work.description.must_equal "Curious fish got lost"
+  # verify the post was changed properly
+    work.title.must_equal "Neemo3"
+    work.description.must_equal "Curious fish got lost"
 
-  must_respond_with :redirect
-end
+    must_respond_with :redirect
+  end
 
 end

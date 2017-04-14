@@ -29,6 +29,4 @@ describe Vote do
 #     vote.errors.messages.must_include :user
 # end
 
-
-
 end

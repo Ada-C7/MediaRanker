@@ -1,11 +1,12 @@
 <!-- <h1>Media Ranker Index</h1> -->
 
-<p>
+<section>
   <% Work.spot_light.each do |item|%>
   Media Spotlight: <%= link_to item.title, work_path(item.id) %>by <%=item.creator %></br>
   <%= item.votes.count%>Votes - <%= item.description%>
   <% end %>
-</p>
+</section>
+
 <table>
   <tr>
     <th>
@@ -41,7 +42,6 @@
 <% end %>
 </table>
 <%= link_to "View More Book", books_path %>
-
 
 <table>
   <tr>
