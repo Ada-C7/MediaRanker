@@ -19,6 +19,14 @@ describe Vote do
 
       vote.errors.messages.must_include :work
     end
+
+    it "successfully creates a vote" do
+      work = Work.last
+      user = User.last
+      vote = Vote.new(user: user, work: work)
+      result = vote.valid?
+      result.must_equal true
+    end
   end
 
   ####################################################

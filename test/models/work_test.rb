@@ -71,6 +71,8 @@ describe Work do
 
   describe "associations" do
     it "should have many votes" do
+      t = Work.reflect_on_association(:votes)
+      t.macro.must_be :has_many
     end
   end
 ####################################################

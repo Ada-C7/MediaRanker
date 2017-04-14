@@ -10,19 +10,25 @@ describe User do
       user.errors.messages.must_include :username
     end
 
-    it "creates user with username populated" do
-      user = User.create(username: "Ting")
-      user.id.wont_be_nil
+    it "successfully creates a user" do
+      user = User.new(username: "Test")
+      result = user.valid?
+      result.must_equal true
     end
   end
 
-  ####################################################
-
-  # Not sure about whether this needs testing (or how to test has_manys)
-
-  describe "relationship" do
-    it "should have many votes" do
+  describe "associations" do
+    #### VOTE COUNT IS VALIDATED MANUALLY -- HOW TO MAKE IT AUTO
+    it "can access votes" do
+      vote_count = 2
+      user = users(:one)
+      user.votes.count.must_equal 2
+    end
+    #### VOTE COUNT IS VALIDATED MANUALLY -- HOW TO MAKE IT AUTO
+    it "can access works" do
+      work_count = 2
+      user = users(:one)
+      user.works.count.must_equal 2
     end
   end
-  ####################################################
 end
