@@ -27,7 +27,7 @@ class UsersController < ApplicationController
     if @user.nil?
       head :not_found
     else
-      @votes = @user.votes
+      @user_votes = @user.votes
     end
   end
 
