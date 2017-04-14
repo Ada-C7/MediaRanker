@@ -3,8 +3,8 @@
 <!-- default verb it post  -->
 
 <%= form_tag login_path do %> <!--could be "/login"-->
-<%= label_tag "Login Name" %>
-<%= text_field_tag "name" %>
+<%= label_tag " username" %>
+<%= text_field_tag "username" %>
 
 <%= submit_tag "Login", method: :post %>
 <% end %>

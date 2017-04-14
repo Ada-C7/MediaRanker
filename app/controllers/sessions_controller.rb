@@ -3,22 +3,26 @@ class SessionsController < ApplicationController
 
     def login
       #raise
-      username = params[:username]
+      user = User.find_by_username params[:username]
 
-      if User.find_by_username(username)
-        user = User.find_by_username(username)
+      if user
         #found successfully
         #session is a rails hash helper
         session[:user_id] = user.id
+        session[:username] = user.username
         redirect_to works_path
         flash[:success] = "successfully logged as #{user.username}"
 
       else
         #did not find
         #or you could take an input and create a new author
-        user = User.create(username: username)
-        flash.now[:success] = "successfully logged as #{user.username}"
+        # flash.now[:error] = "#{user.username} not found"
         # render :login_form
+        new_user = User.create(username: params[:username])
+        session[:user_id] = new_user.id
+        session[:username] = new_user.username
+        redirect_to works_path
+        flash[:success] = "successfully logged as #{new_user.username}"
       end
 
     end
