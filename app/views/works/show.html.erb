@@ -9,6 +9,20 @@
   <%= @work.description %>
 </p>
 
+<p><%= @work.votes.count %> votes for this <%= @work.category %></p>
+<table>
+  <tr>
+    <th>User</th>
+    <th>Date</th>
+  </tr>
+  <% @work.votes.each do |vote| %>
+  <tr>
+    <td> <%= vote.user.name %> </td>
+    <td> <%= vote.created_at %> </td>
+  </tr>
+  <% end %>
+</table>
+
 <%= link_to "Back to #{@work.category} list", category_path(@work.category.pluralize) %>
 <%= link_to "Edit", edit_work_path(@work.id)%>
 <%= link_to "Upvote", upvote_path(@work.id), method: :post %>

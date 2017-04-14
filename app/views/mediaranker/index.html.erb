@@ -4,12 +4,15 @@
     <h2>Media Spotlight:</h2>
     <% spotlight = @works.sample %>
     <%= link_to spotlight.title, work_path(spotlight.id) %> by <%= spotlight.creator %>
+    <p><%= spotlight.votes.count %> votes</p>
+    <p><%= spotlight.description %></p>
   </div>
   <section>
     <h3>Top Movies</h3>
     <% movies = @works.select { |work| work.category == "movie" } %>
     <% movies.each do |movie| %>
       <p><%= link_to movie.title, work_path(movie.id) %> by <%= movie.creator %></p>
+      <p><%=  movie.votes.count %> votes</p>
     <% end %>
     <%= link_to 'View More Movies', category_path("movies") %>
   </section>
@@ -18,6 +21,7 @@
     <% books = @works.select { |work| work.category == "book" } %>
     <% books.each do |book| %>
       <p><%= link_to book.title, work_path(book.id) %> by <%= book.creator %></p>
+      <p><%=  book.votes.count %> votes</p>
     <% end %>
     <%= link_to 'View More Books', category_path("books") %>
   </section>
@@ -26,6 +30,7 @@
     <% albums = @works.select { |work| work.category == "album" } %>
     <% albums[0..9].each do |album| %>
       <p><%= link_to album.title, work_path(album.id) %> by <%= album.creator %></p>
+      <p><%=  album.votes.count %> votes</p>
     <% end %>
     <%= link_to 'View More Albums', category_path("albums") %>
   </section>

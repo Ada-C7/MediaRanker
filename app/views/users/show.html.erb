@@ -13,14 +13,14 @@
   </tr>
   <% @user.votes.each do |vote| %>
   <tr>
-    <td> <%=  %> </td>
-    <td> <%= %> </td>
-    <td> <%=  %> </td>
-    <td> <%=  %> </td>
-    <td> <%=  %> </td>
+    <td> <%= link_to vote.work.title, work_path(vote.work_id) %> </td>
+    <td> <%= vote.work.creator %> </td>
+    <td> <%= vote.work.publication_year %> </td>
+    <td> <%= vote.work.category %> </td>
+    <td> <%= vote.created_at %> </td>
   </tr>
   <% end %>
 </table>
 
-See all users
+<%= link_to 'See all users', users_path %>
 <%= link_to 'Back to media list', root_path %>
