@@ -3,5 +3,8 @@
 my_user:
   name: gofarann
 
-two:
-  name: MyString
+my_user_no_name:
+  name:
+
+my_user_unique_name:
+  name: random

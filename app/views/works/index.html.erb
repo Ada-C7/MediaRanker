@@ -1,53 +1,64 @@
 
-<h4>Media Spotlight: <%=Work.top_votes.title%></h4>
-<p>
-  <%= Work.top_votes.votes.count %> votes - <%= Work.top_votes.description %>
-</p>
+<main class="row">
 
-<h4>Top Movies</h4>
+<section class="columns large-12 small-12">
+  <h4>Media Spotlight: <%=link_to Work.top_votes.title, work_path(Work.top_votes.id)%> by <%=Work.top_votes.creator%></h4>
+  <p>
+    <%= Work.top_votes.votes.count %> votes - <%= Work.top_votes.description %>
+  </p>
+
+</section>
+</main>
+
+
 <!-- could have put this in a method, not sure where -->
+
 <% top_movies = @movies.sort { |a, b| a.votes.count <=> b.votes.count}.take(10).reverse %>
 <% top_books = @books.sort { |a, b| a.votes.count <=> b.votes.count}.take(10).reverse %>
 <% top_albums = @albums.sort { |a, b| a.votes.count <=> b.votes.count}.take(10).reverse %>
 
+<main class="row">
+  <section class="columns large-4 small-12">
+      <h4>Top Movies</h4>
+      <% top_movies.each do |a| %>
+      <ul>
+        <%= link_to a.title, work_path(a.id) %> by <%= a.creator %>
+      </ul>
+      <ul>
+        <%= a.votes.count %> votes
+      </ul>
 
-<p>
-  <% top_movies.each do |a| %>
-  <ul>
-    <%= link_to a.title, work_path(a.id) %> by <%= a.creator %>
-  </ul>
-  <ul>
-    <%= a.votes.count %> votes
-  </ul>
+      <% end %>
+      <%= link_to "View more movies", movies_path %>
+    </section>
 
-  <% end %>
-  <%= link_to "View more movies", movies_path %>
-</p>
+    <section class="columns large-4 small-12">
+    <h4>Top Books</h4>
+      <% top_books.each do |a| %>
+      <ul>
+        <%= link_to a.title, work_path(a.id) %> by <%= a.creator %>
+      </ul>
+      <ul>
+        <%= a.votes.count %> votes
+      </ul>
+      <% end %>
+      <%= link_to "View more books", books_path %>
 
-<h4>Top Books</h4>
-<p>
-  <% top_books.each do |a| %>
-  <ul>
-    <%= link_to a.title, work_path(a.id) %> by <%= a.creator %>
-  </ul>
-  <ul>
-    <%= a.votes.count %> votes
-  </ul>
-  <% end %>
-  <%= link_to "View more books", books_path %>
+    </section>
 
-</p>
+    <section class="columns large-4 small-12">
+      <h4>Top Albums</h4>
 
-<h4>Top Albums</h4>
-<p>
-  <% top_albums.each do |a| %>
-  <ul>
-    <%= link_to a.title, work_path(a.id) %> by <%= a.creator %>
-  </ul>
-  <ul>
-    <%= a.votes.count %> votes
-  </ul>
-  <% end %>
-  <%= link_to "View more albums", albums_path %>
+      <% top_albums.each do |a| %>
+      <ul>
+        <%= link_to a.title, work_path(a.id) %> by <%= a.creator %>
+      </ul>
+      <ul>
+        <%= a.votes.count %> votes
+      </ul>
+      <% end %>
+      <%= link_to "View more albums", albums_path %>
 
-</p>
+    </section>
+
+</main>

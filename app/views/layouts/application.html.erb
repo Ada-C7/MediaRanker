@@ -1,33 +1,39 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <img src="https://img.clipartfest.com/68b3f4fb38086c52573f631f3d29d19d_picture-cute-owl-scholar-clipart_500-540.jpeg" style="width:160px;height:180px">
     <title>MediaRanker</title>
     <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+
+    <nav class="header">
+      <img class="float-left" src="https://img.clipartfest.com/68b3f4fb38086c52573f631f3d29d19d_picture-cute-owl-scholar-clipart_500-540.jpeg" style="width:160px;height:180px">
+
+      <div>
+      <h2><%= link_to "Media Ranker", root_path %><small> Ranking the Best of Everything</small></h2>
+      </div>
+
+      <div>
+
+      <% if session[:user_id] %>
+      <% user_id = session[:user_id].to_s %>
+        <p class="text-right">
+          Logged in as <%= link_to User.find_by_id(user_id).name, user_path(user_id) %>
+        </p>
+        <h4 class="button float-right">
+          <%= link_to "Logout",logout_path, method: :delete %>
+        </h4>
+      <% else %>
+        <h4 class="button float-right"><%= link_to "Login", login_path %></h4>
+      <% end %>
+    <%= csrf_meta_tags %>
+  </div>
+
+  </nav>
+
   </head>
 
-  <body>
-    <header>
-    <h2><%= link_to "Media Ranker", root_path %></h2><h3>Ranking the Best of Everything</h3>
-  </header>
-  <nav>
-
-    <% if session[:user_id] %>
-    <% user_id = session[:user_id].to_s %>
-      <p>
-        Logged in as <%= link_to User.find_by_id(user_id).name, user_path(user_id) %>
-      </p>
-      <p class="button">
-        <%= link_to "Logout",logout_path, method: :delete %>
-      </p>
-    <% else %>
-      <p class="button"><%= link_to "Login", login_path %></p>
-    <% end %>
-  </nav>
-  <%= csrf_meta_tags %>
 
 
   <body>
