@@ -9,9 +9,6 @@ Rails.application.routes.draw do
   patch '/works/:id', to: 'works#update'
   delete '/works/:id', to: 'works#destroy'
 
-  get 'users/index'
-  get 'votes/index'
-  # '/login'
-  # '/users'
-  # '/users/:id'
+  resources :users
+  resources :votes
 end
