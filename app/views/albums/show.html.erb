@@ -11,7 +11,7 @@
 <%= link_to "Delete", album_path, class: :button %>
 <%= link_to "Upvote", votes_upvote_path(work_id: @result_album.id), class: :button, method: :post %>
 
-  <h3> ? Votes for this album</h3>
+  <h3> <%= @result_album.votes.length %> Votes for this album</h3>
 
 
   <table>
