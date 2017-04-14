@@ -44,7 +44,14 @@ class AlbumsController < ApplicationController
   end
 
   def new
-    @album = Album.new
+    @album = Work.new
+
+    if @album.id != nil
+      redirect_to albums_path
+    else
+      render "new"
+    end
+
   end
 
   private
