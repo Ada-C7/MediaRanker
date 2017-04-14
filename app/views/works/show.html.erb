@@ -19,11 +19,11 @@
     <div class = "row">
       <section class = "large-4 columns" >
         <% if @work.category == "movie"%>
-        <%= button_to 'Back to movie list', movies_path, method: :get, class:"button medium success" %>
+        <%= button_to 'Back to movie list', movies_path, method: :get, class:"button medium " %>
         <% elsif @work.category == "book"%>
-        <%= button_to 'Back to book list', books_path, method: :get, class:"button medium success" %>
+        <%= button_to 'Back to book list', books_path, method: :get, class:"button medium " %>
         <% elsif @work.category == "album"%>
-        <%= button_to 'Back to album list', albums_path, method: :get, class:"button medium success" %>
+        <%= button_to 'Back to album list', albums_path, method: :get, class:"button medium " %>
         <%end%>
       </section>
       <div class="button-group">

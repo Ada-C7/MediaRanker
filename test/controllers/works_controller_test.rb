@@ -38,10 +38,16 @@ describe WorksController do
       must_redirect_to movies_path
     end
     it "rerenders new work form if work is invalid" do
-      work_data = {work: {title: "test titwle"}}
+      work_data = {work: {title: "test titwle", category: "book"}}
       post works_path, params: work_data
-      must_respond_with :bad_request
+      # must_respond_with :bad_request
+      must_redirect_to new_book_path
     end
+    it "changing size of works after creating" do
+        proc {
+          post works_path, params: { work: {category: "movie", title: "test title",creator: "creator test", publication_year: "1111", description: "description goes here" }}
+        }.must_change 'Work.count', 1
+      end
   end # end of create block
 
   describe "show_albums" do
@@ -69,6 +75,11 @@ describe WorksController do
       get edit_work_path(work_id)
       must_respond_with :success
     end
+    it "return a 404 not found status when work to edit is not exist" do
++      work_id = Work.last.id + 1
++      get edit_work_path(work_id)
++      must_respond_with :not_found
++    end
   end # end of edit block
 
   describe "update" do
@@ -99,8 +110,21 @@ describe WorksController do
       w = works(:royal_scam)
       delete work_path(w.id)
       Work.find_by(title: "test title").must_equal nil
-    
     end
+    it "changing size of works after deleting" do
+       proc {
+         w = works(:royal_scam)
+         delete work_path(w.id), params: { work: {category: "movie", title: "test title",creator: "creator test", publication_year: "1111", description: "description goes here" }}
+       }.must_change 'Work.count', -1
+     end
+     it "deleting votes that associated with deleted work" do
+         w = works(:royal_scam)
+         u = User.create(username: "natalia2", date_of_joining: "31/01/2012")
+         v = Vote.create(work: w, user: u)
+         before = Vote.count
+         delete work_path(w.id)
+         Vote.count.must_equal before - 1
+      end
   end # end of edit block
 
     describe "upvote" do
@@ -112,13 +136,16 @@ describe WorksController do
         must_redirect_to work_path(w.id)
       end
 
-      # it "" do
-      #   w = works(:royal_scam)
-      #   result = w.votes.length
-      #   u = User.create!(username: "asdf", date_of_joining: "31/01/2017")
-      #   vote = Vote.create!(work: w, user: u)
-      #   w.votes.length.must_equal result + 1
-      # end
+      it "changing votes number of votes after adding new vote" do
+        proc {
+          w = works(:royal_scam)
+          u = User.create!(username: "nanana", date_of_joining: "12/01/2016")
+          vote = Vote.create!(work: w, user: u)
+          post upvote_path(w.id), params: {vote:{}}
+        }.must_change 'Vote.count', 1
+      end
+
+
     end # end of upvote block
     describe "downvote" do
       it " redirects back after deleting vote " do

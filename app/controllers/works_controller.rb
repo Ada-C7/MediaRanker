@@ -1,4 +1,5 @@
 class WorksController < ApplicationController
+  before_action :find_work, only: [:edit, :update, :destroy]
   def index
     @works = Work.all
   end
@@ -16,12 +17,14 @@ class WorksController < ApplicationController
 
   def create
     @work = Work.create(work_params)
+    category = @work.category
     if @work.id != nil
       flash[:success] = "Successfully added"
       redirect_to send("#{@work.category}s_path")
     else
       flash[:failure] = "Work wasn't saves, try again"
-      render :new, status: :bad_request
+      # render :new, status: :bad_request
+      redirect_to send("new_#{category}_path")
     end
   end
 
@@ -46,11 +49,14 @@ class WorksController < ApplicationController
   end
 
   def edit
-    @work = Work.find(params[:id])
+    # @work = Work.find(params[:id])
+    if @work.nil?
+      head :not_found
+    end
   end
 
   def update
-    @work = Work.find(params[:id])
+    # @work = Work.find(params[:id])
     @work.update_attributes(work_params)
     if @work.save
       redirect_to work_path(@work)
@@ -60,10 +66,10 @@ class WorksController < ApplicationController
   end
 
   def destroy
-    work = Work.find(params[:id])
-    if work.destroy
-      redirect_to send("#{work.category}s_path")
-      work.votes.each do |v|
+    # work = Work.find(params[:id])
+    if @work.destroy
+      redirect_to send("#{@work.category}s_path")
+      @work.votes.each do |v|
         v.delete
       end
     end
@@ -123,6 +129,9 @@ class WorksController < ApplicationController
 
 
   private
+  def find_work
+    @work = Work.find_by_id(params[:id])
+  end
   def work_params
     return params.require(:work).permit(:id, :category, :title, :creator, :publication_year, :description)
   end
