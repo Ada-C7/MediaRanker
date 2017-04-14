@@ -13,8 +13,6 @@ Rails.application.routes.draw do
   get '/:category/new', to: 'works#new', constraints: category_constraints, as: 'new_work'
   post '/:category', to: 'works#create', constraints: category_constraints
 
-  # post '/works/:id(.:format)', to: 'works#vote', as: "vote"
-
   resources :works, except: [:index, :create] do
     member do
       post 'vote'

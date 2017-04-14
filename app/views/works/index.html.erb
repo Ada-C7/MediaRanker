@@ -1,6 +1,4 @@
-<h1>Category#index</h1>
-<!-- <%= params[:category] %> -->
-<br>This is my single index for books, albums, and movies
+<h2>List of Movies</h2>
 <table>
   <th>Votes:</th>
   <th>Title:</th>
@@ -18,6 +16,4 @@
   <% end %>
 </table>
 <br>
-<%= link_to "Back to list", root_path %>
-<br>
-<%= link_to "New Work", new_work_path(params[:category]) %>
+<%= link_to "View All Media", root_path, :class => "button" %> <%= link_to "Add a new #{params[:category].singularize}", new_work_path(params[:category]), :class => "button" %>
