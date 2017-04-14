@@ -21,7 +21,14 @@ it "should create a new vote for an album" do
       post create_login_path, { username: "helloWorld" }
       post album_vote_path(contents(:pelican).id)
   }.must_change 'User.find(users(:user).id).votes.length', 1
+end
 
+it "should not create a new vote if the user already voted for the same content" do
+  proc   {
+      post create_login_path, { username: "helloWorld" }
+      post album_vote_path(contents(:pelican).id)
+      post album_vote_path(contents(:pelican).id)
+  }.must_change 'User.find(users(:user).id).votes.length', 1
 end
 
 end
