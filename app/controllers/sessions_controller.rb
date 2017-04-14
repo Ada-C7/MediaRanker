@@ -27,7 +27,7 @@ class SessionsController < ApplicationController
   def logout
     session[:user_id] = nil
     flash[:success] = "Successfully logged out"
-    redirect_to :back
+    redirect_back(fallback_location: root_path)
   end
 
   private

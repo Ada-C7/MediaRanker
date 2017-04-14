@@ -1,6 +1,14 @@
 require "test_helper"
 
 describe WorksController do
+  before do
+    get works_path
+    request.env["HTTP_REFERER"] = "coming_from_works"
+
+    get login_path
+    request.env["HTTP_REFERER"] = "coming_from_login"
+  end
+
   it "should get index" do
     get works_path
     must_respond_with :success
@@ -73,5 +81,28 @@ describe WorksController do
         }
       }
     }.must_change 'Work.count', 1
+  end
+
+  def sign_in
+    post login_path, params: { username: "New User" }
+  end
+
+  it "should affect the Vote model when a user upvotes" do
+    sign_in
+    proc {
+      patch upvote_path(works(:graduate).id)
+    }.must_change 'Vote.count', 1
+  end
+
+  it "should not add vote when user tries to upvote same thing twice" do
+    sign_in
+    patch upvote_path(works(:bone_people).id)
+    proc {
+      patch upvote_path(works(:bone_people).id)
+    }.must_change 'Vote.count', 0
+  end
+
+  it "no vote added when upvote clicked when not logged in" do
+
   end
 end

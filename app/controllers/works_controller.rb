@@ -44,7 +44,7 @@ class WorksController < ApplicationController
     else
       flash[:error] = "You must log in to do that"
     end
-    redirect_to :back
+    redirect_back(fallback_location: root_path)
   end
 
   private
