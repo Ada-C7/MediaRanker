@@ -3,7 +3,9 @@ require "test_helper"
 describe Work do
   let(:work) { Work.new }
 
-  it "must be valid" do
-    value(work).must_be :valid?
+  it "Work requires a title" do
+    work.title = nil
+    work.valid?.must_equal false
+
   end
 end

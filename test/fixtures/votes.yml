@@ -1,9 +1,9 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  name: "hello world"
-  join_date: 2017-04-11
+  user_id: 1
+  work_id: 3
 
 two:
-  name: "bananas"
-  join_date: 2017-04-11
+  user_id: 3
+  work_id: 5
