@@ -17,18 +17,27 @@ class WorksController < ApplicationController
 
   def album_show
     @work = Work.find_by(category: "album", id: params[:id])
+    if @work.nil?
+      head :not_found
+    end
   end
 
   def movie_show
     @work = Work.find_by(category: "movie", id: params[:id])
+    if @work.nil?
+      head :not_found
+    end
   end
 
   def book_show
     @work = Work.find_by(category: "book", id: params[:id])
+    if @work.nil?
+      head :not_found
+    end
   end
 
   def new
-    @work = Work.new(params[:id])
+    @work = Work.new
   end
 
   def create
@@ -38,8 +47,8 @@ class WorksController < ApplicationController
       flash[:success] = "Success! Added to the list."
       redirect_to works_path
     else
-      flash[:success] = "It didn't work, try again?"
-      render :new
+      flash[:failure] = "It didn't work, try again?"
+      render :new, status: :bad_request
     end
   end
 
@@ -49,14 +58,15 @@ class WorksController < ApplicationController
 
   def update
     work = Work.find(params[:id])
-    work.update_attributes(work_params)
-    work.save
+    work.assign_attributes(work_params)
 
-    redirect_to work_path
-  end
-
-  def delete
-    @work = Work.find(params[:id])
+    if work.save
+      flash[:success] = "Successfully updated!"
+      redirect_to work_path
+    else
+      flash[:failure] = "It didn't work, try again?"
+      render :new, status: :bad_request
+    end
   end
 
   def destroy
@@ -64,6 +74,15 @@ class WorksController < ApplicationController
     work.destroy
 
     redirect_to works_path
+  end
+
+  def vote
+    @vote = Vote.create(user_id: session[:user_id], work_id: params[:id])
+
+    if @vote
+      flash[:success] = "Vote Added!"
+      redirect_to user_path(session[:user_id])
+    end
   end
 
   private

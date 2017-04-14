@@ -1,9 +1,9 @@
-<h2>All Books</h2>
+<h2><%= "All #{work_type}s" %></h2>
 
 <ul>
   <% @works.each do |work| %>
   <li>
-    <%= link_to "Title: #{work.title}", book_path(work.id) %>
+    <%= link_to "Title: #{work.title}", path(work.id) %>
     <%= "Category: #{work.category}" %>
     <%= "Created By: #{work.creator}" %>
     <%= "Published: #{work.pub_date}" %>

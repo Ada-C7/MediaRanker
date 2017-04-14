@@ -1,47 +1,42 @@
 require "test_helper"
 
 describe Vote do
-  describe "user relationships" do
-    it 'can set the user through "user"' do
-      user = User.create!(username: "Test User")
-      #include work if validations are needed?
-      # work = Work.create!(title: "Test", creator: "Test Creator", category: "movie")
-      vote = Vote.new
-      vote.user = user
+  describe "validations" do
+    it "is invalid without a user" do
+      work = Work.first
+      vote = Vote.new(work: work)
+      result = vote.valid?
+      result.must_equal false
 
-      vote.user_id.must_equal user.id
+      vote.errors.messages.must_include :user
     end
 
-    it 'can set the user through "user_id"' do
-      user = User.create!(username: "Test User")
-      #include work if validations are needed?
-      # work = Work.create!(title: "Test", creator: "Test Creator", category: "movie")
-      vote = Vote.new
-      vote.user_id = user.id
-      
-      vote.user.must_equal user
+    it "is invalid without a work object" do
+      user = User.first
+      vote = Vote.new(user: user)
+      result = vote.valid?
+      result.must_equal false
+
+      vote.errors.messages.must_include :work
     end
   end
 
-  describe "work relationships" do
-    it 'can set the work through "work"' do
-      work = Work.create!(title: "Test", creator: "Test Creator", category: "movie")
-      #include user if validations are needed?
-      # user = User.create!(username: "Test User")
-      vote = Vote.new
-      vote.work = work
+  ####################################################
 
-      vote.work_id.must_equal work.id
+  #### TW: Doesn't this just check my fixture set-up and not my model?
+
+  describe "associations" do
+    it "contains the correct user object" do
+      vote = votes(:three)
+      user_one = users(:one)
+      vote.user.must_equal user_one
     end
 
-    it 'can set the work through "work_id"' do
-      work = Work.create!(title: "Test", creator: "Test Creator", category: "movie")
-      #include user if validations are needed?
-      # user = User.create!(username: "Test User")
-      vote = Vote.new
-      vote.work_id = work.id
-
-      vote.work.must_equal work
+    it "contains the correct work object" do
+      vote = votes(:three)
+      book = works(:book)
+      vote.work.must_equal book
     end
   end
+  ####################################################
 end
