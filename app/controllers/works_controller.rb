@@ -35,19 +35,22 @@ class WorksController < ApplicationController
 
   def update
     @work = Work.find_by(id: params[:id])
-    @work.assign_attributes(work_params)
-
-    if @work.save
-      flash[:success] = "Successfully updated #{@work.title}"
-      redirect_to works_path(@work.category.pluralize)
+    if @work.nil?
+      head :not_found
     else
-      render :edit
+      @work.update_attributes(work_params)
+      if @work.save
+        flash[:success] = "Successfully updated #{@work.title}"
+        redirect_to works_path(@work.category.pluralize)
+      else
+        render :edit, status: :bad_request
+      end
     end
   end
 
   def destroy
     work = Work.find_by(id: params[:id])
-    if @work.nil?
+    if work.nil?
       head :not_found
     else
       category = work.category
