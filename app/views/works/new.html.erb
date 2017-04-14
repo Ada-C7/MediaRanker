@@ -1,0 +1,5 @@
+<h3> New <%= params[:category].capitalize %></h3>
+
+find me in: app/views/works/new.html.erb <!-- delete when done  -->
+
+<%= render partial: "form", locals: { action_name: "Create Work", form_method: :post } %>

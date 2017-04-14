@@ -1,0 +1,10 @@
+<h1> This is the login form </h1>
+<!-- this is a form with out an ative record database -->
+<!-- default verb it post  -->
+
+<%= form_tag login_path do %> <!--could be "/login"-->
+<%= label_tag " username" %>
+<%= text_field_tag "username" %>
+
+<%= submit_tag "Login", method: :post %>
+<% end %>
