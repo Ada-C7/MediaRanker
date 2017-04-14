@@ -21,6 +21,38 @@ submissions = [
           category: "Book",
           author: "Conn Iggulden",
           title: "Lords of the Bow"
+     },
+     {
+          category: "Movie",
+          author: "James Cameron",
+          title: "Terminator"
+     },
+
+     {
+           category: "Album",
+           author: "Duke Ellington",
+           title: "Mood Indigo"
+     },
+     {
+          category: "Book",
+          author: "Ken Follett",
+          title: "Pillars of the Earth"
+     },
+     {
+          category: "Movie",
+          author: "Paul Verhoeven",
+          title: "Total Recall"
+     },
+
+     {
+           category: "Album",
+           author: "Ella Fitzgerald & Louis Armstrong",
+           title: "The Complete Ella Fitzgerald & Louis Armstrong"
+     },
+     {
+          category: "Book",
+          author: "James A. Michener",
+          title: "Hawaii"
      }
 ]
 
@@ -31,15 +63,26 @@ end
 users = [
      {
           username: "Princess",
-          status: true
      },
+
      {
            username: "Darth",
-           status: false
      },
+
      {
           username: "Han",
-          status: true
+     },
+
+     {
+          username: "Chewy",
+     },
+
+     {
+           username: "Luke",
+     },
+
+     {
+          username: "R2-D2",
      }
 ]
 
@@ -57,11 +100,67 @@ votes = [
           submission: sf,
           user: uf
      },
+
      {
           submission: sl,
           user: ul
      },
+
+     {
+          submission: sf,
+          user: uf
+     },
+
+     {
+          submission: sl,
+          user: ul
+     },
+
+     {
+          submission: sf,
+          user: uf
+     },
+
+     {
+          submission: sl,
+          user: ul
+     },
+
+     {
+          submission: sf,
+          user: uf
+     },
+
+     {
+          submission: sf,
+          user: ul
+     },
+
+     {
+          submission: sl,
+          user: uf
+     },
+
+     {
+          submission: sf,
+          user: ul
+     },
+     {
+          submission: sl,
+          user: uf
+     },
+
+     {
+          submission: sf,
+          user: ul
+     },
+
+     {
+          submission: sl,
+          user: uf
+     },
 ]
+
 
 votes.each do | vote |
   Vote.create(vote)
