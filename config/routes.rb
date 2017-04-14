@@ -28,7 +28,7 @@ Rails.application.routes.draw do
   #        POST   /books(.:format)          books#create
   # new_book GET    /books/new(.:format)      books#new
   get 'books', to: 'works#books_index'
-  post 'books', to: 'works#create_book'
+  post 'books/new', to: 'works#create_book'
   get 'books/new', to: 'works#new_book', as: 'new_book'
 
 

@@ -49,7 +49,7 @@ class WorksController < ApplicationController
     @movie = Work.new(strong_params)
     @movie.category = "movie"
     if @movie.save
-      redirect_to root_path #Change to albums
+      redirect_to root_path #Change to movies
     else
       render :new
     end
@@ -62,12 +62,21 @@ class WorksController < ApplicationController
   # BOOKS
 
   def books_index
+    @books = Work.where(category: "book")
   end
 
   def create_book
+    @book = Work.new(strong_params)
+    @book.category = "book"
+    if @book.save
+      redirect_to root_path #Change to book
+    else
+      render :new
+    end
   end
 
   def new_book
+    @book = Work.new
   end
 
   private
