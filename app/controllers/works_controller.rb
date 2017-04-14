@@ -20,12 +20,13 @@ class WorksController < ApplicationController
   end
 
   def new
+    @category = params[:category].singularize
     @work = Work.new
   end
 
   def create
     @work = Work.create work_params
-
+    @category = params[:work][:category]
     unless @work.id ==  nil
       redirect_to works_path
     else
@@ -35,6 +36,7 @@ class WorksController < ApplicationController
 
   def edit
     @work = Work.find params[:id]
+    @category = @work.category
   end
 
   def update

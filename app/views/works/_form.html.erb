@@ -11,7 +11,7 @@
 <%= f.label :description %>
 <%= f.text_area :description %>
 
-<%= f.hidden_field :category, value: params[:category].singularize %>
+<%= f.hidden_field :category, value: @category %>
 
 
 <%= f.submit %>
