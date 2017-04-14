@@ -9,6 +9,18 @@
   </head>
 
   <body>
+    <header class="nav">
+  <ul>
+    <li>
+      <%= link_to "Media Ranker", root_path %> Ranking the Best of Everything
+    </li>
+  </ul>
+    <section class="flash">
+    <% flash.each do |name, message| %>
+    <div class="<%= name %>"><%= message %></div>
+    <!-- dynamically adding class to specific flash elements, used when something in the page was changed for a notice to users -->
+    <% end %>
+  </section>
     <%= yield %>
   </body>
 </html>

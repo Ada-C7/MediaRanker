@@ -1,6 +1,10 @@
-<h1>View works</h1>
+<h1> <% @result_work.title %> </h1>
 
-<h1> <%= @result_work.category %> <%= @result_work.title %> <%= @result_work.creator %> <%= @result_work.publish_year %> <%= @result_work.description %> </h1>
+<ul>
+<li> Created by: <%= @result_work.creator %> </li>
+<li> Published: <%= @result_work.publish_year %> </li>
+<li> <%= @result_work.description %> </li>
+</ul>
 
-
+<%= link to "Back to list" %>
 <%= link_to "Delete", work_path(@result_work.id), data: { confirm: "Are you sure you want to delete?" }, method: :delete %>

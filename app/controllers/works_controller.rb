@@ -45,7 +45,9 @@ class WorksController < ApplicationController
     @work.publish_year = work_params[:publish_year]
 
     if @work.update(work_params)
-      redirect_to work_path(@work.id)
+      redirect_to work_path
+    else
+      render "edit"
     end
 
   end
@@ -60,6 +62,9 @@ class WorksController < ApplicationController
 
     if @work.id != nil
       redirect_to works_path
+    else
+      flash.now[:error] = "Error has occurred"
+      render "new"
     end
 
   end

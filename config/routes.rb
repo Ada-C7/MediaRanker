@@ -1,7 +1,6 @@
 Rails.application.routes.draw do
-  get 'users/index'
 
-  # get 'works/index'
+  root 'works#index'
 
   resources :works
   # resources :albums, only: [:index]
@@ -10,6 +9,7 @@ Rails.application.routes.draw do
   get '/albums', to: 'works#index_album', as: 'albums'
   get '/movies', to: 'works#index_movie', as: 'movies'
 
+  resources :users, only: [:index, :show, :create]
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
