@@ -21,7 +21,7 @@ class WorksController < ApplicationController
     puts @work.errors.messages
     if @work.id != nil
       flash[:success] = "Go you! You have successfully added a new work."
-      redirect_to books_path
+      redirect_to works_path
     else
       flash.now[:error] = "Ooooo, Error 11! The olllde snack saddle is upon you."
       render "new"
