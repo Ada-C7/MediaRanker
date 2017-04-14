@@ -18,7 +18,6 @@ class WorksController < ApplicationController
   def new
     @work = Work.new
     @category = params[:category].singularize
-
     render_404 if ["movies", "books", "albums"].exclude?(params[:category])
   end
 
