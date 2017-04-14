@@ -1,5 +1,10 @@
 class VotesController < ApplicationController
 
+  def index
+    @votes = Vote.all
+  end
+
+
   def upvote
     work_id = params[:work_id]
 
