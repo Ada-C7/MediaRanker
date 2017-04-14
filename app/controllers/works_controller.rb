@@ -28,6 +28,20 @@ class WorksController < ApplicationController
     end
   end
 
+  def show_category
+    @works = Work.where(category: params[:category])
+  end
+
+  def new_category
+    @work = Work.new work_params
+
+    if @work.id != nil
+      redirect_to show_category_path
+    else
+      render "new"
+    end
+  end
+
   def edit
     @work = Work.find(params[:id])
 
