@@ -1,31 +1,43 @@
-<h1>Welcome#index</h1>
+<h2>Media Spotlight: <%=@leader.title%></h2> by <%=@leader.creator%>
+<p>
+  <%=@leader.votes.count%> votes
+</p>
 
 <div class = "row">
   <section class = "large-4 columns">
-    <h1> Top Movies</h1>
+    <p> Top Movies</p>
     <%@movies.each do |movie|%>
       <p>
         <%=link_to movie.title, work_path(movie.id)%> by <%= movie.creator%>
+      </p>
+      <p>
+        <%=movie.votes.count%> votes
       </p>
     <% end %>
     <%= link_to "View more movies", movies_path%>
   </section>
 
   <section class = "large-4 columns">
-    <h1> Top Books</h1>
+    <h2> Top Books</h2>
     <%@books.each do |book|%>
       <p>
         <%=link_to book.title, work_path(book.id)%> by <%= book.creator%>
+      </p>
+      <p>
+        <%=book.votes.count%> votes
       </p>
     <% end %>
     <%= link_to "View more books", books_path%>
   </section>
 
   <section class = "large-4 columns">
-    <h1> Top Albums</h1>
+    <h2> Top Albums</h2>
     <%@albums.each do |album|%>
       <p>
         <%=link_to album.title, work_path(album.id)%> by <%= album.creator%>
+      </p>
+      <p>
+        <%=album.votes.count%> votes
       </p>
     <% end %>
     <%= link_to "View more albums", albums_path%>

@@ -5,19 +5,6 @@
 </section>
 
 
-<section>
-  <%= link_to "ADD",
-  if session[:category] == "album"
-    new_album_path
-  elsif session[:category] == "book"
-    new_book_path
-  elsif session[:category] == "movie"
-    new_movie_path
-  end
-  %>
-</section>
-
-
 <section class="table_scroll">
   <table>
     <tr>
@@ -37,4 +24,17 @@
     </tr>
     <% end %>
   </table>
+</section>
+
+<section>
+  <%= link_to "View all media", works_path%>
+  <%= link_to "Add a new movie",
+  if session[:category] == "album"
+    new_album_path
+  elsif session[:category] == "book"
+    new_book_path
+  elsif session[:category] == "movie"
+    new_movie_path
+  end
+  %>
 </section>

@@ -1,29 +1,30 @@
+<div class = "row">
+  <section class = "large-6 columns">
+    <h1> <%=@work.title %> </h1>
+    <p>
+      Created by: <%=@work.creator %>
+    </p>
+    <p>
+      Published: <%=@work.publication_year %>
+    </p>
+    <p>
+      <%=@work.description %>
+    </p>
+    <p>
+      <%= link_to "Back", @back_url%>
+      <%= link_to "Edit", edit_work_path%>
+      <%= link_to "Delete", work_path,
+      data: {method: :delete, confirm: "Are you sure you want to delete this work from the list?"}%>
+    </p>
 
-<section>
-  <h1> <%=@work.title %> </h1>
-  <p>
-    Created by: <%=@work.creator %>
-  </p>
-  <p>
-    Published: <%=@work.publication_year %>
-  </p>
-  <p>
-    <%=@work.description %>
-  </p>
-  <p>
-    <%= link_to "Back", @back_url%>
-    <%= link_to "Edit", edit_work_path%>
-    <%= link_to "Delete", work_path,
-    data: {method: :delete, confirm: "Are you sure you want to delete this work from the list?"}%>
-  </p>
+  </section>
 
-</section>
-
-<section>
-  <h1>
-    ?? Votes for this movie
-  </h1>
-  <p>
-    Vote info table goes here
-  </p>
-</section>
+  <section class = "large-6 columns">
+    <h1>
+      ?? Votes for this movie
+    </h1>
+    <p>
+      Vote info table goes here
+    </p>
+  </section>
+</div>

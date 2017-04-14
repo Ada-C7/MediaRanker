@@ -74,6 +74,31 @@ describe WorksController do
     end
   end # END of describe "show"
 
+  describe "create" do
+    it "creates a new work" do
+      start_count = Work.count
+
+      session.delete(:category)
+      session[:category] ||= "album"
+      work_data = {
+        work: {
+          title: "Thrill",
+          creator: "Steely Dan",
+          publication_year: 1973,
+          description: "hello"
+        }
+      }
+
+      post works_path, params: work_data
+      # must_redirect_to works_path
+
+      end_count = Work.count
+      end_count.must_equal start_count + 1
+    end
+  end # END of describe "create"
+
+
+
   describe "edit" do
     it "routes to the edit page" do
       album = works(:album_1)
@@ -82,6 +107,10 @@ describe WorksController do
     end
 
   end # END of describe "edit"
+
+
+
+
 
   describe "update" do
     it "Update a work and redirect" do

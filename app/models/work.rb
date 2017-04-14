@@ -7,14 +7,27 @@ class Work < ApplicationRecord
   has_many :votes
   has_many :users, through: :votes
 
-  def ordered_works(category)
+  def self.ordered_works(category)
     works = Work.where(category: category)
-    workId_numberOfVotes = {}
-    if works > 0
-      
+    ordered_list = []
+    if works.count > 0
+      sorted = order_by_votes(works)
+      sorted.each do |arr|
+        ordered_list << works.find_by(id: arr[0])
+      end
+      return ordered_list
+    else
+      return []
     end
+  end
 
 
+  def self.order_by_votes(works)
+    workId_numberOfVotes = {}
+    works.each do |work|
+      workId_numberOfVotes[work.id] = work.votes.count
+    end
+    return workId_numberOfVotes.sort_by{|k,v| v }.reverse
   end
 
 
