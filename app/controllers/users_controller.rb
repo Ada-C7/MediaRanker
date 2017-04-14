@@ -5,10 +5,28 @@ class UsersController < ApplicationController
   end
 
   def show
-    @user = User.find_by(id: params[:id])
-    if @user.nil?
-      head :not_found
+    @user = User.find(params[:id])
+  end
+
+  def new
+    @user = User.new
+  end
+
+  def create
+    user = User.create user_params
+
+    if user.id != nil
+      flash[:success] = "User added successfully"
+      redirect_to user_path(user.id)
+    else
+      flash.now[:failure] = "Sign up failed, try again"
+      render :new
     end
   end
 
+  private
+
+  def user_params
+    params.require(:user).permit(:username, :first_name, :last_name)
+  end
 end
