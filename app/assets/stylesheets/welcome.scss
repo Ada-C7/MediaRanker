@@ -1,3 +1,44 @@
-// Place all the styles related to the Welcome controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+.welcome-nav{
+  margin: 8% 15% 5% 15%;
+  padding:0;
+  height:100%;
+}
+
+.container {
+    display: flex;
+}
+
+.column {
+    flex: 1;
+    box-sizing: border-box;
+}
+
+.column-one {
+    order: 3;
+}
+.column-two {
+    order: 1;
+
+}
+.column-three {
+    order: 4;
+}
+// .column img {
+//   display: block;
+//   margin: auto auto;
+// }
+
+.category {
+
+  	transform: rotate(90deg);
+  	transform-origin: 10% 40%;
+    padding-top: 10px;
+    width: 100%;
+    display: inline-grid;
+    font-size: 50px;
+
+    font-family: 'Druk XCond Web';
+    font-weight: 900;
+    font-style: normal;
+    font-stretch: normal;
+  }

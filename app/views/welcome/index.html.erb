@@ -1,31 +1,51 @@
-<p id="notice"><%= notice %></p>
-<h1>Media Ranker</h1>
+<section class="welcome-nav">
+<!-- <p id="notice"><%= notice %></p> -->
 
-<p>
-  <h1>Books</h1>
-  <% @books.each do |work|%>
-  <%= work[:title] %>
-  <%= work[:creator] %>
-  <%end%>
-</p></br>
+<div class="container">
 
-<p>
-  <h1>Movies</h1>
+<div class="column column-one">
+  <img src="https://unsplash.it/300/400" alt="W3Schools.com" >
+
+  <h1 class="category">Books</h1>
+  <span class="info">
+    <% @books.each do |work|%>
+    <%= work[:title] %>
+    <%= work[:creator] %>
+    <%end%>
+  </span>
+</div>
+
+<div class="column column-two">
+  <img src="https://unsplash.it/300/400" alt="W3Schools.com" >
+
+  <h1 class=" category">Movies</h1>
+  <span class="info">
   <% @movies.each do |work|%>
   <%= work[:title] %>
   <%= work[:creator] %>
   <%end%>
-</p></br>
+  </span>
+</div>
 
-<p>
-  <h1>Albums</h1>
+
+
+
+<div class="column column-three">
+  <img src="https://unsplash.it/300/400" alt="W3Schools.com" >
+
+  <h1 class=" category">Albums</h1>
+  <span class="info">
   <% @albums.each do |work|%>
   <%= work[:title] %>
   <%= work[:creator] %>
   <%end%>
-</p></br>
+  </span>
+</div>
 
 
 
+</div>
+</section>
 
-<%= link_to 'New Work', new_work_path %>
+
+<%#= link_to 'New Work', new_work_path %>
