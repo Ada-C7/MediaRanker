@@ -20,12 +20,22 @@ describe Vote do
       vote.errors.messages.must_include :work
     end
 
+#### WHY DOES THIS NOT WORK?
     it "successfully creates a vote" do
-      work = Work.last
-      user = User.last
-      vote = Vote.new(user: user, work: work)
+      work_data = Work.last
+      user_data = User.last
+      vote = Vote.new(user: user_data, work: work_data)
       result = vote.valid?
       result.must_equal true
+    end
+
+    it "will not record duplicates of the same user_id/work_id" do
+      work_data = Work.last
+      user_data = User.last
+      vote1 = Vote.new(user: user_data, work: work_data)
+      vote2 = Vote.new(user: user_data, work: work_data)
+      result = vote2.valid?
+      result.must_equal false
     end
   end
 
