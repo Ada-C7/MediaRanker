@@ -1,82 +1,98 @@
+<main class="row">
 
-<h1>Media Spotlight: <%= link_to @works.first.title, work_path(@works.first.id)%> by <%=@works.first.created_by%></h1>
-<p>
+  <section class="row spotlight">
+    <div>
+      <h3>Media Spotlight: <%= link_to @works.first.title, work_path(@works.first.id)%> by <%=@works.first.created_by%></h3>
+      <p>
+        <%= @works.first.votes.count %> votes - <%= @works.first.description %></br>
+      </p>
+    </div>
+  </section>
 
-  <%=@works.first.votes.count %> votes - <%= @works.first.description %></br>
-</p>
+  <section class = "top-ten columns large-4 small-12">
 
 
 
-
-
-
-
-
-<table>
-  <tr>
-    Top Movies
-  </tr>
-  <% @movies = [] %>
-  <% @works.each do |work| %>
+    <h3>
+      Top Movies
+    </h3>
+    <% @movies = [] %>
+    <% @works.each do |work| %>
     <% if work.category == "movie" %>
-      <% @movies << work %>
-      <% end %>
-  <% end %>
-  <% @movies[0..9].each do |work| %>
-  <tr>
-    <td>
-      <%=link_to work.title, work_path(work.id)%> by <%=work.created_by%></br>
-      <%= work.votes.count %> votes
-    </td>
-  </tr>
-  <tr>
+    <% @movies << work %>
+    <% end %>
+    <% end %>
+    <% @movies[0..9].each do |work| %>
 
-  </tr>
-  <% end %>
-</table>
+    <ul>
+      <li>
+        <h4>
+          <%=link_to work.title, work_path(work.id)%> by <small><%=work.created_by%></small>
+        </h4>
+        <p>
+          <%= work.votes.count %> votes
+        </p>
+      </li>
+    </ul>
+    <% end %>
 
-<%= link_to "View more movies", category_path("movies"), method: :get %></br>
 
-<table>
-  <tr>
-    Top Books
-  </tr>
-  <% @books = [] %>
-  <% @works.each do |work| %>
-  <% if work.category == "book" %>
-  <% @books << work %>
-  <% end %>
-  <% end %>
-  <% @books[0..9].each do |work| %>
-  <tr>
-    <td>
-      <%=link_to work.title, work_path(work.id)%> by <%=work.created_by%> </br>
-        <%= work.votes.count %> votes
-    </td>
-  </tr>
-  <% end %>
-</table>
 
-<%= link_to "View more books", category_path("books"), method: :get %></br>
+    <%= link_to "View more movies", category_path("movies"), method: :get %></br>
+  </section>
 
-<table>
-  <tr>
-    Top Albums
-  </tr>
-  <% @albums = [] %>
-  <% @works.each do |work| %>
-  <% if work.category == "album" %>
-  <% @albums << work %>
-  <% end %>
-  <% end %>
-  <% @albums[0..9].each do |work| %>
-  <tr>
-    <td>
-      <%=link_to work.title, work_path(work.id)%> by <%=work.created_by%></br>
-        <%= work.votes.count %> votes
-    </td>
-  </tr>
-  <% end %>
-</table>
+  <section class = "top-ten columns large-4 small-12">
+    <h3>
+      Top Books
+    </h3>
+    <% @books = [] %>
+    <% @works.each do |work| %>
+    <% if work.category == "book" %>
+    <% @books << work %>
+    <% end %>
+    <% end %>
+    <% @books[0..9].each do |work| %>
 
-<%= link_to "View more alboms", category_path("albums"), method: :get %></br>
+    <ul>
+      <li>
+        <h4>
+          <%=link_to work.title, work_path(work.id)%> by <small><%=work.created_by%></small>
+        </h4>
+        <p>
+          <%= work.votes.count %> votes
+        </p>
+      </li>
+    </ul>
+    <% end %>
+
+    <%= link_to "View more books", category_path("books"), method: :get %></br>
+  </section>
+
+  <section>
+    <h3>
+      Top Albums
+    </h3>
+    <% @albums = [] %>
+    <% @works.each do |work| %>
+    <% if work.category == "album" %>
+    <% @albums << work %>
+    <% end %>
+    <% end %>
+    <% @albums[0..9].each do |work| %>
+
+    <ul>
+      <li>
+        <h4>
+          <%=link_to work.title, work_path(work.id)%> by <small><%=work.created_by%></small>
+        </h4>
+        <p>
+          <%= work.votes.count %> votes
+        </p>
+      </li>
+    </ul>
+    <% end %>
+
+    <%= link_to "View more albums", category_path("albums"), method: :get %></br>
+
+  </section>
+</main>

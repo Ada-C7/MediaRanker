@@ -1,7 +1,6 @@
 class WorksController < ApplicationController
   def index
-    @works = Work.all
-    # .sort {|d1, d2| d1.id <=> d2.id}
+    @works = Work.all.sort {|d1, d2|  d2.votes.count <=> d1.votes.count}
 
   end
 

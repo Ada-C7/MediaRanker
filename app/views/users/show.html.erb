@@ -1,53 +1,58 @@
-<% @user = User.find(params[:id]) %>
+<main class="row">
+  <% @user = User.find(params[:id]) %>
 
-User Summary: <%= @user.name %> </br>
-Joined site: <%= @user.created_at.strftime("%b %d, %Y") %>
+  <h3></h3>User Summary: <%= link_to @user.name, user_path(@user.id), method: :get %> </h3>
+  <p>Joined site: <%= @user.created_at.strftime("%b %d, %Y") %></p>
+
+  <h4>Votes</h4>
+
+  <table>
+    <thead>
+      <tr>
+
+        <th>
+          Media Title
+        </th>
+        <th>
+          Created By
+        </th>
+        <th>
+          Published
+        </th>
+        <th>
+          Category
+        </td>
+        <th>
+          Voted on
+        </th>
+      </tr>
+    </thead>
 
 
+    <tbody>
+      <% @user.votes.each do | vote | %>
+      <tr>
+        <td>
+          <%= link_to vote.work.title, work_path(vote.work.id), method: :get %>
+        </td>
+        <td>
+          <%= vote.work.created_by %>
+        </td>
+        <td>
+          <%= vote.work.year_published %>
+        </td>
+        <td>
+          <%= vote.work.category.capitalize %>
+        </td>
 
-<table>
-  <th>
-    <tr>
+        <td>
+          <%= vote.created_at.strftime("%b %d, %Y") %>
+        </td>
+        <% end %>
+      </tr>
+    </tbody>
+  </table>
 
-      <td>
-       Media Title
-      </td>
-      <td>
-        Created By
-      </td>
-      <td>
-        Published
-      </td>
-      <td>
-        Category
-      </td>
-      <td>
-        Voted on
-      </td>
-    </tr>
-  </th>
-  <% @user.votes.each do | vote | %>
-
-  <tr>
-    <td>
-      <%= link_to vote.work.title, work_path(vote.work.id), method: :get %>
-    </td>
-    <td>
-      <%= vote.work.created_by %>
-    </td>
-    <td>
-      <%= vote.work.year_published %>
-    </td>
-    <td>
-      <%= vote.work.category.capitalize %>
-    </td>
-
-    <td>
-      <%= vote.created_at.strftime("%b %d, %Y") %>
-    </td>
-    <% end %>
-  </tr>
-</table>
-
-<%= button_to "See all users", users_path, method: :get%>
-<%= button_to "Back to media list", works_index_path, method: :get %>
+  <%= button_to "See all users", users_path, method: :get, class: "button" %>
+  <%= button_to "Back to media list", works_index_path, method: :get, class: "button" %>
+</main>

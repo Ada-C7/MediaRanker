@@ -1,23 +1,32 @@
+<main class="row">
+
+<h3>List of <%=@categorized_works.first.category%></h3>
+<section class="media-table">
+
+
 <table>
-  <th>
+  <thead>
     <tr>
-      <td>
+      <th width="80">
         Votes
-      </td>
-      <td>
+      </th>
+      <th>
         Title
-      </td>
-      <td>
+      </th>
+      <th>
         Created By
-      </td>
-      <td>
+      </th>
+      <th width="100">
         Published
       </td>
-      <td>
+      <th width="100">
         Upvote
-      </td>
+      </th>
     </tr>
-  </th>
+  </thead>
+  <tbody>
+
+
   <% @categorized_works.each do |work| %>
 
   <tr>
@@ -34,14 +43,17 @@
       <%= work.year_published %>
     </td>
     <td>
-      <%= button_to "Upvote", upvote_path(work.id), method: :post %>
+      <%= button_to "Upvote", upvote_path(work.id), method: :post, class: "button upvote" %>
     </td>
     <% end %>
   </tr>
+    </tbody>
 </table>
 
 <% if @categorized_works.length > 0 %>
-<%= link_to "View all media", works_path, method: :get %>
-<%= link_to "Add a new #{@categorized_works.first.category}", category_path(@categorized_works.first.category.pluralize), method: :get %>
+<%= link_to "View all media", works_path, method: :get, class: "button" %>
+<%= link_to "Add a new #{@categorized_works.first.category}", category_path(@categorized_works.first.category.pluralize), method: :get, class:"button" %>
 <%# problem here if there is no media of a given category %>
 <% end %>
+</section>
+</main>
