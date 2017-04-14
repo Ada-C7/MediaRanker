@@ -3,15 +3,7 @@ class Work < ApplicationRecord
   validates :title, presence: true
   validates :category, presence: true
 
-  def already_voted?(user) #pass in one user object
-    # #if user upvoting already voted, he/she cannot vote again
-    # Vote.where(user_id: user.id, work_id: id)
-    # # Vote.all.each do |vote| #vote.where
-    # #   if vote.work_id == params[:work_id] && vote.user_id == user.id
-    # #     user_vote_count += 1
-    # #   end
-    # # end
-
+  def already_voted?(user)
     if Vote.where(user_id: user.id, work_id: id).length != 0
       return true
     else
@@ -19,4 +11,10 @@ class Work < ApplicationRecord
     end
   end
 
+  def self.top_votes
+    @works = Work.all
+    sorted_array = @works.sort { |a, b| a.votes.count <=> b.votes.count}
+    # raise
+    return sorted_array.last
+  end
 end
