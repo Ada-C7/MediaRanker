@@ -108,12 +108,4 @@ it "should update a work" do
   must_respond_with :redirect
 end
 
-
-
-
-
-
-
-
-
 end
