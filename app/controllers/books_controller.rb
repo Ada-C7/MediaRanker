@@ -8,11 +8,14 @@ class BooksController < ApplicationController
   end
 
   def new
-    @work = Work.new
+    @book = Work.new
   end
 
   def create
-    @work = Work.new(books_params)
+    user_params = work_params
+    controller_params = {category: "book"}
+    final_params = user_params.merge(controller_params)
+    @work = Work.new(final_params)
     if @work.save
       redirect_to books_path
     else
@@ -21,7 +24,7 @@ class BooksController < ApplicationController
   end
 
 private
-  def book_params
+  def work_params
     return params.require(:work).permit(:title, :creator, :publication_year, :description)
   end
 

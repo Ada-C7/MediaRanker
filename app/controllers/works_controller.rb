@@ -19,7 +19,7 @@ class WorksController < ApplicationController
     work.update_attributes(work_params)
     work.save
     redirect_to works_path(work)
-end
+  end
 
 private
   def work_params
