@@ -94,14 +94,31 @@ describe WorksController do
       updated_work = Work.first
       updated_work.title.must_equal work_params[:work][:title]
 
-      must_redirect_to work_path(work_id)
+      must_redirect_to works_path(category: work.category.pluralize)
     end
 
     it "Responds with bad_request for data" do
-
+      work = Work.first
+      work_params = {
+        work: {
+          category: "so bad so bad so bad"
+          }
+        }
+      patch work_path(work.id), params: work_params
+      must_respond_with :bad_request
     end
 
-    it "returns a 404 for a work that does not exist"
+    it "returns a 404 for a work that does not exist" do
+      work_params = {
+        work: {
+        title: " oh yeah this is a test with valid data booyeah"
+        }
+      }
+      work_id = Work.last.id + 1
+      patch work_path(work_id), params: work_params
+      must_respond_with :not_found
+    end
+
   end
     describe "delete" do
       it "destroys a work that exists" do

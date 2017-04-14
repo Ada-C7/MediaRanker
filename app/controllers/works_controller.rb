@@ -66,13 +66,17 @@ class WorksController < ApplicationController
   end
 
   def update
-    @work = Work.find(params[:id])
-    @work.update_attributes(work_params)
+    @work = Work.find_by(id: params[:id])
 
-    if @work.save
-      redirect_to works_path(@work.category.pluralize)
+    if @work.nil?
+      head :not_found
     else
-      render :edit, status: :bad_request
+      @work.update_attributes(work_params)
+      if @work.save
+        redirect_to works_path(@work.category.pluralize)
+      else
+        render :edit, status: :bad_request
+      end
     end
   end
 
