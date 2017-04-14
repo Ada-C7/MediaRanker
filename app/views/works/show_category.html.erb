@@ -26,7 +26,7 @@
   </thead>
   <tbody>
 
-
+<% if !@categorized_works.empty? %>
   <% @categorized_works.each do |work| %>
 
   <tr>
@@ -49,6 +49,7 @@
   </tr>
     </tbody>
 </table>
+<%end%>
 
 <% if @categorized_works.length > 0 %>
 <%= link_to "View all media", root_path, method: :get, class: "button" %>
