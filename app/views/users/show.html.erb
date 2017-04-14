@@ -9,12 +9,15 @@
     <th>Category</th>
     <th>Voted On</th>
   </tr>
-  <% @user.votes.each do |vote| %>
+  <% @user.items.each do |item| %>
     <tr>
-      <td><%= link_to "#{user.username}", user_path(user.id) %></td>
-      <td><%= user.votes.count %></td>
-      <td><%= user.created_at %></td>
+      <td><%= link_to "#{item.title}", item_path(item.id) %></td>
+      <td><%= item.creator %></td>
+      <td><%= item.publication_year %></td>
+      <td><%= item.category %></td>
+      <td><%= item.votes.find_by(user_id: @user.id).created_at %></td>
     </tr>
   <% end %>
 </table>
 <%= link_to 'Back to homepage', root_path %>
+<%= link_to 'View all users', users_path %>
