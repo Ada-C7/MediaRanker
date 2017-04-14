@@ -12,7 +12,7 @@ class WorksController < ApplicationController
         new
         if @work.update(work_params)
             flash[:success] = "#{@work.title} added successfully"
-            redirect_to home_path
+            redirect_to send("#{@work.category}s_path")
         else
             flash.now[:failure] = 'Media was not created'
             render :new, status: :bad_request
@@ -22,14 +22,17 @@ class WorksController < ApplicationController
     def update
         edit
         if @work.update(work_params)
+            flash[:success] = "#{@work.title} updated successfully"
             redirect_to work_path(@work)
         else
-            render 'edit'
+            flash.now[:failure] = 'Media was not updated'
+            render 'edit', status: :bad_request
         end
     end
 
     def edit
         @work = Work.find(params[:id])
+        head :not_found if @work.nil?
     end
 
     def show
@@ -39,8 +42,12 @@ class WorksController < ApplicationController
 
     def destroy
         work = Work.find(params[:id])
-        work.destroy
-        redirect_to home_path
+        if work.nil?
+            head :not_found
+        else
+            work.destroy
+            redirect_to home_path
+        end
     end
 
     def upvote

@@ -11,9 +11,9 @@
 </ul>
 </div>
 
-<%= button_to work.votes.select { |vote| vote[:user_id] == session[:user_id] }.empty? ? 'Upvote' : 'Remove Vote', upvote_path(work.id) %>
+<%= button_to @work.votes.select { |vote| vote[:user_id] == session[:user_id] }.empty? ? 'Upvote' : 'Remove Vote', upvote_path(@work.id) %>
 
 
 <%= link_to "Delete", work_path(@work.id), method: :delete, data: {confirm: "Are you sure to delete the #{@work.category} #{@work.title}?"}%>
-
-<%= link_to "View All Media", home_path %>
+<%= link_to 'Edit', edit_work_path(@work.id) %>
+<%= link_to "View All #{@work.category.capitalize}s", send("#{@work.category}s_path") %>

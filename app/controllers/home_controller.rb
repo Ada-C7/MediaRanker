@@ -3,5 +3,6 @@ class HomeController < ApplicationController
         @albums = Work.where(category: 'album')
         @books = Work.where(category: 'book')
         @movies = Work.where(category: 'movie')
-     end
+        @spotlight = Work.all.max_by { |w| w.votes.count }
+    end
 end

@@ -1,7 +1,26 @@
-require "test_helper"
+require 'test_helper'
 
 describe SessionsController do
-  # it "must be a real test" do
-  #   flunk "Need real tests"
-  # end
+    describe 'create' do
+        it 'logs in a user' do
+            user_data = { user: { name: 'Ada' } }
+            post login_path, params: user_data
+            must_redirect_to home_path
+        end
+
+        it 'redirects to login page if username is incorrect' do
+            user_data = { user: { name: '983546252.9373593610' } }
+            post login_path, params: user_data
+            must_redirect_to login_path
+        end
+    end
+
+    describe 'destroy' do
+        it 'logs out a user' do
+            user_data = { user: { name: 'Ada' } }
+            post login_path, params: user_data
+            delete logout_path, params: user_data
+            must_redirect_to home_path
+        end
+    end
 end

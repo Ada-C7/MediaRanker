@@ -1,7 +1,10 @@
-<h1> Welcome to MediaRanker </h1>
 
+<main>
 <%= link_to "Add a New Media", new_work_path%>
 <%= link_to "New User", new_user_path%>
+
+Media Spotlight: <%= "#{@spotlight.title} by #{@spotlight.creator}" %>
+<%= @spotlight.description%>
 
     <section class='albums'>
       <h2> Top Albums </h2>
@@ -26,3 +29,4 @@
       <%end%>
       <%= link_to "All Movies", movies_path%>
     </section>
+  </main>

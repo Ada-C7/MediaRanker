@@ -9,17 +9,23 @@
   </head>
 
   <body>
+    <header>
     <nav>
-      <ul>
-        <li><%= link_to 'DankRank', home_path %>
+      <img src="/assets/owl.jpg" alt='Dank Owl'>
+        <h1><%= link_to 'DankRank', home_path %></h1>
+        <h2> Rank the Best Dank Everything</h2>
+
+        <section>
       <% if session[:user_id] %>
         Logged in as <%= link_to "#{User.find_by(id: session[:user_id]).name}", user_path(session[:user_id])%>
-        <li><%= link_to "Logout", logout_path, method: :delete%></li>
+        <%= button_to "Logout", logout_path, method: :delete%>
         <%else%>
-        <li><%= link_to "Login", login_path%></li>
+        Not Logged in
+        <%= button_to "Login", login_path%>
         <%end%>
-      </ul>
+      </section>
     </nav>
+  </header>
 
     <section class='flash'>
       <% flash.each do |name, message| %>

@@ -23,4 +23,4 @@
 <%end%>
 
 <%= link_to "View All Media", home_path %>
-<%= link_to "Add a New Media", new_work_path%>
+<%= link_to "Add a New #{request.path[1..-1].capitalize}", new_work_path%>
