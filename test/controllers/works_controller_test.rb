@@ -7,5 +7,10 @@ class WorksControllerTest < ActionDispatch::IntegrationTest
             get works_path
             must_respond_with :success
         end
+
+        it "should get show" do
+            get work_path(works(:antonia))
+            must_respond_with :success
+        end
     end
 end

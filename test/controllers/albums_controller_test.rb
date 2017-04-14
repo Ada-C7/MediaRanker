@@ -5,4 +5,5 @@ describe AlbumsController do
         get new_album_path
         must_respond_with :success
     end
+
 end
