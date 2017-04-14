@@ -85,6 +85,20 @@ class WorksController < ApplicationController
       redirect_to :back
     end
   end
+
+  def destroy
+    Work.destroy(params[:id])
+    # flash[:success] = "Successfully destroyed #{@work.category} #{@work.id}."
+    redirect_to works_path #this needs to be edited in the future to category path
+  end
+end
+
+
+
+private
+
+def work_params
+  params.require(:work).permit(:category, :title, :creator, :description, :publication_year)
 end
 
 
@@ -102,17 +116,7 @@ end
 
 
 
-def destroy
-  Work.destroy(params[:id])
-  # flash[:success] = "Successfully destroyed #{@work.category} #{@work.id}."
-  redirect_to works_path #this needs to be edited in the future to category path
-end
 
-private
-
-def work_params
-  params.require(:work).permit(:category, :title, :creator, :description, :publication_year)
-end
 
 
 

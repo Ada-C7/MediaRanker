@@ -4,12 +4,12 @@
 <h4><%=@selected_work.description%></h4>
 
 <% case @selected_work.category %>
-  <% when "album"%>
-  <h3><%= link_to "Back to albums list", albums_path %></h3>
-  <% when "book"%>
-  <h3><%= link_to "Back to books list", books_path %></h3>
-  <% when "movie"%>
-  <h3><%= link_to "Back to movie list", movies_path %></h3>
+<% when "album"%>
+<h3><%= link_to "Back to albums list", albums_path %></h3>
+<% when "book"%>
+<h3><%= link_to "Back to books list", books_path %></h3>
+<% when "movie"%>
+<h3><%= link_to "Back to movie list", movies_path %></h3>
 <% end %>
 
 
@@ -19,8 +19,27 @@
 
 <h3><%= @selected_work.votes.count %> voted for this <%= @selected_work.category %></h3>
 
-<p>
-  <% @selected_work.votes.each do |vote| %>
-  <%= User.find_by(vote.user_id) %>
-  <% end %>
-</p>
+<table>
+  <thead>
+    <tr>
+      <th>
+        Username
+      </th>
+      <th>
+        Date
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @selected_work.votes.each do |vote| %>
+    <tr>
+      <td>
+        <%= link_to User.find_by_id(vote.user_id.to_s).name, user_path(vote.user_id)%>
+      </td>
+      <td>
+        <%= vote.created_at.strftime("%B %d, %Y") %>
+      </td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
