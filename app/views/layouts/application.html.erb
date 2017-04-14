@@ -7,10 +7,10 @@
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
-  <banner>
 
-
-  <h1><%= link_to "Media Ranker", works_path %> Ranking the Best of Everything</h1>
+  <banner class="banner row">
+    <img src="owl.jpg" alt="logo" height="100" width="100" >
+  <h1 "columns large-9 small-12"><%= link_to "Media Ranker", works_path %> Ranking the Best of Everything</h1>
 </banner>
 
   <body>
@@ -22,15 +22,13 @@
 
 
     <nav>
-    <ul>
       <% if session[:user_id] %>
-        <li>Logged in as <%= (User.find(session[:user_id])).name%></li>
-        <li><%= link_to "Log Out", logout_path, method: :delete%></li>
+        Logged in as <%= (User.find(session[:user_id])).name%></br>
+        <%= link_to "Log Out", logout_path, method: :delete%>
       <% else %>
-        <li>Not Logged in</li>
-        <li><%= link_to "Log In", login_path %></li>
+        Not Logged in</br>
+        <%= link_to "Log In", login_path %>
       <% end %>
-    </ul>
   </nav>
 
 
