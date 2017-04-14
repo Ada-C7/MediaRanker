@@ -9,7 +9,7 @@ Rails.application.routes.draw do
   resources :books
   resources :movies
   resources :albums
-  resources :votes, only: [:create]
+  resources :votes, only: [:create, :update]
 
 
 
