@@ -40,6 +40,7 @@ class WorksController < ApplicationController
   end
 
   def upvote
+    logger.info "===================Upvoting an item"
     @result_work = Work.find(params[:id])
     # @result_work = Work.find(shoe)
 
@@ -63,6 +64,8 @@ class WorksController < ApplicationController
       @vote.work_id = params[:id]
       @vote.save
       flash[:success] = "Successfully upvoted!"
+      logger.info "===================Finished Upvoting an item #{@vote.errors.messages}"
+
       redirect_to :back
     else
       flash[:error] = "you must be logged in to vote"
