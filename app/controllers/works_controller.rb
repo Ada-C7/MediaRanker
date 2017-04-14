@@ -8,19 +8,19 @@ class WorksController < ApplicationController
   end
 
   def index_books
-    books = Work.where(category: "book")
+    books = Work.where(category: "Book")
     sorted_books = books.sort_by { |book| book.votes.count }
     @works = sorted_books.reverse
   end
 
   def index_albums
-    albums = Work.where(category: "album")
+    albums = Work.where(category: "Album")
     sorted_albums = albums.sort_by {|album| album.votes.count }
     @works = sorted_albums.reverse
   end
 
   def index_movies
-    movies = Work.where(category: "movie")
+    movies = Work.where(category: "Movie")
     sorted_movies = movies.sort_by {|movie| movie.votes.count }
     @works = sorted_movies.reverse
   end
@@ -70,7 +70,7 @@ class WorksController < ApplicationController
     @work.desc = work_params[:desc]
 
     if @work.save
-      flash[:success] = "You have updated #{@work.name}."
+      flash[:success] = "You have updated #{@work.title}."
       redirect_to work_path
     else
       render "edit"

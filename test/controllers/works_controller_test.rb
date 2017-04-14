@@ -7,6 +7,12 @@ describe WorksController do
     must_respond_with :success
   end
 
+  # it "still works with multiple works" do
+  #   Work.count.must_be :>, 0
+  #   get works_path
+  #   must_respond_with :success
+  # end
+
   #pos index_books
   it "should get index_books page" do
     get books_path

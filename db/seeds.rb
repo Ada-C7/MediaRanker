@@ -10,7 +10,7 @@ require 'csv'
 
 work_array = []
 CSV.open('db/media_seeds.csv', 'r', :headers => true).each do |line|
-  category = line["category"]
+  category = (line["category"]).capitalize
   title = line["title"]
   creator = line["creator"]
   pub_yr = line["publication_year"].to_i
