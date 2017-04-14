@@ -15,7 +15,9 @@
   <nav>
   <ul>
     <% if session[:user_id] %>
-      <li><p>Logged in as <%= link_to User.find_by_id(session[:user_id]).name, user_path(User.find_by_id(session[:user_id]))%></p>
+    <% user_id = session[:user_id].to_s %>
+      <li>
+        Logged in as <%= User.find_by_id(user_id).name %>
         <%= link_to "Logout",logout_path, method: :delete %></li>
     <% else %>
       <li><%= link_to "Login", login_path %></li>
