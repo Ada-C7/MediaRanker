@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>MediaRanker</title>
+    <title>Media Ranker</title>
     <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
@@ -9,21 +9,21 @@
   </head>
 
   <body>
-    <header>
-      <h1><%= link_to "Media Ranker", root_path %> Ranking the Best of Everything</h1>
-      <% if session[:user_id] && User.find_by_id(session[:user_id]) %>
-        <p>Logged in as <%= link_to User.find_by_id(session[:user_id]).username, user_path(session[:user_id]) %></p>
-        <p><%= link_to "Log Out", logout_path, method: :delete %></p>
-      <% else %>
-        <p>Not logged in.</p>
-        <p><%= link_to "Login", login_path %></p>
-      <% end %>
+    <header class="row page-header">
+      <h1 class="small-12 large-9 columns"><%= link_to "Media Ranker", root_path %> <small>Ranking the Best of Everything</small></h1>
+      <section class="small-12 large-3 columns">
+        <% if session[:user_id] && User.find_by_id(session[:user_id]) %>
+          <p class="text-right">Logged in as <%= link_to User.find_by_id(session[:user_id]).username, user_path(session[:user_id]) %></p>
+          <p><%= link_to "Log Out", logout_path, method: :delete, class: "button float-right" %></p>
+        <% else %>
+          <p class="text-right">Not logged in.</p>
+          <p><%= link_to "Login", login_path, class: "button float-right" %></p>
+        <% end %>
+      </section>
     </header>
-    <section class="flash">
-      <% flash.each do |name, message| %>
-        <div class="<%= name %>"><%= message %></div>
-      <% end %>
-    </section>
+    <% flash.each do |name, message| %>
+      <h3 class="row status <%= name %>"><%= message %></div>
+    <% end %>
     <%= yield %>
   </body>
 </html>
