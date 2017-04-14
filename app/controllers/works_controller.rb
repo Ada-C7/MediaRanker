@@ -31,33 +31,25 @@ class WorksController < ApplicationController
 
     if @work.save
       flash[:success] = "Successfully created #{@work.category} #{@work.id}"
-      # if @work.category = "book"
-      #   redirect_to books_path
-      # elsif @work.category = "movie"
-      #   redirect_to movies_path
-      # elsif @work.category = "album"
-      #   redirect_to albums_path
-      # else
-        redirect_to new_work_path(params[:work][:category])
-      # end
+      redirect_to new_work_path(params[:work][:category])
+
     else
       flash.now[:failure] = "A problem occurred: Could not create #{@work.category}"
       render "new"
-      # if @work.category = "book"
-      #   render "books/new"
-      # elsif @work.category = "movie"
-      #   render "movies/new"
-      # elsif @work.category = "album"
-      #   render "albums/new"
-      # else
-        # render "index"
-      # end
-      # render "new"
     end
   end
 
   def edit
     @work = Work.find_by_id(params[:id])
+  end
+
+  def update
+    @work = Work.find_by_id(params[:id])
+
+    if @work.update(work_params)
+      flash[:success] = "Successfully updated #{@work.category} #{@work.id}"
+      redirect_to category_path(@work.category)
+    end
   end
 
   private
