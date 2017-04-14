@@ -47,6 +47,17 @@ class WorksController < ApplicationController
     redirect_to works_path(category.pluralize)
   end
 
+  def vote
+    if session[:user_id] # user logged in
+      Vote.create(user_id: session[:user_id], work_id: params[:id])
+      flash[:success] = "Successfully upvoted!"
+    else
+      flash[:failure] = "Could not upvote"
+    end
+    category = Work.find(params[:id]).category.pluralize
+    redirect_to works_path(category)
+  end
+
   private
 
   def work_params

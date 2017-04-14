@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   get 'works/:id/edit', to: 'works#edit', as: 'edit_work'
   patch 'works/:id', to: 'works#update'
   delete 'works/:id', to: 'works#destroy'
+  post 'works/:id/vote', to: 'works#vote', as: "vote"
 
   get 'login', to: 'sessions#new'
   post 'login', to: 'sessions#create'
@@ -17,4 +18,6 @@ Rails.application.routes.draw do
 
   get 'users', to: 'users#index', as: 'users'
   get 'useres/:id', to: 'users#show', as: 'user'
+
+
 end
