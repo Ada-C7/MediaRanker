@@ -33,7 +33,8 @@ class WorksController < ApplicationController
     @work.assign_attributes(work_params)
 
     if @work.save
-      redirect_to work_path(@work)
+      flash[:success] = "Successfully updated #{@work.title}"
+      redirect_to works_path(@work.category.pluralize)
     else
       render :edit
     end
@@ -52,10 +53,10 @@ class WorksController < ApplicationController
       Vote.create(user_id: session[:user_id], work_id: params[:id])
       flash[:success] = "Successfully upvoted!"
     else
-      flash[:failure] = "Could not upvote"
+      flash[:failure] = "You must log in to upvote"
     end
-    category = Work.find(params[:id]).category.pluralize
-    redirect_to works_path(category)
+    # category = Work.find(params[:id]).category.pluralize
+    redirect_back(fallback_location: home_path)
   end
 
   private
