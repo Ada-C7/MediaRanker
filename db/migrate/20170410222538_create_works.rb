@@ -6,8 +6,9 @@ class CreateWorks < ActiveRecord::Migration[5.0]
       t.string :creator
       t.string :publication_year
       t.string :description
+      t.integer :users_count
 
-      #do i need to do this if i have a many-to-many table with the relationship defined. 
+      #do i need to do this if i have a many-to-many table with the relationship defined.
       #t.belongs_to :user
 
       t.timestamps
