@@ -12,16 +12,16 @@
     <header>
       <!-- <%= image_tag("owl.jpg", alt: "owl reading a book") %> -->
       <h2>
-        <%= link_to "Media Ranker", works_path("movies") %>
+        <%= link_to "Media Ranker", home_path %>
         <span class="small">Ranking the Best of Everything</span>
       </h2>
       <div>
         <% if session[:user_id] %>
           <p>Logged in as <%= session[:username] %></p>
-          <%= link_to "Log Out", logout_path, method: :delete %>
+          <%= link_to "Log Out", logout_path, method: :delete, class: "button" %>
         <% else %>
           <p>Not logged in</p>
-          <%= link_to "Log In", login_path %>
+          <%= link_to "Log In", login_path, class: "button" %>
         <% end %>
       </div>
     </header>
