@@ -35,9 +35,11 @@ end
 
   def show
     @work = Work.find_by(id: params[:id])
-    @votes = @work.user_votes
+
     if @work.nil?
       head :not_found
+    else
+      @votes = @work.votes
     end
   end
 
@@ -50,12 +52,17 @@ end
     work.update_attributes(work_params)
     work.save
 
-    redirect_to work_path(work)
+      if work.save
+      redirect_to work_path(work)
+      else
+        redirect_to edit_work_path
+      end
+
   end
 
   def destroy
     work = Work.find(params[:id])
-    work.destroy_all
+    work.destroy
     redirect_to works_path
   end
 
