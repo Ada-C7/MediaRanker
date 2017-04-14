@@ -156,6 +156,18 @@ describe WorksController do
       delete work_path(id)
       must_respond_with :not_found
     end
+  end
 
+  describe 'vote' do
+    it 'should redirect to work_path' do
+      work_id = Work.first.id
+      user_id = User.first.id
+      # vote is not getting created
+      # puts "Before: #{Vote.count}"
+      post vote_path(work_id, user_id)
+      # puts "After: #{Vote.count}"
+      must_respond_with :redirect
+      must_redirect_to work_path(work_id)
+    end
   end
 end
