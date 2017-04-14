@@ -9,34 +9,35 @@
   </head>
 
   <body>
-    <header>
-      <div class="row">
-        <img class="small-1 medium-1 columns" src="http://www.clipartbest.com/cliparts/RiG/B5K/RiGB5KdxT.png"/>
-        <h1 class="small-4 medium-4 columns site-title"><%= link_to "Media Ranker", root_path %></h1>
-        <h3 class="small-5 medium-3 columns">
-          Ranking the Best of Everything
-        </h3>
-        <nav class="small-2 medium-2 columns">
-          <ul>
+    <header class="page-header row">
+        <h2 class="columns large-9 small-12"><%= link_to "Media Ranker", root_path %> Ranking the Best of Everything</h2>
+        <div class="columns large-3 small-12">
+          <p class="text-right">
           <% unless session[:user_id] %>
-          <li><%= link_to "Log in!", login_path %>
-          </li>
+          <%= link_to "Log in!", login_path %>
           <% else %>
-          <li>Logged in as <%= link_to "#{session[:user_name]}", user_path(session[:user_id]) %></li>
-          <li><%= link_to "Log out!", logout_path, method: :put %></li>
+          Logged in as <%= link_to "#{session[:user_name]}", user_path(session[:user_id]) %></p>
+          <%= link_to "Log out", logout_path, method: :put,  class: "button float-right" %>
           <% end %>
-          </ul>
-        </nav>
+
       </div>
     </header>
-    <section class="flash">
+    <section class="row status">
       <% flash.each do |name, message| %>
-      <div class="<%= name %>">
+      <% if name == "success" %>
+      <div class="success">
         <%= message %>
+
       </div>
+      <% else %>
+      <div class="error">
+        <%= message %>
+
+      </div>
+      <%end%>
       <% end %>
     </section>
-    <main>
+    <main class="row">
 
       <%= yield %>
     </main>

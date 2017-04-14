@@ -15,10 +15,10 @@
     <td><%= link_to book.title, work_path(book.id) %></td>
     <td><%= book.creator %></td>
     <td><%= book.publication_year %></td>
-    <td><%= link_to "Upvote", upvote_path(book.id), method: :post %></td>
+    <td><%= link_to "Upvote", upvote_path(book.id), method: :post, class: "button" %></td>
   </tr>
   <% end %>
 </table>
 
-<%= link_to "Back to all media", root_path %>
-<%= link_to "Add new book", new_book_path %>
+<%= link_to "Back to all media", root_path, class: "button" %>
+<%= link_to "Add new book", new_book_path, class: "button" %>
