@@ -14,8 +14,15 @@ class WorksController < ApplicationController
     @work = Work.find(params[:id])
   end
 
+  def update
+    work = Work.find(params[:id])
+    work.update_attributes(work_params)
+    work.save
+    redirect_to works_path(work)
+end
+
 private
-  def book_params
+  def work_params
     return params.require(:work).permit(:title, :creator, :publication_year, :description)
   end
 
