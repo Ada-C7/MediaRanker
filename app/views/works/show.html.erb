@@ -1,3 +1,5 @@
+<h1 class="page-header"><%= @work.title %></h1>
+
 <p id="notice"><%= notice %></p>
 
 <p>
@@ -27,6 +29,10 @@
   <strong>Description:</strong>
 <%= @work[:description] %>
 </p>
+<!--
+<div id="post_<%= @work.id %>_likes">
+  <%#= render partial: "votes", locals: {vote: @vote} %>
+</div> -->
 
 
 <%= link_to "upvote", upvote_work_path(:id => @work.id) %>

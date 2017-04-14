@@ -51,11 +51,10 @@ class WorksController < ApplicationController
   end
 
 
-  # def upvote
-  #   @work = Work.find(params[:id])
-  #  @work.increment(:upvote, params[:id])
-  #
-  # end
+  def upvote
+
+
+  end
 
   def destroy
     @work.destroy

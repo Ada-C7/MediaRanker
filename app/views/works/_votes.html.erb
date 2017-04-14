@@ -1,0 +1,12 @@
+<!-- # <% if user_signed_in? && current_user.votes?(work) %>
+#
+#   <%#= link_to "Unvote", work_vote_path(work), method: :delete, remote: true %>
+# <% else %>
+#   <%#= link_to "vote", work_vote_path(work), method: :post, remote: true %>
+# <% end %> -->
+
+<%= @work.votes.count %>
+
+<% @work.votes.each do |vote| %>
+
+<% end %>

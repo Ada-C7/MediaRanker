@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  get 'votes/index'
+
   root "welcome#index"
 
 
@@ -14,10 +16,10 @@ Rails.application.routes.draw do
 
   resources :works do
     member do
-      # get :delete
+      # resource :vote, module: :works
+      get :delete
       get :upvote
-      post :upvote
-      # get "controller#upvote"
+      # post :upvote
 
     end
   end
