@@ -1,6 +1,7 @@
 <section>
 <h2> Media Spotlight </h2>
   <h3><%= "#{@media_spotlight.title}" %></h3>
+  <br> <%= "#{@media_spotlight.vote_count} Votes" %>
   <br> <%= "Created By: #{@media_spotlight.creator}" %>
   <br> <%= "Published: #{@media_spotlight.pub_date}" %>
   <br> <%= "#{@media_spotlight.description}" %>
@@ -13,6 +14,7 @@
   <% @albums.each do |work| %>
   <li>
     <%= link_to "Title: #{work.title}", work_path(work.id) %>
+    <%= "#{work.vote_count} Vote(s)" %>
     <%= "Created By: #{work.creator}" %>
     <%= "Published: #{work.pub_date}" %>
   </li>
@@ -28,6 +30,7 @@
   <% @books.each do |work| %>
   <li>
     <%= link_to "Title: #{work.title}", work_path(work.id) %>
+    <%= "#{work.vote_count} Vote(s)" %>
     <%= "Created By: #{work.creator}" %>
     <%= "Published: #{work.pub_date}" %>
   </li>
@@ -43,6 +46,7 @@
   <% @movies.each do |work| %>
   <li>
     <%= link_to "Title: #{work.title}", work_path(work.id) %>
+    <%= "#{work.vote_count} Vote(s)" %>
     <%= "Created By: #{work.creator}" %>
     <%= "Published: #{work.pub_date}" %>
   </li>

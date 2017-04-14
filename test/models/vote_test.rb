@@ -20,11 +20,9 @@ describe Vote do
       vote.errors.messages.must_include :work
     end
 
-#### WHY DOES THIS NOT WORK?
     it "successfully creates a vote" do
-      byebug
-      work_id = Work.last.id
-      user_id = User.last.id
+      work_id = Work.first.id
+      user_id = User.first.id
       vote = Vote.new(user_id: user_id, work_id: work_id)
       result = vote.valid?
       result.must_equal true
