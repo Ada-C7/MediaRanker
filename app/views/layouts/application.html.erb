@@ -11,8 +11,10 @@
      <body>
           <header>
                <div class="logo">
-                         <p>Logo Placeholder</p>
-                         <p>Media Ranker Ranking the Best of Everything</p>
+                    <%= link_to root_path do %>
+                         <%= image_tag "logo.png"%>
+                    <% end %>
+               <p> <%= link_to "Media Ranker", root_path %> Ranking the Best of Everything</p>
                </div>
                <nav>
                     <ul>
