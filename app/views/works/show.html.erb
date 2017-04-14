@@ -1,19 +1,33 @@
-<h1><%= @work.title%></h1>
+<main class='row small-up-12 large-up-2'>
+
+<div class='column'>
+<h2><%= @work.title%></h2>
 
 <div>Created by: <%= @work.creator %></div>
 <div>Published: <%= @work.published_year%></div>
 <div>Description: <%= @work.description%></div>
-<div> <%= @work.votes.count%> votes from:
-  <ul>
-  <% @work.users.each do |user|%>
-  <li> <%= user.name%></li>
-  <%end%>
-</ul>
+<br></br>
+<%= link_to 'Edit', edit_work_path(@work.id), :class => "gg-button" %>
+<%= link_to "View All #{@work.category.capitalize}s", send("#{@work.category}s_path"), method: :get, :class => "gg-button" %>
+<%= link_to "Delete", work_path(@work.id), method: :delete, data: {confirm: "Are you sure to delete the #{@work.category} #{@work.title}?"}, :class => "del-button"%>
+<%= button_to @work.votes.select { |vote| vote[:user_id] == session[:user_id] }.empty? ? 'Upvote' : 'Remove Vote', upvote_path(@work.id), :class => "gg-button", form: {style: 'display:inline-block;'} %>
+
 </div>
 
-<%= button_to @work.votes.select { |vote| vote[:user_id] == session[:user_id] }.empty? ? 'Upvote' : 'Remove Vote', upvote_path(@work.id) %>
+<div class='column'>
+  <h2><%= @work.votes.count%> votes for this <%= @work.category %></h2>
+  <table>
+    <tr>
+      <th>Username</th>
+      <th>Date</th>
+    </tr>
+    <tr>
+  <% @work.users.each do |user|%>
+  <td> <%= user.name%></td>
+  <td> <%= @work.votes.select {|vote| vote[:user_id] == user.id}[0].created_at %>
+  </tr>
+  <%end%>
+</table>
+</div>
 
-
-<%= link_to "Delete", work_path(@work.id), method: :delete, data: {confirm: "Are you sure to delete the #{@work.category} #{@work.title}?"}%>
-<%= link_to 'Edit', edit_work_path(@work.id) %>
-<%= link_to "View All #{@work.category.capitalize}s", send("#{@work.category}s_path") %>
+</main>

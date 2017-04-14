@@ -5,13 +5,13 @@ Rails.application.routes.draw do
     resources :works
     resources :votes, only: [:new, :create]
 
-    get '/albums', to: 'works#index', as: :albums
-    get '/books', to: 'works#index', as: :books
-    get '/movies', to: 'works#index', as: :movies
+    post 'works/:id/upvote', to: 'works#upvote', as: 'upvote'
 
     get 'login', to: 'sessions#new'
     post 'login', to: 'sessions#create'
     delete 'logout', to: 'sessions#destroy'
 
-    post 'works/:id/upvote', to: 'works#upvote', as: 'upvote'
+    get '/albums', to: 'works#index', as: :albums
+    get '/books', to: 'works#index', as: :books
+    get '/movies', to: 'works#index', as: :movies
 end

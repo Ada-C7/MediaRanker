@@ -1,8 +1,13 @@
+<main class='row'>
+
 <h1><%= @user.name%>'s Profile</h1>
 
 User Since: <%= @user.created_at %>
 
-<%= @user.name%>'s Votes:
+<br>
+</br>
+
+<h5><%= @user.name%>'s Votes:</h5>
 <table>
   <tr>
     <th>Media Title</th>
@@ -22,5 +27,7 @@ User Since: <%= @user.created_at %>
     <%end%>
 </table>
 
-<%= link_to 'All Users', users_path %>
-<%= link_to "View All Media", home_path %>
+<%= link_to 'All Users', users_path, :class => "gg-button" %>
+<%= link_to "View All Media", home_path, :class => "gg-button" %>
+
+</main>
