@@ -1,4 +1,12 @@
 class WorksController < ApplicationController
+
+  def home
+    #TODO sort top 10 later
+      @movies = Work.movies
+      @books = Work.books
+      @albums = Work.albums
+  end
+
   def index
     media_type = params[:media_type]
     case media_type

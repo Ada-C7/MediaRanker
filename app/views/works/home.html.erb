@@ -1,0 +1,15 @@
+<h2>Media Spotlight: </h2>
+<!-- @top.title -->
+
+<h2>Top Movies: </h2>
+<% @movies[0...10].each do |movie| %>
+  <%= movie.title %></br>
+<% end %>
+<h2>Top Books: </h2>
+<% @books[0...10].each do |book| %>
+  <%= book.title %></br>
+<% end %>
+<h2>Top Albums: </h2>
+<% @albums[0...10].each do |album| %>
+  <%= album.title %></br>
+<% end %>
