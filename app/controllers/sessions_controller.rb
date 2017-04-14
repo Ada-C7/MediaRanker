@@ -1,8 +1,8 @@
 class SessionsController < ApplicationController
 
   def new
-    session[:user_id]
-    flash[:success] = "successfully created new user #{ user.username } with ID #{ user.id }"
+    # session[:user_id]
+    # flash[:success] = "successfully created new user #{ @user.username } with ID #{ @user.id }"
   end
 
   def create
@@ -14,6 +14,7 @@ class SessionsController < ApplicationController
       redirect_to root_path
     else
       render :new
+    end
    end
 
   def destroy
