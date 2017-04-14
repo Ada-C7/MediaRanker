@@ -40,6 +40,9 @@ class WorksController < ApplicationController
 
   def edit
     @work = Work.find(params[:id])
+    if @work.nil?
+      head :not_found
+    end
   end
 
   def update
@@ -57,9 +60,12 @@ class WorksController < ApplicationController
 
   def destroy
     work = Work.find(params[:id])
-    work.destroy
-
-    redirect_to works_path
+    if @work.nil?
+      head :not_found
+    else
+      work.destroy
+      redirect_to works_path
+    end
   end
 
   def vote
@@ -69,6 +75,9 @@ class WorksController < ApplicationController
       flash[:success] = "Vote Added!"
       redirect_to user_path(session[:user_id])
     end
+  end
+
+  def max_vote
   end
 
   private

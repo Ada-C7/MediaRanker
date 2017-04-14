@@ -77,13 +77,13 @@ describe WorksController do
       end
 
       it "does not create a work row if not respecting strong params" do
-          work_data = {
-            work: {foo: "bar"}
-          }
-          post works_path, params: work_data
+        work_data = {
+          work: {foo: "bar"}
+        }
+        post works_path, params: work_data
 
-          must_respond_with :bad_request
-        end
+        must_respond_with :bad_request
+      end
 
       it "re-renders the new work form if the work is invalid" do
         work_data = { work: { title: "NoCategory"}}
@@ -142,6 +142,14 @@ describe WorksController do
         get edit_work_path(works(:movie).id)
         must_respond_with :success
       end
+
+      #### TW: This does not work
+      it "should get 404 for work that DNE" do
+        work_id = Work.last.id
+        work_id += 1
+        get edit_work_path(work_id)
+        must_respond_with :not_found
+      end
     end
 
     describe "update" do
@@ -161,12 +169,12 @@ describe WorksController do
       end
 
 
-#### TW: This does not work
+      #### TW: This does not work
       it "should show an error if mandatory fields are changed to empty" do
-          work = works(:movie)
-          patch work_path(work.id), work: {title: nil, creator: "UpdatedCreator"}
+        work = works(:movie)
+        patch work_path(work.id), work: {title: nil, creator: "UpdatedCreator"}
 
-          must_respond_with :error
+        must_respond_with :error
       end
     end
 
@@ -179,6 +187,14 @@ describe WorksController do
 
         must_respond_with :redirect
         must_redirect_to works_path
+      end
+
+#### TW: This does not work
+      it "should return a 404 for a work that DNE" do
+        work = Work.last.id + 1
+        delete work_path(work)
+
+        must_respond_with :not_found
       end
     end
   end
