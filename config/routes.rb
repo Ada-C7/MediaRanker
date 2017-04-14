@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   root 'works#index'
 
   resources :works
+  resources :users, only: [:index, :show, :create]
   # resources :albums, only: [:index]
 
   get "/login", to: "sessions#login_form" #, as: "login_form"
@@ -14,7 +15,7 @@ Rails.application.routes.draw do
   get '/albums', to: 'works#index_album', as: 'albums'
   get '/movies', to: 'works#index_movie', as: 'movies'
 
-  resources :users, only: [:index, :show, :create]
+  get '/works/:id/upvote', to: 'works#vote', as: 'upvote'
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
