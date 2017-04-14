@@ -54,5 +54,12 @@ describe Work do
       top_work = Work.top_work
       top_work.must_equal (works(:work_one))
     end
+
+    #probably should write a method to test how it handles a tie... not sure how to replicate that.
+
+    it "should return nil if there are no works" do
+      Work.destroy_all
+      Work.top_work.must_be_nil
+    end
   end
 end

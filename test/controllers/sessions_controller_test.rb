@@ -23,9 +23,9 @@ describe SessionsController do
     }.must_change 'User.count', 1
   end
 
-  it "should redirect_to users path if new user created" do
+  it "should redirect_to root path if new user created" do
     post login_path, params: {name: "Louise"}
-    must_redirect_to users_path
+    must_redirect_to root_path
   end
 
   it "should redirect to root when logged out" do
