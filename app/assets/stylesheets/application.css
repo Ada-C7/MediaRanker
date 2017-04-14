@@ -20,6 +20,7 @@ html, body {
      flex-flow: column nowrap;
 
      justify-content: flex-start;
+     padding: 1em;
 
      min-height: 100%;
      width: 100%;
@@ -37,6 +38,8 @@ html, body {
           display: flex;
           flex-flow: row nowrap;
 
+          align-items: center;
+          justify-content: space-between;
           height: 12em;
      }
 
@@ -45,12 +48,42 @@ html, body {
                flex: 1 0 auto;
           }
 
-          .logo img {
-               max-height: 12em;
+               .logo img {
+                    max-height: 12em;
+               }
+
+          header a {
+               color: #e88220;
+               font-weight: bold;
+               text-transform: uppercase;
+          }
+
+          header p {
+               display: flex;
+               flex: 1 0 auto;
+
+               justify-content: center;
+
+               font-size: 2.4em;
+          }
+          header nav {
+               display: flex;
+               flex: 1 0 auto;
+
+               justify-content: flex-end;
+
+               font-size: 1.8em;
+               text-transform: uppercase;
+          }
+
+          header nav a {
+               font-weight: 400;
+               text-transform: uppercase;
           }
 
      .main {
           display: flex;
+          flex: 1;
           flex-flow: column nowrap;
 
           min-height: 90vh;
@@ -59,11 +92,56 @@ html, body {
           .spotlight {
                display: flex;
                flex-flow: row nowrap;
+
+               justify-content: flex-start;
+               align-items: baseline;
+
+               /*background-color: #fff;
+               border-radius: 10px;
+               opacity: .3;
+               margin: 1em;*/
           }
 
+          .spotlight a {
+               color: #e88220;
+               font-weight: bold;
+               text-transform: uppercase;
+          }
+
+          .spotlight h1 {
+               display: flex;
+
+               color: #fff;
+               font-size: 5em;
+               font-weight: bold;
+               text-transform: uppercase;
+          }
+
+          .spotlight-title {
+               display: flex;
+               color: #fff;
+               font-size: 1.3em;
+               font-weight: bold;
+               text-transform: uppercase;
+          }
+
+
+          .spotlight-description {
+               display: flex;
+               color: #fff;
+               font-size: 1.2em;
+               text-transform: uppercase;
+          }
+
+          .spotlight-votes {
+               display: flex;
+               color: #fff;
+               font-size: 1.2em;
+               text-transform: uppercase;
+          }
           .content {
                display: flex;
-               flex-flow: column nowrap;
+               flex-flow: row nowrap;
           }
 
 
@@ -79,3 +157,6 @@ html, body {
                .movies {
                     flex-flow: column nowrap;
                }
+p {
+     font-size: 1.4em;
+}
