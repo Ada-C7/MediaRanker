@@ -46,13 +46,13 @@ class WorksController < ApplicationController
   end
 
   def update
-    work = Work.find_by(id: params[:id])
-    if work.nil?
+    @work = Work.find_by(id: params[:id])
+    if @work.nil?
       head :not_found
     else
-      work.assign_attributes(work_params)
-      if work.save
-        redirect_to work_path(work)
+      @work.assign_attributes(work_params)
+      if @work.save
+        redirect_to work_path(@work.id)
       else
         render :edit, status: :bad_request
       end

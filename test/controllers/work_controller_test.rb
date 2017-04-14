@@ -168,15 +168,6 @@ describe WorksController do
         must_redirect_to work_path(work.id)
       end
 
-
-      #### TW: This does not work
-      # it "should show an error if mandatory fields are changed to empty" do
-      #   work = works(:movie)
-      #   patch work_path(work.id), work: {title: "", creator: "UpdatedCreator"}
-      #
-      #   must_respond_with :error
-      # end
-
       it "responds with bad_request for bogus data" do
         work = Work.first
         work_data = {
