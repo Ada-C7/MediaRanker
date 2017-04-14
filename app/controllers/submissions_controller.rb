@@ -1,6 +1,4 @@
 class SubmissionsController < ApplicationController
-  before_action :set_submission, only: [:show, :edit, :update, :destroy]
-
   def index; end
 
   def show
@@ -17,10 +15,10 @@ class SubmissionsController < ApplicationController
 def update
      @submission = Submission.find(params[:id])
 
-          @submission.title = submission_params[:title]
-          @submission.author = submission_params[:author]
-          @submission.publish_date = submission_params[:publish_date]
-          @submission.summary= submission_params[:summary]
+     @submission.title = submission_params[:title]
+     @submission.author = submission_params[:author]
+     @submission.publish_date = submission_params[:publish_date]
+     @submission.summary= submission_params[:summary]
 
           if @submission.save
                flash[:success] = "Submission edited. All systems go."
@@ -44,23 +42,30 @@ def destroy
 end
 
 def upvote
+
      @submission = Submission.find(params[:id])
      @user = User.find_by_id(session[:user_id])
-     if @user 
-          Vote.create(user: @user, submission: @submission)
-          flash[:success] = "Upvote deployed."
-          redirect_to(submission_path)
+     @votes = Vote.all
+
+     if @user
+
+          if  @votes.any? {|vote| vote.submission_id == @submission.id && vote.user_id == @user.id }
+               flash[:error] = "Upvote aborted. Don't be greedy. One per submission."
+               redirect_to(submission_path)
+          else
+               Vote.create(user: @user, submission: @submission)
+               flash[:success] = "Upvote deployed."
+               redirect_to(submission_path)
+          end
+
      else
-          flash[:error] = "Upvote aborted. You gotta be logged in to count."
-          redirect_to(submission_path)
+          flash[:error] = "Upvote aborted. To exercise your right to vote, log in."
+          redirect_to submission_path
      end
+
 end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_submission
-      @submission = Submission.find(params[:id])
-    end
 
     def submission_params
       params.fetch(:submission, {})

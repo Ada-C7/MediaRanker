@@ -8,9 +8,3 @@ class UsersController < ApplicationController
           @user = User.find(params[:id])
      end
 end
-
-private
-     def user_params
-          params.require(:user).permit(:username)
-     end
-end

@@ -18,5 +18,4 @@ class Submission < ApplicationRecord
                 .where("category = ?", tootsy)
                 .limit(5)
      end
-
 end

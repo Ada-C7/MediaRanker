@@ -12,7 +12,8 @@ class SessionsController < ApplicationController
                     session[:user_id] = user.id
                     redirect_to user_path(3)
                else
-                    user = User.create(username: params[:username], status: true)
+                    user = User.create(user_params)
+                    user.status = true
                     flash[:success] = "#{user.username}, #{user.id} You're on for the first time. Use your votes wisely."
                     session[:user_id] = user.id
                     redirect_to user_path(3)
@@ -20,8 +21,15 @@ class SessionsController < ApplicationController
      end
 
      def logout
-          session.delete(:user_id)
+          session[:user_id] = nil
           flash[:sucess] = "You're off. Feel free to turn on any time."
           redirect_to root_path
      end
+
+     private
+
+     def user_params
+          params.permit(:username)
+     end
+
 end
