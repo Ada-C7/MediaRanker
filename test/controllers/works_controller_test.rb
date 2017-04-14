@@ -21,7 +21,7 @@ describe WorksController do
 
   describe "new" do
     it "runs successfully" do
-      get new_work_path
+      get new_album_path
       must_respond_with :success
     end
   end
@@ -33,10 +33,10 @@ describe WorksController do
       movie_data = {
         movie: {
           category: "movie",
-          title: "",
-          creator: "",
-          publication_year: "",
-          description: ""
+          title: "Great Adventures in Code",
+          creator: "Ada Developers",
+          publication_year: "2017",
+          description: "Cohort 7, the best cohort EVA"
         }
       }
       post movies_path, params: movie_data
