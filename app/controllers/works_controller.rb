@@ -9,4 +9,8 @@ class WorksController < ApplicationController
     def show
         @result_work = Work.find_by_id(params[:id])
     end
+
+    def new
+        
+    end
 end

@@ -16,5 +16,10 @@ Rails.application.routes.draw do
     get '/users/:id', to: 'users#show', as: 'user'
 
     get '/movies', to: 'movies#index', as: 'movies'
+    get '/movies/new', to:'movies#new', as: 'new_movie'
+    post '/movies', to:'movies#create'
+
+
     get '/books', to: 'books#index', as: 'books'
+    get '/albums', to: 'albums#index', as: 'albums'
 end
