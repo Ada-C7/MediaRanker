@@ -55,12 +55,13 @@ end
       if work.save
       redirect_to work_path(work)
       else
-        redirect_to edit_work_path
+        render :edit, status: :bad_request
       end
 
   end
 
   def destroy
+
     work = Work.find(params[:id])
     work.destroy
     redirect_to works_path

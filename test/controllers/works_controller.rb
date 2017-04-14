@@ -56,9 +56,13 @@ describe WorksController do
   describe "update" do
     it "changes a record in the database" do
       a = Work.find(1)
-      work_data = {work: {title: "test work",id: 1}}
-      patch  work_path(a), params: work_data
+      work_data = {work: {title: "test work", id: 1}}
+      patch  work_path(a.id), params: work_data
+
       must_redirect_to work_path(a)
+      a.title.must_equal "test work"
+
+      print a
     end
 
     it "redirects to edit work path if invalid" do
@@ -89,10 +93,13 @@ describe WorksController do
   end
 
   describe "destroy" do
-    it "destorys a record in the database" do
+    it "destroys a record in the database" do
       a = Work.last
+      start_count = Work.count
       delete work_path(a)
       must_redirect_to works_path
+    end_count = Work.count
+      start_count.wont_equal end_count
     end
   end
 
@@ -103,8 +110,8 @@ describe WorksController do
         #code below as written in controller:
         # works_vote = Vote.create!(user_id: session[:user_id], work_id:params[:id])
     it "creates a vote" do
-      vote_data = {id: 2}
-
+      vote_data = {user_id: User.first.id, work_id: Work.first.id}
+        puts vote_data
       post vote_path(:sara), params: vote_data
     end
   end

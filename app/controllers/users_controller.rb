@@ -15,14 +15,17 @@ class UsersController < ApplicationController
       flash[:welcome] = "Welcome to TehutRanker #{params[:username]}!"
       redirect_to users_path
     else
-      redirect_to new_users_path
+      render :new, status: :bad_request
       flash[:failure] = "We could not create your account"
     end
 
   end
 
   def show
-    @user = User.find(params[:id])
+    @user = User.find_by(id: params[:id])
+    if @user.nil?
+      head :not_found
+    end
   end
 
 

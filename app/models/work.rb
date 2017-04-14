@@ -21,6 +21,8 @@ class Work < ApplicationRecord
     all_votes.each do |vote|
       final_votes[User.find(vote.user_id).username] = vote.created_at.to_date
     end
+
     return final_votes
+    
   end
 end
