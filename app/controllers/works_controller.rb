@@ -7,7 +7,6 @@ class WorksController < ApplicationController
   def new
     # don't have to be logged in
     @work = Work.new
-    # session[:category] = params[:category]
   end
 
   def create
@@ -17,11 +16,27 @@ class WorksController < ApplicationController
       flash[:success] = "Successfully created #{@work.category} #{@work.id}"
       redirect_to "/works/#{@work.category}s"
     else
-      params[:work] = @work
       params[:category] = @work.category
       render :new
     end
+  end
 
+  def edit
+    # don't have to be logged in
+    @work = Work.find_by_id(params[:id])
+    params[:category] = @work.category
+
+  end
+
+  def update
+    # don't have to be logged in
+    @work = Work.find_by_id(params[:id])
+    if @work.update(work_params)
+      flash[:success] = "Successfully updated #{@work.category} #{@work.id}"
+      redirect_to "/works/#{@work.category}s"
+    else
+      render :edit
+    end
   end
 
   def show
@@ -32,20 +47,6 @@ class WorksController < ApplicationController
     end
   end
 
-  def edit
-    # don't have to be logged in
-    @work = Work.find(params[:id])
-  end
-
-  def update
-    # don't have to be logged in
-    @work = Work.find(params[:id])
-    if @work.update(work_params)
-      redirect_to :root
-    else
-      render :edit
-    end
-  end
 
   def destroy
     # don't have to be logged in
