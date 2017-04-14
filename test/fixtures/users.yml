@@ -2,8 +2,6 @@
 
 one:
   name: "hello world"
-  join_date: 2017-04-11
 
 two:
   name: "bananas"
-  join_date: 2017-04-11

@@ -14,3 +14,7 @@
  *= require_self
  */
 @import url('foundation.css');
+
+header {
+  border-bottom: solid;
+}

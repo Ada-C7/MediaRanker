@@ -10,7 +10,7 @@
 
   <body>
     <header>
-
+    <%= image_tag("owl.jpg", :alt => "owl cartoon") %>
     <h2>
       <%= link_to 'Media Ranker', root_path %>
       <small>Ranking the Best of Everything</small>
@@ -25,13 +25,14 @@
           <%= link_to 'Log In', login_path, class: :button %>
         <% end %>
       </section>
-      <section class="flash">
-      <% flash.each do |name, message| %>
-        <div class="<%= name %>"><%= message %></div>
-      <% end %>
-    </section>
     </nav>
-  </header>
+    </header>
+    <section class="flash">
+    <% flash.each do |name, message| %>
+      <h3 class="<%= name %>"><%= message %></h3>
+    <% end %>
+    </section>
+
     <%= yield %>
   </body>
 </html>
