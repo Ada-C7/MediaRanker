@@ -15,7 +15,7 @@
       <p>Not Logged in</p>
       <%= link_to "Login", login_path %>
     <% else %>
-      <p>Logged in as %= link_to @user.username, user_path(user.id) % </p>
+      <p>Logged in as (Why doesn't this work? => "%= link_to @user.username, user_path(user.id) %") </p>
       <%= link_to "Logout", logout_path %>
     <% end %>
 

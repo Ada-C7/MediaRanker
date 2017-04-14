@@ -1,7 +1,5 @@
 class SessionsController < ApplicationController
-  def login_form; end
-
-  def new
+  def login_form
     @user = User.new
   end
 
@@ -28,10 +26,7 @@ class SessionsController < ApplicationController
   def logout
     session[:user_id] = nil
     flash[:success] = "Successfully logged out."
+    redirect_to mainpages_path
   end
 
-    private
-    def user_params
-      return params.require(:user).permit(:username)
-    end
 end
