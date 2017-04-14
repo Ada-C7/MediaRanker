@@ -69,7 +69,8 @@ class WorksController < ApplicationController
     else
       vote = Vote.new(
         work_id: work.id,
-        user_id: user.id
+        user_id: user.id,
+        value: 1
       )
 
       vote.save
