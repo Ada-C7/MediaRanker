@@ -1,9 +1,9 @@
 <main class="row">
 
   <section class="row spotlight">
-    <% if !@works %>
+
     <div>
-      <h3>Media Spotlight: <%= link_to @works.first.title, work_path(@works.first.id)%> by <%=@works.first.created_by%></h3>
+      <h3>Media Spotlight:   <% if @works != nil %><%= link_to @works.first.title, work_path(@works.first.id)%> by <%=@works.first.created_by%></h3>
       <p>
         <%= @works.first.votes.count %> votes - <%= @works.first.description %></br>
       </p>
