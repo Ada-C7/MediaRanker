@@ -7,8 +7,13 @@ Rails.application.routes.draw do
   resources :votes
 
   get 'albums', to: 'works#albums', as: 'albums'
+  get 'albums/new', to: 'works#new', as: 'new_album'
+
   get 'books', to: 'works#books', as: 'books'
+  get 'books/new', to: 'works#new', as: 'new_book'
+  
   get 'movies', to: 'works#movies', as: 'movies'
+  get 'movies/new', to: 'works#new', as: 'new_movie'
 
   get 'login', to: 'sessions#new'
   post 'login', to: 'sessions#create'

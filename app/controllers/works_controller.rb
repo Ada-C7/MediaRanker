@@ -11,6 +11,7 @@ class WorksController < ApplicationController
 
   def create
     @work = Work.new(work_params)
+    @work.category = session[:category]
     if @work.save
       redirect_to works_path
     else
@@ -20,19 +21,22 @@ class WorksController < ApplicationController
 
   def albums
     @works = Work.where(category: "album")
-    @category = "Albums"
+    session.delete(:category)
+    session[:category] ||= "album"
     render "category"
   end
 
   def books
     @works = Work.where(category: "book")
-    @category = "Books"
+    session.delete(:category)
+    session[:category] ||= "book"
     render "category"
   end
 
   def movies
     @works = Work.where(category: "movie")
-    @category = "Movies"
+    session.delete(:category)
+    session[:category] ||= "movie"
     render "category"
   end
 
@@ -41,6 +45,9 @@ class WorksController < ApplicationController
     if @work.nil?
       head :not_found
     end
+    session.delete(:return_to)
+    session[:return_to] ||= request.referer
+    @back_url = session[:return_to]
   end
 
   def edit

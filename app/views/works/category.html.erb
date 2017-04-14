@@ -1,8 +1,21 @@
 
+
 <section>
-  <h1>List of <%=@category%> </h1>
+  <h1>List of <%= session[:category].capitalize + "s" %> </h1>
 </section>
 
+
+<section>
+  <%= link_to "ADD",
+  if session[:category] == "album"
+    new_album_path
+  elsif session[:category] == "book"
+    new_book_path
+  elsif session[:category] == "movie"
+    new_movie_path
+  end
+  %>
+</section>
 
 
 <section class="table_scroll">

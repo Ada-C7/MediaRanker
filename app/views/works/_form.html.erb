@@ -1,5 +1,23 @@
+<% if @work.errors.messages.length > 0 %>
+  <section class="errors">
+    <h2>Something went wrong!</h2>
+    <ul>
+      <% @work.errors.messages.each do |field, problem_list| %>
+        <% problem_list.each do |problem| %>
+          <li>
+            <strong><%= field %>:</strong>
+            <%= problem %>
+          </li>
+        <% end %>
+      <% end %>
+    </ul>
+  </section>
+<% end %>
+
+
 
 <%= form_for @work do |f| %>
+  
 <div>
   <%= f.label :title, class: "label" %>
   <%= f.text_field :title, class: "field"%>
@@ -17,6 +35,6 @@
   <%= f.text_field :description, class: "field"%>
 </div>
 <div id = "_form_section_submit">
-  <%= f.submit value: "UPDATE"%>
+  <%= f.submit value: "SAVE"%>
 </div>
 <% end %>

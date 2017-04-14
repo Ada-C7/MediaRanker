@@ -13,11 +13,21 @@
       <p>
         <%= link_to "Media Ranker Ranking", welcome_path%> the Best of Everything
       </p>
-      <% if session[:user_id]%>
-          <%= link_to "Logout", logout_path, method: :delete%>
-      <% else%>
-          <%= link_to "Login", login_path%>
-      <% end%>
+
+      <section>
+        <% if session[:user_id]%>
+            <%= link_to "Logout", logout_path, method: :delete%>
+        <% else%>
+            <%= link_to "Login", login_path%>
+        <% end%>      
+      </section>
+
+      <section class="flash">
+        <% flash.each do |name, message| %>
+          <div class="<%= name %>"><%= message %></div>
+        <% end %>
+      </section>
+
     </header>
     <main>
       <%= yield %>
