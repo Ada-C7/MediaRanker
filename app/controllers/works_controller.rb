@@ -10,7 +10,4 @@ class WorksController < ApplicationController
         @result_work = Work.find_by_id(params[:id])
     end
 
-    def new
-        
-    end
 end
