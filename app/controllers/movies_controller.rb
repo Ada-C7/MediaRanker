@@ -15,7 +15,11 @@ class MoviesController < ApplicationController
     unless @movie.id == nil
       flash[:success] = "#{@movie.title} added!"
       redirect_to movies_path
+    else
+      flash.now[:error] = "An problem occurred: Could not create movie"
+      render "new"
     end
+
   end
 
   private

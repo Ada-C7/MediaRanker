@@ -15,6 +15,9 @@ class AlbumsController < ApplicationController
     unless @album.id == nil
       flash[:success] = "#{@album.title} added!"
       redirect_to albums_path
+    else
+      flash.now[:error] = "An problem occurred: Could not create album"
+      render 'new'
     end
   end
 

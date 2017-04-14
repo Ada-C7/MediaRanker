@@ -1,3 +1,12 @@
-<h1>Add a new book</h1>
+<% if @book.errors.any? %>
+  <ul class="errors">
+    <% @book.errors.each do |column, message| %>
+      <li>
+        <strong><%= column.capitalize %></strong> <%= message %>
+      </li>
+    <% end %>
+  </ul>
+<% end %>
+<h3>Add a new book</h3>
 
 <%= render partial: "form", locals: { action_name: "add a book", form_method: :post } %>

@@ -16,6 +16,9 @@ class BooksController < ApplicationController
     unless @book.id == nil
       flash[:success] = "#{@book.title} added!"
       redirect_to books_path
+    else
+      flash.now[:error] = "An problem occurred: Could not create book"
+      render 'new'
     end
   end
 
@@ -25,18 +28,18 @@ class BooksController < ApplicationController
 
   def update
     raise
-      book = Work.find(params[:id])
+    book = Work.find(params[:id])
 
-      book.title = work_params[:title]
-      book.creator = work_params[:creator]
+    book.title = work_params[:title]
+    book.creator = work_params[:creator]
 
-      book.description = work_params[:description]
+    book.description = work_params[:description]
 
-      if book.save
-        redirect_to root_path
-      else
-        render "edit"
-      end
+    if book.save
+      redirect_to root_path
+    else
+      render "edit"
+    end
   end
   private
 
