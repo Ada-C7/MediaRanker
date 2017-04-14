@@ -8,7 +8,7 @@
 
 <%= link_to "Back to movie list", movies_path, class: :button %>
 <%= link_to "Edit", edit_movie_path, class: :button %>
-<%= link_to "Delete", movie_path, data: { confirm: "Are you positive?" }, mehod: :delete, :class => "alert button" %>
+<%= link_to "Delete", movie_path, data: { confirm: "Are you positive?" }, method: :delete, :class => "alert button" %>
 <%= link_to "Upvote", votes_upvote_path(work_id: @result_movie.id), class: :button, method: :post %>
 
 <h3> <%= @result_movie.votes.length %> Votes for this album</h3>
