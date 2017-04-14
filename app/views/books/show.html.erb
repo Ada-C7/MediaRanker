@@ -8,3 +8,4 @@
     method: :delete
 %>
 <%= link_to "Edit", edit_book_path(@book.id) %>
+<%= link_to "Upvote", book_vote_path(@book.id), :method => :post %>

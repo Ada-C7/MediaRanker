@@ -1,7 +1,10 @@
 class VotesController < ApplicationController
 
   def create
-    vote = Vote.create vote_params
+    vote = Vote.new
+    vote[:user_id] = session[:user_id]
+    vote[:content_id] = params[:content_id]
+    vote.save
   end
 
 

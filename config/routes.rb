@@ -1,9 +1,5 @@
 Rails.application.routes.draw do
 
-  get 'votes/new'
-
-  get 'votes/create'
-
   root 'contents#index'
 
   resources :books
@@ -11,9 +7,11 @@ Rails.application.routes.draw do
   resources :albums
   resources :votes, only: [:create, :update]
 
-  post '/books/:book_id/', to: 'vote#create'
-  post '/movies/:movie_id/', to: 'vote#create'
-  post '/albums/:album_id/', to: 'vote#create'
+  post '/books/:content_id/', to: 'votes#create', as: 'book_vote'
+  post '/movies/:content_id/', to: 'votes#create', as: 'movie_vote'
+  post '/albums/:content_id/', to: 'votes#create', as: 'album_vote'
+
+  get '/login', to: 'session#login', as: 'login'
 
 
 
