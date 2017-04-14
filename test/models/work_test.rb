@@ -88,8 +88,9 @@ describe Work do
   end
 
   # # testing self.max_votes - should be works(:fall)
-  # it "returns work with max votes" do
-  #
-  # end
+  it "returns work with max votes" do
+    max_votes = Work.max_votes
+    max_votes.must_equal works(:fall)
+  end
 
 end
