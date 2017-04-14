@@ -10,4 +10,8 @@ class Work < ApplicationRecord
       -work.votes.count
     end
   end
+
+  def self.top_work
+     self.sort_by_votes.first
+  end
 end

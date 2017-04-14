@@ -34,13 +34,20 @@ describe Work do
   end
 
   describe "relations" do
-    it "can have votes" do
+    it "contains a vote collection" do
+      user = User.first
+      work = Work.first
+      test_vote = Vote.create(user_id: user.id, work_id: work.id)
 
+      work.votes.must_include test_vote
     end
+    
+    it "can call a user through the vote" do
+      user = User.first
+      work = Work.first
+      test_vote = Vote.create(user_id: user.id, work_id: work.id)
 
-    it "can call up a list of those votes" do
-
+      work.users.must_include user
     end
-
   end
 end
