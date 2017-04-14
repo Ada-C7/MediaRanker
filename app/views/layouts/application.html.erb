@@ -1,14 +1,32 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>MediaRanker</title>
-    <%= csrf_meta_tags %>
+<head>
+  <title>MediaRanker</title>
+  <%= csrf_meta_tags %>
 
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-  </head>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+</head>
 
-  <body>
-    <%= yield %>
-  </body>
+<body>
+  <header>
+    <ul>
+        <% if session[:user_id] %>
+      <li>
+        <%= link_to "Log Out", logout_path, method: :delete, class: "button"  %>
+
+        <% user = User.find(session[:user_id]) %>
+        Logged in as <%= link_to "#{ user.name }", user_path(user.id) %>
+      </li>
+
+      <% else %>
+      <li><%= link_to "Login", login_path, method: :get, class: "button" %></li>
+      <% end %>
+    </ul>
+  </header>
+  <main>
+
+  </main>
+  <%= yield %>
+</body>
 </html>

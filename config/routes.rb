@@ -7,5 +7,8 @@ Rails.application.routes.draw do
 
   post 'works/:id/vote', to: 'works#vote', as: 'vote'
 
-  get ‘sessions/login’, to:
+  get 'login', to: "sessions#new", as: 'login'
+
+  post 'login', to: 'sessions#create'
+  delete 'login', to: 'sessions#destroy', as: 'logout'
 end
