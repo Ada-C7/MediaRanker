@@ -2,33 +2,37 @@
   <section>
     <h2>Media Spotlight</h2>
   </section>
+
+  <% [@movies, @books, @albums].each do |collection| %>
+
+    <section class="top-ten columns large-4 small-12">
+      <h3>Top </h3>
+      <ul>
+        <% find_top_ten(collection).each do |work| %>
+          <h4><%= link_to work.title, work_path(work.id) %> by <%= work.creator %></h4>
+          <p><%= work.votes.count %> votes</p>
+        <% end %>
+      </ul>
+      <%= link_to "View more Movies", movies_path %>
+    </section>
+
   <section class="top-ten columns large-4 small-12">
-    <h3>Movies</h3>
+    <h3>Top Books</h3>
+    <ul>
 
-    <% @works.where(category: "movie").each do |movie| %>
-      <h3><%= link_to movie.title, work_path(movie.id) %> by <%= movie.creator %></h3>
-      <p><%= movie.votes.count %> votes</p>
-    <% end %>
-
-    <%= link_to "View more Movies", movies_path %>
-  </section>
-
-  <section class="top-ten columns large-4 small-12">
-    <h3>Books</h3>
-
-    <% @works.where(category: "book").each do |book| %>
-      <h3><%= link_to book.title, work_path(book.id) %> by <%= book.creator %></h3>
-      <p><%= book.votes.count %> votes</p>
-    <% end %>
-
+      <% find_top_ten(@books).each do |book| %>
+        <li><h4><%= link_to book.title, work_path(book.id) %> by <%= book.creator %></h4></li>
+        <li><p><%= book.votes.count %> votes</p></li>
+      <% end %>
+    </ul>
     <%= link_to "View more Books", books_path %>
   </section>
 
   <section class="top-ten columns large-4 small-12">
-    <h3>Albums</h3>
+    <h3>Top Albums</h3>
 
-    <% @works.where(category: "album").each do |album| %>
-      <h3><%= link_to album.title, work_path(album.id) %> by <%= album.creator %></h3>
+    <% find_top_ten(@albums).each do |album| %>
+      <h4><%= link_to album.title, work_path(album.id) %> by <%= album.creator %></h4>
       <p><%= album.votes.count %> votes</p>
     <% end %>
 

@@ -9,4 +9,8 @@ module WorksHelper
       return albums_path
     end
   end
+
+  def find_top_ten(works)
+    works.sort_by { |work| work.votes.count }.reverse[0..9]
+  end
 end

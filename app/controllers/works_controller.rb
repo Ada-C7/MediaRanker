@@ -2,6 +2,9 @@ class WorksController < ApplicationController
 
   def index
     @works = Work.all
+    @movies = find_movies
+    @books = find_books
+    @albums = find_albums
   end
 
   def movies
