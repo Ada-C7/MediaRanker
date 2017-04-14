@@ -1,9 +1,5 @@
 class WorksController < ApplicationController
   # View media by category
-  def index
-    @works = Work.all
-  end
-
   def movie_index
     @movies = Work.where(category: "movie")
   end
@@ -16,10 +12,12 @@ class WorksController < ApplicationController
     @albums = Work.where(category: "album")
   end
 
+  def new; end
+
   def show
     @work = Work.find(params[:id])
   end
 
-  
+
 
 end

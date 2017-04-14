@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   get 'movies', to:'works#movie_index', as: 'movies'
   get 'books', to:'works#book_index', as: 'books'
 
-  get 'works/:id', to:'works#show', as: 'work'
+  resources :works, except: :index
 
   get 'users', to:'users#index', as:'users'
   get 'users/:id', to:'users#show', as:'user'
