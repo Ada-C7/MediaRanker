@@ -61,25 +61,33 @@ class WorksController < ApplicationController
   end
 
   def update
-    @work = Work.find(params[:id])
+    @work = Work.find_by_id(params[:id])
 
-    @work.title = work_params[:title]
-    @work.category = params[:category]
-    @work.creator = work_params[:creator]
-    @work.pub_yr = work_params[:pub_yr]
-    @work.desc = work_params[:desc]
-
-    if @work.save
-      flash[:success] = "You have updated #{@work.title}."
-      redirect_to work_path
+    if @work.nil?
+      render_404
     else
-      render "edit", status: :bad_request
+      @work.title = work_params[:title]
+      @work.category = params[:category]
+      @work.creator = work_params[:creator]
+      @work.pub_yr = work_params[:pub_yr]
+      @work.desc = work_params[:desc]
+      if @work.save
+        flash[:success] = "You have updated #{@work.title}."
+        redirect_to work_path
+      else
+        render "edit", status: :bad_request
+      end
     end
   end
 
   def destroy
-    Work.destroy(params[:id])
-    redirect_to works_path
+    @work = Work.find_by_id(params[:id])
+    if !@work
+      render_404
+    else
+      @work.destroy
+      redirect_to works_path
+    end
   end
 
   private
