@@ -17,4 +17,10 @@
 <h3><%= link_to "Upvote", work_upvote_path(@selected_work.id), method: :patch%></h3>
 <h3><%= link_to "Delete", work_path(@selected_work.id), data: { confirm: "are you sure?" }, method: :delete %> </h3>
 
-<h3><%= @selected_work.vote_id %> votes for this <%= @selected_work.category %></h3>
+<h3><%= @selected_work.votes.count %> voted for this <%= @selected_work.category %></h3>
+
+<p>
+  <% @selected_work.votes.each do |vote| %>
+  <%= User.find_by(vote.user_id) %>
+  <% end %>
+</p>

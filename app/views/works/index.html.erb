@@ -1,19 +1,35 @@
-<h1>Media Spotlight</h1>
+<% most_votes = @works.sort_by { |work| work[:votes]}.take(1) %>
+
+<h1>Media Spotlight: <%=most_votes%></h1>
+
 <h2>Top Movies</h2>
+<!-- could have put this in a method, not sure where -->
+<% top_movies = @movies.sort_by { |movie| movie[:votes]}.take(10) %>
+<% top_books = @books.sort_by { |book| book[:votes]}.take(10) %>
+<% top_albums = @albums.sort_by { |album| album[:votes]}.take(10) %>
+
+
 <p>
-  <% @movies.each do |a| %>
+  <% top_movies.each do |a| %>
   <ul>
     <%= link_to a.title, work_path(a.id) %> by <%= a.creator %>
   </ul>
+  <ul>
+    <%= a.votes.count %> votes
+  </ul>
+
   <% end %>
   <%= link_to "View more movies", movies_path %>
 </p>
 
 <h2>Top Books</h2>
 <p>
-  <% @books.each do |a| %>
+  <% top_books.each do |a| %>
   <ul>
     <%= link_to a.title, work_path(a.id) %> by <%= a.creator %>
+  </ul>
+  <ul>
+    <%= a.votes.count %> votes
   </ul>
   <% end %>
   <%= link_to "View more books", books_path %>
@@ -22,9 +38,12 @@
 
 <h2>Top Albums</h2>
 <p>
-  <% @albums.each do |a| %>
+  <% top_albums.each do |a| %>
   <ul>
     <%= link_to a.title, work_path(a.id) %> by <%= a.creator %>
+  </ul>
+  <ul>
+    <%= a.votes.count %> votes
   </ul>
   <% end %>
   <%= link_to "View more albums", albums_path %>
