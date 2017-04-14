@@ -1,8 +1,6 @@
-<h1>User's Page</h1>
-
-User Summary: <%= @user.name %></br>
-Joined Site: <%= @user.created_at.strftime("%b %d, %Y") %></br>
-<%= @user.votes.count %>Votes</br>
+<h1>User Summary: <%= @user.name %></h1>
+Joined site <%= @user.created_at.strftime("%b %d, %Y") %></br>
+<%= @user.votes.count %> Votes</br>
 
 <table>
   <th>
@@ -25,7 +23,7 @@ Joined Site: <%= @user.created_at.strftime("%b %d, %Y") %></br>
     <% work = Work.find(vote.work_id) %>
     <tr>
       <td>
-        <%= work.title %>
+        <%= link_to work.title, work_path(vote.work_id) %>
       </td>
       <td>
         <%= work.creator %>
@@ -42,3 +40,6 @@ Joined Site: <%= @user.created_at.strftime("%b %d, %Y") %></br>
     </tr>
     <% end %>
 </table>
+
+<%= link_to "See all Users", users_path %>
+<%= link_to "Back to Media List", works_path %>
