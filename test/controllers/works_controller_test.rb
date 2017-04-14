@@ -12,7 +12,7 @@ describe WorksController do
     must_respond_with :success
   end
 
-  it "Should show a 404 when meduim not found" do
+  it "Should show a 404 when meduim is not found" do
   get work_path(0)
   must_respond_with :missing
   end
