@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   resources :albums, except: [:destroy, :create, :show, :edit, :update]
   resources :books, except: [:destroy, :create, :show, :edit, :update]
 
-  resources :users, except: [:destroy, :edit, :update]
+  resources :users, except: [:destroy, :edit, :update, :new]
   resources :votes, except: [:new, :destroy, :edit, :update, :index]
 
 end
