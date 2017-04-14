@@ -15,13 +15,15 @@
   <nav>
     <%= image_tag "owl.jpg", alt:"Owl reading a book", class:"owl_img"%>
     <h1> <%= link_to "Media Ranker", items_path %> </h1>
-    <h1> Ranking the Best of Everything </h1>
+    <h2> Ranking the Best of Everything </h2>
 
     <ul class= "login">
       <% if session[:user_id] %>
-        <li><%= "Logged in as #{session[:username]}"%></li>
+        <li>Logged in as
+          <%=link_to current_user.username, user_path(current_user), method: :get%>
+      </li>
       <% else %>
-        <li>"Not logged in"</li>
+        <li>Not logged in</li>
       <% end %>
 
 

@@ -1,0 +1,32 @@
+<h3>User Summary: <%=link_to current_user.username, user_path(current_user), method: :get%></h3>
+
+<p><%= "Joined site #{current_user.created_at.strftime("%B %d, %Y")}" %></p>
+
+<h4>Votes</h4>
+<table>
+  <thead>
+    <tr>
+      <th>Media Title</th>
+      <th>Created By</th>
+      <th>Published</th>
+      <th>Category</th>
+      <th>Voted On</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% current_user.votes.each do |vote|%>
+    <tr>
+      <td> Item</td>
+      <td>Creator </td>
+      <td> Published </td>
+      <td>Category</td>
+      <td>Voted On</td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
+
+
+<%= button_to "See all Users", users_path, method: :get%>
+
+<%= button_to "Back to Media List", items_path, method: :get%>

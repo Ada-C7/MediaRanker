@@ -5,17 +5,9 @@ Rails.application.routes.draw do
   root 'items#index'
 
   resources :items, except: [:new, :create]
-
-  # get 'items', to:'items#index'
-  # get 'items/:id', to:'items#show', as: 'item'
-  # get 'items/:id/edit', to:'items#edit', as: 'edit_item'
-  # patch 'items/:id', to:'items#update'
-  # delete 'items/:id', to:'items#destroy'
-
-
-  get 'users', to:'users#index'
-  #get 'users/new', to:'users#new', as: 'new_user'
-  #post 'users', to:'users#create'
+  post 'items/:id/vote', to: 'items#vote', as: 'vote'
+  
+  get 'users', to:'users#index', as:'users'
   get 'users/:id', to:'users#show', as: 'user'
 
 
@@ -29,8 +21,5 @@ Rails.application.routes.draw do
   post ':category',   to:'items#create'
 
 
-
-  #CREATE VOTE
-  #post 'books/:id/buy', to: 'books#buy', as: 'buy'
 
 end

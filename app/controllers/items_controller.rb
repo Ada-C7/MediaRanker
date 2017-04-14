@@ -25,29 +25,36 @@ class ItemsController < ApplicationController
     end
   end
 
-   def show
-     @item = Item.find(params[:id])
-   end
+  def show
+    @item = Item.find(params[:id])
+  end
 
-   def edit
-     @item = Item.find(params[:id])
-   end
+  def edit
+    @item = Item.find(params[:id])
+  end
 
-   def update
-     item = Item.find(params[:id])
-     item.update(item_params)
-     redirect_to category_index_path(item.category)
-   end
-
-
-   def destroy
-     item = Item.find(params[:id])
-     category= item.category
-     item.destroy
-     redirect_to category_index_path(category)
-   end
+  def update
+    item = Item.find(params[:id])
+    item.update(item_params)
+    redirect_to category_index_path(item.category)
+  end
 
 
+  def destroy
+    item = Item.find(params[:id])
+    category= item.category
+    item.destroy
+    redirect_to category_index_path(category)
+  end
+
+  def vote
+    vote = Vote.create(user_id: session[:user_id], item_id: params[:id])
+
+    if user_book
+      flash[:success] = "Book Bought!"
+      redirect_to user_path(session[:user_id])
+    end
+  end
 
   private
 
