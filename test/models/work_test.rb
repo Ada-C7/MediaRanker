@@ -11,14 +11,17 @@ describe Work do
       works(:antonia).must_be :valid?
   end
 
-  # this isn't working
-  # it "must include valid category" do
-  #   #   validates_inclusion_of :category, in: %w(book, movie, album)
-  #     @valid_categories = ["book", "movie", "album"]
-  #     validates :category, :inclusion => {:in => @valid_categories}
-  # end
+  it "must include valid category" do
+      works(:antonia).validates_inclusion_of :category, in: %w(book, movie, album)
+  end
 
-  # it "returns something if doesn't include a valid category" do
-  #     #set up a fixture with a bad category and have this test pass
-  # end
+
+  #this is not really working
+  it "doesn't save something with an invalid category" do
+      works(:bad_category).valid?
+      works(:bad_category).errors.messages.wont_include :category
+  end
+
+  #do i need to test relationships here? how?
+
 end

@@ -20,8 +20,5 @@ class WorksController < ApplicationController
             flash[:success] = "You've deleted that work"
             redirect_to works_path
         end
-
-
     end
-
 end
