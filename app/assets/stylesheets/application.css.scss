@@ -27,9 +27,8 @@ a {
     border-right-style: hidden;
     border-bottom: 1px solid gray;
     background-image: url("https://img.clipartfest.com/68b3f4fb38086c52573f631f3d29d19d_picture-cute-owl-scholar-clipart_500-540.jpeg");
-    background-size: 160px 160px;
+    background-size: 160px;
     background-repeat: no-repeat;
-
   }
 
 .error {
@@ -38,4 +37,14 @@ a {
 
 .success {
   color: green;
+}
+
+.title {
+  position: relative;
+  left: 15%;
+}
+
+.login {
+  position: relative;
+  left: 15%;
 }

@@ -8,29 +8,27 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
 
     <nav class="header">
-      <div>
-      <h2><%= link_to "Media Ranker", root_path %><small> Ranking the Best of Everything</small></h2>
+      <h2 class="title"><%= link_to "Media Ranker", root_path %><small> Ranking the Best of Everything</small></h2>
 
+    <nav class="login">
 
       <% if session[:user_id] %>
       <% user_id = session[:user_id].to_s %>
-        <p class="text-right">
+        <p>
           Logged in as <%= link_to User.find_by_id(user_id).name, user_path(user_id) %>
         </p>
-        <h4 class="button float-right">
+        <h4 class="button">
           <%= link_to "Logout",logout_path, method: :delete %>
         </h4>
       <% else %>
-        <h4 class="button float-right"><%= link_to "Login", login_path %></h4>
+        <h4 class="button"><%= link_to "Login", login_path %></h4>
       <% end %>
-    <%= csrf_meta_tags %>
-  </div>
-
-  </nav>
-
+    </nav>
   </head>
+</nav>
 
 
+  <%= csrf_meta_tags %>
 
   <body>
     <section class="flash">
