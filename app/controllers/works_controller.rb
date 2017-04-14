@@ -16,12 +16,20 @@ class WorksController < ApplicationController
   end
 
   def show
-    @selected_work = Work.find params[:id]
+    @selected_work = Work.find_by_id(params[:id])
+    if !@selected_work
+      render_404
+    end
   end
 
   def new
     @category = params[:category].singularize
-    @work = Work.new
+    if Work::CATEGORIES.include? @category
+      @work = Work.new
+    else
+      render_404
+    end
+
   end
 
   def create
@@ -51,8 +59,6 @@ class WorksController < ApplicationController
   end
 
   def destroy
-    votes = Vote.find_by_work_id(params[:id])
-    votes.destroy
     Work.destroy params[:id]
 
     redirect_to works_path

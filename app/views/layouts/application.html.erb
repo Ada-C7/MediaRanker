@@ -9,10 +9,10 @@
   </head>
 
   <body>
-    <header class="page-header-row">
+    <header class="page-header row">
 
-      <h2 class="columns small-12 large-9"><%= link_to "Media Ranker", works_path %><small> Ranking the Best of Everything</small></h2>
-      <img src="../../assets/owl.jpg" alt="owl-logo">
+      <h2 class="columns small-12 large-9"><img src="../../assets/owl.jpg" alt="owl-logo"><%= link_to "Media Ranker", works_path %><small> Ranking the Best of Everything</small></h2>
+
       <div class="columns small-12 large-3">
         <% if session[:user_id] %>
           <p class="text-right">Logged in as <%= link_to User.find_by_id(session[:user_id]).name, user_path(session[:user_id]) %></p>
