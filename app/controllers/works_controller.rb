@@ -68,6 +68,8 @@ class WorksController < ApplicationController
     render "albums"
   end
 
+  
+
   private
 
   def work_params
