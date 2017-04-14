@@ -31,3 +31,9 @@
 .page-header h2 {
   padding-left: 150px;
 }
+
+/*Media Spotlight*/
+.spotlight {
+  margin-top: 25px;
+  padding-left: 25px;
+}

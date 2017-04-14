@@ -1,10 +1,13 @@
-<h1>Top Works</h1>
-
-<!-- <h1>Media Spotlight</h1> -->
-<% if @top_work != nil %>
-  <h2>Top Work!</h2>
-  <%= @top_work.title %>
-<% end %>
+<section class="row spotlight">
+  <div>
+    <% if @top_work != nil %>
+      <h3>Media Spotlight: <%=link_to @top_work.title, work_path(@top_work.id) %> by <%= @top_work.creator %> </h3>
+      <p>
+        <%= @top_work.votes.length %> votes <%= @top_work.desc %>
+      </p>
+    <% end %>
+  </div>
+</section>
 
 <h2>Books</h2>
 <% @books[0..9].each do |book| %>
