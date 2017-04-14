@@ -14,3 +14,43 @@
  *= require_self
  */
  @import url('foundation.css');
+
+ /*ul {
+   list-style: none;
+ }
+
+/*img {
+  float: left;
+  display: block;
+}*/
+
+section.spotlight {
+  padding: 2rem;
+}
+
+.top-ten ul {
+  list-style-type: none;
+  margin-left: 0px;
+}
+
+ul, ol, dl {
+    margin-bottom: 1rem;
+    list-style-position: outside;
+    line-height: 1.6;
+}
+
+.page-header {
+    max-width: 100%;
+    background: url(owl.jpg);
+    background-repeat: no-repeat;
+    border-bottom: 1px solid darkgrey;
+    margin-bottom: 10px;
+  }
+
+  article, aside, footer, header, nav, section {
+    display: block;
+}
+
+.page-header h2 {
+    padding-left: 150px;
+}

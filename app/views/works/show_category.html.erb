@@ -51,9 +51,10 @@
 </table>
 
 <% if @categorized_works.length > 0 %>
-<%= link_to "View all media", works_path, method: :get, class: "button" %>
-<%= link_to "Add a new #{@categorized_works.first.category}", category_path(@categorized_works.first.category.pluralize), method: :get, class:"button" %>
+<%= link_to "View all media", root_path, method: :get, class: "button" %>
+<%= link_to "Add a new #{@categorized_works.first.category}", new_works_path(@categorized_works.first.category.pluralize), method: :get, class:"button" %>
 <%# problem here if there is no media of a given category %>
+<%#c%>
 <% end %>
 </section>
 </main>

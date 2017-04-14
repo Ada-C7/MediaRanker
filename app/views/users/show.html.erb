@@ -1,7 +1,7 @@
 <main class="row">
   <% @user = User.find(params[:id]) %>
 
-  <h3></h3>User Summary: <%= link_to @user.name, user_path(@user.id), method: :get %> </h3>
+  <h3>User Summary: <%= link_to @user.name, user_path(@user.id), method: :get %> </h3>
   <p>Joined site: <%= @user.created_at.strftime("%b %d, %Y") %></p>
 
   <h4>Votes</h4>

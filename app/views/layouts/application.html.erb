@@ -1,18 +1,24 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>MediaRanker</title>
+
   <%= csrf_meta_tags %>
 
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  <title>MediaRanker</title>
 </head>
 
 <body>
+
   <header class="page-header row">
 
+
+    
   <h2 class="columns large-9 small-12"><%= link_to "MediaRanker", root_path %> <small>Ranking the Best of Everything</small></h2>
+
     <div class="columns large-3 small-12">
+
       <% if session[:user_id] %>
         <p class="text-right"> Logged in as <%= (User.find_by_id(session[:user_id])).name%></p>
         <%= button_to "Logout", logout_path, method: :delete, class: "button float-right"  %>

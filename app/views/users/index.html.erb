@@ -1,31 +1,37 @@
+
+<main>
+
+<h3>List of Users</h3>
 <table>
-  <th>
+  <thead>
     <tr>
-      <td>
+      <th>
         Username
-      </td>
-      <td>
+      </th>
+      <th width="100">
         Votes
-      </td>
-      <td>
+      </th>
+      <th width="200">
         Joined
-      </td>
+      </th>
     </tr>
-  </th>
+  </thead>
   <% @users.each do |user| %>
 
   <tr>
     <td>
       <%= link_to user.name, user_path(user.id)  %>
     </td>
-    <td>
-
+    <td >
+      <%= user.votes.count %>
     </td>
-    <td>
+    <td >
       <%= user.created_at.strftime("%b %d, %Y")%>
     </td>
 
     <% end %>
   </tr>
 </table>
-<%= button_to "Back to media list", works_index_path, method: :get %>
+<%= button_to "Back to media list", works_index_path, method: :get, class: "button" %>
+
+</main>

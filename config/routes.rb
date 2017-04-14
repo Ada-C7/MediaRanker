@@ -13,8 +13,8 @@ Rails.application.routes.draw do
   root 'works#index'
   get 'works/index'
   get '/:category', to: 'works#show_category', as: 'category'
-
   post '/works/:id/upvote', to: 'works#upvote', as: 'upvote'
+  get '/:category/new', to: 'works#new', as: 'new_works'
 
   resources :works
 

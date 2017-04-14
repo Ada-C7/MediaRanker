@@ -33,6 +33,7 @@ class WorksController < ApplicationController
 
   def edit
     @work=Work.find(params[:id])
+    params[:category] = @work.category
   end
 
   def update
@@ -74,22 +75,25 @@ class WorksController < ApplicationController
   def create
     @work = Work.create work_params
     unless @work.id == nil
-      redirect_to works_path
+      redirect_to category_path(@work.category.pluralize)
     else
       render "new"
     end
   end
 
   def destroy
+    work = Work.find(params[:id])
+    category= work.category.pluralize
     Work.destroy(params[:id])
-    redirect_to drivers_path
+
+    redirect_to category_path(category)
   end
 
 
   private
 
   def work_params
-    params.require(:work).permit(:id, :title, :created_by, :year_published, :description)
+    params.require(:work).permit(:id, :title, :created_by, :year_published, :description, :category)
   end
 
 end
