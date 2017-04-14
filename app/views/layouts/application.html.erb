@@ -19,7 +19,7 @@
     <li><a href=<%= login_path %>>Login!</a></li>
     <% else %>
     <%= link_to "Logout", login_path, method: :delete %>
-
+    <%= link_to "All Users", users_path, method: :get %>
     <% end %>
   </ul>
 </nav>
