@@ -32,6 +32,10 @@ html {
 body {
   margin: 0; }
 
+.top-ten h3, .top-ten p a {
+  margin-left: 18px;
+}
+
 /**
      * Add the correct display in IE 9-.
      */
@@ -547,6 +551,12 @@ pre {
 
 .column.row.row, .row.row.columns {
   float: none; }
+
+.page-header {
+  max-width: 100%;
+  border-bottom: 1px solid darkgrey;
+  margin-bottom: 10px;
+}
 
 .row .column.row.row, .row .row.row.columns {
   margin-right: 0;
@@ -1321,7 +1331,8 @@ h6 {
   h5 small,
   h6 small {
     line-height: 0;
-    color: #cacaca; }
+    color: slategrey; }
+ }
 
 h1 {
   font-size: 1.5rem;
