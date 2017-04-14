@@ -17,4 +17,8 @@ duplicate_vote:
   user: user
   content: hacking
 
+another_vote:
+  user: user
+  content: arch
+
 # column: value

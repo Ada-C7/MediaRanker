@@ -17,4 +17,5 @@ class Content < ApplicationRecord
   def self.books
     return Content.all.select { |c| c.category == "book"}
   end
+
 end

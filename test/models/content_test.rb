@@ -55,4 +55,10 @@ describe Content do
     end
   end
 
+  it "should have votes associated with it" do
+    proc {
+    contents(:shrek).votes.create
+    }.must_change 'contents(:shrek).votes.length', 1 
+   end
+
 end
