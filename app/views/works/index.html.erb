@@ -12,14 +12,12 @@
     <% @works.each do | work | %>
     <tr>
       <td><%= work.category %></td>
-      <td><%= work.title %></td>
+      <td><%= link_to work.title, "/#{work.category}s/#{ work.id }" %></td>
       <td><%= work.creator %></td>
       <td><%= work.pub_year %></td>
       <td><%= work.description %></td>
     </tr>
     <% end %>
   </table>
-
-<h2><%= link_to "Books", "/books" %> </h2>
 
 </section>

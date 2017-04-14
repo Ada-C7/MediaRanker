@@ -43,7 +43,9 @@ class BooksController < ApplicationController
   end
 
   def new
-    @book = Book.new
+    @work = Work.new(:category => "book")
+
+    render template: "works/new"
   end
 
   private

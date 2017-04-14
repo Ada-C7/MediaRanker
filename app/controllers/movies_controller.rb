@@ -28,7 +28,7 @@ class MoviesController < ApplicationController
 
   def destroy
     Work.destroy(params[:id])
-    
+
     redirect_to movies_path
   end
 
@@ -43,7 +43,9 @@ class MoviesController < ApplicationController
   end
 
   def new
-    @movie = Movie.new
+    @work = Work.new(:category => "movie")
+
+    render template: "works/new"
   end
 
   private

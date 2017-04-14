@@ -44,13 +44,9 @@ class AlbumsController < ApplicationController
   end
 
   def new
-    @album = Work.new
+    @work = Work.new(:category => "album")
 
-    if @album.id != nil
-      redirect_to albums_path
-    else
-      render "new"
-    end
+    render template: "works/new"
 
   end
 

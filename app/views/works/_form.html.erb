@@ -1,10 +1,6 @@
 
 <section id="content">
 
-  <!-- this is a placeholder -->
-  <h2><%= view_name %></h2>
-
-  <% works.each do | work | %>
   <%= form_for @work do | f | %>
 
   <%= f.label :title %>
@@ -19,7 +15,9 @@
   <%= f.label :description%>
   <%= f.text_field :description %>
 
+  <%= f.hidden_field :category %> 
+
   <%= f.submit "Add work!", :class => 'button' %>
 
-  <% end %>
+
   <% end %>

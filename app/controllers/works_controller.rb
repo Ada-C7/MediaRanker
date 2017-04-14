@@ -39,7 +39,7 @@ class WorksController < ApplicationController
 
     if @work.id != nil
       flash[:success] = "Work added successfully!"
-      redirect_to books_path
+      redirect_to works_path
     else
       flash.now[:error] = "Error has occured."
       render "new"
@@ -48,6 +48,13 @@ class WorksController < ApplicationController
 
   def new
     @work = Work.new
+
+    if @work.id != nil
+      @work.save
+      redirect_to work_path(@work.id)
+    else
+      render "new"
+    end
   end
 
 
