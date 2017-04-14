@@ -14,4 +14,5 @@ class Work < ApplicationRecord
   def self.books
     return where(category: "book")
   end
+
 end

@@ -13,7 +13,7 @@
     <% @works.each do |work| %>
       <tr>
         <td>
-          [placeholder votes]
+          <%= work.votes.size %>
         </td>
         <td>
           <%= link_to work.title, work_path(work.id) %>

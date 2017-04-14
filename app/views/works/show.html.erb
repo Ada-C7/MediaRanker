@@ -34,7 +34,7 @@
 </p>
 
 <section>
-  <h3><%= @work.votes.count %> Votes for this <%= @work.category.capitalize %></h3>
+  <h3><%= pluralize(@work.votes.count, "Vote") %> for this <%= @work.category.capitalize %></h3>
   <table>
     <thead>
       <tr>

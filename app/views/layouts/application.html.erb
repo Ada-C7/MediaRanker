@@ -11,7 +11,7 @@
   <body>
     <header>
       <h1><%= link_to "Media Ranker", root_path %> Ranking the Best of Everything</h1>
-      <% if session[:user_id] %>
+      <% if session[:user_id] && User.find_by_id(session[:user_id]) %>
         <p>Logged in as <%= link_to User.find_by_id(session[:user_id]).username, user_path(session[:user_id]) %></p>
         <p><%= link_to "Log Out", logout_path, method: :delete %></p>
       <% else %>
