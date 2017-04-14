@@ -79,6 +79,26 @@ class WorksController < ApplicationController
     @book = Work.new
   end
 
+  #VOTE
+
+  def vote
+    # work = Work.find(params[:id])
+    # unless work.has_vote_from_user(session[:user_id])
+    
+    unless Vote.find_by(user_id: session[:user_id], work_id: params[:id])
+      vote = Vote.create(user_id: session[:user_id], work_id: params[:id])
+    end
+
+    if vote
+      flash[:success] = "Successfully upvoted!"
+      redirect_to work_path(params[:id])
+    else
+      flash[:failure] = "Can not upvote"
+      redirect_to work_path(params[:id])
+    end
+  end
+
+
   private
 
   def strong_params
