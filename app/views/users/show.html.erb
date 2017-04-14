@@ -26,6 +26,25 @@
     </tr>
   </thead>
   <tbody>
+    <tr>
+      <% User.find_by_id(params[:id]).votes.each do |vote| %>
+      <th>
+          <%= link_to Work.find_by_id(vote.work_id).title, work_path(vote.work_id) %>
+      </th>
+      <th>
+          <%= Work.find_by_id(vote.work_id).creator %>
+      </th>
+      <th>
+          <%= Work.find_by_id(vote.work_id).publication_year %>
+      </th>
+      <th>
+          <%= Work.find_by_id(vote.work_id).category %>
+      </th>
+      <th>
+          <%= Work.find_by_id(vote.work_id).created_at.strftime("%B %d, %Y") %>
+      </th>
+    </tr>
+    <% end %>
 
   </tbody>
 </table>
