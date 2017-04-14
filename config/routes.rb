@@ -20,7 +20,7 @@ Rails.application.routes.draw do
   #        POST   /movies(.:format)         movies#create
   # new_movie GET    /movies/new(.:format)     movies#new
   get 'movies', to: 'works#movies_index'
-  post 'movies', to: 'works#create_movie'
+  post 'movies/new', to: 'works#create_movie'
   get 'movies/new', to: 'works#new_movie', as: 'new_movie'
 
   #books

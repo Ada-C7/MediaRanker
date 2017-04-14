@@ -25,7 +25,7 @@ class WorksController < ApplicationController
   end
 
   def create_album
-    @album = Work.new(album_params)
+    @album = Work.new(strong_params)
     @album.category = "album"
     if @album.save
       redirect_to root_path #Change to albums
@@ -41,12 +41,22 @@ class WorksController < ApplicationController
   # MOVIES
 
   def movies_index
+    @movies = Work.where(category: "movie")
+
   end
 
   def create_movie
+    @movie = Work.new(strong_params)
+    @movie.category = "movie"
+    if @movie.save
+      redirect_to root_path #Change to albums
+    else
+      render :new
+    end
   end
 
   def new_movie
+    @movie = Work.new
   end
 
   # BOOKS
@@ -62,7 +72,7 @@ class WorksController < ApplicationController
 
   private
 
-  def album_params
+  def strong_params
     return params.permit(:title, :creator, :publication_year, :description)
   end
 end
