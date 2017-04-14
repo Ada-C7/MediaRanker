@@ -8,4 +8,12 @@ describe Work do
       result.must_equal false
     end
   end
+
+  # describe 'self.spotlight' do
+  #   it "selects the work by maximum votes counts" do
+  #
+  #
+  #     result.must_equal
+  #   end
+  # end
 end
