@@ -13,4 +13,8 @@ module WorksHelper
   def find_top_ten(works)
     works.sort_by { |work| work.votes.count }.reverse[0..9]
   end
+
+  def find_top(works)
+    works.sort_by { |work| work.votes.count }.reverse[0]
+  end
 end

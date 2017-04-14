@@ -14,7 +14,8 @@ describe Work do
                           publication_year: "2004",
                           description: "Dad has to safe son after he has been kidnapped") }
 
-    let(:work_no_creator) { Work.new(title: "Finding Nemo",
+    let(:work_no_creator) { Work.new(
+                          title: "Finding Nemo",
                           publication_year: "2004",
                           description: "Dad has to safe son after he has been kidnapped") }
 

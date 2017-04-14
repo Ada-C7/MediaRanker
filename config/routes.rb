@@ -12,11 +12,7 @@ Rails.application.routes.draw do
   get 'albums/new', to:'works#new_album', as: 'new_album'
   get 'movies/new', to:'works#new_movie', as: 'new_movie'
 
-  # post 'books/:id/vote', to: 'works#vote', as: 'vote'
-  # post 'albums/:id/vote', to: 'works#vote', as: 'vote'
-  # post 'movies/:id/vote', to: 'works#vote', as: 'vote'
   post 'works/:id/vote', to: 'works#vote', as: 'vote'
-
 
   get 'login', to: 'sessions#new'
   post 'login', to: 'sessions#login'
