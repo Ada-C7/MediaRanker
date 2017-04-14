@@ -1,0 +1,32 @@
+<%= render "shared/nav" %>
+
+<article>
+  <%= @work.title %>
+  <p>Created by: <%= @work.creator %> </p>
+  <p>Published: <%= @work.publication_year %></p>
+  <p><%= @work.description %>
+  <%= link_to "Back to <%= %>", vote_path(@work.id) %>
+
+</article>
+
+<article>
+  num_votes Votes for this <%= @work.category.capitalize %>
+  <table>
+    <thead>
+      <th>User</th>
+      <th>Date</th>
+    </head>
+    <tbody>
+    <% @works.each do |vote| %>
+      <tr>
+        <td> <%= link_to @work.vote.user_id.name, user_path(user.id) %></td>
+          <td><%= @work.vote.created_at %></td>
+          <td><% if session[:user_id] %>
+                <%= link_to "Upvote", vote_path(@work.id), method: :post %>
+              <% end %>
+          </td>
+      </tr>
+    <% end %>
+      </tbody>
+  </table>
+</article>
