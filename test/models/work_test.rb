@@ -26,21 +26,24 @@ describe Work do
     work1.title = "Neemo"
     work1.errors.messages[:title].must_equal []
   end
-end
 
-# Testing model relationship
-describe "relation/has_many votes" do
 
-  let(:work1) {Work.new}
+  # Testing model relationship
+  describe "relation/has_many votes" do
 
-  vote1 = Vote.create!(work_id: 2, user_id:4)
+    it "Responds to votes method" do
+      vote1 = Vote.create( work_id: works(:movie1).id, user_id: users(:anderson).id)
 
-  binding.pry
-
-  it "Can retrieve votes through a medium" do
-    work1.work_id.must_equal 2
-
+      works(:movie1).must_respond_to :votes
+    end
+    #
+    it "Can retrieve votes list " do
+      works(:movie1).votes.must_include votes(:voteone)
+    end
   end
 
-
 end
+# vote1.must_respond_to :user
+# user_id: users(:anderson).id)
+
+# binding.pry

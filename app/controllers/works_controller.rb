@@ -22,7 +22,7 @@ def movies
    movies = Work.where(category: "movie")
    @movies = movies.sort {|m1, m2| m2.votes.count <=> m1.votes.count}
    return @movies
- end
+end
 
 
   def show
@@ -84,8 +84,6 @@ def movies
   def work_params
     params.require(:work).permit(:title, :creator, :publication_year, :description)
   end
-
-
 
 
   private
