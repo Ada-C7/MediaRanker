@@ -1,10 +1,12 @@
-<ul>
+<ul class="error">
   <% @work.errors.each do |field, msg| %>
     <li>
-      <%= field %> <%= msg %>
+      <%= field %>: <%= msg %>
     </li>
   <% end %>
 </ul>
+
+<h3><%= form_title %></h3>
 
 <%= form_for @work do |f| %>
   <%= f.label :title %>
@@ -21,5 +23,5 @@
 
   <%= f.hidden_field :category, value: @category %>
 
-  <%= f.submit action_name %>
+  <%= f.submit action_name, class: "button" %>
 <% end %>

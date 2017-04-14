@@ -1,14 +1,13 @@
 <h3>User Summary: <%= link_to @user.username, user_path %></h3>
-<p>Joined site <%= @user.created_at %></p>
-
-<h3>Votes</h3>
-
+<p>Joined site <%= @user.created_at.strftime("%b %e, %y") %></p>
+<h4>Votes</h4>
 <table>
   <thead>
     <tr>
       <th>Media Title</th>
       <th>Created By</th>
       <th>Published</th>
+      <th>Category</th>
       <th>Voted On</th>
     </tr>
   </thead>
@@ -18,11 +17,12 @@
         <td><%= vote.work.title %></td>
         <td><%= vote.work.creator %></td>
         <td><%= vote.work.year_published %></td>
-        <td><%= vote.created_at %></td>
+        <td><%= vote.work.category.capitalize %></td>
+        <td><%= vote.created_at.strftime("%b %e, %y") %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
 
-<p><%= link_to "See All Users", users_path %></p>
-<p><%= link_to "Back to Media List", root_path %></p>
+<%= link_to "See All Users", users_path, class: "button" %>
+<%= link_to "Back to Media List", root_path, class: "button" %>

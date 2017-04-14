@@ -30,7 +30,7 @@ class WorksController < ApplicationController
       flash[:success] = "Successfully created #{@category} #{@work.id}"
       redirect_to category_path(@category.pluralize)
     else
-      flash.now[:error] = "Error: #{@category}.capitalize not created"
+      flash.now[:error] = "A problem occurred: Could not create #{@category}"
       render "new"
     end
   end

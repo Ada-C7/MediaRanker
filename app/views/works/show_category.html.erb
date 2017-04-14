@@ -1,12 +1,12 @@
 <h3>List of <%= params[:category].pluralize.capitalize %></h3>
-<table>
+<table class="media-table">
   <thead>
     <tr>
-      <th>Votes</th>
+      <th width="80">Votes</th>
       <th>Title</th>
       <th>Created By</th>
-      <th>Published</th>
-      <th>Upvote</th>
+      <th width="100">Published</th>
+      <th width="100">Upvote</th>
     </tr>
   </thead>
   <tbody>
@@ -32,5 +32,5 @@
   </tbody>
 </table>
 
-<p><%= link_to "View All Media", root_path %></p>
-<p><%= link_to "Add New " + params[:category].singularize.capitalize, new_work_path %></p>
+<%= link_to "View All Media", root_path, class: "button" %>
+<%= link_to "Add New " + params[:category].singularize.capitalize, new_work_path, class: "button" %>
