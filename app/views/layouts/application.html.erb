@@ -10,26 +10,26 @@
 
   <body>
 
-    <header>
+    <header class="page-header row">
 
-      <h2>
+      <h2 class ="columns large-9 small-12">
         <%= link_to "Media Rancor", root_path %>
         <small>Ranking the Best of Everything</small>
       </h2>
 
-      <div>
+      <div class="columns large-3 small-12">
         <% if session[:user_id] %>
           <p class="text-right">Logged in as <%= link_to User.find_by_id(session[:user_id]).username, user_path(session[:user_id]) %></p>
-          <%= link_to "Log Out", logout_path, method: :post %>
+          <%= link_to "Log Out", logout_path, method: :post, class: "button float-right" %>
         <% else %>
-          <%= link_to "Log In", login_path %>
+          <%= link_to "Log In", login_path, class: "button float-right" %>
         <% end %>
       </div>
 
     </header>
 
     <main>
-      <section class="flash">
+      <section class="row status">
         <% flash.each do |name, message| %>
           <div class="<%= name %>"><%= message %></div>
         <% end %>
