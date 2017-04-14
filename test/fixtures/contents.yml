@@ -12,6 +12,12 @@ arch:
   creator: "Janelle Monae"
   publication_year: "2010"
 
+pelican:
+  category: "album"
+  title: "What We All Come To Need"
+  creator: "Pelican"
+  publication_year: "2009"
+
 shrek:
   category: "movie"
   title: "Shrek"
