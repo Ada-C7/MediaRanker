@@ -3,16 +3,15 @@ class Work < ApplicationRecord
   validates :title, presence: true
   validates :category, inclusion: { in: ["book", "movie", "album"] }
 
-  def self.movies
-    return where(category: "movie")
+  def self.category_sorted(category)
+    return where(category: category).order(votes_count: :desc)
   end
 
-  def self.albums
-    return where(category: "album")
+  def self.top_ten(category)
+    return category_sorted(category).limit(10)
   end
 
-  def self.books
-    return where(category: "book")
+  def self.spotlight
+    return all.order(votes_count: :desc).first
   end
-
 end
