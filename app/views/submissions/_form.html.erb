@@ -1,9 +1,8 @@
-<% @submission.errors.each do |field, msg | %>
-     <li>
-     <h6> <%= field %> <%= msg %> </h6>
-     </l1>
-<% end %>
-
+<ul>
+  <% @submission.errors.each do |field, msg| %>
+    <li><%= msg %></li>
+  <% end %>
+</ul>
 
 <%=form_for @submission, method: form_method do | f | %>
 
@@ -19,7 +18,10 @@
      <%= f.label :summary, class: 'hidden'  %>
      <%= f.text_area :summary, placeholder: 'Brief Description' %>
 
-     <%= f.hidden_field :category, value: category %>
+     <% if form_method == :post %>
+          <%= f.hidden_field :category, value: category %>
+     <% else %>
+     <% end %>
 
      <%= f.submit submit_text %>
 
