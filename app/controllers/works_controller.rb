@@ -35,6 +35,8 @@ class WorksController < ApplicationController
       flash[:success] = "Successfully updated #{@work.category} #{@work.id}"
       redirect_to "/works/#{@work.category}s"
     else
+      params[:category] = @work.category
+      
       render :edit
     end
   end
