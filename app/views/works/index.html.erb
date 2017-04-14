@@ -1,11 +1,12 @@
-<h2>Media Spotlight: <%#=@leader.title%></h2> by <%#=@leader.creator%>
+<h2>Media Spotlight: <%=@works.first.title%></h2> by <%=@works.first.creator%>
 <p>
-  <%#=@leader.votes.count%> votes
+  <%=@works.first.votes.count%> votes
 </p>
+
 
 <div class = "row">
   <section class = "large-4 columns">
-    <p> Top Movies</p>
+    <h2> Top Movies</h2>
     <%@movies.each do |movie|%>
       <p>
         <%=link_to movie.title, work_path(movie.id)%> by <%= movie.creator%>
