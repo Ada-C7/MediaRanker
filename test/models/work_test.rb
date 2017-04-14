@@ -52,5 +52,4 @@ describe Work do
   (Work.spot_light.first.id).must_equal works(:movie1).id
   end
 
-
 end
