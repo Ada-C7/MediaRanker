@@ -3,6 +3,8 @@ class WorksController < ApplicationController
     @work_category = params[:work_category]
     category = @work_category.chomp!('s')
     @works = Work.where(category: category)
+    @works = @works.sort_by{|work| work.votes.count}.reverse
+
   end
 
   def new

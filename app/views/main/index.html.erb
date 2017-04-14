@@ -7,7 +7,9 @@
   <ul>
     <% books = @books[0...10] %>
     <% books.each do |book| %>
+
     <li> <%= link_to "#{book.title}", work_path(book.id) %> by <%= book.creator %> </li>
+    <div> <%= book.votes.count %> votes </div>
     <% end %>
   </ul>
 
@@ -20,6 +22,7 @@
     <% movies = @movies[0...10]%>
     <% movies.each do |movie| %>
     <li> <%= link_to "#{movie.title}", work_path(movie.id) %> by <%= movie.creator %> </li>
+    <div> <%= movie.votes.count %> votes </div>
     <% end %>
   </ul>
   <div class="button"><%= link_to "More Movies", list_works_path("movies"), work_category: "Movies" %></div>
@@ -32,6 +35,7 @@
     <% albums = @albums[0...10]%>
     <% albums.each do |album| %>
     <li> <%= link_to "#{album.title}" %> by <%= album.creator %> </li>
+    <div> <%= album.votes.count %> votes </div>
     <% end %>
   </ul>
   <% @work_category = "Albums" %>
