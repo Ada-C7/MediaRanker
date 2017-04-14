@@ -9,7 +9,8 @@ class VotesController < ApplicationController
       flash[:sucess] = "Hoorrayyyy! Your upvote worked."
       redirect_to root_path
     else
-      flash[:fail] = "Your vote FAILED"
+      flash[:failure] = "Your vote failed! YOU'RE a failure!!"
+      redirect_to :back
     end
   end
 end

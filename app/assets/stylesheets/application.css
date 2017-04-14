@@ -36,6 +36,14 @@ body {
   margin-left: 18px;
 }
 
+.status .failure {
+  color: #cc4b37;
+}
+
+.status .success {
+  color: green;
+}
+
 /**
      * Add the correct display in IE 9-.
      */
