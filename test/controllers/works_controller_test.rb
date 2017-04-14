@@ -14,7 +14,7 @@ describe WorksController do
         must_respond_with :success
       end
 
-      it "still responds if there are no works" do
+      it "still responds if there are no albums" do
         Work.where(category: "album").destroy_all
         get root_path
         must_respond_with :success
@@ -41,6 +41,7 @@ describe WorksController do
       get new_work_path(category: "albums")
       must_respond_with :success
     end
+
     it "should be able to create a new work" do
       start_count = Work.count
       work_data = {

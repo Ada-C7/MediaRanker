@@ -5,7 +5,7 @@
 <p><%= @work.description %></p>
 
 <%= link_to "Edit", edit_work_path(@work.id), :class => "button" %>
-<%= link_to "Delete", work_path(@work.id),  :class => "button delete-btn", method: :delete,
+<%= link_to "Delete", work_path(@work.id),  :class => "button alert", method: :delete,
     data: {confirm: "Are you sure"} %>
 <%= link_to "Back to #{@work.category} list", works_path(@work.category.pluralize), :class => "button" %>
 

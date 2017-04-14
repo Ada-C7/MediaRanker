@@ -1,7 +1,8 @@
 class WorksController < ApplicationController
-  before_action :top_work, :books_index, :movies_index, :albums_index, only: [:index]
+  before_action :top_work, only: [:index]
 
   def top_work
+    #move to model and call within index instead
     if Work.all.length > 0
     most_votes = Work.sort_by_votes.first
       if most_votes.votes.count > 5
@@ -10,19 +11,10 @@ class WorksController < ApplicationController
     end
   end
 
-  def books_index
-    @books = Work.where(category: "book").sort_by_votes[0..9]
-  end
-
-  def movies_index
-    @movies = Work.where(category: "movie").sort_by_votes[0..9]
-  end
-
-  def albums_index
-    @albums = Work.where(category: "album").sort_by_votes[0..9]
-  end
-
   def index
+    @albums = Work.where(category: "album").sort_by_votes[0..9]
+    @movies = Work.where(category: "movie").sort_by_votes[0..9]
+    @books = Work.where(category: "book").sort_by_votes[0..9]
   end
 
   def works_index
