@@ -9,7 +9,7 @@ class SessionsController < ApplicationController
       session[:user_id] = @user.id
       flash[:success] = "Successfully created new user #{@user.username} with ID #{@user.id}"
       redirect_to mainpages_path
-    elsif @user = User.find_by_name(params[:name])
+    elsif @user = User.find_by_name(params[:username])
       session[:user_id] = @user.id
       flash[:success] = "Successfully logged in as existing user #{@user.username}"
       redirect_to mainpages_path

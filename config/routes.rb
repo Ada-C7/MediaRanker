@@ -14,4 +14,8 @@ Rails.application.routes.draw do
   get 'login', to:'sessions#login_form'
   post 'login', to:'sessions#login'
   get 'logout', to:'sessions#logout'
+
+  get 'votes/new', to:'votes#new'
+  post 'works/:id/votes', to: 'votes#create', as: 'new_vote'
+  get 'votes', to:'votes#show', as: 'vote'
 end
