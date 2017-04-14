@@ -1,4 +1,6 @@
 class Work < ApplicationRecord
+  has_many :votes
+
   validates :title, presence: true
 
   #title must be unique within each category
