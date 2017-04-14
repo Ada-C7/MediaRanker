@@ -1,14 +1,37 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>MediaRanker</title>
-    <%= csrf_meta_tags %>
+<head>
+  <title>MediaRanker</title>
+  <%= csrf_meta_tags %>
 
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-  </head>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+</head>
 
-  <body>
-    <%= yield %>
-  </body>
+<body>
+  <header class="page-header row">
+    <h2 class="columns large-9 small-12">
+      <a href="/">Media Ranker</a>
+      <small>Ranking the Best of Everything</small>
+    </h2>
+
+    <div class="columns large-3 small-12">
+      <% unless session[:user_id] %>
+      <p>Not logged in</p>
+      <%= link_to "Log In", login_path, method: :get %>
+      <% else %>
+      <p>logged in as <%= link_to @user.name, user_path(session[:user_id]) %></p>
+      <%= link_to "Log Out", logout_path, method: :delete %>
+      <% end %>
+    </div>
+  </header>
+
+  <section class="flash">
+    <% flash.each do |name, message| %>
+    <div class="<%= name %>"><%= message %></div>
+    <% end %>
+  </section>
+
+  <%= yield %>
+</body>
 </html>

@@ -1,9 +1,11 @@
 class UsersController < ApplicationController
   def index
+    user_name
     @users = User.all
   end
 
   def show
+    user_name
     @result_user = User.find_by_id(params[:id])
     if !@result_user
       render_404
@@ -11,6 +13,7 @@ class UsersController < ApplicationController
   end
 
   def create
+    user_name
     @work = User.create(user_params)
   end
 

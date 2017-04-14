@@ -1,5 +1,6 @@
 class WorksController < ApplicationController
   def show
+    user_name
     @result_work = Work.find_by_id(params[:id])
     if !@result_work
       render_404
@@ -7,10 +8,12 @@ class WorksController < ApplicationController
   end
 
   def edit
+    user_name
     @work = Work.find_by_id(params[:id])
   end
 
   def update
+    user_name
     @work = Work.find_by_id(params[:id])
     if @work.update(work_params)
       if @work.category == "movie"
@@ -26,6 +29,7 @@ class WorksController < ApplicationController
   end
 
   def create
+    user_name
     @work = Work.create(work_params)
     if @work.id != nil
       flash[:success] = "#{@work.category} added successfully"
@@ -49,6 +53,7 @@ class WorksController < ApplicationController
   end
 
   def destroy
+    user_name
     work = Work.find_by_id(params[:id])
     category = work.category
     Work.destroy(params[:id])
