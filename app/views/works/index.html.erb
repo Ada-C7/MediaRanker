@@ -17,9 +17,9 @@
 </ul>
 <h2>Top Albums</h2>
 <ul>
-    <%= @albums.each do |album| %>
+    <%@albums.each do |album| %>
     <li>
-        <%= album.title %> by: <%=album.creator %>
+        <%= link_to album.title, work_path(album.id) %> by: <%=album.creator %>
     </li>
     <% end %>
 </ul>
