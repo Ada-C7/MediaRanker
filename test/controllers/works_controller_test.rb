@@ -7,10 +7,8 @@ describe WorksController do
       must_respond_with :success
     end
 
-
-
   it "should get show page" do
-    get work_path(works(:poodr).id)
+    get work_path(works(:one).id)
     must_respond_with :success
   end
   #
