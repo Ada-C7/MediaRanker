@@ -5,11 +5,5 @@ class User < ApplicationRecord
   validates :username, presence: true
 
 
-  def self.all_votes
-    final_votes = {}
-    all_votes = self.votes
-    all_votes.select!{}
-    return final_votes
-  end
 
 end

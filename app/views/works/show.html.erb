@@ -39,10 +39,10 @@ Published:<%= @work.published%>
 <section id = "vote_display">
   <table>
     <%counter = 0 %>
-  <%@votes.each do |voter,date|%>
+  <%@votes.each do |vote|%>
     <tr>
-      <td> <%=link_to "#{voter}", user_path(@work.votes[counter].user_id)%> </td>
-      <td> <%=date%> </td>
+      <td> <%=link_to "#{User.find(vote.user_id).username}", user_path(@work.votes[counter].user_id)%> </td>
+      <td> <%=vote.created_at.to_date%> </td>
       <%counter += 1 %>
     </tr>
   <%end%>

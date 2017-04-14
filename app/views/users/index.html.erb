@@ -18,7 +18,7 @@ Joined
 <% @users.each do |item| %>
 <tr>
   <td>
-<%= item.username%>
+<%= link_to "#{item.username}", user_path(item.id)%>
 </td>
 
 <td>

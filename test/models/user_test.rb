@@ -7,9 +7,16 @@ describe User do
     value(user).must_be :valid?
   end
 
+  # 
+  # describe "all_votes" do
+  #   it "returns all of a users votes" do
+  #   a = User.first
+  #   b = a.all_votes(a.id)
+  #   print b
+  #
+  #   b.must_be_kind_of Hash
+  #   print b.length
+  #   end
+  # end
 
-  describe "all_votes" do
-    # a = self.all_votes
-    # a.class.must_be Hash
-  end
 end

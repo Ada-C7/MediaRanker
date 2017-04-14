@@ -5,13 +5,13 @@
 # below each fixture, per the syntax in the comments below
 #
 one:
-  user_id: 1
+  user: sara
   work_id: 2
 #
 two:
-  user_id: 2
+  user: sara
   work_id: 2
 
 three:
-  user_id: 2
+  user: sara
   work_id: 2
