@@ -32,7 +32,7 @@
     <main class="row">
       <section class="row status">
         <% flash.each do |name, message| %>
-          <h3 class="<%= name %>"><%= message %></h3>
+          <h3 class="row <%= name %>"><%= message %></h3>
         <% end %>
       </section>
 

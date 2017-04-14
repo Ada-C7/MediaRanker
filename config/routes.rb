@@ -3,7 +3,7 @@ Rails.application.routes.draw do
 
   ['book', 'album', 'movie'].each do |category|
     resources category.pluralize.to_sym, controller: "works", category: category
-    patch "/#{category.pluralize}/:id/upvote", to: "votes#upvote", as: "upvote_#{category}"
+    patch "/#{category.pluralize}/:id/upvote", to: "works#upvote", as: "upvote_#{category}"
   end
 
   resources :users, only: [:show, :index]

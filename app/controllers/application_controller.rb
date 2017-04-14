@@ -23,7 +23,7 @@ class ApplicationController < ActionController::Base
   end
 
   def upvote_path(id)
-    url_for(action: 'upvote', controller: 'votes', category: Work.find(id).category, id: id)
+    url_for(action: 'upvote', controller: 'works', category: Work.find(id).category, id: id)
   end
 
   def render_404
