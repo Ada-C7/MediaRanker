@@ -26,7 +26,7 @@
   .header {
     max-width: 100%;
     border-bottom: 1px solid darkgrey;
-    background-image: url('<%=asset_path 'sloth.png'%>');
+    background-image: url(<%=asset_path 'sloth.png'%>);
     background-size: contain;
     background-repeat: no-repeat;
     margin-bottom: 10px;
