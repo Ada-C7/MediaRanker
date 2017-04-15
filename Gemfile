@@ -61,3 +61,5 @@ group :test do
     gem 'minitest-rails'
     gem 'minitest-reporters'
 end
+
+gem 'rails_12factor', group: :production
