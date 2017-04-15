@@ -13,9 +13,13 @@
     <h3>Top <%= category.pluralize.capitalize %></h3>
     <ul>
       <% Work.top_10(category).each do |work| %>
-        <li>
+        <li class="row">
+          <div class="vote-box">
+            <%= link_to image_tag("upvote.png", class: "vote-arrow"), vote_path(work.id, 1), method: :patch %>
+            <br /><%= work.vote_total %><br />
+            <%= link_to image_tag("downvote.png", class: "vote-arrow"), vote_path(work.id, -1), method: :patch %>
+          </div>
           <h4><%= link_to work.title, work_path(work.id) %> by <%= work.creator %></h4>
-          <p><%= work.vote_total %> votes</p>
         </li>
       <% end %>
     </ul>
