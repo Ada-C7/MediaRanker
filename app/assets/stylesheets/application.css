@@ -7,3 +7,24 @@
 .success {
   color: green;
 }
+
+header.row.page-header {
+  max-width: 100%;
+  width: 100%;
+  margin: 0;
+  background-image: url("owl.jpg");
+  background-repeat: no-repeat;
+  border-bottom: solid 1px grey;
+}
+
+header h1 {
+  font-size: 2em;
+}
+
+li {
+  list-style-type: none;
+}
+
+ul {
+  margin: 0;
+}
