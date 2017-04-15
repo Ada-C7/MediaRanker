@@ -38,5 +38,5 @@ User.create(name: "Danielle")
 
 # VOTES
 100.times do
-  Vote.create(user_id: Random.rand(7), work_id: Random.rand(26))
+  Vote.create(user_id: Random.rand(1..7), work_id: Random.rand(1..26))
 end

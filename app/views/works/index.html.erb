@@ -1,7 +1,11 @@
-<h2>Media Spotlight: <%#=@works.first.title%>by <%#=@works.first.creator%></h2>
-<p>
-  <%#=@works.first.votes.count%> votes
-</p>
+<%if @works.length > 0%>
+  <h2>Media Spotlight: <%=@works.first.title%>by <%=@works.first.creator%></h2>
+  <p>
+  <%=@works.first.votes.count%> votes
+  </p>
+<% else %>
+  <h2>No media added yet.</h2>
+<% end %>
 
 
 <div class = "row">

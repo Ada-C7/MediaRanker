@@ -77,7 +77,6 @@ describe WorksController do
   describe "create" do
     it "creates a new work" do
       start_count = Work.count
-
       work_data = {
         work: {
           title: "Thrill",
@@ -86,8 +85,10 @@ describe WorksController do
           description: "hello"
         }
       }
+      get '/albums'
+      post works_path, params: work_data
 
-      # must_redirect_to works_path
+      must_redirect_to works_path
 
       end_count = Work.count
       end_count.must_equal start_count + 1
@@ -102,26 +103,31 @@ describe WorksController do
       get edit_work_path(album)
       must_respond_with :success
     end
-
   end # END of describe "edit"
-
-
-
-
 
   describe "update" do
     it "Update a work and redirect" do
-      work_data = works(:album_2)
-      put works_path, params: work_data
+      work = works(:album_2)
+      work_data = {
+        work: {
+          title: "Thrill",
+          creator: "Steely Dan",
+          publication_year: 1975,
+          description: "hello"
+        }
+      }
+      get '/albums'
+      patch work_path(work), params: work_data
       # must_redirect_to works_path
+      work.publication_year.must_equal work_data[:work][:publication_year]
     end
 
     it "Rerenders the edit work form if the work input is invalid" do
       work_data = { work: { title: "test book"}} #Note that the several fields for the work is missing
-      put works_path, params: work_data
+      get '/albums'
+      patch work_path, params: work_data
       must_respond_with :bad_request
     end
   end # END of describe "update"
-
 
 end # END of describe WorksController

@@ -8,14 +8,12 @@ class WorksController < ApplicationController
     # @albums = Work.where(category: "album").limit(10)
     # @books = Work.where(category: "book").limit(10)
     # @movies = Work.where(category: "movie").limit(10)
-    # @albums = Work.ordered_works("album")[0...10]
-    # @books = Work.ordered_works("book")[0...10]
-    # @movies = Work.ordered_works("movie")[0...10]
-    # leader_id = Work.order_by_votes(Work.all)[0]
-    # @leader = Work.find_by(id: leader_id)
+
 
 
   end
+
+
 
   def new
     @work = Work.new
@@ -92,6 +90,14 @@ class WorksController < ApplicationController
     work = Work.find_by(id: params[:id])
     work.destroy
     redirect_to works_path
+  end
+
+  def upvote
+    #if-else statement
+    #Vote.where(user_id: ,work_id:  ).count == 0
+  # Vote.new(user_id: ,work_id:  )
+  #else
+  #send error
   end
 
 

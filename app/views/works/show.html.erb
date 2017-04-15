@@ -21,10 +21,22 @@
 
   <section class = "large-6 columns">
     <h1>
-      ?? Votes for this movie
+      <%= @work.votes.count%> Votes for this <%= session[:category]%>
     </h1>
-    <p>
-      Vote info table goes here
-    </p>
+
+    <section class="table_scroll">
+      <table>
+        <tr>
+          <th>User</th>
+          <th>Date</th>
+        </tr>
+        <% @work.votes.each do |vote| %>
+        <tr>
+          <td><%= vote.user.name %></td>
+          <td><%= vote.created_at%></td>
+        </tr>
+        <% end %>
+      </table>
+    </section>
   </section>
 </div>

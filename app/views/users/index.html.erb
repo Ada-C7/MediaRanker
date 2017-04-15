@@ -1,2 +1,26 @@
 <h1>Users#index</h1>
-<p>Find me in app/views/users/index.html.erb</p>
+<section>
+  <h1>List of Users</h1>
+</section>
+
+
+<section class="table_scroll">
+  <table>
+    <tr>
+      <th>Username</th>
+      <th>Votes</th>
+      <th>Joined</th>
+    </tr>
+    <% @users.order(:name).each do |user| %>
+    <tr>
+      <td><%= link_to user.name, user_path(user) %></td>
+      <td><%= user.votes.count%></td>
+      <td><%= user.created_at%></td>
+    </tr>
+    <% end %>
+  </table>
+</section>
+
+<section>
+  <%= link_to "View all media", works_path%>
+</section>
