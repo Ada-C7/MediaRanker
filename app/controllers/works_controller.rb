@@ -89,11 +89,13 @@ class WorksController < ApplicationController
   end
 
   def upvote
-    #if-else statement
-    #Vote.where(user_id: ,work_id:  ).count == 0
-  # Vote.new(user_id: ,work_id:  )
-  #else
-  #send error
+    if Vote.where(user_id: session[:user_id], work_id: params[:id]).count == 0
+      Vote.create(user_id: session[:user_id], work_id: params[:id])
+      flash[:upvote] = "Upvote succesfully done"
+    else
+      flash[:upvote] = "Could not upvote"
+    end
+    redirect_to request.referrer
   end
 
 

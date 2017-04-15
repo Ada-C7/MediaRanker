@@ -1,5 +1,6 @@
 class SessionsController < ApplicationController
   def new
+
   end
 
   def create
@@ -8,6 +9,7 @@ class SessionsController < ApplicationController
       session[:user_id] = user.id # :user_id in session can be set to what we wnt to
       flash[:success] = "#{ user.name } is successfully logged in"
       redirect_to welcome_path
+
     end
   end
 
@@ -16,4 +18,6 @@ class SessionsController < ApplicationController
     flash[:logout] = "You're logged out!"
     redirect_to welcome_path
   end
+
+
 end
