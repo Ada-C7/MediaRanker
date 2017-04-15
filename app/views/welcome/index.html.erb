@@ -8,7 +8,7 @@
     <h4 class ="category"><% category_list.each do |work| %></h4>
       <li class ="titles"><%= link_to "#{work.title}", work_path(work.id) %></li>
     <% end %>
-      <%= link_to "View all #{category.pluralize}", category_path(category) %>
+      <%= link_to "View all #{category.pluralize}", category_path(category), :class => "button" %>
   </section>
 
   <%end %>
