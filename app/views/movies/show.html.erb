@@ -2,9 +2,11 @@
 <p>Find me in app/views/movies/show.html.erb</p>
 
 <%= @movie.title %>
+<%= @movie.votes.length %>
 
 <%= link_to "Delete", movie_path(@movie.id),
     data: { confirm: "Are you sure you want to delete this movie?" },
     method: :delete
 %>
 <%= link_to "Edit", edit_movie_path(@movie.id) %>
+<%= link_to "Upvote", movie_vote_path(@movie.id), :method => :post %>

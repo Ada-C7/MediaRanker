@@ -4,22 +4,16 @@ class VotesController < ApplicationController
     if session[:user_id] == nil
       flash[:error] = "You must be logged in to vote"
     else
+      user = User.find(session[:user_id])
       vote = Vote.new
-      vote[:user_id] = session[:user_id]
+      vote[:user_id] = user.id
       vote[:content_id] = params[:content_id]
       vote.save
     end
 
-    redirect_back(fallback_location: root_path)
-
+     redirect_back(fallback_location: root_path)
 
   end
 
-
-  private
-
-  def vote_params
-    params.require(:vote).permit(:user_id, :content_id)
-  end
 
 end

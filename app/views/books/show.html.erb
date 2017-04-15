@@ -2,6 +2,7 @@
 <p>Find me in app/views/books/show.html.erb</p>
 
 <%= @book.title %>
+<%= @book.votes.length %>
 
 <%= link_to "Delete", book_path(@book.id),
     data: { confirm: "Are you sure you want to delete this book?" },

@@ -7,13 +7,13 @@ class SessionController < ApplicationController
 
 
   def create
-    @find_user = User.find_by_username(params[:username])
+    @find_user = User.find_by_username(params[:session][:username])
 
     if(params[:session][:username]) == nil
       flash[:error] = "You cannot have a blank username"
     elsif @find_user
-      session[:session][:user_id] = @find_user.id
-      flash[:success] = "Welcome back #{@user.username}"
+      session[:user_id] = @find_user.id
+      flash[:success] = "Welcome back #{@find_user.username}"
     else
       new_user = User.new
       new_user.username = params[:session][:username]
