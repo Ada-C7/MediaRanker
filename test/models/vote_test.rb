@@ -54,11 +54,11 @@ describe Vote do
   end
 
   describe '#already_created' do
-    it "must return false if work id and user id exist for this vote" do
+    it "must return true if work id and user id exist for this vote" do
 
     end
 
-    it "must return turn if work id and user id do not already exist for this vote" do
+    it "must return false if work id and user id do not already exist for this vote" do
 
     end
   end
