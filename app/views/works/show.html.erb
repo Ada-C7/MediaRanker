@@ -1,5 +1,5 @@
-
-<section id = "show">
+<main class = "row">
+<article id = "show"  class= "top-ten columns large-7 medium-4 small-12">
 <!--  Display item details -->
 <h2> <%=@work.title%></h2>
 <br>
@@ -11,33 +11,41 @@ Published:<%= @work.published%>
 
 <!-- Vote Link -->
 <%if session[:user_id]%>
-<%= link_to " Upvote ", vote_path(@work.id), method: :post%>
-<%= flash[:success]%>
+<em class= "button"> <%= link_to " Upvote ", vote_path(@work.id), method: :post%></em>
 <%end%>
 
-<!-- Logic to display appropriate "back to" for each category  -->
-<% case @work.category%>
-  <% when "book" %>
- <%= link_to "Back to #{@work.category.capitalize}s", books_path%>
- <% when "album" %>
- <%= link_to "Back to #{@work.category.capitalize}s", albums_path%>
- <% when "movie" %>
- <%= link_to "Back to #{@work.category.capitalize}s", movies_path%>
-  <%end%>
-
-<!-- Edit Link -->
-<%= link_to "Edit #{@work.category.capitalize}", edit_work_path%>
-
-<!-- Destroy Link -->
-<%= link_to "Delete #{@work.category.capitalize}", works_path(@work.id), method: :delete, data:{confirm: "Are you sure?"} %>
-</section>
 
  <!--  Add Media -->
-<%= link_to "Add new media", new_work_path%>
 
+<em class= "button">
+<%= link_to "Add new media", new_work_path%> </em>
+
+
+<!-- Edit Link -->
+<em class= "button"><%= link_to "Edit #{@work.category.capitalize}", edit_work_path%></em>
+
+<!-- Destroy Link -->
+<em class= "button" id= "destroy"> <%= link_to "Delete #{@work.category.capitalize}", works_path(@work.id), method: :delete, data:{confirm: "Are you sure?"} %></em>
+
+
+<!-- Logic to display appropriate "back to" for each category  -->
+
+<br>
+<% case @work.category%>
+  <% when "book" %>
+ <em class= "button"><%= link_to "Back to #{@work.category.capitalize}s", books_path%></em>
+ <% when "album" %>
+   <em class= "button"><%= link_to "Back to #{@work.category.capitalize}s", albums_path%></em>
+ <% when "movie" %>
+  <em class= "button"><%= link_to "Back to #{@work.category.capitalize}s", movies_path%></em
+  <%end%>
+
+
+</article>
 <!--  Display each vote for displayed item-->
-<section id = "vote_display">
-  <table>
+<article id = "vote_display" class= "top-ten columns large-4 medium-4 small-12">
+  <h3><%=@work.votes.length%> Votes for this <%=@work.category.capitalize%></h3>
+  <table >
     <%counter = 0 %>
   <%@votes.each do |vote|%>
     <tr>
@@ -47,4 +55,5 @@ Published:<%= @work.published%>
     </tr>
   <%end%>
 </table>
-</section>
+</article>
+</main>

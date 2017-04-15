@@ -1,37 +1,39 @@
-<head>
-  <%= stylesheet_link_tag 'foundation'%>'
-</head>
-<body>
+
   <section id = "top">
     <h2> Media Spotlight </h2>
     <p>
       <%@highest.each do |id, count| %>
-      <%="#{Work.find(id).title} by "%>
+      <%=link_to Work.find(id).title, work_path(Work.find(id))%> by
       <%="#{Work.find(id).created_by}"%>
+      <%="#{Work.find(id).description}"%> <br>
       <%="#{Work.find(id).votes.length} votes"%>
+
       <% break%>
       <%end%>
     </p>
   </section>
-  <section id = "albums" class = "small-12 medium-12 large-4">
+
+  <section id = "albums" class = "top-ten columns large-3 small-12 ">
     <h2> Top Albums </h2>
     <% @albums.each do |item| %>
       <%=render partial: 'list' ,  locals:{item:item}%>
 
       <%end%>
+      <%= link_to "View More Albums", albums_path%>
     </section>
 
-    <section id = "books"  class = "small-12 medium-12 large-4">
+    <section id = "books"  class = "top-ten columns large-3 small-12 ">
       <h2> Top Books </h2>
       <% @books.each  do |item|  %>
         <%=render partial: 'list',  locals:{item:item} %>
         <%end%>
+        <%= link_to "View More Books", books_path%>
       </section>
 
-      <section id = "movies" class = "small-12 medium-12 large-4">
+      <section id = "movies" class = "top-ten columns large-5 small-12 ">
         <h2> Top Movies</h2>
         <% @movies.each do |item| %>
           <%=render partial: 'list' ,  locals:{item:item}%>
           <%end%>
+            <%= link_to "View More Movies", movies_path%>
         </section>
-      </body>

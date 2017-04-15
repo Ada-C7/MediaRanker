@@ -50,3 +50,6 @@ border-bottom-color: grey;
   font-family: sans-serif;
   font-weight: 100;
 }
+main#row{padding:0px;margin:0px;}
+#destroy {background-color: red;color: white; text-shadow:none;}
+article {width: 50%;display:inline-block;}
