@@ -11,7 +11,7 @@ describe Work do
 
   describe 'self.books' do
     it "returns all books in the database" do
-      Work.books.count.must_equal 3
+      Work.books.count.must_equal 4
     end
 
     it "returns only books" do
@@ -23,25 +23,24 @@ describe Work do
 ############################
 describe 'self.movies' do
   it "returns all movies in the database" do
-    binding.pry
     Work.movies.count.must_equal 3
   end
 
   it "returns only movies" do
-    Work.books.each do |book|
-      book.category.must_equal "book"
+    Work.movies.each do |movie|
+      movie.category.must_equal "movie"
     end
   end
 end
 ############################
-describe 'self.books' do
-  it "returns all books in the database" do
-    Work.books.count.must_equal 3
+describe 'self.albums' do
+  it "returns all albums in the database" do
+    Work.albums.count.must_equal 4
   end
 
-  it "returns only books" do
-    Work.books.each do |book|
-      book.category.must_equal "book"
+  it "returns only albums" do
+    Work.albums.each do |album|
+      album.category.must_equal "album"
     end
   end
 end
