@@ -47,7 +47,7 @@
       <% @work.votes.each do |vote| %>
         <tr>
           <td><%= link_to vote.user.username, user_path(vote.user.id) %></td>
-          <td><%= vote.created_at.strftime("%b %e, %y") %></td>
+          <td><%= vote.created_at.strftime("%b %e, %Y") %></td>
         </tr>
       <% end %>
     </tbody>
