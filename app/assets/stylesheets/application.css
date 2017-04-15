@@ -18,7 +18,7 @@ header{
 border-bottom-width:medium;
 border-bottom-style: inset;
 border-bottom-color: grey;
-height:90px;
+/*height:90px;*/
 }
 /*Owl image*/
 #heading {
@@ -37,7 +37,7 @@ border-bottom-color: grey;
 #logo-2{font-size: 20px; color:#1779ba;display:inline-block;font-family: sans-serif;}
 
 /*Owl and text section*/
-#heading_text{width:50%;display:inline-block;}
+#heading_text{width:50%;display:inline-block;padding-bottom: 25px;}
 
 /*Login section*/
 #login{text-align: right;width:30%; display: inline-block;}

@@ -5,7 +5,9 @@
     <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag 'foundation'%>'
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+
   </head>
 
   <body>
@@ -14,12 +16,12 @@
     <section id = "heading">
     </section>
   </a>
-    <section id="heading_text">
+    <section id="heading_text"class="small-7">
       <p id="logo">Media Ranker</p>
       <p id="logo-2">Ranking the Best of Everything</p>
     </section>
 
-    <section id="login">
+    <section id="login" class="small-7">
        <% if session[:user_id]%>
        <em> <%= "You are logged in as #{User.find(session[:user_id]).username}"%></em>
           <%=link_to "logout", logout_path, method: :delete %>

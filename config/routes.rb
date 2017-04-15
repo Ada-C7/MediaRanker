@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   root "works#index", as:'welcome'
 
   resources :works
-  resources :users
+  resources :users, only: [:index, :new, :create, :show]
 
   post 'works/:id/vote', to: 'works#vote', as:'vote'
 
