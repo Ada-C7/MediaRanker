@@ -18,4 +18,8 @@ class Content < ApplicationRecord
     return Content.all.select { |c| c.category == "book"}
   end
 
+  def self.sort_votes(arr)
+    return arr.sort_by{ |c| -c.votes.length }
+  end
+
 end

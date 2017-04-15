@@ -58,7 +58,13 @@ describe Content do
   it "should have votes associated with it" do
     proc {
     contents(:shrek).votes.create
-    }.must_change 'contents(:shrek).votes.length', 1 
+    }.must_change 'contents(:shrek).votes.length', 1
    end
+
+  it "self.sort_votes returns a sorte array of votes for a category" do
+    movies = Content.movies
+    movies = Content.sort_votes(movies)
+    movies[0].title.must_equal "Shrek"
+  end
 
 end

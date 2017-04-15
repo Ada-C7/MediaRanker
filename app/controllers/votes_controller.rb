@@ -5,6 +5,12 @@ class VotesController < ApplicationController
     vote[:user_id] = session[:user_id]
     vote[:content_id] = params[:content_id]
     vote.save
+
+    if !vote.save
+
+    else
+
+    end
   end
 
 

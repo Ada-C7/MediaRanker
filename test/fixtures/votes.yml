@@ -21,4 +21,8 @@ another_vote:
   user: user
   content: arch
 
+sort:
+  user: user_two
+  content: shrek
+
 # column: value
