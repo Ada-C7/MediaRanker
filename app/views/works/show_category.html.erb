@@ -25,7 +25,7 @@
           <%= work.year_published %>
         </td>
         <td>
-          <%= link_to "Upvote", upvote_path(work.id), method: :patch %>
+          <%= link_to "Upvote", upvote_path(work.id), method: :patch, class: "button" %>
         </td>
       </tr>
     <% end %>
