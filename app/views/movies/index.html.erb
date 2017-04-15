@@ -1,12 +1,34 @@
-<h1>Movies#index</h1>
-<p>Find me in app/views/movies/index.html.erb</p>
+<h1>List of Movies</h1>
 
-<ul>
-<% @movies.each do |m| %>
-<li>
+<table>
+  <thead>
+    <tr>
+      <th>Votes</th>
+      <th>Title</th>
+      <th>Creator</th>
+      <th>Published</th>
+    </tr>
+  </thead>
+  <% @movies.each do |m| %>
+<tbody>
+<td>
+  <%= m.votes.length %>
+</td>
+<td>
   <%=link_to m.title, movie_path(m.id) %>
-</li>
+</td>
+<td>
+  <%= m.creator %>
+</td>
+<td>
+  <%= m.publication_year %>
+</td>
+<td>
+  <%= link_to "Upvote", movie_vote_path(m.id), :method => :post, class: "button" %>
+</td>
+</tbody>
 <% end %>
-</ul>
+</table>
 
-<%= link_to "Make New Movie", new_movie_path %>
+
+<%= link_to "View all media", root_path %><%= link_to "Make New Movie", new_movie_path %>

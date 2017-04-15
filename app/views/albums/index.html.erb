@@ -1,5 +1,4 @@
 <h1>List of Albums</h1>
-<p>Find me in app/views/albums/index.html.erb</p>
 
 <table>
   <thead>
@@ -25,7 +24,7 @@
   <%= a.publication_year %>
 </td>
 <td>
-  <%= link_to "Upvote", album_vote_path(a.id), :method => :post %>
+  <%= link_to "Upvote", album_vote_path(a.id), :method => :post, class:"button" %>
 </td>
 </tbody>
 <% end %>

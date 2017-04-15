@@ -1,32 +1,36 @@
-<section class="show">
+<section class="show columns large-6 small-12">
 <h3><%= @album.title %></h3>
 <p>Created by: <%= @album.creator %></p>
 <p>Published: <%= @album.publication_year %></p>
 
+<%= link_to "Back to albums list", albums_path, class: "button" %>
+<%= link_to "Edit", edit_album_path(@album.id), class: "button" %>
+<%= link_to "Upvote", album_vote_path(@album.id), :method => :post, class: "button" %>
 <%= link_to "Delete", album_path(@album.id),
     data: { confirm: "Are you sure you want to delete this album?" },
-    method: :delete
-%>
-<%= link_to "Back to albums list", albums_path %>
-<%= link_to "Edit", edit_album_path(@album.id) %>
-<%= link_to "Upvote", album_vote_path(@album.id), :method => :post %>
-<%= link_to "Delete", album_path(@album.id),
-    data: { confirm: "Are you sure you want to delete this album?" },
-    method: :delete
+    method: :delete, class: "alert button"
 %>
 </section>
 
-<section class="voting">
-  <h3><%= @album.votes.length %> votes for this movie</h3>
-  <ul>
-  <li>
-    <h3>User</h3>
-  </li>
+<section class="voting columns large-6 small-12">
+  <h3><%= @album.votes.length %> Votes for this movie</h3>
+  <table>
+    <thead>
+      <tr>
+        <th>User</th>
+        <th>Date</th>
+      </tr>
+    </thead>
   <% @album.votes.each do |vote| %>
-  <li>
-    <%=link_to User.find(vote.user_id).username, user_path(vote.user_id) %>
-  </li>
+    <tbody>
+    <td>
+      <%=link_to User.find(vote.user_id).username, user_path(vote.user_id) %>
+    </td>
+    <td>
+      <%= vote.created_at %>
+    </td>
+    </tbody>
   <% end %>
-  </ul>
+</table>
 
 </section>
