@@ -8,12 +8,7 @@ class WorksController < ApplicationController
     # @albums = Work.where(category: "album").limit(10)
     # @books = Work.where(category: "book").limit(10)
     # @movies = Work.where(category: "movie").limit(10)
-
-
-
   end
-
-
 
   def new
     @work = Work.new
@@ -30,21 +25,22 @@ class WorksController < ApplicationController
   end
 
   def albums
-    @works = Work.where(category: "album")
+    @works = Work.where(category: "album").left_joins(:votes).group(:id).order('COUNT(votes.id) DESC')
+    # @works = Work.where(category: "album")
     session.delete(:category)
     session[:category] ||= "album"
     render "category"
   end
 
   def books
-    @works = Work.where(category: "book")
+    @works = Work.where(category: "book").left_joins(:votes).group(:id).order('COUNT(votes.id) DESC')
     session.delete(:category)
     session[:category] ||= "book"
     render "category"
   end
 
   def movies
-    @works = Work.where(category: "movie")
+    @works = Work.where(category: "movie").left_joins(:votes).group(:id).order('COUNT(votes.id) DESC')
     session.delete(:category)
     session[:category] ||= "movie"
     render "category"
