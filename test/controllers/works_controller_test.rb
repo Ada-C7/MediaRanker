@@ -94,6 +94,38 @@ describe WorksController do
     }.must_change 'Work.count', 1
   end
 
+  it "should show the edit book form" do
+    get edit_work_path(works(:bone_people).id)
+    must_respond_with :success
+  end
+
+  it "should show a 404 when editing a work that doesn't exist" do
+    get edit_work_path(1)
+    must_respond_with :missing
+  end
+
+  it "can change a work through update" do
+    first_work = Work.first
+    new_data = { work: { title: "New Title", creator: "New Creator" } }
+
+    patch work_path(first_work.id), params: new_data
+    Work.first.title.must_equal new_data[:work][:title]
+  end
+
+  it "redirects to category page after updating" do
+    album = works(:libertines)
+
+    patch work_path(album.id), params: { work: { title: "New" } }
+    must_redirect_to category_path("albums")
+  end
+
+  it "destroy affects the Work model" do
+    proc {
+      delete work_path(works(:graduate).id)
+    }.must_change 'Work.count', -1
+  end
+
+
   def sign_in
     post login_path, params: { username: "New User" }
   end

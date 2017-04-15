@@ -36,8 +36,8 @@ class WorksController < ApplicationController
   end
 
   def edit
-    @work = Work.find(params[:id])
-    @category = @work.category
+    @work = Work.find_by_id(params[:id])
+    @category = @work.category if @work
     render_404 if !@work
   end
 
