@@ -1,5 +1,8 @@
-<h1> Edit Media</h1>
+
+<main class="row">
+<h3> Edit Album</h3>
 
 <%= form_for @album, :url => { :action => "update" } do |form| %>
 <%= render partial: "form", locals: { f: form } %>
 <% end %>
+</main>

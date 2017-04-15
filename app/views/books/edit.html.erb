@@ -1,5 +1,7 @@
-<h1> Edit Book </h1>
+<main class="row">
+<h3> Edit Book </h3>
 
 <%= form_for @book, :url => { :action => "update" } do |form| %>
 <%= render partial: "form", locals: { f: form } %>
 <% end %>
+</main>
