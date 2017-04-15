@@ -96,12 +96,38 @@ describe Work do
     Work.category_sorted("book").count.must_equal book_count
   end
 
-  it "top_ten movies returns 10 movies" do
+  it "top_ten movies returns movies" do
     movies = Work.top_ten("movie")
 
     movies.first.category.must_equal "movie"
     movies.last.category.must_equal "movie"
+  end
+
+  it "top_ten books returns movies" do
+    books = Work.top_ten("book")
+
+    books.first.category.must_equal "book"
+    books.last.category.must_equal "book"
+  end
+
+  it "top_ten albums returns albums" do
+    albums = Work.top_ten("album")
+
+    albums.first.category.must_equal "album"
+    albums.last.category.must_equal "album"
+  end
+
+  it "if more than 10 movies, top_ten movies returns 10 movies" do
+    movies = Work.top_ten("movie")
     movies.count.must_equal 10
+  end
+
+  it "if less than 10 albums, top_ten returns all albums" do
+    albums = Work.top_ten("album")
+
+    albums.first.category.must_equal "album"
+    albums.last.category.must_equal "album"
+    albums.count.must_equal Work.category_sorted("album").count
   end
 
   it "movie with the most votes gets sorted first" do
@@ -111,11 +137,18 @@ describe Work do
     top_movie.must_equal most_votes_movie
   end
 
-  it "first top ten movie has more votes than last" do
+  it "first top_ten movie has more votes than last" do
     first_movie = Work.top_ten("movie").first
     last_movie = Work.top_ten("movie").last
 
     first_movie.votes_count.must_be :>=, last_movie.votes_count
+  end
+
+  it "top_ten books returns an empty array if there are no books" do
+    works(:bone_people).destroy
+    works(:most_votes_overall).destroy
+
+    Work.top_ten("book").must_equal []
   end
 
   it "spotlight work has the most votes" do
