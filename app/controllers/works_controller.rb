@@ -19,12 +19,14 @@ class WorksController < ApplicationController
   end
 
   def create
-    work = Work.new(work_params)
-    work.category = params[:category]
+    @work = Work.new(work_params)
+    @work.category = params[:category]
 
-    if work.save
-      redirect_to work_path(work.id)
+    if @work.save
+      flash[:success] = "Successfully created #{@work.category} #{@work.id}"
+      redirect_to work_path(@work.id)
     else
+      flash.now[:error] = "A problem occurred: Could not create #{@work.category}"
       render :new
     end
   end
@@ -40,10 +42,12 @@ class WorksController < ApplicationController
   end
 
   def update
-    work = Work.find_by_id(params[:id])
-    if work.update(work_params)
-      redirect_to work_path(work.id)
+    @work = Work.find_by_id(params[:id])
+    if @work.update(work_params)
+      flash[:success] = "Successfully updated #{@work.category} #{@work.id}"
+      redirect_to work_path(@work.id)
     else
+      flash.now[:error] = "A problem occurred: Could not update #{@work.category}"
       render :edit
     end
   end
@@ -55,6 +59,7 @@ class WorksController < ApplicationController
     work.remove_votes
     work.destroy
 
+    flash[:success] = "Successfully deleted #{work.category} #{work.id}"
     redirect_to works_path(category)
   end
 
