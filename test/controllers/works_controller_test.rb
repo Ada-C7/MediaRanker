@@ -125,7 +125,6 @@ describe WorksController do
     }.must_change 'Work.count', -1
   end
 
-
   def sign_in
     post login_path, params: { username: "New User" }
   end
