@@ -122,4 +122,19 @@ describe Work do
     spotlight = Work.spotlight
     spotlight.votes_count.must_equal works(:most_votes_overall).votes_count
   end
+
+  it "a work has_many votes" do
+    libertine_votes = works(:libertines).votes
+
+    libertine_votes.first.class.must_equal Vote
+    libertine_votes.last.class.must_equal Vote
+  end
+
+  it "libertines album has correct number of votes" do
+    works(:libertines).votes.count.must_equal 4
+  end
+
+  it "a work with no votes returns an empty array" do
+    works(:graduate).votes.must_equal []
+  end
 end

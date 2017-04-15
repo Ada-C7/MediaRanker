@@ -28,4 +28,19 @@ describe User do
     new_user.valid?
     new_user.errors.messages.must_include :username
   end
+
+  it "a user has_many votes" do
+    user1_votes = users(:user1).votes
+
+    user1_votes.first.class.must_equal Vote
+    user1_votes.last.class.must_equal Vote
+  end
+
+  it "user1 has correct number of votes" do
+    users(:user1).votes.count.must_equal 3
+  end
+
+  it "a user with no votes returns an empty array" do
+    users(:user5).votes.must_equal []
+  end
 end
