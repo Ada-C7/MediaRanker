@@ -63,7 +63,6 @@ class WorksController < ApplicationController
   end
 
   def upvote
-    @category_page = params[:category]
     if session[:user_id]
       @vote = Vote.create(user_id: session[:user_id], work_id: params[:id])
       if @vote.id
@@ -72,11 +71,7 @@ class WorksController < ApplicationController
       else
         @work = Work.find(params[:id])
         flash.now[:error] = "Could not upvote"
-        if @category_page
-          render "show_category"
-        else
-          render "new"
-        end
+        render "show"
       end
     else
       flash[:error] = "You must log in to do that"
