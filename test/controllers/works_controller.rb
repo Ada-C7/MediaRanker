@@ -39,9 +39,10 @@ describe WorksController do
         }
       }
 
-      end_count = Work.count
+
       post works_path, params: work_data
       must_redirect_to  works_path
+      end_count = Work.count
       end_count.must_be :==, start_count + 1
 
     end
