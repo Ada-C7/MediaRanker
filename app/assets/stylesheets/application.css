@@ -65,3 +65,11 @@ body small{
 section.spotlight>div {
   padding: 2rem;
 }
+
+img.vote-arrow {
+  width: 30px;
+}
+
+.vote-cell {
+  text-align: center;
+}

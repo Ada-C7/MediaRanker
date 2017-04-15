@@ -8,17 +8,19 @@
         <th>Title</th>
         <th>Created By</th>
         <th>Published</th>
-        <th>Upvote</th>
       </tr>
     </thead>
     <tbody>
       <% @works.each do |work| %>
         <tr>
-          <td><%= work.vote_total %></td>
+          <td class="vote-cell">
+            <%= link_to image_tag("upvote.png", class: "vote-arrow"), vote_path(work.id, 1), method: :patch %>
+            <br /><%= work.vote_total %><br />
+            <%= link_to image_tag("downvote.png", class: "vote-arrow"), vote_path(work.id, -1), method: :patch %>
+          </td>
           <td><%= link_to work.title, work_path(work.id) %></td>
           <td><%= work.creator %></td>
           <td><%= work.publication_year %></td>
-          <td><%= link_to "Upvote", vote_path(work.id, 1), method: :patch, class: "button" %></td>
         </tr>
       <% end %>
     </tbody>
