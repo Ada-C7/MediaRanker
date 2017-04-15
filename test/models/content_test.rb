@@ -61,7 +61,7 @@ describe Content do
     }.must_change 'contents(:shrek).votes.length', 1
    end
 
-  it "self.sort_votes returns a sorte array of votes for a category" do
+  it "self.sort_votes returns a sorted array of votes for a category" do
     movies = Content.movies
     movies = Content.sort_votes(movies)
     movies[0].title.must_equal "Shrek"

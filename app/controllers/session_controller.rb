@@ -7,6 +7,10 @@ class SessionController < ApplicationController
 
 
   def create
+    if params[:username] == ""
+      flash[:error] = "You cannot have a blank username"
+      render "login"
+    end
     @user = User.find_by_username(params[:username])
 
     if @user

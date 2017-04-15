@@ -31,4 +31,11 @@ it "should not create a new vote if the user already voted for the same content"
   }.must_change 'User.find(users(:user).id).votes.length', 1
 end
 
+it "should not allow a vote if a user is not logged in" do
+  proc {
+  post album_vote_path(contents(:pelican).id)
+  }.must_change 'contents(:pelican).votes.length', 0
+
+end
+
 end
