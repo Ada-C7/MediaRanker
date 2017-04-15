@@ -8,41 +8,50 @@
   </head>
 
   <body>
-    <header>
-      <%= image_tag("owl.jpg", alt: "Home", height: "80px")  %>
-      <p>
-        <%= link_to "Media Ranker", welcome_path%>  Ranking the Best of Everything
-      </p>
+    <header class = "row">
+      <div class = "large-2 columns">
+        <%= image_tag("owl.jpg", alt: "Home", height: "60px")  %>
+      </div>
 
-      <section>
-        <% if session[:user_id]%>
+      <div class = "large-7 columns">
+        <h2 >
+          <%= link_to "Media Ranker", welcome_path%>
+        </h2>
+        <h4>
+          Ranking the Best of Everything
+        </h4>
+      </div>
+
+      <div class = "large-3 columns">
+        <section>
+          <% if session[:user_id]%>
+            <p>
+              You are logged in as <%= link_to User.find_by(id: session[:user_id]).name, user_path(session[:user_id])%>
+            </p>
+          <%else%>
           <p>
-            You are logged in as <%= link_to User.find_by(id: session[:user_id]).name, user_path(session[:user_id])%>
+            Not logged in
           </p>
-        <%else%>
-        <p>
-          Not logged in
-        </p>
-        <%end%>
-      </section>
+          <%end%>
+        </section>
 
-      <section>
-        <% if session[:user_id]%>
-            <%= link_to "Logout", logout_path, method: :delete%>
-        <% else%>
-            <%= link_to "Login", login_path%>
-        <% end%>
-        <%=link_to "New User", new_user_path%>
-      </section>
+        <section>
+          <% if session[:user_id]%>
+              <%= link_to "Logout", logout_path, method: :delete, class: "button"%>
+          <% else%>
+              <%= link_to "Login", login_path, class: "button"%>
+          <% end%>
+          <%=link_to "New User", new_user_path, class: "button"%>
+        </section>
+      </div>
+    </header>
 
+    <main>
       <section class="flash">
-        <% flash.each do |name, message| %>
-          <div class="<%= name %>"><%= message %></div>
+        <% flash.each do |flash_key, message| %>
+          <div class="<%= flash_key %>"><%= message %></div>
         <% end %>
       </section>
-
-    </header>
-    <main>
       <%= yield %>
     </main>
 

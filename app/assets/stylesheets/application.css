@@ -14,3 +14,12 @@
  *= require_self
  */
 @import url('foundation.css');
+
+header {
+  border-bottom: 2px solid black
+}
+
+.div_head {
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+}

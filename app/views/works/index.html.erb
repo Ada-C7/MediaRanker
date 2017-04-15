@@ -1,16 +1,18 @@
-<%if @works.length > 0%>
-  <h2>Media Spotlight: <%=@works.first.title%>by <%=@works.first.creator%></h2>
-  <p>
-  <%=@works.first.votes.count%> votes
-  </p>
-<% else %>
-  <h2>No media added yet.</h2>
-<% end %>
 
+<div class = "row div_head">
+  <%if @works.length > 0%>
+    <h3 class = "large-12 columns">Media Spotlight: <%=@works.first.title%>by <%=@works.first.creator%></h3>
+    <p class = "large-12 columns">
+    <%=@works.first.votes.count%> votes
+    </p>
+  <% else %>
+    <h3 class = "large-12 columns">Go ahead and add some media.</h3>
+  <% end %>
+</div>
 
 <div class = "row">
   <section class = "large-4 columns">
-    <h2> Top Movies</h2>
+    <h3> Top Movies</h3>
     <%@movies.each do |movie|%>
       <p>
         <%=link_to movie.title, work_path(movie.id)%> by <%= movie.creator%>
@@ -19,11 +21,16 @@
         <%=movie.votes.count%> votes
       </p>
     <% end %>
-    <%= link_to "View more movies", movies_path%>
+    <p>
+      <%= link_to "View more movies", movies_path%>
+    </p>
+    <p>
+      <%= link_to "Add a new movie", new_movie_path%>
+    </p>
   </section>
 
   <section class = "large-4 columns">
-    <h2> Top Books</h2>
+    <h3> Top Books</h3>
     <%@books.each do |book|%>
       <p>
         <%=link_to book.title, work_path(book.id)%> by <%= book.creator%>
@@ -32,11 +39,16 @@
         <%=book.votes.count%> votes
       </p>
     <% end %>
-    <%= link_to "View more books", books_path%>
+    <p>
+      <%= link_to "View more books", books_path%>
+    </p>
+    <p>
+      <%= link_to "Add a new book", new_book_path%>
+    </p>
   </section>
 
   <section class = "large-4 columns">
-    <h2> Top Albums</h2>
+    <h3> Top Albums</h3>
     <%@albums.each do |album|%>
       <p>
         <%=link_to album.title, work_path(album.id)%> by <%= album.creator%>
@@ -45,6 +57,12 @@
         <%=album.votes.count%> votes
       </p>
     <% end %>
-    <%= link_to "View more albums", albums_path%>
+    <p>
+      <%= link_to "View more albums", albums_path%>
+    </p>
+    <p>
+      <%= link_to "Add a new album", new_album_path%>
+    </p>
+
   </section>
 </div>
