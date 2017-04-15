@@ -19,7 +19,7 @@
     <tbody>
       <% @user.votes.each do |vote| %>
         <tr>
-          <td><%= vote.work.title %></td>
+          <td><%= link_to vote.work.title, work_path(vote.work.id) %></td>
           <td><%= vote.work.creator %></td>
           <td><%= vote.work.publication_year %></td>
           <td><%= vote.value == 1 ? "Upvote" : "Downvote" %></td>

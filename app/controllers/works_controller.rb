@@ -60,20 +60,24 @@ class WorksController < ApplicationController
 
   def vote
     value = params[:vote_value]
+    vote_type = value == 1 ? "upvote" : "downvote"
     work = Work.find_by_id(params[:id])
     user = User.find_by_id(session[:user_id])
+    vote = Vote.find_by(user: user, work: work)
 
     if !session[:user_id]
       flash[:error] = "You must be logged in to vote."
-    elsif user.votes.map { |vote| vote.work_id }.include? work.id
-      flash[:error] = "You already voted for #{work.title}."
+    elsif vote && value == vote.value
+      flash[:error] = "You already #{vote_type}d #{work.title}."
+    elsif vote
+      vote.destroy
+      flash[:success] = "Reversed previous vote on #{work.title}."
     else
       vote = Vote.new(
         work_id: work.id,
         user_id: user.id,
         value: value
       )
-
       vote.save
       flash[:success] = "Successfully voted!"
     end
