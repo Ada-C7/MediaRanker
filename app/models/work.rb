@@ -21,17 +21,7 @@ class Work < ApplicationRecord
       b.max_by{|k,v| v}
   end
 
-  def user_votes
-    final_votes = {}
-    all_votes = Work.first.votes
 
-    all_votes.each_with do |vote|
-      final_votes[(Work.find(vote.work_id)).title] = vote.created_at.to_date
-    end
-
-    return final_votes
-
-  end
 
 
 end
