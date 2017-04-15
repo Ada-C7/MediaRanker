@@ -5,6 +5,9 @@ class WorksController < ApplicationController
 
   def show
     @work = Work.find_by_id(params[:id])
+    if !@work
+      render_404
+    end
   end
 
   def show_category

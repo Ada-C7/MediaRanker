@@ -49,7 +49,17 @@ describe Vote do
     end
 
     it "cannot create a vote without a user or work" do
-      
+
+    end
+  end
+
+  describe '#already_created' do
+    it "must return false if work id and user id exist for this vote" do
+
+    end
+
+    it "must return turn if work id and user id do not already exist for this vote" do
+
     end
   end
 end
