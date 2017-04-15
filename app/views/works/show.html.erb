@@ -16,7 +16,7 @@
 <%= link_to "Upvote", upvote_path %>
 <%= link_to "Delete", work_path(@result_work.id), data: { confirm: "Are you sure you want to delete?" }, method: :delete %>
 
-<h3> <%= @result_work.votes.count %> Votes for this <%= @result_work.category %> </h3>
+<h3> <%= @result_work.votes.count %> Vote(s) for this <%= @result_work.category %> </h3>
 <table>
   <tr>
   <th>User</th>

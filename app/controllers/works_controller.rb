@@ -61,6 +61,7 @@ class WorksController < ApplicationController
     # @work.category = params[:category]
 
     if @work.id != nil
+      flash[:success] = "Title has been successfully added"
       redirect_to works_path
     else
       flash.now[:error] = "Error has occurred"
@@ -71,6 +72,7 @@ class WorksController < ApplicationController
 
   def destroy
     Work.destroy(params[:id])
+    flash[:success] = "Work has been successfully deleted"
     redirect_to works_path
   end
 
@@ -84,6 +86,7 @@ class WorksController < ApplicationController
     end
     redirect_to work_path
   end
+
 
   private
 

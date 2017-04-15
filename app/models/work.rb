@@ -5,4 +5,8 @@ class Work < ApplicationRecord
   validates :title, presence: true, uniqueness: true
   validates :creator, presence: true
   validates :publish_year, presence: true
+
+  def top_10
+    @all_votes = Vote.find(:all, :limit => 10, :order=> 'works_count desc')
+  end 
 end
