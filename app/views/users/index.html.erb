@@ -1,26 +1,25 @@
-<h1>Users#index</h1>
-<section>
-  <h1>List of Users</h1>
+
+<section class="row">
+  <h1 class = "small-12 colums">List of Users</h1>
 </section>
 
+<section class="row">
+  <%= link_to "View all media", works_path%>
+</section>
 
-<section class="table_scroll">
+<section class="table_scroll row">
   <table>
-    <tr class = "row">
+    <tr>
       <th class = "small-9 colums">Username</th>
       <th class = "small-1 colums">Votes</th>
       <th class = "small-2 colums">Joined</th>
     </tr>
     <% @users.order(:name).each do |user| %>
-    <tr class = "row">
+    <tr>
       <td><%= link_to user.name, user_path(user) %></td>
       <td><%= user.votes.count%></td>
       <td><%= user.created_at.strftime("%b %d, %Y")%></td>
     </tr>
     <% end %>
   </table>
-</section>
-
-<section>
-  <%= link_to "View all media", works_path%>
 </section>
