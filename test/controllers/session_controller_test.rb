@@ -20,6 +20,12 @@ describe SessionController do
     must_redirect_to root_path
   end
 
+  it "does not allow you to login or make a user with nil id" do
+    proc {
+      post create_login_path(nil)
+    }.must_change 'User.all.length', 0
+  end
+
   it "allows users to logout" do
     delete logout_path
     must_respond_with :found

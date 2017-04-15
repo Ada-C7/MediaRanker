@@ -7,25 +7,23 @@ class SessionController < ApplicationController
 
 
   def create
+    @user = User.new
 
-    @user = User.find_by_username(params[:username])
+    @find_user = User.find_by_username(params[:username])
 
-    if @user
-      session[:user_id] = @user.id
+    if(params[:username]) == nil
+      flash[:error] = "You cannot have a blank username"
+    elsif @find_user
+      session[:user_id] = @find_user.id
       flash[:success] = "Welcome back #{@user.username}"
-      redirect_to root_path
     else
       new_user = User.new
       new_user.username = params[:username]
       new_user.save
-      if !new_user.save
-        flash[:error] = "You cannot have a blank username"
-        render 'login'
-      else
-        flash[:success] = "Welcome #{new_user.username}"
-        redirect_to root_path
-      end
+
+      flash[:success] = "Welcome #{new_user.username}"
     end
+    redirect_to root_path
   end
 
   def logout
