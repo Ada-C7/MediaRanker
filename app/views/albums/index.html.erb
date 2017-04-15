@@ -1,12 +1,34 @@
 <h1>List of Albums</h1>
 <p>Find me in app/views/albums/index.html.erb</p>
 
-<ul>
-<% @albums.each do |a| %>
-<li>
+<table>
+  <thead>
+    <tr>
+      <th>Votes</th>
+      <th>Title</th>
+      <th>Creator</th>
+      <th>Published</th>
+    </tr>
+  </thead>
+  <% @albums.each do |a| %>
+  <tbody>
+<td>
+  <%= a.votes.length %>
+</td>
+<td>
   <%=link_to a.title, album_path(a.id) %>
-</li>
+</td>
+<td>
+  <%= a.creator %>
+</td>
+<td>
+  <%= a.publication_year %>
+</td>
+<td>
+  <%= link_to "Upvote", album_vote_path(a.id), :method => :post %>
+</td>
+</tbody>
 <% end %>
-</ul>
+</table>
 
-<%= link_to "Make New Album", new_album_path %>
+<%= link_to "View all media", root_path %><%= link_to "Make New Album", new_album_path %>

@@ -1,35 +1,35 @@
-<section class="spotlight">
+<section class="spotlight row">
   <h2>Media Spotlight: <%= @spotlight.title %> by <%= @spotlight.creator %></h2>
   <p><%= @spotlight.votes.length %> votes </p>
 
 </section>
-<ul>
-  <h1>Top Albums</h1>
+<ul class="columns large-4 small-12" >
+  <h2>Top Albums</h2>
 <% @albums.each do |a| %>
-<li>
-  <h2><%=link_to a.title, album_path(a.id) %><h2> <h3>by <%= a.creator%></h3>
+<li class>
+  <h3><%=link_to a.title, album_path(a.id) %><h3> <h4>by <%= a.creator%></h4>
   <p><%= a.votes.length %> votes</p>
 </li>
 <% end %>
 <%= link_to "View More Albums", albums_path %>
 </ul>
 
-<ul>
-  <h1>Top Books</h1>
+<ul class="columns large-4 small-12" >
+<h1>Top Books</h1>
 <% @books.each do |b| %>
-<li>
-  <h2><%=link_to b.title, book_path(b.id) %></h2> <h3>by <%= b.creator %></h3>
+<li class>
+  <h3><%=link_to b.title, book_path(b.id) %></h3> <h4>by <%= b.creator %></h4>
 </li>
 <% end %>
 <%= link_to "View More Books", books_path %>
 
 </ul>
 
-<ul>
-  <h1>Top Movies</h1>
+<ul class="columns large-4 small-12" >
+<h2>Top Movies</h2>
 <% @movies.each do |m| %>
-<li>
-  <h2><%=link_to m.title, movie_path(m.id) %></h2> <h3>by <%= m.creator %></h3>
+<li class>
+  <h3><%=link_to m.title, movie_path(m.id) %></h3> <h4>by <%= m.creator %></h4>
 </li>
 <% end %>
 <%= link_to "View More Movies", movies_path %>

@@ -1,12 +1,31 @@
-<h1>Books#show</h1>
-<p>Find me in app/views/books/show.html.erb</p>
+<h3><%= @book.title %></h3>
+<p>Created by: <%= @book.creator %></p>
+<p>Published: <%= @book.publication_year %></p>
 
-<%= @book.title %>
-<%= @book.votes.length %>
-
+<%= link_to "Delete", book_path(@book.id),
+    data: { confirm: "Are you sure you want to delete this album?" },
+    method: :delete
+%>
+<%= link_to "Back to book list", books_path %>
+<%= link_to "Edit", edit_book_path(@book.id) %>
+<%= link_to "Upvote", book_vote_path(@book.id), :method => :post %>
 <%= link_to "Delete", book_path(@book.id),
     data: { confirm: "Are you sure you want to delete this book?" },
     method: :delete
 %>
-<%= link_to "Edit", edit_book_path(@book.id) %>
-<%= link_to "Upvote", book_vote_path(@book.id), :method => :post %>
+</section>
+
+<section class="voting">
+  <h3><%= @book.votes.length %> votes for this movie</h3>
+  <ul>
+  <li>
+    <h3>User</h3>
+  </li>
+  <% @book.votes.each do |vote| %>
+  <li>
+    <%=link_to User.find(vote.user_id).username, user_path(vote.user_id) %>
+  </li>
+  <% end %>
+  </ul>
+
+</section>
