@@ -8,32 +8,29 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <banner class="banner row">
+  <header class="page-header row">
     <%= image_tag "owl.jpg" %>
-  <h1 "columns large-9 small-12"><%= link_to "Media Ranker", works_path %> Ranking the Best of Everything</h1>
-</banner>
+  <h2 "columns large-9 small-12"><%= link_to "Media Ranker", works_path %><small> Ranking the Best of Everything</small></h2>
 
-  <body>
-    <section class="flash">
+
      <% flash.each do |name, message| %>
-       <div class="<%= name %>"><%= message %></div>
+      <%= name %>"><%= message %></div>
      <% end %>
-   </section>
 
-
-    <nav>
+     <div class ="column large-3 small-12">
       <% if session[:user_id] %>
-        Logged in as <%= (User.find(session[:user_id])).name%></br>
-        <%= link_to "Log Out", logout_path, method: :delete%>
+        <p class= "text-right">Logged in as <%= (User.find(session[:user_id])).name%></p>
+        <a class= "button float-right" rel="nofollow" data-method="delete" href="/logout">Log Out</a>
+          <!-- <%= link_to "Log Out", logout_path, method: :delete%> -->
       <% else %>
-        Not Logged in</br>
-        <%= link_to "Log In", login_path %>
+        <p class = "text-right">Not Logged in</p>
+
+        <a class = "button float-right" href="/login">Log In</a>
+        <!-- <%= link_to "Log In", login_path %></a> -->
       <% end %>
-  </nav>
-
-
-
+      </div>
+    </header>
 
     <%= yield %>
-  </body>
+
 </html>
