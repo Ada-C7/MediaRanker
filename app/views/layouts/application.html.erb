@@ -1,14 +1,22 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>MediaRanker</title>
+    <title>Media Ranker</title>
     <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
+<body>
+  <header>
+    <img alt="An owl" src="/assets/owl.jpg"/>
+    <%= link_to "Log In", new_login_path %>
 
-  <body>
+
+    <h1><%= link_to "Media Ranker", root_path %></h1>
+    <h2>Ranking the best of everything</h2>
+  </header>
+
     <%= yield %>
   </body>
 </html>
