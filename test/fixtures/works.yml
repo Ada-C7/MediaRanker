@@ -6,6 +6,18 @@
 #
 one:
   user: sofia
-#
-two: {}
-# column: value
+  category: book
+  title: Kindred
+  publication_year: 1979
+
+two:
+  user: sofia
+  category: book
+  title: Parable of the Sower
+  publication_year: 1994
+
+three:
+  user: sofia
+  category: book
+  title: Practical Object Oriented Design in Ruby
+  publication_year: 2012

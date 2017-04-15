@@ -1,19 +1,7 @@
 class WorksController < ApplicationController
-  # def index
-  #   @works = Work.all
-  # end
 
   def show
     @work=Work.find(params[:id])
-  end
-  #
-  # def show_owner
-  #   @works_list = Work.where(owner: params[:owner].capitalize)
-  # end
-
-
-  def new
-    @work = Work.new
   end
 
   def create

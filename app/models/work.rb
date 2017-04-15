@@ -20,15 +20,7 @@ class Work < ApplicationRecord
     where(category: "album")
   end
 
-  def self.top_movies
-    movies.order(:votes).limit(10)
-  end
-
-  def self.top_albums
-    albums.order(:votes).limit(10)
-  end
-
-  def self.top_books
-    albums.order(:votes).limit(10)
+  def self.top
+    joins(:votes).group("works.id").order("count(votes.id) desc").limit(10)
   end
 end
