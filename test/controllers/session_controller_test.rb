@@ -26,4 +26,6 @@ describe SessionController do
     must_respond_with :redirect
     must_redirect_to root_path
   end
+
+
 end

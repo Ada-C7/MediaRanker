@@ -6,6 +6,8 @@ describe User do
   it "must have a username" do
     user.username = "testname"
     user.valid?.must_equal true
+    user.username = nil
+    user.valid?.must_equal false
   end
 
   it "should be able to associate with a Vote object" do
