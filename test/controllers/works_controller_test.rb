@@ -57,13 +57,31 @@ describe WorksController do
     must_respond_with :missing
   end
 
-  it "should redirect to the list after adding work" do
+  it "should redirect to the movie list after adding movie" do
     post works_path, params: { work: {
       title: "Testing",
       category: "movie"
       }
     }
-    must_redirect_to works_path
+    must_redirect_to category_path("movies")
+  end
+
+  it "should redirect to the album list after adding movie" do
+    post works_path, params: { work: {
+      title: "Testing",
+      category: "album"
+      }
+    }
+    must_redirect_to category_path("albums")
+  end
+
+  it "should redirect to the book list after adding movie" do
+    post works_path, params: { work: {
+      title: "Testing",
+      category: "book"
+      }
+    }
+    must_redirect_to category_path("books")
   end
 
   it "should affect the model when creating a work" do
