@@ -9,7 +9,7 @@ class BooksController < ApplicationController
 
   def create
     work = Work.new
-    work.category = "movie"
+    work.category = "book"
     work.user_id = session[:user_id]
     work.title = work_params[:title]
     work.publication_year = work_params[:publication_year]
