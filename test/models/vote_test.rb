@@ -1,9 +1,12 @@
 require "test_helper"
 
 describe Vote do
-  let(:vote) { Vote.new }
+  let(:vote) { votes(:vote_bnb, :vote_obvchild, :vote_soviet, :vote_uproot).sample }
 
-  it "must be valid" do
-    value(vote).must_be :valid?
-  end
+  # 2+ tests for each validation on a model
+
+  # 1+ test for each custom method
+
+  # 1+ test for each model relationship
+
 end

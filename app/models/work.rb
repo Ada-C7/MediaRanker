@@ -1,5 +1,5 @@
 class Work < ApplicationRecord
-  has_many :votes
+  has_many :votes, dependent: :destroy
 
   validates :category, presence: true,
   inclusion: { in: %w(movie book album), message: "%{value} is not a valid category" }

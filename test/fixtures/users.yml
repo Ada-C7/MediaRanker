@@ -1,7 +1,10 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
-  name: MyString
+bren:
+  name: brenna
 
-two:
-  name: MyString
+ella:
+  name: ella fitzgerald
+
+bob:
+  name: spongebob squarepants

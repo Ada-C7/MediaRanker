@@ -24,7 +24,7 @@ class WorksController < ApplicationController
       redirect_to :root
     else
       # puts "didn't save, #{@work.errors.messages}"
-      render :back
+      render :new
     end
   end
 

@@ -1,7 +1,6 @@
 class VotesController < ApplicationController
 
   def upvote
-
     @vote = Vote.create(work_id: params[:id], user_id: session[:id])
     if @vote
       # raise

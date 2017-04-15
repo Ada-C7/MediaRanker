@@ -1,9 +1,12 @@
 require "test_helper"
 
 describe User do
-  let(:user) { User.new }
+  let(:user) { users(:bren, :ella, :bob).sample }
 
-  it "must be valid" do
-    value(user).must_be :valid?
-  end
+  # 2+ tests for each validation on a model
+
+  # 1+ test for each custom method
+
+  # 1+ test for each model relationship
+
 end
