@@ -130,7 +130,7 @@ describe Work do
     albums.count.must_equal Work.category_sorted("album").count
   end
 
-  it "movie with the most votes gets sorted first" do
+  it "top_ten movie with the most votes gets sorted first" do
     most_votes_movie = works(:most_votes_movie).title
     top_movie = Work.top_ten("movie").first.title
 
