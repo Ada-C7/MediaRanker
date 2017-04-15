@@ -17,6 +17,13 @@ class UsersController < ApplicationController
 
   def destroy
     @user = User.find(params[:id])
+    votes = Vote.where(user_id: @user.id)
+    votes.destroy_all
+    if @user == User.find(session[:user_id])
+      session[:user_id] = nil
+    end
+    @user.destroy
+    flash[:success] = "User #{@user.username} deleted!"
     redirect_to main_path
   end
 

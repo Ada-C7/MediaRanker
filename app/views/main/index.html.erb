@@ -1,43 +1,44 @@
-<p>
+<section>
   <h3>Media Spotlight: <%= link_to @spot.title, work_path(@spot.id)%> by <%= @spot.creator%></h3>
-  Synopsis: <%= @spot.description %>
-</p>
-<div>
-  <h3> Top Books </h3>
-  <ul>
-    <% books = @books[0...10] %>
-    <% books.each do |book| %>
+  <%= @spot.votes.count %> votes - <%= @spot.description %>
+</section>
 
-    <li> <%= link_to "#{book.title}", work_path(book.id) %> by <%= book.creator %> </li>
-    <div> <%= book.votes.count %> votes </div>
-    <% end %>
-  </ul>
+<section class="row">
+  <div class="small-12 medium -4 large-4 columns" >
+    <h3> Top Books </h3>
+    <ul>
+      <% books = @books[0...10] %>
+      <% books.each do |book| %>
+      <h4><li> <%= link_to "#{book.title}", work_path(book.id) %><small class="darkgray"> by <%= book.creator %> </small></li></h4>
+      <div> <%= book.votes.count %> votes </div>
+      <% end %>
+    </ul>
+    <div class="button"><%= link_to "More Books", list_works_path("books"), work_category: "Books" %></div>
+  </div>
 
-  <div class="button"><%= link_to "More Books", list_works_path("books"), work_category: "Books" %></div>
-</div>
+  <div class="small-12 medium -4 large-4 columns">
+    <h3> Top Movies </h3>
+    <ul>
+      <% movies = @movies[0...10]%>
+      <% movies.each do |movie| %>
+      <h4><li> <%= link_to "#{movie.title}", work_path(movie.id) %> <small class="darkgray">by <%= movie.creator %> </small></li></h4>
+      <div> <%= movie.votes.count %> votes </div>
+      <% end %>
+    </ul>
+    <div class="button"><%= link_to "More Movies", list_works_path("movies"), work_category: "Movies" %></div>
+    <!-- link_to "Link text", some_path(:foo => "bar", :baz => "quux"), user: @user, :method => :post -->
+  </div>
 
-<div>
-  <h3> Top Movies </h3>
-  <ul>
-    <% movies = @movies[0...10]%>
-    <% movies.each do |movie| %>
-    <li> <%= link_to "#{movie.title}", work_path(movie.id) %> by <%= movie.creator %> </li>
-    <div> <%= movie.votes.count %> votes </div>
-    <% end %>
-  </ul>
-  <div class="button"><%= link_to "More Movies", list_works_path("movies"), work_category: "Movies" %></div>
-  <!-- link_to "Link text", some_path(:foo => "bar", :baz => "quux"), user: @user, :method => :post -->
-</div>
-
-<div>
-  <h3> Top Albums </h3>
-  <ul>
-    <% albums = @albums[0...10]%>
-    <% albums.each do |album| %>
-    <li> <%= link_to "#{album.title}" %> by <%= album.creator %> </li>
-    <div> <%= album.votes.count %> votes </div>
-    <% end %>
-  </ul>
-  <% @work_category = "Albums" %>
-  <div class="button"><%= link_to "More Albums", list_works_path("albums"), work_category: "Albums" %></div>
-</div>
+  <div class="small-12 medium -4 large-4 columns">
+    <h3> Top Albums </h3>
+    <ul>
+      <% albums = @albums[0...10]%>
+      <% albums.each do |album| %>
+      <h4><li> <%= link_to "#{album.title}" , work_path(album.id) %> <small class="darkgray">by <%= album.creator %></small> </li></h4>
+      <div> <%= album.votes.count %> votes </div>
+      <% end %>
+    </ul>
+    <% @work_category = "Albums" %>
+    <div class="button"><%= link_to "More Albums", list_works_path("albums"), work_category: "Albums" %></div>
+  </div>
+</section>

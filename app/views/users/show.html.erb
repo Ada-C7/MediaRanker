@@ -1,4 +1,4 @@
-<body>
+<section>
   <section>
     <h3> User Summary: <%= @user.username %> </h3>
     Joined site <%= @user.created_at.strftime("%b %d,   %Y") %>
@@ -17,9 +17,9 @@
 
       <% votes = Vote.where(user_id: @user.id) %>
       <% votes.each do |vote| %>
-        <% work = Work.find_by(id: vote.work_id)%></td>
+        <% work = Work.find_by(id: vote.work_id)%>
         <tr>
-          <td><%= work.title %></td>
+          <td><%= link_to work.title, work_path(work.id) %></td>
           <td><%= work.creator %></td>
           <td><%= work.publication_year %></td>
           <td><%= work.category %></td>
@@ -30,4 +30,5 @@
   </section>
   <div class = "button"><%= link_to "See all Users", users_path %></div>
   <div class = "button"><%= link_to "Back to Media List", main_path %></div>
-</body>
+  <div class = "alert button"><%= link_to "Delete User", user_path(params[:id]), method: :delete %></div>
+</section>

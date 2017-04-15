@@ -23,3 +23,38 @@
 ul li{
   list-style: none;
 }
+
+header nav {
+  border-bottom: 5px;
+  border-color: gray;
+}
+
+section {
+  margin: auto;
+  width: 95%;
+  padding: 10px;
+}
+
+ul {
+  margin-left: 0px;
+}
+
+.darkgray {
+  color: #8a8a8a;
+}
+
+tr {
+  background-color: #f8f8f8;
+}
+
+.center {
+  margin: auto;
+  width: 1%;
+  padding: 10px;
+  margin-bottom: 0px;
+
+}
+
+.button {
+  margin-bottom: 0px;
+}

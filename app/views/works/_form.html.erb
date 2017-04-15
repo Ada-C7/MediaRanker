@@ -16,7 +16,8 @@
     <%#= f.text_field :category %>
     <%= f.select :category, [ 'book', 'movie', 'album' ], prompt: 'Select One' %>
 
-    <%= f.submit value: "#{action_name}" %>
+    <%= f.submit value: "#{action_name}", class: "button" %>
+
   <% end %>
 </section>
 

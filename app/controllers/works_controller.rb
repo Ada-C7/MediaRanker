@@ -56,12 +56,19 @@ class WorksController < ApplicationController
 
   def edit
     @work = Work.find(params[:id])
-    redirect_to work_path
+  end
+
+  def update
+    redirect_to work_path(params[:id])
+    work = Work.find(params[:id])
+    flash[:success] = "#{work.category} #{work.title} is edited!"
   end
 
   def destroy
     @work = Work.find(params[:id])
     @work.destroy
+    vote = Vote.find_by(work_id: @work.id)
+    vote.destroy
     flash[:sucess] = "You've deleted #{@work.category} #{@work.title.capitalize}!"
     redirect_to main_path
   end

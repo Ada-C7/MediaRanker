@@ -1,5 +1,5 @@
-<body>
-  <h1>List of <%= @work_category.capitalize%></h1>
+<section>
+  <h3>List of <%= @work_category.capitalize%></h3>
   <table>
     <tr>
       <th>Votes</th>
@@ -14,11 +14,11 @@
       <td><%= link_to work.title, work_path(work.id) %></td>
       <td><%= work.creator %></td>
       <td><%= work.publication_year %></td>
-      <td class = "button"><%= link_to "Upvote", vote_path(work.id), method: :post %></td>
+      <td class="center"><div class = "button"><%= link_to "Upvote", vote_path(work.id), method: :post %></div></td>
     </tr>
     <% end %>
   </table>
 
   <div class = "button"><%= link_to "View all media", main_path %></div>
   <div class = "button"><%= link_to "Add New #{@work_category.capitalize}", new_work_path %></div>
-</body>
+</section>
