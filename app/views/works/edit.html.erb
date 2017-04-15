@@ -1,5 +1,5 @@
-<%= "Add a new #{params[:category]}" %>
-<%= form_for @work, url: {controller: "works", action: "create"} do |f| %>
+<!-- <%= "Add a new #{params[:category]}" %> -->
+<%= form_for @work, url: {controller: "works", action: "update"} do |f| %>
   <%= f.label :title, "Title:  " %>
   <%= f.text_field :title %>
 
@@ -12,5 +12,5 @@
   <%= f.label :description, "Description:  " %>
   <%= f.text_field :description %>
 
-  <%= f.submit "Create Work", :class => "button" %>
+  <%= f.submit "Edit Work", :class => "button" %>
 <% end %>

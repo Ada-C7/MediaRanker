@@ -21,8 +21,17 @@ class WorksController < ApplicationController
     end
   end
 
+  def edit
+    @work = Work.find(params[:id])
+  end
+
+  def update
+    work = Work.find(params[:id])
+    work.update(work_params)
+    redirect_to work_path
+  end
+
   def vote
-    # check if a user a user has voted for a certain work
     if Vote.where(user_id: session[:user_id], work_id: params[:id]).empty?
       Vote.create(user_id: session[:user_id], work_id: params[:id])
       flash[:success] = "You voted successfully!"

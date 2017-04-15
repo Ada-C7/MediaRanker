@@ -1,4 +1,4 @@
-<%= "Add a new #{params[:category]}" %>
+<!-- <%= "Add a new #{params[:category]}" %> -->
 <%= form_for @work, url: {controller: "works", action: "create"} do |f| %>
   <%= f.label :title, "Title:  " %>
   <%= f.text_field :title %>
