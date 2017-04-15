@@ -1,29 +1,36 @@
-<h1>Contents#index</h1>
-<p>Find me in app/views/contents/index.html.erb</p>
+<section class="spotlight">
+  <h2>Media Spotlight: <%= @spotlight.title %> by <%= @spotlight.creator %></h2>
+  <p><%= @spotlight.votes.length %> votes </p>
 
+</section>
 <ul>
-  <h1>Albums</h1>
+  <h1>Top Albums</h1>
 <% @albums.each do |a| %>
 <li>
-  <%=link_to a.title, album_path(a.id) %>
+  <h2><%=link_to a.title, album_path(a.id) %><h2> <h3>by <%= a.creator%></h3>
+  <p><%= a.votes.length %> votes</p>
 </li>
 <% end %>
+<%= link_to "View More Albums", albums_path %>
 </ul>
 
 <ul>
-  <h1>Books</h1>
+  <h1>Top Books</h1>
 <% @books.each do |b| %>
 <li>
-  <%=link_to b.title, book_path(b.id) %>
+  <h2><%=link_to b.title, book_path(b.id) %></h2> <h3>by <%= b.creator %></h3>
 </li>
 <% end %>
+<%= link_to "View More Books", books_path %>
+
 </ul>
 
 <ul>
-  <h1>Movies</h1>
+  <h1>Top Movies</h1>
 <% @movies.each do |m| %>
 <li>
-  <%=link_to m.title, movie_path(m.id) %>
+  <h2><%=link_to m.title, movie_path(m.id) %></h2> <h3>by <%= m.creator %></h3>
 </li>
 <% end %>
+<%= link_to "View More Movies", movies_path %>
 </ul>

@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   resources :movies
   resources :albums
   resources :votes, only: [:create, :update]
+  resources :users, only: [:show]
 
   post '/books/:content_id/', to: 'votes#create', as: 'book_vote'
   post '/movies/:content_id/', to: 'votes#create', as: 'movie_vote'
