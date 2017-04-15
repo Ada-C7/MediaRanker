@@ -37,3 +37,63 @@ bad_category:
   year_published: 2005
   description: Turn it up turn it up turn it up turn it up / Turn it up turn it up turn it up turn it up / Turn me on
   category: music
+
+movie1:
+  title: Movie 1
+  category: movie
+
+movie2:
+  title: Movie 1
+  category: movie
+
+movie3:
+  title: Movie 1
+  category: movie
+
+movie4:
+  title: Movie 1
+  category: movie
+
+movie5:
+  title: Movie 1
+  category: movie
+
+movie6:
+  title: Movie 1
+  category: movie
+
+movie7:
+  title: Movie 1
+  category: movie
+
+movie8:
+  title: Movie 1
+  category: movie
+
+movie9:
+  title: Movie 1
+  category: movie
+
+movie10:
+  title: Movie 1
+  category: movie
+  votes_count: 4
+
+movie11:
+  title: Movie 1
+  category: movie
+  votes_count: 12
+
+movie12:
+  title: Movie 1
+  category: movie
+
+most_votes_overall:
+  title: Most Voted Work
+  category: book
+  votes_count: 20
+
+most_votes_movie:
+  title: Most Voted Movie
+  category: movie
+  votes_count: 13

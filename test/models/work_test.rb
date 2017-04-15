@@ -60,24 +60,66 @@ describe Work do
     album.errors.messages[:category].must_be :empty?
   end
 
-  it "movies returns a group of movies" do
-    movies = Work.movies
+  it "category_sorted('movie') returns a group of movies" do
+    movies = Work.category_sorted("movie")
 
     movies.first.category.must_equal "movie"
     movies.last.category.must_equal "movie"
   end
 
-  it "albums returns a group of albums" do
-    albums = Work.albums
+  it "category_sorted('album') returns a group of albums" do
+    albums = Work.category_sorted("album")
 
     albums.first.category.must_equal "album"
     albums.last.category.must_equal "album"
   end
 
-  it "books returns a group of books" do
-    books = Work.books
+  it "category_sorted('book') returns a group of books" do
+    books = Work.category_sorted("book")
 
     books.first.category.must_equal "book"
     books.last.category.must_equal "book"
+  end
+
+  it "category_sorted movies returns all movies" do
+    movie_count = Work.where(category: "movie").count
+    Work.category_sorted("movie").count.must_equal movie_count
+  end
+
+  it "category_sorted albums returns all albums" do
+    album_count = Work.where(category: "album").count
+    Work.category_sorted("album").count.must_equal album_count
+  end
+
+  it "category_sorted books returns all books" do
+    book_count = Work.where(category: "book").count
+    Work.category_sorted("book").count.must_equal book_count
+  end
+
+  it "top_ten movies returns 10 movies" do
+    movies = Work.top_ten("movie")
+
+    movies.first.category.must_equal "movie"
+    movies.last.category.must_equal "movie"
+    movies.count.must_equal 10
+  end
+
+  it "movie with the most votes gets sorted first" do
+    most_votes_movie = works(:most_votes_movie).title
+    top_movie = Work.top_ten("movie").first.title
+
+    top_movie.must_equal most_votes_movie
+  end
+
+  it "first top ten movie has more votes than last" do
+    first_movie = Work.top_ten("movie").first
+    last_movie = Work.top_ten("movie").last
+
+    first_movie.votes_count.must_be :>=, last_movie.votes_count
+  end
+
+  it "spotlight work has the most votes" do
+    spotlight = Work.spotlight
+    spotlight.votes_count.must_equal works(:most_votes_overall).votes_count
   end
 end
