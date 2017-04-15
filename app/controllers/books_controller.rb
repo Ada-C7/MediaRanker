@@ -8,15 +8,20 @@ class BooksController < ApplicationController
   end
 
   def create
-    work = Work.new
-    work.category = "book"
-    work.user_id = session[:user_id]
-    work.title = work_params[:title]
-    work.publication_year = work_params[:publication_year]
-    work.description = work_params[:description]
+    @book = Work.new
+    @book.category = "book"
+    @book.user_id = session[:user_id]
+    @book.title = work_params[:title]
+    @book.publication_year = work_params[:publication_year]
+    @book.description = work_params[:description]
 
-    work.save!
-    redirect_to books_path
+    if @book.valid?
+      @book.save!
+      redirect_to books_path
+    else
+      flash.now[:alert] = "Book is not added!"
+      render "new", status: :bad_request
+    end
   end
 
   private

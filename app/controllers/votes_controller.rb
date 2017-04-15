@@ -1,5 +1,8 @@
 class VotesController < ApplicationController
   def create
+    if session[:user_id].nil?
+      return redirect_to login_path
+    end
     vote_check = Vote.where({:user_id => session[:user_id], :work_id => params[:work_id]}) #array of result
 
     if vote_check.empty?
