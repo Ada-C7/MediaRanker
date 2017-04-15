@@ -22,11 +22,11 @@
     line-height: 1.5;
     color: #0a0a0a;
   }
-  
+
   .header {
     max-width: 100%;
     border-bottom: 1px solid darkgrey;
-    background-image: url('sloth.png');
+    background-image: image-url('sloth.png');
     background-size: contain;
     background-repeat: no-repeat;
     margin-bottom: 10px;
