@@ -30,8 +30,7 @@ describe UsersController do
         end
 
         it 'return 404 for invalid user' do
-            user_id = User.last.id
-            user_id += 1
+            user_id = User.last.id + 1
             get user_path(user_id)
             must_respond_with :not_found
         end
@@ -39,15 +38,30 @@ describe UsersController do
 
     describe 'create' do
         it 'adds a user to the database' do
-            user_data = { user: { name: 'Tofu Russell' } }
+            start_count = User.count
+
+            user_data = { user: { name: 'Tofu' } }
+
             post users_path, params: user_data
             must_redirect_to users_path
+
+            end_count = User.count
+            end_count.must_equal start_count + 1
+
+            user = User.last
+            user.name.must_equal user_data[:user][:name]
         end
 
-        it 're-renders the new user form if user is invalid' do
-            user_data = { user: { name: nil } }
+        it 'responds with bad_request for bogus data' do
+            start_count = User.count
+
+            user_data = { user: { name: '' } }
+
             post users_path, params: user_data
             must_respond_with :bad_request
+
+            end_count = User.count
+            end_count.must_equal start_count
         end
     end
 end

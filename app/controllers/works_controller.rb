@@ -21,17 +21,21 @@ class WorksController < ApplicationController
 
     def update
         edit
-        if @work.update(work_params)
-            flash[:success] = "#{@work.title} updated successfully"
-            redirect_to work_path(@work)
+        if @work.nil?
+            head :not_found
         else
-            flash.now[:failure] = 'Media was not updated'
-            render 'edit', status: :bad_request
-        end
+            if @work.update(work_params)
+                flash[:success] = "#{@work.title} updated successfully"
+                redirect_to work_path(@work)
+            else
+                flash.now[:failure] = 'Media was not updated'
+                render 'edit', status: :bad_request
+            end
+      end
     end
 
     def edit
-        @work = Work.find(params[:id])
+        @work = Work.find_by(id: params[:id])
         head :not_found if @work.nil?
     end
 
@@ -41,7 +45,7 @@ class WorksController < ApplicationController
     end
 
     def destroy
-        work = Work.find(params[:id])
+        work = Work.find_by(id: params[:id])
         if work.nil?
             head :not_found
         else

@@ -41,7 +41,7 @@ describe WorksController do
         it 'responds with bad_request for bogus data' do
             start_count = Work.count
 
-            work_data = { work: { title: 'bar', category: 'test' } }
+            work_data = { work: { title: '', category: 'test' } }
 
             post works_path, params: work_data
             must_respond_with :bad_request
