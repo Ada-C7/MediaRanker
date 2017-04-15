@@ -28,7 +28,7 @@
 
 <section>
   <%= link_to "View all media", works_path%>
-  <%= link_to "Add a new movie",
+  <%= link_to "Add a new #{session[:category].capitalize}",
   if session[:category] == "album"
     new_album_path
   elsif session[:category] == "book"

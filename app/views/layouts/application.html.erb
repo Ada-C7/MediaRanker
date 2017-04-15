@@ -16,10 +16,23 @@
 
       <section>
         <% if session[:user_id]%>
+          <p>
+            You are logged in as <%= link_to User.find_by(id: session[:user_id]).name, user_path(session[:user_id])%>
+          </p>
+        <%else%>
+        <p>
+          Not logged in
+        </p>
+        <%end%>
+      </section>
+
+      <section>
+        <% if session[:user_id]%>
             <%= link_to "Logout", logout_path, method: :delete%>
         <% else%>
             <%= link_to "Login", login_path%>
         <% end%>
+        <%=link_to "New User", new_user_path%>
       </section>
 
       <section class="flash">
