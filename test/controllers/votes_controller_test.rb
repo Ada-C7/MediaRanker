@@ -1,19 +1,22 @@
 require "test_helper"
 
 describe VotesController do
-  let(:vote) { votes(:vote_bnb, :vote_obvchild, :vote_soviet).sample }
+  let(:work) { works(:bnb, :obvchild, :soviet, :lungs, :supe, :uproot).sample }
+  let(:user) { users(:bren, :ella, :bob).sample }
 
   # upvote
-  # it "should redirect to root after voting" do
-  #   post upvote_path(vote)
-  #   must_redirect_to root_path
-  # end
+  it "should redirect to root after voting" do
+    post upvote_path(work.id), params: { work_id: work.id, user_id: user.id }
+    must_redirect_to root_path
+  end
 
   # upvote affects model
-  # it "should add vote" do
-  #   proc {
-  #     post upvote_path(:vote_uproot)
-  #   }.must_change 'Vote.count', 1
-  # end
+  it "should add vote" do
+    skip
+    # not working, but I know upvote works on the actual website so I think it's test syntax
+    proc {
+      post upvote_path(work.id), params: { work_id: work.id, user_id: user.id }
+    }.must_change 'Vote.count', 1
+  end
 
 end

@@ -13,3 +13,7 @@ vote_soviet:
 vote_uproot:
   user: bren
   work: uproot
+
+vote_uproot2:
+  user: bob
+  work: uproot

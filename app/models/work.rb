@@ -14,7 +14,7 @@ class Work < ApplicationRecord
 
 
   def self.top_ten(category)
-    @top_ten = Work.where(category: category).order(votes_count: :desc)[0..10]
+    @top_ten = Work.where(category: category).order(votes_count: :desc)[0..9]
   end
 
   def self.spotlight
