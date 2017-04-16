@@ -1,0 +1,37 @@
+<article class="media-details columns large-6 small-12">
+  <h3><%= @result_work.title %></h3>
+  <p>Created by: <%= @result_work.creator %></p>
+  <p>published: <%= @result_work.publication_year.to_i %></p>
+  <p><%= @result_work.description %></p>
+  <section>
+    <% if @result_work.category == "book" %>
+    <%= link_to "Back to book list", books_path, class:"button" %>
+    <% elsif @result_work.category == "album"%>
+    <%= link_to "Back to album list", albums_path, class:"button" %>
+    <% else %>
+    <%= link_to "Back to movies list", movies_path, class:"button" %>
+    <% end %>
+    <%= link_to "Edit", edit_work_path(@result_work.id), class:"button" %>
+    <%= link_to "Upvote", vote_path(@result_work.id), method: :post , class:"button"%>
+    <%= link_to "Delete", work_path(@result_work.id), data: { confirm: "Are you sure?" }, method: :delete, class:"button alert" %>
+  </section>
+</article>
+<article class="voting-users columns large-6 small-12">
+  <h3><%= pluralize(@result_work.votes.size, "Vote") %> for this <%= @result_work.category.capitalize %></h3>
+  <table>
+    <thead>
+      <tr>
+        <th>User</th>
+        <th>Date</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @result_work.votes.each do |vote| %>
+      <tr>
+        <td><%= link_to vote.user.name, user_path(vote.user_id) %></td>
+        <td><%= vote.created_at.to_date.strftime("%B %d, %Y") %></td>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
+</article>
