@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  get 'users/index'
+
+  get 'users/show'
+
   root "works#index"
 
   resources :works, except: [:new]
