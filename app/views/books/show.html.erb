@@ -3,6 +3,7 @@
 <h3><%= @book.title %></h3>
 <p>Created by: <%= @book.creator %></p>
 <p>Published: <%= @book.publication_year %></p>
+<p>Description: <%= @book.description %></p>
 
 <%= link_to "Back to book list", books_path, class: "button" %>
 <%= link_to "Edit", edit_book_path(@book.id), class: "button" %>

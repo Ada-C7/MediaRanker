@@ -2,6 +2,7 @@
 <h3><%= @album.title %></h3>
 <p>Created by: <%= @album.creator %></p>
 <p>Published: <%= @album.publication_year %></p>
+<p>Description: <%= @album.description %></p>
 
 <%= link_to "Back to albums list", albums_path, class: "button" %>
 <%= link_to "Edit", edit_album_path(@album.id), class: "button" %>

@@ -2,6 +2,7 @@
 <h3><%= @movie.title %></h3>
 <p>Created by: <%= @movie.creator %></p>
 <p>Published: <%= @movie.publication_year %></p>
+<p>Description: <%= @movie.description %></p>
 
 <%= link_to "Back to movie list", movie_path, class: "button" %>
 <%= link_to "Edit", edit_movie_path(@movie.id), class: "button" %>
