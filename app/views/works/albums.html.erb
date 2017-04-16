@@ -1,32 +1,32 @@
 <main class="row">
-  <section>
-    <h3>Albums</h3>
-    <section class="media-table">
-      <table>
-        <thead>
-          <tr>
-            <th>Votes</th>
-            <th>Title</th>
-            <th>Created By</th>
-            <th>Published</th>
-            <th>Upvote</th>
-          </tr>
-        </thead>
 
-        <tbody>
-          <% @albums.each do |album| %>
-            <tr>
-              <td><%= album.votes.count %></td>
-              <td><%= album.title %></td>
-              <td><%= album.creator %></td>
-              <td><%= album.publication_year %></td>
-              <td><%= button_to "Upvote", vote_path(album.id), :class => "button", :method => :post %></td>
-            </tr>
-          <% end %>
-        </tbody>
-      </table>
-    </section>
+  <h3>Albums</h3>
+  <section class="media-table">
+    <table>
+      <thead>
+        <tr>
+          <th>Votes</th>
+          <th>Title</th>
+          <th>Created By</th>
+          <th>Published</th>
+          <th>Upvote</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <% @albums.each do |album| %>
+          <tr>
+            <td><%= album.votes.count %></td>
+            <td><%= album.title %></td>
+            <td><%= album.creator %></td>
+            <td><%= album.publication_year %></td>
+            <td><%= button_to "Upvote", vote_path(album.id), :class => "button", :method => :post %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
   </section>
+
   <nav>
     <%= button_to "Back To All Media", homepage_path, :class => "button", :method => :get %>
     <%= button_to "Add Album", new_album_path, :class => "button", :method => :get %>

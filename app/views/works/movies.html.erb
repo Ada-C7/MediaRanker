@@ -1,32 +1,32 @@
 <main class= "row">
-  <section>
-    <h3>Movies</h3>
-      <section>
-        <table>
-          <thead>
-            <tr>
-              <th>Votes</th>
-              <th>Title</th>
-              <th>Created By</th>
-              <th>Published</th>
-              <th>Upvote</th>
-            </tr>
-          </thead>
 
-          <tbody>
-            <% @movies.each do |movie| %>
-              <tr>
-                <td><%= movie.votes.count %></td>
-                <td><%= link_to movie.title, work_path(movie.id) %></td>
-                <td><%= movie.creator %></td>
-                <td><%= movie.publication_year %></td>
-                <td><%= button_to "Upvote", vote_path(movie.id), :class => "button", :method => :post %></td>
-              </tr>
-            <% end %>
-          </tbody>
-        </table>
-      </section>
+  <h3>Movies</h3>
+  <section class="media-table">
+    <table>
+      <thead>
+        <tr>
+          <th>Votes</th>
+          <th>Title</th>
+          <th>Created By</th>
+          <th>Published</th>
+          <th>Upvote</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <% @movies.each do |movie| %>
+          <tr>
+            <td><%= movie.votes.count %></td>
+            <td><%= link_to movie.title, work_path(movie.id) %></td>
+            <td><%= movie.creator %></td>
+            <td><%= movie.publication_year %></td>
+            <td><%= button_to "Upvote", vote_path(movie.id), :class => "button", :method => :post %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
   </section>
+
 
   <nav>
     <%= button_to "Back To All Media", homepage_path, :class => "button", :method => :get %>
