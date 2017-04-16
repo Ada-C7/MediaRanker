@@ -1,4 +1,21 @@
 <section>
+  <% if @work.errors.messages.length > 0 %>
+    <section class="errors">
+      <ul>
+        <% @work.errors.messages.each do |field, problem_list| %>
+          <% problem_list.each do |problem| %>
+            <li>
+              <strong><%= field %>:</strong>
+              <%= problem %>
+            </li>
+          <% end %>
+        <% end %>
+      </ul>
+    </section>
+  <% end %>
+</section>
+
+<section>
   <%= form_for @work do |f| %>
     <%= f.label :title %>
     <%= f.text_field :title %>
@@ -20,18 +37,3 @@
 
   <% end %>
 </section>
-
-<% if @work.errors.messages.length > 0 %>
-  <section class="errors">
-    <ul>
-      <% @work.errors.messages.each do |field, problem_list| %>
-        <% problem_list.each do |problem| %>
-          <li>
-            <strong><%= field %>:</strong>
-            <%= problem %>
-          </li>
-        <% end %>
-      <% end %>
-    </ul>
-  </section>
-<% end %>

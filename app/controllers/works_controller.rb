@@ -18,7 +18,7 @@ class WorksController < ApplicationController
       flash[:success] = "#{@work.category} added successfully"
       redirect_to list_works_path(@work.category + "s")
     else
-      flash.now[:error] = "#{@work.category} not added.  Try again."
+      flash.now[:error] = "#{@work.category} Not added.  Try again."
       render :new, status: :bad_request
     end
   end

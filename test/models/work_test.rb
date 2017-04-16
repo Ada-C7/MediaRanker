@@ -31,5 +31,10 @@ describe Work do
      result = work2.valid?
      result.must_equal true
   end
+
+  it "blah" do
+    works = Work.all
+    works.count.must_equal 3
+  end
  end
 end

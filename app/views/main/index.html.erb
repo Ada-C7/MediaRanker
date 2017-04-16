@@ -1,6 +1,8 @@
 <section>
+  <% if @spot != nil %>
   <h3>Media Spotlight: <%= link_to @spot.title, work_path(@spot.id)%> by <%= @spot.creator%></h3>
   <%= @spot.votes.count %> votes - <%= @spot.description %>
+  <% end %>
 </section>
 
 <section class="row">

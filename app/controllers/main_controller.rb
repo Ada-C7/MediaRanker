@@ -1,6 +1,5 @@
 class MainController < ApplicationController
   def index
-    # session[:user_id] = nil
     @work_category = "Work"
     works = Work.all
     votes = works.map{|work| [work.id, work.votes.count]}.to_h
