@@ -1,45 +1,53 @@
 <main>
 
   <section class="row spotlight">
-    <% top = find_top(@works) %>
+    <% top = Work.find_top %>
 
     <h3>Media Spotlight:
     <% if top != nil %>
       <%= link_to top.title, work_path(top.id) %> by <%= top.creator %> </h3>
       <p> <%= top.votes.count%> votes </p>
     <% end %>
-    
   </section>
 
-  <% [@movies, @books, @albums].each_with_index do |collection, index| %>
-    <% if collection.empty? == false %>
+  <section class="top-ten columns large-4 small-12">
+    <h3>Top Movies</h3>
+    <ul>
+      <% movies = Work.find_top_ten_movies %>
+      <% movies.each do |work| %>
+        <li><h4><%= link_to work.title, work_path(work.id) %> by <%= work.creator %></h4></li>
+        <li><p><%= work.votes.count %> votes</p></li>
+      <% end %>
+    </ul>
+    <%= link_to "View more Movies", movies_path %>
+  </section>
 
-      <section class="top-ten columns large-4 small-12">
-        <h3>Top <%= collection.first.category.pluralize.capitalize%></h3>
-          <ul>
-            <% find_top_ten(collection).each do |work| %>
-              <li><h4><%= link_to work.title, work_path(work.id) %> by <%= work.creator %></h4></li>
-              <li><p><%= work.votes.count %> votes</p></li>
-            <% end %>
-          </ul>
-        <%= link_to "View more #{collection.first.category.pluralize}", find_path(collection.first) %>
-      </section>
+  <section class="top-ten columns large-4 small-12">
+    <h3>Top Books</h3>
+    <ul>
+      <% books = Work.find_top_ten_books.each %>
+      <%if !books.nil? %>
+        <% books.each do |work| %>
+          <li><h4><%= link_to work.title, work_path(work.id) %> by <%= work.creator %></h4></li>
+          <li><p><%= work.votes.count %> votes</p></li>
+        <% end %>
+      <% end %>
+    </ul>
+    <%= link_to "View more Books", books_path %>
+  </section>
 
-    <% else %>
+  <section class="top-ten columns large-4 small-12">
+    <h3>Top albums</h3>
+    <ul>
+      <% albums = Work.find_top_ten_albums.each %>
+      <%if !albums.nil? %>
+        <% albums.each do |work| %>
+          <li><h4><%= link_to work.title, work_path(work.id) %> by <%= work.creator %></h4></li>
+          <li><p><%= work.votes.count %> votes</p></li>
+        <% end %>
+      <% end %>
+    </ul>
+    <%= link_to "View more Albums", albums_path %>
+  </section>
 
-      <section class="top-ten columns large-4 small-12">
-        <% if index == 0 %>
-          <h3>Top Movies</h3>
-          <%= link_to "View more Movies", movies_path %>
-        <% elsif index == 1 %>
-          <h3>Top Books</h3>
-          <%= link_to "View more Books", books_path %>
-        <% elsif index == 2 %>
-          <h3>Top Albums </h3>
-          <%= link_to "View more Albums", albums_path %>
-        <%end%>
-      </section>
-
-    <% end %>
-  <% end %>
 </main>
