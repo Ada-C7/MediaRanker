@@ -8,9 +8,9 @@ betty_bookvote:
   user: betty
   work: elemental
 #
-betty_movievote:
+betty_albumvote:
   user: betty
-  work: anything
+  work: railroad
 
 fred_bookvote:
   user: fred
