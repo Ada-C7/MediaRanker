@@ -15,15 +15,10 @@ describe User do
 
   describe "Entity Relationship" do
     it "can access Vote objects" do
-      user = User.create(name: "ken")
-      work = works(:lee)
-      vote = Vote.create(user_id: user.id, work_id: work.id)
-      work_two = works(:mee)
-      vote_two= Vote.create(user_id: user.id, work_id: work_two.id)
-
-      user.votes[0].class.must_equal Vote
-      user.votes.size.must_equal 2
+      vote = votes(:one)
+      vote.user.must_equal users(:user)
     end
   end
+
 
 end
