@@ -5,9 +5,18 @@ one:
   created_by: MyString
   published_year: 1
   description: MyString
+  category: book
 
 two:
   title: MyString
   created_by: MyString
   published_year: 1
   description: MyString
+  category: movie
+
+three:
+  title: MyString
+  created_by: MyString
+  published_year: 1
+  description: MyString
+  category: album

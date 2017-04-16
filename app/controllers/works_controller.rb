@@ -3,16 +3,8 @@ class WorksController < ApplicationController
     @works = Work.all
   end
 
-  def show_movies
-    @movies = Work.where(category: "movie")
-  end
-
-  def show_books
-    @books = Work.where(category: "book")
-  end
-
-  def show_albums
-    @albums = Work.where(category: "album")
+  def new
+    @work = Work.new
   end
 
   def new_movie
@@ -27,17 +19,12 @@ class WorksController < ApplicationController
     @work = Work.new(category: "album")
   end
 
-  def new
-    @work = Work.new
-  end
-
   def create
     @work = Work.new(work_params)
 
     if @work.save
       redirect_to root_path
     else
-
       render :new, status: :bad_request
     end
   end
@@ -50,6 +37,32 @@ class WorksController < ApplicationController
     end
   end
 
+  def show_movies
+    @movies = Work.where(category: "movie")
+
+    if @movies.empty?
+      head :not_found
+    end
+  end
+
+  def show_books
+    @books = Work.where(category: "book")
+
+    if @books.empty?
+      head :not_found
+    end
+  end
+
+  def show_albums
+    @albums = Work.where(category: "album")
+
+    if @albums.empty?
+      head :not_found
+    else
+
+    end
+  end
+
   def edit
     @work = Work.find_by(id: params[:id])
 
@@ -59,21 +72,28 @@ class WorksController < ApplicationController
   end
 
   def update
-    @work = Work.find(params[:id])
-    @work.update_attributes(work_params)
-
-    if @work.save
-      redirect_to work_path(@work.id)
+    @work = Work.find_by(id: params[:id])
+    if @work.nil?
+      head :not_found
     else
-      render :edit
+      @work.update_attributes(work_params)
+      if @work.save
+        redirect_to work_path(@work.id)
+      else
+        render :edit, status: :bad_request
+      end
     end
   end
 
   def destroy
-    work = Work.find(params[:id])
-    work.destroy
+    @work = Work.find_by(id: params[:id])
 
-    redirect_to works_path
+    if @work.nil?
+      head :not_found
+    else
+      @work.destroy
+      redirect_to works_path
+    end
   end
 
   def vote
@@ -87,10 +107,10 @@ class WorksController < ApplicationController
     redirect_to work_path
   end
 
-    private
+  private
 
-    def work_params
-      return params.require(:work).permit(:title, :created_by, :published_year, :description, :category)
-    end
-
+  def work_params
+    return params.require(:work).permit(:title, :created_by, :published_year, :description, :category)
   end
+
+end

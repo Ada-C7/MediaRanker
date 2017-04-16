@@ -3,10 +3,6 @@ class UsersController < ApplicationController
     @users = User.all
   end
 
-  def show
-    @user = User.find(params[:id])
-  end
-
   def new
     @user = User.new
   end
@@ -21,6 +17,25 @@ class UsersController < ApplicationController
     else
       flash[:failure] = "Name cannot be blank, please try it again."
       redirect_to new_user_path
+    end
+  end
+
+  def show
+    @user = User.find_by(id: params[:id])
+
+    if @user.nil?
+      head :not_found
+    end
+  end
+
+  def destroy
+    @user = User.find_by(id: params[:id])
+
+    if @user.nil?
+      head :not_found
+    else
+      @user.destroy
+      redirect_to users_path
     end
   end
 
