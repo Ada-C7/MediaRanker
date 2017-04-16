@@ -14,6 +14,7 @@
  *= require_self
  */
 /*require foundation*/
+@import url('foundation.css');
 
 form {
   display: inline-block;
@@ -31,13 +32,19 @@ section .flash {
 }
 
 .page-header {
-  background-image: url('/assets/owl.jpg');
+  background-image: image_url("owl.jpg");
   background-repeat: no-repeat;
   border-bottom: solid;
   border-color: darkgrey;
+  margin-bottom: 2%;
   max-width: 100%;
+
 }
 
 .page-header h2 {
   padding-left: 150px;
+}
+
+table td {
+  padding: 0;
 }
