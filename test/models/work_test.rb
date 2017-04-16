@@ -56,13 +56,83 @@ describe Work do
     end
   end
 
-  # describe 'find_movies' do
-  #   let (:all_works) { Work.all }
-  #
-  #   it 'returns an array of movie objects' do
-  #     all_works.wherefind_movies.each do |media|
-  #       media.category.must_equal "movie"
-  #     end
-  #   end
-  # end
+  describe 'find_top_ten_movies' do
+    let (:movies) { Work.find_top_ten_movies }
+
+    it 'returns an collection of work objects' do
+      movies.each {|movie| movie.must_be_instance_of Work}
+    end
+
+    it 'returns at max 10 items' do
+      movies.count.must_be :>=, 0
+      movies.count.must_be :<=, 10
+    end
+
+    it 'returns nil if there are no movies' do
+      Work.destroy_all
+      Work.find_top_ten_movies.must_equal []
+    end
+  end
+
+  describe 'find_top_ten_books' do
+    let (:books) { Work.find_top_ten_books }
+
+    it 'returns an collection of work objects' do
+      books.each {|book| book.must_be_instance_of Work}
+    end
+
+    it 'returns at max 10 items' do
+      books.count.must_be :>=, 0
+      books.count.must_be :<=, 10
+    end
+
+    it 'returns nil if there are no movies' do
+      Work.destroy_all
+      Work.find_top_ten_books.must_equal []
+    end
+  end
+
+  describe 'find_top_ten_albums' do
+    let (:albums) { Work.find_top_ten_albums }
+
+    it 'returns an collection of work objects' do
+      albums.each {|album| album.must_be_instance_of Work}
+    end
+
+    it 'returns at max 10 items' do
+      albums.count.must_be :>=, 0
+      albums.count.must_be :<=, 10
+    end
+
+    it 'returns nil if there are no movies' do
+      Work.destroy_all
+      Work.find_top_ten_movies.must_equal []
+    end
+  end
+
+  describe 'find_top' do
+    # setup do
+    #   @user1 = User.find_by(username: "cynthia")
+    #   @user2 = User.find_by(username: "gymnast988")
+    #
+    #   #
+    #   # @work = works(:nemo)
+    #   # puts @work.id
+    #
+    #   puts @users1.id
+    # end
+
+    # it 'returns one work with the most votes' do
+    #   Vote.create!(user_id: @user1.id, work_id: @work.id)
+    #   Vote.create!(user_id: @user2.id, work_id: @work.id)
+    #   # Vote.create!(user_id: @user3.id, work_id: @work.id)
+    #   # Vote.create!(user_id: @user4.id, work_id: @work.id)
+    #   Work.find_top.title.must_equal "Finding Nemo"
+    # end
+
+    it 'returns nil if no works' do
+      Work.destroy_all
+      Work.find_top.must_be_nil
+    end
+  end
 end

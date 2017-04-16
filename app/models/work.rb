@@ -23,6 +23,7 @@ class Work < ApplicationRecord
     Work.all.sort_by { |work| work.votes.count }.reverse[0]
   end
 
+private
   def self.helper(works)
     works.sort_by { |work| work.votes.count }.reverse[0..9]
   end

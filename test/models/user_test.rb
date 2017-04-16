@@ -3,7 +3,7 @@ require "test_helper"
 describe User do
   describe 'validations' do
 
-    let(:user) { User.new(username: "Finding Nemo")}
+    let(:user) { User.new(username: "Nemo")}
 
     it 'passes when given good data' do
       user.valid?.must_equal true
@@ -17,7 +17,7 @@ describe User do
 
     it 'must be given unqiue user name' do
       user.save
-      user2 = User.new(username: "Finding Nemo")
+      user2 = User.new(username: "Nemo")
       user2.valid?.must_equal false
       user2.errors.messages.must_include :username
     end

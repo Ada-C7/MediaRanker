@@ -9,10 +9,8 @@ nemo:
   title: Finding Nemo
   creator: Pixar
   publication_year: 2001
-  description: "father searches for his lost son"
+  description: father searches for his lost son
 
-# column: value
-#
 menace:
   category: movie
   title: Menace II Society
