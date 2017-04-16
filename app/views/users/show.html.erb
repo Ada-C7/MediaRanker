@@ -1,7 +1,7 @@
-<main>
+<main class="row">
   <section>
     <h3>User Summary: <%= link_to @user.username, user_path(@user.id) %></h3>
-    <p> Joined site: <%= @user.created_at.strftime("%m %d %Y") %></p>
+    <p> Joined site: <%= @user.created_at.strftime("%b %d, %Y") %></p>
   </section>
 
   <section>
@@ -20,11 +20,15 @@
       <tbody>
         <% @user.votes.each do |vote| %>
           <% work = find_work(vote) %>
-          <tr>
-            <th><%= link_to vote.work_id, work_path(vote.work_id) %></th>
-            <th><%= %></th>
-            <th><%= %></th>
-          </tr>
+          <% if !work.nil? %>
+            <tr>
+              <th><%= link_to work.title, work_path(work.id) %></th>
+              <th><%= work.creator %></th>
+              <th><%= work.publication_year %></th>
+              <th><%= work.category %></th>
+              <th><%= vote.created_at.strftime("%b %d, %Y") %></th>
+            </tr>
+          <% end %>
         <% end %>
       </tbody>
     </table>
