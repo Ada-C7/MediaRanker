@@ -1,8 +1,6 @@
 require "test_helper"
 
 describe Work do
-  let(:work) { Work.new }
-
   describe "validations" do
     it "is invalid without a title" do
       work = works(:badlee)
@@ -45,11 +43,8 @@ describe Work do
 
   describe "Entity Relationship" do
     it "can access Vote objects" do
-      work = works(:lee)
-      user = User.create(name: "ken")
-      vote = Vote.create(user_id: user.id, work_id: work.id)
-      work.votes[0].class.must_equal Vote
-      work.votes.size.must_equal 1
+      vote = votes(:one)
+      vote.work.must_equal works(:lee)
     end
   end
 
