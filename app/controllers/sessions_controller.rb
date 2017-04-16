@@ -23,7 +23,7 @@ class SessionsController < ApplicationController
 
   def logout
     session[:user_id] = nil
-    flash[:logout] = "Logged Out"
+    flash[:success] = "Logged Out"
     redirect_to :homepage
   end
 end

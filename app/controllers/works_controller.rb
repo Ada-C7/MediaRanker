@@ -74,10 +74,10 @@ class WorksController < ApplicationController
     return head :not_found if @work.nil?
 
     if @work.update_attributes(works_params)
-      flash[:successful_edit] = "Updated #{@work.title}"
+      flash[:success] = "Updated #{@work.title}"
       redirect_to work_path(@work.id)
     else
-      flash.now[:failure_update] = "A problem occured: Could not update #{@work.category}"
+      flash.now[:failure] = "A problem occured: Could not update #{@work.category}"
       if @work.category == "movie"
         render :edit, status: :bad_request
       elsif @work.category == "book"
@@ -104,11 +104,11 @@ class WorksController < ApplicationController
 
     vote = Vote.create(user_id: session[:user_id], work_id: params[:id])
     if session[:user_id].nil?
-      flash[:need_to_login] = "You need to login to vote"
+      flash[:failure] = "You need to login to vote"
     elsif vote.id != nil
-      flash[:successful_vote] = "Successfully Voted"
+      flash[:success] = "Successfully Voted"
     else
-      flash[:vote_failure] = "You have already voted for this"
+      flash[:failure] = "You have already voted for this"
     end
     redirect_to work_path(params[:id])
   end

@@ -16,6 +16,11 @@
 /*require foundation*/
 @import url('foundation.css');
 
+* {
+  margin: 0;
+  padding: 0;
+}
+
 form {
   display: inline-block;
   padding: 0;
@@ -27,8 +32,21 @@ input {
   margin: 0;
 }
 
-section .flash {
+.success {
+  font-size: 1.5em;
+  color: green;
+  text-align: left;
 
+}
+
+.success_new_user {
+  font-size: 1.5em;
+  color: green;
+}
+
+.failure {
+  font-size: 1.5em;
+  color: red;
 }
 
 .page-header {
@@ -45,6 +63,16 @@ section .flash {
   padding-left: 150px;
 }
 
-table td {
+table {
+  display: table;
+  border-collapse: separate;
+  border-spacing: 2px;
+  border-color: grey;
+}
+
+.media-table td {
+  margin: 0;
   padding: 0;
+  display: table-cell;
+  vertical-align: center;
 }
