@@ -28,3 +28,11 @@ works.each do |work|
   end
 end
 puts "#{failed_work_count} out of #{works.length} works failed to add"
+
+users = User.create ([
+  {name: "Supa Dupa"},
+  {name: "OUTRAGEOUS"},
+  {name: "Totally Disengaged"},
+  {name: "Lickety Split"},
+  {name: "Unusual Suspect"}
+  ])
