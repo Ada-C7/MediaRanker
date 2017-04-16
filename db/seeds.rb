@@ -29,10 +29,29 @@ works.each do |work|
 end
 puts "#{failed_work_count} out of #{works.length} works failed to add"
 
-users = User.create ([
+User.create ([
   {name: "Supa Dupa"},
   {name: "OUTRAGEOUS"},
   {name: "Totally Disengaged"},
   {name: "Lickety Split"},
   {name: "Unusual Suspect"}
   ])
+
+Vote.create ([
+  {user_id: 1, work_id: 4},
+  {user_id: 1, work_id: 11},
+  {user_id: 1, work_id: 13},
+  {user_id: 2, work_id: 14},
+  {user_id: 2, work_id: 18},
+  {user_id: 2, work_id: 22},
+  {user_id: 3, work_id: 25},
+  {user_id: 3, work_id: 14},
+  {user_id: 3, work_id: 26},
+  {user_id: 4, work_id: 26},
+  {user_id: 4, work_id: 29},
+  {user_id: 4, work_id: 27},
+  {user_id: 4, work_id: 28},
+  {user_id: 5, work_id: 14},
+  {user_id: 5, work_id: 27},
+  {user_id: 5, work_id: 28},
+])
