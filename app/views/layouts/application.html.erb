@@ -14,13 +14,13 @@
   <header class="page-header row">
 
 
-    
+
   <h2 class="columns large-9 small-12"><%= link_to "MediaRanker", root_path %> <small>Ranking the Best of Everything</small></h2>
 
     <div class="columns large-3 small-12">
 
       <% if session[:user_id] %>
-        <p class="text-right"> Logged in as <%= (User.find_by_id(session[:user_id])).name%></p>
+        <p class="text-right"> Logged in as <%= link_to (User.find_by_id(session[:user_id])).name%></p>
         <%= link_to "Logout", logout_path, method: :delete, class: "button float-right"  %>
       <% else  %>
         <p class="text-right"> Not logged in </p>
@@ -30,7 +30,7 @@
 </header>
 
 <% flash.each do |name, message| %>
-<section class="<%= name %>"><h3><%= message %></h3></div>
+<section class="row status <%= name %>"><h3><%= message %></h3></div>
   <% end %>
 </section>
 

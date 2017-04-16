@@ -54,3 +54,11 @@ ul, ol, dl {
 .page-header h2 {
     padding-left: 150px;
 }
+
+.status.success {
+    color: #359b18;
+}
+
+body small {
+    color: slategrey;
+}
