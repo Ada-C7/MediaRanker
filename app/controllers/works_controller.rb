@@ -55,13 +55,25 @@ class WorksController < ApplicationController
   end
 
   def edit
-    @work = Work.find(params[:id])
+    @work = Work.find_by(id: params[:id])
+    if @work == nil
+      head :not_found
+    end
   end
 
   def update
-    redirect_to work_path(params[:id])
-    work = Work.find(params[:id])
-    flash[:success] = "#{work.category} #{work.title} is edited!"
+    @work = Work.find(params[:id])
+    if @work.nil?
+      head :not_found
+    else
+      @work.update(work_params)
+      if @work.save
+        flash[:success] = "#{@work.category} #{@work.title} is edited!"
+        redirect_to work_path(params[:id])
+      else
+        render :edit, status: :bad_request
+      end
+    end
   end
 
   def destroy

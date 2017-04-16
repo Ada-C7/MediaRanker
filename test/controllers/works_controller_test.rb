@@ -14,11 +14,23 @@ require "test_helper"
       end
     end
 
+    describe "new" do
+      it "runs successfully" do
+        get new_work_path
+        must_respond_with :success
+      end
+    end
+
     describe "create" do
       it "adds a work to the database" do
+        start_count = Work.count
         work_data = { work: {title: "test work", category: "movie", publication_year: 2000 } }
         post works_path, params: work_data
         must_redirect_to list_works_path("movies")
+        Work.count.must_equal start_count + 1
+
+        work = Work.last
+        work.title.must_equal work_data[:work][:title]
       end
 
       it "re-renders the new work form if the work is invalid" do
@@ -26,6 +38,7 @@ require "test_helper"
         post works_path, params: work_data
         must_respond_with :bad_request
       end
+
     end
 
     describe "show" do
@@ -43,14 +56,28 @@ require "test_helper"
       end
     end
 
-    # describe "vote" do
-    #   it "votes when you logged in" do
-    #     work = Work.first
-    #     user = User.first
-    #     delete user_url(user), params: { 'session' => { :user_id => user.id }}
-    #
-    #     get vote_path(user_id: user.id, work_id: work.id)
-    #     must_respond_with :success
-    #   end
-    # end
+    describe "edit" do
+      it "finds a work that exists" do
+        work_id = Work.first.id
+        get edit_work_path(work_id)
+        must_respond_with :success
+      end
+
+      it "returns 404 for a work that doesn't exist" do
+        work_id = Work.last.id + 1
+        get edit_work_path(work_id)
+        must_respond_with :not_found
+      end
+    end
+
+    describe "update" do
+      it "updates the work" do
+        work = Work.first
+        work_data = { work: {title: work.title + 'whatever'}}
+        patch work_path(work), params: work_data
+        must_redirect_to work_path(work)
+
+        Work.first.title.must_equal work_data[:work][:title]
+      end
+    end
   end

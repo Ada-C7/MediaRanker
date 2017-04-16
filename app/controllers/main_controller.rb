@@ -4,7 +4,11 @@ class MainController < ApplicationController
     works = Work.all
     votes = works.map{|work| [work.id, work.votes.count]}.to_h
     spot_id = votes.key(votes.values.max)
-    @spot = Work.find(spot_id)
+    if works != []
+      @spot = Work.find(spot_id)
+    else
+      @spot = nil
+    end
 
     @books = Work.where(category: "book")
     @books = @books.sort_by{|book| book.votes.count}.reverse
