@@ -1,23 +1,32 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>MediaRanker</title>
-    <%= csrf_meta_tags %>
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-  </head>
+<head>
+  <title>MediaRanker</title>
+  <%= csrf_meta_tags %>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+</head>
 
-  <body>
-    <header>
-        <h1 class="media_heading">Media Ranker Ranking the Best of Everything</h1> 
-        <nav>
-          <ul>
-            <%= link_to "Login", new_user_path, :class => "button"%>
-              <!-- <a href="#login"> Login</a></li> -->
-            <!--TODO right login route  -->
-          </ul>
-        </nav>
-    </header>
-    <%= yield %>
-  </body>
+<body>
+  <header>
+    <h1 class="media_heading">Media Ranker Ranking the Best of Everything</h1> 
+    <nav>
+      <ul>
+        <%= link_to "Login", new_user_path, :class => "button"%>
+        <!-- <a href="#login"> Login</a></li> -->
+        <section class="flash">
+          <% flash.each do |name, message| %>
+          <div class="<%= name %>"><%= message %></div>
+          <% end %>
+        </section>
+
+        <section class="session">
+          <% session.each do 
+
+        <!--TODO right login route  -->
+      </ul>
+    </nav>
+  </header>
+  <%= yield %>
+</body>
 </html>

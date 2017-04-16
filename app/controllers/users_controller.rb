@@ -15,7 +15,9 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save
-      redirect_to user_path
+      flash[:success] = "logged in"
+      session[:user_name] = @user.user_name
+      redirect_to root_path
       #TODO is this something where I should put hte green type "you made a new user?"
     else
       render :new
