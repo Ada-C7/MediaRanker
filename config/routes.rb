@@ -1,12 +1,10 @@
 Rails.application.routes.draw do
-  get 'users/index'
-
-  get 'users/show'
-
   root "works#index"
 
   resources :works, except: [:new]
   get "/upvote/:id", to: "works#upvote", as: "upvote"
+
+  resources :users, only: [:index, :show]
 
   get "/login", to: "sessions#login_form"
   post "/login", to: "sessions#login"
