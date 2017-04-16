@@ -1,18 +1,17 @@
 
+<div class = "row div_head">
+  <h3 class = "large-12 colums">List of <%= session[:category].capitalize + "s" %> </h3>
+</div>
 
-<section>
-  <h1>List of <%= session[:category].capitalize + "s" %> </h1>
-</section>
 
-
-<section class="table_scroll">
+<section class="row table_scroll">
   <table>
     <tr>
-      <th>Votes</th>
-      <th>Title</th>
-      <th>Created By</th>
-      <th>Published</th>
-      <th>Upvote</th>
+      <th class = "small-1 colums">Votes</th>
+      <th class = "small-5 colums">Title</th>
+      <th class = "small-4 colums">Created By</th>
+      <th class = "small-1 colums">Published</th>
+      <th class = "small-1 colums">Upvote</th>
     </tr>
     <% @works.each do |work| %>
     <tr>
@@ -20,14 +19,14 @@
       <td><%= link_to work.title, work_path(work) %></td>
       <td><%= work.creator%></td>
       <td><%= work.publication_year%></td>
-      <td><%= link_to "Upvote", upvote_path(work), method: :post%></td>
+      <td><%= link_to "Upvote", upvote_path(work), method: :post, class: "button"%></td>
     </tr>
     <% end %>
   </table>
 </section>
 
-<section>
-  <%= link_to "View all media", works_path%>
+<section class="row">
+  <%= link_to "View all media", works_path, class: "button"%>
   <%= link_to "Add a new #{session[:category].capitalize}",
   if session[:category] == "album"
     new_album_path
@@ -35,6 +34,7 @@
     new_book_path
   elsif session[:category] == "movie"
     new_movie_path
-  end
+  end,
+  class: "button"
   %>
 </section>

@@ -1,10 +1,13 @@
-<h1>User Summary: <%= @user.name%></h1>
+<div class="row div_head">
+  <h3>User Summary: <%= @user.name%></h3>
+</div>
 
-<p>
+
+<p class="row" >
   <%= @user.created_at.strftime("Joined site %b %d, %Y")%>
 </p>
 
-<p>
-  <%= link_to "See all Users", users_path%>
-  <%= link_to "Back to Media List", works_path%>
+<p class="row">
+  <%= link_to "See all Users", users_path, class: "button"%>
+  <%= link_to "Back to Media List", works_path, class: "button"%>
 </p>

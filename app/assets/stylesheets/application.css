@@ -23,3 +23,11 @@ header {
   padding-top: 2rem;
   padding-bottom: 2rem;
 }
+
+th {
+  text-align: left;
+}
+
+.button {
+  margin: 0;
+}

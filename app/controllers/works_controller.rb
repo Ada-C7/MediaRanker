@@ -89,7 +89,7 @@ class WorksController < ApplicationController
   end
 
   def upvote
-    if Vote.where(user_id: session[:user_id], work_id: params[:id]).count == 0
+    if session[:user_id] != nil && Vote.where(user_id: session[:user_id], work_id: params[:id]).count == 0
       Vote.create(user_id: session[:user_id], work_id: params[:id])
       flash[:upvote] = "Upvote succesfully done"
     else
