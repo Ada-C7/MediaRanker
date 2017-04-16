@@ -8,14 +8,14 @@ one:
   category: book
 
 two:
-  title: MyString
+  title: MyString1
   created_by: MyString
   published_year: 1
   description: MyString
   category: movie
 
 three:
-  title: MyString
+  title: MyString2
   created_by: MyString
   published_year: 1
   description: MyString
