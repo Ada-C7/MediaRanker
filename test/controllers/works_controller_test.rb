@@ -69,7 +69,30 @@ describe WorksController do
   end
  ########################################################
   ###### AHHH - You don't have tests for new ###########
-  describe 'new' do
+  describe 'new_movie' do
+
+    it 'gets the new movie page' do
+      get new_movie_path
+      must_respond_with :success
+    end
+
+  end
+
+  describe 'new_book' do
+
+    it 'gets the new book page' do
+      get new_book_path
+      must_respond_with :success
+    end
+
+  end
+
+  describe 'new_album' do
+
+    it 'gets the new album page' do
+      get new_album_path
+      must_respond_with :success
+    end
 
   end
 
