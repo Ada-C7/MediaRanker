@@ -36,10 +36,11 @@ class WorksController < ApplicationController
   end
 
   def edit
-    @work=Work.find(params[:id])
-    params[:category] = @work.category
+    @work=Work.find_by(id: params[:id])
     if @work.nil?
       head :not_found
+    else
+      params[:category] = @work.category
     end
   end
 
@@ -48,24 +49,27 @@ class WorksController < ApplicationController
     if (@work.nil?)
       head :not_found
     else
-      # @work.title = work_params[:title]
-      # @work.created_by = work_params[:created_by]
-      # @work.year_published = work_params[:year_published]
-      # @work.description = work_params[:description]
        @work.update_attributes(work_params)
        if @work.save
         redirect_to work_path(@work.id)
        else
+        params[:category] = @work.category
         render :edit, status: :bad_request
        end
     end
   end
 
+
+
   def destroy
-    work = Work.find(params[:id])
-    category= work.category.pluralize
-    Work.destroy(params[:id])
-    redirect_to category_path(category)
+    work = Work.find_by(id: params[:id])
+    if work.nil?
+      head :not_found
+    else
+      category = work.category.pluralize
+      Work.destroy(work.id)
+      redirect_to category_path(category)
+    end
   end
 
 
