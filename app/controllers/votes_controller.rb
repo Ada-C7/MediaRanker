@@ -8,14 +8,26 @@ class VotesController < ApplicationController
         vote.user_id = session[:user_id]
         vote.save
         flash[:success] = "You have successfully upvoted."
-        redirect_to request.referrer
+        if request.referrer
+          redirect_to request.referrer
+        else
+          redirect_to root_path
+        end
       else
         flash[:warning] = "You can only vote once for each work."
-        redirect_to request.referrer
+        if request.referrer
+          redirect_to request.referrer
+        else
+          redirect_to root_path
+        end
       end
     else
       flash[:warning] = "You must be logged in to Vote"
-      redirect_to request.referrer
+      if request.referrer
+        redirect_to request.referrer
+      else
+        redirect_to root_path
+      end
     end
   end
 
