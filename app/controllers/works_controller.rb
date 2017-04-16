@@ -12,6 +12,7 @@ class WorksController < ApplicationController
   end
 
   def show_category
+    @category = params[:category]
     @categorized_works = []
     @works = Work.all
     @works.each do |work|
@@ -58,7 +59,7 @@ class WorksController < ApplicationController
        end
     end
   end
-  
+
   def upvote
     if !session[:user_id]
       flash[:error] = "You must log in to do that"
