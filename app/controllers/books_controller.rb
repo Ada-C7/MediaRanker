@@ -8,6 +8,9 @@ class BooksController < ApplicationController
   end
 
   def create
+    if session[:user_id].nil?
+      return redirect_to login_path
+    end
     @book = Work.new
     @book.category = "book"
     @book.user_id = session[:user_id]
