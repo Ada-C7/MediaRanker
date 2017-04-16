@@ -1,14 +1,14 @@
-<section id="spotlight">
+<div class="row spotlight">
   <h3>Media Spotlight: <%= link_to @spotlight_work.title, work_path(@spotlight_work.id) %> by <%= @spotlight_work.creator %></h>
     <p>
-      <%= @spotlight_work.votes.size  %> votes
+      <%= pluralize(@spotlight_work.votes.count, "vote") %>
       <% if @spotlight_work.description != nil %>
         <%= "- #{@spotlight_work.description}" %>
       <% end %>
     </p>
-  </section>
+  </div>
 
-  <section class="topten">
+  <section class="top-ten columns large-4 small-12">
     <h3>Top Movies</h3>
     <ul>
       <% @movies[0..9].each do |movie| %>
@@ -18,10 +18,10 @@
       </li>
       <% end %>
     </ul>
-    <%= link_to "See More Movies", movies_path %>
+    <%= link_to "View More Movies", movies_path %>
   </section>
 
-  <section class="topten">
+  <section class="top-ten columns large-4 small-12">
     <h3>Top Books</h3>
     <ul>
       <% @books[0..9].each do |book| %>
@@ -31,10 +31,10 @@
       </li>
       <% end %>
     </ul>
-    <%= link_to "See More Books", books_path %>
+    <%= link_to "View More Books", books_path %>
   </section>
 
-  <section class="topten">
+  <section class="top-ten columns large-4 small-12">
     <h3>Top Albums</h3>
     <ul>
       <% @albums[0..9].each do |album| %>
@@ -44,5 +44,5 @@
       </li>
       <% end %>
     </ul>
-    <%= link_to "See More Albums", albums_path %>
+    <%= link_to "View More Albums", albums_path %>
   </section>
