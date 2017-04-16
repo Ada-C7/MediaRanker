@@ -11,24 +11,30 @@ class UsersController < ApplicationController
     if @user.id != nil
       redirect_to main_path
     else
-      redirect_to new_user_path
+      render :new, status: :bad_request
+    end
+  end
+
+  def show
+    @user = User.find_by(id: params[:id])
+    if @user.nil?
+      head :not_found
     end
   end
 
   def destroy
-    @user = User.find(params[:id])
-    @user.votes.destroy_all
-    if @user == User.find(session[:user_id])
-      session[:user_id] = nil
+    @user = User.find_by(id: params[:id])
+    if @user.nil?
+      head :not_found
+    else
+      @user.votes.destroy_all
+      if @user == User.find(session[:user_id])
+        session[:user_id] = nil
+      end
+      @user.destroy
+      flash[:success] = "User #{@user.username} deleted!"
+      redirect_to main_path
     end
-    @user.destroy
-    flash[:success] = "User #{@user.username} deleted!"
-    redirect_to main_path
-  end
-
-  def show
-    @user = User.find(params[:id])
-    vote = Vote.find_by(user_id: @user.id)
   end
 
   private

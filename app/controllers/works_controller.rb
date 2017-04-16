@@ -77,11 +77,15 @@ class WorksController < ApplicationController
   end
 
   def destroy
-    @work = Work.find(params[:id])
-    @work.votes.destroy_all
-    @work.destroy
-    flash[:sucess] = "You've deleted #{@work.category} #{@work.title.capitalize}!"
-    redirect_to main_path
+    @work = Work.find_by(id: params[:id])
+    if @work.nil?
+      head :not_found
+    else
+      @work.votes.destroy_all
+      @work.destroy
+      flash[:sucess] = "You've deleted #{@work.category} #{@work.title.capitalize}!"
+      redirect_to main_path
+    end
   end
 
   private

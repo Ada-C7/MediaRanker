@@ -99,15 +99,24 @@ require "test_helper"
 
     describe "destroy" do
       it "destroys a work that exist" do
-        work_first = Work.first
-        count = Work.count
-        vote = Vote.create(work_id: work_first.id, user_id: User.first.id)
-        delete work_path(work_first.id)
-        vote.must_equal nil
+        work = Work.create(title: "what", category: "movie")
+        work_count = Work.count
+        vote = Vote.create(work_id: work.id, user_id: User.first.id)
+        vote_count = Vote.count
+        delete work_path(work.id)
         must_redirect_to main_path
 
+        Work.count.must_equal work_count - 1
+        Vote.count.must_equal vote_count - 1
+      end
 
-
+      it "returns 404 for a work that doesn't exit" do
+        start_count = Work.count
+        work_id = Work.last.id + 1
+        delete work_path(work_id)
+        must_respond_with :not_found
+        end_count = Work.count
+        end_count.must_equal start_count
       end
     end
   end
