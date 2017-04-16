@@ -9,7 +9,7 @@ class SessionsController < ApplicationController
       user = User.create(username: params[:username])
 
       if user.id != nil
-        flash[:success] = "#{ user.username } added successfully"
+        flash[:success_new_user] = "#{ user.username } added successfully"
       else
         flash.now[:failure] = "Sign up failed, try again"
         render :new, status: :bad_request

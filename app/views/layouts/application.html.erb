@@ -21,12 +21,13 @@
           <p class="text-right">Logged in as: <%= link_to user.username, user_path(session[:user_id]) %></p>
           <a class="float-right"><%= button_to "Log Out", logout_path, :class => "button", :method => :delete %></a>
         <% else %>
+          <p class="text-right">Not logged in</p>
           <a class="float-right"><%= button_to "Log In", login_path, :class => "button", :method => :get %></a>
         <% end %>
       </div>
     </header>
 
-    <section class="flash">
+    <section class="flash row">
       <% flash.each do |name, message| %>
         <div class="<%= name %>"><%= message %></div>
       <% end %>
