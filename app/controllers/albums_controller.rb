@@ -11,15 +11,20 @@ class AlbumsController < ApplicationController
     if session[:user_id].nil?
       return redirect_to login_path
     end
-    work = Work.new
-    work.category = "album"
-    work.user_id = session[:user_id]
-    work.title = work_params[:title]
-    work.publication_year = work_params[:publication_year]
-    work.description = work_params[:description]
+    @album = Work.new
+    @album.category = "album"
+    @album.user_id = session[:user_id]
+    @album.title = work_params[:title]
+    @album.publication_year = work_params[:publication_year]
+    @album.description = work_params[:description]
 
-    work.save!
-    redirect_to albums_path
+    if @album.valid?
+      @album.save!
+      redirect_to albums_path
+    else
+      flash.now[:alert] = "Album is not added!"
+      render "new", status: :bad_request
+    end
   end
 
   private
