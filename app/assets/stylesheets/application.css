@@ -1,15 +1,78 @@
 /*
- * This is a manifest file that'll be compiled into application.css, which will include all the files
- * listed below.
- *
- * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
- * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
- *
- * You're free to add application-wide styles to this file and they'll appear at the bottom of the
- * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
- * files in this directory. Styles in this file should be added after the last require_* statement.
- * It is generally better to create a new file per style scope.
- *
- *= require_tree .
- *= require_self
- */
+* This is a manifest file that'll be compiled into application.css, which will include all the files
+* listed below.
+*
+* Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+* or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+*
+* You're free to add application-wide styles to this file and they'll appear at the bottom of the
+* compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+* files in this directory. Styles in this file should be added after the last require_* statement.
+* It is generally better to create a new file per style scope.
+*
+*= require_tree .
+*= require_self
+*/
+@import url('foundation.css');
+
+.error, .failure {
+  color: red;
+}
+
+.error {
+  font-size: 0.5em;
+}
+
+.success {
+  color: green;
+}
+
+p{
+  margin-bottom: qrem;
+}
+
+div p {
+  text-align: right;
+  font-size: .5em;
+  margin-bottom: 5px;
+}
+.page-header {
+  background-image: url("owl.jpg");
+  background-repeat: no-repeat;
+  border-bottom: solid 1px darkgrey;
+  max-width: 100%;
+  margin-bottom: 10px;
+  margin-right: auto;
+  margin-left: auto;
+  display: block;
+}
+
+.page-header h2 {
+  padding-left: 150px;
+  width: 75%
+
+}
+
+body small {
+  color: slategrey;
+}
+
+article, aside, footer, header, nav, section, div {
+  display: block;
+}
+
+.spotlight {
+  padding: 2rem;
+}
+
+.spotlight * {
+  text-align: left;
+}
+
+li {
+  list-style-type: none;
+}
+
+ul {
+  margin: 0;
+}

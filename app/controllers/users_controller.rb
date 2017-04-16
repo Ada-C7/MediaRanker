@@ -14,11 +14,10 @@ class UsersController < ApplicationController
 
   def create
     user_name
-    @work = User.create(user_params)
+    @user = User.create(user_params)
   end
 
   def user_params
     params.require(:user).permit(:name)
   end
-
 end
