@@ -37,7 +37,7 @@ div p {
   margin-bottom: 5px;
 }
 .page-header {
-  background-image: url("owl.jpg");
+  background-image: image_url("owl.jpg");
   background-repeat: no-repeat;
   border-bottom: solid 1px darkgrey;
   max-width: 100%;
