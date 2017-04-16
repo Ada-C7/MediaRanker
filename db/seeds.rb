@@ -30,7 +30,7 @@ end
 puts "#{failed_work_count} out of #{works.length} works failed to add"
 
 User.create ([
-  {name: "Supa Dupa"},
+  {name: "Egghead"},
   {name: "OUTRAGEOUS"},
   {name: "Totally Disengaged"},
   {name: "Lickety Split"},
