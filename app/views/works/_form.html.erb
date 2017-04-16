@@ -1,4 +1,6 @@
+<% if !@work.nil? %>
 <ul>
+
   <% @work.errors.each do |field, message| %>
   <li>
     <%= field %> <%= message %>
@@ -26,3 +28,6 @@
 <%= f.submit action_name %></br>
 
 <% end %>
+
+
+<%end%>
