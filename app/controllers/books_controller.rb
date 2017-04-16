@@ -1,7 +1,7 @@
 class BooksController < WorksController
   def index
     user_name
-    @books = Work.where(category:"book")
+    @books = Work.where(category:"book").order(votes_count: :desc)
   end
 
   def new
