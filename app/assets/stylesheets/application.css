@@ -2,7 +2,7 @@
 /*@import url('foundation.css');
 @import url('foundation-icons.css');*/
 @import url('https://fonts.googleapis.com/css?family=Bitter');
-@import 'foundation-icons';
+
 header{
   margin-bottom: 20px;
   background: #FFAFBD;  /* fallback for old browsers */

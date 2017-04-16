@@ -2,7 +2,7 @@ class User < ApplicationRecord
   has_many :votes
 
   validates :username, presence: true
-  validates :username, format: {with: /[a-zA-Z, 1-9, _]+/}
+  validates :username, format: {with: /\A[\w]*\z/}
 
   validates :username, uniqueness: true
 
