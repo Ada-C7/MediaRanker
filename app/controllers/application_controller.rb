@@ -13,4 +13,12 @@ class ApplicationController < ActionController::Base
     end
   end
 
+  def referrer_or_root
+    if request.referrer
+      redirect_to request.referrer
+    else
+      redirect_to root_path
+    end
+  end
+
 end

@@ -47,6 +47,14 @@
         null,
         null,
         null,
+        1,
+        4,
+        0,
+        null,
+        4,
+        null,
+        null,
+        null,
         null
       ],
       "/Users/lynntrickey/Documents/ada/c7-stacks/rails/MediaRanker/test/controllers/users_controller_test.rb": [
@@ -131,25 +139,13 @@
         1,
         1,
         1,
-        0,
-        null,
-        1,
-        null,
         null,
         2,
         2,
-        0,
-        null,
-        2,
-        null,
         null,
         null,
         1,
         1,
-        0,
-        null,
-        1,
-        null,
         null,
         null,
         null,
@@ -657,6 +653,6 @@
         null
       ]
     },
-    "timestamp": 1492375887
+    "timestamp": 1492376022
   }
 }
