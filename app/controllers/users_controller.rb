@@ -11,6 +11,7 @@ class UsersController < ApplicationController
     if @user.id != nil
       redirect_to main_path
     else
+      flash.now.alert = "Username already exists. Choose something else!"
       render :new, status: :bad_request
     end
   end

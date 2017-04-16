@@ -2,7 +2,11 @@ class SessionsController < ApplicationController
   def new
   end
   def create
-    user = User.find_by(username: params[:username])
+    # user = User.authenticate(params[:username].downcase)
+
+    user = User.where('lower(username) = ?', params[:username].downcase).first
+
+    # user = User.find_by(username: params[:username])
     if user
       session[:user_id] = user.id
       flash[:success] = "#{user.username} is successfully logged in!"
