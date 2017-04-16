@@ -16,16 +16,19 @@
       </tr>
 
       <% votes = Vote.where(user_id: @user.id) %>
-      <% votes.each do |vote| %>
-        <% work = Work.find_by(id: vote.work_id)%>
-        <tr>
-          <td><%= link_to work.title, work_path(work.id) %></td>
-          <td><%= work.creator %></td>
-          <td><%= work.publication_year %></td>
-          <td><%= work.category %></td>
-          <td><%= vote.created_at.strftime("%b %d,   %Y") %></td>
-        </tr>
-      <% end %>
+
+        <% votes.each do |vote| %>
+          <% if work = Work.find_by(id: vote.work_id)%>
+          <tr>
+            <td><%= link_to work.title, work_path(work.id) %></td>
+            <td><%= work.creator %></td>
+            <td><%= work.publication_year %></td>
+            <td><%= work.category %></td>
+            <td><%= vote.created_at.strftime("%b %d,   %Y") %></td>
+          </tr>
+          <% end %>
+        <% end %>
+
     </table>
   </section>
   <div class = "button"><%= link_to "See all Users", users_path %></div>

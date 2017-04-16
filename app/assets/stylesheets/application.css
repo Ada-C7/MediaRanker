@@ -52,9 +52,15 @@ tr {
   width: 1%;
   padding: 10px;
   margin-bottom: 0px;
-
 }
 
+.log{
+  margin: auto;
+  width: 1%;
+  padding: 10px;
+  margin-bottom: 0px;
+  display: inline-block;
+}
 .button {
   margin-bottom: 0px;
 }

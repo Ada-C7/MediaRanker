@@ -17,8 +17,7 @@ class UsersController < ApplicationController
 
   def destroy
     @user = User.find(params[:id])
-    votes = Vote.where(user_id: @user.id)
-    votes.destroy_all
+    @user.votes.destroy_all
     if @user == User.find(session[:user_id])
       session[:user_id] = nil
     end
@@ -29,6 +28,7 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
+    vote = Vote.find_by(user_id: @user.id)
   end
 
   private

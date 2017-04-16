@@ -79,5 +79,35 @@ require "test_helper"
 
         Work.first.title.must_equal work_data[:work][:title]
       end
+
+      it "responds with bad_request for bogus data" do
+        work = Work.first
+        work_data = { work: {title: ""}}
+        patch work_path(work), params: work_data
+        must_respond_with :bad_request
+
+        Work.first.title.must_equal work.title
+      end
+
+      it "returns 404 for a work that doesn't exist" do
+        work_id = Work.last.id + 1
+        work_data = { work: {title: 'whatever'}}
+        patch work_path(work_id), params: work_data
+        must_respond_with :not_found
+      end
+    end
+
+    describe "destroy" do
+      it "destroys a work that exist" do
+        work_first = Work.first
+        count = Work.count
+        vote = Vote.create(work_id: work_first.id, user_id: User.first.id)
+        delete work_path(work_first.id)
+        vote.must_equal nil
+        must_redirect_to main_path
+
+
+
+      end
     end
   end

@@ -62,11 +62,11 @@ class WorksController < ApplicationController
   end
 
   def update
-    @work = Work.find(params[:id])
+    @work = Work.find_by(id: params[:id])
     if @work.nil?
       head :not_found
     else
-      @work.update(work_params)
+      @work.update_attributes(work_params)
       if @work.save
         flash[:success] = "#{@work.category} #{@work.title} is edited!"
         redirect_to work_path(params[:id])
@@ -78,9 +78,8 @@ class WorksController < ApplicationController
 
   def destroy
     @work = Work.find(params[:id])
+    @work.votes.destroy_all
     @work.destroy
-    vote = Vote.find_by(work_id: @work.id)
-    vote.destroy
     flash[:sucess] = "You've deleted #{@work.category} #{@work.title.capitalize}!"
     redirect_to main_path
   end
