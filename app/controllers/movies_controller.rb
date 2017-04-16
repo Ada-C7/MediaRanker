@@ -8,6 +8,9 @@ class MoviesController < ApplicationController
   end
 
   def create
+    if session[:user_id].nil?
+      return redirect_to login_path
+    end
     work = Work.new
     work.category = "movie"
     work.user_id = session[:user_id]
