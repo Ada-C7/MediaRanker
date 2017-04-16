@@ -14,4 +14,18 @@ describe UsersController do
       must_respond_with :success
     end
   end
+
+  describe "show" do
+    it "responds successfully when given a valid id" do
+      user_id = User.first
+      get user_path(user_id)
+      must_respond_with :success
+    end
+
+    it "returns 404 not found when given an invalid id" do
+      user_id = User.last.id + 1
+      get user_path(user_id)
+      must_respond_with :not_found
+    end
+  end
 end

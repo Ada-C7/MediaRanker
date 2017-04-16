@@ -1,60 +1,70 @@
 require "test_helper"
 
 describe WorksController do
+  let(:categories) {["movies", "books", "albums"]}
+
   describe "index" do
-    # need test for album, movie, and book?
     it "show the works of a category that exists (movie, book, or album)" do
-      Work.count.must_be :>, 0
-      get works_path(:albums)
-      must_respond_with :success
+      categories.each do |category|
+        Work.where(category: category.singularize).count.must_be :>, 0
+        get works_path(category)
+        must_respond_with :success
+      end
     end
 
     it "responds successfully when there a no works for a category that exists" do
       Work.destroy_all
-      get works_path(:albums)
-      must_respond_with :success
+      categories.each do |category|
+        get works_path(category)
+        must_respond_with :success
+      end
     end
 
-    # how to get this to pass?
-    # doesnt even make it to the controller if not a specified category
-    # it "returns a 404 status when asked for a category that doesn't exist" do
-    #   # get works_path(:fake_category)
-    #   get "/fake_category"
-    #   #proc must raise routing error
-    #   must_respond_with :not_found
-    # end
+    it "raises an error when asked for a category that doesn't exist" do
+      proc {
+        get "/fake_category"
+      }.must_raise ActionController::RoutingError
+    end
   end
 
-  # each category? when the category is...
   describe "new" do
-    it "runs successfully" do
-      get new_work_path(:albums)
-      must_respond_with :success
+    it "runs successfully when the category is albums, books, or movies" do
+      categories.each do |category|
+        get new_work_path(category)
+        must_respond_with :success
+      end
+    end
+
+    it "raises an error when asked for a category that doesn't exist" do
+      proc {
+        get "/fake_category/new"
+      }.must_raise ActionController::RoutingError
     end
   end
 
-  # each category?
   describe "create" do
-    it "adds a new work to the database" do
-      start_count = Work.count
-
+    it "adds a new work to the database for each category" do
       work_data = {
         work: {
           title: "test work"
         }
       }
 
-      post works_path(:albums), params: work_data
-      must_redirect_to works_path(:albums)
+      categories.each do |category|
+        start_count = Work.where(category: category.singularize).count
 
-      end_count = Work.count
-      end_count.must_equal start_count + 1
+        post works_path(category), params: work_data
+        must_redirect_to works_path(category)
+
+        end_count = Work.where(category: category.singularize).count
+        end_count.must_equal start_count + 1
+      end
 
       work = Work.last
       work.title.must_equal work_data[:work][:title]
     end
 
-    it "responds with bad_request for bogus data" do
+    it "responds with bad_request for bogus data regardless of the category" do
       start_count = Work.count
 
       work_data = {
@@ -63,11 +73,19 @@ describe WorksController do
         }
       }
 
-      post works_path(:albums), params: work_data
-      must_respond_with :bad_request
+      categories.each do |category|
+        post works_path(category), params: work_data
+        must_respond_with :bad_request
+      end
 
       end_count = Work.count
       end_count.must_equal start_count
+    end
+
+    it "raises an error when asked to create a category that doesn't exist" do
+      proc {
+        post "/fake_category"
+      }.must_raise ActionController::RoutingError
     end
   end
 
