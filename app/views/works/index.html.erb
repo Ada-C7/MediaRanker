@@ -1,13 +1,14 @@
 <main class="row">
 
-  <section class="row spotlight">
+  <section class="spotlight row">
     <% top = Work.find_top %>
-
-    <h3>Media Spotlight:
-    <% if top != nil %>
-      <%= link_to top.title, work_path(top.id) %> by <%= top.creator %> </h3>
-      <p> <%= top.votes.count%> votes </p>
-    <% end %>
+    <div>
+      <h3>Media Spotlight:
+      <% if top != nil %>
+        <%= link_to top.title, work_path(top.id) %> by <%= top.creator %> </h3>
+        <p> <%= top.votes.count%> votes </p>
+      <% end %>
+    </div>
   </section>
 
   <section class="top-ten columns large-4 small-12">
@@ -16,7 +17,7 @@
       <% movies = Work.find_top_ten_movies %>
       <% if !movies.nil? %>
         <% movies.each do |work| %>
-          <li><h4><%= link_to work.title, work_path(work.id) %> by <%= work.creator %></h4></li>
+          <li><h4><%= link_to work.title, work_path(work.id) %><small> by <%= work.creator %></small></h4></li>
           <li><p><%= work.votes.count %> votes</p></li>
         <% end %>
       <% end %>
@@ -30,7 +31,7 @@
       <% books = Work.find_top_ten_books.each %>
       <%if !books.nil? %>
         <% books.each do |work| %>
-          <li><h4><%= link_to work.title, work_path(work.id) %> by <%= work.creator %></h4></li>
+          <li><h4><%= link_to work.title, work_path(work.id) %><small> by <%= work.creator %></small></h4></li>
           <li><p><%= work.votes.count %> votes</p></li>
         <% end %>
       <% end %>
@@ -44,7 +45,7 @@
       <% albums = Work.find_top_ten_albums.each %>
       <%if !albums.nil? %>
         <% albums.each do |work| %>
-          <li><h4><%= link_to work.title, work_path(work.id) %> by <%= work.creator %></h4></li>
+          <li><h4><%= link_to work.title, work_path(work.id) %><small> by <%= work.creator %></small></h4></li>
           <li><p><%= work.votes.count %> votes</p></li>
         <% end %>
       <% end %>

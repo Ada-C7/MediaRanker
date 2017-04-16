@@ -25,3 +25,19 @@ input {
   padding: 0;
   margin: 0;
 }
+
+section .flash {
+
+}
+
+.page-header {
+  background-image: url('/assets/owl.jpg');
+  background-repeat: no-repeat;
+  border-bottom: solid;
+  border-color: darkgrey;
+  max-width: 100%;
+}
+
+.page-header h2 {
+  padding-left: 150px;
+}
