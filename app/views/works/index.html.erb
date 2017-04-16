@@ -1,4 +1,4 @@
-<main>
+<main class="row">
 
   <section class="row spotlight">
     <% top = Work.find_top %>
@@ -14,9 +14,11 @@
     <h3>Top Movies</h3>
     <ul>
       <% movies = Work.find_top_ten_movies %>
-      <% movies.each do |work| %>
-        <li><h4><%= link_to work.title, work_path(work.id) %> by <%= work.creator %></h4></li>
-        <li><p><%= work.votes.count %> votes</p></li>
+      <% if !movies.nil? %>
+        <% movies.each do |work| %>
+          <li><h4><%= link_to work.title, work_path(work.id) %> by <%= work.creator %></h4></li>
+          <li><p><%= work.votes.count %> votes</p></li>
+        <% end %>
       <% end %>
     </ul>
     <%= link_to "View more Movies", movies_path %>

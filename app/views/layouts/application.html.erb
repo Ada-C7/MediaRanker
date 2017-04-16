@@ -9,21 +9,21 @@
   </head>
 
   <body>
-    <header>
-      <h1>
+    <header class="page-header row">
+      <h2 class="columns large-9 small-12">
         <%= link_to "Media Ranker", homepage_path %>
-        Ranking the Best of Everything
-      </h1>
+        <small>Ranking the Best of Everything</small>
+      </h2>
 
-      <section>
+      <div class="columns large-3 small-12">
         <% if session[:user_id] %>
           <% user = User.find(session[:user_id]) %>
-          <p>Logged in as: <%= link_to user.username, user_path(session[:user_id]) %></p>
-          <p><%= button_to "Log Out", logout_path, :class => "button", :method => :delete %></p>
+          <p class="text-right">Logged in as: <%= link_to user.username, user_path(session[:user_id]) %></p>
+          <a class="float-right"><%= button_to "Log Out", logout_path, :class => "button", :method => :delete %></a>
         <% else %>
-          <p><%= button_to "Log In", login_path, :class => "button", :method => :get %></p>
+          <a class="float-right"><%= button_to "Log In", login_path, :class => "button", :method => :get %></a>
         <% end %>
-      </section>
+      </div>
     </header>
 
     <section class="flash">
