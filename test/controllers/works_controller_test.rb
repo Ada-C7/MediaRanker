@@ -75,7 +75,6 @@ describe WorksController do
       get new_movie_path
       must_respond_with :success
     end
-
   end
 
   describe 'new_book' do
@@ -84,7 +83,6 @@ describe WorksController do
       get new_book_path
       must_respond_with :success
     end
-
   end
 
   describe 'new_album' do
@@ -93,7 +91,6 @@ describe WorksController do
       get new_album_path
       must_respond_with :success
     end
-
   end
 
   describe 'create' do
@@ -193,7 +190,6 @@ describe WorksController do
       must_redirect_to movies_path
     end
 
-    # do I need this? - Oh would this ever come up?
     it 'return 404 if work DNE and you try to destory' do
       id = Work.last.id
       id += 1

@@ -38,7 +38,13 @@ describe UsersController do
     it 'should create a new user with good data' do
       user_data = { username: "cynbin"}
       post users_path, params: { user: user_data }
+      User.find_by(username: "cynbin").must_be_instance_of User
       must_respond_with :success
+    end
+
+    it 'should not create a new user if given bad data - IE no data' do
+      post users_path, params: { user: { username: ""} }
+      User.find_by(username: "").must_be_nil
     end
   end
 end
