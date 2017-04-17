@@ -1,0 +1,22 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+movie:
+  category: movie
+  title: E.T.
+  creator: Steven Spielberg
+  publication_year: 1982
+  description: ET blah
+
+book:
+  category: book
+  title: Harry Potter
+  creator: J.K.Rowling
+  publication_year: 1999
+  description: Harry is a wizard
+
+music:
+  category: album
+  title: Yesterday
+  creator: Beatles
+  publication_year: 1999
+  description: Harry is a wizard
