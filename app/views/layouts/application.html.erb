@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>MediaRanker</title>
+  <%= csrf_meta_tags %>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+</head>
+
+<body>
+  <header class = "row">
+    <div class = "large-2 columns">
+      <%= image_tag("owl.jpg", alt: "Home", height: "60px")  %>
+    </div>
+
+    <h2 class = "large-7 columns">
+      <%= link_to "Media Ranker", welcome_path%> <small>Ranking the Best of Everything</small>
+    </h2>
+
+    <div class = "large-3 columns">
+      <section>
+        <% if session[:user_id]%>
+        <p>
+          You are logged in as <%= link_to User.find_by(id: session[:user_id]).name, user_path(session[:user_id])%>
+        </p>
+        <%else%>
+        <p>
+          Not logged in
+        </p>
+        <%end%>
+      </section>
+
+      <section>
+        <% if session[:user_id]%>
+        <%= link_to "Log Out", logout_path, method: :delete, class: "button"%>
+        <% else%>
+        <%= link_to "Log In", login_path, class: "button"%>
+        <% end%>
+        <%=link_to "New User", new_user_path, class: "button"%>
+      </section>
+    </div>
+  </header>
+
+  <main>
+    <section class="row flash">
+      <% flash.each do |flash_key, message| %>
+      <div class = "<%= flash_key %>" ><%= message %></div>
+      <% end %>
+    </section>
+    <%= yield %>
+  </main>
+
+</body>
+</html>

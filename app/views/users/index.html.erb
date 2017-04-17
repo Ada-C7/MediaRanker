@@ -1,0 +1,26 @@
+
+<section class="row section_head">
+  <div class = "large-10 column">
+    <h3>List of Users</h3>
+  </div>
+  <div class = "large-2 column">
+    <%= link_to "View all media", works_path, class: "button"%>
+  </div>
+</section>
+
+<section class="row table_scroll">
+  <table>
+    <tr>
+      <th class = "small-9 colums">Username</th>
+      <th class = "small-1 colums">Votes</th>
+      <th class = "small-2 colums">Joined</th>
+    </tr>
+    <% @users.order(:name).each do |user| %>
+    <tr>
+      <td><%= link_to user.name, user_path(user) %></td>
+      <td><%= user.votes.count%></td>
+      <td><%= user.created_at.strftime("%b %d, %Y")%></td>
+    </tr>
+    <% end %>
+  </table>
+</section>
