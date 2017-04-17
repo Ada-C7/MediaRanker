@@ -1,2 +1,15 @@
 
 @import url('foundation.css');
+
+
+.page-header {
+ border-bottom: 1px solid darkgrey;
+ background-position-x: 0%;
+ background-position-y: 0%;
+ background-image: image('owl.jpg');
+ background-repeat: no-repeat;
+ max-width: 100%;
+ padding-left: 100px;
+ padding-right: 100px;
+
+}

@@ -41,5 +41,8 @@ Joined site <%= @user.created_at.strftime("%b %d, %Y") %></br>
     <% end %>
 </table>
 
-<%= link_to "See all Users", users_path %>
-<%= link_to "Back to Media List", works_path %>
+<a class="button" href="/users">See all Users</a>
+<a class="button" href="/works">Back to Media List</a>
+
+ <%#= link_to "See all Users", users_path %>
+<%#= link_to "Back to Media List", works_path %>

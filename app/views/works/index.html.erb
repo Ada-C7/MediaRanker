@@ -3,11 +3,15 @@
 <header class="page-header row">
 
 </header>
-<section>
+<section class="row spotlight">
   <% Work.spot_light.each do |item|%>
-  Media Spotlight: <%= link_to item.title, work_path(item.id) %> by <%=item.creator %></br>
+  <div>
+
+
+  <h2>Media Spotlight: <%= link_to item.title, work_path(item.id) %> by <%=item.creator %></h2>
   <%= item.votes.count%> Votes<%= item.description%>
   <% end %>
+    </div>
 </section>
 <section class="row">
   <section class="top-ten columns large-4 small-12">

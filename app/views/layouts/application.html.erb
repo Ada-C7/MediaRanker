@@ -8,16 +8,16 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <header class="page-header row">
+  <header class="page-header row"
+  <div class="row"
     <%= image_tag "owl.jpg" %>
-  <h2 "columns large-9 small-12"><%= link_to "Media Ranker", works_path %><small> Ranking the Best of Everything</small></h2>
-
+  <h2 class ="columns large-9 small-12"><%= link_to "Media Ranker", works_path %><small> Ranking the Best of Everything</small></h2>
 
      <% flash.each do |name, message| %>
       <%= name %>"><%= message %></div>
      <% end %>
 
-     <div class ="column large-3 small-12">
+     <div class ="columns large-3 small-12">
       <% if session[:user_id] %>
         <p class= "text-right">Logged in as <%= (User.find(session[:user_id])).name%></p>
         <a class= "button float-right" rel="nofollow" data-method="delete" href="/logout">Log Out</a>
