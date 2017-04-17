@@ -13,7 +13,7 @@
     <nav>
       <ul>
         <%= link_to "Login", new_user_path, :class => "button"%>
-        <!-- <a href="#login"> Login</a></li> -->
+
         <section class="flash">
           <% flash.each do |name, message| %>
           <div class="<%= name %>"><%= message %></div>
@@ -21,10 +21,10 @@
         </section>
 
         <section class="session">
-          <% session.each do 
-
-        <!--TODO right login route  -->
+          
+        </section>
       </ul>
+
     </nav>
   </header>
   <%= yield %>
