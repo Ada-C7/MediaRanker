@@ -1,0 +1,5 @@
+<section id="users">
+  <% @users.each do |user| %>
+    <h3>User Summary: <%= link_to user.username, user_path(user.id) %></h3>
+  <% end %>
+</section>
