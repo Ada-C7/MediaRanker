@@ -1,0 +1,39 @@
+
+<main class='row'>
+<%= link_to "Add a New Media", new_work_path, :class => "gg-button"%>
+<%= link_to "New User", new_user_path,:class => "gg-button"%>
+<br></br>
+<div class='spotlight'>
+<h3>Media Spotlight: <%= link_to "#{@spotlight.title}", work_path(@spotlight.id)%> by <%= @spotlight.creator %></h3>
+<%= @spotlight.votes.count%> votes - <%= @spotlight.description%>
+</div>
+
+<div class="row small-up-12 large-up-3">
+    <section class='column'>
+      <h2> Top Albums </h2>
+      <% @albums.sort_by{|a| a.votes.count}.reverse.first(10).each do |album| %>
+      <h5><%= link_to "#{album.title}", work_path(album.id)%> by <%= album.creator %></h5>
+       <p><%= album.votes.count%> votes</p>
+      <%end%>
+      <%= link_to "All Albums", albums_path%>
+    </section>
+
+    <section class='column'>
+      <h2> Top Books </h2>
+      <% @books.sort_by{|a| a.votes.count}.reverse.first(10).each do |book| %>
+      <h5><%= link_to "#{book.title}", work_path(book.id)%> by <%= book.creator%></h5>
+      <p><%= book.votes.count%> votes</p>
+      <%end%>
+      <%= link_to "All Books", books_path%>
+    </section>
+
+    <section class='column'>
+      <h2> Top Movies </h2>
+      <% @movies.sort_by{|a| a.votes.count}.reverse.first(10).each do |movie| %>
+      <h5><%= link_to "#{movie.title}", work_path(movie.id)%> by <%= movie.creator%></h5>
+       <p><%= movie.votes.count%> votes</p>
+      <%end%>
+      <%= link_to "All Movies", movies_path%>
+    </section>
+  </div>
+  </main>

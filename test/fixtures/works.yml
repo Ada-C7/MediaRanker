@@ -1,0 +1,22 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+book:
+  title: OnePunch
+  creator: Saitama
+  published_year: 2015
+  description: 'One Puuuuuuuuuuuuuuuuuuuuuunch'
+  category: book
+
+movie:
+  title: Rick and Morty
+  creator: Plumbus Rolland
+  published_year: 2030
+  description: 'Szichuan Sauce'
+  category: movie
+
+album:
+    title: Hearthrob
+    creator: Father
+    published_year: 2016
+    description: 'Better call the cops'
+    category: album

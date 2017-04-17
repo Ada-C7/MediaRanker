@@ -1,0 +1,12 @@
+<h1>New User Form</h1>
+
+<%= form_for @user do |f| %>
+  Name: <%= f.text_field :name %>
+  <%= f.submit value: "Create User" %>
+  <%end%>
+
+  <% if @user.errors.any? %>
+    <% @user.errors.each do |attribute, message| %>
+      <%= attribute.capitalize %> <%= message %>
+    <% end %>
+  <% end %>
