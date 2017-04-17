@@ -1,7 +1,7 @@
 class WorksController < ApplicationController
   def index
     @category = params[:works]
-    @works = Work.where(category: @category.singularize)
+    @works = Work.order_by_votes(@category.singularize)
   end
 
   def new

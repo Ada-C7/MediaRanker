@@ -1,10 +1,12 @@
 <section class="spotlight columns 12">
   <div>
-    <h3>Media Spotlight:
-      <%= link_to @spotlight.title, work_path(@spotlight) %>
-      <%= "by #{@spotlight.creator}" %>
-    </h3>
-    <p><%= "#{@spotlight.votes.count} votes - #{@spotlight.description}" %></p>
+    <% if !@spotlight.nil? %>
+      <h3>Media Spotlight:
+        <%= link_to @spotlight.title, work_path(@spotlight) %>
+        <%= "by #{@spotlight.creator}" %>
+      </h3>
+      <p><%= "#{@spotlight.votes.count} votes - #{@spotlight.description}" %></p>
+    <% end %>
   </div>
 </section>
 

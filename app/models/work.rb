@@ -23,8 +23,8 @@ class Work < ApplicationRecord
     Work.all.max_by {|work| work.votes.count}
   end
 
-  def self.top_ten(category)
+  def self.order_by_votes(category)
     return nil if !CATEGORIES.include?(category)
-    Work.where(category: category).sort_by {|work| -work.votes.count}.first(10)
+    Work.where(category: category).sort_by {|work| -work.votes.count}
   end
 end

@@ -1,9 +1,9 @@
 class HomeController < ApplicationController
   def index
     @works = {}
-    @works["movies"] = Work.top_ten("movie")
-    @works["books"] = Work.top_ten("book")
-    @works["albums"] = Work.top_ten("album")
+    @works["movies"] = Work.order_by_votes("movie").first(10)
+    @works["books"] = Work.order_by_votes("book").first(10)
+    @works["albums"] = Work.order_by_votes("album").first(10)
 
     @spotlight = Work.spotlight
   end

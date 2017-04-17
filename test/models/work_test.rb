@@ -103,10 +103,10 @@ describe Work do
     end
   end
 
-  describe "top_ten" do
+  describe "order_by_votes" do
 
     it "returns an active record collection of work objects" do
-      top_books = Work.top_ten("book")
+      top_books = Work.order_by_votes("book")
       top_books.must_be_instance_of Array
 
       top_books.each do |book|
@@ -114,13 +114,8 @@ describe Work do
       end
     end
 
-    it "returns up to ten works sorted by the number of votes in descending order" do
-      top_albums = Work.top_ten("album")
-      if top_albums.count >= 10
-        top_albums.count must_be 10
-      else
-        top_albums.count.must_be :<, 10
-      end
+    it "returns the works sorted by the number of votes in descending order" do
+      top_albums = Work.order_by_votes("album")
 
       first_ablum_votes = top_albums.first.votes.count
       last_album_votes = top_albums.last.votes.count
@@ -128,12 +123,12 @@ describe Work do
     end
 
     it "returns nil if the given category is not an album, book, or movie" do
-      Work.top_ten("play").must_be_nil
+      Work.order_by_votes("play").must_be_nil
     end
 
     it "returns nil if no works exist in a given category" do
       Work.destroy_all
-      Work.top_ten("ablum").must_be_nil
+      Work.order_by_votes("ablum").must_be_nil
     end
   end
 end
