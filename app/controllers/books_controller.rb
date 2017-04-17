@@ -23,25 +23,25 @@ class BooksController < ApplicationController
     end
   end
 
-  def edit
-    @book = Work.find(params[:id])
-  end
-
-  def update
-    raise
-    book = Work.find(params[:id])
-
-    book.title = work_params[:title]
-    book.creator = work_params[:creator]
-
-    book.description = work_params[:description]
-
-    if book.save
-      redirect_to root_path
-    else
-      render "edit"
-    end
-  end
+  # def edit
+  #   @book = Work.find(params[:id])
+  # end
+  #
+  # def update
+  #   raise
+  #   book = Work.find(params[:id])
+  #
+  #   book.title = work_params[:title]
+  #   book.creator = work_params[:creator]
+  #
+  #   book.description = work_params[:description]
+  #
+  #   if book.save
+  #     redirect_to root_path
+  #   else
+  #     render "edit"
+  #   end
+  # end
   private
 
   def work_params

@@ -18,4 +18,18 @@ anne:
   publication_year: 1908
   description: Anne of Green Gables is a 1908 novel by Canadian author Lucy Maud Montgomery (published as L. M. Montgomery). Written for all ages, it has been considered a children's novel since the mid-twentieth century.
   category: book
+
+gotmail:
+  title: You've Got Mail
+  creator: Nora Ephron
+  publication_year: 1998
+  description: Struggling boutique bookseller Kathleen Kelly (Meg Ryan) hates Joe Fox (Tom Hanks), the owner of a corporate Foxbooks chain store that just moved in across the street. When they meet online, however, they begin an intense and anonymous Internet romance, oblivious of each other's true identity. Eventually Joe learns that the enchanting woman he's involved with is actually his business rival. He must now struggle to reconcile his real-life dislike for her with the cyber love he's come to feel.
+  category: movie
+
+okcomputer:
+  title: OK Computer
+  creator: Radiohead
+  publication_year: 1997
+  description: OK Computer is the third studio album by English alternative rock band Radiohead, released in 1997 on EMI subsidiaries Parlophone and Capitol Records.
+
 # column: value
