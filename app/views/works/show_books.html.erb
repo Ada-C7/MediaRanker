@@ -1,12 +1,36 @@
-<h1> List of Books </h1>
-<ul>
-  <% @books.each do |work| %>
-  <li>
-    <%= link_to work.title, work_path(work.id) %>
-  </li>
+<article class="columns large-8 small-12">
+  <section>
 
-  <% end %>
-</ul>
+    <h3> List of Books </h3>
 
-<%= button_to "Add a new Book", new_book_path, method: :get %>
-<%= button_to "Back to all lists", root_path, method: :get %>
+    <table>
+      <thead>
+        <tr>
+          <th>Votes</th>
+          <th>Title</th>
+          <th>Created By</th>
+          <th>published</th>
+          <th>Upvote</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @books.each do |work| %>
+        <tr>
+          <td><%= work.votes.count %></td>
+          <td><%= link_to work.title, work_path(work.id) %></td>
+          <td><%= work.created_by %></td>
+          <td><%= work.published_year %></td>
+          <td><% if session[:user_id] %>
+          <%= link_to "Upvote", vote_path(work.id),
+          method: :post, class: "button" %>
+          <% end %></td>
+        </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </section>
+
+</article>
+
+<%= link_to "Add a new Book", new_book_path, method: :get, class: "button" %>
+<%= link_to "Back to all lists", root_path, method: :get, class: "button" %>
