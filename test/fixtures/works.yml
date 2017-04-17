@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  title: Red Fish
+  created_by: Dr. Seuss
+  description: Kids book
+  category: book
+  year_published: 1945
+
+two:
+  title: Shane
+  created_by: Joe Someone
+  description: Western
+  category: book
+  year_published: 1955

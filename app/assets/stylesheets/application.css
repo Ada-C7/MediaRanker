@@ -1,0 +1,64 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+ @import url('foundation.css');
+
+ /*ul {
+   list-style: none;
+ }
+
+/*img {
+  float: left;
+  display: block;
+}*/
+
+section.spotlight {
+  padding: 2rem;
+}
+
+.top-ten ul {
+  list-style-type: none;
+  margin-left: 0px;
+}
+
+ul, ol, dl {
+    margin-bottom: 1rem;
+    list-style-position: outside;
+    line-height: 1.6;
+}
+
+.page-header {
+    max-width: 100%;
+    background: url(/assets/owl-d267907f27db7f78f7e8598d951d6662d3ba36d5b07d2a83de849dfd3f6f37fe.jpg);
+    background-repeat: no-repeat;
+    border-bottom: 1px solid darkgrey;
+    margin-bottom: 10px;
+  }
+
+  article, aside, footer, header, nav, section {
+    display: block;
+}
+
+.page-header h2 {
+    padding-left: 150px;
+}
+
+.status.success {
+    color: #359b18;
+}
+
+body small {
+    color: slategrey;
+}

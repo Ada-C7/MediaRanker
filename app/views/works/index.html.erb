@@ -1,0 +1,100 @@
+<main class="row">
+
+  <section class="row spotlight">
+    <% if !@works.empty? %>
+
+    <div>
+      <h3>Media Spotlight: <%= link_to @works.first.title, work_path(@works.first.id)%> by <%=@works.first.created_by%></h3>
+      <p>
+        <%= @works.first.votes.count %> votes - <%= @works.first.description %></br>
+      </p>
+    </div>
+  </section>
+
+  <section class = "top-ten columns large-4 small-12">
+
+<%end%>
+
+    <h3>
+      Top Movies
+    </h3>
+    <% @movies = [] %>
+    <% @works.each do |work| %>
+    <% if work.category == "movie" %>
+    <% @movies << work %>
+    <% end %>
+    <% end %>
+    <% @movies[0..9].each do |work| %>
+
+    <ul>
+      <li>
+        <h4>
+          <%=link_to work.title, work_path(work.id)%> by <small><%=work.created_by%></small>
+        </h4>
+        <p>
+          <%= work.votes.count %> votes
+        </p>
+      </li>
+    </ul>
+    <% end %>
+
+
+
+    <%= link_to "View more movies", category_path("movies"), method: :get %></br>
+  </section>
+
+  <section class = "top-ten columns large-4 small-12">
+    <h3>
+      Top Books
+    </h3>
+    <% @books = [] %>
+    <% @works.each do |work| %>
+    <% if work.category == "book" %>
+    <% @books << work %>
+    <% end %>
+    <% end %>
+    <% @books[0..9].each do |work| %>
+
+    <ul>
+      <li>
+        <h4>
+          <%=link_to work.title, work_path(work.id)%> by <small><%=work.created_by%></small>
+        </h4>
+        <p>
+          <%= work.votes.count %> votes
+        </p>
+      </li>
+    </ul>
+    <% end %>
+
+    <%= link_to "View more books", category_path("books"), method: :get %></br>
+  </section>
+
+  <section class = "top-ten columns large-4 small-12">
+    <h3>
+      Top Albums
+    </h3>
+    <% @albums = [] %>
+    <% @works.each do |work| %>
+    <% if work.category == "album" %>
+    <% @albums << work %>
+    <% end %>
+    <% end %>
+    <% @albums[0..9].each do |work| %>
+
+    <ul>
+      <li>
+        <h4>
+          <%=link_to work.title, work_path(work.id)%> by <small><%=work.created_by%></small>
+        </h4>
+        <p>
+          <%= work.votes.count %> votes
+        </p>
+      </li>
+    </ul>
+    <% end %>
+
+    <%= link_to "View more albums", category_path("albums"), method: :get %></br>
+
+  </section>
+</main>

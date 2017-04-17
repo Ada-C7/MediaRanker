@@ -1,0 +1,9 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+kelly:
+  name: Kelly
+  id: 1
+
+Kevin:
+  name: Kevin
+  id: 2
