@@ -1,9 +1,17 @@
 require "test_helper"
 
-# describe Album do
-#   # let(:album) { Album.new }
-#   #
-#   # it "must be valid" do
-#   #   value(album).must_be :valid?
-#   # end
-# end
+describe Album do
+  describe 'validations' do
+    it 'requires a title' do
+      album = Album.new
+      result = album.valid?
+      result.must_equal false
+    end
+
+    it 'requires a title' do
+      album = Album.new(title: "This")
+      result = album.valid?
+      result.must_equal true
+    end
+  end
+end
