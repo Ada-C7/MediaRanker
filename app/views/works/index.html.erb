@@ -1,0 +1,52 @@
+<section class="spotlight-section">
+  <h2>Media Spotlight</h2>
+
+  <li><%= link_to @rand_record.title, work_path(@rand_record.id) %></li>
+  <p>by <%= @rand_record[:creator] %></p>
+
+</section>
+
+<section class="top-movies">
+  <h2>Top Movies</h2>
+
+    <ul>
+      <% @works.each do |work| %>
+        <% if work.category == "movie" %>
+          <li><%= link_to work.title, work_path(work.id) %></li>
+          <p>by <%= work[:creator] %></p>
+        <% end %>
+      <% end %>
+    </ul>
+
+<%= link_to "View More Movies", movies_path %>
+</section>
+
+  <section class="top-books">
+    <h2>Top Books</h2>
+
+      <ul>
+        <% @works.each do |work| %>
+          <% if work.category == "book" %>
+            <li><%= link_to work.title, work_path(work.id) %></li>
+            <p>by <%= work[:creator] %></p>
+          <% end %>
+        <% end %>
+      </ul>
+
+  <%= link_to "View More Books", books_path %>
+  </section>
+
+  <section class="top-albums">
+    <h2>Top Albums</h2>
+
+      <ul>
+        <% @works.each do |work| %>
+          <% if work.category == "album" %>
+            <li><%= link_to work.title, work_path(work.id) %></li>
+            <p>by <%= work[:creator] %></p>
+          <% end %>
+        <% end %>
+      </ul>
+
+  <%= link_to "View More Albums", albums_path %>
+  </section>

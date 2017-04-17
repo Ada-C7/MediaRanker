@@ -1,0 +1,15 @@
+<%= form_for(@book, url: books_path) do |f| %>
+  <%= f.label :title, "Title" %>
+  <%= f.text_field :title%>
+
+  <%= f.label :creator, "Created By" %>
+  <%= f.text_field :creator%>
+
+  <%= f.label :publication_year, "Publication Year"%>
+  <%= f.text_field :publication_year %>
+
+  <%= f.label :description, "Description" %>
+  <%= f.text_field :description %>
+
+  <%= f.submit value: "#{submit_text} Work" %>
+<% end %>
