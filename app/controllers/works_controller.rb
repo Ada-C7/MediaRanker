@@ -93,7 +93,6 @@ class WorksController < ApplicationController
   end
 
 
-
   def upvote
     #if vote exists destroy vote?
     #else Vote.create
@@ -118,14 +117,6 @@ class WorksController < ApplicationController
     @works.find_spotlight
     # spotlight = work
   end
-
-  # def spotlight
-  #   count = []
-  #   @works.vote_count.each do
-  #
-  #   end
-  # end
-
 
   private
 
