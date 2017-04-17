@@ -1,0 +1,29 @@
+<h4><%= @work[:title] %> <br>
+     Created By: <%= @work[:creator] %> <br>
+     Published: <%= @work[:publication_year] %> <br>
+     Description: <%= @work[:description] %> <br>
+     Votes: <%= @work.votes.count %>
+     <br>
+     <%= link_to "Vote", vote_work_path, :class => "button", method: :post %>
+     <%= link_to "Back to List", root_path, :class => "button" %>
+     <%= link_to "Edit", edit_work_path, :class => "button" %>
+     <%= link_to "Delete", category_path(category), :class => "button" %>
+
+</h4>
+
+
+<!-- <table>
+  <tr>
+  <th>User</th>
+  <th>Date</th>
+</tr>
+<tr>
+  user_array = []
+  <% @work.votes.each do |voter| %>
+  <%= user_array << voter %>
+  <%= puts user_array %>
+  <% end %>
+
+</tr>
+
+</table> -->

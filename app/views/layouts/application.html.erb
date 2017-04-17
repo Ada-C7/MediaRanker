@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>MediaRanker</title>
+  <%= csrf_meta_tags %>
+
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+</head>
+
+<body>
+  <header>
+    <% if session[:user_id] %>
+    <li> You are logged in as <%= session[:username] %></li>
+    <li><%= link_to "Logout", logout_path, method: :delete %></li>
+    <% else %>
+    <li><%= link_to "Login", login_path %></li>
+    <% end %>
+  </header>
+  <section class="flash">
+  <% flash.each do |name, message| %>
+    <div class="<%= name %>"><%= message %></div>
+  <% end %>
+</section>
+    <%= yield %>
+  </body>
+  </html>
