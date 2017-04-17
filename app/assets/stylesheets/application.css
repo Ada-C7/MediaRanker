@@ -55,3 +55,8 @@ main {
 .page-header .button {
   float: right;
 }
+
+.flash {
+  color: red;
+  font-size: 3em;
+}

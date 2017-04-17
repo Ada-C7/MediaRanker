@@ -21,9 +21,12 @@ Rails.application.routes.draw do
   post 'books', to:'works#create'
 
   post 'works/:id/vote', to: 'works#vote', as: 'vote'
-  get 'login', to: 'sessions#new'
-  post 'login', to: 'sessions#create'
+  # get 'login', to: 'sessions#new'
+  # post 'login', to: 'sessions#create'
+  get "/auth/:provider/callback", to: "sessions#auth_callback"
+
   delete 'logout', to: 'sessions#destroy'
+
 end
 # Rails.application.routes.draw do
 #   get 'tasks', to: 'tasks#index', as: 'tasks'

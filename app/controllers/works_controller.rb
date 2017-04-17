@@ -1,4 +1,6 @@
 class WorksController < ApplicationController
+  before_action :require_login, except: [:index]
+  
   def index
     @works = Work.all
   end

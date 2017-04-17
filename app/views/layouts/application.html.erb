@@ -19,25 +19,31 @@
       <div><%= link_to "Registre", new_user_path %></div>
 
 
-      <div class= "columns large-3 medium-3 small-10">
-        <% if session[:user_id] %>
-        <%= session[:user_name] %>
-        <p><%= link_to "Logout", logout_path, method: :delete, class: "button" %></p>
-        <% else %>
-        <p><%= link_to "login", login_path, method: :get, class: "button" %></p>
+      <div class= "columns large-2 medium-2 small-6">
+        <% if @current_user %>
+        <p>
+          Currently logged in as
+          <%= @current_user.name %>
+          <%= link_to "Logout", logout_path, method: :delete, class: "button" %>
+        </p>
+          <% else %>
+        <p>
+          Not looged in
+          <%= link_to "Log In", "/auth/github" %>
+        </p>
+          <% end %>
+        </div>
+      </nav>
+
+      <section class="flash">
+        <% flash.each do |name, message| %>
+        <div class="<%= name %>"><%= message %></div>
         <% end %>
-      </div>
-    </nav>
+      </section>
+    </header>
 
-    <section class="flash">
-      <% flash.each do |name, message| %>
-      <div class="<%= name %>"><%= message %></div>
-      <% end %>
-    </section>
-  </header>
-
-  <main class='row'>
-    <%= yield %>
-  </main>
-</body>
-</html>
+    <main class='row'>
+      <%= yield %>
+    </main>
+  </body>
+  </html>
