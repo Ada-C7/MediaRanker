@@ -85,7 +85,7 @@ describe WorksController do
     it "will return a 404 not found status when asked to edit a work that doesn't exist" do
       work_id = Work.last.id
       work_id += 1
-      get edit_path(work_id)
+      get edit_work_path(work_id)
 
       must_respond_with :not_found
     end
@@ -96,11 +96,7 @@ describe WorksController do
       work = Work.first
       work_data = {
         work: {
-          category: "book",
-          title: "Jane Eyre",
-          creator: "Charlotte Bronte",
-          publication_year: 1978,
-          description: "Empowering female gothic romance"
+          title: work.title + "extra stuff"
           }
         }
       patch work_path(work), params: work_data
@@ -109,50 +105,34 @@ describe WorksController do
       Work.first.title.must_equal work_data[:work][:title]
     end
 
+    it "respond with bad request for bogus data" do
+      work = Work.first
+      work_data = {
+        work: {
+          title: ""
+          }
+        }
+      patch work_path(work), params: work_data
+      must_respond_with :bad_request
+
+      #make sure that what's in the database still matches
+      #what we had before
+      Work.first.title.must_equal work.title
+    end
+
+    it "returns 404 for a work that DNE" do
+      work_data = {
+        work: {
+          title: "test designation"
+        }
+      }
+      work_id = Work.last.id + 1
+      patch work_path(work_id), params: work_data
+      must_respond_with :not_found
+
+    end
   end
 
-  # describe "update" do
-  #   it "updates the work" do
-  #     classroom = Classroom.first
-  #     classroom_data = {
-  #       classroom: {
-  #         designation: classroom.designation + "extra stuff"
-  #       }
-  #     }
-  #     patch classroom_path(classroom), params: classroom_data
-  #     must_redirect_to classroom_path(classroom)
-  #
-  #     Classroom.first.designation.must_equal classroom_data[:classroom][:designation]
-  #   end
-  #
-  #   it "respond with bad request for bogus data" do
-  #       classroom = Classroom.first
-  #       classroom_data = {
-  #         classroom: {
-  #           designation: ""
-  #         }
-  #       }
-  #       patch classroom_path(classroom), params: classroom_data
-  #       must_respond_with :bad_request
-  #
-  #       #make sure that what's in the database still matches
-  #       #what we had before
-  #       Classroom.first.designation.must_equal classroom.designation
-  #
-  #   end
-  #
-  #   it "returns 404 for a classroom that DNE" do
-  #     classroom_data = {
-  #       classroom: {
-  #         designation: "test designation"
-  #       }
-  #     }
-  #     classroom_id = Classroom.last.id + 1
-  #     patch classroom_path(classroom_id), params: classroom_data
-  #     must_respond_with :not_found
-  #
-  #   end
-  # end
 
   describe "destroy" do
     it "deletes a work that exists" do

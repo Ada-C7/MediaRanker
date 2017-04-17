@@ -28,6 +28,19 @@ class WorksController < ApplicationController
     end
   end
 
+### below is a paste in for reference
+#   def create
+#   @book = Book.new(book_params)
+#
+#   if @book.save
+#     redirect_to books_path
+#   else
+#     # We know the validations didn't pass
+#     render :new, status: :bad_request
+#   end
+# end
+
+
 
   # def create
   #   classroom = Classroom.new(classroom_params)
@@ -47,14 +60,14 @@ class WorksController < ApplicationController
   end
 
   def edit
-    @work = Work.find(params[:id])
+    @work = Work.find_by(id: params[:id])
     if @work.nil?
       head :not_found
     end
   end
 
   def update
-    @work = Work.find(params[:id])
+    @work = Work.find_by(id: params[:id])
     if @work.nil?
       head :not_found
     else
@@ -67,9 +80,23 @@ class WorksController < ApplicationController
     end
   end
 
+
+
   def destroy
-    Work.find(params[:id]).destroy
-    redirect_to works_path
+    work = Work.find_by(id: params[:id])
+    if work.nil?
+      head :not_found
+    else
+      work.destroy
+      redirect_to works_path
+    end
+  end
+
+
+
+  def upvote
+    #if vote exists destroy vote?
+    #else Vote.create
   end
 
   def movies

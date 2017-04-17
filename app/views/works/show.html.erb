@@ -26,3 +26,19 @@
       </tbody>
   </table>
 </article>
+
+<article>
+  <% if @work.category == "book" %>
+    <%= link_to "View More Books", books_path, class: "button" %>
+  <% elsif @work.category == "movie" %>
+    <%= link_to "View More Movies", movies_path, class: "button" %>
+  <% else %>
+    <%= link_to "View More Albums", albums_path, class: "button" %>
+    <% end %>
+  <%= link_to "Edit", edit_work_path(@work.id), class: "button" %>
+  <% if session[:user_id] %>
+      <%= link_to "Upvote", vote_path(@work.id), method: :post, class: "button" %>
+  <% end %>
+  <%= link_to "Delete", work_path(@work), class: "button", method: :delete,
+    data: { confirm: "Are you sure?" } %>
+</article>

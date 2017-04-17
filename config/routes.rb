@@ -6,12 +6,15 @@ Rails.application.routes.draw do
   resources :works
 
   get '/albums', to: 'works#albums', as: 'albums'
+  # 'movies/new'
   get '/movies', to: 'works#movies', as: 'movies'
   get '/books', to: 'works#books', as: 'books'
 
   # post 'books/:id/vote', to: 'books#buy', as: 'buy'  #put this method in the books controller
 
 # 'users/:user_id/:book_id' #this is a nested route - to use for the vote functionality - need both ids to create a new UserBook. need to make a new button - upvote button.
+
+post 'works/:id/upvote', to: "works#upvote", as: 'upvote'
 
 get 'login', to: 'sessions#new'
 

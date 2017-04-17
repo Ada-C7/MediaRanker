@@ -17,6 +17,7 @@
 
         </head>
         <% if session[:user_id] %>
+          <%= "Logged in as #{user_id.name}"%>
           <%= link_to "Logout", logout_path, class: "button", method: :delete %>
           <% else %>
           <%= link_to "Login", login_path, class: "button" %>
