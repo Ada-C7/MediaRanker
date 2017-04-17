@@ -1,0 +1,2 @@
+module MediaRankerHelper
+end

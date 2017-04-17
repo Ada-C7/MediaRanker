@@ -1,0 +1,22 @@
+
+<section id="content">
+
+  <%= form_for @work do | f | %>
+
+  <%= f.label :title %>
+  <%= f.text_field :title %>
+
+  <%= f.label :creator%>
+  <%= f.text_field :creator %>
+
+  <%= f.label :pub_year%>
+  <%= f.text_field :pub_year %>
+
+  <%= f.label :description%>
+  <%= f.text_field :description %>
+
+  <%= f.hidden_field :category %>
+
+  <%= f.submit "Add work!", :class => 'button' %>
+
+  <% end %>

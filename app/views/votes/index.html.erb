@@ -1,0 +1,13 @@
+
+<section id="content">
+  <h2>Votes!</h2>
+
+  <!-- don't think I need this page...  -->
+  <table>
+    <% @votes.each do | vote | %>
+    <tr>
+      <td><%= vote.user_id %></td>
+    </tr>
+    <% end %>
+  </table>
+</section>

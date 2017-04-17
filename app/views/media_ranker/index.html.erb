@@ -1,0 +1,55 @@
+<section id="content">
+
+  <h3>Media Spotlight: <%= link_to @rand_work.title, @rand_work_path %> by <%= @rand_work.creator %></h3>
+  <h4><%= @rand_work.votes.length %> votes</h4>
+  <h4><%= @rand_work.description %></h4>
+
+
+  <h2>Top albums:</h2>
+
+  <section>
+    <% @albums.each do | album | %>
+      <h5><%= link_to album.title, album_path(album.id) %> by <%= album.creator %></h5>
+    <% end %>
+  </section>
+
+  <section>
+    <p>
+      <%=link_to "View more albums", albums_path %>
+    </p>
+  </section>
+
+  <h2>Top books:</h2>
+
+  <section>
+    <% @books.each do | book | %>
+      <h5><%= link_to book.title, book_path(book.id) %> by <%= book.creator %></h5>
+
+    <% end %>
+  </section>
+
+
+  <section>
+    <p>
+      <%=link_to "View more books", books_path %>
+    </p>
+  </section>
+
+  <h2>Top movies:</h2>
+
+  <section>
+    <% @movies.each do | movie | %>
+
+      <h5><%= link_to movie.title, movie_path(movie.id) %> by <%= movie.creator %></h5>
+
+    <% end %>
+  </section>
+
+
+  <section>
+    <p>
+      <%=link_to "View more movies", movies_path %>
+    </p>
+  </section>
+
+</section>
