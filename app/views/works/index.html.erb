@@ -1,0 +1,39 @@
+
+<section>
+  <h3>Media Spotlight: <%= @spotlight.title %>
+    by <%= @spotlight.creator %>
+  </h3>
+</section>
+
+<table>
+  <tr>
+    <th>Top Movies</th>
+    <th>Top Books</th>
+    <th>Top Albums</th>
+  </tr>
+
+  <tr>
+    <td>
+      <% @movies[0..9].each do |movie| %>
+      <%= link_to movie.title, work_path(movie.id) %>
+      <br/>
+      <% end %>
+      <%= link_to "View more movies", category_path("movies") %>
+    </td>
+    <td>
+      <% @books[0..9].each do |book| %>
+      <%= link_to book.title, work_path(book.id) %>
+      <br/>
+      <% end %>
+      <%= link_to "View more books", category_path("books") %>
+    </td>
+    <td>
+      <% @albums[0..9].each do |album| %>
+      <%= link_to album.title, work_path(album.id) %>
+      <br/>
+      <% end %>
+      <%= link_to "View more albums", category_path("albums") %>
+
+    </td>
+  </tr>
+</table>

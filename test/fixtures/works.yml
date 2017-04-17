@@ -1,0 +1,27 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+# This model initially had no columns defined. If you add columns to the
+# model remove the "{}" from the fixture names and add the columns immediately
+# below each fixture, per the syntax in the comments below
+#
+anything:
+  category: "movie"
+  title: "Say Anything"
+  creator: "Cameron Crowe"
+  pub_year: 1989
+  description: "A noble underachiever and a beautiful valedictorian fall in love the summer before she goes off to college."
+
+
+elemental:
+  category: "book"
+  title: "An Elemental Thing"
+  creator: "Eliot Weinberger"
+  pub_year: 2007
+  description: "His remarkable use of simultaneity and collage is something that didn't quite exist before."
+
+railroad:
+  category: "album"
+  title: "Railroad Bill"
+  creator: "Etta Baker"
+  pub_year: 1999
+  description: "One of the last pickers who was around when the music was first being recorded, Baker's 83 years of practice is manifested in these wonderful recordings of traditional folk ballads."
