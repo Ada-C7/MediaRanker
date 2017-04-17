@@ -1,38 +1,47 @@
 <h2> List of Media </h2>
 <section>
-<ul>
-  <h2><%= link_to "MOVIES", movies_path %></h2>
-  <% @works.each do |work| %>
-  <% if work.category == "movie" %>
-  <ul>
-    <li>
-      <%= link_to work.title, work_path(work.id) %>
-    </li>
-  </ul>
-  <% end %>
-  <% end %>
+  <article class="columns large-3 small-10">
+    <h2>Top Movies</h2>
+    <% @works.each do |work| %>
+    <% if work.category == "movie" %>
+    <ul>
+      <li>
+        <%= link_to work.title, work_path(work.id) %>
+      </li>
+    </ul>
+    <% end %>
+    <% end %>
+    <h2><%= link_to "MOVIES", movies_path %></h2>
+  </article>
 
-  <h2><%= link_to "BOOKS", books_path%></h2>
-  <% @works.each do |work| %>
-  <% if work.category == "book" %>
-  <ul>
-    <li>
-      <%= link_to work.title, work_path(work.id) %>
-    </li>
-  </ul>
-  <% end %>
-  <% end %>
+  <article class="columns large-3 small-10">
+    <h2>Top Books</h2>
+    <% @works.each do |work| %>
+    <% if work.category == "book" %>
+    <ul>
+      <li>
+        <%= link_to work.title, work_path(work.id) %>
+      </li>
+    </ul>
+    <% end %>
+    <% end %>
+    <h2><%= link_to "BOOKS", books_path%></h2>
+  </article>
 
-  <h2><%= link_to "ALBUMS", albums_path %></h2>
-  <% @works.each do |work| %>
-  <% if work.category == "album" %>
-  <ul>
-    <li>
-      <%= link_to work.title, work_path(work.id) %>
-    </li>
-  </ul>
-  <% end %>
+  <article class="columns large-3 small-10">
+    <h2>Top Albums</h2>
+    <% @works.each do |work| %>
+    <% if work.category == "album" %>
+    <ul>
+      <li>
+        <%= link_to work.title, work_path(work.id) %>
+      </li>
+    </ul>
+    <% end %>
+    <% end %>
+    <h2><%= link_to "ALBUMS", albums_path %></h2>
+  </article>
 
-  <% end %>
+
 </ul>
 </section>
