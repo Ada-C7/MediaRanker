@@ -27,7 +27,7 @@ class SessionsController < ApplicationController
 
       if user.save
         session[:user_id] = user.id
-        flash[:message] = "Successfully logged in as user #{user.username}"
+        flash[:message] = "Successfully logged in as user #{user.name}"
       else
         flash[:message] = "Could not log in"
         user.errors.messages.each do |field, problem|

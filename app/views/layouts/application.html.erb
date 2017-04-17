@@ -27,10 +27,8 @@
           <%= link_to "Logout", logout_path, method: :delete, class: "button" %>
         </p>
           <% else %>
-        <p>
           Not looged in
-          <%= link_to "Log In", "/auth/github" %>
-        </p>
+          <div><%= link_to "Log In", "/auth/github", class: "button" %></div>
           <% end %>
         </div>
       </nav>
