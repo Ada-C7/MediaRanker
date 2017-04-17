@@ -15,8 +15,10 @@ class WorksController < ApplicationController
     @work.category = @category
 
     if @work.save
+      flash[:success] = "Successfully created #{@work.title}"
       redirect_to works_path(@work.category.pluralize)
     else
+      flash[:failure] = "Could not create #{@work.category}"
       render :new, status: :bad_request
     end
   end
@@ -43,6 +45,7 @@ class WorksController < ApplicationController
         flash[:success] = "Successfully updated #{@work.title}"
         redirect_to works_path(@work.category.pluralize)
       else
+        flash[:failure] = "Could not update #{@work.category}"
         render :edit, status: :bad_request
       end
     end
@@ -54,6 +57,7 @@ class WorksController < ApplicationController
       head :not_found
     else
       category = work.category
+      flash[:success] = "Successfully deleted #{category}"
       work.destroy
       redirect_to works_path(category.pluralize)
     end
@@ -61,8 +65,14 @@ class WorksController < ApplicationController
 
   def vote
     if session[:user_id] # user logged in
-      Vote.create(user_id: session[:user_id], work_id: params[:id])
-      flash[:success] = "Successfully upvoted!"
+      vote = Vote.new(user_id: session[:user_id], work_id: params[:id])
+      if vote.valid?
+        flash[:success] = "Successfully upvoted!"
+        vote.save
+      else
+        flash[:failure] = "Could not upvote: "
+        flash[:error] = "user has already voted for this work"
+      end
     else
       flash[:failure] = "You must log in to upvote"
     end

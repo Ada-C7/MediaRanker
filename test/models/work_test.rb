@@ -113,7 +113,7 @@ describe Work do
       else
         top_albums.count.must_be :<, 10
       end
-      
+
       first_ablum_votes = top_albums.first.votes.count
       last_album_votes = top_albums.last.votes.count
       first_ablum_votes.must_be :>=, last_album_votes
