@@ -34,6 +34,14 @@ describe Work do
       confirm_error_message(work, :title)
     end
 
+    it "requires a unique title" do
+      Work.create!(title: "test title", category: "book")
+      duplicate_work = Work.new(title: "test title", category: "book")
+      duplicate_work.valid?.must_equal false
+
+      duplicate_work.errors.messages.must_include :title
+    end
+
     it "requires a category" do
       work = Work.new
       confirm_error_message(work, :category)
