@@ -1,0 +1,60 @@
+<h4>List of Albums</h4>
+
+
+
+<table>
+  <thead>
+    <tr>
+      <th>
+        Votes
+      </th>
+      <th>
+        Title
+      </th>
+      <th>
+        Created By
+      </th>
+      <th>
+        Published
+      </th>
+      <th>
+        Upvote
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @albums.each do |a| %>
+
+    <tr>
+      <td>
+        <%= a.votes.count %>
+      </td>
+      <td>
+        <%= link_to a.title, work_path(a.id) %>
+      </td>
+      <td>
+        <%= a.creator%>
+      </td>
+      <td>
+        <%= a.publication_year %>
+      </td>
+      <td>
+        <p class="button">
+          <%= link_to "Upvote", work_upvote_path(a.id), method: :patch %>
+        </p>
+      </td>
+    </tr>
+    <% end %>
+  </tbody>
+
+</table>
+
+
+
+
+<p class="button">
+  <%= link_to "View all media", root_path %>
+</p>
+<p class="button">
+  <%= link_to "Add a new album", new_album_path %>
+</p>

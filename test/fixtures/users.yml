@@ -1,0 +1,10 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+my_user:
+  name: gofarann
+
+my_user_no_name:
+  name:
+
+my_user_unique_name:
+  name: random

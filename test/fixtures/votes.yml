@@ -1,0 +1,9 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+my_vote:
+  user_id: 1
+  work_id: 4
+
+my_vote_no_user_id:
+  user_id:
+  work_id: 1

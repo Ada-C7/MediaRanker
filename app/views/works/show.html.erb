@@ -1,0 +1,45 @@
+<h4><%= @selected_work.title %></h4>
+<p>Created by: <%=@selected_work.creator%></p>
+<p>Published: <%=@selected_work.publication_year%></p>
+<p><%=@selected_work.description%></p>
+
+<% case @selected_work.category %>
+<% when "album"%>
+<p class="button"><%= link_to "Back to albums list", albums_path %></p>
+<% when "book"%>
+<p class="button"><%= link_to "Back to books list", books_path %></p>
+<% when "movie"%>
+<p class="button"><%= link_to "Back to movie list", movies_path %></p>
+<% end %>
+
+
+<p class="button"><%= link_to "Edit", edit_work_path %></p>
+<p class="button"><%= link_to "Upvote", work_upvote_path(@selected_work.id), method: :patch%></p>
+<p class="button"><%= link_to "Delete", work_path(@selected_work.id), data: { confirm: "are you sure?" }, method: :delete %> </p>
+
+<h3><%= @selected_work.votes.count %> voted for this <%= @selected_work.category %></h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>
+        Username
+      </th>
+      <th>
+        Date
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @selected_work.votes.each do |vote| %>
+    <tr>
+      <td>
+        <%= link_to User.find_by_id(vote.user_id.to_s).name, user_path(vote.user_id)%>
+      </td>
+      <td>
+        <%= vote.created_at.strftime("%B %d, %Y") %>
+      </td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>

@@ -1,0 +1,64 @@
+<h3>User Summary: <%= User.find_by_id(params[:id]).name %></h3>
+<p>
+  Joined site <%= User.find_by_id(params[:id]).created_at.strftime("%B %d, %Y") %>
+</p>
+
+<h3><%= link_to "See All Users", users_path %></h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>
+        Media Title
+      </th>
+      <th>
+        Created By
+      </th>
+      <th>
+        Published
+      </th>
+      <th>
+        category
+      </th>
+      <th>
+        Voted On
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <% User.find_by_id(params[:id]).votes.each do |vote| %>
+      <% if Work.find_by_id(vote.work_id) != nil %>
+
+      <th>
+          <%= link_to Work.find_by_id(vote.work_id).title, work_path(vote.work_id) %>
+      </th>
+      <th>
+          <%= Work.find_by_id(vote.work_id).creator%>
+      </th>
+      <th>
+          <%= Work.find_by_id(vote.work_id).publication_year%>
+      </th>
+      <th>
+          <%= Work.find_by_id(vote.work_id).category %>
+      </th>
+      <th>
+          <%= Work.find_by_id(vote.work_id).created_at.strftime("%B %d, %Y")%>
+      </th>
+    </tr>
+    <% else %>
+    <%= puts "work has been deleted" %>
+    <% end %>
+    <% end %>
+
+
+  </tbody>
+</table>
+
+<p class="button">
+  <%= link_to "View all Users", users_path %>
+</p>
+
+<p class="button">
+  <%= link_to "View all Media", works_path %> 
+</p>
