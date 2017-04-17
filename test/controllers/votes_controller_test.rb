@@ -5,7 +5,7 @@ class VotesControllerTest < ActionDispatch::IntegrationTest
     describe VotesController do
       it "should keep a user from voting on the same work twice" do
 
-        #I was really looking forward to doing this one, so even though I i haven't had time yet, I will probably still try.
+        #I was really looking forward to doing this one, so even though I i haven't had time yet(friday), I will still try over the weekend.
 
         work.id = "13"
         work.creator = "Chastity Belt"

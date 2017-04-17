@@ -11,8 +11,10 @@ class UsersControllerTest < ActionDispatch::IntegrationTest
     it "should be able to create a new user from login page" do
       #should return a form with a get
       #should save user
-      #data base should change as a result
     end
+
+    #def "data base should change as a result" do
+    #end
 
   end
 
