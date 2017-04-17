@@ -49,7 +49,7 @@ describe WorksController do
 
     #what happens when you send invalid data?
     #if there is an if statement - test both sides
-    it "re-renders the new work form if the book is invalid" do
+    it "re-renders the new work form if the work is invalid" do
       work_data = { work: { title: "Jane Eyre"} }
       post works_path, params: work_data
       must_respond_with :bad_request
@@ -63,7 +63,7 @@ describe WorksController do
       work_id = Work.first
       get work_path(work_id)
       must_respond_with :success
-      #we are not ever checking the book that was pulled out of the database.
+      #we are not ever checking the work that was pulled out of the database.
     end
 
     it "will return a 404 not found status when asked for a work that doesn't exist" do
@@ -132,7 +132,6 @@ describe WorksController do
 
     end
   end
-
 
   describe "destroy" do
     it "deletes a work that exists" do

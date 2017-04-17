@@ -5,11 +5,8 @@ class Work < ApplicationRecord
   validates :title, presence: true
   validates :creator, presence: true
   validates :publication_year, presence: true
-  # validates :description, presence: true
 
-  # validates :name, presence: true, length: { minimum: 2 }
-  # validates :phone_num, presence: true
-
+#ran out of time to sort these from highest vote count to lowest
   def self.gather_movies
     return Work.where(category: "movie")
   end
@@ -26,7 +23,7 @@ class Work < ApplicationRecord
   # end
 
   def self.gather_books
-    return Work.where(category: "book")
+    return Work.where(category: "book").minmax
   end
 
   def self.gather_albums

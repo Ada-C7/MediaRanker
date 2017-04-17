@@ -18,9 +18,7 @@ describe WelcomeController do
 end
 
 
-#go back and make sure have all these tests
+#if I had had time, I would go back and make sure have all these tests
 #test what happens when media of all sort
 #what happens when some media is missing? ie no books
 #what happens when no media at all
-
-#look for interesting cases to test for

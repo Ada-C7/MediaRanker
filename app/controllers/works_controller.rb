@@ -7,16 +7,6 @@ class WorksController < ApplicationController
     @work = Work.new
   end
 
-  # def create
-  #   # using save! or create! bang will give a rails error message and tell you what validation failed
-  #   @work = Work.create(work_params)
-  #   if @work.save
-  #     redirect_to works_path
-  #   else
-  #     render :new
-  #   end
-  # end
-
   def create
     # using save! or create! bang will give a rails error message and tell you what validation failed
     @work = Work.create(work_params)
@@ -28,29 +18,16 @@ class WorksController < ApplicationController
     end
   end
 
-### below is a paste in for reference
-#   def create
-#   @book = Book.new(book_params)
-#
-#   if @book.save
-#     redirect_to books_path
-#   else
-#     # We know the validations didn't pass
-#     render :new, status: :bad_request
-#   end
-# end
-
-
-
+#this was the create method I had earlier.  Leaving it in case I can go back and work on this because create gets errors in testing
   # def create
-  #   classroom = Classroom.new(classroom_params)
-  #   if classroom.save
-  #     redirect_to classrooms_path
+  #   # using save! or create! bang will give a rails error message and tell you what validation failed
+  #   @work = Work.create(work_params)
+  #   if @work.save
+  #     redirect_to works_path
   #   else
-  #     render :new, status: :bad_request
+  #     render :new
   #   end
   # end
-
 
   def show
     @work = Work.find_by(id: params[:id])
@@ -80,8 +57,6 @@ class WorksController < ApplicationController
     end
   end
 
-
-
   def destroy
     work = Work.find_by(id: params[:id])
     if work.nil?
@@ -92,7 +67,7 @@ class WorksController < ApplicationController
     end
   end
 
-
+#ran out of time to write this
   def upvote
     #if vote exists destroy vote?
     #else Vote.create
@@ -115,7 +90,6 @@ class WorksController < ApplicationController
 
   def spotlight
     @works.find_spotlight
-    # spotlight = work
   end
 
   private
