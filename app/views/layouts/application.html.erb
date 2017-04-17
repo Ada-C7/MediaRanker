@@ -14,7 +14,7 @@
         <div class="columns large-3 small-12">
           <p class="text-right">
           <% unless session[:user_id] %>
-          <%= link_to "Log in!", login_path %>
+          <%= link_to "Log in", login_path, class: "button" %>
           <% else %>
           Logged in as <%= link_to "#{session[:user_name]}", user_path(session[:user_id]) %></p>
           <%= link_to "Log out", logout_path, method: :put,  class: "button float-right" %>
@@ -29,11 +29,16 @@
         <%= message %>
 
       </div>
-      <% else %>
+      <% elsif name == "error"%>
       <div class="error">
         <%= message %>
-
       </div>
+      <% else %>
+      <ul class="error2">
+        <li>
+          <%= message %>
+        </li>
+      </ul>
       <%end%>
       <% end %>
     </section>

@@ -40,23 +40,15 @@ class WorksController < ApplicationController
   end
 
   def upvote
-    logger.info "===================Upvoting an item"
     @result_work = Work.find(params[:id])
-    # # @result_work = Work.find(shoe)
 
-    # work_votes = Vote.where(user_id: session[:user_id])
-      # already_voted = @result_work.votes.select {|work| work.work_id == @result_work.id}
+    if session[:user_id] == nil
+      flash[:error] = "you must be logged in to vote"
+      redirect_to :back
+      return
+    end
 
-    #   already_voted = @result_work.votes.select {|vote| vote.user_id == session[:user_id] }
-    #
-    # if already_v
-    #   flash[:error] = "Could not upvote"
-    #   redirect_to :back
-    #   return
-    # end
     if session[:user_id]
-      # @result_work.vote_count += 1
-      # @result_work.save
         @vote = Vote.new
         @vote.user_id = session[:user_id]
         @vote.work_id = params[:id]
@@ -66,17 +58,11 @@ class WorksController < ApplicationController
 
           redirect_to :back
         else
-          flash.now[:error] = "Could not upvote"
-          render "show"
-      end
-    else
-        flash[:error] = "you must be logged in to vote"
-        redirect_to :back
+          flash[:error] = "Could not upvote"
+          flash[:error2] = "You already voted on this work"
+          redirect_to :back
+        end
     end
-    # if @vote.save
-    #   flash[:success] = "Successfully upvoted!"
-    #   redirect_to work_path(@result_work.id)
-    # end
 
   end
 
