@@ -1,9 +1,9 @@
-<h1>Welcome#index</h1>
+<h1>MediaRanker</h1>
 
 <% ["book", "movie", "album"].each do |category| %>
 <% category_list = Work.by_category(category) %>
 <section class="top-ten columns large-4 small-12">
-<h1><%= "Top #{category.capitalize}'s:" %></h1>
+<h1><%= "Top #{category.capitalize}s:" %></h1>
 <ul>
   <% category_list.each do |work| %>
     <li><%= link_to "#{work.title}", work_path(work.id) %></li>
