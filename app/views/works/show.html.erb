@@ -1,0 +1,44 @@
+
+<article>
+  <%= @work.title %>
+  <p>Created by: <%= @work.creator %> </p>
+  <p>Published: <%= @work.publication_year %></p>
+  <p><%= @work.description %></p>
+  <p><%= link_to "View all Media", welcome_path, class: "button" %></p>
+
+
+</article>
+
+<article>
+  <h3> <%=@work.votes.count %> Vote/s for this <%= @work.category.capitalize %></h3>
+  <table>
+    <thead>
+      <th>User</th>
+      <th>Date</th>
+    </head>
+    <tbody>
+    <% @work.votes.each do |vote| %>
+      <tr>
+        <td> <%= link_to vote.user.name, user_path(vote.user_id) %></td>
+          <td><%= vote.created_at %></td>
+      </tr>
+    <% end %>
+      </tbody>
+  </table>
+</article>
+
+<article>
+  <% if @work.category == "book" %>
+    <%= link_to "View More Books", books_path, class: "button" %>
+  <% elsif @work.category == "movie" %>
+    <%= link_to "View More Movies", movies_path, class: "button" %>
+  <% else %>
+    <%= link_to "View More Albums", albums_path, class: "button" %>
+    <% end %>
+  <%= link_to "Edit", edit_work_path(@work.id), class: "button" %>
+  <% if session[:user_id] %>
+      <%= link_to "Upvote", vote_path(@work.id), method: :post, class: "button" %>
+  <% end %>
+  <%= link_to "Delete", work_path(@work), class: "button", method: :delete,
+    data: { confirm: "Are you sure?" } %>
+</article>

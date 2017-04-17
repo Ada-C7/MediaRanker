@@ -1,0 +1,46 @@
+<main>
+
+<section>
+<h1>Media Spotlight:<%= link_to @works.find_spotlight.title, work_path(@works.find_spotlight.id)%>
+</h1><%= @works.find_spotlight.creator%>
+</h1><%= @works.find_spotlight.votes.count%><%= @works.find_spotlight.description%>
+
+</section>
+
+<section>
+<h2>Top Movies</h2>
+<ul>
+  <% @movies.each do |work| %>
+    <li>
+      <%= link_to work.title, work_path(work.id)%>
+    </li>
+  <% end %>
+</ul>
+<p><%= link_to "View More Movies", movies_path, class: "button" %></p>
+</section>
+
+<section>
+<h2>Top Books</h2>
+<ul>
+  <% @books.each do |work| %>
+    <li>
+      <%= link_to work.title, work_path(work.id)%>
+    </li>
+  <% end %>
+</ul>
+<p><%= link_to "View More Books", books_path, class: "button" %></p>
+</section>
+
+<section>
+<h2>Top Albums</h2>
+<ul>
+  <% @albums.each do |work| %>
+    <li>
+      <%= link_to work.title, work_path(work.id)%>
+    </li>
+  <% end %>
+</ul>
+<p><%= link_to "View More Albums", albums_path, class: "button" %></p>
+</section>
+
+</main>

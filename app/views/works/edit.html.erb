@@ -1,0 +1,19 @@
+
+<main>
+  <h3>Edit this <%= @work.category %></h3>
+
+  <section>
+    <%= render partial: "form", locals: { submit_text: "Update Work" } %>
+
+    <% if @work.errors.any? %>
+          <ul>
+            <% @work.errors.each do |column, message| %>
+              <li>
+                <%= column.capitalize %> <%= message %>
+              </li>
+            <% end %>
+          </ul>
+        <% end %>
+
+  </section>
+</main>
