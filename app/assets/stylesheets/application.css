@@ -15,13 +15,13 @@
  */
 @import url('foundation.css');
 
-header {
-  border-bottom: 2px solid black
+.section_head {
+  padding-top: 2rem;
+  padding-bottom: 1rem;
 }
-
 .div_head {
   padding-top: 2rem;
-  padding-bottom: 2rem;
+  padding-bottom: 1rem;
 }
 
 th {
@@ -30,4 +30,13 @@ th {
 
 .button {
   margin: 0;
+}
+
+.delete{
+  background-color: red;
+}
+
+
+header {
+  border-bottom: 1px solid grey
 }

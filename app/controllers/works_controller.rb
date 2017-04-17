@@ -18,7 +18,7 @@ class WorksController < ApplicationController
     @work = Work.new(work_params)
     @work.category = session[:category]
     if @work.save
-      redirect_to works_path
+      redirect_to work_path(@work)
     else
       render :new
     end
@@ -85,6 +85,7 @@ class WorksController < ApplicationController
   def destroy
     work = Work.find_by(id: params[:id])
     work.destroy
+    work.votes.destroy_all
     redirect_to works_path
   end
 

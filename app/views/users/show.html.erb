@@ -1,13 +1,35 @@
-<div class="row div_head">
-  <h3>User Summary: <%= @user.name%></h3>
-</div>
+<section class="row section_head">
+  <div>
+    <h3>User Summary: <%= @user.name%></h3>
+  </div>
+  <div>
+    <%= @user.created_at.strftime("Joined site %b %d, %Y")%>
+  </div>
+</section>
 
 
-<p class="row" >
-  <%= @user.created_at.strftime("Joined site %b %d, %Y")%>
-</p>
-
-<p class="row">
+<section class="row">
   <%= link_to "See all Users", users_path, class: "button"%>
   <%= link_to "Back to Media List", works_path, class: "button"%>
-</p>
+</section>
+
+<section class="row table_scroll">
+  <table>
+    <tr>
+      <th class = "small-3 colums">Media Title</th>
+      <th class = "small-3 colums">Created By</th>
+      <th class = "small-2 colums">Published</th>
+      <th class = "small-2 colums">Category</th>
+      <th class = "small-2 colums">Voted on</th>
+    </tr>
+    <% @user.votes.each do |vote| %>
+    <tr>
+      <td><%=link_to vote.work.title, work_path(vote.work)%> </td>
+      <td><%=vote.work.creator%></td>
+      <td><%=vote.work.publication_year%></td>
+      <td><%=vote.work.category.capitalize%></td>
+      <td><%=vote.created_at.strftime("%b %d, %Y")  %></td>
+    </tr>
+    <% end %>
+  </table>
+</section>

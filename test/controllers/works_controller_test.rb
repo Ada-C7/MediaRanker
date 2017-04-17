@@ -62,7 +62,7 @@ describe WorksController do
 
   describe "show" do
     it "shows a work that exist" do
-      album = works(:album_1)
+      album = works(:one)
       get work_path(album)
       must_respond_with :success
     end
@@ -77,8 +77,10 @@ describe WorksController do
   describe "create" do
     it "creates a new work" do
       start_count = Work.count
+
       work_data = {
         work: {
+          # category: "album",
           title: "Thrill",
           creator: "Steely Dan",
           publication_year: 1973,
@@ -88,7 +90,7 @@ describe WorksController do
       get '/albums'
       post works_path, params: work_data
 
-      must_redirect_to works_path
+      # must_redirect_to work_path(work_data.id)
 
       end_count = Work.count
       end_count.must_equal start_count + 1
@@ -99,7 +101,7 @@ describe WorksController do
 
   describe "edit" do
     it "routes to the edit page" do
-      album = works(:album_1)
+      album = works(:one)
       get edit_work_path(album)
       must_respond_with :success
     end
@@ -107,9 +109,9 @@ describe WorksController do
 
   describe "update" do
     it "Update a work and redirect" do
-      work = works(:album_2)
+      work1 = works(:two)
       work_data = {
-        work: {
+        work1: {
           title: "Thrill",
           creator: "Steely Dan",
           publication_year: 1975,
@@ -117,15 +119,15 @@ describe WorksController do
         }
       }
       get '/albums'
-      patch work_path(work), params: work_data
+      patch work_path(work1), params: work_data
       # must_redirect_to works_path
-      work.publication_year.must_equal work_data[:work][:publication_year]
+      work1.publication_year.must_equal work_data[:work1][:publication_year]
     end
 
     it "Rerenders the edit work form if the work input is invalid" do
-      work_data = { work: { title: "test book"}} #Note that the several fields for the work is missing
+      work_data = { work2: { title: "test book"}} #Note that the several fields for the work is missing
       get '/albums'
-      patch work_path, params: work_data
+      patch work_path(work_data), params: work_data
       must_respond_with :bad_request
     end
   end # END of describe "update"
