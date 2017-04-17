@@ -1,0 +1,124 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+# This model initially had no columns defined. If you add columns to the
+# model remove the "{}" from the fixture names and add the columns immediately
+# below each fixture, per the syntax in the comments below
+#
+
+# good data
+aja:
+  title: Aja
+  category: album
+  creator: Steely Dan
+  publication_year: 1977
+  description: text
+  votes_count: 
+
+ursula:
+  title: A Wizard of Earthsea
+  category: book
+  creator: Ursula K. Leguin
+  publication_year: 1968
+  description:
+  votes_count: 9
+
+besson:
+  title: Fifth Element
+  category: movie
+  creator: Luc Besson
+  publication_year:
+  description: Good sci-fi movie
+  votes_count: 10
+
+goldman:
+  title: Princess Bride
+  category: movie
+  creator:
+  publication_year:
+  description:
+  votes_count: 10
+
+album2:
+  title: interesting song
+  category: album
+  creator: Steely Dan
+  publication_year:
+  description:
+
+album3:
+  title: more interesting songs
+  category: album
+  creator: Steely Dan
+  publication_year:
+  description:
+
+album4:
+  title: something
+  category: album
+  creator: Steely Dan
+  publication_year:
+  description:
+
+album5:
+  title: sunny seattle
+  category: album
+  creator: Steely Dan
+  publication_year:
+  description:
+
+album6:
+  title: so many albums
+  category: album
+  creator: Steely Dan
+  publication_year:
+  description:
+
+album7:
+  title: more albums
+  category: album
+  creator: Steely Dan
+  publication_year:
+  description:
+
+album8:
+  title: sing song
+  category: album
+  creator: Steely Dan
+  publication_year:
+  description:
+
+album9:
+  title: song?
+  category: album
+  creator: Steely Dan
+  publication_year:
+  description:
+
+album10:
+  title: soooooongs
+  category: album
+  creator: Steely Dan
+  publication_year:
+  description: Steely Dan is a very prolific creator
+
+# bad data
+missing_title:
+  title:
+  category: album
+  creator: Steely Dan
+  publication_year: 1980
+  description: text
+
+missing_category:
+  title: Lost Time
+  category:
+  creator: Tacocat
+  publication_year: 2016
+  description: text
+
+wrong_category:
+  title: Kindred
+  category: performance
+  creator: Octavia E. Butler
+  publication_year: 1979
+  description: text
