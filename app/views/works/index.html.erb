@@ -5,8 +5,8 @@
 </header>
 <section>
   <% Work.spot_light.each do |item|%>
-  Media Spotlight: <%= link_to item.title, work_path(item.id) %>by <%=item.creator %></br>
-  <%= item.votes.count%>Votes - <%= item.description%>
+  Media Spotlight: <%= link_to item.title, work_path(item.id) %> by <%=item.creator %></br>
+  <%= item.votes.count%> Votes<%= item.description%>
   <% end %>
 </section>
 <section class="row">

@@ -27,36 +27,37 @@ end
 
 
   def show
-  @work = Work.find_by(id: params[:id])
+    @work = Work.find_by(id: params[:id])
     if !@work
       render_404
     end
   end
 
-  def new
-  @work = Work.new
-  end
-
   def edit
-  @work = Work.find(params[:id])
+    @work = Work.find(params[:id])
   end
 
   def update
-  work = Work.find(params[:id])
+    work = Work.find(params[:id])
     if work.update(work_params)
       redirect_to works_path
+    else
+      render "edit"
     end
   end
 
   def new
     @work = Work.new
+    @category = params[:category].singularize
   end
 
   def create
-    work = Work.create work_params
-
-    unless work.id == nil
-    redirect_to works_path
+    @work = Work.create work_params
+    
+    unless @work.id == nil
+      redirect_to works_path
+    else
+      render "new"
     end
   end
 
@@ -67,7 +68,7 @@ end
 
   private
   def work_params
-    params.require(:work).permit(:title, :creator, :publication_year, :description)
+    params.require(:work).permit(:title, :creator, :publication_year, :description, :category)
   end
 
 end

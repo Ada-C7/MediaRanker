@@ -2,6 +2,8 @@ Rails.application.routes.draw do
 
   root "works#index"
 
+  get '/:category/new', to: 'works#new', as: 'new_work'
+
   resources :works
   # resources :votes
 
@@ -23,5 +25,7 @@ Rails.application.routes.draw do
   post "login", to:"sessions#login"
 
   delete "logout", to:"sessions#logout"
+
+  #get '/:category', to: 'works#show_category', as: 'category'
 
 end
