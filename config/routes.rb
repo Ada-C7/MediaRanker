@@ -12,6 +12,8 @@ Rails.application.routes.draw do
   get '/:category/new', to: 'works#new', constraints: { category: /(books)|(movies)|(albums)/}, as: 'new_work'
   post '/:category', to: 'works#create', constraints: { category: /(books)|(movies)|(albums)/}
 
+  resources :users, except: [:edit, :update, :destroy]
+
   resources :works, except: [:index, :create] do
     member do
       post 'vote'

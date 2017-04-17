@@ -26,10 +26,11 @@ class WorksController < ApplicationController
     if Vote.where(user_id: session[:user_id], work_id: params[:id]).empty?
       Vote.create(user_id: session[:user_id], work_id: params[:id])
       flash[:success] = "You voted successfully!"
+      redirect_to work_path
     else
       flash[:failure] = "Sorry you can only vote once for this work."
     end
-    redirect_to work_path
+    # redirect_to work_path
   end
 
 
