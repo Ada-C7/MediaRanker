@@ -1,6 +1,5 @@
 class ItemsController < ApplicationController
 
-
   def index
     @items = Item.all
   end
@@ -12,7 +11,6 @@ class ItemsController < ApplicationController
   def new
     @item = Item.new(category:params[:category])
   end
-
 
   def create
 
@@ -39,7 +37,6 @@ class ItemsController < ApplicationController
     redirect_to category_index_path(item.category)
   end
 
-
   def destroy
     item = Item.find(params[:id])
     category= item.category
@@ -48,14 +45,22 @@ class ItemsController < ApplicationController
   end
 
   def vote
-    vote = Vote.create(user_id: session[:user_id], item_id: params[:id])
-
-    if user_book
-      flash[:success] = "Book Bought!"
-      redirect_to user_path(session[:user_id])
+    if session[:user_id].nil?
+      flash[:failure] = "You must be logged in to vote. Please use login button at the top right."
+      redirect_to item_path(params[:id])
+      return
     end
+
+    if Vote.where(user_id: session[:user_id], item_id: params[:id]).empty?
+      Vote.create(user_id: session[:user_id], item_id: params[:id])
+      flash[:success] = "Thanks for voting for #{Item.find(params[:id]).title}!"
+    else
+      flash[:failure] = "I know you love #{Item.find(params[:id]).title}, but you can only vote for it once!"
+    end
+    redirect_to item_path(params[:id])
   end
 
+  
   private
 
   def item_params

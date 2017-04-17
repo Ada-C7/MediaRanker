@@ -19,20 +19,18 @@
 
     <ul class= "login">
       <% if session[:user_id] %>
-        <li>Logged in as
-          <%=link_to current_user.username, user_path(current_user), method: :get%>
+      <li>Logged in as
+        <%=link_to current_user.username, user_path(current_user), method: :get%>
       </li>
       <% else %>
-        <li>Not logged in</li>
+      <li>Not logged in</li>
       <% end %>
 
 
-
-
       <% if session[:user_id] %>
-        <li><%= button_to "Logout", logout_path, method: :delete %></li>
+      <li><%= button_to "Logout", logout_path, method: :delete %></li>
       <% else %>
-        <li><%= button_to "Login", login_path, method: :get%></li>
+      <li><%= button_to "Login", login_path, method: :get%></li>
       <% end %>
     </ul>
 
@@ -41,12 +39,9 @@
 
   <section class="flash">
     <% flash.each do |name, message| %>
-      <div class="<%= name %>"><%= message %></div>
+    <div class="<%= name %>"><%= message %></div>
     <% end %>
   </section>
-
-
-
 
 
   <%= yield %>
