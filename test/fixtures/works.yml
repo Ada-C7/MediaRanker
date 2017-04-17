@@ -1,0 +1,19 @@
+album:
+  title: More Life
+  category: album
+  creator: Drake
+  description: More Life is a musical project by Canadian rapper Drake, described by the artist as a playlist.[5][6] It was released on March 18, 2017, by OVO Sound, Young Money Entertainment, Cash Money Records, and Republic Records.[7][8][9] The project was promoted by the single "Fake Love", which was released on October 29, 2016. The playlist will be further promoted by the singles "Passionfruit" and "Free Smoke", which will be serviced to US urban, rhythmic, and contemporary hit radio on March 28 and April 18, respectively.
+  pub_date: 2017
+
+book:
+  title: Poems
+  category: book
+  creator: His poems have been widely translated into many of the world's languages and transposed into various formats. Rumi has been described as the "most popular poet"[11] and the "best selling poet" in the United States
+  pub_date: 1273
+
+movie:
+  title: Mission Impossible
+  category: movie
+  creator: Tom Cruise
+  description: MissionImpossible is a series of action spy thriller films based on the television series of the same name, produced by and starring Tom Cruise as Impossible Missions Force (IMF) agent Ethan Hunt.
+  pub_date: 1996

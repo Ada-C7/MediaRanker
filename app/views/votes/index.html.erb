@@ -1,0 +1,9 @@
+<h2> All Categories of Media </h2>
+
+<ul>
+  <% @votes.each do |vote| %>
+  <li>
+    <%= vote.created_at %>
+  </li>
+  <% end %>
+</ul>

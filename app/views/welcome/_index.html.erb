@@ -1,0 +1,6 @@
+<li>
+  <%= link_to "Title: #{work.title}", work_path(work.id) %>
+  <%= "Created By: #{work.creator}" %>
+  <%= "Published: #{work.pub_date}" %>
+</li>
+<% end %>

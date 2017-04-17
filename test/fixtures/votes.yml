@@ -1,0 +1,11 @@
+one:
+  work: album
+  user: one
+
+two:
+  work: movie
+  user: two
+
+three:
+  work: book
+  user: one

@@ -1,0 +1,12 @@
+<h2> All Categories of Media </h2>
+
+<ul>
+  <% @users.each do |user| %>
+  <li>
+    <%= link_to "#{user.username}", user_path(user.id) %>
+    <%= "Vote Count: #{user.votes.count}" %>
+    <%= "Joined At: #{user.created_at.to_date}" %>
+  </li>
+  <% end %>
+</ul>
+<%= link_to "Back to Main", welcome_path %>

@@ -1,0 +1,18 @@
+<h2> <%= "Title: #{@work.title}" %></h2>
+
+<ul>
+  <li>
+    <%= "Created By: #{@work.creator}" %>
+    <%= "Published: #{@work.pub_date}" %>
+  </li>
+</ul>
+
+<% @work.users.all.each do |user| %>
+<li>
+  <% user = User.find(user.id) %>
+  <h3><%= link_to "#{user.username}", user_path(user.id) %></h3>
+</li>
+<% end %>
+
+<%= button_to "Edit", edit_work_path, method: :get %>
+<%= button_to "Upvote", upvote_path, method: :post %>

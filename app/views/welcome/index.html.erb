@@ -1,0 +1,56 @@
+<section>
+<h2> Media Spotlight </h2>
+  <h3><%= "#{@media_spotlight.title}" %></h3>
+  <br> <%= "#{@media_spotlight.vote_count} Votes" %>
+  <br> <%= "Created By: #{@media_spotlight.creator}" %>
+  <br> <%= "Published: #{@media_spotlight.pub_date}" %>
+  <br> <%= "#{@media_spotlight.description}" %>
+</section>
+
+<section>
+  <br>
+<h3> Albums </h3>
+<ul>
+  <% @albums.each do |work| %>
+  <li>
+    <%= link_to "Title: #{work.title}", work_path(work.id) %>
+    <%= "#{work.vote_count} Vote(s)" %>
+    <%= "Created By: #{work.creator}" %>
+    <%= "Published: #{work.pub_date}" %>
+  </li>
+  <% end %>
+</ul>
+<%= link_to "See More Albums", albums_path %>
+</section>
+
+<section>
+  <br>
+<h3> Books </h3>
+<ul>
+  <% @books.each do |work| %>
+  <li>
+    <%= link_to "Title: #{work.title}", work_path(work.id) %>
+    <%= "#{work.vote_count} Vote(s)" %>
+    <%= "Created By: #{work.creator}" %>
+    <%= "Published: #{work.pub_date}" %>
+  </li>
+  <% end %>
+</ul>
+<%= link_to "See More Books", books_path %>
+</section>
+
+<section>
+  <br>
+<h3> Movies </h3>
+<ul>
+  <% @movies.each do |work| %>
+  <li>
+    <%= link_to "Title: #{work.title}", work_path(work.id) %>
+    <%= "#{work.vote_count} Vote(s)" %>
+    <%= "Created By: #{work.creator}" %>
+    <%= "Published: #{work.pub_date}" %>
+  </li>
+  <% end %>
+</ul>
+<%= link_to "See More Movies", movies_path %>
+</section>
