@@ -1,0 +1,70 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+# VALID WORK DATA
+# work with complete data
+lee:
+  category: book
+  title: Hidden Figures
+  creator: Margot Lee Shetterly
+  publication_year: 2016
+  description: Good book that came before the movie
+
+# work with complete data
+mee:
+  category: movie
+  title: Hidden Figures
+  creator: Margot Lee Shetterly
+  publication_year: 2016
+  description: Good movie that came after the book
+
+# work without description
+dan:
+  category: album
+  title: Countdown to Ecstasy
+  creator: Steely Dan
+  publication_year: 1973
+  description:
+
+# work without creator
+kinney:
+  category: album
+  title: Call the Doctor
+  creator:
+  publication_year: 1996
+  description: N/A
+
+# work without publication_year
+belt:
+  category: album
+  title: Time to Go Home
+  creator: Chastity Belt
+  publication_year:
+  description: N/A
+# END VALID DATA
+
+# INVALID DATA
+# work without a title
+badlee:
+  category: book
+  title:
+  creator: Margot Lee Shetterly
+  publication_year: 2016
+  description: Good book that came before the movie
+
+# work without a category
+baddan:
+  category:
+  title: Countdown to Ecstasy
+  creator: Steely Dan
+  publication_year: 1973
+  description: N/A
+
+# work with a invalid category
+badbelt:
+  category: performance
+  title: Time to Go Home
+  creator: Chastity Belt
+  publication_year: 1234
+  description: N/A
+
+# END INVALID WORK DATA

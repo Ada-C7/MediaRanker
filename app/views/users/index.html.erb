@@ -1,0 +1,22 @@
+<h3>List of Users</h3>
+<section class="user-table">
+  <table>
+    <thead>
+      <tr>
+        <th>Username</th>
+        <th>Votes</th>
+        <th>Joined</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @users.each do |user| %>
+      <tr>
+        <td><%= link_to user.name, user_path(user.id) %></td>
+        <td><%= user.votes.size %></td>
+        <td><%= user.created_at.to_date.strftime("%B %d, %Y") %></td>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
+  <%= link_to "Back to Media List", root_path, class:"button" %>
+</section>

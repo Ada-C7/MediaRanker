@@ -1,0 +1,27 @@
+<h3>List of Movies</h3>
+<section class="media-table">
+  <table>
+    <thead>
+      <tr>
+        <th>Votes</th>
+        <th>Title</th>
+        <th>Created By</th>
+        <th>Published</th>
+        <th>Upvote</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @movies.each do |movie| %>
+      <tr>
+        <td><%= movie.votes.size %></td>
+        <td><%= link_to movie.title, work_path(movie.id) %></td>
+        <td><%= movie.creator %></td>
+        <td><%= movie.publication_year.to_i %></td>
+        <td><%= link_to "Upvote", list_vote_path(movie.id), method: :post, class:"button" %></td>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
+  <%= link_to "View all media", root_path, class:"button" %>
+  <%= link_to "Add a new movie", new_movie_path, class:"button" %>
+</section>

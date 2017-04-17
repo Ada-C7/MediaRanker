@@ -1,0 +1,11 @@
+<ul class="error">
+  <% @work.errors.each do |column, msg| %>
+  <li>
+    <%= column.capitalize %> <%= msg %>
+  </li>
+  <% end %>
+</ul>
+
+<h3>Add New Book</h3>
+
+<%= render partial: "form_new_work", locals: { form_method: :post } %>
