@@ -1,0 +1,13 @@
+<h2> Login Form </h2>
+
+<ul>
+<%= form_tag login_path, method: 'post' do %>
+<li>
+  <%= label_tag "Login Name: " %>
+  <%= text_field_tag "name" %>
+</li>
+<li>
+  <%= submit_tag "Login" %>
+</li>
+  <% end %>
+</ul>

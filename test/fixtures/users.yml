@@ -1,0 +1,10 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+bren:
+  name: brenna
+
+ella:
+  name: ella fitzgerald
+
+bob:
+  name: spongebob squarepants

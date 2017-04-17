@@ -1,0 +1,49 @@
+<article class="media-details columns large-6 small-12">
+  <h3> <%= @work.name %> </h3>
+  <p>
+    Created by: <%= @work.created_by %>
+  </p>
+  <p>
+    Published in: <%= @work.pub_year %>
+  </p>
+  <p>
+    Description: <%= @work.desc %>
+  </p>
+
+  <section>
+    <%= link_to "Back to list", category_path(@work.category), class: "button" %>
+    <%= button_to "Edit", edit_work_path, class: "button", method: :get %>
+    <%= link_to "Upvote", upvote_path, class: "button", method: :post %>
+    <%= button_to "Delete Work", work_path(@work.id), method: :delete, class: "alert button", data: { confirm: "Do you really want to delete this work? Such ingenuity and passion went into making it!" } %>
+  </section>
+</article>
+
+  <article class="voting-users columns large-6 small-12">
+    <h3>
+      <% if @work.votes.length == 1 %>
+      1 Vote
+      <% else %>
+      <%= @work.votes.length %> Votes
+      <% end %>
+    </h3>
+    <% if @work.votes.length > 0 %>
+    <table>
+      <thead>
+        <th>User</th>
+        <th>Date</th>
+      </thead>
+      <tbody>
+        <% @work.votes.each do |vote| %>
+        <tr>
+          <td>
+            <%= link_to vote.user.name, user_path(vote.user.id) %>
+          </td>
+          <td>
+            <%= vote.created_at.strftime("%b %d, %Y") %>
+          </td>
+        </tr>
+        <% end %>
+      </tbody>
+    </table>
+    <% end %>
+  </article>
