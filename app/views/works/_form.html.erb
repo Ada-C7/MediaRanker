@@ -1,0 +1,26 @@
+<%= form_for(@work, url: "/#{@work.category.pluralize}/#{@work.id}", method: :patch) do |work| %>
+  <ul class="demo-list-item mdl-list">
+    <li class="mdl-list__item">
+      <span class="mdl-list__item-primary-content">
+        Title <%= work.text_field :title %>
+      </span>
+    </li>
+    <li class="mdl-list__item">
+      <span class="mdl-list__item-primary-content">
+        Creator <%= work.text_field :creator %>
+      </span>
+    </li>
+    <li class="mdl-list__item">
+      <span class="mdl-list__item-primary-content">
+        Publication year <%= work.text_field :publication_date %>
+      </span>
+    </li>
+    <li class="mdl-list__item">
+      <span class="mdl-list__item-primary-content">
+        Description <%= work.text_field :description%>
+      </span>
+    </li>
+  </ul>
+
+  <%= work.submit class: "mdl-button mdl-js-button mdl-button--raised mdl-button--colored" %>
+<% end %>

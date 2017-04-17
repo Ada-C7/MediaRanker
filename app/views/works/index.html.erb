@@ -1,0 +1,28 @@
+<h1>Category index</h1>
+
+<%#link_to "View more #{category}s", by_category %>
+
+<table class="mdl-data-table mdl-js-data-table mdl-shadow--2dp">
+  <thead>
+    <tr>
+      <th class="mdl-data-table__cell--non-numeric">Name</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @works.each do |work| %>
+    <tr>
+      <td class="mdl-data-table__cell--non-numeric">
+        <%= link_to "#{work.title}", welcome_path(work) %>
+      </td>
+      <td>
+      
+      </td>
+      <td>
+
+      </td>
+
+      </tr>
+      <% end %>
+    </tbody>
+  </table>

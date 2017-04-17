@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>MediaRanker</title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    <header>
+   <%= image_tag "owl.jpg", alt:"Owl reading a book", class:"owl_img"%>
+   <h1> <%= link_to "Media Ranker", books_path %> </h1>
+   <h1> Ranking the Best of Everything </h1>
+
+   <%= link_to "New User", new_user_path %>
+   <% if session[:user_id] %>
+         <li><%= link_to "Logout", logout_path, method: :delete %></li>
+       <% end %>
+ </header>
+
+ <%= yield %>
+
+  </body>
+</html>

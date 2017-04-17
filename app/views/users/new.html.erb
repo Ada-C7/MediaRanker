@@ -1,0 +1,9 @@
+<h3>Log In</h3>
+
+<%= form_tag @new_user do %>
+  <%= label_tag "Username" %>
+  <%= text_field_tag "username" %>
+
+  <%= submit_tag("Login", class: "button") %>
+
+<% end %>

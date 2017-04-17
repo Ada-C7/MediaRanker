@@ -1,0 +1,31 @@
+
+<section>
+<p>
+  Media Spotlight:
+</p>
+</section>
+
+<section>
+  <h2>Movies</h2>
+  <ul>
+
+<% @movies.each do |movie| %>
+<li>
+  <%=link_to(movie.title, movie_path(movie.id)) %></p>
+</li>
+<% end %>
+<%= link_to "View More Movies", movies_path %>
+
+  <h2>Albums</h2>
+<% @albums.each do |album| %>
+<li><%=link_to(album.title, album_path(album.id)) %></li>
+<% end %>
+<%= link_to "View More Albums", albums_path %>
+
+  <h2>Books</h2>
+<% @books.each do |book| %>
+<li><%=link_to(book.title, book_path(book.id)) %></li>
+<% end %></br>
+<%= link_to "View More Books", books_path %>
+</ul>
+</section>
