@@ -1,0 +1,17 @@
+<h3> <%= @user.username %> </h3>
+<p> Joined site on <%= @user.created_at %>
+
+<h4>Votes</4>
+<% @user.votes.map do | vote | %>
+ <li>
+      <span> <%=  vote.submission.title %> </span>
+      <span> <%=  vote.submission.author %> </span>
+      <span> <%=  vote.submission.publish_date %> </span>
+      <span> <%=  vote.submission.category %> </span>
+      <span> <%=  vote.created_at %> </span>
+       <span> <%=  vote.user.username %> </span>
+</li>
+<% end %>
+
+<%= link_to 'See all Users', users_path %>
+<%= link_to 'Back to Media List', root_path %>

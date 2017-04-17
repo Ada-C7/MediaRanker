@@ -1,0 +1,40 @@
+<h1>Spotlight</h1>
+<ul>
+     <% @spotlight.each do | submission | %>
+     <li class="spotlight-title"> <p><%= link_to submission.title, submission_path(submission.id) %> &nbsp;by <%=  submission.author %></li>
+     <li class="spotlight-description"> <p><%=  submission.summary %>
+     <li class="spotlight-votes"> <p><%=  submission.votes.size %> Votes <p></li>
+     <% end %>
+</ul>
+<% content_for :albums do %>
+     <h1>Top Albums</h1>
+     <ul>
+          <% @albums.each do | submission | %>
+          <li> <p> <%= link_to submission.title, submission_path(submission.id) %> by  <%=  submission.author %> </p> </li>
+          <li> <p><%= submission.votes.size %> </p> </li>
+          <% end %>
+     </ul>
+     <p> <%= link_to "View More Albums", albums_path %> </p>
+<% end %>
+
+<% content_for :books do %>
+     <h1>Top Books</h1>
+     <ul>
+          <% @books.each do | submission | %>
+          <li> <p><%= link_to submission.title, submission_path(submission.id) %> by  <%=  submission.author %> </p> </li>
+          <li> <p><%=  submission.votes.count %> </p> </li>
+          <% end %>
+     </ul>
+     <p> <%= link_to "View More Books", books_path %> </p>
+<% end %>
+
+<% content_for :movies do %>
+     <h1>Top Movies</h1>
+     <ul>
+          <% @movies.each do | submission | %>
+          <li> <p><%= link_to submission.title, submission_path(submission.id) %> by  <%=  submission.author %> </p> </li>
+          <li> <p> <%=  submission.votes.count %></p> </li>
+          <% end %>
+     </ul>
+     <p> <%= link_to "View More Movies", movies_path %> </p>
+<% end %>

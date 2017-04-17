@@ -1,0 +1,33 @@
+<h3> <%= @submission.title %> </h3>
+<p> Created by: <%= @submission.author %>
+<p> Published: <%= @submission.publish_date %>
+<p> Summary: <%= @submission.summary %>
+
+<p>
+     <% if @submission.category == "Album" %>
+          <%= link_to 'Back to Albums', albums_path(@submission) %>
+     <% elsif @submission.category == "Book" %>
+          <%= link_to 'Back to Books', books_path(@submission) %>
+     <% else @submission.category == "Movies" %>
+          <%= link_to 'Back to Movies', movies_path(@submission) %>
+     <% end %>
+
+
+     <%= link_to 'Edit', edit_submission_path(@submission) %>
+     <%= link_to 'Upvote', upvote_submission_path(@submission)%>
+     <%= link_to 'Delete', submission_path(@submission),
+          data: { confirm: "Are you confident you'd like to delete this submission?" },
+          method: :delete
+      %>
+     <%= link_to 'Back', root_path %>
+
+     <p> <%= @submission.votes.count %> Votes for This <%= @submission.category %> </p>
+
+</p>
+
+<ul>
+     <li> <strong> <span> User </span> <span> Date </span> </strong> </li>
+     <% @submission.votes.each do | vote | %>
+          <li> <span> <%= vote.user.username %> </span> <span> <%= vote.created_at %> </span> </li>
+     <% end %>
+</ul>
