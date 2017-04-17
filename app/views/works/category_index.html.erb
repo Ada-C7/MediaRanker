@@ -1,4 +1,4 @@
 <h3>List of <%=params[:category]%></h3>
 <%= render partial: "list" %>
-<%= link_to "Add a new #{params[:category].singularize}", new_work_path %>
+<%= link_to "Add a new #{params[:category].singularize}", new_work_path, class: "button" %>
 </section>
