@@ -1,0 +1,60 @@
+<% if @vote %>
+  <ul class="errors">
+    <% @vote.errors.each do |column, message| %>
+      <li>
+        <strong><%= column.capitalize %></strong> <%= message %>
+      </li>
+    <% end %>
+  </ul>
+<% end %>
+
+<div class="row">
+  <section class="small-6 column">
+    <h3><%= @result_work.title %></h3>
+    <p>
+      Created by: <%= @result_work.creator %>
+    </p>
+    <p>
+      Published: <%= @result_work.publication_year %>
+    </p>
+    <p>
+      <%= @result_work.description %>
+    </p>
+    <p>
+      <%= @result_work.category %>
+    </p>
+    <p>
+      <%= @result_work.votes.count %>
+    </p>
+
+    <% if @result_work.category == "book" %>
+    <%= link_to "Back to book list", books_path, class: "button" %>
+    <% elsif @result_work.category == "album" %>
+    <%= link_to "Back to album list", albums_path, class: "button" %>
+    <% elsif @result_work.category == "movie" %>
+    <%= link_to "Back to movie list", movies_path, class: "button" %>
+    <% end %>
+
+    <%= link_to "Edit", edit_work_path, class: "button" %>
+    <%= link_to "Upvote", upvote_path, method: :post, class: "button" %>
+    <%= link_to "Delete", work_path(@result_work.id), data: { confirm: "Are you sure you want to delete this work?" }, method: :delete, class: "alert button" %>
+  </section>
+
+  <section class="small-6 column">
+    <h3><%= @result_work.votes.count %> votes for this <%= @result_work.category %></h3>
+    <table>
+      <tr>
+        <th>User</th>
+        <th>Date</th>
+      </tr>
+      <% if @work_votes != nil %>
+      <% @work_votes.each do |vote| %>
+      <tr>
+        <td><%= link_to vote.user.name, user_path(vote.user.id) %></td>
+        <td><%= vote.created_at.strftime("%b %d, %Y") %></td>
+      </tr>
+      <% end %>
+      <% end %>
+    </table>
+  </section>
+</div>

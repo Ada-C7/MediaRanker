@@ -1,0 +1,20 @@
+<%= form_for @work, url: work_path, method: form_method do |f| %>
+blablablaa
+  <p>
+  <%= f.label :title, "YoYoYo" %>
+  <%= f.text_field :title %>
+  </p>
+  <p>
+  <%= f.label :creator %>
+  <%= f.text_field :creator %>
+  </p>
+<p>
+  <%= f.label :publication_year %>
+  <%= f.text_field :publication_year %>
+</p>
+<p>
+  <%= f.label :description %>
+  <%= f.text_area :description, size: "60x2" %>
+</p>
+  <%= f.submit action_name, class: class_name %>
+<% end %>

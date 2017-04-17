@@ -1,0 +1,10 @@
+<h3>Edit this
+  <% if @work.category == "book" %>
+  <%= "book" %>
+  <% elsif @work.category == "album" %>
+  <%= "album" %>
+  <% elsif @work.category == "movie" %>
+  <%= "movie" %>
+  <% end %></h3>
+
+<%= render partial: "form", locals: { action_name: "Update Work", form_method: :put, class_name: "button" } %>

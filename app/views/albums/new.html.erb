@@ -1,0 +1,12 @@
+<% if @album.errors.any? %>
+  <ul class="errors">
+    <% @album.errors.each do |column, message| %>
+      <li>
+        <strong><%= column.capitalize %></strong> <%= message %>
+      </li>
+    <% end %>
+  </ul>
+<% end %>
+<h3>Add a new album</h3>
+
+<%= render partial: "form", locals: { action_name: "add an album", form_method: :post, class_name: "button" } %>

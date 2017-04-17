@@ -1,0 +1,16 @@
+<h3>List of Users</h3>
+
+<table>
+  <tr>
+    <th>Votes</th>
+    <th>Name</th>
+    <th>Join Date</th>
+  </tr>
+<% @users.each do |user| %>
+  <tr>
+    <td><%= user.votes.count %></td>
+    <td><%= link_to user.name, user_path(user.id) %></td>
+    <td><%= user.created_at.strftime("%b %d, %Y") %></td>
+  </tr>
+  <% end %>
+</table>

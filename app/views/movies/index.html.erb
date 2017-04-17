@@ -1,0 +1,36 @@
+<% if @vote != nil %>
+<% if @vote.errors.any? %>
+  <ul class="errors">
+    <% @vote.errors.each do |column, message| %>
+      <li>
+        <strong><%= column.capitalize %></strong> <%= message %>
+      </li>
+    <% end %>
+  </ul>
+<% end %>
+<% end %>
+
+
+<h3>List of Movies</h3>
+
+<table>
+  <tr>
+    <th>Votes</th>
+    <th>Title</th>
+    <th>Created By</th>
+    <th>Published</th>
+    <th>Upvote</th>
+  </tr>
+<% @movies.each do |movie| %>
+  <tr>
+    <td><%= movie.votes.count %></td>
+    <td><%= link_to movie.title, work_path(movie.id) %></td>
+    <td><%= movie.creator %></td>
+    <td><%= movie.publication_year %></td>
+    <td><%= link_to "Upvote", upvote_path(movie.id), method: :post, class: "button" %></td>
+  </tr>
+  <% end %>
+</table>
+
+<%= link_to "Back to all media", root_path, class: "button" %>
+<%= link_to "Add new movie", new_movie_path, class: "button" %>
