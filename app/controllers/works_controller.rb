@@ -82,7 +82,8 @@ class WorksController < ApplicationController
   #VOTE
 
   def vote
-    
+    work = Work.find(params[:id])
+    # unless work.has_vote
     unless Vote.find_by(user_id: session[:user_id], work_id: params[:id])
       vote = Vote.create(user_id: session[:user_id], work_id: params[:id])
     end
