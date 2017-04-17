@@ -1,0 +1,17 @@
+.albums {
+  display: inline-block;
+  width: 33%;
+  vertical-align: top;
+}
+
+.movies {
+  display: inline-block;
+  width: 33%;
+  vertical-align: top;
+}
+
+.books {
+  display: inline-block;
+  width: 33%;
+  vertical-align: top;
+}

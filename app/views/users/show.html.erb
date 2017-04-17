@@ -1,0 +1,23 @@
+<h1> User summary: <%= link_to "#{@user[:username]}" %></h1>
+<h2> Joined site <%= @user.created_at %></h2>
+<h3> Votes </h3>
+<table style="width:75%">
+  <tr>
+    <th>Media Title</th>
+    <th>Created By</th>
+    <th>Published</th>
+    <th>Category</th>
+    <th>Voted On</th>
+  </tr>
+  <% @user.items.each do |item| %>
+    <tr>
+      <td><%= link_to "#{item.title}", item_path(item.id) %></td>
+      <td><%= item.creator %></td>
+      <td><%= item.publication_year %></td>
+      <td><%= item.category %></td>
+      <td><%= item.votes.find_by(user_id: @user.id).created_at %></td>
+    </tr>
+  <% end %>
+</table>
+<%= link_to 'Back to homepage', root_path %>
+<%= link_to 'View all users', users_path %>

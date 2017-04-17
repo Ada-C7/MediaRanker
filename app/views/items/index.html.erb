@@ -1,0 +1,42 @@
+<h1>Media Ranker</h1>
+
+<div class="movies">
+  <h2>Top movies</h2>
+  <ul>
+    <% @movies.first(10).each do |movie| %>
+    <li>
+      <%= link_to "#{movie.title}", item_path(movie.id) %>, by <%=movie.creator%>
+      <br><%= movie.votes.count %> Votes
+    </li>
+    <% end %>
+  </ul>
+  <%= link_to 'View More Movies', category_path("movie") %>
+</div>
+
+<div class="books">
+  <h2>Top books</h2>
+  <ul>
+    <% @books.first(10).each do |book| %>
+    <li>
+      <%= link_to "#{book.title}", item_path(book.id) %>, by <%=book.creator%>
+      <br><%= book.votes.count %> Votes
+    </li>
+    <% end %>
+  </ul>
+  <%= link_to 'View More Books', category_path("book") %>
+</div>
+
+<div class="albums">
+  <h2>Top albums</h2>
+  <ul>
+    <% @albums.first(10).each do |album| %>
+    <li>
+      <%= link_to "#{album.title}", item_path(album.id) %>, by <%=album.creator%>
+      <br><%= album.votes.count %> Votes
+    </li>
+    <% end %>
+  </ul>
+  <%= link_to 'View More Albums', category_path("album") %>
+</div>
+
+<%= link_to "See all users", users_path %>
