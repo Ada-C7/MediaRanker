@@ -1,0 +1,29 @@
+<h1><%= @user.name %></h1>
+<h3>Joined Site <%= @user.created_at.strftime("%a %d, %Y") %></h3>
+
+<section>
+  <% if @user.works.length > 0 %>
+  <h4>Votes</h4>
+  <table>
+    <thead>
+      <tr>
+        <th>Media Title</th>
+        <th>Created by</th>
+        <th>Published</th>
+        <th>Category</th>
+        <th>Voted On</th>
+      </tr>
+    </thead>
+  <tbody>
+  <% @user.works.each do |work| %>
+  <tr>
+    <td><%= link_to work.title, work_path(work.id) %></td>
+    <td><%= work.created_by %></td>
+    <td><%= work.publication_year %></td>
+    <td><%= work.category %></td>
+    <td><%= work.votes.find_by(user_id: @user.id).created_at.strftime("%a %d, %Y") %></td>
+  </tr>
+  <% end %>
+</tbody>
+<% end %>
+</section>
