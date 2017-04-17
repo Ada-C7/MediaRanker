@@ -48,11 +48,9 @@ describe WorksController do
       post works_path, params: work_params
       must_redirect_to root_path
 
-      end_count = Work.count
-      end_count.must_equal start_count + 1
+      Work.count.must_equal start_count + 1
 
-      work = Work.last
-      work.title.must_equal work_params[:work][:title]
+      Work.last.title.must_equal work_params[:work][:title]
     end
 
     it "responds with bad_request for bogus data" do
@@ -66,8 +64,7 @@ describe WorksController do
       post works_path, params: work_params
       must_respond_with :bad_request
 
-      end_count = Work.count
-      end_count.must_equal start_count
+      Work.count.must_equal start_count
     end
   end
 

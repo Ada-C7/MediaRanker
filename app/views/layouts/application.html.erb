@@ -9,29 +9,34 @@
 </head>
 
 <body>
-  <header>
+  <header class='header_page'>
     <nav>
-      <%= link_to "MEDIA RANKER", root_path %>
+      <h2 class="columns large-9 small-10">
+        <%= link_to "MEDIA RANKER", root_path %>
+        <span class="small">Rankin the best of Everything</span>
+      </h2>
+      <div><%= link_to "User's list", users_path %></div>
+      <div><%= link_to "Registre", new_user_path %></div>
 
-      <div>
-        <%= link_to "User's list", users_path %>
-        <%= link_to "Registre", new_user_path %>
+
+      <div class= "columns large-3 medium-3 small-10">
         <% if session[:user_id] %>
         <%= session[:user_name] %>
-        <%= link_to "Logout", logout_path, method: :delete, class: "button" %>
+        <p><%= link_to "Logout", logout_path, method: :delete, class: "button" %></p>
         <% else %>
-        <%= link_to "login", login_path, method: :get, class: "button" %>
+        <p><%= link_to "login", login_path, method: :get, class: "button" %></p>
         <% end %>
       </div>
-
     </nav>
+
     <section class="flash">
       <% flash.each do |name, message| %>
       <div class="<%= name %>"><%= message %></div>
       <% end %>
     </section>
   </header>
-  <main>
+
+  <main class='row'>
     <%= yield %>
   </main>
 </body>

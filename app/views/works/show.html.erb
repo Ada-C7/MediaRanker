@@ -1,29 +1,52 @@
-<h1> Name: <%= @work.title %> </h1>
-<h2> ID: <%= @work.id %> </h2>
-<h2> Created by: <%= @work.created_by %> </h2>
-<h2> published: <%= @work.published_year %> </h2>
-<h2> <%= @work.description %> </h2>
+<article class="columns large-6 small-12">
+  <h3> Name: <%= @work.title %> </h3>
+  <p> ID: <%= @work.id %> </p>
+  <p> Created by: <%= @work.created_by %> </p>
+  <p> published: <%= @work.published_year %> </p>
+  <p> <%= @work.description %> </p>
 
-<% if @work.category == "movie"%>
-  <%= button_to 'Back to movie list', movies_path, method: :get %>
-<% elsif @work.category == "book"%>
-  <%= button_to 'Back to book list', books_path, method: :get %>
-<% elsif @work.category == "album"%>
-  <%= button_to 'Back to album list', albums_path, method: :get %>
-<%end%>
+  <section>
+    <% if @work.category == "movie"%>
+    <%= link_to 'Back to movie list', movies_path, method: :get, class: "button" %>
+    <% elsif @work.category == "book"%>
+    <%= link_to 'Back to book list', books_path, method: :get, class: "button" %>
+    <% elsif @work.category == "album"%>
+    <%= link_to 'Back to album list', albums_path, method: :get, class: "button" %>
+    <%end%>
 
-<%= link_to "Back to all lists", root_path, method: :get %>
-<%= link_to "Edit", edit_work_path(@work.id), method: :get %>
-<%= link_to "Delete", work_path(@work), method: :delete,
-data: {confirm: "Are you sure"} %>
+    <%= link_to "Back to all lists", root_path, method: :get, class: "button" %>
+    <%= link_to "Edit", edit_work_path(@work.id), method: :get, class: "button" %>
+    <%= link_to "Delete", work_path(@work), method: :delete, class: "button",
+    data: {confirm: "Are you sure"} %>
 
-<% if session[:user_id] %>
-    <%= link_to "Vote for this #{@work.category}.", vote_path(@work.id), method: :post %>
-<% end %>
+    <% if session[:user_id] %>
+    <%= link_to "Vote for this #{@work.category}.", vote_path(@work.id),
+    method: :post, class: "button" %>
+    <% end %>
+  </section>
+</article>
 
-<section>
-  <h4>Who else voted for this <%= @work.category %> </h4>
-  <% @work.users.each do |user| %>
-    <h5><%= link_to user.name, user_path(user.id) %> </h5>
-  <% end %>
+<article class="columns large-6 small-12">
+  <section>
+
+  <h3><%= "#{@work.votes.count} Votes for this #{@work.category}" %></h3>
+
+  <table>
+    <thead>
+      <tr>
+        <th>User</th>
+        <th>Date</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @work.votes.each do |vote| %>
+        <tr>
+          <td><%= link_to User.find(vote.user_id).name, user_path(vote.user_id) %></td>
+          <td><%= vote.created_at.strftime("%b %d, %Y") %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
 </section>
+
+</article>
