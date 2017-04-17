@@ -1,7 +1,9 @@
-<h1>Add new <%= session[:category].capitalize %></h1>
+<h3 class = "row">Add new <%= session[:category].capitalize %></h3>
 
-<%= render partial: "form"%>
+<div class = "row">
+  <%= render partial: "form"%>
+</div>
 
-<section id = "new_section">
-  <%= link_to "To all media", works_path, class: "button_link"%>
+<section class = "row">
+  <%= link_to "To all media", works_path, class: "button"%>
 </section>

@@ -1,23 +1,26 @@
+
+
 <% if @work.errors.messages.length > 0 %>
-  <section class="errors">
-    <h2>Something went wrong!</h2>
-    <ul>
-      <% @work.errors.messages.each do |field, problem_list| %>
-        <% problem_list.each do |problem| %>
-          <li>
-            <strong><%= field %>:</strong>
-            <%= problem %>
-          </li>
+<section class="errors">
+  <h2>Something went wrong!</h2>
+  <ul>
+    <% @work.errors.messages.each do |field, problem_list| %>
+      <% problem_list.each do |problem| %>
+        <li>
+          <strong><%= field %>:</strong>
+          <%= problem %>
+        </li>
         <% end %>
-      <% end %>
-    </ul>
-  </section>
+    <% end %>
+  </ul>
+</section>
 <% end %>
 
 
 
+
 <%= form_for @work do |f| %>
-  
+
 <div>
   <%= f.label :title, class: "label" %>
   <%= f.text_field :title, class: "field"%>

@@ -1,6 +1,9 @@
-<h1>Edit this <%=@work.title%></h1>
+<h3 class = "row">Edit this <%=@work.title%></h3>
 
-<%= render partial: "form"%>
-<section id = "edit_section">
-  <%= link_to "Back", @back_url, class: "button_link"%>
+<div class = "row">
+  <%= render partial: "form"%>
+</div>
+
+<section class = "row">
+  <%= link_to "Back", @back_url, class: "button"%>
 </section>
