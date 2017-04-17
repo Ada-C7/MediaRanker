@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>MediaRanker</title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    <header class="page-header">
+      <!-- <%= image_tag("owl.jpg", alt: "owl reading a book") %> -->
+      <h2 class="columns large-10 medium-10 small-12">
+        <%= link_to "Media Ranker", home_path %>
+        <span class="small">Ranking the Best of Everything</span>
+      </h2>
+      <div class="columns large-2 medium-2 small-12">
+        <% if session[:user_id] %>
+          <p>Logged in as <%= link_to session[:username], user_path(session[:user_id]) %></p>
+          <%= link_to "Log Out", logout_path, method: :delete, class: "button" %>
+        <% else %>
+          <p>Not logged in</p>
+          <%= link_to "Log In", login_path, class: "button" %>
+        <% end %>
+      </div>
+    </header>
+
+    <section class="row status failure">
+      <% flash.each do |name, message| %>
+        <h3 class="<%= name %>"><%= message %></h3>
+      <% end %>
+    </section>
+
+    <main class="row">
+      <%= yield %>
+    </main>
+  </body>
+</html>

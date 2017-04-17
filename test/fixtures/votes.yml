@@ -1,0 +1,9 @@
+vote1:
+  user: user1
+  work: hp
+vote2:
+  user: user1
+  work: lion
+vote3:
+  user: user2
+  work: belong

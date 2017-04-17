@@ -1,0 +1,26 @@
+<%= render partial: "error_messages", locals: {instance: @work} %>
+<h2>Add a new <%= @category.singularize %></h2>
+<%= render partial: "form", locals: {submit_text: "Create Work"} %>
+
+
+<!-- <section>
+  <%= form_for @work, url: {controller: "works", action: "create"} do |f| %>
+
+    <%= f.label :title %>
+    <%= f.text_field :title %>
+
+    <%= f.label :creator %>
+    <%= f.text_field :creator %>
+
+    <%= f.label :publication_year %>
+    <%= f.text_field :publication_year %>
+
+    <%= f.label :description %>
+    <%= f.text_area :description %>
+
+    <%= f.hidden_field :category, value: @category.singularize %>
+
+    <%= f.submit %>
+
+  <% end %>
+</section> -->

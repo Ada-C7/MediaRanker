@@ -1,0 +1,58 @@
+/*
+*= require_tree .
+*= require_self
+*/
+
+@import url(<%= asset_url('foundation.css') %>);
+
+ header {
+   border-bottom: 1px solid lightgray;
+   background-image: url(<%= image_url('owl.jpg') %>);
+   background-repeat: no-repeat;
+   height: 150px;
+   margin-bottom: 15px;
+ }
+
+h3.success {
+   color: #3CB371;
+ }
+
+ .failure, .error-messages, .alert {
+   color: #C71585;
+ }
+
+ h3.failure, h3.error {
+   display: inline;
+ }
+
+ .small {
+   color: gray;
+   font-size: smaller;
+ }
+
+ ul.works {
+   list-style-type: none;
+   margin-left: 0;
+ }
+
+ .spotlight div {
+   padding: 2% 0;
+ }
+
+.page-header p {
+  text-align: right;
+  margin-bottom: 5px;
+}
+
+.page-header .button {
+  float: right;
+}
+
+.page-header h2 {
+  float: left;
+  padding-left: 150px;
+}
+
+main {
+  clear: both;
+}

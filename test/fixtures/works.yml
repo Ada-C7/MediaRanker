@@ -1,0 +1,38 @@
+hp:
+  category: book
+  title: Harry Potter
+  creator: J. K. Rowling
+  publication_year: 1997
+
+flew:
+  category: book
+  title: One flew over the cuckoo's nest
+  creator: Ken Kesey
+  publication_year: 1962
+  description: book better than movie
+
+lion:
+  category: movie
+  title: Lion
+  creator: Garth Davis
+  publication_year: 2017
+  description: MyText
+
+hidden:
+  category: movie
+  title: Hidden Figures
+  creator: Theodore Melfi
+  publication_year: 2017
+
+belong:
+  category: album
+  title: Belong
+  creator: San Fermin
+  publication_year: 2017
+
+coexist:
+  category: album
+  title: Coexist
+  creator: The xx
+  publication_year: 2012
+  description: kinda a downer
