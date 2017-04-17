@@ -1,0 +1,15 @@
+<h1>Work Details</h1>
+
+<h3>Title: <%= @work.title %></h3> <%= button_to "Upvote", upvote_path, method: :post %>
+<ul>
+  <li>Category: <%= @work.category %></li>
+  <li>Creator: <%= @work.creator %></li>
+  <li>Year: <%= @work.year %></li>
+  <li>Description: <%= @work.description %></li>
+</ul>
+
+  <h3> <%= link_to "Home", works_path %></h3>
+
+
+  <!--  #@books.each do |book|-->
+  <!-- headrs with book title and creator -->

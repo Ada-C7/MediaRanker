@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>MediaRanker</title>
+    <%= csrf_meta_tags %>
+    <link rel="stylesheet"type="text/css"href="https://fonts.googleapis.com/css?family=Muli|Raleway">
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+
+    <h1>Are you a Media Ranker?!</h1>
+<nav>
+  <ul>
+    <li><a href=<%= works_path %>>All Works</a></li>
+    <li><a href=<%= new_work_path %>>New Work</a></li>
+    <% if session[:user_id] == nil %>
+    <li><a href=<%= login_path %>>Login!</a></li>
+    <% else %>
+    <%= link_to "Logout", login_path, method: :delete %>
+
+    <% end %>
+  </ul>
+</nav>
+</body>
+
+<section class="flash">
+<% flash.each do |name, message| %>
+<div class="<%= name %>"><%= message %></div>
+<% end %>
+</section>
+    <%= yield %>
+  </body>
+</html>

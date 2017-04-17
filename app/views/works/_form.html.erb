@@ -1,0 +1,14 @@
+<%= form_for @work, method: form_method do |f| %>
+
+<%= f.label :title, class: "work" %></br>
+<%= f.text_field :title %></br>
+
+<%= f.label :category %></br>
+<%= f.text_field :category %></br>
+
+<%= f.submit action_name, method: :put %>
+
+<% end %>
+
+</br>
+<%= link_to "Back to All Works", works_path %>
