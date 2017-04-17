@@ -1,0 +1,7 @@
+<h1>Show a Piece of Media yeah</h1>
+<%= @result_work.title %>
+<h4>Created by: </h4> <%= @result_work.creator %>
+<h4>Published:</h4> <%= @result_work.created_at %>
+
+<%= link_to 'Upvote', upvote_path, method: :post %>
+<%= link_to 'Delete', work_path, method: :delete %>
