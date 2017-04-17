@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  root 'users#index'
+  root 'works#index'
   # post 'books/:id/mark_read', to: 'books
   #mark_read', as: 'mark_book_read'
   resources :users
