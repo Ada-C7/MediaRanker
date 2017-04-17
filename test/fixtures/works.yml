@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+# This model initially had no columns defined. If you add columns to the
+# model remove the "{}" from the fixture names and add the columns immediately
+# below each fixture, per the syntax in the comments below
+#
+pretzel:
+  title: Pretzel Logic
+  creator: Steely Dan
+  publication_year: 1974
+  description: UGHHHH
+  category: album
+
+earthsea:
+  title: A Wizard of Earthsea
+  creator: Ursula K. Leguin
+  publication_year: 1968
+  description: a wizard does some shit
+  category: book

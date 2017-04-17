@@ -1,0 +1,20 @@
+<h3>Votes</h3>
+
+<table>
+  <tr>
+    <th>Media Title</th>
+    <th>Created By</th>
+    <th>Published</th>
+    <th>Category</th>
+    <th>Voted On</th>
+  </tr>
+  <% @user.votes.each do |vote| %>
+  <tr>
+    <td><%= link_to Work.find_by_id(vote.work_id).title, work_path(vote.work_id) %></td>
+    <td><%= Work.find_by_id(vote.work_id).creator %></td>
+    <td><%= Work.find_by_id(vote.work_id).publication_year %></td>
+    <td><%= Work.find_by_id(vote.work_id).category.capitalize %></td>
+    <td><%= vote.created_at.strftime("%b %d, %Y") %></td>
+  </tr>
+  <% end %>
+</table>
