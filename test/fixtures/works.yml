@@ -1,0 +1,29 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+amelie:
+  title: Amelie
+  creator: Jean-Pierre Jeunet
+  description: Paris is delightful
+  year: 2001
+  category: movie
+
+sgtpepper:
+  title: Sgt Pepper's Lonely Hearts' Club Band
+  creator: The Beatles
+  description: leela's fave
+  year: 1967
+  category: album
+
+orton:
+  title: Trailer Park
+  creator: Beth Orton
+  description: her voice
+  year: 1997
+  category: album
+
+sympathizer:
+  title: The Sympathizer
+  creator: Viet Thanh Nguyen
+  description: dark myster; vietnam war
+  year: 2016
+  category: book

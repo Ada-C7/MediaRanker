@@ -1,0 +1,9 @@
+<h3>Log In</h3>
+<%= form_tag login_path do %>
+
+  <%= label_tag "username" %>
+  <%= text_field_tag "name" %>
+  <!-- 'name' is what the variable will be called in the params hash -->
+
+  <%= submit_tag "Log In" %>
+<% end %>

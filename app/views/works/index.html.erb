@@ -1,0 +1,20 @@
+<section class="row spotlight">
+  <div>
+    <h3>Media Spotlight </h3>
+  </div>
+</section>
+
+<section class="top-ten columns large-4 small-12">
+  <h3>Top Movies</h3>
+  <%= render partial: "category", locals: {category: "movie"} %>
+</section>
+
+<section class="top-ten columns large-4 small-12">
+  <h3>Top Books</h3>
+  <%= render partial: "category", locals: {category: "book"} %>
+</section>
+
+<section class="top-ten columns large-4 small-12">
+  <h3>Top Albums</h3>
+  <%= render partial: "category", locals: {category: "album"}%>
+</section>
