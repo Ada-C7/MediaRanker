@@ -1,0 +1,74 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+hacking:
+  category: "album"
+  title: "Music For Hacking"
+  creator: "Zoe Blade"
+  publication_year: "2009"
+
+arch:
+  category: "album"
+  title: "ArchAndroid"
+  creator: "Janelle Monae"
+  publication_year: "2010"
+
+pelican:
+  category: "album"
+  title: "What We All Come To Need"
+  creator: "Pelican"
+  publication_year: "2009"
+
+shrek:
+  category: "movie"
+  title: "Shrek"
+  creator: "DreamWorks"
+  publication_year: "2001"
+  description: "Once upon a time, in a far away swamp, there lived an ogre named Shrek (Mike Myers)
+   whose precious solitude is suddenly shattered by an invasion of annoying fairy tale characters. "
+
+guardian:
+  category: "movie"
+  title: "Guardians of the Galaxy"
+  creator: "Marvel Studios"
+  publication_year: "2014"
+
+
+hp:
+  category: "book"
+  title: "Harry Potter and the Sorcerer's Stone"
+  creator: "JK Rowling"
+  publication_year: "1997"
+  description: "Harry Potter and the Philosopher's Stone is the first novel
+   in the Harry Potter series and J. K. Rowling's debut novel, first published in 1997 by Bloomsbury."
+
+mars:
+  category: "book"
+  title: "Red Mars"
+  creator: "Kim Stanley Robinson"
+  publication_year: "1992"
+
+invalid_category:
+  category: "Internet"
+  title: "Another Test"
+  creator: = "Me"
+  publication_year: "2009"
+  description: "This be test"
+
+no_title:
+      category: "book"
+      creator: = "Me"
+      publication_year: "2009"
+      description: "This be test"
+
+no_creator:
+      category: "movie"
+      title: "Another Test"
+      publication_year: "2009"
+      description: "This be test"
+
+no_year:
+      category: "book"
+      title: "Harry Potter and the Sorcerer's Stone"
+      creator: "JK Rowling"
+      description: "Harry Potter and the Philosopher's Stone is the first novel
+       in the Harry Potter series and J. K. Rowling's debut novel, first published in 1997 by Bloomsbury."

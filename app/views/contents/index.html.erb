@@ -1,0 +1,47 @@
+<main class="row">
+
+<section class="spotlight row">
+  <h3>Media Spotlight: <%= @spotlight.title %> by <%= @spotlight.creator %></h3>
+  <p><%= @spotlight.votes.length %> votes </p>
+
+</section>
+<section class="top columns large-4 small-12" >
+  <h3>Top Albums</h3>
+<% @albums.each do |a| %>
+<ul>
+<li>
+  <h4><%=link_to a.title, album_path(a.id) %><h4> <small>by <%= a.creator%></small>
+  <p><%= a.votes.length %> votes</p>
+</li>
+</ul>
+<% end %>
+
+<%= link_to "View More Albums", albums_path %>
+</section>
+
+<section class="top columns large-4 small-12" >
+<h3>Top Books</h3>
+<% @books.each do |b| %>
+<ul>
+<li>
+  <h4><%=link_to b.title, book_path(b.id) %></h4> <small>by <%= b.creator %></small>
+  <p><%= b.votes.length %> votes</p>
+</li>
+</ul>
+<% end %>
+<%= link_to "View More Books", books_path %>
+</section
+
+<section class="top columns large-4 small-12" >
+<h3>Top Movies</h3>
+<% @movies.each do |m| %>
+<ul>
+<li>
+  <h4><%=link_to m.title, movie_path(m.id) %></h4> <small>by <%= m.creator %></small>
+  <p><%= m.votes.length %> votes</p>
+</li>
+<% end %>
+</ul>
+<%= link_to "View More Movies", movies_path %>
+</section>
+</main>

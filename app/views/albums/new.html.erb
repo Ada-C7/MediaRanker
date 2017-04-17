@@ -1,0 +1,7 @@
+<main class="row">
+<h3>Add a new album</h3>
+
+<%= form_for @album, :url => { :action => "create" } do |form| %>
+<%= render partial: "form", locals: { f: form } %>
+<% end %>
+</main>

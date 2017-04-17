@@ -1,0 +1,40 @@
+
+<main class="row">
+<h3>User Summary: <%= link_to @user.username, user_path(@user.id) %></h3>
+<p>
+  Joined site <%= @user.created_at %>
+</p>
+<table>
+  <thead>
+    <th>Media Title</th>
+    <th>Created By</th>
+    <th>Published</th>
+    <th>Category</th>
+    <th>Voted On</th>
+  </thead>
+  <% @user.votes.each do |vote| %>
+  <% media = Content.find(vote.content_id) %>
+  <tbody>
+    <tr>
+    <td>
+      <%= media.title %>
+    </td>
+    <td>
+      <%= media.creator %>
+    </td>
+    <td>
+      <%= media.publication_year %>
+    </td>
+    <td>
+      <%= media.category %>
+    </td>
+    <td>
+      <%= media.created_at %>
+    </td>
+  </tr>
+  </tbody>
+  <% end %>
+</table>
+
+<%= link_to "See all Users", users_path, class: "button" %> <%= link_to "Back to Media List", root_path, class: "button" %>
+</main>
