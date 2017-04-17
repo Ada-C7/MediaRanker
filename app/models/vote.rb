@@ -2,7 +2,7 @@ class Vote < ApplicationRecord
   belongs_to :work
   belongs_to :user
 
-  validates :vote, uniqueness: { scope: [:work] }
-
-  # validates_uniques_of :vote, scope => [:work ]
+  validates :user, uniqueness: {
+    scope: [:work], message: "has already voted for this work"
+  }
 end

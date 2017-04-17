@@ -1,45 +1,48 @@
 require "test_helper"
 
 describe Vote do
-  describe 'user relations' do
-    it "can set user through .user" do
-      vote = Vote.new
+  describe 'relations' do
+    let (:vote) {Vote.new}
 
-      user = User.create!(username: "test user")
-      vote.user = user
-
-      vote.user_id.must_equal user.id
+    it "can set the user through 'user'" do
+      vote.user = users(:user1)
+      vote.user_id.must_equal users(:user1).id
     end
 
-    it "can set the user through .user_id" do
-      vote = Vote.new
+    it "can set the user through 'user_id'" do
+      vote.user_id = users(:user1).id
+      vote.user.must_equal users(:user1)
+    end
 
-      user = User.create!(username: "test user")
+    it "can set the work through 'work'" do
+      vote.work = works(:hp)
+      vote.work.id.must_equal works(:hp).id
+    end
 
-      vote.user_id = user.id
-
-      vote.user.must_equal user
+    it "can set the work through 'work_id'" do
+      vote.work_id = works(:hp).id
+      vote.work.must_equal works(:hp)
     end
   end
 
-  describe 'work relations' do
-    it "can set work through .work" do
-      vote = Vote.new
-
-      work = Work.create!(category: "movie", title: "Test title")
-      vote.work = work
-
-      vote.work_id.must_equal work.id
+  describe "validations" do
+    it "can be created with all attributes" do
+      Vote.create!(user: users(:user1), work: works(:coexist))
     end
 
-    it "can set the user through .user_id" do
-      vote = Vote.new
+    it "must have a unique combination of 'work_id and user_id'" do
+      Vote.create!(user: users(:user1), work: works(:coexist))
+      duplicate_vote = Vote.new(user: users(:user1), work: works(:coexist))
 
-      work = Work.create!(category: "movie", title: "Test title")
+      result = duplicate_vote.valid?
+      result.must_equal false
 
-      vote.work_id = work.id
+      duplicate_vote.errors.messages.must_include :user
+    end
 
-      vote.work.must_equal work
+    it "allows the same user to be assoicated with different works" do
+      Vote.create!(user: users(:user1), work: works(:coexist))
+      Vote.create!(user: users(:user1), work: works(:belong))
     end
   end
 end
