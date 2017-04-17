@@ -1,0 +1,43 @@
+
+<section class="row">
+  <article class="columns large-6 small-12">
+<%= @work.title %></br>
+Created by: <%= @work.creator %></br>
+Published: <%= @work.publication_year %></br>
+<%= @work.description %></br>
+<section>
+  <a class="button" href="/books">Back to book list</a>
+  <a class="button" href="/works/<%=@work.id %>/edit">Edit</a>
+  <a class="button" rel="nofollow" data-method="post" href="/works/<%=@work.id %>/votes">Upvote</a>
+  <a class="alert button" data-confirm="Are you sure?" rel="nofollow" data-method="delete" href="/works/<%=@work.id %>">Delete</a>
+<%#= link_to "Back to movie list", works_path %>
+<%#= link_to "Edit", edit_work_path%>
+<%#= link_to "Upvote", upvote_path(@work.id), method: :post %>
+<%#= link_to "Delete", work_path, method: :delete, data: {confirm: "Are you sure you want to delete this"}%>
+</section>
+</article>
+
+<article class="columns large-6 small-12">
+<h1><%= @work.votes.count %> votes for this <%= @work.category %></h1></br>
+<table>
+  <tr>
+    <th>
+      User
+    </th>
+    <th>
+      Date
+    </th>
+  </tr>
+<% @work.votes.each do |vote| %>
+<tr>
+
+<td>
+<%= link_to User.find(vote.user_id).name, user_path(vote.user_id) %>
+</td>
+<td>
+<%= vote.created_at.strftime("%b %d, %Y") %>
+</td>
+</tr>
+<% end %>
+</table>
+</article>

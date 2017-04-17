@@ -1,0 +1,76 @@
+<!-- <h1>Media Ranker Index</h1> -->
+
+<header class="page-header row">
+
+</header>
+<section class="row spotlight">
+  <% Work.spot_light.each do |item|%>
+  <div>
+
+
+  <h2>Media Spotlight: <%= link_to item.title, work_path(item.id) %> by <%=item.creator %></h2>
+  <%= item.votes.count%> Votes<%= item.description%>
+  <% end %>
+    </div>
+</section>
+<section class="row">
+  <section class="top-ten columns large-4 small-12">
+<table>
+  <tr>
+    <th>
+      Top Movies
+    </th>
+  </tr>
+<% @movies.each do |movie| %>
+<tr>
+
+<td>
+<%= link_to movie.title, work_path(movie.id) %></br>
+<%= movie.votes.count %> votes
+<td>
+</tr>
+<% end %>
+</table>
+<%= link_to "View More Movies", movies_path %>
+</section>
+
+<section class="top-ten columns large-4 small-12">
+<table>
+  <tr>
+    <th>
+      Top Books
+    </th>
+  </tr>
+
+<% @books.each do |book| %>
+<tr>
+<td>
+<%= link_to book.title, work_path(book.id) %></br>
+<%= book.votes.count %> votes
+</td>
+</tr>
+<% end %>
+</table>
+<%= link_to "View More Book", books_path %>
+</section>
+
+<section class="top-ten columns large-4 small-12">
+<table>
+  <tr>
+    <th>
+      Top Albums
+    </th>
+  </tr>
+
+<% @albums.each do |album| %>
+<tr>
+<td>
+<%= link_to album.title, work_path(album.id) %></br>
+<%= album.votes.count %> votes
+</td>
+</tr>
+<% end %>
+</table>
+<%= link_to "View More Albums", albums_path %>
+</section>
+</section>

@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+voteone:
+  user: anderson
+  work: movie1
+
+voteone:
+  user: sulaiman
+  work: album1
+
+votethree:
+  user: anderson
+  work: movie3  

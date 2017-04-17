@@ -1,0 +1,26 @@
+<ul>
+  <% @work.errors.each do |field, message| %>
+  <li>
+    <%= field %> <%= message %>
+  </li>
+  <% end %>
+</ul>
+
+<%= form_for @work do |f| %>
+
+<%= f.label :title %></br>
+<%= f.text_field :title %></br>
+
+<%= f.label :creator %></br>
+<%= f.text_field :creator %></br>
+
+<%= f.label :publication_year %></br>
+<%= f.text_field :publication_year %></br>
+
+<%= f.label :description %></br>
+<%= f.text_field :description %></br>
+<%= f.hidden_field :category, value: @category %>
+
+<%= f.submit action_name %></br>
+
+<% end %>

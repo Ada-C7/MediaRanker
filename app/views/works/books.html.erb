@@ -1,0 +1,43 @@
+<h1>List of Books</h1>
+<table>
+  <tr>
+    <th>
+      Votes
+    </th>
+    <th>
+      Title
+    </th>
+    <th>
+      Created By
+    </th>
+    <th>
+      Published
+    </th>
+    <th>
+      Upvote
+    </th>
+  </tr>
+
+<% @works.each do |work| %>
+<tr>
+  <td>
+  <%= work.votes.count %>
+  </td>
+  <td>
+  <%= link_to work.title, work_path(work.id) %>
+  </td>
+  <td>
+  <%= work.creator %>
+  </td>
+  <td>
+  <%= work.publication_year %>
+  </td>
+  <td>
+    <a class="button" rel="nofollow" data-method="post" href="/works/<%=work.id %>/votes">Upvote</a>
+    <!-- <%#= link_to "Upvote", upvote_path(work.id), method: :post %> -->
+  </td>
+</tr>
+<% end %>
+</table>
+<a class="button" data-method="get" href="/works">View all media</a>
+<a class="button" data-method="get" href="/books/new">Add a new book</a>
