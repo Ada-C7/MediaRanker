@@ -1,0 +1,9 @@
+<h4>List of Users</h4>
+<table>
+<tr><th>Username</th><th>Votes</th><th>Joined</th></tr>
+<% @users.each do |user| %>
+<tr><td><%= user.username %></td><td><%= user.works.length %></td><td><%= user.created_at %></td></tr>
+<% end %>
+</table>
+
+<%= button_to "View all media", root_path, method: :get %>

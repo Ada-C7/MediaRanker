@@ -1,0 +1,7 @@
+<h5>Media: <%= @work.title %></h5>
+<h6>Created by: <%= @work.user.username  %></h6>
+<h6>Published: <%= @work.publication_year  %></h6>
+<%= button_to "Back to media List", root_path, method: :get %><br />
+<%= button_to "Delete", work_path(@work.id), method: :delete %><br />
+
+<h5><%= @work.votes.count%> Votes for this <%= @work.category%> </h5>

@@ -1,0 +1,72 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+# This model initially had no columns defined. If you add columns to the
+# model remove the "{}" from the fixture names and add the columns immediately
+# below each fixture, per the syntax in the comments below
+#
+one:
+  user: sofia
+  category: book
+  title: Kindred
+  publication_year: 1979
+
+two:
+  user: sofia
+  category: book
+  title: Parable of the Sower
+  publication_year: 1994
+
+three:
+  user: sofia
+  category: book
+  title: Practical Object Oriented Design in Ruby
+  publication_year: 2012
+
+four:
+  user: sofia
+  category: movie
+  title: Kindred
+  publication_year: 2012
+
+five:
+  user: sofia
+  category: movie
+  title: One Beat
+  publication_year: 2012
+
+six:
+  user: charles
+  category: movie
+  title: The hot
+  publication_year: 2012
+
+seven:
+  user: sofia
+  category: album
+  title: Sleater-Kinney
+  publication_year: 2012
+
+eight:
+  user: sofia
+  category: album
+  title: all Hands on the Bad One
+  publication_year: 2012
+
+
+nine:
+  user: sofia
+  category: album
+  title: No Cities to Love
+  publication_year: 2012
+
+ten:
+  user: sofia
+  category: album
+  title: Katy Lied
+  publication_year: 2012
+
+eleven:
+  user: sofia
+  category: book
+  title: No Regrets
+  publication_year: 2012

@@ -1,0 +1,35 @@
+<h3>Ranking the Best of Everything</h3>
+<h3>Media Spotlight: <%= @spotlight.title %> by <%= @spotlight.user.username %></h3>
+<p><%= @spotlight.votes.length %> votes - <%= @spotlight.description %></p>
+<main class = "row">
+  <div class="large-4 columns">
+    <h4><%= link_to "Movies", movies_path %></h4>
+    <p><% @movies.each do |movie| %></p>
+    <li>
+      <%= link_to movie.title, work_path(movie.id) %> by <%= movie.user.username %><br />
+      <%= movie.votes.length %> votes
+      <% end %>
+    </li>
+  </div>
+
+
+  <div class="large-4 columns">
+    <h4><%= link_to "Books", books_path %></h4>
+    <p><% @books.each do |book| %></p>
+    <li>
+      <%= link_to book.title, work_path(book.id) %> by <%= book.user.username %><br />
+      <%= book.votes.length %> votes
+      <% end %>
+    </li>
+  </div>
+
+  <div class="large-4 columns">
+    <h4><%= link_to "Albums", albums_path %></h4>
+    <p><% @albums.each do |album| %></p>
+    <li>
+      <%= link_to album.title, work_path(album.id) %> by <%= album.user.username %><br />
+      <%= album.votes.length %> votes
+      <% end %>
+    </li>
+  </div>
+</main>
