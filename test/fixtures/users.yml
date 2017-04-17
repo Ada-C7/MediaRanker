@@ -1,0 +1,10 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+baduser:
+  name:
+
+wei-jen:
+  name: "wei-jen"
+
+grace:
+  name: "grace"

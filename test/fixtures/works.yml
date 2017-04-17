@@ -1,0 +1,22 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+goody:
+  category: "book"
+  title: "goody"
+  creator: "someone"
+  publication_year: 1989
+  description: "good stuff"
+
+bady:
+  category:
+  title: "bady"
+  creator: "somebody"
+  publication_year: 1990
+  description: "bad book"
+
+bady2:
+  category: "movie"
+  title:
+  creator: "somebody"
+  publication_year: 1990
+  description: "bad movie"

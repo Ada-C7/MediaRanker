@@ -1,0 +1,21 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+noworkid:
+  work:
+  user: "wei-jen"
+
+badworkid:
+  work: 0
+  user: "wei-jen"
+
+nouserid:
+  work: :goody
+  user:
+
+baduserid:
+  work: :goody
+  user: 0
+
+goodvote:
+  work: :goody
+  user: :grace

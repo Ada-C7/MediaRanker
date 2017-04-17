@@ -1,0 +1,23 @@
+<h1>List of <%= params[:category].pluralize %></h1>
+
+<table>
+  <tr>
+    <th>Votes</th>
+    <th>Title</th>
+    <th>Created By</th>
+    <th>Published</th>
+    <th>Upvote</th>
+  </tr>
+  <% @category_works.each do |work| %>
+  <tr>
+    <td> <%= work.votes.count %> </td>
+    <td> <%= link_to work.title, work_path(work.id) %> </td>
+    <td> <%= work.creator %> </td>
+    <td> <%= work.publication_year %> </td>
+    <td> <%= link_to "Upvote", upvote_path(work.id), method: :post %> </td>
+  </tr>
+  <% end %>
+</table>
+
+<%= link_to "View all media", root_path %>
+<%= link_to "Add a new #{params[:category].singularize}", new_category_path %>
