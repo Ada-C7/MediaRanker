@@ -1,15 +1,13 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
-
-one:
-  category: MyString
-  title: MyString
-  creator: MyString
-  publication_year: MyString
-  description: MyString
-
-two:
-  category: MyString
-  title: MyString
-  creator: MyString
-  publication_year: MyString
-  description: MyString
+countdown:
+  category: albums
+  title: Countdown to Ecstasy
+  creator: Steely Dan
+  publication_year: 1973
+  description:
+hidden:
+  category: books
+  title: Countdown to Ecstasy
+  creator: Margot Lee Shetterly
+  publication_year: 2016
+  description: Good book that came before the movie
