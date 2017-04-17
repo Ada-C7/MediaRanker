@@ -8,16 +8,16 @@ class UsersController < ApplicationController
   end
 
   def create
-    @user = User.create(user_params)
-    if @user.id != nil
-      flash[:success] = "welcome back!"
-      redirect_to works_path
+    user = User.create(user_params)
+    if user.save nil
+      redirect_to users_path
     else
-      flash[:failure] = "invalid username!"
+      render :new, status: :bad_request
+    end
   end
 
 private
   def user_params
-    params.require(:user).permit(:username)
+    params.require(:user).permit(:username, :session)
   end
 end
