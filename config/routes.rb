@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   resources :books, only:[:index, :new, :create]
   resources :albums, only:[:index, :new, :create]
   resources :movies, only:[:index, :new, :create]
-  resources :login, only:[:new, :create]
+  resources :sessions, only:[:new, :create]
+
 
 end
