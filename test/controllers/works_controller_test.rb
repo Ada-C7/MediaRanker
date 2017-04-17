@@ -67,8 +67,8 @@ describe WorksController do
       must_respond_with :success
     end
   end
- ########################################################
-  ###### AHHH - You don't have tests for new ###########
+
+
   describe 'new_movie' do
 
     it 'gets the new movie page' do
@@ -117,7 +117,7 @@ describe WorksController do
       must_redirect_to movies_path
     end
 
-    it "wont create a form and re-renders a new form if passed invalid data" do
+    it "wont create a work and re-renders a new form if passed invalid data" do
       movie_data = { category: "movie", creator: "Pixar", publication_year: "1997" }
       start_count = Work.count
       post works_path, params: { work: movie_data }

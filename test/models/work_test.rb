@@ -111,26 +111,24 @@ describe Work do
   end
 
   describe 'find_top' do
-    # setup do
-    #   @user1 = User.find_by(username: "cynthia")
-    #   @user2 = User.find_by(username: "gymnast988")
-    #
-    #   #
-    #   # @work = works(:nemo)
-    #   # puts @work.id
-    #
-    #   puts @users1.id
-    # end
+    setup do
+      user1 = users(:cynthia)
+      user2 = users(:gymnast)
+      user3 = users(:travis)
+      work = works(:nemo)
+      work2 = works(:menace)
 
-    # it 'returns one work with the most votes' do
-    #   Vote.create!(user_id: @user1.id, work_id: @work.id)
-    #   Vote.create!(user_id: @user2.id, work_id: @work.id)
-    #   # Vote.create!(user_id: @user3.id, work_id: @work.id)
-    #   # Vote.create!(user_id: @user4.id, work_id: @work.id)
-    #   Work.find_top.title.must_equal "Finding Nemo"
-    # end
+      Vote.create(user_id: user1.id, work_id: work.id)
+      Vote.create(user_id: user2.id, work_id: work.id)
+      Vote.create(user_id: user3.id, work_id: work2.id)
+    end
+
+    it 'returns one work with the most votes' do
+      Work.find_top.title.must_equal "Finding Nemo"
+    end
 
     it 'returns nil if no works' do
+      Vote.destroy_all
       Work.destroy_all
       Work.find_top.must_be_nil
     end
