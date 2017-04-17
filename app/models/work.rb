@@ -23,7 +23,7 @@ class Work < ApplicationRecord
   # end
 
   def self.gather_books
-    return Work.where(category: "book").minmax
+    return Work.where(category: "book")
   end
 
   def self.gather_albums
