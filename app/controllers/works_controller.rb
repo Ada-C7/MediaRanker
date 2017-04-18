@@ -3,7 +3,7 @@ class WorksController < ApplicationController
     @books = index_book
     @movies = index_movie
     @albums = index_album
-    # @works = Work.all
+    @works = Work.all
     # @albums = Work.where(category: "album")
     # @movies = Work.where(category: "movie")
     # @books = Work.where(category: "book")

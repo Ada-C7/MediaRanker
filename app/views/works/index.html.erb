@@ -1,5 +1,5 @@
-<h1>Media Spotlight: <% %></h1>
-<p> <% %> </p>
+<h1>Media Spotlight: <% work = @works.each { |work| work.votes.count}%></h1>
+<p> <%= work.title.max %> </p>
 
 <h2>Top Movies</h2>
 

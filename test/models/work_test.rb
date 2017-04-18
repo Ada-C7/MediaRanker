@@ -47,11 +47,12 @@ end
 describe Work do
   let(:work) { works(:dog) }
 
-  it "requires that a creator and publish_year attribute be present" do
+  it "requires that a creator and publish_year attribute be present" do skip
 
     # negative test
     # work.valid?.must_equal false
     # work.errors.messages[:creator].must_equal []
     # work.errors.messages[:publish_year].must_equal []
   end
+
 end

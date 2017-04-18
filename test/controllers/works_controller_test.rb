@@ -69,4 +69,9 @@ describe WorksController do
         must_respond_with :success
       end
 
+      it "Should increment vote count by one when work is upvoted" do skip
+        proc {upvote_path(works(:goose).id)
+        }.must_change 'Vote.count', 1
+      end
+
     end
