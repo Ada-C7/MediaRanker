@@ -11,7 +11,6 @@ end
 
 def self.top_ten_by_category(category)
   sorted = by_category(category).sort_by {|item| item.votes.count}.reverse
-
   sorted[0..9]
 end
 

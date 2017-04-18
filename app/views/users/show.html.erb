@@ -1,6 +1,6 @@
-<h3>User Summary: <%=link_to current_user.username, user_path(current_user), method: :get%></h3>
+<h3>User Summary: <%=link_to @user.username, user_path(@user), method: :get%></h3>
 
-<p><%= "Joined site #{current_user.created_at.strftime("%B %d, %Y")}" %></p>
+<p><%= "Joined site #{@user.created_at.strftime("%B %d, %Y")}" %></p>
 
 <h4>Votes</h4>
 <table>
@@ -14,13 +14,14 @@
     </tr>
   </thead>
   <tbody>
-    <% current_user.votes.each do |vote|%>
+    <% @user.votes.each do |vote|%>
+    <% item = Item.find(vote.item_id)%>
     <tr>
-      <td> Item</td>
-      <td>Creator </td>
-      <td> Published </td>
-      <td>Category</td>
-      <td>Voted On</td>
+      <td> <%= item.title %> </td>
+      <td> <%= item.creator %> </td>
+      <td> <%= item.publication_year %> </td>
+      <td> <%= item.category %> </td>
+      <td> <%= vote.created_at.strftime("%B %d, %Y")%>  </td>
     </tr>
     <% end %>
   </tbody>

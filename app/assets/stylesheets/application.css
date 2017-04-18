@@ -30,3 +30,8 @@ ul.login {
   display: inline-block;
   vertical-align: top;
 }
+
+.flash {
+  color: green;
+  font-size: 2rem;
+}
