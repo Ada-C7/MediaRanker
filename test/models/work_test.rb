@@ -127,6 +127,10 @@ describe Work do
       Work.find_top.title.must_equal "Finding Nemo"
     end
 
+    # it 'returns one of the top movie if there is a tie' do
+
+    # end
+
     it 'returns nil if no works' do
       Vote.destroy_all
       Work.destroy_all

@@ -7,7 +7,6 @@ class SessionsController < ApplicationController
 
     if user.nil?
       user = User.create(username: params[:username])
-
       if user.id != nil
         flash[:success_new_user] = "#{ user.username } added successfully"
       else

@@ -1,10 +1,8 @@
 class WorksController < ApplicationController
+  # before_action :find_work, only: [:show, :edit, :update, :destroy]
 
   def index
     @works = Work.all
-    @movies = find_movies
-    @books = find_books
-    @albums = find_albums
   end
 
   def movies
@@ -101,7 +99,6 @@ class WorksController < ApplicationController
   end
 
   def vote
-
     vote = Vote.create(user_id: session[:user_id], work_id: params[:id])
     if session[:user_id].nil?
       flash[:failure] = "You need to login to vote"
@@ -147,5 +144,4 @@ private
       return albums_path
     end
   end
-
 end
