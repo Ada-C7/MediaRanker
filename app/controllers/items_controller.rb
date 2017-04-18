@@ -17,6 +17,7 @@ class ItemsController < ApplicationController
     @item= Item.new(item_params)
     @item.save
     if @item.save
+      flash[:success] = "Successfully created #{@item.category} #{@item.id}"
       redirect_to category_index_path(item_params[:category])
     else
       render :new
@@ -40,7 +41,9 @@ class ItemsController < ApplicationController
   def destroy
     item = Item.find(params[:id])
     category= item.category
+    id = item.id
     item.destroy
+    flash[:success] = "Successfully destroyed #{category} #{id}"
     redirect_to category_index_path(category)
   end
 
@@ -60,7 +63,7 @@ class ItemsController < ApplicationController
     redirect_to item_path(params[:id])
   end
 
-  
+
   private
 
   def item_params
