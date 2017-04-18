@@ -1,0 +1,51 @@
+<h3> <%= @result_work.title %></h3>
+<p>
+Created by: <%= @result_work.creator %>
+</p>
+<p>
+Published: <%= @result_work.publication_year %>
+</p>
+<p>
+<%= @result_work.description %>
+</p>
+
+<!-- Back to creator list -->
+<section>
+
+<% if @result_work.category == 'movie' %>
+  <%= link_to "Back to movie list", movies_path, class: :button %>
+<% elsif @result_work.category == 'book' %>
+  <%= link_to "Back to book list", books_path, class: :button %>
+<% else @result_work.category == 'album'%>
+  <%= link_to "Back to album list", albums_path, class: :button %>
+<% end %>
+
+<!-- Edit  link -->
+<%= link_to 'Edit', edit_work_path, class: :button %>
+<!-- Upvote link-->
+<%= link_to 'Upvote', upvote_path, method: :post, class: :button %>
+<!-- Delete link-->
+<%= link_to "Delete", work_path(@result_work.id),
+  data: { confirm: "Are you sure?" }, :class => "alert button",
+  method: :delete %>
+
+</section>
+<h3>__ Votes for this Album</h3>
+<!-- table that includes users that voted and date they voted  -->
+
+<table>
+  <thead>
+    <tr>
+      <th>User</th>
+      <th>Date</th>
+    </tr>
+  </thead>
+  <tbody>
+    <%# @movies.each do |movie| %>
+      <tr>
+        <td><%#= link_to user.name, user_path(user.id) %></td>
+        <td><%#= link_to movie.title, work_path(movie.id) %></td>
+      </tr>
+    <%# end %>
+  </tbody>
+</table>

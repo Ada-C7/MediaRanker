@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  category: "book"
+  title: "A Series of Unfortunate Events"
+  creator: "Lemony Snicket"
+  publication_year: 1999
+  description: "Good starter series for youngsters"
+
+two:
+  category: "movie"
+  title: "Stand By Me"
+  creator: "Rob Reiner"
+  publication_year: 1986
+  description: 
