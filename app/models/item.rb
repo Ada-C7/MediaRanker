@@ -10,9 +10,12 @@ def self.by_category(category)
 end
 
 def self.spotlight
-  ids = Item.all.pluck(:id)
-  spotlight_id = ids.sample
-  find(spotlight_id)
+  Item.all.max_by { |item| item.votes.count}
+
+  # Old method, when spoltlight was a randomly chosen work, rather than the   highest vote getter.
+  # ids = Item.all.pluck(:id)
+  # spotlight_id = ids.sample
+  # find(spotlight_id)
 end
 
 end

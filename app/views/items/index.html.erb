@@ -1,8 +1,12 @@
-<h2 class ="index_page"> Media Spotlight:
+<h3 class ="index_page">
+  Media Spotlight:
   <% spotlight = Item.spotlight %>
-  <%= link_to spotlight.title, item_path(spotlight) %> by <%=spotlight.creator%>
+  <%= link_to spotlight.title, item_path(spotlight) %>
+  <h4> by <%=spotlight.creator%> </h4>
+</h3>
+<h5>  <%=spotlight.description%>  </h5>
+<p> <%="#{spotlight.votes.count} votes"%> </p>
 
-</h2>
 
 
 
@@ -15,7 +19,7 @@
     <% category_list.each do |item| %>
     <li>
       <h4><%= link_to item.title, item_path(item) %></h4>
-        <p> <%="#{item.votes.count} votes"%> </p> 
+      <p> <%="#{item.votes.count} votes"%> </p>
     </li>
 
     <% end %>
