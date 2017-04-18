@@ -17,7 +17,7 @@
     <% @user.votes.each do |vote|%>
     <% item = Item.find(vote.item_id)%>
     <tr>
-      <td> <%= item.title %> </td>
+      <td> <%= link_to item.title, item_path(item) %> </td>
       <td> <%= item.creator %> </td>
       <td> <%= item.publication_year %> </td>
       <td> <%= item.category %> </td>
