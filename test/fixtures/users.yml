@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+sara:
+  username: sara
+
+
+
+two:
+  username: beza
+
+
+three:
+  username: chucha

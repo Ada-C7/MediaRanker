@@ -1,0 +1,7 @@
+
+<%= link_to item.title, work_path(item.id)  %>
+
+<em class = "author"><%="by #{item.created_by}"%></em>
+
+<em class = "link"> <%=  "#{item.votes.length} votes"%> </em>
+<br>

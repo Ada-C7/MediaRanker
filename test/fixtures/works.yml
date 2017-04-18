@@ -1,0 +1,93 @@
+---
+one:
+    category: album
+    title: 'Can''t Buy a Thrill'
+    created_by: Steely Dan
+    published: 1972
+    description:
+    id: 1
+two:
+    category: album
+    title: Countdown to Ecstasy
+    created_by: Steely Dan
+    published: 1973
+    description:
+    id: 2
+three:
+    category: album
+    title: Pretzel Logic
+    created_by: Steely Dan
+    published: 1974
+    description:
+four:
+    category: album
+    title: Katy Lied
+    created_by: Steely Dan
+    published: 1975
+    description:
+five:
+    category: album
+    title: The Royal Scam
+    created_by: Steely Dan
+    published: 1976
+    description:
+six:
+    category: album
+    title: Aja
+    created_by: Steely Dan
+    published: 1977
+    description:
+seven:
+    category: album
+    title: Gaucho
+    created_by: Steely Dan
+    published: 1980
+    description:
+eight:
+    category: album
+    title: Silence Yourself
+    created_by: Savages
+    published: 2013
+    description:
+nine:
+    category: album
+    title: Adore Life
+    created_by: Savages
+    published: 2016
+    description:
+ten:
+    category: album
+    title: NVM
+    created_by: Tacocat
+    published: 2014
+    description:
+eleven:
+    category: album
+    title: Lost Time
+    created_by: Tacocat
+    published: 2016
+    description:
+twelve:
+    category: album
+    title: No Regrets
+    created_by: Chastity Belt
+    published: 2013
+    description:
+thirteen:
+    category: album
+    title: Time to Go Home
+    created_by: Chastity Belt
+    published: 2015
+    description:
+fourteen:
+    category: album
+    title: Sleater-Kinney
+    created_by: Sleater-Kinney
+    published: 1995
+    description:
+fifteen:
+    category: album
+    title: Call the Doctor
+    created_by: Sleater-Kinney
+    published: 1996
+    description:

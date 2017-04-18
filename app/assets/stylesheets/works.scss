@@ -1,0 +1,28 @@
+
+#top {
+  color: black;
+  font-weight: lighter;
+  font-family: sans-serif;
+
+}
+#books, #albums, #movies{
+font-family: sans-serif;
+  display: inline-block;
+  vertical-align: top;
+  margin-left: 5px;
+  margin-right: 5px;
+}
+#books, #albums, #movies, h2{
+  color: black;
+  font-weight: lighter;
+}
+#books, #albums, #movies, a{
+  text-decoration: none;
+  color: #4a96c9;
+  font-stretch: semi-expanded;
+}
+
+.author {color: gray; font-style: normal;font-weight: 100;}
+
+
+.link {color: gray; font-style: normal;}

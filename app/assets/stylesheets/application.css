@@ -1,0 +1,55 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+@import url('foundation.css');
+header{
+border-bottom-width:medium;
+border-bottom-style: inset;
+border-bottom-color: grey;
+/*height:90px;*/
+}
+/*Owl image*/
+#heading {
+background-image:url(https://raw.githubusercontent.com/Ada-C7/MediaRanker/master/app/assets/images/owl.jpg);
+height:90px;
+width: 150px;
+float: left;
+border-bottom-width:medium;
+border-bottom-style: inset;
+border-bottom-color: grey;
+}
+/*MediaRanker*/
+#logo{font-size: 30px; color:gray;display:inline-block;font-family: sans-serif;}
+
+/*ranking the best of everything*/
+#logo-2{font-size: 20px; color:#1779ba;display:inline-block;font-family: sans-serif;}
+
+/*Owl and text section*/
+#heading_text{width:50%;display:inline-block;padding-bottom: 25px;}
+
+/*Login section*/
+#login{text-align: right;width:30%; display: inline-block;}
+#login em{display:block;}
+#login a{
+  text-align:center;
+  background-color:#4a96c9;
+  color:white;
+  padding: 3px;
+  font-family: sans-serif;
+  font-weight: 100;
+}
+main#row{padding:0px;margin:0px;}
+#destroy {background-color: red;color: white; text-shadow:none;}
+article {width: 50%;display:inline-block;}
