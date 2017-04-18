@@ -9,6 +9,13 @@ def self.by_category(category)
   where(category: category)
 end
 
+def self.top_ten_by_category(category)
+  sorted = by_category(category).sort_by {|item| item.votes.count}.reverse
+
+  sorted[0..9]
+end
+
+
 def self.spotlight
   Item.all.max_by { |item| item.votes.count}
 
