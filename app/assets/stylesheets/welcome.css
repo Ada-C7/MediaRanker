@@ -1,0 +1,25 @@
+/*// Place all the styles related to the welcome controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/*/
+h1 {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+h3 {
+  display: inline-block;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  width: 30%;
+}
+
+li.titles {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  /*display: inline-block;
+  width: 30%;*/
+}
+
+.top_ten {
+
+  display: inline-block;
+  width: 32%;
+
+}

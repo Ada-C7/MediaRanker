@@ -1,0 +1,10 @@
+<!-- basically here I need to say if the route is category path "albums", show just albums. -->
+
+<h1> <%= "All #{params[:category].capitalize}s" %> </h1>
+
+  <h4 class ="category"><% @works.each do |work| %></h4>
+    <li class ="titles"><%= link_to "#{work.title}", work_path(work.id) %></li>
+  <% end %>
+
+  <h4> <%= link_to "New #{params[:category]}", new_work_by_category_path(params[:category]), :class => "button" %> </h3>
+</section>

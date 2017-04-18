@@ -1,0 +1,14 @@
+<h1> Media Spotlight: *the one with the most votes* </h1>
+<p>and the description here</p>
+
+<% ['book', 'album', 'movie'].each do |category| %>
+  <%  category_list = Work.by_category(category) %>
+  <section class ="top_ten">
+  <h3><%="Top #{category.capitalize}s" %></h3>
+    <h4 class ="category"><% category_list.each do |work| %></h4>
+      <li class ="titles"><%= link_to "#{work.title}", work_path(work.id) %></li>
+    <% end %>
+      <%= link_to "View all #{category.pluralize}", category_path(category), :class => "button" %>
+  </section>
+
+  <%end %>

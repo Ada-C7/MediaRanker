@@ -1,0 +1,11 @@
+<h1><%= "#{@work.title}" %> </h1>
+<ul>
+    <li>Category: <%= "#{@work.category}" %>
+    <!-- <li>Title: <%= "#{@work.title}" %> -->
+    <li>Creator: <%= "#{@work.creator}" %>
+    <li>Publication year: <%= "#{@work.publication_year}" %>
+    <li>Description: <%= "#{@work.description}" %>
+</ul>
+
+<h4> <%= link_to "Edit #{params[:category]}", edit_work_path, :class => "button" %> </h4>
+<!--should be something here to edit work by category situation  -->
