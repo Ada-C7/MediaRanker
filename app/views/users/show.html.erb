@@ -10,7 +10,7 @@
 
 </tr>
 <tr>
-  <td> <%= link_to "#{Work.find(vote.user_id).title}", work_path(Work.find(vote.work_id))%></td>
+  <td> <%= link_to "#{Work.find_by(id:vote.work_id).title}", work_path(Work.find(vote.work_id))%></td>
   <td> <%=vote.created_at.to_date%> </td>
   <%end%>
 </tr>
