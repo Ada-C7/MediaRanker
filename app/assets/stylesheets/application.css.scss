@@ -1,0 +1,83 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+/*require foundation*/
+@import url('foundation.css');
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+form {
+  display: inline-block;
+  padding: 0;
+  margin: 0;
+}
+
+input {
+  padding: 0;
+  margin: 0;
+}
+
+.success {
+  font-size: 1.5em;
+  color: green;
+  text-align: left;
+
+}
+
+.success_new_user {
+  font-size: 1.5em;
+  color: green;
+}
+
+.failure {
+  font-size: 1.5em;
+  font-weight: bold;
+  color: red;
+}
+
+.page-header {
+  background-image: image_url("owl.jpg");
+  background-repeat: no-repeat;
+  border-bottom: solid;
+  border-color: darkgrey;
+  margin-bottom: 2%;
+  max-width: 100%;
+
+}
+
+.page-header h2 {
+  padding-left: 150px;
+}
+
+table {
+  display: table;
+  border-collapse: separate;
+  border-spacing: 2px;
+  border-color: grey;
+}
+
+.media-table td {
+  margin: 0;
+  padding: 0.2em;
+  display: table-cell;
+  text-align: center;
+}
+
+.media-table .button {
+  margin: 0;
+}

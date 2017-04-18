@@ -1,0 +1,47 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+# This model initially had no columns defined. If you add columns to the
+# model remove the "{}" from the fixture names and add the columns immediately
+# below each fixture, per the syntax in the comments below
+#
+nemo:
+  category: movie
+  title: Finding Nemo
+  creator: Pixar
+  publication_year: 2001
+  description: father searches for his lost son
+
+menace:
+  category: movie
+  title: Menace II Society
+  creator: some guy
+  publication_year: 1992
+  description: watch kids grow up in LA
+
+pride:
+  category: book
+  title: Pride and Prejudice
+  creator: Jane Austin
+  publication_year: 1896
+  description: A young women comes of age and learns about life and love
+
+mistborn:
+  category: book
+  title: Mistborn
+  creator: Brandon Sanderson
+  publication_year: 1995
+  description: A young women learns she has amazing powers and tries to save everyone from impending doom
+
+radiohead:
+  category: album
+  title: Hail to the Theif
+  creator: Radiohead
+  publication_year: 1990
+  description: My favorite radiohead album
+
+two:
+  category: album
+  title: Dookie
+  creator: Greenday
+  publication_year: 1994
+  description: Greenday's 3rd album

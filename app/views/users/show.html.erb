@@ -1,0 +1,40 @@
+<main class="row">
+  <section>
+    <h3>User Summary: <%= link_to @user.username, user_path(@user.id) %></h3>
+    <p> Joined site: <%= @user.created_at.strftime("%b %d, %Y") %></p>
+  </section>
+
+  <section>
+    <table>
+
+      <thead>
+        <tr>
+          <th>Media Title</th>
+          <th>Created By</th>
+          <th>Published</th>
+          <th>Category</th>
+          <th>Voted On</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <% @user.votes.each do |vote| %>
+          <% work = find_work(vote) %>
+          <% if !work.nil? %>
+            <tr>
+              <th><%= link_to work.title, work_path(work.id) %></th>
+              <th><%= work.creator %></th>
+              <th><%= work.publication_year %></th>
+              <th><%= work.category %></th>
+              <th><%= vote.created_at.strftime("%b %d, %Y") %></th>
+            </tr>
+          <% end %>
+        <% end %>
+      </tbody>
+    </table>
+  </section>
+  <nav>
+    <%= button_to "All Users", users_path, :class => "button", :method => :get %>
+    <%= button_to "Back to All Media", homepage_path, :class => "button", :method => :get %>
+  </nav>
+</main>
