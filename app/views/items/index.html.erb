@@ -13,7 +13,11 @@
   <ul>
     <%  category_list = Item.by_category(category)%>
     <% category_list.each do |item| %>
-    <li><h3><%= link_to item.title, item_path(item) %></h3> </li>
+    <li>
+      <h4><%= link_to item.title, item_path(item) %></h4>
+        <p> <%="#{item.votes.count} votes"%> </p> 
+    </li>
+
     <% end %>
   </ul>
   <%= link_to "View more #{category}s", category_index_path(category) %>
