@@ -14,3 +14,16 @@
  *= require_self
  */
 @import url('foundation.css');
+
+li {
+  list-style: none;
+}
+
+.nav {
+  border-bottom: solid;
+  border-width: thin;
+}
+
+.nav li {
+  text-align: center;
+}

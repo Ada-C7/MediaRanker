@@ -12,6 +12,7 @@
   <%= link_to movie.title, work_path(movie.id) %> <%= movie.votes.count %> </li>
 <% end %>
 </ul>
+<%= link_to "View more movies", movies_path %>
 
 
 <h2>Top Books</h2>
@@ -21,6 +22,7 @@
 <li> <%= link_to book.title, work_path(book.id) %> <%= book.votes.count %> </li>
 <% end %>
 </ul>
+<%= link_to "View more books", books_path %>
 
 <h2>Top Albums</h2>
 
@@ -31,3 +33,4 @@
  %> <%= album.votes.count %> </li>
 <% end %>
 </ul>
+<%= link_to "View more albums", albums_path %>

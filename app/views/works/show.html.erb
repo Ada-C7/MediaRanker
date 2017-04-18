@@ -1,10 +1,11 @@
+<section class="description">
 <h1> <% @result_work.title %> </h1>
-
 <ul>
 <li> Created by: <%= @result_work.creator %> </li>
 <li> Published: <%= @result_work.publish_year %> </li>
 <li> <%= @result_work.description %> </li>
 </ul>
+</section>
 
 <% if @result_work.category == "movie" %>
 <%= link_to "Back to movie list", movies_path %>
@@ -18,13 +19,14 @@
 
 <h3> <%= @result_work.votes.count %> Vote(s) for this <%= @result_work.category %> </h3>
 <table>
-  <tr>
+<tr>
   <th>User</th>
   <th>Date</th>
 </tr>
-  <tr>
-  <td> <% @result_work.votes.each do |vote| %>
-    <%= vote.user.name %> <%= vote.created_at %>
+   <% @result_work.votes.each do |vote| %>
+<tr>
+  <td><%= vote.user.name %></td>
+  <td><%=  vote.created_at %></td>
     <% end %>
-   </td></tr>
+</tr>
 </table>

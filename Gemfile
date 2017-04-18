@@ -62,4 +62,5 @@ gem 'awesome_print'
 group :test do
   gem 'minitest-rails'
   gem 'minitest-reporters'
+  gem 'shoulda-matchers', '~> 3.1'
 end
