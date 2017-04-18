@@ -1,0 +1,39 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+owl:
+  # broken fixture, category
+  category: 'food'
+  title: "The owl"
+  creator: "Sanchez"
+  publish_year: "1999"
+  description: "A great book"
+
+duck:
+  category: 'book'
+  title: "The duck"
+  creator: "Haby"
+  publish_year: "2010"
+  description: "A great duck"
+
+goose:
+  category: 'movie'
+  title: "The goose"
+  creator: "Haby"
+  publish_year: "2011"
+  description: "A great goose"
+
+cat:
+  # broken fixture, title
+  category: 'movie'
+  title:
+  creator: "Hamlet"
+  publish_year: "2017"
+  description: "Sweet"
+
+dog:
+  # broken fixture, publish_year and creator
+  category: 'album'
+  title: "The singing dog"
+  creator:
+  publish_year:
+  description: "The nice voice"

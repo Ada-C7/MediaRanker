@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>MediaRanker</title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    <header class="nav">
+      <%= image_tag "owl.jpg" %>
+  <ul>
+    <li class="medium-6 medium-6 columns">
+      <%= link_to "Media Ranker", root_path %> Ranking the Best of Everything
+    </li>
+
+  </ul>
+  <% if !session[:user_id] %>
+      <li><%= link_to "Login", login_path %></li>
+      <% else %>
+      <li> You are logged in as <%= link_to User.find(session[:user_id]).name, user_path(session[:user_id]) %> </li>
+      <li> <%= link_to "Logout", logout_path, data: {confirm: "Are you sure you want to logout?" }, method: :delete %>
+      <% end %> </li>
+</header>
+    <section class="flash">
+    <% flash.each do |name, message| %>
+    <div class="<%= name %>"><%= message %></div>
+    <!-- dynamically adding class to specific flash elements, used when something in the page was changed for a notice to users -->
+    <% end %>
+  </section>
+    <%= yield %>
+  </body>
+</html>

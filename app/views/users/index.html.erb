@@ -1,0 +1,28 @@
+<h1>List of Users</h1>
+
+
+<table>
+  <tr>
+    <th>Username</th>
+    <th>Votes</th>
+    <th>Joined</th>
+  </tr>
+  <tr>
+    <td> <% @user.each do |person| %>
+      <%= link_to person.name, user_path(person.id) %> <% end %> </td>
+      <td> <% @user.each do |person| %>
+        <%= person.votes.count %>
+        <% end %> </td>
+        <td>
+          <% @user.each do |person| %>
+          <%= person.votes.count  %>
+          <% end %>
+        </td>
+        <td> <% @user.each do |person| %>
+          <%= person.created_at %>
+          <% end %>
+        </td>
+    </tr>
+      </table>
+
+      <%= button_to("Back to Media List", root_path, method: :get) %>

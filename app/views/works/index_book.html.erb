@@ -1,0 +1,24 @@
+<h1>List of Books</h1>
+
+
+<table>
+  <tr>
+    <th>Votes</th>
+    <th>Title</th>
+    <th>Created By</th>
+    <th>Published</th>
+    <th>Upvote</th>
+  </tr>
+<tr>
+   <% @books.each do |work| %>
+  <td> <%= work.votes.count %></td>
+  <td> <%= work.title %></td>
+  <td> <%= work.creator %> </td>
+  <td> <%= work.publish_year %></td>
+  <td> <%= button_to("Upvote", upvote_path(work.id), method: :get) %> </td>
+  </tr>
+    <% end %>
+</table>
+
+<h3> <%= button_to("View all Media", root_path, method: :get) %> </h3>
+<h3> <%= button_to("Add", new_work_path, method: :get) %> </h3>

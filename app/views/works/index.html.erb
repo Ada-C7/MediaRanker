@@ -1,0 +1,36 @@
+<h1>Media Spotlight: <% work = @works.each { |work| work.votes.count}%></h1>
+<p> <%= %> </p>
+
+<h2>Top Movies</h2>
+
+<ul>
+
+<% @movies.each do |movie| %>
+<%# movie.sort_by { |post| post.votes.size }.reverse %>
+<li>
+
+  <%= link_to movie.title, work_path(movie.id) %> <%= movie.votes.count %> </li>
+<% end %>
+</ul>
+<%= link_to "View more movies", movies_path %>
+
+
+<h2>Top Books</h2>
+
+<ul>
+<% @books.each do |book| %>
+<li> <%= link_to book.title, work_path(book.id) %> <%= book.votes.count %> </li>
+<% end %>
+</ul>
+<%= link_to "View more books", books_path %>
+
+<h2>Top Albums</h2>
+
+<ul>
+
+<% @albums.each do |album| %>
+<li> <%= link_to album.title, work_path(album.id)
+ %> <%= album.votes.count %> </li>
+<% end %>
+</ul>
+<%= link_to "View more albums", albums_path %>
