@@ -66,7 +66,8 @@ class ItemsController < ApplicationController
 
   def vote
     if session[:user_id].nil?
-      flash[:failure] = "You must be logged in to vote. Please use login button at the top right."
+      flash[:status] = :failure
+      flash[:message] = "You must be logged in to vote. Please use login button at the top right."
       redirect_to item_path(params[:id])
       return
     end
