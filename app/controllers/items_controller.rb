@@ -16,11 +16,21 @@ class ItemsController < ApplicationController
 
     @item= Item.new(item_params)
     @item.save
+
     if @item.save
-      flash[:success] = "Successfully created #{@item.category} #{@item.id}"
+      flash[:status] = :success
+      flash[:message] = "Successfully created #{@item.category} #{@item.id}"
       redirect_to category_index_path(item_params[:category])
     else
-      render :new
+      flash[:status] = :failure
+      flash[:message] = "Could not create #{@item.category.singularize}"
+      flash[:errors] = @item.errors.messages
+
+      # flash.now[:status] = :failure
+      # flash.now[:message] = "Could not create #{@item.category.singularize}"
+      # flash[:errors] = @item.errors.messages
+      #render :new, status: :bad_request
+      redirect_to new_item_by_category_path(@item.category), status: :bad_request
     end
   end
 

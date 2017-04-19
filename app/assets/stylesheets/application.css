@@ -35,3 +35,11 @@ ul.login {
   color: green;
   font-size: 2rem;
 }
+
+.failure {
+  color:red;
+}
+
+.flash ul{
+  list-style: disc;
+}
