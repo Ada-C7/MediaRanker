@@ -6,7 +6,7 @@ Rails.application.routes.draw do
 
   resources :items, except: [:new, :create]
   post 'items/:id/vote', to: 'items#vote', as: 'vote'
-  
+
   get 'users', to:'users#index', as:'users'
   get 'users/:id', to:'users#show', as: 'user'
 
@@ -19,7 +19,6 @@ Rails.application.routes.draw do
   get ':category', to: 'items#index_by_category', as: 'category_index'
   get ':category/new',   to:'items#new', as:'new_item_by_category'
   post ':category',   to:'items#create'
-
 
 
 end

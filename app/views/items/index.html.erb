@@ -17,7 +17,8 @@
   <ul>
     <%  Item.top_ten_by_category(category).each do |item| %>
     <li>
-      <h4><%= link_to item.title, item_path(item) %></h4>
+      <h4 class="index_page_list"> <%= link_to item.title, item_path(item) %> </h4>
+      <h6 class="index_page_list"> by <%= item.creator%> </h6>
       <p> <%="#{item.votes.count} votes"%> </p>
     </li>
 
