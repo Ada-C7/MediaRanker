@@ -52,8 +52,6 @@ class ItemsController < ApplicationController
 
       redirect_to edit_item_path(@item), status: :bad_request
     end
-
-
   end
 
   def destroy
@@ -61,7 +59,8 @@ class ItemsController < ApplicationController
     category= item.category
     id = item.id
     item.destroy
-    flash[:success] = "Successfully destroyed #{category} #{id}"
+    flash[:status] = :success
+    flash[:message] = "Successfully destroyed #{category} #{id}"
     redirect_to category_index_path(category)
   end
 
@@ -74,9 +73,11 @@ class ItemsController < ApplicationController
 
     if Vote.where(user_id: session[:user_id], item_id: params[:id]).empty?
       Vote.create(user_id: session[:user_id], item_id: params[:id])
-      flash[:success] = "Thanks for voting for #{Item.find(params[:id]).title}!"
+      flash[:status] = :success
+      flash[:message] = "Thanks for voting for #{Item.find(params[:id]).title}!"
     else
-      flash[:failure] = "I know you love #{Item.find(params[:id]).title}, but you can only vote for it once!"
+      flash[:status] = :failure
+      flash[:message] = "I know you love #{Item.find(params[:id]).title}, but you can only vote for it once!"
     end
     redirect_to item_path(params[:id])
   end
