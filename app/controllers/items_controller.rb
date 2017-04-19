@@ -26,10 +26,6 @@ class ItemsController < ApplicationController
       flash[:message] = "Could not create #{@item.category.singularize}"
       flash[:errors] = @item.errors.messages
 
-      # flash.now[:status] = :failure
-      # flash.now[:message] = "Could not create #{@item.category.singularize}"
-      # flash[:errors] = @item.errors.messages
-      #render :new, status: :bad_request
       redirect_to new_item_by_category_path(@item.category), status: :bad_request
     end
   end
@@ -43,9 +39,21 @@ class ItemsController < ApplicationController
   end
 
   def update
-    item = Item.find(params[:id])
-    item.update(item_params)
-    redirect_to category_index_path(item.category)
+    @item = Item.find(params[:id])
+    @item.update_attributes(item_params)
+    if @item.save
+      flash[:status] = :success
+      flash[:message] = "Successfully updated #{@item.category} #{@item.id}"
+      redirect_to category_index_path(@item.category)
+    else
+      flash[:status] = :failure
+      flash[:message] = "Could not update #{@item.category}"
+      flash[:errors] = @item.errors.messages
+
+      redirect_to edit_item_path(@item), status: :bad_request
+    end
+
+
   end
 
   def destroy
