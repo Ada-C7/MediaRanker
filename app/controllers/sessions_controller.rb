@@ -6,14 +6,15 @@ class SessionsController < ApplicationController
   def create
     user = User.find_by(username: params[:username])
 
-    if user
+    if user != nil
+      raise
       session[:user_id] = user.id
-      flash[:notice] = "#{ user.username } is successfully logged in"
+      flash[:notice] = "#{user.username} successfully logged in"
     else
       new_user = User.new(username: params[:username])
-      flash[:notice] = "new user created!"
       new_user.save
       session[:user_id] = new_user.id
+      flash[:notice] = "created a new user "
     end
     redirect_to root_path
   end
