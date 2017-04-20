@@ -1,10 +1,10 @@
 <h2>Log In</h2>
 
 <section>
-  <%= form_for(:session, url: login_path) do |f| %>
-    <%= f.label "username" %>
-    <%= f.text_field :username %>
-    <%= f.submit 'Login', class: 'button' %>
+  <%= form_tag do |f| %>
+    <%= label_tag('Username') %>
+    <%= text_field_tag(:username) %>
+    <%= submit_tag("Log In", class: 'button') %>
   <% end %>
 </section>
 
