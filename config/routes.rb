@@ -17,6 +17,12 @@ Rails.application.routes.draw do
 
 
   get ':category', to: 'items#index_by_category', as: 'category_index'
+  # constraints: { category: [:book] }
+    #|| movie || album || books ||movies || albums/ }
+
+
+
+
   get ':category/new',   to:'items#new', as:'new_item_by_category'
   post ':category',   to:'items#create'
 
