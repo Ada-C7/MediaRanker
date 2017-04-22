@@ -29,10 +29,7 @@ describe ItemsController do
       get category_index_path(:book)
       must_respond_with :success
     end
-
   end
-
-
 
   describe "new" do
     it "runs successfully" do
@@ -40,28 +37,5 @@ describe ItemsController do
       must_respond_with :success
     end
   end
-
-  # describe "create" do
-  #   it "creates a new classroom" do
-  #     start_count = Classroom.count
-  #
-  #     classroom_data = {
-  #       classroom: {
-  #         designation: "test classroom"
-  #       }
-  #     }
-  #     post classrooms_path, params: classroom_data
-  #     must_redirect_to classrooms_path
-  #
-  #     end_count = Classroom.count
-  #     end_count.must_equal start_count + 1
-  #
-  #     classroom = Classroom.last
-  #     classroom.designation.must_equal classroom_data[:classroom][:designation]
-  #   end
-
-
-
-
 
 end

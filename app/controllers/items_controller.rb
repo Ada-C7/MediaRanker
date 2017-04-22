@@ -8,6 +8,7 @@ class ItemsController < ApplicationController
       @items_of_category = Item.by_category(params[:category].singularize)
   end
 
+
     def new
       @item = Item.new(category:params[:category])
     end
