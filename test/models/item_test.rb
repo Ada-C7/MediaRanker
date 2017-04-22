@@ -57,6 +57,19 @@ describe Item do
           Item.spotlight.must_be_kind_of Item
           Item.spotlight.must_equal items(:item1)
         end
+
+        it "returns the first item with the most votes in the case of a tie" do
+          item1 = items(:item1)
+          item2 = items(:item2)
+          bob = users(:BobRoss)
+          vote6 = Vote.create(item: item2, user:bob)
+          item1.votes.count.must_equal item2.votes.count
+          Item.spotlight.must_equal item1
+        end
+
+
+
+
       end
     end
   end

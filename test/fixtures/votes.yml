@@ -20,3 +20,7 @@ vote3:
 vote4:
   item: item2
   user:  SuchAUser
+
+vote5:
+  item: item2
+  user:  SuchAUser
