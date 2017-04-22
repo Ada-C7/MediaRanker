@@ -1,0 +1,30 @@
+<h3 class ="index_page">
+<% if Item.all.count != 0 %>
+    Media Spotlight:
+    <% spotlight = Item.spotlight %>
+    <%= link_to spotlight.title, item_path(spotlight) %>
+    <h4> by <%=spotlight.creator%> </h4>
+</h3>
+<h5>  <%=spotlight.description%>  </h5>
+<p> <%="#{spotlight.votes.count} votes"%> </p>
+<% end %>
+
+
+<% ['movie', 'book', 'album'].each do |category| %>
+
+<section class = "category_list">
+  <h2><%= "Top #{category.capitalize}s"%></h2>
+  <ul>
+    <%  Item.top_ten_by_category(category).each do |item| %>
+    <li>
+      <h4 class="index_page_list"> <%= link_to item.title, item_path(item) %> </h4>
+      <h6 class="index_page_list"> by <%= item.creator%> </h6>
+      <p> <%="#{item.votes.count} votes"%> </p>
+    </li>
+
+    <% end %>
+  </ul>
+  <%= link_to "View more #{category}s", category_index_path(category) %>
+
+</section>
+<% end %>

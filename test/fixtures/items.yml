@@ -1,0 +1,20 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+
+item1:
+  category: book
+  title: Cat in the Hat
+  creator: Seuss
+  publication_year: 1957
+
+item2:
+  category: book
+  title: Green Eggs and Ham
+  creator: Seuss
+  publication_year: 1960
+
+item12:
+  category: movie
+  title: How the Grinch Stole Christmas
+  creator: Seuss
+  publication_year: 1966

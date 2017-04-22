@@ -1,0 +1,39 @@
+<h3><%= "List of #{params[:category].pluralize.capitalize}" %> </h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Votes</th>
+      <th>Title</th>
+      <th>Created By</th>
+      <th>Published</th>
+      <th>Upvote</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @items_of_category.each do |item| %>
+
+    <tr>
+      <td> <%= item.votes.count %> </td>
+      <td> <%= link_to item.title, item_path(item) %> </td>
+      <td> <%= item.creator %> </td>
+      <td> <%= item.publication_year %> </td>
+      <td> <%= button_to "Upvote", vote_path(item), method: :post %> </td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
+
+
+
+
+
+
+
+
+
+<%= button_to "View all media", items_path,
+method: :get %>
+
+<%= button_to "Add a new #{params[:category].singularize}", new_item_by_category_path(params[:category]),
+method: :get %>

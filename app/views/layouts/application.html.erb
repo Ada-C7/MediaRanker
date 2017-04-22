@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>MediaRanker</title>
+  <%= csrf_meta_tags %>
+
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+</head>
+
+<body>
+
+
+
+  <nav>
+    <%= image_tag "owl.jpg", alt:"Owl reading a book", class:"owl_img"%>
+    <h1> <%= link_to "Media Ranker", items_path %> </h1>
+    <h2> Ranking the Best of Everything </h2>
+
+    <ul class= "login">
+      <% if session[:user_id] %>
+      <li>Logged in as
+        <%=link_to current_user.username, user_path(current_user), method: :get%>
+      </li>
+      <% else %>
+      <li>Not logged in</li>
+      <% end %>
+
+
+      <% if session[:user_id] %>
+      <li><%= button_to "Log Out", logout_path, method: :delete %></li>
+      <% else %>
+      <li><%= button_to "Log In", login_path, method: :get%></li>
+      <% end %>
+    </ul>
+  </nav>
+
+
+  <% if flash[:message] || flash[:errors] || flash[:status]%>
+  <section class="<%= flash[:status] %> flash">
+    <h3>
+      <%= flash[:status] == :failure ? "A problem occurred:  ":"" %>
+      <%= flash[:message] %></h3>
+
+      <% if flash[:errors] %>
+      <ul>
+        <% flash[:errors].each do |name, problems| %>
+        <% problems.each do |problem| %>
+        <li><%= name %>: <%= problem %></li>
+        <% end %>
+        <% end %>
+      </ul>
+      <% end %>
+    </section>
+    <% end %>
+
+    <%= yield %>
+  </body>
+  </html>

@@ -1,0 +1,36 @@
+<h3> <%= @item.title  %></h3>
+<h6>Created by: <%= @item.creator  %> </h6>
+<h6>Published: <%= @item.publication_year %> </h6>
+<h6>Description: <%= @item.description %> </h6>
+
+<%= button_to "Back to #{@item.category} list", category_index_path(@item.category),
+method: :get %>
+
+<%= button_to "Edit", edit_item_path(@item),
+method: :get %>
+
+<%= button_to "Upvote", vote_path(@item), method: :post %>
+
+<%= button_to "Delete", item_path(@item), method: :delete, data:  {confirm: "Are you sure?"} %>
+
+<h3> <%="#{@item.votes.count} Votes for this #{@item.category}" %></h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>User</th>
+      <th>Date</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @item.votes.each do |vote|%>
+    <tr>
+      <td>
+        <% user = User.find(vote.user_id) %>
+        <%= link_to user.username, user_path(user) %> </td>
+      <td> <%= vote.created_at.strftime("%B %d, %Y") %> </td>
+    </tr>
+    <% end %>
+
+  </tbody>
+</table>
