@@ -1,0 +1,27 @@
+<h3>List of <%= @media_type.capitalize %></h3>
+<section class='media-table'>
+  <table>
+    <thead>
+      <tr>
+        <th>Votes</th>
+        <th>Title</th>
+        <th>Created By</th>
+        <th>Published</th>
+        <th>Upvote</th>
+      </tr>
+    </thead>
+    <tbody>
+    <% @works.each do |work| %>
+      <tr>
+        <td>vote_count</td>
+        <td><%= work.title %></td>
+        <td><%= work.by %></td>
+        <td><%= work.year %></td>
+        <td>vote_button</td>
+      </tr>
+    <% end %>
+    </tbody>
+  </table>
+</section>
+<a class="button" href="/">View all media</a>
+<a class="button" href="/">Add a new <%= @media_type[0...-1] %></a>
