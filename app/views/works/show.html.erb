@@ -1,0 +1,44 @@
+<h1 class="page-header"><%= @work.title %></h1>
+
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Category:</strong>
+  <%= @work[:category] %>
+
+</p>
+
+
+<p>
+  <strong>Title:</strong>
+  <%= @work[:title] %>
+
+</p>
+
+<p>
+  <strong>Creator:</strong>
+  <%= @work[:creator] %>
+</p>
+
+<p>
+  <strong>Publication Year:</strong>
+<%= @work[:publication_year] %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+<%= @work[:description] %>
+</p>
+
+
+<div id="work_<%= @work.id %>_votes">
+  <%= render partial: "votes", locals: {vote: @vote} %>
+</div>
+
+
+
+
+
+
+<%= link_to 'Edit', edit_work_path(@work) %> |
+<%= link_to 'Back', works_path %>

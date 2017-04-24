@@ -1,0 +1,89 @@
+<!-- <p id="notice"><%#= notice %></p> -->
+<link rel="stylesheet" href="app/assets/stylesheets/primary.css.scss" type="text/css">
+
+
+<div class="bg-img">
+<header class="yay">
+  <div class="gradiant">
+
+
+
+
+    <div class="type-word"></div>
+
+    <a class="link-contact w-inline-block" href="http://google.com">
+  <div class="link-wavy">login to start ranking the best of everything</div>
+</a>
+
+
+
+
+
+<section id="works_columns">
+
+<div class="container">
+
+
+
+  <div class="column column-two">
+  <div class="info">
+    <iframe src="//giphy.com/embed/TlK63Eq6cJh39A1YL3q" width="480" height="480" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>
+      <!-- <div class="category">Movies</div> -->
+      <% @movies.each do |work|%>
+    <p>
+      <%= work[:title] %>
+      <%= work[:creator] %>
+    </p>
+    <%end%>
+  </div>
+  </div>
+
+
+
+<div class="column column-one">
+<div class="info">
+<iframe src="//giphy.com/embed/3o7TKSmUJ0biYcNDry?html5=true" width="480" height="480" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>
+  <!-- <div class="category">Albums</div> -->
+    <% @albums.each do |work|%>
+    <p>
+      <%= work[:title] %>
+      <%= work[:creator] %>
+    </p>
+      <%end%>
+    </div>
+  </div>
+
+
+
+
+
+
+
+
+
+<div class="column column-three">
+  <div class="info">
+<iframe src="//giphy.com/embed/l2SpXaJA67JaSqSxq?html5=true" width="480" height="480" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>
+
+<p class="category"><%= link_to "more 📚 's right here'", works_path %></p>
+
+
+  <% @books.each do |work|%>
+  <p>
+    <%= work[:title] %>
+    <%= work[:creator] %>
+  </p>
+  <%end%>
+</div>
+</div>
+
+</div>
+</section>
+
+
+
+</div>
+</header>
+</div>
+
+<!-- <%= link_to 'New Work', new_work_path %> -->

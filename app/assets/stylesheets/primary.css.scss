@@ -1,0 +1,211 @@
+@import url('https://fonts.googleapis.com/css?family=Vast+Shadow');
+@import url('https://fonts.googleapis.com/css?family=Lora:700');
+
+
+
+
+
+
+header{
+  background: url('https://puu.sh/r270K/bb6e3b5147.svg'),white;
+  min-width:100vw;
+  min-height:90vh;
+  position:relative;transition:0.6s ease-in-out;}
+  // #wrapper{
+  //   position:absolute;
+  //   display:flex;
+  //   top:50%;
+  //   left:50%;
+  //   transform:translateX(-50%) translateY(-50%);}}
+  .yay{
+    background-size:60px;
+    background-repeat:space;
+    display: block;
+
+  }
+
+  .gradiant { background: linear-gradient(rgba(#ffffff, 0.57),(#ffffff));
+    height:90vh;
+    width: 100vw;
+    position:absolute;
+    display: block;
+  }
+
+
+
+a.th:hover, a.th:focus {
+ -webkit-box-shadow: 0 0 6px 1px rgba(0, 140, 186, 0.5);
+ box-shadow: 0 0 6px 1px rgba(0, 140, 186, 0.5);
+}
+
+ul li {
+  list-style-type: none;
+  text-decoration: none;
+}
+
+
+
+@mixin typeword($string) {
+  $length: str-length($string);
+  $percent: 100%/$length;
+  $timing: $length/3;
+
+  &:before {
+    content: $string;
+    animation: typeword #{$timing}s linear infinite;
+  }
+  &:after {
+    content:"|";
+    animation: blink 1s steps(2, end) forwards infinite;
+  }
+
+  @keyframes typeword {
+    @for $i from 0 through $length {
+      $percent: 50%/$length * $i;
+      #{$percent} { content: str-slice($string, 0, $i+1); }
+    }
+    100% {
+      content: $string;
+    }
+  }
+  @keyframes blink {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+}
+
+.type-word {
+  position: relative;
+  padding: 10%;
+  float: left;
+  font-family: 'Karla', sans-serif;
+  font-size: 7vw;
+  font-weight: bold;
+  color: #3A3C83;
+  @include typeword("hey, what's up, hello!😊");
+}
+
+
+
+
+.link-wavy {
+position: absolute;
+top: 70vh;
+left: 20vw;
+}
+
+.link-wavy:hover {
+animation: wavy 2s linear infinite;
+}
+
+@keyframes wavy {
+  to {
+    background-position: 100% 100%;
+  }
+}
+
+
+
+/* added some flex instead absolute + transform */
+
+.link-contact {
+  margin: auto;/* flex item centers itself */
+  color: #fa4a4d;
+}
+a {
+  text-decoration: none;
+}
+.link-wavy {
+  // padding-bottom: 9px;
+  background-image: url("http://uploads.webflow.com/56d8a8f1100bc1bb7928eebd/5831d10096c13a1f491ac02d_wavy-k.png");
+
+  background-position: 0 100%;
+  background-size: 230px;
+  background-repeat: repeat-x;
+  font-family: 'Lora', serif;
+  color: #fa4a4d;
+  font-size: 2.8em;
+  line-height: 2.5em;
+  font-weight: 700;
+  // min-height: 100vh;
+
+}
+
+
+
+
+
+
+
+#works_columns{
+  max-width: 100%;
+  position: relative;
+  margin-top: 800px;
+}
+
+.container {
+    display: flex;
+
+}
+
+.column {
+    flex: 1;
+    box-sizing: border-box;
+
+}
+
+.column-one {
+    order: 3;
+}
+.column-two {
+    order: 1;
+}
+.column-three {
+    order: 4;
+}
+
+iframe{
+  width: 450px;
+    height: 450px;
+    float:right;
+}
+
+
+
+
+
+
+
+
+$transition: all 0.3s cubic-bezier(.05, .69, .14, 1);
+$sideWidth: 50px;
+
+.category {
+  font-family: 'Lora', serif;
+  color: #4380ff;
+  font-size: 2em;
+  line-height: 1em;
+  font-weight: 700;
+width: auto;
+    position: relative;
+    display: inline-block;
+    border: 1px blue ;
+    display: inline-block;
+
+    font-size: 2em;
+    margin-top: 1.5em;
+    // font-weight: 900;
+    // font-style: normal;
+    font-stretch: expanded;
+  }
+
+  .info {
+    //  padding-left:   3em;
+    //  padding: 1em;
+    // float: right;
+    // margin-top: -5em;
+  }
