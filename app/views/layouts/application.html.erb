@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>MediaRanker</title>
+  <%= csrf_meta_tags %>
+
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+</head>
+
+<body>
+  <header class='header_page'>
+    <nav>
+      <h2 class="columns large-9 small-12">
+        <%= link_to "MEDIA RANKER", root_path %>
+        <small>Rankin the best of Everything</small>
+      </h2>
+
+      <div class= "columns large-2 medium-2 small-6">
+        <% if @current_user %>
+        <p class="right">
+          Currently logged in as <%= @current_user.name %>
+          <%= link_to "Logout", logout_path, method: :delete, class: "button" %>
+        </p >
+          <% else %>
+        <p class="right">Not looged in</p>
+          <div><%= link_to "Log In", "/auth/github", class: "button" %></div>
+          <% end %>
+        </div>
+      </nav>
+    </header>
+
+
+      <section class="flash">
+        <% flash.each do |name, message| %>
+        <div class="<%= name %>"><%= message %></div>
+        <% end %>
+      </section>
+
+    <main class='row'>
+      <%= yield %>
+    </main>
+  </body>
+  </html>

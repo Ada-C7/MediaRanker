@@ -1,0 +1,10 @@
+<section class='form'>
+  <%= form_tag do %>
+  <%= label_tag(:name, "Name") %>
+  <%= text_field_tag(:name) %>
+
+  <%= submit_tag("Log In", class: "button") %>
+  <% end %>
+</section>
+
+<%= link_to "List of Users", users_path %>

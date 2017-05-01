@@ -1,0 +1,33 @@
+<% if @work.errors.messages.length > 0 %>
+<h2> Something wrong! </h2>
+<ul>
+  <% @work.errors.messages.each do |field, problem_list| %>
+  <% problem_list.each do |problem| %>
+  <li>
+    <%= field %>:
+    <%= problem %>
+  </li>
+    <% end %>
+  <% end %>
+</ul>
+<% end %>
+
+<section class= 'form'>
+<%= form_for @work do |f| %>
+<%= f.label :title %>
+<%= f.text_field :title %>
+
+<%= f.label :created_by %>
+<%= f.text_field :created_by %>
+
+<%= f.label :published_year %>
+<%= f.text_field :published_year %>
+
+<%= f.label :description %>
+<%= f.text_field :description %>
+
+<%= f.hidden_field :category, :value => @work.category %>
+
+<%= f.submit %>
+<% end %>
+</section>
