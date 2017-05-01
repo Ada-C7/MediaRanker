@@ -1,47 +1,46 @@
-<h2> List of Media </h2>
 <section>
-  <article class="columns large-3 small-10">
+  <div class="columns large-3 medium-3 small-12">
     <h2>Top Movies</h2>
     <% @works.each do |work| %>
     <% if work.category == "movie" %>
     <ul>
       <li>
-        <%= link_to work.title, work_path(work.id) %>
+        <p><%= link_to work.title, work_path(work.id) %></p>
+        <p><%= work.votes.count %> Votes</p>
       </li>
     </ul>
     <% end %>
     <% end %>
     <p><%= link_to "View all the movies", movies_path %></p>
-  </article>
+  </div>
 
-  <article class="columns large-3 small-10">
+  <div class="columns large-3 small-10">
     <h2>Top Books</h2>
     <% @works.each do |work| %>
     <% if work.category == "book" %>
     <ul>
       <li>
-        <%= link_to work.title, work_path(work.id) %>
+        <p><%= link_to work.title, work_path(work.id) %></p>
+        <p><%= work.votes.count %> Votes</p>
       </li>
     </ul>
     <% end %>
     <% end %>
     <p><%= link_to "View all the books", books_path%></p>
-  </article>
+  </div>
 
-  <article class="columns large-3 small-10">
+  <div class="columns large-3 small-10">
     <h2>Top Albums</h2>
     <% @works.each do |work| %>
     <% if work.category == "album" %>
     <ul>
       <li>
-        <%= link_to work.title, work_path(work.id) %>
+        <p><%= link_to work.title, work_path(work.id) %></p>
+        <p><%= work.votes.count %> Votes</p>
       </li>
     </ul>
     <% end %>
     <% end %>
     <p><%= link_to "View all the albums", albums_path %></p>
-  </article>
-
-
-</ul>
+  </div>
 </section>
