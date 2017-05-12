@@ -1,0 +1,28 @@
+<%= form_for @work, method: form_method do | f | %>
+
+  <%= f.hidden_field :category %>
+  <!-- <%= f.label :category %>
+  <%= f.text_field :category %> -->
+
+  <%= f.label :title %>
+  <%= f.text_field :title %>
+
+  <%= f.label :creator %>
+  <%= f.text_field :creator %>
+
+  <%= f.label :year %>
+  <%= f.text_field :year %>
+
+  <%= f.label :description %>
+  <%= f.text_area :description, size: "60x12" %>
+
+  <%= f.submit action_name, class: :button %>
+<% end %>
+
+<ul>
+  <% @work.errors.each do | field, msg | %>
+  <li>
+    <%= field %> <%= msg %>
+  </li>
+  <% end %>
+</ul>

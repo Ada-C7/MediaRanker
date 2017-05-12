@@ -1,0 +1,32 @@
+<section class="row">
+  <h3>List of <%= params[:category].pluralize.capitalize %></h3>
+
+  <section id="category-table">
+    <table>
+      <thead>
+        <tr>
+          <th>Votes</th>
+          <th>Title</th>
+          <th>Created By</th>
+          <th>Published</th>
+          <th>Upvote</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @works.each do | work | %>
+        <tr>
+          <td><%= work.votes.length %></td>
+          <td><%= link_to work.title, work_path(work.id) %></td>
+          <td><%= work.creator %></td>
+          <td><%= work.year %></td>
+          <td><%= link_to "Upvote", upvote_path(work.id), method: :post %></td>
+        </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </section>
+
+  <%= link_to "View all media", root_path, class: :button %>
+  <%= link_to "Add a new #{ params[:category].singularize }", new_category_path, class: :button %>
+
+</section>

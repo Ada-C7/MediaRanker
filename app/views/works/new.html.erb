@@ -1,0 +1,5 @@
+<section class="row">
+  <h3>Add New <%= params[:category] %></h3>
+
+  <%= render partial: "form", locals: { action_name: "Add New #{params[:category] }", form_method: :post } %>
+</section>
