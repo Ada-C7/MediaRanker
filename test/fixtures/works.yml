@@ -1,0 +1,44 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+fall:
+  category: "movie"
+  title: "Legends of the Fall"
+  published: 1995
+  creator: "me"
+  description: "Brad Pitt. Enough said."
+
+heat:
+  category: "movie"
+  title: "Heat"
+  creator: "me"
+  published: 1964
+  description: "A delightful children's fantasy."
+
+linnets:
+  category: "book"
+  title: "Linnets & Valerians"
+  published: 1964
+  creator: "me"
+  description: "A delightful children's fantasy."
+
+telling:
+  category: "book"
+  title: "The Telling"
+  published: 1964
+  creator: "me"
+  description: "A delightful children's fantasy."
+
+okcomputer:
+  category: "album"
+  title: "OK Computer"
+  published: 1964
+  creator: "me"
+  description: "A delightful children's fantasy."
+
+
+absolution:
+  category: "album"
+  title: "Absolution"
+  creator: "me"
+  published: 1964
+  description: "A delightful children's fantasy."

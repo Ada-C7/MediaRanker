@@ -1,0 +1,73 @@
+<section class="show row">
+
+  <header class="show-header">
+
+    <h3 class="user-show-header">User Summary: <%= link_to @user.username, user_path(@user.id) %></h3>
+    <p class="joined-site-date">
+      Joined site <%= @user.created_at.strftime("%b %d, %Y") %>
+    </p>
+  </header>
+  <section class="show-votes-list">
+    <h4>Votes</h4>
+    <% if @user.votes.count == 0 %>
+    <p>
+      No votes yet.
+    </p>
+    <% else %>
+    <table class="user-votes-table">
+      <tr>
+        <thead>
+          <th>
+            Media Title
+          </th>
+          <th>
+            Created By
+          </th>
+          <th>
+            Published
+          </th>
+          <th>
+            Category
+          </th>
+          <th>
+            Voted On
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+
+      <% @user.votes.order("created_at DESC").each do |vote| %>
+      <tr>
+        <td>
+          <%= link_to vote.work.title, work_path(vote.work.id) %>
+        </td>
+        <td>
+          <%= vote.work.creator %>
+        </td>
+        <td>
+          <%= vote.work.published %>
+        </td>
+        <td>
+          <%= vote.work.category %>
+        </td>
+        <td>
+          <%= vote.created_at.strftime("%b %d, %Y") %>
+        </td>
+      </tr>
+      <% end %>
+    </tbody>
+    </table>
+    <% end %>
+  </section>
+  <footer class="user-show-footer">
+    <ul class="user-show-buttons">
+      <li>
+        <%= link_to "See all Users", users_path, class: "button" %>
+      </li>
+      <li>
+        <%= link_to "Back to Media List", works_path, class: "button" %>
+      </li>
+    </ul>
+  </footer>
+
+</section>

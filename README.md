@@ -1,3 +1,5 @@
+link to heroku app here: https://ala-media-ranker.herokuapp.com/
+
 # Media Ranker
 
 ## Introduction

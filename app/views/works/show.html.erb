@@ -1,0 +1,74 @@
+<section class="show row">
+
+  <section class="main-show row">
+
+    <article class="work-content columns large-6 small-12">
+      <h3 class="work-title"> <%= @work.title %> </h3>
+      <p class="work-creator">
+        Created by: <%= @work.creator %>
+      </p>
+      <p class="work-published">
+        Published: <%= @work.published %>
+      </p>
+      <p class="work-description">
+        <%= @work.description %>
+      </p>
+      <ul class="work-buttons">
+        <li class="back-to-category-view-button">
+          <%= link_to "Back to #{@work.category} list", "#{@work.category}s", method: :get, class: "button" %>
+        </li>
+        <li class="edit-button">
+          <%= link_to "Edit", edit_work_path(@work.id), method: :get, class: "button" %>
+        </li>
+        <li class="upvote-button">
+          <%= link_to "Upvote", new_vote_path(@work.id), method: :post, class: "button" %>
+        </li>
+        <li class="delete-button">
+          <%= link_to "Delete", work_path(@work.id), method: :delete, data: { confirm: "Really delete this #{@work.category}? All associated votes will be lost."}, class: "button alert" %>
+        </li>
+      </ul>
+
+    </article>
+
+
+
+    <article class="work-votes-users columns large-6 small-12">
+
+      <h3 class="votes-title"> <%= @work.votes_count %> votes for this <%=@work.category.capitalize %> </h3>
+
+      <% if @work.votes_count == 0 %>
+      <p>
+        No votes yet for this <%= @work.category %>!
+      </p>
+      <% else %>
+      <table class="work-votes-table">
+        <thead>
+          <tr>
+            <th>
+              User
+            </th>
+            <th>
+              Date
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+        <% @work.votes.each do |vote| %>
+          <tr>
+            <td>
+              <%= link_to vote.user.username, user_path(vote.user.id) %>
+            </td>
+            <td>
+              <%= vote.created_at.strftime("%b %d, %Y") %>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+      </table>
+      <% end %>
+    </article>
+
+  </section>
+
+
+</section>

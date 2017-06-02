@@ -1,0 +1,45 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  user: aurora
+  work: linnets
+
+two:
+  user: felix
+  work: linnets
+
+three:
+  user: felix
+  work: telling
+
+four:
+  user: felix
+  work: okcomputer
+
+five:
+  user: aurora
+  work: okcomputer
+
+six:
+  user: felix
+  work: absolution
+
+seven:
+  user: aurora
+  work: fall
+
+eight:
+  user: felix
+  work: fall
+
+nine:
+  user: felix
+  work: heat
+
+ten:
+  user: george
+  work: fall
+
+eleven:
+  user: dog
+  work: okcomputer

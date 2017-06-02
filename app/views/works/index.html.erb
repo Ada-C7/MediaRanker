@@ -1,0 +1,33 @@
+<section class="index row">
+
+  <section class="featured-work">
+    <div class="row">
+    <% if Vote.any? %>
+      <% featured_work = Work.max_votes %>
+      <p class="columns small-12 featured-details">
+        Media Spotlight: <%= link_to featured_work.title, work_path(featured_work.id) %> by <%= featured_work.creator %>
+      </p>
+      <p class="columns small-12 featured-votes">
+        <%= featured_work.votes_count %> votes - <%= featured_work.description %>
+      </p>
+    <% end %>
+    </div>
+  </section>
+  <section class="top-ten-all-types">
+    <div class="small-12 large-4 columns">
+      <%= render partial: "indexcategory", locals: {category: "movie"} %>
+    </div>
+
+    <div class="small-12 large-4 columns">
+      <%= render partial: "indexcategory", locals: {category: "book"} %>
+    </div>
+
+    <div class="small-12 large-4 columns">
+      <%= render partial: "indexcategory", locals: {category: "album"} %>
+    </div>
+
+
+  </section>
+
+
+</section>

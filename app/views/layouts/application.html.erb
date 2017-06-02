@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Aurora's MediaRanker</title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    <header class="main-header row">
+      <div class="row">
+        <h2 class="small-12 large-9 columns header-text"><%= link_to "Media Ranker", :root, method: :get%>
+        <small>Ranking the Best of Everything</small></h2>
+
+
+        <% if session[:user_id] == nil %>
+        <div class="small-12 large-3 columns">
+          <p class="text-right">
+            Not logged in
+          </p>
+          <%= link_to "Log In", login_path, method: :get, class: "button clear" %>
+        </div>
+
+        <% else %>
+
+        <div class="small-12 large-3 columns">
+          <p class="text-right">
+            Logged in as <%= link_to " #{User.find_by_id(session[:user_id]).username}", user_path(session[:user_id]) %>
+          </p>
+          <%= link_to "Log Out", login_path, method: :delete, class: "button clear" %>
+        </div>
+        <% end %>
+      </ul>
+    </div>
+    </header>
+    <section class="flash">
+    <% flash.each do |name, message| %>
+      <h3 class="row status <%= name %>"><%= message %></h3>
+    <% end %>
+    </section>
+    <%= yield %>
+    <footer class="main-footer">
+
+    </footer>
+  </body>
+</html>

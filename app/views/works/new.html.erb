@@ -1,0 +1,18 @@
+<section class="new-work row">
+  <div>
+    <% if @work.errors.any? %>
+    <h3 class="flash error">
+      A problem occurred: Could not create <%= params[:category] %>
+    </h3>
+    <ul class="error">
+      <% @work.errors.each do |field, msg| %>
+      <li>
+        <strong><%= field.capitalize %></strong> <%= msg %>
+      </li>
+      <% end %>
+    </ul>
+    <% end %>
+  </div>
+  <h3 class="new-work-header">Add a new <%= params[:category] %></h3>
+  <%= render partial: "form", locals: {category: params[:category]} %>
+</section>
