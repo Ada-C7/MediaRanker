@@ -1,5 +1,5 @@
 require 'jaccard'
-def give_recommendations(username, preferences, weights):
+def give_recommendations(username, preferences, weights)
   preference = preferences[username]
   rank = Hash.new
   preferences.each do |user_other,preference_other|
@@ -15,7 +15,7 @@ def give_recommendations(username, preferences, weights):
         end
       end
     end
+    puts similarity
+    ## TODO:
+    # return
   end
-
-## TODO:
-# in progress

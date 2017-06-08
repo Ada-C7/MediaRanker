@@ -1,9 +1,8 @@
 require 'set'
 class Jaccard
-
   def self.coefficient(a, b)
     intersection = a & b
-    union        = a + b
+    union = a + b
     union.uniq! if union.respond_to?(:uniq!)
     intersection.length.to_f / union.length.to_f
   end
