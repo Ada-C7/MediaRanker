@@ -1,0 +1,26 @@
+<div class = "row">
+    <div class = "large-2 column">
+      <%= button_to 'View all media', root_path, method: :get, class:"button large" %>
+    </div>
+    <div class = "large-10 column">
+      <%= button_to 'Add a new book', new_book_path, method: :get, class:"button large" %>
+    </div>
+</div>
+<h3>All books: </h3>
+<% if @all_books.length == 0 %>
+  <p>There are no books to show</p>
+<%else%>
+  <table>
+    <tr>
+      <th> Votes  </th>
+      <th> Title</th>
+      <th>Created by</th>
+      <th> Published </th>
+      <th>  Upvote  </th>
+      <th>  Downvote  </th>
+    </tr>
+    <%@all_books.each do |item|%>
+      <%= render partial: 'work_table', locals:{item:item}%>
+    <%end%>
+  </table>
+<%end%>

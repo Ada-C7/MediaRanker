@@ -1,0 +1,17 @@
+<% if @work.errors.messages.length > 0 %>
+<section>
+  <h2> Something went wrong</h2>
+  <ul>
+    <%@work.errors.messages.each do |field, problems| %>
+      <% problems.each do |problem| %>
+        <li>
+          <%= field %>
+          <%= problem %>
+        </li>
+      <% end %>
+    <% end %>
+  </ul>
+</section>
+<%end%>
+
+<%=render partial: 'form', locals:{submit_text: "Create" }%>

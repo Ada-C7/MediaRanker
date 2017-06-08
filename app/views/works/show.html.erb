@@ -1,0 +1,50 @@
+<main class = "row">
+  <section class = "small-12 large-6 columns">
+    <h3>Title: <%=@work.title%></h3>
+    <div class = "row">
+      <section id ="work_description" class = "small-12 large-6 columns">
+        <p>Created by: <%=@work.creator%></p>
+        <p>Published: <%=@work.publication_year%></p>
+        <p>Description: <%=@work.description%></p>
+      </section>
+      <div class="button-group ">
+        <%= link_to "Up", upvote_path(@work), method: :post, class:"button medium button-up"  %>
+        <%= link_to "Down", downvote_path(@work), method: :delete, class:"button medium button-down " %>
+      </div>
+    </div>
+    <div class = "row">
+      <section class = "large-4 columns" >
+        <% if @work.category == "movie"%>
+        <%= button_to 'Back to movie list', movies_path, method: :get, class:"button medium " %>
+        <% elsif @work.category == "book"%>
+        <%= button_to 'Back to book list', books_path, method: :get, class:"button medium " %>
+        <% elsif @work.category == "album"%>
+        <%= button_to 'Back to album list', albums_path, method: :get, class:"button medium " %>
+        <%end%>
+      </section>
+      <div class="button-group">
+        <%= link_to 'Edit', edit_work_path, method: :get, class:"button" %>
+        <%= link_to 'Delete', work_path(@work.id), method: :delete, data: {confirm: 'Are you sure?' }, class:"button alert" %>
+      </div>
+    </div>
+  </section>
+
+  <section class = "small-12 large-6 columns">
+    <article>
+      <h3 id = "total_votes">Total votes for this work: <%=@work.votes_count%></h3>
+      <h3>Votes for this <%=@work.category%>:</h3>
+      <table>
+        <tr>
+          <th>User</th>
+          <th> Date </th>
+        </tr>
+        <%@work.votes.each do |vote|%>
+          <tr>
+            <td> <%=link_to vote.user.username, user_path(vote.user.id)  %>  </td>
+            <td> <%= vote.created_at.month%>/<%= vote.created_at.day%>/<%= vote.created_at.year%></td>
+          </tr>
+        <%end%>
+      </table>
+    </article>
+  </section>
+</main>
