@@ -1,0 +1,48 @@
+<section class="small-12 columns">
+  <h3>
+    Media Spotlight:
+    <%= link_to @spotlight.title, work_path(@spotlight.id) %>
+    <%= "by #{@spotlight.creator}" if @spotlight.category && @spotlight.category != "" %>
+  </h3>
+  <p>
+    <%= pluralize(@spotlight.votes_count, "vote") %>
+    <%= "- #{@spotlight.description}" if @spotlight.description && @spotlight.description != "" %>
+  </p>
+</section>
+<section class="top-ten small-12 large-4 columns">
+  <h3>Top Movies</h3>
+  <ul>
+    <% @movies.each do |movie| %>
+      <li>
+        <h4><%= link_to movie.title, work_path(movie.id) %> <small><%= "by #{movie.creator}" if movie.creator && movie.creator != "" %></small></h4>
+        <p><%= pluralize(movie.votes_count, "vote") %></p>
+      </li>
+    <% end %>
+  </ul>
+  <%= link_to "View More Movies", category_path("movies") %>
+</section>
+<section class="top-ten small-12 large-4 columns">
+  <h3>Top Books</h3>
+  <ul>
+    <% @books.each do |book| %>
+      <li>
+        <h4><%= link_to book.title, work_path(book.id) %> <small><%= "by #{book.creator}" if book.creator && book.creator != "" %></small></h4>
+        <p><%= pluralize(book.votes_count, "vote") %></p>
+      </li>
+    <% end %>
+  </ul>
+  <%= link_to "View More Books", category_path("books") %>
+</section>
+
+<section class="top-ten small-12 large-4 columns">
+  <h3>Top Albums</h3>
+  <ul>
+    <% @albums.each do |album| %>
+      <li>
+        <h4><%= link_to album.title, work_path(album.id) %> <small><%= "by #{album.creator}" if album.creator && album.creator != "" %></small></h4>
+        <p><%= pluralize(album.votes_count, "vote") %></p>
+      </li>
+    <% end %>
+  </ul>
+  <%= link_to "View More Albums", category_path("albums") %>
+</section>

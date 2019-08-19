@@ -1,0 +1,23 @@
+vote1:
+  user: user1
+  work: movie10
+
+vote2:
+  user: user1
+  work: libertines
+
+vote3:
+  user: user2
+  work: libertines
+
+vote4:
+  user: user3
+  work: libertines
+
+vote5:
+  user: user1
+  work: bone_people
+
+vote6:
+  user: user4
+  work: libertines
